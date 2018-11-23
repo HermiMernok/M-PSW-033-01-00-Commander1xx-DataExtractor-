@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "728117",
+    "ThreadId": "286805",
+    "Html": "<p>Hi,</p>\n<p>It's been a while since I updated this control, but figured I would spend some time doing it now.</p>\n<p>I used to have this code:</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Class</span> MarkerOverlay\n    <span style=\"color: blue;\">Inherits</span> GMapOverlay\n    ..\n    ..\n\n    <span style=\"color: blue;\">Protected</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">Sub</span> DrawToolTip(<span style=\"color: blue;\">ByVal</span> g <span style=\"color: blue;\">As</span> Graphics, <span style=\"color: blue;\">ByVal</span> m <span style=\"color: blue;\">As</span> GMapMarker, <span style=\"color: blue;\">ByVal</span> x <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span>, <span style=\"color: blue;\">ByVal</span> y <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span>)\n    ..\n\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>But now it seams like this method is no more. What to do then? I've tried looking through the samples, but couldn't find a sample where inherting from GMapOverlay and handling the tooltip.</p>\n<p>Thanks in advance!</p>\n<p>Mojo</p>",
+    "PostedDate": "2012-01-20T04:34:13.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "728131",
+    "ThreadId": "286805",
+    "Html": "<p>now each marker contains&nbsp;<strong>ToolTip</strong> instance of <em>type GMapToolTip,&nbsp;</em>you can create custom tooltips as well</p>",
+    "PostedDate": "2012-01-20T04:45:42.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

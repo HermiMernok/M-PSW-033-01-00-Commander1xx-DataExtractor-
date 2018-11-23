@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks for the info",
+    "ClosedDate": "2015-03-23T00:33:04.747-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello;\r\n\r\ni was trying to enable GrayScale and Negative Modes with a RadioButton, so that in each CheckedChanged Event i can switch between these modes, the issue is that, if we make calls like :\r\n\r\n```\r\nPrivate Sub KRB_EffectGrayScale_CheckedChanged(sender As Object, e As EventArgs) Handles KRB_EffectGrayScale.CheckedChanged\r\n       \r\n            mapControl.GrayScaleMode = True\r\n            mapControl.NegativeMode = False\r\n\r\n End Sub\r\n```\r\nthe GrayScaleMode is some kind of ovverided in the second call to NegativeMode even if set to False, i guess this come from the code that implements these capabilities.\r\n\r\nThe Solution was to first Disable second mode and then Enable the wanted one like this :\r\n```\r\nmapControl.NegativeMode = False\r\nmapControl.GrayScaleMode = True\r\n```\r\n",
+    "LastUpdatedDate": "2015-03-23T00:33:04.747-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-03-04T10:05:03.987-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GrayScale and Negative Modes Issue",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16115
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

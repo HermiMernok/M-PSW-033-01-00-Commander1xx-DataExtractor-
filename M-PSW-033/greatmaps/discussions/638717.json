@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1427447",
+    "ThreadId": "638717",
+    "Html": "Hey there,<br />\n<br />\nI need to but all the markers, routes and polygons in a seperate list when adding them to the map.<br />\nI would like to create a simple interface like &quot;ICommandList{}&quot; and let the routes and polygons implement it so I can do something like:<br />\n<pre><code>List&lt;ICommandList&gt; commands = new List&lt;ICommandList&gt;();\n\n//when objects added:\n\ncommands.Add(route)\n...\ncommands.Add(marker)\n\n// etc.</code></pre>\n\nso I can show the commands the user did in a listview. This listview should be updated as soon as a marker or route is removed or vice versa<br />\n<br />\nIs there already something I can use?<br />\n",
+    "PostedDate": "2015-05-25T07:21:24.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427450",
+    "ThreadId": "638717",
+    "Html": "well I think this will do it =D<br />\n<pre><code>public class CustomRoute : GMapRoute, ICommandList\n    {\n        public CustomRoute(string name) : base(name) \n        {\n \n        }\n\n        public CustomRoute(IEnumerable&lt;PointLatLng&gt; points, string name) : base(points, name) \n        {\n\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2015-05-25T07:38:45.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-05-26T07:13:53.613-07:00"
+  }
+]

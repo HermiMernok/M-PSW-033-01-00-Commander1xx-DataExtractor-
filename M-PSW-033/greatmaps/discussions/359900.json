@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "850041",
+    "ThreadId": "359900",
+    "Html": "\r\n<p><span style=\"color:#000080\">&quot;GetMaxZoomToFitRect&quot;</span> In Core.cs returns MaxZoom if width or height of Rect equal to zero, that means for example to get best fit for a map with only one marker&nbsp;we got&nbsp;illegally zoom level of max (that is a rect\r\n stands for a point)</p>\r\n<p>I fix it with</p>\r\n<p><strong>if(rect.HeightLat == 0 || rect.WidthLng == 0)</strong></p>\r\n<p><strong>&nbsp;&nbsp;&nbsp; return maxZoom / 2;</strong></p>\r\n<p>It seems to be ok but needs a better look.</p>\r\n<p><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"></p>\r\n<p><span style=\"color:#008080\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">&#65279;Special\r\n t</span></span></span></span></span></span></span></span></span></span></span></span>hanks to Greatmaps for&nbsp;its powerful and well defined proffessional doing job.</span></p>\r\n</span></span></span></span>\r\n<p></p>\r\n",
+    "PostedDate": "2012-06-17T08:26:13.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869810",
+    "ThreadId": "359900",
+    "Html": "<p>fixed, thanks</p>",
+    "PostedDate": "2012-07-16T09:13:48.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

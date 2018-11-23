@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "274305",
+    "ThreadId": "80062",
+    "Html": "<p>Hello,</p>\r\n<p>How to set tooltiptext in WPF???</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-07T06:21:23.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274437",
+    "ThreadId": "80062",
+    "Html": "<p>change label text inside your visual shape control</p>",
+    "PostedDate": "2010-01-07T10:34:43.757-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274946",
+    "ThreadId": "80062",
+    "Html": "<div style=\"color:Black;background-color:White\">\r\n<pre> Radioman, </pre>\r\n<pre>I use following code to produce marker from file:</pre>\r\n<pre>        <span style=\"color:Blue\">Dim</span> strLat <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">String</span> = strLat1.Replace(<span style=\"color:#A31515\">&quot;.&quot;</span>, <span style=\"color:#A31515\">&quot;,&quot;</span>)\r\n        <span style=\"color:Blue\">Dim</span> strLong <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">String</span> = strLong1.Replace(<span style=\"color:#A31515\">&quot;.&quot;</span>, <span style=\"color:#A31515\">&quot;,&quot;</span>)\r\n        <span style=\"color:Blue\">Dim</span> myPoint <span style=\"color:Blue\">As</span> GMap.NET.PointLatLng = <span style=\"color:Blue\">New</span> GMap.NET.PointLatLng(<span style=\"color:Blue\">CDec</span>(strLat), <span style=\"color:Blue\">CDec</span>(strLong))\r\n        <span style=\"color:Blue\">Dim</span> myMarker = <span style=\"color:Blue\">New</span> GMap.NET.WindowsPresentation.GMapMarker(myPoint)\r\n        <span style=\"color:Blue\">Dim</span> myMemoryStream <span style=\"color:Blue\">As</span> MemoryStream = <span style=\"color:Blue\">New</span> MemoryStream\r\n        <span style=\"color:Blue\">Dim</span> myFileStream <span style=\"color:Blue\">As</span> FileStream = <span style=\"color:Blue\">New</span> FileStream(&quot;Marker.png&quot;, FileMode.Open, FileAccess.Read)\r\n\r\n            myMemoryStream.SetLength(myFileStream.Length)\r\n            myFileStream.Read(myMemoryStream.GetBuffer(), 0, <span style=\"color:Blue\">CInt</span>(myFileStream.Length))\r\n            <span style=\"color:Blue\">Dim</span> mySource <span style=\"color:Blue\">As</span> BitmapImage = <span style=\"color:Blue\">New</span> BitmapImage()\r\n            myMemoryStream.Flush()\r\n            myFileStream.Close()\r\n            mySource.BeginInit()\r\n            mySource.StreamSource = myMemoryStream\r\n            mySource.EndInit()\r\n            <span style=\"color:Blue\">Dim</span> myImage <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> Image\r\n            myImage.Source = mySource\r\n            myImage.Stretch = Stretch.None\r\n            myMarker.Offset = <span style=\"color:Blue\">New</span> System.Windows.Point(-12, -32)\r\n            myMarker.ForceUpdateLocalPosition(GMapControl1)\r\n            myMarker.Shape = myImage2\r\n            myMarker.ZIndex = 1\r\n            GMapControl1.Markers.Add(myMarker)\r\n \r\nHow to implement the label text ??</pre>\r\n<pre>Gr.</pre>\r\n<pre>Heru</pre>\r\n</div>",
+    "PostedDate": "2010-01-08T13:14:10.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274949",
+    "ThreadId": "80062",
+    "Html": "<p>just create whatever usercontrol and use it as the shape, button, textblock, grid, anythink</p>",
+    "PostedDate": "2010-01-08T13:19:22.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

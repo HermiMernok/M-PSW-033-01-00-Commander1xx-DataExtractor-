@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1091853",
+    "ThreadId": "456719",
+    "Html": "Good afternoon, I'm developing with gmaps GMap.NET.WindowsPresentation v 1.5.5.5 for wpf application.\r<br />\n<br />\nThis is my code in load event<br />\n<pre><code>        gmap.Manager.Mode = AccessMode.ServerAndCache;\n        gmap.MapProvider = GMapProviders.GoogleMap;\n        gmap.SetCurrentPositionByKeywords(&quot;Córdoba, Argentina&quot;);\n        gmap.MinZoom = 7;\n        gmap.MaxZoom = 24;\n        gmap.Zoom = 11;\n        gmap.ShowCenter = false;\n        gmap.DragButton = MouseButton.Left;\n\n        GeoCoderStatusCode status = GeoCoderStatusCode.Unknow;\n        PointLatLng? city = GMaps.Instance.GetLatLngFromGeocoder(&quot;Galicia 2567, Córdoba, Argentina&quot;, out    status);\n        if (city != null &amp;&amp; status == GeoCoderStatusCode.G_GEO_SUCCESS)\n        {\n            GMapMarker it = new GMapMarker(city.Value);\n            it.ZIndex = 55;\n            it.Shape = new CustomMaker(this, it, &quot;&quot;);\n\n            gmap.Markers.Add(it);\n        }\n</code></pre>\n\nMy problem is that I can not create any lead, but never finds GeoCoderStatusCode status position and returns me an exception. Probre with version 1.6 and I get the same thing.\r<br />\n<br />\nhow could insert a marker for an address?<br />\n",
+    "PostedDate": "2013-09-12T11:24:55.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092123",
+    "ThreadId": "456719",
+    "Html": "1.6 is old too, try hot build<br />\n",
+    "PostedDate": "2013-09-13T00:20:43.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092340",
+    "ThreadId": "456719",
+    "Html": "Thanks radioman, I tried the version 1.7 hot build and runs ok, I find the directions.\r<br />\nBut I have a problem with the markers do not appear on the map.\r<br />\nthis is my code\r<br />\n<br />\nMain window\r<br />\n<br />\n  gmap.Manager.Mode = AccessMode.ServerAndCache;<br />\n<pre><code>        gmap.MapProvider = GMapProviders.GoogleMap;\n        gmap.Position = new PointLatLng(-31.416358, -64.184044);\n        gmap.MinZoom = 7;\n        gmap.MaxZoom = 24;\n        gmap.Zoom = 11;\n        gmap.ShowCenter = false;\n        gmap.DragButton = MouseButton.Left;\n\n\n\n\n        GeoCoderStatusCode status = GeoCoderStatusCode.Unknow;\n\n        PointLatLng? city = GMapProviders.GoogleMap.GetPoint(&quot;Lavalleja 256, Córdoba, Argentina&quot;, out status);\n        if (city != null &amp;&amp; status == GeoCoderStatusCode.G_GEO_SUCCESS)\n        {\n            GMapMarker it = new GMapMarker(city.Value);\n            {\n                it.ZIndex = 105;\n                it.Shape = new CurrentMarker(this, it, &quot;&quot;);\n            }\n            gmap.Markers.Add(it);\n\n        }\n\n</code></pre>\n\nAnd CurrentMarker\r<br />\n<br />\n  public partial class CurrentMarker : UserControl<br />\n<pre><code>{\n    Popup Popup;\n    Label Label;\n    GMapMarker Marker;\n    MainWindow MainWindow;\n    public CurrentMarker(MainWindow window, GMapMarker marker, string title)\n    {\n        InitializeComponent();\n\n        this.MainWindow = window;\n        this.Marker = marker;\n\n        Popup = new Popup();\n        Label = new Label();\n\n        this.Loaded += new RoutedEventHandler(CustomMarkerDemo_Loaded);\n        this.SizeChanged += new SizeChangedEventHandler(CustomMarkerDemo_SizeChanged);\n        this.MouseEnter += new MouseEventHandler(MarkerControl_MouseEnter);\n        this.MouseLeave += new MouseEventHandler(MarkerControl_MouseLeave);\n        this.MouseMove += new MouseEventHandler(CustomMarkerDemo_MouseMove);\n        this.MouseLeftButtonUp += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonUp);\n        this.MouseLeftButtonDown += new MouseButtonEventHandler(CustomMarkerDemo_MouseLeftButtonDown);\n\n        Popup.Placement = PlacementMode.Mouse;\n        {\n            Label.Background = Brushes.Blue;\n            Label.Foreground = Brushes.White;\n            Label.BorderBrush = Brushes.WhiteSmoke;\n            Label.BorderThickness = new Thickness(2);\n            Label.Padding = new Thickness(5);\n            Label.FontSize = 22;\n            Label.Content = title;\n        }\n        Popup.Child = Label;\n\n    }\n\n    void CustomMarkerDemo_Loaded(object sender, RoutedEventArgs e)\n    {\n        if (icon.Source.CanFreeze)\n        {\n            icon.Source.Freeze();\n        }\n    }\n\n    void CustomMarkerDemo_SizeChanged(object sender, SizeChangedEventArgs e)\n    {\n        Marker.Offset = new Point(-e.NewSize.Width / 2, -e.NewSize.Height);\n    }\n\n    void CustomMarkerDemo_MouseMove(object sender, MouseEventArgs e)\n    {\n        if (e.LeftButton == MouseButtonState.Pressed &amp;&amp; IsMouseCaptured)\n        {\n            Point p = e.GetPosition(MainWindow.gmap);\n            Marker.Position = MainWindow.gmap.FromLocalToLatLng((int)p.X, (int)p.Y);\n        }\n    }\n\n    void CustomMarkerDemo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)\n    {\n        if (!IsMouseCaptured)\n        {\n            Mouse.Capture(this);\n        }\n    }\n\n    void CustomMarkerDemo_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)\n    {\n        if (IsMouseCaptured)\n        {\n            Mouse.Capture(null);\n        }\n    }\n\n    void MarkerControl_MouseLeave(object sender, MouseEventArgs e)\n    {\n        Marker.ZIndex -= 10000;\n        Popup.IsOpen = false;\n    }\n\n    void MarkerControl_MouseEnter(object sender, MouseEventArgs e)\n    {\n        Marker.ZIndex += 10000;\n        Popup.IsOpen = true;\n    }\n\n\n}\n</code></pre>\n\nmy marker, dont show in the map.<br />\n",
+    "PostedDate": "2013-09-13T07:57:54.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092347",
+    "ThreadId": "456719",
+    "Html": "maybe provider returned unsuccessful response, check <em>GeoCoderStatusCode</em><br />\n",
+    "PostedDate": "2013-09-13T08:13:01.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092378",
+    "ThreadId": "456719",
+    "Html": "GMap.NET.GeoCoderStatusCode.G_GEO_SUCCESS me back, so I do not know why I did not add the marker. My control map has one marker count, but not shown.<br />\n",
+    "PostedDate": "2013-09-13T09:27:54.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

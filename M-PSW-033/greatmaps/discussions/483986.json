@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1150534",
+    "ThreadId": "483986",
+    "Html": "Hi Radioman,\r<br />\n<br />\nI am running into a TypeLoad exception when trying to set the CacheLocation property of Windows Froms GmapControl.\r<br />\n<br />\nI am not sure if this is related to how i am building my application, but i am building for any cpu.\r<br />\n<br />\nThe only bug i found related is this: <a href=\"https://greatmaps.codeplex.com/discussions/394738\" rel=\"nofollow\">https://greatmaps.codeplex.com/discussions/394738</a> but, the location to the cache root is correct.\r<br />\n<br />\nCould not load type 'GMap.NET.Internals.CacheLocator' from assembly 'GMap.NET.Core, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef'\r<br />\n<br />\nAny ideas?\r<br />\n<br />\nThank for this wonderful opensource GIS!<br />\n",
+    "PostedDate": "2014-01-07T10:15:06.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1150542",
+    "ThreadId": "483986",
+    "Html": "check the innerexception<br />\n",
+    "PostedDate": "2014-01-07T10:33:32.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

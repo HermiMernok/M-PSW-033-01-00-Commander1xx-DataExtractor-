@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1086799",
+    "ThreadId": "455040",
+    "Html": "Hi <br />\n<br />\nI had made search app using GMap.net, its works fine, i had treeview and all marker on map,<br />\nwhen i click on the label the specific tooltip on the specific marker should pop up.<br />\nhow i implement this?<br />\nin short i want to Display tooltip programmatically<br />\nany idea pls let me know it..<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-08-30T13:29:45.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1086858",
+    "ThreadId": "455040",
+    "Html": "marker.Tooltip...<br />\n",
+    "PostedDate": "2013-08-30T23:48:18.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293974",
+    "ThreadId": "455040",
+    "Html": "Here is a simple example\r<br />\n<br />\n Private Sub gmapData_OnMarkerClick(item As GMapMarker, e As MouseEventArgs) Handles gmapData.OnMarkerClick<br />\n<pre><code>    Try\n        MessageBox.Show(item.ToolTipText, &quot;This marker!&quot;, MessageBoxButtons.OK, MessageBoxIcon.Information)\n\n\n    Catch ex As Exception\n        MessageBox.Show(ex.Message, &quot;Error showing data map!&quot;, MessageBoxButtons.OK)\n    Finally\n\n    End Try\nEnd Sub</code></pre>\n\n",
+    "PostedDate": "2014-08-27T09:06:04.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

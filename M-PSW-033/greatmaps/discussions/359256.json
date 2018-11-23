@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "847800",
+    "ThreadId": "359256",
+    "Html": "\r\n<p>I'm using Gmap.net in Windows Form using my google apikey.</p>\r\n<p>All work fine but if I enter in my google account statistics I cannot see any use of my apikey. How is it possible?</p>\r\n<p>I set google maps and I used this code to set my apikey.</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>   GMap.NET.MapProviders.GoogleMapProvider.Instance.APIKey = GAPIKEY\n   GMap.NET.MapProviders.GoogleHybridMapProvider.Instance.APIKey = GAPIKEY\n   GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance.APIKey = GAPIKEY\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-06-12T01:19:01.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847802",
+    "ThreadId": "359256",
+    "Html": "<p>it's used only for geocoding/routing</p>",
+    "PostedDate": "2012-06-12T01:25:38.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847822",
+    "ThreadId": "359256",
+    "Html": "<p>&nbsp;</p>\r\n<p>I used wireshark to catch http call and I see</p>\r\n<p>320 7.027774 192.168.111.111 173.194.35.37 HTTP 337 GET /maps/geo?q=Via+Garibaldi+10+04012+CISTERNA+DI+LATINA+ITALIA+&amp;hl=it&amp;output=csv&amp;key=MYKEY HTTP/1.1&nbsp;</p>\r\n<p>Where MYKEY is my right google api key.</p>\r\n<p>Anyway I cannot see statistics in my google account</p>\r\n<p>&nbsp;</p>\r\n<p>Moreover if I set a wrong api key \"wrongapikey\" all the functions work fine and with wireshark I see</p>\r\n<p>106&nbsp;2.728680&nbsp;192.168.111.111&nbsp;173.194.35.41&nbsp;HTTP&nbsp;299&nbsp;GET /maps/geo?q=via+catalana+102+00049+VELLETRI+ITALIA+&amp;hl=it&amp;output=csv&amp;key=wrongapikey HTTP/1.1&nbsp;</p>",
+    "PostedDate": "2012-06-12T02:01:59.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847837",
+    "ThreadId": "359256",
+    "Html": "<p>..so the solution IS?</p>",
+    "PostedDate": "2012-06-12T02:34:58.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847842",
+    "ThreadId": "359256",
+    "Html": "<p>I have no solution, it seems that there is a bug in google api.</p>\r\n<p>Can you check with your sistems?</p>\r\n<p>&nbsp;</p>\r\n<p>Do you use google api v2 or v3? I will try to contact google support to understand the problem</p>",
+    "PostedDate": "2012-06-12T02:40:25.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847848",
+    "ThreadId": "359256",
+    "Html": "\r\n<p>google from time to time update their functionality, that can be the issue, thanks for the investigation</p>\r\n",
+    "PostedDate": "2012-06-12T02:58:31.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847852",
+    "ThreadId": "359256",
+    "Html": "<p>Ok I will try to contact google support but I need an information</p>\r\n<p>&nbsp;</p>\r\n<p>Do you use Google Javascript Api v2 o v3?</p>",
+    "PostedDate": "2012-06-12T03:04:28.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847872",
+    "ThreadId": "359256",
+    "Html": "<p>there is no javascript, only http requests</p>",
+    "PostedDate": "2012-06-12T03:51:54.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

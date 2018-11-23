@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "hi radioman\r\nwhen i use for several minutes sometimes i have this bug\r\ni send you the screen shot with bug",
+    "LastUpdatedDate": "2013-02-03T11:45:59.22-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-01-22T01:48:14.18-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "map bug",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16059
+  },
+  "FileAttachments": [
+    {
+      "FileId": 606531,
+      "FileName": "disparition carte ce jour.JPG",
+      "DownloadUrl": ".\\606531"
+    },
+    {
+      "FileId": 614084,
+      "FileName": "SnipImage (8).JPG",
+      "DownloadUrl": ".\\614084"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "sometimes? ;/",
+      "PostedDate": "2013-01-22T03:22:47.383-08:00",
+      "Id": 86842
+    },
+    {
+      "Message": "in this new version of map ,a lot of time they do me that ,i dont understand why,but in the previous version it work well",
+      "PostedDate": "2013-01-25T12:43:32.913-08:00",
+      "Id": 87379
+    },
+    {
+      "Message": "can you make some simple demo with this bug?",
+      "PostedDate": "2013-01-25T13:59:15.957-08:00",
+      "Id": 87390
+    },
+    {
+      "Message": "hi,i send you the screenshot with the exception",
+      "PostedDate": "2013-01-30T04:54:52.877-08:00",
+      "Id": 87775
+    },
+    {
+      "Message": "it's exception in your custom marker GmarkerVehicle, can you post OnRender code?",
+      "PostedDate": "2013-01-30T06:03:03.063-08:00",
+      "Id": 87778
+    },
+    {
+      "Message": "  public override void OnRender(Graphics g)\n        {\n#if !PocketPC\n            //if(!Bearing.HasValue)\n            {\n                if (BitmapShadow != null)\n                {\n                    g.DrawImage(BitmapShadow, LocalPosition.X, LocalPosition.Y, BitmapShadow.Width, BitmapShadow.Height);\n                }\n            }\n\n            //if(Bearing.HasValue)\n            //{\n            //   g.RotateTransform(Bearing.Value - Overlay.Control.Bearing);\n            //   g.FillPolygon(Brushes.Red, Arrow);\n            //}\n\n            //if(!Bearing.HasValue)\n            {\n                g.DrawImage(Bitmap, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n            }\n#else\n         if(BitmapShadow != null)\n         {\n            DrawImageUnscaled(g, BitmapShadow, LocalPosition.X, LocalPosition.Y);\n         }\n         DrawImageUnscaled(g, Bitmap, LocalPosition.X, LocalPosition.Y);\n#endif\n        }",
+      "PostedDate": "2013-02-03T10:35:46.973-08:00",
+      "Id": 88140
+    },
+    {
+      "Message": "works fine for me",
+      "PostedDate": "2013-02-03T11:45:59.22-08:00",
+      "Id": 88146
+    }
+  ]
+}

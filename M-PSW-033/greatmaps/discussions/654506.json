@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1472980",
+    "ThreadId": "654506",
+    "Html": "Hi. I recently updated a WPF application which was using an older version of GMap.Net to the latest version on NuGet (version 1.7.1).<br />\n<br />\nSince the update, I am getting some errors. It looks like <strong>GMapMarker.Route</strong> and <strong>GMapMarker.RegenerateRouteShape</strong> do not exist anymore? Is there an alternate implementation that I should be using now?<br />\n<br />\nMy code is as follows:<br />\n<pre><code>GMapMarker routeMarker = new GMapMarker();\nrouteMarker.Route.AddRange((IEnumerable&lt;PointLatLng&gt;)mapRoute.Points);\nrouteMarker.RegenerateRouteShape(gMapControl1);</code></pre>\n\nIt complains on the bottom two lines....<br />\n<br />\nThe errors are: <br />\n<br />\n<em>'GMapMarker' does not contain a definition for 'Route' and no extension method 'Route' accepting a first argument of type 'GMapMarker' could be found (are you missing a using directive or an assembly reference?) <br />\n<br />\n'GMapMarker' does not contain a definition for 'RegenerateRouteShape' and no extension method 'RegenerateRouteShape' accepting a first argument of type 'GMapMarker' could be found (are you missing a using directive or an assembly reference?)</em><br />\n",
+    "PostedDate": "2016-05-10T04:02:33.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

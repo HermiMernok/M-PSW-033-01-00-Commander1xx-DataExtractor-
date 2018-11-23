@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "improve it ;}",
+    "ClosedDate": "2012-04-09T09:59:00.103-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi All,\r\n\r\nIn working with the latest code from the SVN and have run into an issue with GMapProviders ? GetRoute method. It is taking a very long time to query the points and return the results. The older version using GMaps.Instance.GetRouteBetweenPoints ran 100 time faster. Can someone help me on this matter. I am using GMapProviders.OpenStreetMap.GetRoute(?????). When I make this previous call for 300 vehicles the process took about 15 seconds. Now it is taking over a minute per vehicle.\r\n\r\n\r\nThanks in advance.",
+    "LastUpdatedDate": "2012-04-09T09:59:00.103-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-04-09T09:11:22.213-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GetRoute on MapProvider slow",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16038
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

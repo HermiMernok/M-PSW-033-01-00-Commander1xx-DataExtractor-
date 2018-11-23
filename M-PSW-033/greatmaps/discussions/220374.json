@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "470204",
+    "ThreadId": "220374",
+    "Html": "<p>GMap currently uses Google for routingservices, which is OK as long as you are using Google Maps as maptype. Personally I'd like to use OpenStreetMap maps hence the route can at some times differ from the map.<br>For this I need to be able to implement my own routing, be it an internet service or local.</p>\r\n<p>So, I decoupled the routing functionality into an interface called IRoutingProvider. All I needed to do then was to implement it using an online OpenStreetMap routing service called YOURS (www.yournavigation.org).</p>\r\n<p>The provider is exposed in GMaps.RoutingProvider. By default it's the Google service.</p>\r\n<p>There is <strong>no change</strong> in how you request routes, the public methods in Gmaps for routing wraps the selected RoutingProvider.&nbsp;</p>\r\n<p>For now these services are implemented:</p>\r\n<ul>\r\n<li>Google Maps - Same codebase as before</li>\r\n<li>Bing Maps -Not 100% optimal since it does not return point-by-point directions. Need to find another Bing map API call that returns more detailed routes. You need to provide your own ApplicationKey to the routing provider for it to work.</li>\r\n<li>YourNavigation - Except that they seem to have some capacity issues at the moment it works perfect with OpenStreetMap map!</li>\r\n</ul>\r\n<p>Future:</p>\r\n<p>Implent an offline alternative. There are OSM routing apps in Java and C with APIs you can call into to get GPX and KML routes. Even better would be .Net routing with .OSM data and Djikstras algorithm.</p>\r\n<p>This is available in my fork&nbsp;https://hg01.codeplex.com/forks/viktorbergman/viktorbergman</p>\r\n<p>&nbsp;</p>\r\n<p>I hope you will find it useful :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-21T03:08:28.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470275",
+    "ThreadId": "220374",
+    "Html": "<p>really nice idea, i'll check it as i can</p>",
+    "PostedDate": "2010-07-21T05:59:30.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480344",
+    "ThreadId": "220374",
+    "Html": "I was looking for implement YOURS into gmap by my own, but if you already did it ... :)\r\n\r\ndid you release it?",
+    "PostedDate": "2010-08-13T12:08:06.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480372",
+    "ThreadId": "220374",
+    "Html": "<p>not yet ;}</p>",
+    "PostedDate": "2010-08-13T13:17:39.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480373",
+    "ThreadId": "220374",
+    "Html": "let me know when you'll , please :)\r\n",
+    "PostedDate": "2010-08-13T13:19:00.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "650039",
+    "ThreadId": "220374",
+    "Html": "<p>Hi, any update about using OpenStreetMap for routing?</p>",
+    "PostedDate": "2011-07-30T13:18:18.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "650050",
+    "ThreadId": "220374",
+    "Html": "<p>still no, i was busy with map providers, i guess, it's time for sub-services too now</p>",
+    "PostedDate": "2011-07-30T13:59:04.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651431",
+    "ThreadId": "220374",
+    "Html": "<p>When you say:</p>\r\n<p style=\"padding-left: 30px;\"><em>Bing Maps -Not 100% optimal since it does not return point-by-point directions. Need to find another Bing map API call that returns more detailed routes. You need to provide your own ApplicationKey to the routing provider for it to work.</em></p>\r\n<p>I think that the current Bing Route REST API does this:</p>\r\n<p style=\"padding-left: 30px;\"><a title=\"http://msdn.microsoft.com/en-us/library/ff701717.aspx\" href=\"http://msdn.microsoft.com/en-us/library/ff701717.aspx\">http://msdn.microsoft.com/en-us/library/ff701717.aspx</a></p>\r\n<p>This API will give you all the turns and driving instructions you need. It isn't the easiest data structure to work with, but I've used worse. One minor tricky point. In order to show the route on a GMap instance, you will need to request that you want the routePathOutput (routePathOutput=points) and set your tolerances. This will give you a new collection of points for the MapRoute object.</p>",
+    "PostedDate": "2011-08-02T16:03:40.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651752",
+    "ThreadId": "220374",
+    "Html": "<p><em>GMap currently uses Google for routingservices, which is OK as long  as you are using Google Maps as maptype. Personally I'd like to use  OpenStreetMap maps hence the route can at some times differ from the  map.</em><br /><em> For this I need to be able to implement my own routing, be it an internet service or local.</em></p>\r\n<p><em>So, I decoupled the routing functionality into an interface called  IRoutingProvider. All I needed to do then was to implement it using an  online OpenStreetMap routing service called YOURS  (www.yournavigation.org).</em></p>\r\n<p>&nbsp;</p>\r\n<p>Would it be possible to also access the directions via this service?</p>\r\n<p>eg. turn left up This St. Follow for 100m</p>",
+    "PostedDate": "2011-08-03T07:09:46.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673639",
+    "ThreadId": "220374",
+    "Html": "<p>i finally managed to add&nbsp;yournavigation.org supprot for&nbsp;OpenStreetMap provider, better later than never ;}</p>",
+    "PostedDate": "2011-09-19T05:53:30.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

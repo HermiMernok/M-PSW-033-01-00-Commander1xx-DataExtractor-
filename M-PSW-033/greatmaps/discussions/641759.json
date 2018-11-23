@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1435605",
+    "ThreadId": "641759",
+    "Html": "Hi all,\r<br />\n<br />\nI am adding multiple markers to gMap.net in windows forms application. The markers are showing but there are a few issues that I am having right now:\r<br />\n<br />\n1) When the form is Showing only one marker is shown but it is not showing the others. Once I maximize the form it will show two of the other markers that are in close approximity but not showing the last one ...\r<br />\n2) Since the last marker is not in close proximity the map is now zooming automatically and therefore it is not showing. If I scroll using mouse button then the other one appears.\r<br />\n<br />\nSo questions are:\r<br />\n<br />\nWhy the first time when showing the form all markers are not showing? How to force gmap.net to automatically zoom to show all the markers? My test code is below: I basically wanted ZoomAndCenterMarkers but it doesn't seem to work ....\r<br />\n<br />\n   private void Form1_Load(object sender, EventArgs e)<br />\n<pre><code>    {\n\n        myMap.Overlays.Clear();\n\n        myMap.MapProvider = GMapProviders.GoogleMap;\n        myMap.Position = new PointLatLng(-33.728096, 151.078902);\n        myMap.MinZoom = 3;\n        myMap.MaxZoom = 19;\n        myMap.Zoom = 13;\n        myMap.Manager.Mode = AccessMode.ServerAndCache;\n\n        // Todo: Find out Auto Zoom???\n\n        GMapOverlay markersOverlay = new GMapOverlay(&quot;markers&quot;);\n        GMarkerGoogle marker1 = new GMarkerGoogle(new PointLatLng(-33.728096, 151.078902), GMarkerGoogleType.green);\n        marker1.ToolTipText = &quot;James Ltd\\nAustralia\\nID:7163\\nLast Contacted: 22/07/2015\\nContact:99887755&quot;;\n        marker1.ToolTipMode = MarkerTooltipMode.OnMouseOver;\n\n        //GMarkerGoogle marker2 = new GMarkerGoogle(new PointLatLng(-33.773566, 151.082698), new Bitmap(GMapTest.Properties.Resources.S));\n        GMarkerGoogle marker2 = new GMarkerGoogle(new PointLatLng(-33.773566, 151.082698), GMarkerGoogleType.pink);\n        marker2.ToolTipText = &quot;Joe Bega\\nAustralia\\nID:7163\\nLast Contacted: 22/05/2015\\nContact:88997755&quot;;\n        marker2.ToolTipMode = MarkerTooltipMode.OnMouseOver;\n\n        GMarkerGoogle marker3 = new GMarkerGoogle(new PointLatLng(-33.773577, 151.092698), GMarkerGoogleType.pink);\n        marker3.ToolTipText = &quot;Joe XXX\\nAustralia\\nID:7163\\nLast Contacted: 22/05/2015\\nContact:88997755&quot;;\n        marker3.ToolTipMode = MarkerTooltipMode.OnMouseOver;\n\n        GMarkerGoogle marker4 = new GMarkerGoogle(new PointLatLng(-33.750858, 150.702318), GMarkerGoogleType.pink);\n        marker4.ToolTipText = &quot;Penrith Guy\\nAustralia\\nID:7163\\nLast Contacted: 22/05/2015\\nContact:88997755&quot;;\n        marker4.ToolTipMode = MarkerTooltipMode.OnMouseOver;\n\n        markersOverlay.Markers.Add(marker1);\n        markersOverlay.Markers.Add(marker2);\n        markersOverlay.Markers.Add(marker3);\n        markersOverlay.Markers.Add(marker4);\n\n        myMap.ZoomAndCenterMarkers(&quot;markers&quot;);  // Doesn't seem to work?\n\n        myMap.Overlays.Add(markersOverlay);\n\n    }\n</code></pre>\n\n",
+    "PostedDate": "2015-07-22T19:18:57.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435721",
+    "ThreadId": "641759",
+    "Html": "<strong>1.</strong> myMap.Overlays.Add(markersOverlay);\r<br />\n<strong>2.</strong> myMap.ZoomAndCenterMarkers\r<br />\n<br />\nif that doesnt work, try put ZoomAndCenterMarkers in OnLoad/OnShown event<br />\n",
+    "PostedDate": "2015-07-23T09:53:15.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-07-23T09:53:19.36-07:00"
+  },
+  {
+    "Id": "1435755",
+    "ThreadId": "641759",
+    "Html": "Appreciate your answer. That was the trick ... as you can see it above I was getting the sequence of the calls incorrect. This fixed the issue.!<br />\n",
+    "PostedDate": "2015-07-23T16:13:07.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "675099",
+    "ThreadId": "273425",
+    "Html": "\r\n<p>Hi radioman, I believe that there is a bug in the RegenerateRouteShape() function in &quot;GMapMarker.cs&quot;. It does not update the map when you remove all the points from the route and call RegenerateRouteShape(). Need to add the code below in\r\n<span style=\"color:#0000ff\">blue </span>for the function to work properly. Also, same thing in RegeneratePolygonShape().</p>\r\n<p>public virtual void RegenerateRouteShape(GMapControl map)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.map = map;<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(map != null &amp;&amp; Route.Count &gt; 1)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var localPath = new List&lt;System.Windows.Point&gt;();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var offset = Map.FromLatLngToLocal(Route[0]);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach(var i in Route)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var p = Map.FromLatLngToLocal(new PointLatLng(i.Lat, i.Lng));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localPath.Add(new System.Windows.Point(p.X - offset.X, p.Y - offset.Y));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var shape = map.CreateRoutePath(localPath);<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(this.Shape != null &amp;&amp; this.Shape is Path)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (this.Shape as Path).Data = shape.Data;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Shape = shape;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:#0000ff\">else if (map != null &amp;&amp; Route.Count == 0)</span><br>\r\n<span style=\"color:#0000ff\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br>\r\n<span style=\"color:#0000ff\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.Shape = null;</span><br>\r\n<span style=\"color:#0000ff\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n",
+    "PostedDate": "2011-09-21T23:52:45.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675104",
+    "ThreadId": "273425",
+    "Html": "<p>thx</p>",
+    "PostedDate": "2011-09-21T23:58:45.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675247",
+    "ThreadId": "273425",
+    "Html": "<p>Sorry, bug fix for my bug fix. Should be this:</p>\r\n<p>... ...</p>\r\n<p><span style=\"color: #0000ff;\">else if (map != null &amp;&amp; Route.Count &lt;= 1)</span><br /><span style=\"color: #0000ff;\">{</span><br /> <span style=\"color: #0000ff;\">&nbsp;&nbsp;&nbsp; this.Shape = null;</span><br /><span style=\"color: #0000ff;\">}</span></p>\r\n<p><br /><span style=\"color: #000000;\">*sheepish*</span></p>",
+    "PostedDate": "2011-09-22T05:50:15.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675284",
+    "ThreadId": "273425",
+    "Html": "<p>ok ;}</p>",
+    "PostedDate": "2011-09-22T06:50:51.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

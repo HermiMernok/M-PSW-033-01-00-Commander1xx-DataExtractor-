@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "835707",
+    "ThreadId": "355605",
+    "Html": "<p>Hello radioman,</p>\n<p>is it possible to implement an event for selection ready? So it is possible to get all markers, or select markers, etc.</p>\n<p>here some codesnippets:</p>\n<pre>in GmapControl.cs  \n\n      /// \n      /// Event after Selection ends\n      /// \n      public event SelectionReady OnSelectionReady;\n\n      public delegate void SelectionReady();\n\n\n  protected override void OnMouseUp(MouseEventArgs e)\n      {\n         base.OnMouseUp(e);\n\n         if(isSelected)\n         {\n            isSelected = false;\n\n            // Raise Event\n            \n            if (!selectedArea.IsEmpty)\n            {\n                OnSelectionReady();\n            }\n\n\n\n         }\n....</pre>\n<p>&nbsp;</p>\n<p>in Demo</p>\n<div style=\"color: black; background-color: white;\">\n<pre>      MainMap.OnSelectionReady += <span style=\"color: blue;\">new</span>  SelectionReady(MainMap_OnSelectionReady);\n\n\n<span style=\"color: blue;\">void</span> MainMap_OnSelectionReady()\n      {\n          MessageBox.Show(MainMap.SelectedArea.Size.ToString());\n      }\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>bye EDE</p>",
+    "PostedDate": "2012-05-13T05:16:15.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835713",
+    "ThreadId": "355605",
+    "Html": "<p><em>void MainMap_MouseUp(object sender, MouseEventArgs e)</em><br /><em> {</em><br /><em>&nbsp; &nbsp;if(!SelectedArea.IsEmpty)</em><br /><em>&nbsp; &nbsp;{</em><br /><em>&nbsp; &nbsp;...</em></p>",
+    "PostedDate": "2012-05-13T05:29:35.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835736",
+    "ThreadId": "355605",
+    "Html": "<p>ohh no.. thanks :)</p>",
+    "PostedDate": "2012-05-13T08:11:37.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

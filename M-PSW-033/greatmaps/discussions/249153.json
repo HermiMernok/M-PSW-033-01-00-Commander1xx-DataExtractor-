@@ -1,0 +1,146 @@
+[
+  {
+    "Id": "578329",
+    "ThreadId": "249153",
+    "Html": "\r\n<p>hi radioman!</p>\r\n<p>for all that are struggeling with anycpu builds:</p>\r\n<pre style=\"font-family:Consolas; font-size:13px; color:black; background:none repeat scroll 0% 0% white\"><span style=\"color:blue\">add this in your csproj and build with anycpu.<br>add the 2 sqlite files, set copy to output location<br>:)<br></span></pre>\r\n<pre style=\"font-family:Consolas; font-size:13px; color:black; background:none repeat scroll 0% 0% white\"><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Choose</span><span style=\"color:blue\">&gt;<br></span><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">When</span><span style=\"color:blue\">&nbsp;</span><span style=\"color:red\">Condition</span><span style=\"color:blue\">=</span>&quot;<span style=\"color:blue\">$(PROCESSOR_ARCHITECTURE)&nbsp;==&nbsp;'AMD64'&nbsp;Or&nbsp;$(PROCESSOR_ARCHITEW6432)&nbsp;==&nbsp;'AMD64'</span>&quot;<span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">ItemGroup</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">Reference</span><span style=\"color:blue\">&nbsp;</span><span style=\"color:red\">Include</span><span style=\"color:blue\">=</span>&quot;<span style=\"color:blue\">System.Data.SQLite,&nbsp;processorArchitecture=AMD64</span>&quot;<span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">SpecificVersion</span><span style=\"color:blue\">&gt;</span>False<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">SpecificVersion</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">HintPath</span><span style=\"color:blue\">&gt;</span>System.Data.SQLite_x64.dll<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">HintPath</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style=\"color:#a31515\">Reference</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style=\"color:#a31515\">ItemGroup</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style=\"color:#a31515\">When</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">Otherwise</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">ItemGroup</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">Reference</span><span style=\"color:blue\">&nbsp;</span><span style=\"color:red\">Include</span><span style=\"color:blue\">=</span>&quot;<span style=\"color:blue\">System.Data.SQLite,&nbsp;processorArchitecture=x86</span>&quot;<span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">SpecificVersion</span><span style=\"color:blue\">&gt;</span>False<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">SpecificVersion</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style=\"color:#a31515\">HintPath</span><span style=\"color:blue\">&gt;</span>System.Data.SQLite_x86.dll<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">HintPath</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style=\"color:#a31515\">Reference</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style=\"color:#a31515\">ItemGroup</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span><span style=\"color:#a31515\">Otherwise</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&nbsp;&nbsp;&lt;/</span><span style=\"color:#a31515\">Choose</span><span style=\"color:blue\">&gt;<br><br><br>greetz<br>Manuel<br></span></pre>\r\n",
+    "PostedDate": "2011-03-10T03:22:50.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578392",
+    "ThreadId": "249153",
+    "Html": "<p>That's great!! We never think of using MSBuild for such case!!</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-03-10T05:34:37.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578555",
+    "ThreadId": "249153",
+    "Html": "<p>and how do you deploy this to your user? Different dll are loaded at runtime?</p>",
+    "PostedDate": "2011-03-10T10:25:09.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578566",
+    "ThreadId": "249153",
+    "Html": "<p>Exactly because both files are shipped and outputed to the build drop folder.</p>",
+    "PostedDate": "2011-03-10T10:48:39.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578569",
+    "ThreadId": "249153",
+    "Html": "<p>why i doubt this ;/</p>",
+    "PostedDate": "2011-03-10T10:58:54.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578588",
+    "ThreadId": "249153",
+    "Html": "<p>Hum... you're right... this is only working when you build... So that when you're building using AnyCPU, it will output only one SQLite dll: the one that fits with your OS architecture. We need a runtime solution.</p>",
+    "PostedDate": "2011-03-10T11:33:04.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578594",
+    "ThreadId": "249153",
+    "Html": "<p>indeed ;}</p>",
+    "PostedDate": "2011-03-10T11:38:38.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578619",
+    "ThreadId": "249153",
+    "Html": "<p><span style=\"color: #000000;\">I have something that works... but the code must be executed BEFORE any other assembly needs SQLite. I've placed it in my SQLiteCacheProvider static ctor. Problem is I'm using an obsolete method: AppDomain.AppendPrivatePath:</span></p>\r\n<pre><span style=\"color: blue;\">static</span> SQLitePureImageCacheProvider()\r\n        {\r\n\r\n            <span style=\"color: blue;\">if</span> (IntPtr.Size == 8)\r\n            {\r\n                <span style=\"color: green;\">// x64</span>\r\n                AppDomain.CurrentDomain.AppendPrivatePath(<span style=\"color: #a31515;\">@\".\\x64\"</span>);\r\n            }\r\n            <span style=\"color: blue;\">else</span>\r\n            {\r\n                <span style=\"color: green;\">//x86</span>\r\n                AppDomain.CurrentDomain.AppendPrivatePath(<span style=\"color: #a31515;\">@\".\\x86\"</span>);\r\n            }\r\n            \r\n        }\r\n</pre>\r\n<p><span style=\"color: #808080;\"><span style=\"color: #000000;\">In my project , I have both files (x64 and x86) in sub folders as content files with the \"Copy always\" option enabled. So in runtime, static ctor code is executed and the runtime finds the correct assembly with the private probing path. </span></span></p>\r\n<p><span style=\"color: #808080;\"><span style=\"color: #000000;\">Its working!</span></span></p>\r\n<p><span style=\"color: #808080;\">&nbsp;</span></p>",
+    "PostedDate": "2011-03-10T12:08:46.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578636",
+    "ThreadId": "249153",
+    "Html": "<p>another example:</p>\n<p><em>static SQLitePureImageCache()<br /> {<br />&nbsp; &nbsp; AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);<br /> }<br /><br /> static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)<br /> {<br />&nbsp; &nbsp; if(args.Name.StartsWith(\"System.Data.SQLite, \", StringComparison.OrdinalIgnoreCase))<br />&nbsp; &nbsp; {<br />&nbsp; &nbsp; string dir = AppDomain.CurrentDomain.BaseDirectory + (IntPtr.Size == 8 ? \"x64\" : \"x86\") + Path.DirectorySeparatorChar;<br />&nbsp; &nbsp; return System.Reflection.Assembly.LoadFile(dir + \"System.Data.SQLite.dll\");<br />&nbsp; &nbsp; }<br />&nbsp; &nbsp; return null;<br /> }<br /></em></p>",
+    "PostedDate": "2011-03-10T12:30:55.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578658",
+    "ThreadId": "249153",
+    "Html": "<p>Indeed!</p>",
+    "PostedDate": "2011-03-10T13:02:29.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578661",
+    "ThreadId": "249153",
+    "Html": "<p>...the bad side is that you can target only AnyCPU, if you use only x86 or only x64 then it fails ;/</p>",
+    "PostedDate": "2011-03-10T13:07:49.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578671",
+    "ThreadId": "249153",
+    "Html": "<p>My code is working AnyCPU as well as x86 or x64. In fact, all assemblies are ALWAYS AnyCPU, the only assembly that could possibly target x86 or x64 explicitly is the EXE project like Demo.Winforms or Demo.WindowsPresentation. As all the DLLs are AnyCPU, there working in both scenario. When build EXE in x86, all the DLLs will be executed as x86 dlls. The problem is,&nbsp;my code is in my SQLite.CacheProvider.dll and right now, GMap.Core.dll is referencing also System.Data.SQLite.dll because of the method GetRouteFromMobileGPSLog or something like that. So my code is not executed as the GMap.Core.dll already tried to load the wrong Dll.</p>\r\n<p>I'm wondering if we could move the MobileGPSLog elsewhere from the core. I'd love the GMap.Core not depending on SQLite. This way, it would be a really independant platform and developpers should pick any Cache providers the same way they would pick a Map Data Provider.</p>",
+    "PostedDate": "2011-03-10T13:22:20.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578685",
+    "ThreadId": "249153",
+    "Html": "<p>but that means another dll, i've focused to keep the number as low as possible</p>",
+    "PostedDate": "2011-03-10T13:36:22.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578987",
+    "ThreadId": "249153",
+    "Html": "<p>I agree but loosely coupled design automatically means more dlls. For example, my Map Data Providers dll. One's project will probably use only one data provider Dll. It's unlikely that a project will support Google, Bing, ArcGIS at the same time! See my project is only using Google data provider dll. So its really only one dll more. Plus the selected Cache provider dll. So that'a two... not a big deal. I was seeing the MobileGPSLog thing more like a user defined feature than a GMap.NET Core feature. Because many GMap.NET users probably don't need Mobile stuff. I know it's rather big change but GMap.NET is a very hot project and I would like it to be as much as generic and flexible as possible!</p>",
+    "PostedDate": "2011-03-11T05:18:24.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579013",
+    "ThreadId": "249153",
+    "Html": "<p>anyway i'll put all current maps providers in core dll, using generic design it will be much easier for other people to add more providers without messing with the core functionality...</p>",
+    "PostedDate": "2011-03-11T06:15:52.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579053",
+    "ThreadId": "249153",
+    "Html": "<p>Problem with this approch is that as soon as someone wants to add support for a new Map Provider, I'll need to get source code, add his provider rebuild GMap.NET and checkin back. Let's say the Data Provider is private to his company, so he cannot checkin the code in Codeplex because it's not public matter, then he will need to get GMap.NET source code and start developpement on his own. He won't get latest bug fixes and feature unless he manually merge every source files. His GMap.NET will be disconnected, that's a shame for Open Development project! Well, it's my opinion!</p>\r\n<p>I think it a big drawback just for couples of Dlls that anyway only the Demo project will reference all of them...</p>",
+    "PostedDate": "2011-03-11T07:15:19.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579062",
+    "ThreadId": "249153",
+    "Html": "<p>no, i mean, all providers you put in separate dll can be in core dll by default, any other user can build their own provider without changing core at all</p>",
+    "PostedDate": "2011-03-11T07:28:12.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579067",
+    "ThreadId": "249153",
+    "Html": "<p>That's true. Hehe, I did not see it! Ok, another argument (the last one, this discussion must end ;-)): Suppose Google Maps changes their URL format and the current release of GMap.NET is not working anymore. You'll have to release all GMap.NET just for Google Map support. If Data Providers were in separate dll, you could only fix the Google Data Provider and ship it as a single download file (drop-in). Moreover, as you'll have like 20 Data Providers embedded into the Core dll, there is much more chance any of them might have breaking changes in time... But anyway, you're the project manager so its your call. I just want to try to convince you to keep my architecture.</p>",
+    "PostedDate": "2011-03-11T07:35:32.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

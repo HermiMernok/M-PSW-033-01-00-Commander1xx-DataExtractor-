@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "679483",
+    "ThreadId": "274628",
+    "Html": "\r\n<p><span style=\"text-decoration:underline\"><strong>Dear Radioman, </strong></span><br>\r\n<br>\r\n<br>\r\nFirst , No words can describe my great thanks to this genius tool.Another thanks for your great support 'inspite of the wide variability of questions !! lol..&quot;.'<br>\r\n<br>\r\nI have few questions for you :<br>\r\n<br>\r\n<br>\r\n<span style=\"text-decoration:underline\"><strong><span style=\"color:#800080\">1- What do you mean &quot;vacuum the cashed database&quot;.\r\n</span></strong></span>I understand that the cashed database contains many spaces that makes the database file &quot;*.gmdb&quot; very large, so we have to vaccum it to decrease it in size.<br>\r\n<br>\r\nThe question is <span style=\"color:#000000\"><strong>HOW TO VACUUM IT</strong></span> ? &quot;in simple steps please&quot;.I downloaded the SQLiteSpy 1.9.1. then clicked the &quot;Vacuum Database&quot;. it took about 4 minutes &quot;for a gmdb file of 250 MB&quot; , but the file sized increased\r\n by 64 KB.&nbsp; Are there any problem ? Does it save the new vacuumed file automatically ?....<br>\r\n<br>\r\n<br>\r\n<span style=\"text-decoration:underline\"><strong><span style=\"color:#800080\">2- In my application ,\r\n</span></strong></span>I have 3 tabs in a tab-control . each tab has its own GMap control . During loading , I need to display the image at the smalles zoom level &quot;zoom=1&quot; , ie displays the whole world (only 4 tiles). Then , if user need to use maps, he will\r\n click to load the Cash file of a large file &quot;500 MB&quot;.<br>\r\nTo do this , I have made a file with 4 tiles &quot;at zoom level 1&quot;. I want to load this file into the 3 GMap control , Do I need to repeat &quot;map.Manager.ImportFromGMDB &quot; 3 times ? .<br>\r\nAlso , what is the best method to make the program loads faster knowing that <br>\r\n&nbsp; - I have 3 Gmap Control into one form<br>\r\n&nbsp; - My Cash Data is really huge , more than 500 MB.<br>\r\n&nbsp; - User does not need to use map each time running the application . Ie , He may need to use the map every 4th time.So , we do not need to load the whole cash, just the cash at zoom level =1 &quot;having only 4 tiles&quot;<br>\r\n<br>\r\n<br>\r\nThanks,</p>\r\n",
+    "PostedDate": "2011-10-03T13:07:42.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679644",
+    "ThreadId": "274628",
+    "Html": "<p>1. you use sqlspy, and it performs perfectly, shrinks your database, if you have only few tiles, it will decrease to few megabytes, no problems here ever whatsoever</p>\r\n<p>2. O.O you need <strong>import only once</strong> if you want fast offline loading, and cache size doesn't matter, i use ~1GB cache on my mobile phone, speedy as devil ;}</p>\r\n<p>3. whole cache is never loaded in to the memory, that would be insane ;}</p>\r\n<p>-&gt;</p>\r\n<ul>\r\n<li>shrink your database on your pc</li>\r\n</ul>\r\n<ul>\r\n<li>copy it to cache location(on the other pc), importing is to slow&nbsp;</li>\r\n</ul>",
+    "PostedDate": "2011-10-03T23:47:50.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679653",
+    "ThreadId": "274628",
+    "Html": "<p>Ok , I got it ,Thanks.</p>\r\n<p>But I still <span style=\"text-decoration: underline;\"><strong><span style=\"color: #800000;\">have a strange problem </span></strong></span>as described below.&nbsp; :</p>\r\n<p>&nbsp;&nbsp; 1- I to to the cache location folder \"..\\application data\\Gmap.net\" .. then delete it . NB&gt; I get this location by \"map.CacheLocation \"</p>\r\n<p>&nbsp;&nbsp; 2-I run my application&nbsp; using mode=CashOnly.... it waits for around 50 second, then loads.</p>\r\n<p>&nbsp;&nbsp; 3- When I check the cache location folder \"..\\application data\\Gmap.net\" , i found a file data.gmdb with 260 MB.... Where this file was copied from. NB. during the application loading time \"50 second\" , I watched this file \"data.gmdb\" with its size increasing till 260 MB.&nbsp;&nbsp;</p>\r\n<p>4- Please note that my internet connection is NOT that fast to download the data directly from the net . It must be copied from other location from the local Hard Disk.</p>\r\n<p>5- PC is NOT connected to a Network.</p>\r\n<p><span style=\"text-decoration: underline;\"><strong><span style=\"color: #800000;\">&gt;&gt;&gt; for the sqlspy , i</span></strong></span> tested it again , it does not work.. I opened the file \"data.gmdb\"260 MB&nbsp; , then clicked \"Vacuum Database\"... the waiting \"busy\" cursor appears for 4 minutes then works again , but the file is still the same 260 MB.... Can you please send me&nbsp; a small file \"data.gmdb\" to check .</p>\r\n<p>Thanks for your instant support.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>",
+    "PostedDate": "2011-10-04T00:16:03.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679656",
+    "ThreadId": "274628",
+    "Html": "<p>if there is no cache file, application will create it, the empty one with size of 256MB, if you use vacuum, it shall shrink <strong>.</strong></p>",
+    "PostedDate": "2011-10-04T00:20:34.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679693",
+    "ThreadId": "274628",
+    "Html": "<p><span style=\"color: #0000ff;\">\"if there is no cache file, application will create it,\"&nbsp; </span>&gt;&gt;&gt; Why <span style=\"text-decoration: underline;\"><strong>my </strong></span>application create empty file with 256 <span style=\"text-decoration: underline;\"><strong>MB</strong></span>. , while your windows.Form.Demo application creates empty file with only 190 <span style=\"text-decoration: underline;\"><strong>KILO-BYTE</strong></span>. This makes my application loads&nbsp; very slowly, are there any secret ... I am getting crazy.</p>\r\n<p>Thanks,</p>",
+    "PostedDate": "2011-10-04T01:57:12.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679730",
+    "ThreadId": "274628",
+    "Html": "<p>every demo creates 256MB file first time, so caching is faster later, don't delete it ;D</p>",
+    "PostedDate": "2011-10-04T04:21:47.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679933",
+    "ThreadId": "274628",
+    "Html": "<p>Works like charm.. it is now clear for me. Thanks,</p>\r\n<p>But one more thing . I have vacuumed the database and it became from 260 MB&nbsp; to 340 KB.....But , when I run the application \"in CacheOnly mode\", it took much time and I discovered that&nbsp; the size&nbsp; of the cache file increased again to 260 MB. Why ?? . Normally , a gmdb file with 256 MB is created if the cache location does not include any database file . but This is not the case .It contains a small size database file and it is enlarged automatically .. Is this normal ?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>",
+    "PostedDate": "2011-10-04T11:20:46.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679934",
+    "ThreadId": "274628",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2011-10-04T11:23:24.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679940",
+    "ThreadId": "274628",
+    "Html": "<p>So , you recommend me not to make vacuum to database if it is smaller than 256 KB, or the control will increase its size by force to 256 MB.</p>",
+    "PostedDate": "2011-10-04T11:41:21.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679980",
+    "ThreadId": "274628",
+    "Html": "<p>vacuum is useful if you deploy it to mobile, on desktop there is not much of a gain, you can disable it if you want, anyway depends on what are you actually doing...</p>",
+    "PostedDate": "2011-10-04T13:22:05.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680024",
+    "ThreadId": "274628",
+    "Html": "<p>Ok , Every thing is crystal clear.</p>\r\n<p>Thanks so much for this wonderful control.</p>",
+    "PostedDate": "2011-10-04T14:52:32.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1465400",
+    "ThreadId": "274628",
+    "Html": "Hi, is there any way to download gmdb data automatically for particular city by latitude and longitude.am really struct here. can you any one help me on this.Thanks in advance.<br />\n",
+    "PostedDate": "2016-03-03T05:19:28.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1466367",
+    "ThreadId": "274628",
+    "Html": "Hi,<br />\n<pre><code> Congrats for your great effort.Am having little doubt about , is there any way to download gmdb data automatically for particular city by latitude and longitude.am really struct here. can you any one help me on this.Thanks in advance.</code></pre>\n\n",
+    "PostedDate": "2016-03-10T03:19:04.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "846465",
+    "ThreadId": "358831",
+    "Html": "\r\n<p>Hi guys,</p>\r\n<p>for my software I need the ability to freely change the visible rectangle on the map. So I realized a Zoom-functionality quite similar to the demo:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>            <span style=\"color:green\">// Configure Map-Controller</span>\r\n            mapController.MinZoom = 2;\r\n            mapController.MaxZoom = 10;\r\n            <span style=\"color:green\">/* mapController.Zoom = 2; // See below! */</span>\r\n            mapController.ShowCenter = <span style=\"color:blue\">false</span>;\r\n\r\n            <span style=\"color:green\">// Adjust Zoom</span>\r\n            barZoom.Minimum = 0;\r\n            barZoom.Maximum = 100;\r\n            barZoom.TickFrequency = 5;\r\n            barZoom.Value = barZoom.Minimum;\r\n\r\n<span style=\"color:green\">// ...</span>\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> barZoom_ValueChanged(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            <span style=\"color:green\">// Change zoom level</span>\r\n            mapController.Zoom = (barZoom.Value/100.0)*mapController.MaxZoom;\r\n            groupDisplay.Text = mapController.Zoom.ToString();\r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> mapController_OnMapZoomChanged()\r\n        {\r\n            <span style=\"color:green\">// Update trackbar position</span>\r\n            barZoom.Value = (<span style=\"color:blue\">int</span>)((mapController.Zoom / (<span style=\"color:blue\">double</span>)mapController.MaxZoom)*100.0);\r\n        }\r\n</pre>\r\n</div>\r\nUnfortunately the zoom does not work properly: When the .Zoom-value is not an integer number (e.g. if it's 2.3) I get white lines between the tiles (see http://i.imgur.com/sorQD.png) and I cannot drag the map with my mouse anymore. When it's an integer number,\r\n e.g. 3.0, everything works fine.\r\n<p></p>\r\n<p>Does anyone have a solution for this?</p>\r\n<p>I'm using the Hot Build from May 11th but had similar issues with a build from February.</p>\r\n<p>Regards<br>\r\nChris</p>\r\n",
+    "PostedDate": "2012-06-08T02:02:53.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846469",
+    "ThreadId": "358831",
+    "Html": "<p>yes, there are issues at floating zoom values...</p>",
+    "PostedDate": "2012-06-08T02:11:43.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846470",
+    "ThreadId": "358831",
+    "Html": "<p>Okay. Any solution for this? In the demo it works fine, though...</p>",
+    "PostedDate": "2012-06-08T02:14:16.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846490",
+    "ThreadId": "358831",
+    "Html": "<p>are you sure?</p>",
+    "PostedDate": "2012-06-08T02:52:41.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846582",
+    "ThreadId": "358831",
+    "Html": "<p>I was. Then I checked again and you're right. It doesn't work in the demo either.</p>\r\n<p>Do you have any idea where I could start to fix it?</p>",
+    "PostedDate": "2012-06-08T06:45:12.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

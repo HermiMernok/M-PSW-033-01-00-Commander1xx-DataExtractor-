@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed",
+    "ClosedDate": "2012-11-18T13:56:07.653-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi\nThanks for your very good component.\nI want to compile project in Visual Studio 2008 to test and run WindowsMobile demo.\nBut there is an error in GMap.NET.Core project in GMap.NET.Internals\\Cache.cs file.\nException is :\n'System.Environment.SpecialFolder' does not contain a definition for 'LocalApplicationData'\nI saw that you create a shortcut to this file in GMap.NET.WindowsMobile project and this project is a Smart Device Class Library, and 'LocalApplicationData' is not available in .Net Compact Framework.\nI saw that you defined 'PocketPC' symbol for this project, so I'd change CacheLoader class code to this and compile it successfully :\n\ninternal class CacheLocator\n   {\n       private static string _location;\n       public static string Location\n       {\n           get\n           {\n               if (string.IsNullOrEmpty(_location))\n                   _location = System.Environment.GetFolderPath(System.Environment.SpecialFolder.\n#if PocketPC\n                     ApplicationData\n#else\n                    LocalApplicationData\n#endif\n                    ) + Path.DirectorySeparatorChar + \"GMap.NET\" + Path.DirectorySeparatorChar;\n\n               return _location;\n           }\n           set\n           {\n               _location = value;\n\n               if (Delay)\n               {\n                   Cache.Instance.CacheLocation = Location;\n               }\n           }\n       }\n\n       public static bool Delay = false;\n   }\n\nAlso I recommend to create some Solution Configuration for your solution, somethings like WindowsMobile-Debug and WindowsMobile-Release, Windows-Debug and Windows-Release , Setup WindowsMobile, Setup-Windows , Test-X , ...\n\nThis would simplify the compile process and you can select which project must compile in each configuration. \nAlso you can define solution wide Symbols, so you don't need to use shortcuts and you can merge GMap.NET.Core and GMap.NET.WindowsForms and GMap.NET.WindowsMobile and GMap.NET.WindowsPresentation projects all in one project (GMap.NET.Core) and user can compile solution by select desired configuration (Platform).\n(oh, this method does not work here, because Target Framework for this projects is not equal)\n\nSorry for my bad english.\nThanks for your excellent work.",
+    "LastUpdatedDate": "2012-11-18T13:56:07.653-08:00",
+    "PlannedForRelease": "Hot Build",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-11-10T13:01:27.373-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WindowsMobile build error in CacheLoader (SpecialFolder does not contain a definition for LocalApplicationData)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16054
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "fixed",
+      "PostedDate": "2012-11-18T13:55:55.157-08:00",
+      "Id": 82687
+    }
+  ]
+}

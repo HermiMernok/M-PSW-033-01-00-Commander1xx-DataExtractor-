@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "or else, you can use mssqlce, not recommended ;}",
+    "ClosedDate": "2010-10-14T08:18:43.617-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I have a simple application that uses Gmap.net. but when I convert my project to use .net Framework 4, it doesn't work. \r\non blue background, it is saying: Exception: The type initializer for 'SingletonCreator' threw an exception.\r\n",
+    "LastUpdatedDate": "2010-10-14T08:18:43.617-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-10-14T05:48:18.063-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "not working on .net Framework 4?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15989
+  },
+  "FileAttachments": [
+    {
+      "FileId": 157413,
+      "FileName": "test.jpg",
+      "DownloadUrl": ".\\157413"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I have found out how to fix it! I guess I was so much in panic to not read \"Documentation\". :)\nfor those, who wants to benefit this amazing GMap.NET on framework 4, your app.config should be like this: \n\n\n   <startup useLegacyV2RuntimeActivationPolicy=\"true\">\n      <supportedRuntime version=\"v4.0\" sku=\".NETFramework,Version=v4.0\"/>\n   </startup>\n\n\nThank you.",
+      "PostedDate": "2010-10-14T05:57:32.233-07:00",
+      "Id": 17193
+    }
+  ]
+}

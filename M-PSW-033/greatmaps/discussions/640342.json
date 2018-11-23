@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1431524",
+    "ThreadId": "640342",
+    "Html": "In my WPF MVVM application, I'd like to databind the visibility of markers.<br />\n<br />\nRight now, in my CustomerViewModel, I'm creating a ObservableCollections of MarkerViewModels on the fly, like<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Gets the g map markers.\n        /// &lt;/summary&gt;\n        public ObservableCollection&lt;GMapMarker&gt; GMapMarkers {\n            get {\n                // if this.gMapMarkers is null generate the markers\n                return new ObservableCollection&lt;GMapMarker&gt;(this.Markers.Where(m =&gt; !m.IsHidden).Select(m =&gt; m.GmMarker));\n            }\n        }</code></pre>\n\nA property of my <em>MarkerViewModel</em> is <em>IsHidden</em>, which determines the visibly and is queried using LINQ. <em>GmMarker</em> is the actual <em>GmapMarker</em>.<br />\n<br />\n<em>GMapMarkers</em> is bound to the GMapControl's  <em>ItemsSource</em>.<br />\n<br />\nWhile this works exactly as supposed it causes a redraw of every marker when in fact just a single marker should be hidden, which seriously degrades performance when a huge list of markers is displayed.<br />\n<br />\nIs there a way to show/hide markers in a more MVVM-ish way using data binding? <br />\n<br />\nThanks,<br />\nTom<br />\n",
+    "PostedDate": "2015-06-23T05:42:55.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

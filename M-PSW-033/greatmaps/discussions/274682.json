@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "679703",
+    "ThreadId": "274682",
+    "Html": "\r\n<p>Radioman</p>\r\n<p>I'm trying to catch the mousewheel or OnMapZoomChanged event for when zooming, and get it to update a control, bit like your demo but struggling to get it to work in vb.net.</p>\r\n<p>I have the control declared as:</p>\r\n<p>Dim GMapcontrol1 As New GMapControl</p>\r\n<p>But in order to handle an event I've tried:</p>\r\n<p>Friend WithEvents GMapcontrol1 As GMapControl and<br>\r\nProtected WithEvents GMapcontrol1 As GMapControl</p>\r\n<p>But they throw errors when it hits the InitializeComponent.</p>\r\n<p>Any ideas?</p>\r\n<p>Many thanks for a truely brilliant project!</p>\r\n",
+    "PostedDate": "2011-10-04T03:02:02.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679731",
+    "ThreadId": "274682",
+    "Html": "<p>..well, i'm not vb expert, can't help much</p>",
+    "PostedDate": "2011-10-04T04:23:01.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679733",
+    "ThreadId": "274682",
+    "Html": "<p>No neither am I, customer wants the project in vb though :(</p>\r\n<p>&nbsp;</p>\r\n<p>I just used the mousewheel handler on the panel that contains the map then checked if it had focus.</p>\r\n<p>Private Sub Networkview_panel_MouseWheel(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Networkview_panel.MouseWheel<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If GMapcontrol1.Focus = True Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TrackBar1.Value = GMapcontrol1.Zoom<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp; End Sub</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2011-10-04T04:29:01.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679785",
+    "ThreadId": "274682",
+    "Html": "<p>Radioman - on another subject, I'm trying to add markers, but nothing gets displayed when I add from a private sub().</p>\r\n<p>Have they got to be called from a seperate class with onRender ?&nbsp; I can add them in the InitializeComponent New() as it is a renderer.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2011-10-04T06:31:55.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679786",
+    "ThreadId": "274682",
+    "Html": "<p>did you checked demo source? you add map, create overlay, add it to the map, add markers to your overlay, doesn't matter from where</p>",
+    "PostedDate": "2011-10-04T06:34:16.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

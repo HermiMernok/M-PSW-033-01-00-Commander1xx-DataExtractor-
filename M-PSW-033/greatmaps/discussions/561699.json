@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1291764",
+    "ThreadId": "561699",
+    "Html": "Can someone explain me how to draw a polygon?<br />\n<pre><code>GMapPolygon pathtest = new GMapPolygon(PolygonPoints);\nmapControl.Markers.Add(pathtest);</code></pre>\n\nI tried adding a shape (image) but that's not working either.\r<br />\nPolygonPoints is a List containing 4 points.<br />\n",
+    "PostedDate": "2014-08-20T09:43:42.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291918",
+    "ThreadId": "561699",
+    "Html": "you need to add the polygon to an overlay.<br />\ntry this:<br />\n<pre><code>GMapOverlay myOverlay = new GMapOverlay(mapControl, &quot;overlay&quot;);\nmyOverlay.Polygons.Add(pathtest);\nmapControl.Overlays.Add(myOverlay);\n</code></pre>\n\nsame for markers and routes. you need to add the object to the right member.<br />\n<br />\n<a href=\"http://www.websofia.com/2013/02/gmap-net-tutorial-maps-markers-and-polygons/\" rel=\"nofollow\">please read the tutorial, there are polygons and markers explained</a> <br />\n",
+    "PostedDate": "2014-08-20T23:43:11.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291990",
+    "ThreadId": "561699",
+    "Html": "Overlay is only in Forms and not WPF?<br />\n",
+    "PostedDate": "2014-08-21T03:26:50.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

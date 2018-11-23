@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "614038",
+    "ThreadId": "257957",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I recently found GMap.NET and decided to try using it. However, none of the projects build. It consistently says &quot;Skipped &lt;operation&gt;&quot; whether the &lt;operation&gt; is Build, Rebuild or Clean; I tried this for individual projects and for the solution.</p>\r\n<p>I took the following steps before build:</p>\r\n<p>1. Checked out the latest source using the https link to the mercurial repo. (It's timestamped May 4, 2011).&nbsp;</p>\r\n<p>2. Hit &quot;Cancel&quot; on the password request for strong name key store.</p>\r\n<p>3. Set active solution platform to x86&nbsp;</p>\r\n<p>4. Removed the &quot;GMap.NET - Hot Build&quot; project (based on the discussion - <a href=\"http://greatmaps.codeplex.com/discussions/237244\">\r\nhttp://greatmaps.codeplex.com/discussions/237244</a>)</p>\r\n<p>5. Ensured that the *.WindowsMobile projects were not built on x86 platform.</p>\r\n<p>&nbsp;</p>\r\n<p>Please let me know how to resolve this issue. Thanks!</p>\r\n",
+    "PostedDate": "2011-05-17T09:26:53.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614088",
+    "ThreadId": "257957",
+    "Html": "<p>Hi again,</p>\r\n<p>Turns out the previous posting was a waste!</p>\r\n<p>I changed the \"Target .NET Framework\" from .NET 2.0 to .NET 3.5 and the build worked with a few warnings.</p>",
+    "PostedDate": "2011-05-17T10:50:01.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

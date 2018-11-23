@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "725765",
+    "ThreadId": "286300",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&#65279;I am using GMap.Net for WPF.</p>\r\n<p>Each &#65279;GMapControl instance is taking around 20 MB and is not disposed properly which is causing memory leakage.</p>\r\n<p>1. What is the correct way for disposing a GMapControl?</p>\r\n<p>2. Is it possible to use the same cache for different GMapControls (my application allows to open more than 10 Maps which means 10 instances of a GMapControl)?</p>\r\n<p>Thanks in advance</p>\r\n",
+    "PostedDate": "2012-01-16T07:12:35.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725774",
+    "ThreadId": "286300",
+    "Html": "<ol>\r\n<li>map.Dispose(); // but is should be called automatically when you close the form with the map control</li>\r\n<li>each map instance use the same, common cache, but has different threads which uses more memory</li>\r\n</ol>",
+    "PostedDate": "2012-01-16T07:33:00.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725779",
+    "ThreadId": "286300",
+    "Html": "<p>1. I am using the dlls for WPF i wasn't able to find a dispose method. A WPF window is supposed to dispose all resources on closing while the map is not disposed when its window is closed.</p>\n<p>2. Can we reduce memory usage in some way?</p>\n<p>Thanks again</p>",
+    "PostedDate": "2012-01-16T07:42:24.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725789",
+    "ThreadId": "286300",
+    "Html": "<p>how do you know that map is not disposed?</p>",
+    "PostedDate": "2012-01-16T07:53:29.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725793",
+    "ThreadId": "286300",
+    "Html": "<p>i can't see any huge leakage after opening/closing new form with the map control on it:</p>\r\n<p><img src=\"https://public.blu.livefilestore.com/y1poVwEwsP-S_9hqLNMnTDKly5fe29iorxrwU7pwRx-00f3lrdeqTpxQbdhUVSvtRrvv_A6XmP8pRJzBTYU5u2NuQ/gmap%20wpf%20memory.png?psid=1\" alt=\"\" width=\"800\" /></p>",
+    "PostedDate": "2012-01-16T08:03:21.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "189655",
+    "ThreadId": "56154",
+    "Html": "<p>I have put my application on a Standard Windows 2003 Server installation with all the default security settings.</p>\r\n<p>I have added&nbsp;&nbsp; MAPS.GOOGLE.COM&nbsp; to the trusted sites, and can see google maps from with IE.</p>\r\n<p>However there GMAP control is not getting an maps. What other settings should i look to change or other URL's I should add to the Trusted Sites list ?</p>\r\n<p>Thanks,</p>\r\n<p>Paul.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-13T02:51:24.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189657",
+    "ThreadId": "56154",
+    "Html": "<p>can you debug on that mashine and tell me what execption you get?&nbsp;</p>",
+    "PostedDate": "2009-05-13T02:55:56.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189661",
+    "ThreadId": "56154",
+    "Html": "<p>ok, let me put VS2008 on there and debug it</p>",
+    "PostedDate": "2009-05-13T03:13:20.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189674",
+    "ThreadId": "56154",
+    "Html": "<p>Fixed it,&nbsp;&nbsp;&nbsp;&nbsp; System.Data.SQLLiite.DLL&nbsp;&nbsp; was not installed on the server, and as such no maps were being shown.&nbsp;&nbsp; Strange, because i have the cache option set to&nbsp; ServerAndCache</p>\r\n<p>thanks,</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-13T04:04:10.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189705",
+    "ThreadId": "56154",
+    "Html": "<p>x64bit version OS?</p>",
+    "PostedDate": "2009-05-13T05:20:14.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471402",
+    "ThreadId": "56154",
+    "Html": "<pre>&quot;Gmap2 is undefined&quot; and no google maps or alerts via Subgurim control for an asp.net application \r\n(but it will apply to any kind of technology you're using) \r\nStepped into this matter a few days ago. \r\nAt first thought it was a matter of code, but web app worked fine on trhee different machines \r\n(a windows 7 workstation in domain, a windows 7 workstation out of domain, a windows server 2003 sp2 in domain). \r\nIt turned out to be a matter of enanched security on a windows server 2003 R2 sp1. \r\nSolution was: \r\nStart Internet Explorer on windows server. \r\nOn the Tools menu, click Internet Options. \r\nClick the Security tab, and then click Trusted Sites. \r\nClick Sites. \r\nIn Add this Web site to the zone, type each of the following Web site addresses, and then click Add: \r\n\r\nhttp://maps.gstatic.com \r\nhttp://maps.google.com \r\n\r\nClick Close, and then click OK. \r\n\r\nCimperiali</pre>",
+    "PostedDate": "2010-07-23T02:24:08.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471405",
+    "ThreadId": "56154",
+    "Html": "<p>hm..</p>",
+    "PostedDate": "2010-07-23T02:34:43.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

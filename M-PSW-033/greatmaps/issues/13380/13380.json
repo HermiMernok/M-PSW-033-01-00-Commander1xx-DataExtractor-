@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "LocalPosition separated to X and Y, leak eliminated ;}",
+    "ClosedDate": "2009-06-08T22:11:04.55-07:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "for(int j = 0; j < 50; j++)\n            {\n               Debug.WriteLine(\"Test: \" + j);\n\n               MainMap.Markers.Clear();\n\n               GC.Collect();\n               GC.WaitForPendingFinalizers();\n               GC.Collect();\n\n               for(int i = 0; i < 1000; i++)\n               {\n                  var p = new PointLatLng(MainMap.CurrentPosition.Lat + 0.0001, MainMap.CurrentPosition.Lng + 0.0001);\n\n                  GMapMarker it = new GMapMarker(MainMap, p);\n                  {\n                     it.Shape = new CustomMarkerDemo(this, it, \"Welcome to Lithuania! ;}\");\n                  }\n                  MainMap.Markers.Add(it);                     \n               }\n\n               MainMap.InvalidateVisual();\n\n               GC.Collect();\n               GC.WaitForPendingFinalizers();\n               GC.Collect();\n\n               Debug.WriteLine(\"GC: \" + GC.GetTotalMemory(true));\n\n               Thread.Sleep(5555);\n            }",
+    "LastUpdatedDate": "2009-06-08T22:11:04.55-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-05-30T07:13:03.82-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Leaking memmory,wpf",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 13380
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106837,
+      "FileName": "wpf memmory leaks.png",
+      "DownloadUrl": ".\\106837"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "picture of leaks",
+      "PostedDate": "2009-05-30T09:31:02.857-07:00",
+      "Id": 3114
+    },
+    {
+      "Message": "hm.. testing now seems stable, strange... http://jjvkug.blu.livefilestore.com/y1p3V1zHHI0Bvy_LoIBj5U_Xp4tagWe-ndt_-OiPXvGbv1A9dtM8Bwvwh9-OoD2LP3OPfC7QGvSoEzaNGNVS--jlb6MTv66u0i9/gmap%20markers%20test.png",
+      "PostedDate": "2009-05-31T12:57:32.35-07:00",
+      "Id": 3115
+    },
+    {
+      "Message": "the leak is occuring only if new object is set to the same position, definitely strange because random marker test shows stable job! Any ideas???",
+      "PostedDate": "2009-06-04T11:57:14.57-07:00",
+      "Id": 3116
+    }
+  ]
+}

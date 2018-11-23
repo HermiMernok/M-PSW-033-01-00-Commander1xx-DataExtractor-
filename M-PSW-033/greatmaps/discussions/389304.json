@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "892256",
+    "ThreadId": "389304",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>my Code:</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> lat <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = dtable.Rows(0).Item(3)\n<span style=\"color:blue\">Dim</span> lon <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = dtable.Rows(0).Item(4)\n\n<span style=\"color:blue\">Dim</span> m <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapMarker_Custom(<span style=\"color:blue\">New</span> PointLatLng(lat, lon))\n\n\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>in the Table FIeld</p>\r\n<p>dtable.rows(0).item(3) = 48.333</p>\r\n<p>dtable.rows(1).item(4) = 8.555</p>\r\n<p>&nbsp;</p>\r\n<p>but the GMapMarker doesnt accept the values and dont appear</p>\r\n<p>&nbsp;</p>\r\n<p>help pls thx</p>\r\n",
+    "PostedDate": "2012-07-27T06:29:50.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892265",
+    "ThreadId": "389304",
+    "Html": "<p>Hi,</p>\r\n<p>did you add the marker to an overlay and this overlay to the control?</p>\r\n<p>&nbsp;</p>\r\n<p>Michael</p>",
+    "PostedDate": "2012-07-27T06:50:47.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892339",
+    "ThreadId": "389304",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<pre>Sub MarkersWachen()\n        Dim Wachen As New GMap.NET.WindowsForms.GMapOverlay(GMapControl1, &quot;Wachen&quot;)\n        GMapControl1.Overlays.Add(Wachen)\n\n        Dim conn As New MySqlConnection\n        Dim cmd As New MySqlCommand\n        Dim da As New MySqlDataAdapter(cmd)\n        Dim dtwachen As New DataTable\n\n        conn.ConnectionString = REMOVED\n        cmd.Connection = conn\n        conn.Open()\n\n        cmd.CommandText = &quot;Select * from gebaeude WHERE GebaeudeTyp_idGebaeudeTyp = '2'&quot;\n        da.Fill(dtwachen)\n\n        conn.Close()\n\n        Dim lat As String = dtwachen.Rows(0).Item(3)\n        Dim lon As String = dtwachen.Rows(0).Item(4)\n\n        Label1.Text = lat &amp; &quot;  / &quot; &amp; lon\n        Dim m As New GMapMarker_Wachen(New PointLatLng(lat, lon))\n        m.Size = New Drawing.Size(25, 25)\n        m.ToolTipText = dtwachen.Rows(0).Item(1).ToString\n        Wachen.Markers.Add(m)<br><br><br><pre>When i put \nDim lat as string = 49.444\ndim lon as strin = 6.888 \n\nit works but not with dtwachen.rows(0).item(3)\n\nand i made sure 48.888 is in there !</pre>\n<br><br> <br></pre>\r\n",
+    "PostedDate": "2012-07-27T09:30:00.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892366",
+    "ThreadId": "389304",
+    "Html": "<p>SOLVED !!</p>",
+    "PostedDate": "2012-07-27T11:09:10.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892640",
+    "ThreadId": "389304",
+    "Html": "<p>How?</p>",
+    "PostedDate": "2012-07-28T16:34:52.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1321253",
+    "ThreadId": "389304",
+    "Html": "Can you please tell me how did you solve that?<br />\n",
+    "PostedDate": "2014-11-12T05:23:42.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1321259",
+    "ThreadId": "389304",
+    "Html": "Just missing the double parsing for the Lat, Lon values<br />\n<pre><code>        Dim lat As String = dtwachen.Rows(0).Item(3)\n        Dim lon As String = dtwachen.Rows(0).Item(4)\n\n        Dim m As New GMapMarker_Wachen(New PointLatLng(CDbl(lat), CDbl(lon)))</code></pre>\n\nOr you can define the variables lat, lon as double from the beginning.<br />\n<pre><code>        Dim lat As Double = CDbl(dtwachen.Rows(0).Item(3))\n        Dim lon As Double = CDbl(dtwachen.Rows(0).Item(4))\n\n        Dim m As New GMapMarker_Wachen(New PointLatLng(lat, lon))</code></pre>\n\n",
+    "PostedDate": "2014-11-12T05:39:57.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1321290",
+    "ThreadId": "389304",
+    "Html": "Hello\r<br />\n<br />\nPlease note that accessing a datatable as you do is not really a good idea it is much better to access by the name of the column\r<br />\n<br />\ndtwachen.Rows(0).Item(&quot;MyColumn&quot;);\r<br />\n<br />\nIs is also strange the source data is in String\r<br />\n<br />\nMaybe you can avoid the double conversion by doing this\r<br />\n<br />\nDim lat As Double = dtwachen.Rows(0).Item(&quot;MyColumn&quot;)\r<br />\n<br />\nThis is cSharp like, I assume than VB can do this<br />\n",
+    "PostedDate": "2014-11-12T06:50:27.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

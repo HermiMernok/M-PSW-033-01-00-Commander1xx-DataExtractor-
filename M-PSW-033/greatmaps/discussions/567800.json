@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1305971",
+    "ThreadId": "567800",
+    "Html": "First I made sure I had a Class that can create a Custom Marker.\r<br />\nWhile you are able to use the predefined Markers, any shapes like a circle or square is regarded as a Custom Marker and should be placed on a separate Overlay.\r<br />\n<br />\nHere is a class for the Custom Marker:\r<br />\n<br />\n<br />\nImports System.Drawing\r<br />\nImports GMap.NET.WindowsForms\r<br />\nPublic Class clsCustomMarker<br />\n<pre><code>Inherits GMap.NET.WindowsForms.GMapMarker\nDim m_myMap As GMapControl\nDim _image As System.Drawing.Image\nDim _point As GMap.NET.PointLatLng\nDim mi_Radius As Integer\nDim mg_Img As Graphics\nDim gOuterPen As Pen\nSub New(ByRef iPoint As GMap.NET.PointLatLng, ByRef iRadius As Integer, ByVal iShape As clsEnum.giShape, ByRef g_Img As Graphics, ByRef gmyMap As GMapControl)\n    MyBase.New(iPoint)\n    _point = iPoint\n    mi_Radius = iRadius\n    m_myMap = gmyMap\n    ChangeImage(iShape, g_Img)\nEnd Sub\n\nPublic Sub ChangeImage(ByVal iShape As clsEnum.giShape, ByRef Img As Graphics)\n    Dim pn As New Pen(Color.Red)\n    pn.Width = 3\n    Select Case iShape\n        Case clsEnum.giShape.giCircle\n            Img.DrawEllipse(pn, New Rectangle(_point.Lat, _point.Lng, mi_Radius * 2, mi_Radius * 2))\n        Case clsEnum.giShape.giSquare\n            Img.DrawRectangle(pn, New Rectangle(_point.Lat, _point.Lng, mi_Radius * 2, mi_Radius * 2))\n    End Select\n\nEnd Sub\n\nPublic Overrides Sub OnRender(g As Graphics)\n    If mi_Radius &gt; 0 Then\n        Dim groundResolution As Double = m_myMap.MapProvider.Projection.GetGroundResolution(Convert.ToInt32(m_myMap.Zoom), Position.Lat)\n        Dim diameter As Integer = CInt(Math.Truncate(mi_Radius * 2 * 1000 / groundResolution))\n        gOuterPen = New Pen(Color.Red, 3)\n        gOuterPen.Brush = Brushes.Red\n        Size = New System.Drawing.Size(diameter, diameter)\n        Offset = New System.Drawing.Point(-Size.Width \\ 2, -Size.Height \\ 2)\n\n        g.DrawEllipse(gOuterPen, New Rectangle(LocalPosition.X, LocalPosition.Y, diameter, diameter))\n    End If\nEnd Sub\n</code></pre>\n\nEnd Class<br />\n",
+    "PostedDate": "2014-09-18T08:32:47.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1305972",
+    "ThreadId": "567800",
+    "Html": "Now I have a form with a Text box whereby I add a Postcode. I have a Table in the Database where each UK Postcode has a X and Y coordinate. I pass my SQL query to the DB and extract a LAT and LONG \r<br />\n<br />\nI allow the user to decide the radius of the circle to be drawn around the marker, by entering a number into a Text box.\r<br />\n<br />\nHere is the Code you can use:\r<br />\n<br />\nI load the Initial Map here - No markers...\r<br />\n<br />\nGMapProvider.WebProxy = Net.WebRequest.DefaultWebProxy<br />\n<pre><code>        GMapProvider.WebProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials\n\n        If My.Computer.Network.Ping(&quot;www.google.com&quot;, 1000) = True Then\n            gmap_UK.Manager.Mode = GMap.NET.AccessMode.ServerAndCache\n            ' gmapData.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance\n            ' gmapData.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance\n\n            gmap_UK.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance\n\n\n            With Me.gmap_UK\n                .Position = New GMap.NET.PointLatLng(51.51, -0.14)\n                .SetPositionByKeywords(&quot;London&quot;)\n\n                .Manager.Mode = AccessMode.ServerAndCache\n                .Zoom = 8\n                .ShowCenter = True\n            End With\n\n        Else\n            MessageBox.Show(&quot;There is no Internet Connection. This is needed to load the Maps from Google. Please connect to the Network!&quot;, &quot;Error loading Map Data!&quot;, MessageBoxButtons.OK)\n            Exit Try\n        End If</code></pre>\n\n",
+    "PostedDate": "2014-09-18T08:33:43.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1305973",
+    "ThreadId": "567800",
+    "Html": "Here I run the code when the User clicks a Button.\r<br />\n<br />\n  sStartPostcode = Me.txtStart.Text.ToUpper ' get the Postcode<br />\n<pre><code>        dCircleRadius = CDbl(Me.txtInfo.Text) * 1.6 ' get the radius and Convert to km\n\n        gsPCSQL_1 = &quot;SELECT X,Y from myDB.tblUKPostcodes where PC = '&quot; &amp; sStartPostcode &amp; &quot;'&quot;\n\n        cProc = New clsProcess\n\n        cProc.GetData(gsPCSQL_1, dsDataStart)\n        For Each row As DataRow In dsDataStart.Tables(0).Rows\n            dX1 = row.Item(0)\n            dY1 = row.Item(1)\n        Next\n        dsDataStart = Nothing\n\n\n        'Place the Markers on the Map==========================\n\n        Me.gmap_UK.Overlays.Clear()\n        Me.gmap_UK.Overlays.Add(gmapDataOL)\n        Me.gmap_UK.HoldInvalidation = True\n\n        gmapDataOL.Markers.Add(New GMarkerGoogle(New PointLatLng(dY1, dX1), GMarkerGoogleType.green_dot))\n        ptStart = New PointLatLng(dY1, dX1)\n        gmapDataOL.Markers(0).ToolTipText = sStartPostcode\n        gmapDataOL.Markers(0).ToolTipMode = MarkerTooltipMode.Always\n        gmapDataOL.Markers(0).IsVisible = True\n        gmapDataOL.IsVisibile = True\n        gmap_UK.Refresh()\n        Me.gmap_UK.HoldInvalidation = True\n        'Add a new Overlay to hold the Circle/s=====\n        Me.gmap_UK.Overlays.Add(gmapCircleOL)\n        g = Me.CreateGraphics\n        cCM = New clsCustomMarker(ptStart, dCircleRadius, clsEnum.giShape.giCircle, g, gmap_UK)\n        gmapCircleOL.Markers.Add(cCM)\n\n        gmapCircleOL.Markers(0).IsVisible = True\n        gmap_UK.ZoomAndCenterMarkers(True)\n\n        gmap_UK.Refresh()</code></pre>\n\n",
+    "PostedDate": "2014-09-18T08:35:21.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1305974",
+    "ThreadId": "567800",
+    "Html": "I hope that this VB.Net sample Code is helpful - It is done in VS2012 \r<br />\n<br />\nHappy coding!<br />\n",
+    "PostedDate": "2014-09-18T08:36:23.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1463094",
+    "ThreadId": "567800",
+    "Html": "Hi ,\r<br />\n<br />\nI am trying to make cicles arround given points and found your Code sample.\r<br />\nCan you post your clsEnum class to.\r<br />\n<br />\nI need it to use this function<br />\n<pre><code>Public Sub ChangeImage(ByVal iShape As clsEnum.giShape, ByRef Img As Graphics)\n    Dim pn As New Pen(Color.Red)\n    pn.Width = 3\n    Select Case iShape\n        Case clsEnum.giShape.giCircle\n            Img.DrawEllipse(pn, New Rectangle(_point.Lat, _point.Lng, mi_Radius * 2, mi_Radius * 2))\n        Case clsEnum.giShape.giSquare\n            Img.DrawRectangle(pn, New Rectangle(_point.Lat, _point.Lng, mi_Radius * 2, mi_Radius * 2))\n    End Select\n\nEnd Sub\n</code></pre>\n\nThank you<br />\n",
+    "PostedDate": "2016-02-13T12:20:40.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1478854",
+    "ThreadId": "567800",
+    "Html": "Sorry ambiente\r<br />\n<br />\nThis is work I did in a previous company, which I left and I no longer work there. \r<br />\nSo the source code is no longer in my possession.\r<br />\n<br />\nThe Enums class simply contained a number of Enumerations and I keep a Global Variable giShape and list a few basic shapes here. It should not be too hard to replicate.<br />\n",
+    "PostedDate": "2016-07-13T23:51:14.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

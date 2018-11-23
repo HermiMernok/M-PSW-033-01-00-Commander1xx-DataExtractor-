@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1198756",
+    "ThreadId": "527254",
+    "Html": "I'm working in a project that display the AI traffic from the FSX (Flight Simulator X) and when adding any marker on the map using (BingSatelliteMapProvider) all the markers deviated from its real location on the simulator.\r<br />\n<br />\nAfter some digging into the FSX i found that it uses the projection statement:\r<br />\n<br />\nPROJCS[&quot;World_Mercator&quot;,GEOGCS[&quot;GCS_WGS_1984&quot;,DATUM[&quot;D_WGS_1984&quot;,SPHEROID[&quot;WGS_1984&quot;,6378137,298.257223563]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.017453292519943295]],PROJECTION[&quot;Mercator&quot;],PARAMETER[&quot;False_Easting&quot;,0],PARAMETER[&quot;False_Northing&quot;,0],PARAMETER[&quot;Central_Meridian&quot;,0],PARAMETER[&quot;standard_parallel_1&quot;,0],UNIT[&quot;Meter&quot;,1]]\r<br />\n<br />\nso how to change the projection to position the marker correctly\r<br />\n<br />\nThnaks<br />\n",
+    "PostedDate": "2014-01-27T00:15:28.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1199606",
+    "ThreadId": "527254",
+    "Html": "it's standard Mercator projection, you don't need to change it, satellite images has variable precision, so it doesn't point exactly where it should...<br />\n",
+    "PostedDate": "2014-01-28T01:09:55.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

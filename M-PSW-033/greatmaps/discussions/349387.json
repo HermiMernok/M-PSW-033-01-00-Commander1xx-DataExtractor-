@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "813211",
+    "ThreadId": "349387",
+    "Html": "\r\n<p>radioman:</p>\r\n<p>My map loads up nice and speedy when I have an active Internet connection or when I have no network cable connected.&nbsp; But, if I have a network cable connected to a LAN without Internet access, the map takes very long to load.&nbsp; I have confirmed\r\n this behavior on several computers.&nbsp; I believe this is because of the call you make to check for a connection which is System.Net.DNS.GetHostEntry.&nbsp; Is there a better way to institute this check to improve the startup performance of my application?&nbsp;\r\n Perhaps trying to make a socket connection to a website we expect to be up.&nbsp; I'm thinking doing it that way will allow for a timeout so that you can detect the situation I describe above.&nbsp; Any thoughts?</p>\r\n",
+    "PostedDate": "2012-03-20T13:45:34.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813453",
+    "ThreadId": "349387",
+    "Html": "<p>check&nbsp;http://www.chapleau.info/blog/2008/09/09/reverse-dns-lookup-with-timeout-in-c.html</p>",
+    "PostedDate": "2012-03-21T04:50:55.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843151",
+    "ThreadId": "349387",
+    "Html": "<p>Some Problem here. Where exactly do i put the code stated in the link above</p>\r\n<p>&nbsp;</p>\r\n<p>Greets Locutus</p>",
+    "PostedDate": "2012-05-31T08:01:33.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843206",
+    "ThreadId": "349387",
+    "Html": "<p>in constructor</p>",
+    "PostedDate": "2012-05-31T09:23:57.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

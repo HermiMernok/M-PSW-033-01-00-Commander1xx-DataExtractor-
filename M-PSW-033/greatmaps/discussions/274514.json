@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "679069",
+    "ThreadId": "274514",
+    "Html": "\r\n<p>Trying to implement a new map control but just getting white background, although the map scroll crosshair does appear on right clicking the map, plus on mousewheel the cursor goes to the center so looks like it's loaded just not showing the map/tiles.</p>\r\n<pre><span style=\"color:green\">MainMap.MapType it does'nt seem to recognise so commented out.</span></pre>\r\n<p>Here's my code:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Imports</span> System\r\n<span style=\"color:blue\">Imports</span> System.Collections.Generic\r\n<span style=\"color:blue\">Imports</span> System.ComponentModel\r\n<span style=\"color:blue\">Imports</span> System.Diagnostics\r\n<span style=\"color:blue\">Imports</span> System.Drawing\r\n<span style=\"color:blue\">Imports</span> System.Drawing.Drawing2D\r\n<span style=\"color:blue\">Imports</span> System.Globalization\r\n<span style=\"color:blue\">Imports</span> System.IO\r\n<span style=\"color:blue\">Imports</span> System.Net\r\n<span style=\"color:blue\">Imports</span> System.Net.NetworkInformation\r\n<span style=\"color:blue\">Imports</span> System.Threading\r\n<span style=\"color:blue\">Imports</span> System.Windows.Forms\r\n<span style=\"color:blue\">Imports</span> System.Xml\r\n<span style=\"color:blue\">Imports</span> GMap.NET\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms.ToolTips\r\n\r\n<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> GMaps\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>()\r\n        <span style=\"color:blue\">MyBase</span>.<span style=\"color:blue\">New</span>()\r\n        <span style=\"color:blue\">Dim</span> latitude <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span>\r\n        <span style=\"color:blue\">Dim</span> longitude <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span>\r\n        InitializeComponent()\r\n        SuspendLayout()\r\n\r\n        <span style=\"color:blue\">Dim</span> MainMap <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapControl()\r\n\r\n        <span style=\"color:green\">'MainMap.MapType = MapType.OpenStreetMap</span>\r\n        MainMap.Position = <span style=\"color:blue\">New</span> PointLatLng(53.74767, -2.48364)\r\n        MainMap.MinZoom = 1\r\n        MainMap.MaxZoom = 17\r\n        MainMap.Zoom = 14\r\n        MainMap.Dock = DockStyle.Fill\r\n\r\n        Controls.Add(MainMap)\r\n        ResumeLayout(<span style=\"color:blue\">False</span>)\r\n\r\n        <span style=\"color:blue\">Dim</span> overlayOne <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapOverlay(MainMap, <span style=\"color:#a31515\">&quot;OverlayOne&quot;</span>)\r\n        overlayOne.Markers.Add(<span style=\"color:blue\">New</span> Global.GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(<span style=\"color:blue\">New</span> PointLatLng(53.74767, -2.48364)))\r\n        MainMap.Overlays.Add(overlayOne)\r\n\r\n        <span style=\"color:green\">'Or for looping thru dataset use...</span>\r\n        <span style=\"color:green\">'For Each customer In Customers</span>\r\n        <span style=\"color:green\">'overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(New PointLatLng(customer.Lat, customer.Long)))</span>\r\n        <span style=\"color:green\">'Next</span>\r\n\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> InitializeComponent()\r\n        <span style=\"color:blue\">Throw</span> <span style=\"color:blue\">New</span> NotImplementedException\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> SuspendLayout()\r\n        <span style=\"color:blue\">Throw</span> <span style=\"color:blue\">New</span> NotImplementedException\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> ResumeLayout(<span style=\"color:blue\">ByVal</span> p1 <span style=\"color:blue\">As</span> <span style=\"color:blue\">Boolean</span>)\r\n        <span style=\"color:blue\">Throw</span> <span style=\"color:blue\">New</span> NotImplementedException\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Function</span> Controls() <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span>\r\n        <span style=\"color:blue\">Throw</span> <span style=\"color:blue\">New</span> NotImplementedException\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Function</span>\r\n\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-10-02T05:14:59.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679083",
+    "ThreadId": "274514",
+    "Html": "<p>add MainMap.<strong>MapProvider</strong> = GMapProviders.GoogleMap;</p>",
+    "PostedDate": "2011-10-02T06:51:38.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679098",
+    "ThreadId": "274514",
+    "Html": "<p>That did it, plus set the app to x86 ( i'm on windows 7 ).</p>\r\n<p>&nbsp;</p>\r\n<p>Only issue is it takes a good 10-15 seconds to load the map up, but I saw this discussion about that: http://greatmaps.codeplex.com/discussions/269467</p>\r\n<p>&nbsp;</p>\r\n<p>So I'll try the fix stated on there.</p>",
+    "PostedDate": "2011-10-02T08:05:16.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679102",
+    "ThreadId": "274514",
+    "Html": "<p>p.s. no need to set target to x86, all modes are supported automaticaly</p>",
+    "PostedDate": "2011-10-02T08:17:51.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

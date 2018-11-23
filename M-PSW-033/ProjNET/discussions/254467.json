@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "599661",
+    "ThreadId": "254467",
+    "Html": "\r\n<p>Hi</p>\r\n<p>&nbsp;&nbsp; I am transforming coordinates between sweref 99 utm and sweref 99 12 00, using the wll known text from oracle spatial to describe the coordinate systems</p>\r\n<p>&quot;PROJCS[&quot;SWEREF99 TM&quot;, GEOGCS [ &quot;SWEREF99&quot;, DATUM [&quot;SWEREF99 (EPSG ID 6619)&quot;, SPHEROID [&quot;GRS 1980 (EPSG ID 7019)&quot;, 6378137.0, 298.257222101]], PRIMEM [ &quot;Greenwich&quot;, 0.000000 ], UNIT [&quot;Decimal Degree&quot;, 0.0174532925199433]], PROJECTION [&quot;Transverse Mercator&quot;],\r\n PARAMETER [&quot;Latitude_Of_Origin&quot;, 0.0], PARAMETER [&quot;Central_Meridian&quot;, 15.0], PARAMETER [&quot;Scale_Factor&quot;, 0.9996], PARAMETER [&quot;False_Easting&quot;, 500000.0], PARAMETER [&quot;False_Northing&quot;, 0.0], UNIT [&quot;Meter&quot;, 1.0]]&quot;</p>\r\n<p><br>\r\n&quot;PROJCS[&quot;SWEREF99 12 00&quot;, GEOGCS [ &quot;SWEREF99&quot;, DATUM [&quot;SWEREF99 (EPSG ID 6619)&quot;, SPHEROID [&quot;GRS 1980 (EPSG ID 7019)&quot;, 6378137.0, 298.257222101]], PRIMEM [ &quot;Greenwich&quot;, 0.000000 ], UNIT [&quot;Decimal Degree&quot;, 0.0174532925199433]], PROJECTION [&quot;Transverse Mercator&quot;],\r\n PARAMETER [&quot;Latitude_Of_Origin&quot;, 0.0], PARAMETER [&quot;Central_Meridian&quot;, 12.0], PARAMETER [&quot;Scale_Factor&quot;, 1.0], PARAMETER [&quot;False_Easting&quot;, 150000.0], PARAMETER [&quot;False_Northing&quot;, 0.0], UNIT [&quot;Meter&quot;, 1.0]]&quot;</p>\r\n<p>ICoordinateTransformation transformation;</p>\r\n<p>&nbsp;CoordinateSystemFactory coordFactory = new CoordinateSystemFactory()</p>\r\n<p>&nbsp;ICoordinateSystem from = coordFactory.CreateFromWkt(fromWkText);</p>\r\n<p>&nbsp;ICoordinateSystem to = coordFactory.CreateFromWkt(toWkText);</p>\r\n<p>&nbsp;CoordinateTransformationFactory ctFac = new CoordinateTransformationFactory();</p>\r\n<p>&nbsp;transformation = ctFac.CreateFromCoordinateSystems(from, to);</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public double[] Transform(double x, double y)\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double[] orig = new double[] { x, y };</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double[] transformed = transform.MathTransform.Transform(orig);</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return transformed;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>The problem is that&nbsp;when I transform an x any and compare the transformed coordinate the swedish&nbsp;surveys online&nbsp;coordinate transformation service the results are wildly different.</p>\r\n<p><a href=\"http://www.lantmateriet.se/templates/LMV_Koordinattransformation.aspx?id=11499\">http://www.lantmateriet.se/templates/LMV_Koordinattransformation.aspx?id=11499</a></p>\r\n<p>For example</p>\r\n<p>sweref 99 utm x,y = 6729377.4, 451333.5 is transformed by proj.net to 6937020.374, 463403.83</p>\r\n<p>but the online transformation service gives&nbsp; 6733588.332, 265165.371</p>\r\n<p>I wonder what I am doing wrong?</p>\r\n<p>/shane</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-04-19T02:15:15.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599674",
+    "ThreadId": "254467",
+    "Html": "<p>I also tried using the wktext from SRID.csv which has slight differences in structure (same data trhough). I still got the same result though.</p>",
+    "PostedDate": "2011-04-19T02:42:44.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

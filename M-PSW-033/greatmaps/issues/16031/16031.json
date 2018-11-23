@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed, thanks",
+    "ClosedDate": "2012-02-27T06:41:55.51-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\r\nWhen i pass \"C:\\Cache\" to cacheLocation, i have cache in C:\\CacheTileDBv3\\ folder.\r\nWhen i pass \"C:\\Cache\\\" - i have cache in  C:\\Cache\\TileDBv3\\ folder.\r\nI think that second behavior should occur in both cases.\r\n\r\nI am using System.IO.Path.Combine for such tasks.",
+    "LastUpdatedDate": "2012-02-27T06:41:55.51-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-02-27T05:36:52.667-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMapControl.CacheLocation wrong path concatenation",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16031
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

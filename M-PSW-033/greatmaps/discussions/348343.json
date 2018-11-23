@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "809391",
+    "ThreadId": "348343",
+    "Html": "\r\n<p><span style=\"color:black; font-size:10pt\">When I zoom in, missing high zoom level tiles are automatically replaced by lower zoom&nbsp;level tiles. Cool. But if I jump directly to the high zoom level, they are not.</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">I am persisting the users current view to show that same view when the application is restarted. But if the user has zoomed way in before closing the&nbsp;\r\n</span><span style=\"font-family:'Segoe UI','sans-serif'; color:black; font-size:10pt\">application, the application starts up with all blue tiles with error messages.</span></p>\r\n",
+    "PostedDate": "2012-03-12T17:44:58.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809499",
+    "ThreadId": "348343",
+    "Html": "<p>and how to fix it?</p>",
+    "PostedDate": "2012-03-13T03:11:11.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809937",
+    "ThreadId": "348343",
+    "Html": "<p><span style=\"font-family: 'Segoe UI','sans-serif'; color: black; font-size: 10pt;\">Not sure how to interpret your comment. </span></p>\r\n<p><span style=\"font-family: 'Segoe UI','sans-serif'; color: black; font-size: 10pt;\">Is the problem by design and cannot be fixed? Or do you want me to fix it?</span></p>",
+    "PostedDate": "2012-03-13T17:13:33.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810185",
+    "ThreadId": "348343",
+    "Html": "<p>i don't know how to 'fix' it ;}</p>",
+    "PostedDate": "2012-03-14T06:01:21.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "822537",
+    "ThreadId": "348343",
+    "Html": "<p>I am encountering the same issue i think. If i start zoomed in too close (eg. zoom level 22) i get a blank white screen. If i zoom to around 17 i get map data. If i then zoom back out to 22 i now have map data, presumably just data from the 17 level expanded. Would it be possible that when a zoom level is requested, and found not to be available, might it fetch tiles at the highest level it finds available and then replicate to fill the desired size. In this way you might get more consistent results if you start out at high zoom or lower zoom, but end up at high zoom.</p>\r\n<p>&nbsp;</p>\r\n<p>PS: also a bit puzzled at the empty tiles being white vs the blue tiles i sometimes get saying no data is available at this zoom level.</p>",
+    "PostedDate": "2012-04-11T11:58:28.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

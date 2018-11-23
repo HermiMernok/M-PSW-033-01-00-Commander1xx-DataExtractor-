@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1293491",
+    "ThreadId": "562142",
+    "Html": "Hello,<br />\n<br />\nI am making a small program that loads a file with gps coordinates and plots them in a map. The map is live updated at every line read from the textfile.<br />\n<br />\nWhen I use polygons everything works ok:<br />\n<pre><code>private void gps_updated(object sender,MapsUpdateEventArgs e)\n        {\n            \n\n            MainMap.Position = new PointLatLng(e.Lat, e.Lon);\n\n            PointLatLng gpoi = new PointLatLng(e.Lat, e.Lon);\n            gpollist.Add(gpoi);\n\n            GMapOverlay polyOverlay = new GMapOverlay(MainMap, &quot;test&quot; + counter.ToString());\n            GMapPolygon polygon = new GMapPolygon(gpollist, &quot;mypolygon&quot; + counter.ToString());\n            //GMapRoute polygon = new GMapRoute(gpollist, &quot;mypolygon&quot; + counter.ToString());\n            //polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));\n            polygon.Stroke = new Pen(Color.Black, 2);\n            polyOverlay.Polygons.Add(polygon);\n            MainMap.Overlays.Add(polyOverlay);\n        }</code></pre>\n\nHowever I would like to see a line instead of a polynome. So I modified the code:<br />\n<pre><code>private void gps_updated(object sender,MapsUpdateEventArgs e)\n        {\n            \n            MainMap.Position = new PointLatLng(e.Lat, e.Lon);\n\n            PointLatLng gpoi = new PointLatLng(e.Lat, e.Lon);\n            gpollist.Add(gpoi);\n\n            GMapOverlay polyOverlay = new GMapOverlay(MainMap, &quot;test&quot; + counter.ToString());\n            GMapRoute route = new GMapRoute(gpollist, &quot;mypolygon&quot; + counter.ToString());\n            route.Stroke = new Pen(Color.Black, 2);\n            polyOverlay.Routes.Add(route);\n            MainMap.Overlays.Add(polyOverlay);\n        }</code></pre>\n\nIt does not work.... I've tried many combinations and I am stuck at the moment. Is there anyone who can give some advice?<br />\n<br />\nThanks in advance!<br />\n",
+    "PostedDate": "2014-08-26T04:46:40.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293559",
+    "ThreadId": "562142",
+    "Html": "Fixed :)\r<br />\n<br />\nMainMap.RoutesEnabled = true;<br />\n",
+    "PostedDate": "2014-08-26T08:17:31.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

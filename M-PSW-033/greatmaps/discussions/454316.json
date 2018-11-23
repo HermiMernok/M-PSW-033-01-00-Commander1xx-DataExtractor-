@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1083996",
+    "ThreadId": "454316",
+    "Html": "With our tile server having tiles for only a limited area, the tile server returns a “404 not found” error at a low zoom level, when a non existing tile get requested. It is a problem in case this happens when no tile of a high zoom level got requested before. The function Core.ProcessLoadTask() limits the skipOverZoom value to the so far highest already loaded zoom level. I think that it behaves this way because it expects to get “404 not found” errors only at high zoom level and not at low zoom level.<br />\n<br />\nMy proposal for a fix:<br />\n<br />\nBefore: line 925 in my version<br />\n<pre><code>if(skipOverZoom != okZoom)\n{\n   if(ex.Message.Contains(&quot;(404) Not Found&quot;))\n   {\n      skipOverZoom = okZoom;</code></pre>\n\nAfter:<br />\n<pre><code>if((skipOverZoom != okZoom) &amp;&amp; (task.Value.Zoom &gt; okZoom))\n{\n   if(ex.Message.Contains(&quot;(404) Not Found&quot;))\n   {\n      skipOverZoom = okZoom;</code></pre>\n\n",
+    "PostedDate": "2013-08-23T00:17:06.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084025",
+    "ThreadId": "454316",
+    "Html": "thanks, done!<br />\n",
+    "PostedDate": "2013-08-23T01:20:00.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

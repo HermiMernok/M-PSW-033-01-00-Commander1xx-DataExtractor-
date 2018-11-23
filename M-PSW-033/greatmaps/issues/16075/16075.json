@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "hi\r\nmy application sometimes gives this error and a red cross appears instead of gmapcontrol\r\nwhy this happens?\r\nthanks\r\n\r\n```\r\nArithmetic operation resulted in an overflow. at GMap.NET.Internals.Tile.<get_Overlays>d__0.MoveNext()\r\n   at GMap.NET.WindowsForms.GMapControl.DrawMap(Graphics g)\r\n   at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\r\n   at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\r\n   at System.Windows.Forms.Control.WmPaint(Message& m)\r\n   at System.Windows.Forms.Control.WndProc(Message& m)\r\n   at System.Windows.Forms.ScrollableControl.WndProc(Message& m)\r\n   at System.Windows.Forms.UserControl.WndProc(Message& m)\r\n   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)\r\n   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)\r\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r\n```",
+    "LastUpdatedDate": "2013-06-13T23:38:33.96-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-06-13T00:09:07.547-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Arithmetic operation resulted in an overflow",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16075
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "do you use more than 4 layers?",
+      "PostedDate": "2013-06-13T00:42:05.667-07:00",
+      "Id": 102933
+    },
+    {
+      "Message": "i cached 2 layers in gmdb file\nGoogle map and Google hybrid\nand Google map is default\n",
+      "PostedDate": "2013-06-13T02:17:57.26-07:00",
+      "Id": 102937
+    },
+    {
+      "Message": "does it happen always, are you using latest version?",
+      "PostedDate": "2013-06-13T02:59:51.62-07:00",
+      "Id": 102943
+    },
+    {
+      "Message": "no it happens sometimes\nI'm using greatmaps-317bcc1ac95b",
+      "PostedDate": "2013-06-13T04:06:57.793-07:00",
+      "Id": 102950
+    },
+    {
+      "Message": "and what are you doing at that moment?",
+      "PostedDate": "2013-06-13T05:42:00.763-07:00",
+      "Id": 102952
+    },
+    {
+      "Message": "nothing special\njust updating markers positions in background worker",
+      "PostedDate": "2013-06-13T08:08:49-07:00",
+      "Id": 102963
+    },
+    {
+      "Message": "in different thread? Or you use report progress event?",
+      "PostedDate": "2013-06-13T23:38:33.96-07:00",
+      "Id": 103044
+    }
+  ]
+}

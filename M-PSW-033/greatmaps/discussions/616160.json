@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1398597",
+    "ThreadId": "616160",
+    "Html": "I am having a similar problem as described here: <a href=\"https://greatmaps.codeplex.com/discussions/272940#\" rel=\"nofollow\">https://greatmaps.codeplex.com/discussions/272940#</a> <br />\n<br />\nWhile plotting 60 million coordinates on a bitmap-map-overlay as pixels, the gmap-net code throws an outofmemory exception at about 20 million plotted points. This makes sense, because the coordinates are cached in FromLatLngToPixelCache.<br />\n<br />\nHowever,  I noticed that there seems to be a built in function for disabling the cache &quot;bool useCache&quot;:<br />\n<pre><code>public GPoint FromLatLngToPixel(PointLatLng p, int zoom, bool useCache)\n      {\n         if(useCache)\n         {\n            GPoint ret = GPoint.Empty;\n            if(!FromLatLngToPixelCache[zoom].TryGetValue(p, out ret))\n            {\n               ret = FromLatLngToPixel(p.Lat, p.Lng, zoom);\n               FromLatLngToPixelCache[zoom].Add(p, ret);\n\n               // for reverse cache\n               if(!FromPixelToLatLngCache[zoom].ContainsKey(ret))\n               {\n                  FromPixelToLatLngCache[zoom].Add(ret, p);\n               }\n\n               Debug.WriteLine(&quot;FromLatLngToPixelCache[&quot; + zoom + &quot;] added &quot; + p + &quot; with &quot; + ret);\n            }\n            return ret;\n         }\n         else\n         {\n            return FromLatLngToPixel(p.Lat, p.Lng, zoom);\n         }\n      }</code></pre>\n\nBut I cannot use this value.. <br />\n<pre><code>'this works:\nGMapControl1.FromLatLngToLocal(New PointLatLng(latitude, longitude))\n\n'this does not:\nGMapControl1.FromLatLngToLocal(New PointLatLng(latitude, longitude), False)</code></pre>\n\nI already tried turning all caching off, but this does not seem to affect Coordinate-Caching:<br />\n.Manager.UseGeocoderCache = False<br />\n.Manager.UseMemoryCache = False<br />\n.Manager.UsePlacemarkCache = False<br />\n.Manager.UseRouteCache = False<br />\n<br />\nI also tried to Clear the FromLatLngToPixelCache after 500,000 entries or so, but it is not accessible.. <br />\n<br />\n.. and I tried precalculating FromLatLngToPixel for all my 1200x617 pixels in my bitmap, and then looking up the nearest match for all other lat/lng coordinates to assign them to pixels. None of the sorting/finding algorithms worked really fast.<br />\n<br />\nAnyone has an idea how I could utilize this built-in function for disabling the cache, -instead of manipulating the source code?<br />\nIs there any way for clearing FromLatLngToPixelCache ?<br />\n<br />\nMy problem with editing the source code is.. a) I don't know how to compile a build, b) I would need to find the Source Code for 1.5.5.5 Version, because in 1.6 (current) the FromLatLngToPixel-function is about 90% slower. For example, it takes about 5 Minutes in 1.5.5.5 to plot 20 million points, in 1.6 the function plotted about 50.000 at the same time.. it really gets more complicated with all of this. I wish there would be an easier way!<br />\n",
+    "PostedDate": "2015-04-01T07:10:12.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1398707",
+    "ThreadId": "616160",
+    "Html": "Ok, I found a way to get around the FromLatLngToPixelCache, which even seems a little-bit faster than the GMap FromLatLngToPixel-Function:<br />\n<br />\nGlobal Definition of List and Dictionary for speed:<br />\n<pre><code>    Dim YList As New List(Of Double)\n    Dim XList As New List(Of Double)\n    Dim YDict As Dictionary(Of Double, Integer) = New Dictionary(Of Double, Integer)\n    Dim XDict As Dictionary(Of Double, Integer) = New Dictionary(Of Double, Integer)</code></pre>\n\nThen, in the code below: Precalculate local X and Y coordinates for each Pixel in Bitmap overlay.<br />\nYList just contains the sorted lat/long values, wheras in YDict, the lat/long values function as keys for fast lookup of local x/y.<br />\n<pre><code>       Public Sub precalcValues(ByVal Height As Integer, ByVal Width As Integer)\n        'Precalc CoordinatesToPixelLocations\n        For yy As Integer = 0 To Height\n            Dim Cord As Double = GMapControl1.FromLocalToLatLng(0, yy).Lat\n            YList.Add(Cord)\n            YDict(Cord) = yy\n        Next\n        YList.Sort()\n\n        For xx As Integer = 0 To Width\n            Dim Cord As Double = GMapControl1.FromLocalToLatLng(xx, 0).Lng\n            XList.Add(Cord)\n            XDict(Cord) = xx\n        Next\n        XList.Sort()\n    End Sub</code></pre>\n\nFinally, the function for placing new lat/lng values on the map, to the closest matching Pixel-Value.<br />\nThe BinarySearch in List is pretty fast, and returns the lat/long values that is closest to the look-up lat/lng value. This value is then used as a key in YDict/XDict...<br />\n<pre><code>    Function bestPixel(ByVal searchValueLat As Double, ByVal searchValuelng As Double) As GMap.NET.GPoint\n        Dim indexY As Long = YList.BinarySearch(searchValueLat)\n        Dim indexX As Long = XList.BinarySearch(searchValuelng)\n        If indexY &lt; 0 Then\n            indexY = indexY Xor -1\n        End If\n        If indexX &lt; 0 Then\n            indexX = indexX Xor -1\n        End If\n        bestPixel.Y = YDict.Item(YList.Item(indexY))\n        bestPixel.X = XDict.Item(XList.Item(indexX))\n    End Function</code></pre>\n\n",
+    "PostedDate": "2015-04-01T12:59:45.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-07-15T00:20:32.837-07:00"
+  },
+  {
+    "Id": "1416590",
+    "ThreadId": "616160",
+    "Html": "Just thought I'd add the final images. These are transparent bitmaps overlaying GMapnet:\r<br />\n<img src=\"https://farm8.staticflickr.com/7689/16454101604_f6c96faebb_b.jpg\" alt=\"Image\" />\r<br />\n<img src=\"https://farm9.staticflickr.com/8766/17075810221_387185cf1c_b.jpg\" alt=\"Image\" />\r<br />\n<img src=\"https://farm8.staticflickr.com/7700/16454102594_6dea0a1c36_b.jpg\" alt=\"Image\" />\r<br />\n<br />\n.. with the above code, rendering takes about 5 Minutes.<br />\n",
+    "PostedDate": "2015-04-22T00:34:21.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1416874",
+    "ThreadId": "616160",
+    "Html": "thats cool<br />\n",
+    "PostedDate": "2015-04-22T09:12:38.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

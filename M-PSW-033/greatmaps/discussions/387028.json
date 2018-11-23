@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "888177",
+    "ThreadId": "387028",
+    "Html": "\r\n<p>Hello! Help me please!</p>\r\n<p>In Demo.WindowsForms which i download in this site, visual studio cannot find the GMarkerGoogle.&nbsp;Сould not find the name of the type or namespace &quot;GMarkerGoogle&quot; (missing a using directive or an assembly reference?)</p>\r\n<p>I would be grateful for any help! Thanks!&nbsp;</p>\r\n",
+    "PostedDate": "2012-07-23T00:32:03.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "889258",
+    "ThreadId": "387028",
+    "Html": "<p>i guess it's only in the hot build</p>",
+    "PostedDate": "2012-07-23T12:28:35.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911547",
+    "ThreadId": "387028",
+    "Html": "<p>I don't understand what you mean :((( &nbsp;How I can include the&nbsp;class GMarkerGoogle in my program? Thank you!&nbsp;</p>",
+    "PostedDate": "2012-09-12T07:00:47.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911552",
+    "ThreadId": "387028",
+    "Html": "<p>you don't need to include anythink, just use latest version(1.7), in 1.6 there is no such class</p>",
+    "PostedDate": "2012-09-12T07:07:07.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911559",
+    "ThreadId": "387028",
+    "Html": "<p>Version of that? What should I replace it? I understand you're talking about the library dll, plug in the project?</p>\r\n<p>Sorry. I don't professional :(</p>",
+    "PostedDate": "2012-09-12T07:12:54.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045057",
+    "ThreadId": "387028",
+    "Html": "Hello \r<br />\nyou can use &quot;GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen&quot; instead of &quot;GMarkerGoogle&quot;<br />\n<pre><code>using GMap.NET.WindowsForms.Markers;\nGMapOverlay markersOverlay = new GMapOverlay(gMapControl1, &quot;marker&quot;);\nGMapMarkerGoogleGreen marker = new GMapMarkerGoogleGreen(new PointLatLng(x, y));\nmarkersOverlay.Markers.Add(marker);\ngMapControl1.Overlays.Add(markersOverlay);\n</code></pre>\n\n",
+    "PostedDate": "2013-05-17T05:50:10.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

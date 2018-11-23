@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "681190",
+    "ThreadId": "275078",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>i have changed the map panning from Right mouse button to left. But the context menu which was working fine in the Right panning is not getting shown.</p>\r\n<p>i believe it fails in this condition in OnMouseDown in Gmapcontrol.cs</p>\r\n<p>&nbsp;if(CanDragMap &amp;&amp; e.ChangedButton == DragButton &amp;&amp; e.ButtonState == MouseButtonState.Pressed)</p>\r\n<p>its urgent. Please let me know.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>Balaji</p>\r\n",
+    "PostedDate": "2011-10-07T01:19:52.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681192",
+    "ThreadId": "275078",
+    "Html": "<p>how do you show your context menu?</p>",
+    "PostedDate": "2011-10-07T01:26:34.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681194",
+    "ThreadId": "275078",
+    "Html": "<p>thanks for the quick response.</p>\r\n<p>we are adding the context menu to the marker object as popup.</p>",
+    "PostedDate": "2011-10-07T01:34:54.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681197",
+    "ThreadId": "275078",
+    "Html": "<p>so how do you do it? ;}</p>",
+    "PostedDate": "2011-10-07T01:37:59.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681204",
+    "ThreadId": "275078",
+    "Html": "<p>we have BaseMarker class where we create the context menu and in the marker object we use it.</p>\r\n<p>BaseMarker.Cs</p>\r\n<p>&nbsp;public ContextMenu CreateContextMenu(string markerTitle, MapControl mapControl)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>\r\n<p>// Creating Menu and attaching click event</p>\r\n<p>}</p>\r\n<p>CricleMarker.cs : BaseMarker</p>\r\n<p>{</p>\r\n<p>During the constructor we the createContextMenu</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n<p>Is my explanation gives you a view or confusing :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-10-07T01:51:45.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681242",
+    "ThreadId": "275078",
+    "Html": "<p>still have no idea</p>",
+    "PostedDate": "2011-10-07T03:44:26.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

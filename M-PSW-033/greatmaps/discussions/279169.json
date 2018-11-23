@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "697180",
+    "ThreadId": "279169",
+    "Html": "\r\n<p>Seeing an odd behaviour</p>\r\n<p>I start my map, and see the tiles, I can zoom in and out of the map no problem.&nbsp; I have a button setup to load a list of map points from a database and zoom into them.</p>\r\n<p></p>\r\n<pre>        List mm = RouteDB.Instance.markersForRoute(routeid);\r\n            meters.Markers.Clear();\r\n            foreach (GMapMeterMarker m in mm)\r\n            {\r\n                meters.Markers.Add(m);\r\n            }\r\n            GMap.ZoomAndCenterMarkers(meters.Id);</pre>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>I see the points and can see the tile borders and labels but the tiles themselves are not painting (I have tried adding a refresh, and changing the map provider with no luck.</p>\r\n<p>This code worked fine in my testbed app. The chief difference here is the map is loaded as part of another custom control would that affect painting?</p>\r\n<p>&nbsp;</p>\r\n<p>Any suggestions welcome.</p>\r\n<p>Rich in NY</p>\r\n",
+    "PostedDate": "2011-11-11T12:47:38.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697183",
+    "ThreadId": "279169",
+    "Html": "<p>does the tiles loads without markers?</p>",
+    "PostedDate": "2011-11-11T12:51:15.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697193",
+    "ThreadId": "279169",
+    "Html": "<p>Yes they Do.&nbsp; I upgraded to the latest hot build but the problem still occurs. I also switched from my custom markers to a standard one with no luck.</p>\r\n<p>Rich</p>",
+    "PostedDate": "2011-11-11T13:30:52.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697195",
+    "ThreadId": "279169",
+    "Html": "<p>i can't identify the reason ;/ can you be more specific?</p>",
+    "PostedDate": "2011-11-11T13:38:32.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697197",
+    "ThreadId": "279169",
+    "Html": "<p>Working on a test program to reproduce it and will send it to you.</p>",
+    "PostedDate": "2011-11-11T13:42:03.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697199",
+    "ThreadId": "279169",
+    "Html": "<p>roger ;}</p>",
+    "PostedDate": "2011-11-11T13:46:45.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697207",
+    "ThreadId": "279169",
+    "Html": "<p>Interesting enough I can't reproduce it outside this project, and if I take a control built in another project it works as well.</p>\r\n<p>I will work out whats what and see if I can pin down the break point.</p>\r\n<p>&nbsp;</p>\r\n<p>Sorry for the trouble.</p>",
+    "PostedDate": "2011-11-11T14:08:44.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

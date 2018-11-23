@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1430016",
+    "ThreadId": "639809",
+    "Html": "Hello radioman,\r<br />\n<br />\nI have a local Webserver which is hosting OSM Tiles. But I do not have the same performance like they have :) so my idea was to create two Mapprovider OSM with the same ID. So that the user can change the maptype if sth. wrong with my server. The Tiles are the same, so I want to use the same cache ID in my tilesdatabase. If I do so, the start crashes. \r<br />\nDo you have any idea, to solve this problem in a kind way?\r<br />\n<br />\none solution could be to work with MakeTileImageUrl, but waiting for the Timeout for every Tile would be annoying.\r<br />\n<br />\nBye\r<br />\nEde<br />\n",
+    "PostedDate": "2015-06-11T00:19:42.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430041",
+    "ThreadId": "639809",
+    "Html": "you can try modify this checking, probably disable/remove it<br />\n<pre><code>public abstract class GMapProvider\n{\n  protected GMapProvider()\n        {\n            using (var HashProvider = new SHA1CryptoServiceProvider())\n            {\n                DbId = Math.Abs(BitConverter.ToInt32(HashProvider.ComputeHash(Id.ToByteArray()), 0));\n            }\n\n            if (MapProviders.Exists(p =&gt; p.Id == Id || p.DbId == DbId))\n            {        \n                // DISABLE THAT\n                throw new Exception(&quot;such provider id already exsists, try regenerate your provider guid...&quot;);\n            }\n            MapProviders.Add(this);\n        }\n}</code></pre>\n\n",
+    "PostedDate": "2015-06-11T02:52:10.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-06-11T02:52:15.423-07:00"
+  },
+  {
+    "Id": "1430066",
+    "ThreadId": "639809",
+    "Html": "hello radioman,\r<br />\nthanks for quick resposne but it won't work. Adding works with this solution but if you make an access to Providerlist\r<br />\n<br />\nan exception will be thrown:\r<br />\n&quot;Der Typeninitialisierer für \\&quot;GMap.NET.MapProviders.GMapProviders\\&quot; hat eine Ausnahme verursacht.&quot;}\r<br />\nsuch provider id already exsists, try regenerate your provider guid...&quot;\r<br />\n<br />\nanother solution can be to manipulate the integer of type in the sqllite pureimage provider, but this is not a good solution I think.<br />\n",
+    "PostedDate": "2015-06-11T05:26:06.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430133",
+    "ThreadId": "639809",
+    "Html": "guess where that exception is thrown ;} remove it, done.<br />\n",
+    "PostedDate": "2015-06-11T10:02:17.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430227",
+    "ThreadId": "639809",
+    "Html": "needs too much modification of your code(whole ProviderList), so a branch is needed. Now I have implemented a boolean switch in urlformat. Not exactly what I want, but it works...\r<br />\nThank you!<br />\n",
+    "PostedDate": "2015-06-12T04:15:13.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430233",
+    "ThreadId": "639809",
+    "Html": "you only need to remove 1 line.<br />\n",
+    "PostedDate": "2015-06-12T05:21:10.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430826",
+    "ThreadId": "639809",
+    "Html": "if I remove this line, an exception on another position is thrown. You can add the provider, no problem, but first access to the list<br />\n<pre><code>  comboBoxMapType.DataSource = GMapProviders.List;</code></pre>\n\nin the demo. exception ... and here I do not know how to handle this. Maybe you have an idea.\r<br />\n<br />\nThanks for your time!<br />\n",
+    "PostedDate": "2015-06-18T00:25:44.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430886",
+    "ThreadId": "639809",
+    "Html": "what exception?<br />\n",
+    "PostedDate": "2015-06-18T06:45:07.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430890",
+    "ThreadId": "639809",
+    "Html": "{&quot;Ein Element mit dem gleichen Schlüssel wurde bereits hinzugefügt.&quot;}\r<br />\n means sth like an element with the same key, allready was added.\r<br />\nI just use the same ID on two OSM Maproviders (Opencyclemap and another one) and on line 117 in demo exception will be thrown.<br />\n",
+    "PostedDate": "2015-06-18T07:27:34.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430910",
+    "ThreadId": "639809",
+    "Html": "yes, because you didn't remove the checking line<br />\n",
+    "PostedDate": "2015-06-18T09:23:25.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

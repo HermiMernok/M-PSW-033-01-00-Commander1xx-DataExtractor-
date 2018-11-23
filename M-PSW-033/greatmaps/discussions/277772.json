@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "691635",
+    "ThreadId": "277772",
+    "Html": "<p>well , i posted this question several times but no answer so far</p>\n<p>im working on VB.NET , and im trying to do something like this :</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre style=\"color: black;\"><span style=\"color: blue;\">Dim</span> marker() <span style=\"color: blue;\">As</span> GMapMarkerCross\n\n<span style=\"color: blue;\">for</span> i = 1 <span style=\"color: blue;\">to</span> car.<span style=\"color: blue;\">count</span>()\n\n<span style=\"color: blue;\">if</span> (car.id &lt;&gt; code) <span style=\"color: blue;\">then</span>\n\nmarker(i).Position = <span style=\"color: blue;\">New</span> PointLatLng(Lat, Lon)\n\noverlayOne.Markers.Add(marker(i))\n\n<span style=\"color: blue;\">else</span>\n\nmarker(i).position = <span style=\"color: blue;\">New</span> PointLatLng(Lat, Lon)\n\n<span style=\"color: blue;\">end</span> <span style=\"color: blue;\">if</span></pre>\n<pre style=\"color: black;\"><span style=\"color: blue;\"><br /></span></pre>\n<pre><span style=\"color: #0000ff;\"><br /></span></pre>\n<pre><span style=\"color: #000000;\"><em><strong>its doesn't work , whats the problem ??</strong></em></span></pre>\n<pre style=\"color: black;\"><span style=\"color: blue;\"><br /></span></pre>\n</div>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-10-31T07:12:17.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691986",
+    "ThreadId": "277772",
+    "Html": "<p>I'm no VB-expert, but are you initalizing the GMapMarkers? E.g. (pseudocode):</p>\n<p>for(i=0; i &lt; arrayOfMarkers.Length; i++)</p>\n<p>&nbsp;&nbsp; arrayOfMarkers(i) = <span style=\"color: #ff0000;\"><strong>new GmapMarkerCircle(...)</strong></span></p>\n<p>endfor</p>\n<p>What is not working? Are you getting an Exception?</p>",
+    "PostedDate": "2011-11-01T01:28:27.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692050",
+    "ThreadId": "277772",
+    "Html": "<p>didn't give me any markers in the map ,</p>\n<p>you can write your code with c# guys , i can translate it to Vb.net</p>\n<p>i use the code u gave me , but still nothing :</p>\n<p>&nbsp;</p>\n<pre><div style=\"color: black; background-color: white;\"><pre style=\"color: black;\"><span style=\"color: blue;\">Dim</span> marker() <span style=\"color: blue;\">As</span> GMapMarkerCross</pre>\n<pre style=\"color: black;\">\n<span style=\"color: blue;\">for</span> i = 1 <span style=\"color: blue;\">to</span> car.<span style=\"color: blue;\">count</span>()</pre>\n<pre style=\"color: black;\">\n<span style=\"color: blue;\">if</span> (car.id &lt;&gt; code) <span style=\"color: blue;\">then</span></pre>\n<pre><strong>marker(i) = <span style=\"color: blue;\">New</span> GMapMarkerCross(GMapControl1.Position)</strong>\nmarker(i).Position = <span style=\"color: blue;\">New</span> PointLatLng(Lat, Lon)\noverlayOne.Markers.Add(marker(i))</pre>\n<pre>\n<span style=\"color: blue;\">else</span>\n\nmarker(i).position = <span style=\"color: blue;\">New</span> PointLatLng(Lat, Lon)\n<span style=\"color: blue;\">end</span> <span style=\"color: blue;\">if</span>\n</pre>\n<pre><span style=\"color: #0000ff;\"><br /></span></pre>\n<pre><span style=\"color: #000000;\"><strong><span style=\"color: #0000ff;\">guys i really need yur help</span></strong></span></pre>\n</div>\n</pre>\n<div><span><br /> </span></div>",
+    "PostedDate": "2011-11-01T04:43:33.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692084",
+    "ThreadId": "277772",
+    "Html": "<p>This works perfectly in C# (code is in the constructor, define a class variable for the array and the overlay):</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">private</span> GMapMarkerCross[] arrayOfMarkers = <span style=\"color: blue;\">new</span> GMapMarkerCross[10];\r\n\r\n        <span style=\"color: blue;\">private</span> GMapOverlay overlay;\r\n\r\n        <span style=\"color: blue;\">public</span> TestForm()\r\n        {\r\n            InitializeComponent();\r\n\r\n            overlay = <span style=\"color: blue;\">new</span> GMapOverlay(map, <span style=\"color: #a31515;\">\"test\"</span>);\r\n            map.Overlays.Add(overlay);\r\n\r\n            <span style=\"color: blue;\">for</span> (<span style=\"color: blue;\">int</span> i = 0; i &lt; 10; i++)\r\n            {\r\n                GMapMarkerCross marker = <span style=\"color: blue;\">new</span> GMapMarkerCross(<span style=\"color: blue;\">new</span> PointLatLng(10 + i, 30 - i));\r\n                overlay.Markers.Add(marker);\r\n                arrayOfMarkers[i] = marker;\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-11-01T05:58:00.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692095",
+    "ThreadId": "277772",
+    "Html": "<p>thank you so much my xandolph , it works :) :)</p>\r\n<p>problem solved&nbsp;</p>",
+    "PostedDate": "2011-11-01T06:16:45.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

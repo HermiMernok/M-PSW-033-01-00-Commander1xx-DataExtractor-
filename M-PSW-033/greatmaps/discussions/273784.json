@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "676453",
+    "ThreadId": "273784",
+    "Html": "\r\n<p>at first ,thanks for your great job.</p>\r\n<p>i am using Gmap.net in my project but i had the following problem</p>\r\n<p>&nbsp;1-after running&nbsp; the project(.exe) ,</p>\r\n<p>2-&nbsp;if i close&nbsp; the application the debugging operation dosen't stop</p>\r\n<p>i think the problem is that Gmap.net instance keep it's internet connection so that exiting the program dosen't finish the task;</p>\r\n",
+    "PostedDate": "2011-09-25T15:45:12.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676531",
+    "ThreadId": "273784",
+    "Html": "<p>there is no problem, tiles you downloaded are being cached in the background</p>",
+    "PostedDate": "2011-09-25T23:36:55.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676891",
+    "ThreadId": "273784",
+    "Html": "<p>but after closing the program it still running and when i check the task manager it still exist?</p>",
+    "PostedDate": "2011-09-26T15:08:31.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676987",
+    "ThreadId": "273784",
+    "Html": "<p>so what?</p>",
+    "PostedDate": "2011-09-26T23:28:59.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677002",
+    "ThreadId": "273784",
+    "Html": "<p>when i check the task managet it shouldn't be there after closing the App</p>\r\n<p>&nbsp;</p>\r\n<p>when i set the MapType to None</p>\r\n<p>the problem solved(no internet connection)</p>\r\n<p>put to any other type the connection still on even after closing the app</p>\r\n<p>&nbsp;</p>\r\n<p>thanks in advance</p>",
+    "PostedDate": "2011-09-27T00:18:33.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677010",
+    "ThreadId": "273784",
+    "Html": "<p>yes it should, it caches your downloaded tiles, if you somehow do not want that call map.Manager.CancelTileCaching(); on form close event, and you loose your data, so next time program again downloads the same tiles, no quick launch ;}</p>",
+    "PostedDate": "2011-09-27T00:30:52.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677014",
+    "ThreadId": "273784",
+    "Html": "<p>i need the map for a short time to get some coordinates andareas informations so no problem if my program download it again</p>\r\n<p>i am running a WPF projest</p>\r\n<p>where i found the</p>\r\n<p>map.Manager.CancelTileCaching();</p>\r\n<p>&nbsp;</p>\r\n<p>thankes a lot for your reply</p>",
+    "PostedDate": "2011-09-27T00:38:33.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

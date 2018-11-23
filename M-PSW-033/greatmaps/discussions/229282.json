@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "500963",
+    "ThreadId": "229282",
+    "Html": "<p>Ola,</p>\r\n<p>How do I show the route I created on the map? The code I have so far...</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> myStart <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:#a31515\">&quot;Sexbierum, Nederland&quot;</span>\r\n<span style=\"color:blue\">Dim</span> myEnd <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:#a31515\">&quot;Leeuwarden, Nederland&quot;</span>\r\n\r\nGMaps.Instance.GetRouteBetweenPoints(myStart, myEnd, <span style=\"color:blue\">False</span>, map_zoom.Value)</pre>\r\n</div>\r\n<p>How Do I show the route between the 2 places using the Overlay?</p>\r\n<p>Thanks for the help in advance.</p>",
+    "PostedDate": "2010-10-01T04:53:06.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500976",
+    "ThreadId": "229282",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">var</span> routes = <span style=\"color:blue\">new</span> GMapOverlay(MainMap, <span style=\"color:#a31515\">&quot;routes&quot;</span>);\r\nMainMap.Overlays.Add(routes);\r\n\r\n<span style=\"color:green\">// ...</span>\r\n     \r\n      <span style=\"color:green\">// add test route</span>\r\n      <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> button3_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n      {\r\n         MapRoute route = GMaps.Instance.GetRouteBetweenPoints(start, end, <span style=\"color:blue\">false</span>, (<span style=\"color:blue\">int</span>) MainMap.Zoom);\r\n         <span style=\"color:blue\">if</span>(route != <span style=\"color:blue\">null</span>)\r\n         {\r\n            <span style=\"color:green\">// add route</span>\r\n            GMapRoute r = <span style=\"color:blue\">new</span> GMapRoute(route.Points, route.Name);\r\n            routes.Routes.Add(r);\r\n\r\n            <span style=\"color:green\">// add route start/end marks</span>\r\n            GMapMarker m1 = <span style=\"color:blue\">new</span> GMapMarkerGoogleRed(start);\r\n            m1.ToolTipText = <span style=\"color:#a31515\">&quot;Start: &quot;</span> + route.Name;\r\n            m1.ToolTipMode = MarkerTooltipMode.Always;\r\n\r\n            GMapMarker m2 = <span style=\"color:blue\">new</span> GMapMarkerGoogleGreen(end);\r\n            m2.ToolTipText = <span style=\"color:#a31515\">&quot;End: &quot;</span> + end.ToString();\r\n            m2.ToolTipMode = MarkerTooltipMode.Always;\r\n\r\n            objects.Markers.Add(m1);\r\n            objects.Markers.Add(m2);\r\n\r\n            MainMap.ZoomAndCenterRoute(r);\r\n         }\r\n      }\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-10-01T05:09:21.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501062",
+    "ThreadId": "229282",
+    "Html": "<p>I was a bit confused about the &quot;GMapRoute r =&quot;, Didn't how to convert it to VB.NET, but after a few tries I got it. Works like a charm.</p>\r\n<p>Mucho thanks.</p>",
+    "PostedDate": "2010-10-01T06:53:40.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501104",
+    "ThreadId": "229282",
+    "Html": "<p>Hmmm... small issue left regarding the markers, cause my &quot;start&quot; and &quot;end&quot; are Strings. Anyone with a workaround, know how to solve this?</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> myStart <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = map_txt_route_start.Text\r\n<span style=\"color:blue\">Dim</span> myEnd <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = map_txt_route_end.Text\r\n\r\n<span style=\"color:blue\">Dim</span> route <span style=\"color:blue\">As</span> MapRoute = GMaps.Instance.GetRouteBetweenPoints(myStart, myEnd, <span style=\"color:blue\">False</span>, map_zoom.Value)\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-01T08:13:00.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501107",
+    "ThreadId": "229282",
+    "Html": "<p>so where is the problem?</p>",
+    "PostedDate": "2010-10-01T08:17:46.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501131",
+    "ThreadId": "229282",
+    "Html": "<p>The problem is that it doesn't accept my &quot;start&quot; and &quot;end&quot;.</p>\r\n<p>Dim markerStart As GMapMarker = New GMapMarkerGoogleGreen(<strong><span style=\"color:#ff0000\">myStart</span></strong>)&nbsp; &lt;&lt; String can't be converted to GMAP pointLatLng</p>",
+    "PostedDate": "2010-10-01T09:04:49.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501137",
+    "ThreadId": "229282",
+    "Html": "<p>use route.<strong>First</strong>/<strong>Last</strong></p>",
+    "PostedDate": "2010-10-01T09:13:53.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501166",
+    "ThreadId": "229282",
+    "Html": "<p>hmmm... Call me stupid, but I don't get it.</p>",
+    "PostedDate": "2010-10-01T10:13:58.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501208",
+    "ThreadId": "229282",
+    "Html": "<p>&nbsp;</p>\r\n<p>GetRouteBetweenPoints returns object which contains points, you need first point and the last, check the demos source...</p>",
+    "PostedDate": "2010-10-01T11:36:55.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505893",
+    "ThreadId": "229282",
+    "Html": "<p>Hi radioman.</p>\r\n<p>Firstly... GREAT work on this. Love your work!</p>\r\n<p>I plan to use this for a route planning from a list of zip/postal codes.</p>\r\n<p>I have read this discussion and it seems to be what I need. I would like to show a route containing more than one section using Postcodes to find the points.</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> PostcodeArray(4)</pre>\r\n<pre><span style=\"color:blue\">Dim</span> ovrl <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapOverlay(MainMap, <span style=\"color:#a31515\">&quot;RoutesLayer&quot;</span>)\r\nPostcodeArray(0) = <span style=\"color:#a31515\">&quot;DN19 7RT&quot;</span> </pre>\r\n<pre>PostcodeArray(1) = <span style=\"color:#a31515\">&quot;DN34 4QN&quot;</span> </pre>\r\n<pre>PostcodeArray(2) = <span style=\"color:#a31515\">&quot;DN37 0FB&quot;</span> </pre>\r\n<pre>PostcodeArray(3) = <span style=\"color:#a31515\">&quot;HU15 2QD&quot;</span> </pre>\r\n<pre>PostcodeArray(4) = <span style=\"color:#a31515\">&quot;DN19 7RT&quot;</span></pre>\r\n<pre>\r\nWhere do I go from here?</pre>\r\n<pre>Also, where is the Demo source?</pre>\r\n</div>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>\r\n</pre>\r\n</div>\r\n<p>All help appreciated.</p>",
+    "PostedDate": "2010-10-12T02:17:28.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505922",
+    "ThreadId": "229282",
+    "Html": "<p><a href=\"http://greatmaps.codeplex.com/SourceControl/list/changesets\">http://greatmaps.codeplex.com/SourceControl/list/changesets</a></p>",
+    "PostedDate": "2010-10-12T03:13:31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512783",
+    "ThreadId": "229282",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p><span>I'm from Colombia.&nbsp;</span><span>Excuse my bad writing.<br>\r\n<br>\r\n</span><span>When I try to instantiate the method:&nbsp;MapRoute route = GMaps.Instance.GetRouteBetweenPoints(start, end, false, (int)gMapMapa.Zoom);&nbsp;is null.&nbsp;</span><span>then it enters the if.&nbsp;</span><span>Help please</span></p>\r\n",
+    "PostedDate": "2010-10-26T08:50:47.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512838",
+    "ThreadId": "229282",
+    "Html": "\r\n<p>tried some other points?</p>\r\n",
+    "PostedDate": "2010-10-26T10:25:20.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518153",
+    "ThreadId": "229282",
+    "Html": "\r\n<p>No. What do you recommend?</p>\r\n",
+    "PostedDate": "2010-11-06T07:48:21.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518158",
+    "ThreadId": "229282",
+    "Html": "\r\n<p>routing in that are doesn't work even in&nbsp;<a href=\"http://maps.google.com/\">http://maps.google.com/</a>. You can try ask them in google support forum&nbsp;<a href=\"http://www.google.com/support/forum/p/maps?hl=en/\" target=\"_blank\">http://www.google.com/support/forum/p/maps?hl=en/</a></p>\r\n",
+    "PostedDate": "2010-11-06T08:07:12.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

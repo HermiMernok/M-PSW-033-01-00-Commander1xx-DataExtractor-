@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "forks perfectly many times:\n\nForm2 f;\n\n      private void button1_Click(object sender, EventArgs e)\n      {\n         if(f == null)\n         {\n            f = new Form2();\n         }\n         f.Owner = this;\n         f.ShowDialog();         \n      }",
+    "ClosedDate": "2012-02-18T06:11:37.657-08:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hi Radioman!\r\nI just downloaded the latest version (3f017b1dbb9c) and suddenly I got this problem:\r\nIn my project, I use GMap.NET in several different forms, which are shown using ShowDialog. Up until now, that worked perfectly. But with the new version, I can only open a form ONCE! When I close it again, and then try to reopen it (or another form with a map control on it) I get an ArgumentException in GMapControl.cs at this line (144):\r\n\r\n      public Pen EmptyTileBorders = new Pen(Brushes.White, 1);\r\n\r\nI think there is some bug in the dispose logic, unfortunately I got now idea where :-( \r\nPlease help!\r\nThanks a lot!",
+    "LastUpdatedDate": "2012-02-19T05:28:01.327-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-02-18T05:07:56.31-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Bug in latest version",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16029
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hmm, it's really strange:\n\nthis works, I can open and close the form as often as I wish:\n\nprivate OverviewForm frmOverview;\n\nif(frmOverview == null)\n     frmOverview = new OverviewForm(trackIDs, ds);\nfrmOverview.Owner = this;\nfrmOverview.ShowDialog();\n\nBut this does not, I can only open the form ONE TIME: ?!??\n\nusing (OverviewForm frmOverview = new OverviewForm(trackIDs, ds))\n{\n    frmOverview.Owner = this;\n    frmOverview.ShowDialog();\n }\n\nI want to use the using clause, because I don't want to have all the different forms in memory...\nAny ideas?\nThanks!\n",
+      "PostedDate": "2012-02-19T04:06:12.407-08:00",
+      "Id": 56230
+    },
+    {
+      "Message": "OK, I found the problem:\nI was using a Brushes.White object for the Fill color of a marker ToolTip, that caused the exception when the Tooltip should be Disposed:\n\nWRONG:\n                GMapToolTip toolTip = new GMapToolTip(m);\n                toolTip.Fill = Brushes.White;\n\nRIGHT:\n                GMapToolTip toolTip = new GMapToolTip(m);\n                toolTip.Fill = new SolidBrush(Color.White);\n\n\n\n",
+      "PostedDate": "2012-02-19T05:14:38.787-08:00",
+      "Id": 56231
+    },
+    {
+      "Message": "this works perfectly too:\n\nprivate void button1_Click(object sender, EventArgs e)\n      {\n         using(var f = new Form2())\n         {\n            f.Owner = this;  \n            f.ShowDialog();\n         }\n      }",
+      "PostedDate": "2012-02-19T05:28:01.327-08:00",
+      "Id": 56232
+    }
+  ]
+}

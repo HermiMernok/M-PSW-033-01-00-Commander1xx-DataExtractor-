@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "441810",
+    "ThreadId": "212355",
+    "Html": "<p>Hi,</p>\r\n<p>I downloaded the GMap.net source code, tried to run its windowsMobile project I got error message.</p>\r\n<p>&quot;Unable to start the program '%CSID_Program_Files\\GMap.Net\\GMap.Net.exe%'&quot;</p>\r\n<p>The system can not find the file specified.</p>\r\n<p>Then I took the following&nbsp;code from the discussion forum and tried it. it gives me one view always, even if I change the lat and longi, and the map shows very slowly. I put all Dlls required in bin</p>\r\n<pre>using System;\r\nusing System.Linq;\r\nusing System.Collections.Generic;\r\nusing System.ComponentModel;\r\nusing System.Data;\r\nusing System.Drawing;\r\nusing System.Text;\r\nusing System.Windows.Forms;\r\nusing Microsoft.WindowsMobile.Samples.Location;\r\nusing GMap.NET;\r\nusing GMap.NET.WindowsForms;\r\n\r\nnamespace MobileMap\r\n{\r\n    public partial class frmMap : Form\r\n    {\r\n        private GMapControl map;\r\n        public frmMap()\r\n        {\r\n            InitializeComponent();\r\n\r\n            map = new GMapControl();\r\n            map.BackColor = System.Drawing.Color.White;\r\n            map.CanDragMap = true;\r\n            map.Dock = System.Windows.Forms.DockStyle.Fill;\r\n            map.Location = new System.Drawing.Point(0, 0);\r\n            map.MapType = GMap.NET.MapType.GoogleMap;\r\n            map.MarkersEnabled = true;\r\n            map.Name = &quot;MainMap&quot;;\r\n            map.RoutesEnabled = true;\r\n            map.ShowTileGridLines = false;\r\n            map.Size = new System.Drawing.Size(480, 696);\r\n            map.TabIndex = 0;\r\n            map.Zoom = 0;\r\n            this.Controls.Add(map);\r\n        }\r\n\r\n\r\n        private void frmMap_Load_1(object sender, EventArgs e)\r\n        {\r\n\r\n            GMapOverlay routes = new GMapOverlay(map, &quot;routes&quot;);\r\n            map.Overlays.Add(routes);\r\n\r\n            GMapOverlay objects = new GMapOverlay(map, &quot;objects&quot;);\r\n            map.Overlays.Add(objects);\r\n\r\n            GMapOverlay top = new GMapOverlay(map, &quot;top&quot;);\r\n            map.Overlays.Add(top);\r\n\r\n            map.Manager.Mode = AccessMode.ServerAndCache;\r\n            map.MapType = GMap.NET.MapType.YahooMap;\r\n            map.MinZoom = 1;\r\n            map.MaxZoom = 11;\r\n            map.Zoom = map.MinZoom + 1;\r\n\r\n\r\n            map.CurrentPosition = new PointLatLng(20, 67);//lat and long\r\n            map.ReloadMap();\r\n        }\r\n\r\n        private void menuItem1_Click(object sender, EventArgs e)\r\n        {\r\n            //map.CurrentPosition = new PointLatLng(54.6961334816182, 25.2985095977783));//lat and long Changed here<br>\r\n            map.CurrentPosition = new PointLatLng(20, 67);\r\n            map.ReloadMap();\r\n        }\r\n    }\r\n}\r\n</pre>\r\n<p>I've seen the demo. I want to understan it thoroughly for WM.</p>",
+    "PostedDate": "2010-05-11T21:33:45.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "441854",
+    "ThreadId": "212355",
+    "Html": "<p>no need to map.ReloadMap(); at all and set everything in constructor, no need to use frmMap_Load_1</p>",
+    "PostedDate": "2010-05-12T00:17:08.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

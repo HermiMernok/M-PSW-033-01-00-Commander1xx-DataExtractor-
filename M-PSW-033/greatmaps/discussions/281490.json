@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "705948",
+    "ThreadId": "281490",
+    "Html": "\r\n<p>Hi, I've just noticed that there is strange behavior when moving map with left/right keys to the left/right. It slowly moves up. I've found reason behind this: in Internals.Core class, DragOffset method incorrectly calculates position, when map size is not\r\n even number. To fix it I've replaced line in DragOffset method</p>\r\n<pre>Position&nbsp;=&nbsp;FromLocalToLatLng((<span>int</span>)Width&nbsp;/&nbsp;2,&nbsp;(<span>int</span>)Height&nbsp;/&nbsp;2);\r\n</pre>\r\n<p>with this&nbsp;</p>\r\n<pre><pre>Position&nbsp;=&nbsp;FromLocalToLatLng((<span>int</span>)<span>Math</span>.Round(Width&nbsp;/&nbsp;2.0,&nbsp;<span>MidpointRounding</span>.AwayFromZero),&nbsp;(<span>int</span>)<span>Math</span>.Round(Height&nbsp;/&nbsp;2.0,&nbsp;<span>MidpointRounding</span>.AwayFromZero));\r\n</pre>\r\n</pre>\r\n",
+    "PostedDate": "2011-12-01T08:49:40.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706106",
+    "ThreadId": "281490",
+    "Html": "<p>thanks, fixed</p>",
+    "PostedDate": "2011-12-01T14:03:42.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

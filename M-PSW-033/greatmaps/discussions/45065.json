@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "150239",
+    "ThreadId": "45065",
+    "Html": "Hello radioman,<br>\r\n<br>\r\nI still haven't found a solution for returning multiple ambiguous addresses when searching, However, here's a little contibution for reverse geocoding(see at end)<br>\r\n<br>\r\nYou may have to modify it a little to filter unwanted chars and all, but the web request is there. Also instead of optionnally displaying the result in a message box, it would nice if you could private a virtual method similar to drawToolTip to display the result.<br>\r\n<br>\r\nBy the way, I get an error when zoom = maxZoom in :<br>\r\n<br>\r\n<span style=\"font-size:13px\"></span><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> Point FromLatLngToPixel(</span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\"> lat, </span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\"> lng, </span><span style=\"font-size:13px;color:#0000ff\">int</span><span style=\"font-size:13px\"> zoom)<br>\r\n{<br>\r\nPoint ret = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> Point();<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(zoom &gt; MaxZoom || zoom &lt; 1)<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\"> ret;</span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\"> d = Ru[zoom];   &lt;--- Index out of range!<br>\r\n<br>\r\n+++++++++++++++++++++++++++++++++<br>\r\n<br>\r\nHere's the reverse geoCoding code:<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> MakeReverseGeoCodeString(</span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\"> pt)<br>\r\n{<br>\r\n    </span><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Format(</span><span style=\"font-size:13px;color:#a31515\">&quot;http://maps.google.com/maps/geo?ll={0},{1}&amp;output=csv&quot;</span><span style=\"font-size:13px\">, pt.Lat.ToString(</span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture), pt.Lng.ToString(</span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture));<br>\r\n}</span><span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> GetLocations(</span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\"> pt, </span><span style=\"font-size:13px;color:#0000ff\">bool</span><span style=\"font-size:13px\"> displayResult)<br>\r\n{<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">    try<br>\r\n    </span><span style=\"font-size:13px\">{<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">    string</span><span style=\"font-size:13px\"> url = MakeReverseGeoCodeString(pt);<br>\r\n</span><span style=\"font-size:13px;color:#2b91af\">    HttpWebRequest</span><span style=\"font-size:13px\"> request = (</span><span style=\"font-size:13px;color:#2b91af\">HttpWebRequest</span><span style=\"font-size:13px\">)</span><span style=\"font-size:13px;color:#2b91af\">WebRequest</span><span style=\"font-size:13px\">.Create(url);<br>\r\n    request.ServicePoint.ConnectionLimit = 50;<br>\r\n    request.Proxy = </span><span style=\"font-size:13px;color:#0000ff\">null</span><span style=\"font-size:13px\">; </span><span style=\"font-size:13px;color:#008000\">// Proxy != null ? Proxy : WebRequest.DefaultWebProxy;<br>\r\n</span><span style=\"font-size:13px\">    request.UserAgent = </span><span style=\"font-size:13px;color:#a31515\">&quot;Opera/9.62 (Windows NT 5.1; U; en) Presto/2.1.1&quot;</span><span style=\"font-size:13px\">;<br>\r\n    request.Timeout = 10000; </span><span style=\"font-size:13px;color:#008000\">// Timeout;<br>\r\n</span><span style=\"font-size:13px\">    request.ReadWriteTimeout = 60000; </span><span style=\"font-size:13px;color:#008000\">// Timeout * 6;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>    request.KeepAlive = </p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">    string</span><span style=\"font-size:13px\"> geo;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">    using</span><span style=\"font-size:13px\"> (</span><span style=\"font-size:13px;color:#2b91af\">HttpWebResponse</span><span style=\"font-size:13px\"> response = request.GetResponse() </span><span style=\"font-size:13px;color:#0000ff\">as</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">HttpWebResponse</span><span style=\"font-size:13px\">)<br>\r\n    {<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">        using</span><span style=\"font-size:13px\"> (</span><span style=\"font-size:13px;color:#2b91af\">Stream</span><span style=\"font-size:13px\"> responseStream = response.GetResponseStream())<br>\r\n        {<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">            using</span><span style=\"font-size:13px\"> (</span><span style=\"font-size:13px;color:#2b91af\">StreamReader</span><span style=\"font-size:13px\"> read = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">StreamReader</span><span style=\"font-size:13px\">(responseStream))<br>\r\n            {<br>\r\n                geo = read.ReadToEnd();<br>\r\n            }<br>\r\n        }<br>\r\n    }\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">    //not sure how to interpret the first two codes returned???<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">    string</span><span style=\"font-size:13px\">[] values = geo.Split(</span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">char</span><span style=\"font-size:13px\">[] {</span><span style=\"font-size:13px;color:#a31515\">','</span><span style=\"font-size:13px\">}, 3);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">    if</span><span style=\"font-size:13px\"> (displayResult)<br>\r\n</span><span style=\"font-size:13px;color:#2b91af\">    MessageBox</span><span style=\"font-size:13px\">.Show(values[2]);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">    return</span><span style=\"font-size:13px\"> values;\r\n<p>&nbsp;</p>\r\n<p>    }</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">    catch</span><span style=\"font-size:13px\"> (</span><span style=\"font-size:13px;color:#2b91af\">Exception</span><span style=\"font-size:13px\"> ex)<br>\r\n    {    <br>\r\n</span><span style=\"font-size:13px;color:#2b91af\">        Trace</span><span style=\"font-size:13px\">.WriteLine(</span><span style=\"font-size:13px;color:#a31515\">&quot;GetLocations: &quot;</span><span style=\"font-size:13px\"> + ex.ToString());<br>\r\n    }\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">    return</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">null</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><br>\r\n </p>\r\n</span>\r\n",
+    "PostedDate": "2009-01-23T06:40:10.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150252",
+    "ThreadId": "45065",
+    "Html": "ok i correct maxzoom+1, still real max is 17 ;}  anyway can you give me one <span style=\"font-weight:bold\">working</span> <span style=\"font-weight:bold\">url</span> which returns multiply results from google?",
+    "PostedDate": "2009-01-23T07:35:37.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150255",
+    "ThreadId": "45065",
+    "Html": "Sorry not yet. I'm using fiddler to &quot;reverse engineer&quot; the requests...<br>\r\nAll I got for the moment is the reverse geocoding url I sent above - would be good if you integrated!<br>\r\n<br>\r\nI'll keep looking.\r\n",
+    "PostedDate": "2009-01-23T07:39:24.58-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150263",
+    "ThreadId": "45065",
+    "Html": ";} but that is my function its long ago created",
+    "PostedDate": "2009-01-23T07:43:03.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150268",
+    "ThreadId": "45065",
+    "Html": "I'm a little confused. What I sent<br>\r\n<br>\r\n<span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Format(</span><span style=\"font-size:13px;color:#a31515\">&quot;http://maps.google.com/maps/geo?ll={0},{1}&amp;output=csv&quot;</span><span style=\"font-size:13px\">, pt.Lat.ToString(</span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture), pt.Lng.ToString(</span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture));<br>\r\n<br>\r\nis to return an address (string format)  from a point on the map. for example, after a mouse-up event, converting local xy to lat/long and calling the method returns the address of the location.<br>\r\n<br>\r\nI didn't see it in your code. Did I miss something?</span>\r\n",
+    "PostedDate": "2009-01-23T08:01:16.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150278",
+    "ThreadId": "45065",
+    "Html": "oh its <span style=\"font-style:italic\">reverse, ;} </span>I miss it really, ok <div><br></div><div>http://maps.google.com/maps/geo?ll=54.7290810525512,25.2708721160889&amp;output=json<br></div><div><br></div><div>i'l try to include that function</div>",
+    "PostedDate": "2009-01-23T08:13:09.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150320",
+    "ThreadId": "45065",
+    "Html": "done!<div><ul id=false>    <li>GetPlacemarkFromGeocoder</li></ul></div>",
+    "PostedDate": "2009-01-23T10:21:21.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150486",
+    "ThreadId": "45065",
+    "Html": "Thanks,<br>\r\n<br>\r\nthere's just a little problem when splitting the returned address. I'm loosing the last character of the CityName and also the Postal code and city name seem to be crossed in the placemarker - though that could be  due to language specifications.<br>\r\n<br>\r\nLast character dissapears in:<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> tmp = values[3].Remove(values[3].Length-1, 1);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px;color:#0000ff\">maybe change to:<br>\r\n<br>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> tmp = values[3].</span>.Trim()</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\"></span><span style=\"font-size:13px;color:#0000ff\"><br>\r\n</span><span style=\"font-size:13px\"><br>\r\nHOWEVER your splitting seems to work for Europe but if you go to Washington in the US the values.Length = 6 so we never enter the creation of the Placemarker.<br>\r\n<br>\r\ne.g.   <span style=\"font-size:10px\">&quot;200,8,\\&quot;701 Constitution Ave NW, Washington, DC 20004, USA\\&quot;&quot;<br>\r\n</span><br>\r\nMaybe the Placemarker should have a value property containing the string returned by google (without the 200,8) with a virtual function for splitting the result into the Placemarker's properties: StreetName, Streetnumber, CityName, PostalCode, State, CountryName, etc...<br>\r\n<br>\r\nThis may allow some more flexibility.<br>\r\n<br>\r\n<br>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-24T01:32:57.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150497",
+    "ThreadId": "45065",
+    "Html": "hm.. it quite the same<div><br></div><div>the only diif is: </div><div>usa: Washington, DC 20004</div><div>eu: Vilnius LT-08013</div><div><br></div><div>in usa city is just separated by ',' so it's even easyer to parse ;} give me few minutes</div>",
+    "PostedDate": "2009-01-24T03:14:47.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150500",
+    "ThreadId": "45065",
+    "Html": "done!",
+    "PostedDate": "2009-01-24T03:36:42.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150518",
+    "ThreadId": "45065",
+    "Html": "<p>Have had a few more goes at it...<br>\r\n<br>\r\nYour parsing of the returned result still inverses postalcode and cityname for addresses n switzerland for example. It also removes the last character of the city name.<br>\r\n<br>\r\nI have other cases too, for example, when a city name is a combination of names separated by a blank (e.g. &quot;1111 La Praz&quot;.<br>\r\n<br>\r\nForm experience, addresses are not very well structured, so I still think your placemarker should have a Rsult property which will contained what is returned by google, and a virtual method for parsing:<br>\r\n<br>\r\nin the <span style=\"font-size:13px\">GetPlacemarkFromReverseGeocoderUrl<br>\r\n<br>\r\n...<br>\r\n<span style=\"font-size:13px\"></span><span style=\"font-size:13px;color:#0000ff\"><br>\r\nstring</span><span style=\"font-size:13px\">[] values = reverse.Split(</span><span style=\"font-size:13px;color:#a31515\">','</span><span style=\"font-size:13px\">);<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(values[0] == </span><span style=\"font-size:13px;color:#a31515\">&quot;200&quot;</span><span style=\"font-size:13px\">)\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>placemarker.accuracy = <span style=\"font-size:13px;color:#0000ff\">int</span><span style=\"font-size:13px\">.Parse(values[1], </span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture)<br>\r\nplacemarker.Result = values[3] <br>\r\n<br>\r\n...\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p>    <br>\r\n<br>\r\nplacemarker class:<br>\r\n<span style=\"font-size:13px\">{\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">int</span><span style=\"font-size:13px\"> Accuracy;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> ThoroughfareName;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> LocalityName;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> PostalCodeNumber;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> CountryName;<br>\r\npublic string StateName,<br>\r\npublic string StreetNumber;<br>\r\npublic string Result;<br>\r\n<br>\r\n....<br>\r\n<br>\r\npublic virtual Parse()<br>\r\n{<br>\r\n    user code to parse Result into the different properties <span style=\"font-size:13px\">ThoroughfareName, <span style=\"font-size:13px\">LocalityName, <span style=\"font-size:13px\">PostalCodeNumber, <span style=\"font-size:13px\">CountryName, <span style=\"font-size:13px\">StateName</span></span></span></span></span><br>\r\n}<br>\r\n<br>\r\n}<br>\r\n<br>\r\nOf course the Parse method could have some default parsing.<br>\r\n<br>\r\n<br>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-24T05:49:24.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150519",
+    "ThreadId": "45065",
+    "Html": "..i see, good point",
+    "PostedDate": "2009-01-24T05:52:34.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150521",
+    "ThreadId": "45065",
+    "Html": "ok!",
+    "PostedDate": "2009-01-24T06:33:55.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

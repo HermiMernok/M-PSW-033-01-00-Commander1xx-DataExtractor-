@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "816175",
+    "ThreadId": "350230",
+    "Html": "\r\n<p>two very tiny fixes to suggest, 2 MapProviders have duplicate names. This causes an issue when i create a list of map names available.</p>\r\n<p>Suggested fix is something like this:</p>\r\n<p>GoogleChinaSatelliteMapProvider.Name GoogleSatelliteMap --&gt; GoogleChinaSatelliteMap<br>\r\nGoogleChinaTerrainMapProvider.Name GoogleChinaMap --&gt; GoogleChinaTerrainMap</p>\r\n",
+    "PostedDate": "2012-03-27T10:49:40.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816192",
+    "ThreadId": "350230",
+    "Html": "<p>fixed, thanks!</p>",
+    "PostedDate": "2012-03-27T11:21:36.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816243",
+    "ThreadId": "350230",
+    "Html": "<p>Very good thank you.</p>\r\n<p>&nbsp;</p>\r\n<p>Follow up issue,i was trying to adjust my code to better handle the range of zoom levels available. I looked at your sample and find it hardcoded to max zoom=24. Moving the slider to this value caused the error below (google sat map, over omaha NE, zoom to max 24). I see that you have done some changes to handling of zoom in the code. Trying to determine how to know what min/max i can use for a zoom slider control - adjusting as needed to handle different map sources. Any clues where i can find info on this?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>See the end of this message for details on invoking <br />just-in-time (JIT) debugging instead of this dialog box.<br /><br />************** Exception Text **************<br />System.OverflowException: Overflow error.<br />&nbsp;&nbsp; at System.Drawing.Graphics.CheckErrorStatus(Int32 status)<br />&nbsp;&nbsp; at System.Drawing.Graphics.FillPath(Brush brush, GraphicsPath path)<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapPolygon.OnRender(Graphics g)<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapOverlay.OnRender(Graphics g)<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnPaintOverlays(Graphics g)<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer, Boolean disposeEventArgs)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.WmPaint(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</p>",
+    "PostedDate": "2012-03-27T13:06:58.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816255",
+    "ThreadId": "350230",
+    "Html": "<p>nowhere ;}</p>",
+    "PostedDate": "2012-03-27T13:28:29.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

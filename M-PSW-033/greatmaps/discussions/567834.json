@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1306154",
+    "ThreadId": "567834",
+    "Html": "Hi, I have the following:\r<br />\n....\r<br />\nGMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(location.Latitude, location.Longitude), type);\r<br />\nmarker.ToolTip = new GMapToolTip(marker);\r<br />\nmarker.ToolTipText = &quot;blahblah&quot;\r<br />\nmarker.ToolTip.Format.Alignment = StringAlignment.Near;\r<br />\nmarkersOverlay.Markers.Add(marker);\r<br />\n<br />\nHow do I insert URL into myToolTip?\r<br />\n<br />\nThank you,<br />\n",
+    "PostedDate": "2014-09-18T17:50:01.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1306220",
+    "ThreadId": "567834",
+    "Html": "Trial and error of course:<br />\n<br />\nmarker.ToolTipText = &quot;<a href=\"http://www.myURL.com\" rel=\"nofollow\">www.myURL.com</a>&quot;<br />\n<br />\nThe Tooltip does not appear to have a Click event, so if all you want to do is display the URL you simply add the URL to the Tooltip Text.<br />\n<br />\nIf you want to allow customers to click on it, best is to add a Click event on the Marker which will open a Messagebox where you can add the URL for them to click the URL or go to the Web Page<br />\n",
+    "PostedDate": "2014-09-19T01:12:14.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1480093",
+    "ThreadId": "567834",
+    "Html": "How to remove the tooltip border or move the marker behind the other controls. Like the SendToBack method does<br />\n",
+    "PostedDate": "2016-07-29T03:32:39.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

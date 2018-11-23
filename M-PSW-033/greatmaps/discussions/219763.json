@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "468480",
+    "ThreadId": "219763",
+    "Html": "<p>Hello Sir,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I want to add approximate feature as we have in Google map. How shall I do that???</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>JankCD</p>",
+    "PostedDate": "2010-07-17T04:42:40.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468481",
+    "ThreadId": "219763",
+    "Html": "<p>?</p>",
+    "PostedDate": "2010-07-17T04:48:16.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468484",
+    "ThreadId": "219763",
+    "Html": "<p>Hmmm if we have a latitude and longitude I want to find the near by location. Suppose i have my longitude and latitude near football ground it will show an approximate location of near by road as we have in Google map. When we search in Google maps and give latitude and longitude it will show the exact location with approximate (A) location that only I want.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-17T04:59:25.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468513",
+    "ThreadId": "219763",
+    "Html": "<p>i don't know, maybe it's possible, just need to analyze all google services, but it's not very interesting for me to do ;]</p>",
+    "PostedDate": "2010-07-17T08:04:48.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468523",
+    "ThreadId": "219763",
+    "Html": "<p>Need call 2 google URLs:</p>\r\n<p>1. <a href=\"http://maps.google.com/maps/nav?key=GOOGLE_KEY&output=js&dirflg=d&hl=GB&mapclient=jsapi&q=from:LAT,LNGto:LAT,LNG\">http://maps.google.com/maps/nav?key=GOOGLE_KEY&amp;output=js&amp;dirflg=d&amp;hl=GB&amp;mapclient=jsapi&amp;q=from:LAT,LNGto:LAT,LNG</a></p>\r\n<p>Responce will in json format. From it need take address from first placemark and call next URL</p>\r\n<p>2. <a href=\"http://maps.google.com/maps/geo?output=json&oe=utf-8&q=ADDRESS&ll=from:LAT,LNGto:LAT,LNG&spn=0.2,0.2&key=GOOGLE_KEY&mapclient=jsapi&hl=en\">http://maps.google.com/maps/geo?output=json&amp;oe=utf-8&amp;q=ADDRESS&amp;ll=from:LAT,LNGto:LAT,LNG&amp;spn=0.2%2C0.2&amp;key=GOOGLE_KEY&amp;mapclient=jsapi&amp;hl=en</a></p>\r\n<p>Responce in json format.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-17T09:02:36.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470837",
+    "ThreadId": "219763",
+    "Html": "<p>Thanks For yr post,We have tried this one but in first URL</p>\r\n<p>&nbsp;</p>\r\n<p><a href=\"http://maps.google.com/maps/nav?key=GOOGLE_KEY&output=js&dirflg=d&hl=GB&mapclient=jsapi&q=from:LAT,LNGto:LAT,LNG\">http://maps.google.com/maps/nav?key=GOOGLE_KEY&amp;output=js&amp;dirflg=d&amp;hl=GB&amp;mapclient=jsapi&amp;q=from:LAT,LNGto:LAT,LNG</a></p>\r\n<p>&nbsp;</p>\r\n<p>we have given GoogleKey and Lat,Lang point but i don know wat should be passed in</p>\r\n<p>&nbsp;</p>\r\n<p><a href=\"http://maps.google.com/maps/nav?key=GOOGLE_KEY&output=js&dirflg=d&hl=GB&mapclient=jsapi&q=from:LAT,LNGto:LAT,LNG\">to:LAT,LNG</a></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-22T03:56:30.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471458",
+    "ThreadId": "219763",
+    "Html": "<p>Same Latitude,&nbsp;Longitude as for from</p>\r\n<p>Somthing like:</p>\r\n<p>from:1.0023,2.0012to:1.0023,2.0012</p>",
+    "PostedDate": "2010-07-23T03:01:14.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472500",
+    "ThreadId": "219763",
+    "Html": "<p>Thanks for the reply. We tried as your saying&nbsp;</p>\r\n<p><br>http://maps.google.com/maps/nav?key=GoogleKey&amp;output=js&amp;dirflg=d&amp;hl=GB&amp;mapclient=jsapi&amp;q=from:1.0023,2.0012to:1.0023,2.0012</p>\r\n<p>&nbsp;</p>\r\n<p>But we are getting the response as:</p>\r\n<pre>{&quot;name&quot;:&quot;from:1.0023,2.0012to:1.0023,2.0012&quot;,&quot;Status&quot;:{&quot;code&quot;:400,&quot;request&quot;:&quot;directions&quot;}}<br><br>status is 400 that is bad request!!!!<br><br><br>I'm sure somewhere we are taking it in wrong way. So could you plz help us?????<br><br><br>Regards,<br>JankCD<br></pre>",
+    "PostedDate": "2010-07-26T00:09:12.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472529",
+    "ThreadId": "219763",
+    "Html": "<p>1. Google key - must be</p>\r\n<p>2. point must be not in ocean.</p>\r\n<p>3. Not forgot URL param encode.</p>\r\n<p>Somthing like that:</p>\r\n<p><a href=\"http://maps.google.com/maps/nav?key=ABQIAAAAjAqPr6ulHq8uIG5f1Zf4JRTcdGPhFtFfp_WL1D1N10ngd8KVZxT09kcRmvXQ721pG6W6enXqBG2yog&output=js&dirflg=d&hl=GB&mapclient=jsapi&q=from:51.801215,5.24895+to:51.801215,5.24895\">http://maps.google.com/maps/nav?key=ABQIAAAAjAqPr6ulHq8uIG5f1Zf4JRTcdGPhFtFfp_WL1D1N10ngd8KVZxT09kcRmvXQ721pG6W6enXqBG2yog&amp;output=js&amp;dirflg=d&amp;hl=GB&amp;mapclient=jsapi&amp;q=from%3A51.801215%2C5.24895+to%3A51.801215%2C5.24895</a></p>",
+    "PostedDate": "2010-07-26T01:50:29.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

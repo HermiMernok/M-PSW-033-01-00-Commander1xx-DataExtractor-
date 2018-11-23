@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1044862",
+    "ThreadId": "443994",
+    "Html": "Hi radioman,<br />\n<br />\nI'm using the latest beta (5/9/13) and I'm having trouble with the Cloudmade map source. I modified demo to use my API key instead of default. <br />\n<br />\nWith beta version, I have trouble with rendering tiles. Some tiles get stuck being blurry and too big for their size. See this image:<br />\n<img src=\"http://i.imgur.com/8AQyzMj.png\" alt=\"Image\" /><br />\n<br />\nI highlighted some of the mis-rendered tiles with a black outline. What could be causing this issue? <br />\n<br />\nCloudmade works just fine with same API key in the V1.6 power release. I'd greatly appreciate any assistance with this issue. <br />\n",
+    "PostedDate": "2013-05-16T21:14:11.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044885",
+    "ThreadId": "443994",
+    "Html": "is it repeatable issue or it's just one time bug?<br />\n",
+    "PostedDate": "2013-05-16T23:22:45.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045126",
+    "ThreadId": "443994",
+    "Html": "It is repeatable issue. \r<br />\n<br />\nPlug in a working CloudMade API key and them drag the map around to cause new tiles to load. Some tiles will randomly load like shown above. I registered a testing API key for CloudMade. Feel free to use it:<br />\n<pre><code>// From CloudMadeMapProvider.cs\nCloudMadeMapProvider()\n      {\n          Key = &quot;40a1fe83563e46ee8ea6e030eabe6380&quot;; // my demo key for CloudMade\n         StyleID = 1; // grab your style here http://maps.cloudmade.com/?styleId=45363\n      }</code></pre>\n\nFor the affected tiles, it seems like an image from the wrong zoom level is loaded instead, or the rendering process is stopped before it completes. Note how the roads in the affected tiles are much thicker than in neighboring tiles.<br />\n",
+    "PostedDate": "2013-05-17T07:48:54.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045130",
+    "ThreadId": "443994",
+    "Html": "works perfect for me, no issues at all using even your custom style<br />\n",
+    "PostedDate": "2013-05-17T07:54:45.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045139",
+    "ThreadId": "443994",
+    "Html": "OK, that's encouraging. Which version of GMap.NET are you using? May 9th 2013 &quot;hot build&quot; or a different version?<br />\n",
+    "PostedDate": "2013-05-17T08:07:58.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045140",
+    "ThreadId": "443994",
+    "Html": "latest<br />\n",
+    "PostedDate": "2013-05-17T08:09:03.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045199",
+    "ThreadId": "443994",
+    "Html": "I just finished testing latest (May 14, 2013) build, trying both my custom style and the default one.\r<br />\n<br />\nUnfortunately this release is still broken. Some tiles just fail to finish rendering. You might need to scroll around a couple times to trigger the error, but it happens quite often. <br />\n",
+    "PostedDate": "2013-05-17T09:56:03.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

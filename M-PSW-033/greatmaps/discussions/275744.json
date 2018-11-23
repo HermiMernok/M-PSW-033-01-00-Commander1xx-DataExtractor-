@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "683665",
+    "ThreadId": "275744",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I have a &quot;custom marker&quot;, &quot;OwnUnit&quot;,&nbsp;a UserControl which is assigned to a number of Marker.Shape properties. The &quot;custom marker&quot; has an icon as it's only UIElement and I've overridden the Onrender method which works great initially (by using icon.LayoutTransform\r\n = new RotateTransform(..)), rotating the icon. However I'd like to be able to do something like:</p>\r\n<p>(customMarker.Shape as OwnUnit).SetHeading = 123</p>\r\n<p>where SetHeading sets a private member containing the rotation of the icon, but the OnRender seems to be called only the first rendering of the shape - not when changing the position for a given marker having the UserControl as shape. Do you know how I can\r\n accomplish this?</p>\r\n<p>Many thanks in advance<br>\r\n/Peter</p>\r\n",
+    "PostedDate": "2011-10-13T06:20:54.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "683669",
+    "ThreadId": "275744",
+    "Html": "<p>http://msdn.microsoft.com/en-us/library/ms750596.aspx</p>",
+    "PostedDate": "2011-10-13T06:25:49.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342227",
+    "ThreadId": "275744",
+    "Html": "rotation is fixed<br />\n",
+    "PostedDate": "2015-01-15T08:23:11.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1257874",
+    "ThreadId": "549122",
+    "Html": "Also I found a little bug happening in a specific condition. When a selection box has been drawn (using ALT + left mouse) the OnSelectionChanged event is raised in GMapControl.cs. However when the box is still drawn and you press and release the right button the OnSelectionChanged raises again. This is not wanted since the selection hasn't been changed. I solved this by making a little change in the OnMouseUp override.\r<br />\n<br />\nOld Code:<br />\n<pre><code>         else\n         {\n#if !PocketPC\n            if(e.Button == DragButton)\n            {\n               Core.mouseDown = GPoint.Empty;\n            }\n\n            if(!selectionEnd.IsEmpty &amp;&amp; !selectionStart.IsEmpty)\n            {</code></pre>\n\nNew Code:<br />\n<pre><code>         else\n         {\n#if !PocketPC\n            if(e.Button == DragButton)\n            {\n               Core.mouseDown = GPoint.Empty;\n                __Invalidate();__\n                __return;__\n            }\n\n            if(!selectionEnd.IsEmpty &amp;&amp; !selectionStart.IsEmpty)\n            {</code></pre>\n\n",
+    "PostedDate": "2014-06-19T06:24:35.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

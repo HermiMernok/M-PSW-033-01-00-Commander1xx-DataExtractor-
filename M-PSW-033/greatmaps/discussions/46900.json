@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "156902",
+    "ThreadId": "46900",
+    "Html": "It appears that the OnCurrentPositionChanged event is not firing.  I've tried in both C# and vb.net, by declaring a new event and by using the &quot;using&quot; command.  For example, I have tried:<br>\r\n<br>\r\nSub New()<br>\r\n    ...<br>\r\n    AddHandler myGmap.OnCurrentPositionChanged, AddressOf myGmap_OnCurrentPositionChanged<br>\r\n    ...<br>\r\nEnd Sub <br>\r\n<br>\r\nand <br>\r\n<br>\r\nSub myGmap_OnCurrentPositionChanged(ByVal point As PointLatLng) Handles myGmap.OnCurrentPositionChanged<br>\r\n    'do something                    <br>\r\nEnd Sub<br>\r\n<br>\r\nAm I missing something?  I am using build 31281.<br>\r\n<br>\r\nThanks,<br>\r\nJoeBerni \r\n",
+    "PostedDate": "2009-02-11T22:50:11.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "156925",
+    "ThreadId": "46900",
+    "Html": "Ok, I figured part of this out and chalk it up to learning pains.  <br>\r\n<br>\r\nOnCurrentPositionChanged does fire, but it only fires with the current position marker is moved and not when the map itself moves.  This leads me to the question of is it possible for an event to be fired when the map is moved (via dragging) that results in the current position being updated to the center point of the new map view?\r\n",
+    "PostedDate": "2009-02-12T01:08:25.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "156969",
+    "ThreadId": "46900",
+    "Html": "done!",
+    "PostedDate": "2009-02-12T04:21:23.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

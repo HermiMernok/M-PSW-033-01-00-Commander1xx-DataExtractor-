@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1063951",
+    "ThreadId": "448924",
+    "Html": "we are looking for a way to develop/rewrite our current winforms gmap.net application inside silverlight/asp.net or any other webbased language.\r<br />\nif it is, kindly let me know... some links/resources or anything that might help.\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-07-03T00:48:03.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063977",
+    "ThreadId": "448924",
+    "Html": "you can just use microsoft map control for silverlight and reuse the gmap.net cache<br />\n<br />\ncheck demo project: Testing\\Silverlight\\SilverlightMapFusion.Web<br />\n",
+    "PostedDate": "2013-07-03T01:57:38.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064064",
+    "ThreadId": "448924",
+    "Html": "in can't start silverlight project.<br />\nI am sitting behind corporate proxy<br />\nErrors are:<br />\n<br />\nError\t10\tUnable to load the metadata for assembly 'SilverlightMapFusion'. This assembly may have been downloaded from the web.  See <a href=\"http://go.microsoft.com/fwlink/?LinkId=179545\" rel=\"nofollow\">http://go.microsoft.com/fwlink/?LinkId=179545</a>.  The following error was encountered during load: Could not load file or assembly 'SilverlightMapFusion' or one of its dependencies. The system cannot find the file specified.\tC:\\Users..\\Desktop\\greatmaps-467b14130875TEMP\\greatmaps_467b14130875\\Testing\\Silverlight\\SilverlightMapFusion\\MainPage.xaml\t1\t1\tSilverlightMapFusion<br />\n<br />\n<br />\nError\t11\tThe type 'local:CustomTileLayer' was not found. Verify that you are not missing an assembly reference and that all referenced assemblies have been built.\tC:\\Users..\\Desktop\\greatmaps-467b14130875TEMP\\greatmaps_467b14130875\\Testing\\Silverlight\\SilverlightMapFusion\\MainPage.xaml\t13\t14\tSilverlightMapFusion<br />\n<pre><code>&lt;Grid x:Name=&quot;LayoutRoot&quot; Background=&quot;White&quot;&gt;\n    &lt;m:Map x:Name=&quot;map&quot; Center=&quot;54.6961334816182, 25.2985095977783&quot; ZoomLevel=&quot;15&quot; CredentialsProvider=&quot;Akw4XWHH0ngzzB_4DmHOv_XByRBtX5qwLAS9RgRYDamxvLeIxRfSzmuvWFB9RF7d&quot;&gt;\n\n        &lt;local:CustomTileLayer /&gt; //is not found\n\n    &lt;/m:Map&gt;\n&lt;/Grid&gt;</code></pre>\n\n",
+    "PostedDate": "2013-07-03T05:18:06.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064081",
+    "ThreadId": "448924",
+    "Html": "build the project<br />\n",
+    "PostedDate": "2013-07-03T05:46:03.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064083",
+    "ThreadId": "448924",
+    "Html": "binaray folder was empty of &quot;SilverlighMapFusion&quot; project.<br />\nanyway it works now.<br />\nthanks<br />\n",
+    "PostedDate": "2013-07-03T05:52:34.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064089",
+    "ThreadId": "448924",
+    "Html": "..it's because by default all test projects isn't included in build, you can set in configuration manager<br />\n",
+    "PostedDate": "2013-07-03T05:59:56.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064090",
+    "ThreadId": "448924",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nyou can just use microsoft map control for silverlight and reuse the gmap.net cache<br />\n</blockquote>\nreuse gmap.net cache... what do you mean by that. Shed some light please.\r<br />\nAlso explain:\r<br />\nwhy <strong>GMap.NET.Core</strong> and <strong>GMap.NET.WindowsPresentation</strong>\r<br />\nare present in <strong>SilverlightMapFusion.Web</strong><br />\n",
+    "PostedDate": "2013-07-03T06:00:00.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064094",
+    "ThreadId": "448924",
+    "Html": "because it host gmap.net, sl application with custom tilesource gets tiles from SilverlightMapFusion.Web via http interface of gmap.net\r<br />\n<br />\nit's possible to use any web map interface, like LeafletJS/etc, you can test it in winforms demo, cache submenu\r<br />\n<br />\nyou can even make map provider for the tilehost on the local network, therefore having single cache for the network users without additional mysql/etc servers... but it's automatic if you use web applications<br />\n",
+    "PostedDate": "2013-07-03T06:15:12.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1278481",
+    "ThreadId": "448924",
+    "Html": "Hi guys!<br />\n I 've been using radioman's great Desktop tool for a while now, but now the customers and the market is leading everybody to work over a web site. <br />\nI have a couple of projects already working with gmaps.net, but now I would like to &quot;Port&quot; them to asp.net. <br />\nIt would be great If anyone with ASP.NET Skill would post a more complete sample on how to use gmaps.net in a web site. <br />\n<br />\nI keep trying to have something but here I must admit I am a bit lost.<br />\n<br />\nThank you all in advance.<br />\nRegards<br />\nHN<br />\n",
+    "PostedDate": "2014-07-28T12:21:55.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "663036",
+    "ThreadId": "270316",
+    "Html": "\r\n<p>Hi guys, I'm new at this so bear with me.</p>\r\n<p>I included GMap.NET into my project. In this project, I have a GMapControl object on my user interface that displays the map. I subsequently use &lt;GMapControl variable name&gt;_ManipulationDelta() event to update the&nbsp;&lt;GMapControl variable name&gt;.Position.\r\n And this works fine for touch to pan. Zoom has interesting behaviour, as follows.</p>\r\n<p>I noticed that &lt;GMapControl variable name&gt;.Zoom is of type 'double'. Therefore, I used the same ManipulationDelta to get the pinch to zoom. Subsequently, I did:</p>\r\n<p>Map.Zoom &#43;= mRelativeDelta.Scale.X - 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to zoom in</p>\r\n<p>or</p>\r\n<p>Map.Zoom -= 1 - mRelativeDelta.Scale.Y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to zoom out</p>\r\n<p>&nbsp;</p>\r\n<p>And the zoom works fine on its on too. However, when I combine the Pan and Zoom behaviour together, some funky behaviour is observed. The zooming action attempts to pan at the same time. And subsequently, having zoomed in/out, the pan action is finicky and\r\n attempts to pan in opposite directions. This behaviour is eliminated when i use discrete values of type 'int' for Map.Zoom instead of type 'double'.</p>\r\n<p>Does anyone know what is causing this behaviour in GMapControl.cs?</p>\r\n<p>Why does the zoom value need to be rounded to an integer?</p>\r\n",
+    "PostedDate": "2011-08-24T22:27:10.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665406",
+    "ThreadId": "270316",
+    "Html": "<p>can't test panning, sorry</p>",
+    "PostedDate": "2011-08-30T10:30:01.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

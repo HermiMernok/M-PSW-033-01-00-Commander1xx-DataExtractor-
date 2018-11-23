@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "167393",
+    "ThreadId": "50015",
+    "Html": "Sorry folkes, need a bit of clarity here...<br>\r\nAre WPF markers currently working in version gmap4dotnet-32093.<br>\r\nI've tried the MainMap.AddMarker(marker) code, but the markers are not being created (looks as though the local Canvas X and Y is not being set)<br>\r\n<br>\r\nIs this right, or am I missing something (which is usually the case!)<br>\r\n<br>\r\nHere's my code:<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\">? start = </span><span style=\"font-size:13px;color:#2b91af\">GMaps</span><span style=\"font-size:13px\">.Instance.GetLatLngFromGeocoder(location);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\"> (start != </span><span style=\"font-size:13px;color:#0000ff\">null</span><span style=\"font-size:13px\">)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">GMapMarkerCircle</span><span style=\"font-size:13px\"> c = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">GMapMarkerCircle</span><span style=\"font-size:13px\">(MainMap);\r\n<p>&nbsp;</p>\r\n<p>c.Position = start.Value;</p>\r\n<p>c.Label.Content = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">String</span><span style=\"font-size:13px\">.Format(</span><span style=\"font-size:13px;color:#a31515\">&quot;Marker {0}&quot;</span><span style=\"font-size:13px\">,MainMap.Objects.Count);\r\n<p>&nbsp;</p>\r\n<p>MainMap.AddMarker(c);</p>\r\n<p>}</p>\r\n</span></p>\r\n<br>\r\n<br>\r\nregards<br>\r\nJohn<br>\r\n<br>\r\np.s. nice work radioman.\r\n",
+    "PostedDate": "2009-03-12T08:09:25.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "167676",
+    "ThreadId": "50015",
+    "Html": "Got it working, removed the itemsource = Objects, and then added the canvas<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> GMap_Loaded(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#2b91af\">RoutedEventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>Core.StartSystem();</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">.Items.Add(Canvas);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\"><span style=\"font-size:13px;color:#008000\">//this.ItemsSource = Objects;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\"><span style=\"font-size:13px;color:#008000\">//worker.RunWorkerAsync();\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">Also added...<br>\r\n<p>&nbsp;</p>\r\n<ul>\r\n    <li> ObservableCollection of GMarkMarker to keep track of what markers I've got.</li>\r\n    <li>IsCurrentMarker boolean to GMapMarker</li>\r\n    <li>MouseDown event in GMapMarker to set it as CurrentMarker</li>\r\n</ul>\r\n<p>Would really like to see some AddPolygon() / AddLayer() functionality... I can work on it here and post it later.</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-03-13T03:32:02.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "167692",
+    "ThreadId": "50015",
+    "Html": "wpf version in latest trunk is in testing, use previous sets to get working stuff ;} Any ideas about how to add shapes using ItemsSource are very welcome! <br><br>",
+    "PostedDate": "2009-03-13T04:36:23.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

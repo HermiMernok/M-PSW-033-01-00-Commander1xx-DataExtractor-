@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "691792",
+    "ThreadId": "277809",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I wanted to know for what reason there are Thread.Sleep(...) calls in many places (especially in providers). Maybe it's possible to remove them?</p>\r\n<p>Also radioman, do you consider using .NET 4 framework Tasks instead?</p>\r\n",
+    "PostedDate": "2011-10-31T12:47:52.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692404",
+    "ThreadId": "277809",
+    "Html": "<p>sleeps are only for debugging, using debug mode in your application is insane ;}</p>\r\n<p>tasks only supported in .net4, this control supports Pocket PC and .NET2</p>",
+    "PostedDate": "2011-11-01T14:39:02.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

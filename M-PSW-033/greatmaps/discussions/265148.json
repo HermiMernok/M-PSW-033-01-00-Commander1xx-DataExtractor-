@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "642301",
+    "ThreadId": "265148",
+    "Html": "\r\n<p>Hi Radioman,<br>\r\n<br>\r\nStrangely I had a problem using the default SQLite settings. My app needs to be compiled with 32bits, so I changed the core into that. Rebuild the core, wpf and demo. The demo works on my machine (win 7 prof). When I transfer all the files to a laptop (win\r\n 7 home) all is ok. Next I incorporated the assemblies in my .net 4 app. Works ok on my machine, but not on the laptop. The laptop is saying &quot;no sqlite.dll&quot; (I didn't reference a sqlite in my app and there was indeed no dll present). I tried all my sqlite.dll\r\n on my machine on the laptop (and with x64/x86 subdirs), without any luck. I guess it has to do with the sqlite incorporated into the resources. Many years ago I also had some problems unpacking data from a resource at one of my users. Anyway I couldn't find\r\n the reason.<br>\r\n<br>\r\nSo I decompiled with the MySQL settings. There are a couple of errors then. You see them yourself and they are easy to fix.<br>\r\nEg this is an example for MySQLPureImageCache.cs:<br>\r\npublic bool PutImageToCache(MemoryStream tile, MapType type, GPoint pos, int zoom) =&gt; type has to become int<br>\r\n<br>\r\nand<br>\r\n&nbsp;if(GMaps.Instance.ImageProxy != null)<br>\r\n&nbsp;{<br>\r\n&nbsp;MemoryStream stm = new MemoryStream(tile, 0, tile.Length, false, true);<br>\r\n&nbsp;ret = GMaps.Instance.ImageProxy.FromStream(stm);<br>\r\nif(ret != null)<br>\r\n{<br>\r\nret.Data = stm;<br>\r\n&nbsp;}<br>\r\n}<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;\r\n<br>\r\nwill become:<br>\r\nif (GMapProvider.TileImageProxy != null)<br>\r\n&nbsp;{<br>\r\n&nbsp;MemoryStream stm = new MemoryStream(tile, 0, tile.Length, false, true);<br>\r\n&nbsp;ret = GMapProvider.TileImageProxy.FromStream(stm);<br>\r\n&nbsp;if (ret != null)<br>\r\n&nbsp;{<br>\r\n&nbsp;ret.Data = stm;<br>\r\n&nbsp;}<br>\r\n&nbsp;}<br>\r\n<br>\r\n&nbsp;Using MySQL my app works again. Once again thanks for GMap,<br>\r\n&nbsp;Frank.</p>\r\n",
+    "PostedDate": "2011-07-14T06:13:41.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642307",
+    "ThreadId": "265148",
+    "Html": "<p>new version doesn't require setting targets or deploying folders or recompiling anything, all is automatic and targetng .net4 doesn't need any configs too ;} as for mysql, i'll fix it</p>",
+    "PostedDate": "2011-07-14T06:22:07.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642309",
+    "ThreadId": "265148",
+    "Html": "<p>I read the discussions here. My best guess is that the unpacking of the resource fails. As I couldn't find the source I can't provide you more help how to solve my problem. Like I said I had this many years ago with a .net v2 application using data extraction from a resource; it worked everywhere except at one environment.</p>",
+    "PostedDate": "2011-07-14T06:33:05.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642313",
+    "ThreadId": "265148",
+    "Html": "<p>hm, can you make a debug version and see the actual exception?</p>",
+    "PostedDate": "2011-07-14T06:39:56.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642337",
+    "ThreadId": "265148",
+    "Html": "<p>The strange part is that the demo works, but not with my app. I have an old 3rd party component in it, which I believe uses a .net wrapper around its dll/ocx (I will get rid of that component and I'm evaluating other products). It uses ado/sqldrivers (but I don't know how), and I think there is a conflict. Before you incorporated sqlite (say a month ago) into Gmap I could reference both components on my home pc (xp 32bits) in Visual Studio, but not at my office (win 7 64 bits). VS reported conflicts with the sqlite drivers. Now VS reports no errors, but running the app on (that) another machine gives the dll not found error.<br /><br />I do use CurrentDomain_AssemblyResolve btw. A component I'm using makes use of a fuscator and it crashed because I used that event (they fixed their fuscator).<br /><br />But please don't put any effort in solving my problem. The MySQL workaround is ok.</p>",
+    "PostedDate": "2011-07-14T07:19:01.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "944082",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>I am really hoping someone can help me here as I am tearing my hair out at the moment. &nbsp;</p>\r\n<p>Windows Forms App in VB.net was working perfectly, following a parsing run of upto 20,000 IP Addresses, GEOIP them then pull the latest run from the database with any new entries would add custom markers to map depending on the type. &nbsp;Then, with no\r\n warning or code change it suddenly stopped working and I have tried everything I can think of to get it working again, even starting from scratch and going back to a previous version.</p>\r\n<p>The strange thing is this, if I put the code in form load, it works perfectly and displays all the markers. &nbsp;however, using the EXACT same code in a checkbox update event it either gives me an exception error of 'Parameter is not valid' on the overlay.markers.add\r\n line or it places all the markers on the same spot (the co-ordinates set for map center).</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>GMapProvider.WebProxy = <span style=\"color:blue\">New</span> WebProxy(<span style=\"color:#a31515\">&quot;XXXXXXX</span>)\n        GMapProvider.WebProxy.Credentials = <span style=\"color:blue\">New</span> NetworkCredential(<span style=\"color:#a31515\">&quot;xxxxxxxxx</span><span style=\"color:#a31515\">&quot;</span>)\n        <span style=\"color:blue\">Try</span>\n            <span style=\"color:blue\">Dim</span> es <span style=\"color:blue\">As</span> System.Net.IPHostEntry = System.Net.Dns.GetHostEntry(<span style=\"color:#a31515\">&quot;www.bing.com&quot;</span>)\n        <span style=\"color:blue\">Catch</span>\n            GMapControl1.Manager.Mode = AccessMode.CacheOnly\n            MessageBox.Show(<span style=\"color:#a31515\">&quot;No internet connection avaible, going to CacheOnly mode.&quot;</span>, <span style=\"color:#a31515\">&quot;GMap.NET - Demo.WindowsForms&quot;</span>, MessageBoxButtons.OK, MessageBoxIcon.Warning)\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Try</span>\n\n        <span style=\"color:green\">' config map</span>\n        GMapControl1.MapProvider = GMapProviders.BingMap\n\n        GMapControl1.MaxZoom = 11\n        GMapControl1.MinZoom = 1\n        GMapControl1.Zoom = 2\n        GMapControl1.Position = <span style=\"color:blue\">New</span> PointLatLng(49.7951, 0.12902) <span style=\"color:green\">'it's seems that currentposition can't be used anymore.</span>\n        GMapControl1.ShowCenter = <span style=\"color:blue\">False</span>\n\n        GMapControl1.Manager.Mode = AccessMode.ServerOnly\n\n        <span style=\"color:blue\">Dim</span> overlayOne <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapOverlay(<span style=\"color:#a31515\">&quot;Map&quot;</span>)\n\n        <span style=\"color:blue\">Dim</span> adaptera <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> SqlDataAdapter\n        <span style=\"color:blue\">Dim</span> dk <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> DataSet\n        <span style=\"color:blue\">Dim</span> command <span style=\"color:blue\">As</span> SqlCommand\n\n        sql = <span style=\"color:#a31515\">&quot;select top 10000 [lat],[lng],maltype from [MalDash].[dbo].[main] order by whenadded desc;&quot;</span>\n        command = <span style=\"color:blue\">New</span> SqlCommand(sql, myConn)\n        adaptera.SelectCommand = command\n        adaptera.Fill(dk)\n        adaptera.Dispose()\n        command.Dispose()\n\n        <span style=\"color:blue\">Dim</span> picim <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>\n\n        <span style=\"color:blue\">For</span> <span style=\"color:blue\">Each</span> row <span style=\"color:blue\">As</span> DataRow <span style=\"color:blue\">In</span> dk.Tables(0).Rows\n            picim = row.Item(<span style=\"color:#a31515\">&quot;maltype&quot;</span>)\n            <span style=\"color:blue\">Me</span>.GMapControl1.HoldInvalidation = <span style=\"color:blue\">True</span>\n            overlayOne.Markers.Add(<span style=\"color:blue\">New</span> GMarkerGoogle(<span style=\"color:blue\">New</span> PointLatLng(row.Item(<span style=\"color:#a31515\">&quot;lat&quot;</span>), row.Item(<span style=\"color:#a31515\">&quot;lng&quot;</span>)), <span style=\"color:blue\">New</span> Bitmap(<span style=\"color:#a31515\">&quot;C:\\\\&quot;</span> &amp; picim &amp; <span style=\"color:#a31515\">&quot;.png&quot;</span>)))\n\n        <span style=\"color:blue\">Next</span> row\n        <span style=\"color:blue\">Me</span>.GMapControl1.Overlays.Add(overlayOne)\n</pre>\r\n<pre><br></pre>\r\n<pre>I've done some further digging with a try catch block to see the actual error and row.  Each time it is run, it is a different row that is causing the error.  So far, I've run it 25 times and its never given the error on the same row twice.</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-11-19T09:13:45.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944102",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>because you set&nbsp;&nbsp;Me.GMapControl1.<strong>HoldInvalidation</strong> = True and don't call map.<strong>Refresh</strong>();&nbsp;at the end</p>\r\n<ol>\r\n<li>Me.GMapControl1.Overlays.Add(overlayOne)&nbsp; </li><li>set&nbsp;<strong>HoldInvalidation</strong> = true </li><li>loop with markers </li><li>call map.<strong>Refresh</strong>(); </li></ol>\r\n",
+    "PostedDate": "2012-11-19T09:39:21.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944138",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>thanks for the advice radio man, I'd love to say it solved my problem but unfortunately not. &nbsp;I've stripped the code right down to the bare essentials and used a sqldatareader instead of an adapter.</p>\r\n<p>I still get 'Parameter not valid' on random lines whenadding the marker to the overlay collection, only once has it stopped on the same line twice. &nbsp;However, if I put the map gmapcontrol1.refresh() inside the loop, it adds the markers one by one, in their\r\n correct locations and continues without error to the end, the only problem is that the more it adds the slower it gets, the 6000 selected below took almost 15 mins to map. &nbsp;Yet, on form load, it collects 10000 entries, adds them to the overlay and displays\r\n it correctly in less than 30 seconds ? &nbsp;I'm just stumped how the exact same code works in one part of the form (ie. form.load) but not in another.</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>overlayOne.Clear()\r\n        GMapControl1.Refresh()\r\n        myConn.Open()\r\n        nonqueryCommand.CommandText = <span style=\"color:#a31515\">&quot;Select top 6000 lat,lng,maltype from maldash.dbo.main order by whenadded desc;&quot;</span>\r\n        <span style=\"color:blue\">Dim</span> reader <span style=\"color:blue\">As</span> SqlDataReader = nonqueryCommand.ExecuteReader()\r\n        <span style=\"color:blue\">Me</span>.GMapControl1.Overlays.Add(overlayOne)\r\n        <span style=\"color:blue\">Me</span>.GMapControl1.HoldInvalidation = <span style=\"color:blue\">True</span>\r\n        <span style=\"color:blue\">While</span> reader.Read()\r\n            overlayOne.Markers.Add(<span style=\"color:blue\">New</span> GMarkerGoogle(<span style=\"color:blue\">New</span> PointLatLng(reader.GetString(0), reader.GetString(1)), <span style=\"color:blue\">New</span> Bitmap(<span style=\"color:#a31515\">&quot;C:\\\\&quot;</span> & reader.GetString(2) & <span style=\"color:#a31515\">&quot;.png&quot;</span>)))\r\n         <span style=\"color:blue\">End</span> <span style=\"color:blue\">While</span>\r\n            <span style=\"color:blue\">Me</span>.GMapControl1.Refresh()\r\n        reader.Close()\r\n        myConn.Close()\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-11-19T10:44:33.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944147",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>reader.GetString(0), reader.GetString(1)), New Bitmap(&quot;C:\\\\&quot; & reader.GetString(2) // in this line lives your bug</p>\r\n",
+    "PostedDate": "2012-11-19T10:55:49.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944455",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>I know, but what is causing it and why is it so intermittant ? &nbsp;I've just tried it again with 2000 at a time displayed separately in each of my 16 categories and it worked a treat, all 32,000 markers showed correctly as they should. &nbsp;Closed the form, re-opened\r\n it (shows 10000 markers at open), clear markers then begin to add individually again and get the error on the very first one. &nbsp;No new data has been entered to the underlying database and no code had changed. &nbsp;Close and re-open form again and the one that just\r\n gave me the error worked straight away but now another throws the exception. &nbsp;</p>\r\n<p>I could catch the exception quite easily but I've found that by doing so cause an out of memory exception to occur. &nbsp;I'm pretty sure its something simple but I've run out of places to look. &nbsp;For info, the error first began just after i started adding circles\r\n to the map and then changed my mind. &nbsp;Even though I went back to the original code I just cannot remove this random error and would really appreciate any help or suggestions.</p>\r\n",
+    "PostedDate": "2012-11-20T02:32:40.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944456",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>it's not a map issue</p>\r\n",
+    "PostedDate": "2012-11-20T02:37:56.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944600",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>thanks for your help. &nbsp;After trial and error and numerous amounts of digging, it seems that the issue was calling the PNG file from the local drive. &nbsp;Basically, the app and map control were too quick for the system under heavy load and it couldnt grab the\r\n files quick enough, causing the error. &nbsp;I moved the PNG files from the local drive into the resources of the app and called them through my.resources etc and so far, I'm back to mapping 2-3000 IPs without a problem.</p>\r\n",
+    "PostedDate": "2012-11-20T07:35:30.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944602",
+    "ThreadId": "403828",
+    "Html": "\r\n<p>i see ;}</p>\r\n<p>p.s. you can improve loading time by not calling Resources.xxx directly, but saving bitmap instance into some variable, because accessing resources is quite slow too</p>\r\n",
+    "PostedDate": "2012-11-20T07:43:19.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

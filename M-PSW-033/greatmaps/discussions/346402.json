@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "801928",
+    "ThreadId": "346402",
+    "Html": "\r\n<p>The maximum zoom level supported by Bing depends on the location. Bing returns a dummy &quot;no-tile&quot; tile if a proper tile is not available at the requested location and zoom level. See below.</p>\r\n<p>&nbsp;</p>\r\n<p><img src=\"http://www.giessinglund.dk/bing-no-tile.jpg\" alt=\"\"></p>\r\n<p>&nbsp;</p>\r\n<p>Bing adds the header <br>\r\n&quot;X-VE-Tile-Info&quot; = &quot;no tile&quot;<br>\r\nto the responce, when returning the dummy tile. I suggest that the Bing map providers adds a check for this header and hence allows GMap to replace the dummy tiles with lower level tiles.</p>\r\n<p>Thanks,</p>\r\n",
+    "PostedDate": "2012-02-27T04:05:19.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801933",
+    "ThreadId": "346402",
+    "Html": "<p>good point, i'll check it</p>",
+    "PostedDate": "2012-02-27T04:14:23.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801970",
+    "ThreadId": "346402",
+    "Html": "<p>fixed, thanks</p>",
+    "PostedDate": "2012-02-27T05:47:55.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

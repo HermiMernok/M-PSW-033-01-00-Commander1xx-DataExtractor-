@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "636058",
+    "ThreadId": "263578",
+    "Html": "<p>Hi,</p>\n<p>I've created a Custom Marker containing an Image, this works perfectly. The problem is when i assign the tooltip, it's not working, while using the <span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">GMapMarkerGoogleRed </span></span></span>class; everthing is fine.</p>\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"></span></span>&nbsp;</p>\n<p>top = <span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">new</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"> </span></span><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">GMapOverlay</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">(gMapControl, </span></span><span style=\"font-family: Consolas; color: #a31515; font-size: x-small;\"><span style=\"font-family: Consolas; color: #a31515; font-size: x-small;\"><span style=\"font-family: Consolas; color: #a31515; font-size: x-small;\">\"top\"</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">);</span></span></p>\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"></span></span></p>\n<p>gMapControl.Overlays.Add(top);&nbsp;&nbsp;<span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;&nbsp;</span></span>\n<p><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">var</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"> currentMarker = </span></span><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">new</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"> </span></span><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">GMapCustomImageMarker</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">(</span></span><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">new</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"> </span></span><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">PointLatLng</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">(Position.Lat, Position.Long))</span></span></p>\n<p>\n<p>{</p>\n<p>ToolTipText = ToolTipText,</p>\n<p>ToolTipMode = <span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">MarkerTooltipMode</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">.OnMouseOver,</span></span></p>\n</p>\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">\n<p>MarkerImage = MarkerImage</p>\n<p>};</p>\n<p>top.Markers.Add(currentMarker);</p>\n</span></span></p>\n<p>I also have 2 images to show that tooltips are working doe the&nbsp;<span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">GMapMarkerGoogleRed </span></span></span>class but not for my <span style=\"color: #2b91af;\">GMapCustomImageMarker </span>class.</p>\n<p>Regards</p>\n<p>Ariel</p>\n</p>",
+    "PostedDate": "2011-07-01T08:37:33.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636158",
+    "ThreadId": "263578",
+    "Html": "<p>this.Size = new Size(11, 11);</p>",
+    "PostedDate": "2011-07-01T12:11:28.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636205",
+    "ThreadId": "263578",
+    "Html": "<p>Thanks a lot!!</p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><font face=\"Consolas\" size=\"2\">\r\n<p>Size = <span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">new</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"> </span></span><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">Size</span></span></span></p>\r\n</font></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">(markerImage.Width, markerImage.Height);</span></span></span></span></span>\r\n<p>On Marker OnRender</p>\r\n<p>﻿Ariel</p>\r\n</p>",
+    "PostedDate": "2011-07-01T13:41:45.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636219",
+    "ThreadId": "263578",
+    "Html": "<p>not quite, put it in constructor ;} otherwise performance will drop</p>",
+    "PostedDate": "2011-07-01T14:02:44.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636237",
+    "ThreadId": "263578",
+    "Html": "<p>you're very right :D</p>\r\n<p>i've inserted on image property's assign... is better</p>\r\n<p>one more thing, doing this... i'm having a weird behaviour related to image size and the right position on the exact Point of the map, tooltip is centered on lat and long point reference, but image is farther of the real X,Y exact points... i'm using images from this pack:</p>\r\n<p><a href=\"http://mapicons.nicolasmollet.com/\">http://mapicons.nicolasmollet.com/</a></p>\r\n<p>how do you achieve on GMapMarkerGoogleRed class this well centered behaviour? I'm very stupid on graphics :(</p>\r\n<p>and thanks again</p>",
+    "PostedDate": "2011-07-01T14:44:00.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636241",
+    "ThreadId": "263578",
+    "Html": "<p>try adjust Offset property</p>",
+    "PostedDate": "2011-07-01T14:57:15.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636307",
+    "ThreadId": "263578",
+    "Html": "<p>Ok, i manage to center the tooltip and the image's pointing corner... but the clicking/hover area where the tooltip is shown on mouse over... i cannot control it... even trying to change the Offset property :(</p>\r\n<p>The image is up and the hover area is down</p>\r\n<p>sorry for the these simple questions</p>\r\n<p>thanks a lot</p>",
+    "PostedDate": "2011-07-01T18:42:25.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636343",
+    "ThreadId": "263578",
+    "Html": "<p>;} just experiment</p>",
+    "PostedDate": "2011-07-01T23:56:46.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636555",
+    "ThreadId": "263578",
+    "Html": "<p>Check this out, works perfectly:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">using</span> System;\r\n<span style=\"color: blue;\">using</span> System.Collections.Generic;\r\n<span style=\"color: blue;\">using</span> System.Text;\r\n<span style=\"color: blue;\">using</span> System.Drawing;\r\n<span style=\"color: blue;\">using</span> System.Drawing.Drawing2D;\r\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color: blue;\">using</span> GMap.NET;\r\n\r\n<span style=\"color: blue;\">namespace</span> YourNamespace\r\n{\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GMapMarkerImage : GMap.NET.WindowsForms.GMapMarker\r\n    {\r\n        <span style=\"color: blue;\">private</span> Image img;<br /><br />&nbsp;       <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n        <span style=\"color: gray;\">///</span><span style=\"color: green;\"> The image to display as a marker.</span>\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n        <span style=\"color: blue;\">public</span> Image MarkerImage\r\n        {\r\n            <span style=\"color: blue;\">get</span>\r\n            {\r\n                <span style=\"color: blue;\">return</span> img;\r\n            }\r\n            <span style=\"color: blue;\">set</span>\r\n            {\r\n                img = value;\r\n            }\r\n        }\r\n\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n        <span style=\"color: gray;\">///</span><span style=\"color: green;\"> Constructor</span>\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;param name=\"p\"&gt;</span><span style=\"color: green;\">The position of the marker&lt;/param&gt;</span>\r\n        <span style=\"color: blue;\">public</span> GMapMarkerImage(PointLatLng p, Image image)\r\n            : <span style=\"color: blue;\">base</span>(p)\r\n        {\r\n            img = image;\r\n            Size = img.Size;\r\n            Offset = <span style=\"color: blue;\">new</span> System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(Graphics g)\r\n        {\r\n            g.DrawImage(img, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-07-03T01:28:03.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636599",
+    "ThreadId": "263578",
+    "Html": "<p>Perfect!</p>\r\n<p>i made something siiiimiiilar... but this is perfect</p>\r\n<p>thanks a lot guys!!</p>",
+    "PostedDate": "2011-07-03T04:47:50.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915919",
+    "ThreadId": "263578",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\">sorry, but how can i use this below ?<br /></blockquote>\r\n<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\">i need to use custom image markers<br /></blockquote>\r\n<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\">thanks, Marcelo<br /></blockquote>\r\n<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>xandolph wrote:</strong><br /></blockquote>\r\n<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\">\r\n<p>Check this out, works perfectly:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">using</span> System;\r\n<span style=\"color: blue;\">using</span> System.Collections.Generic;\r\n<span style=\"color: blue;\">using</span> System.Text;\r\n<span style=\"color: blue;\">using</span> System.Drawing;\r\n<span style=\"color: blue;\">using</span> System.Drawing.Drawing2D;\r\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color: blue;\">using</span> GMap.NET;\r\n\r\n<span style=\"color: blue;\">namespace</span> YourNamespace\r\n{\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GMapMarkerImage : GMap.NET.WindowsForms.GMapMarker\r\n    {\r\n        <span style=\"color: blue;\">private</span> Image img;<br /><br />&nbsp;       <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n        <span style=\"color: gray;\">///</span><span style=\"color: green;\"> The image to display as a marker.</span>\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n        <span style=\"color: blue;\">public</span> Image MarkerImage\r\n        {\r\n            <span style=\"color: blue;\">get</span>\r\n            {\r\n                <span style=\"color: blue;\">return</span> img;\r\n            }\r\n            <span style=\"color: blue;\">set</span>\r\n            {\r\n                img = value;\r\n            }\r\n        }\r\n\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n        <span style=\"color: gray;\">///</span><span style=\"color: green;\"> Constructor</span>\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;param name=\"p\"&gt;</span><span style=\"color: green;\">The position of the marker&lt;/param&gt;</span>\r\n        <span style=\"color: blue;\">public</span> GMapMarkerImage(PointLatLng p, Image image)\r\n            : <span style=\"color: blue;\">base</span>(p)\r\n        {\r\n            img = image;\r\n            Size = img.Size;\r\n            Offset = <span style=\"color: blue;\">new</span> System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(Graphics g)\r\n        {\r\n            g.DrawImage(img, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n</blockquote>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-09-21T13:22:51.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944031",
+    "ThreadId": "263578",
+    "Html": "\r\n<p>Thanks arl_garm & radioman , it helped me :-)</p>\r\n",
+    "PostedDate": "2012-11-19T08:13:39.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

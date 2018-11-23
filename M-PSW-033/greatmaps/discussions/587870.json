@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1366533",
+    "ThreadId": "587870",
+    "Html": "Hi,\r<br />\n<br />\nI have created a form with a GMAP Control.  This form opens up many Modal Forms.  These Modal Forms are smaller than the Parent form.  When the User moves his/her mouse over the Parent Form GMap Control, it makes the Parent form Move In Front of the Modal form, and by doing so the Modal form is not visible.  It is quite annoying.....\r<br />\n<br />\nHow do I disable this behavior.?\r<br />\n<br />\nI have had a look at the GMapControl source, and I do not see any code that could be doing this.\r<br />\n<br />\nAny Suggestions.\r<br />\n<br />\nThx JT.<br />\n",
+    "PostedDate": "2015-03-17T23:13:48.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1366556",
+    "ThreadId": "587870",
+    "Html": "modalForm.Parent = mainForm;<br />\n",
+    "PostedDate": "2015-03-18T00:48:33.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1366601",
+    "ThreadId": "587870",
+    "Html": "Thanks....\r<br />\n<br />\nmodalForm.ParentForm, did the trick......\r<br />\n<br />\nSo resolved by: - modalForm.Show(mainForm);<br />\n",
+    "PostedDate": "2015-03-18T04:11:05.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

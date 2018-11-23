@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "655504",
+    "ThreadId": "268447",
+    "Html": "<p>Hi everybody, i have a problem making work the routing in GMap. My piece of code (Windows Forms, VB 2010, GoogleMap Provider):</p>\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"></span></span></span></span></span></span>\n<p>&nbsp;</p>\n</p>\n<p>&nbsp;&nbsp;&nbsp; Dim r_start As PointLatLng<br />&nbsp;&nbsp;&nbsp; Dim r_end As PointLatLng<br />&nbsp;&nbsp;&nbsp; Dim Routes As GMapOverlay</p>\n<p>&nbsp;&nbsp;&nbsp; routes = New GMapOverlay(Main.GMapControl, \"routes\")<br />&nbsp;&nbsp;&nbsp; Main.GMapControl.Overlays.Add(routes)<br />&nbsp;&nbsp;&nbsp; Main.GMapControl.RoutesEnabled = True</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r_start = New PointLatLng(10.2475, -67.6067)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r_end = New PointLatLng(10.2471, -67.5991)</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim route As MapRoute = Singleton(Of GMaps).Instance.GetRouteBetweenPoints(r_start, r_end, False, CInt(Main.GMapControl.Zoom))</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If (Not route Is Nothing) Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim r As New GMapRoute(route.Points, route.Name)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'r.Stroke.Color = Color.AliceBlue</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Routes.Routes.Add(r)</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim m1 As GMapMarker = New GMapMarkerGoogleRed(r_start)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim m2 As GMapMarker = New GMapMarkerGoogleGreen(r_end)</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Routes.Markers.Add(m1)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Routes.Markers.Add(m2)</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Main.GMapControl.ZoomAndCenterRoute(r)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Main.GMapControl.Invalidate()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If</p>\n<p>I tried with the samples written in C# in the fork of Viktorbergman, the samples makes routes in europe, north america, but here in Venezuela, just in the middle of a mid-size city, doesnt work. Just no route. No errors, nothing. In my code im adding a pair of markers to show the start and end of the route. the markers are added sucessfully. Any idea? im using gmap core 1.5.5.5, sqlite 1.0.66.</p>",
+    "PostedDate": "2011-08-09T14:34:17.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "655687",
+    "ThreadId": "268447",
+    "Html": "<p>try debug with the newest version</p>\n<p>p.s. in some areas google routing doesn't work, i guess the same is with openstreet</p>",
+    "PostedDate": "2011-08-09T23:47:32.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656045",
+    "ThreadId": "268447",
+    "Html": "<p>Hi Radioman. I installed your hot build of 2 july (based on changeset&nbsp;<a id=\"ChangesetIDAnchor\" href=\"http://greatmaps.codeplex.com/SourceControl/changeset/view/5e208bb8a8da\">5e208bb8a8da</a>). Routing on both Windows Forms and Presentation dont work in Venezuela. Shows start/end markers, but nothing. I tried changing map type to Bing, OSM, Google... also i visited <a href=\"http://www.yournavigation.org\">www.yournavigation.org</a>, same thing, start/end placemarks, but no route. Im thinking that routes are not implemented in this subdeveloped country. Are this right? Dont exist routing data for this side of planet? or something are blocking this? exists another mechanism to implement routing? Meanwhile, im drawing lines between my lat/lng points to show something like a route. Greetings.</p>",
+    "PostedDate": "2011-08-10T12:00:43.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "661108",
+    "ThreadId": "269839",
+    "Html": "\r\n<p>I've found a bug but hard to fix it myself.<br>\r\nIn WPF, Drag runs wrong after select an area with shift key.<br>\r\n<br>\r\nTo reproduce it:<br>\r\n<br>\r\n1. Select an area with shift key &#43; drag.<br>\r\n2. Click right mouse button. (no drag just click once)<br>\r\n3. Move a mouse pointer. Then map will be dragging.<br>\r\n4. Click right mouse button once again. It will be turn to right.<br>\r\n<br>\r\nPlease inspect this problem.<br>\r\nThanks.</p>\r\n",
+    "PostedDate": "2011-08-20T22:31:51.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667805",
+    "ThreadId": "269839",
+    "Html": "<p>..still inspecting, haven't much time for this</p>",
+    "PostedDate": "2011-09-05T10:38:07.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "834827",
+    "ThreadId": "269839",
+    "Html": "<p>I replicated this problem on the Windows Forms version too.</p>\r\n<p>It seems that the problem can be related to the drag button not being&nbsp;verified&nbsp;when the mouse move event is fired.</p>\r\n<p>I changed the following line adding the green text condition in GMapControl.cs class on the GMap.NET.WidowsForms namespace:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnMouseMove(MouseEventArgs e)\r\n\r\n{\r\n<span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>if</span> (!Core.IsDragging &amp;&amp; !Core.mouseDown.IsEmpty <span style=\"color: #008000;\">&amp;&amp; (e.Button == DragButton)</span>) \r\n<span style=\"white-space: pre;\">\t</span>{\r\n</pre>\r\n</div>\r\n<p>This change was tested using the&nbsp;GMap.NET Build ba256a1bcb (May 3 2012) and it works ok now. Hope this helps.</p>\r\n<p>I guess that the WPF OnMouseMove event should also be changed.</p>\r\n<p>&nbsp;</p>\r\n<p>Best regards.</p>\r\n<p>Sergio</p>",
+    "PostedDate": "2012-05-10T14:28:33.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835017",
+    "ThreadId": "269839",
+    "Html": "<p>fixed, thanks for reminder ;}</p>",
+    "PostedDate": "2012-05-11T02:21:31.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "859176",
+    "ThreadId": "269839",
+    "Html": "<p>sergiorincon, radioman thank you so much.</p>",
+    "PostedDate": "2012-07-09T06:56:54.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1123532",
+    "ThreadId": "269839",
+    "Html": "I am seeing this problem with Windows Forms runtime version 2.0.50727 when I select an area (Alt-Right Click) and then left click anywhere.  If I right click to clear the selected area, the problem goes away.  I tried to handle this in the Mouse Up handler by checking to see if SelectedArea was not empty, and if so drawing my own polygon in place of the selected area and setting map.SelectedArea = RectLatLng.Empty.  This did not solve the issue.  Any help would be greatly appreciated.\r<br />\n<br />\nSteve Kirchner<br />\n",
+    "PostedDate": "2013-11-14T08:01:41.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

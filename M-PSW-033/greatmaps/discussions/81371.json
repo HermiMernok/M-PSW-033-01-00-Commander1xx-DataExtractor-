@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "279251",
+    "ThreadId": "81371",
+    "Html": "<p>at the line 269 of &nbsp;GMapControl.cs, the function void GMap_OnMapDrag() has the following code&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;foreach(GMapMarker obj in o.Markers)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;obj.Position = obj.Position;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>\r\n<p>are these useful?</p>\r\n<p>while i adding a marker when i was dragging the mapcontrol, it will always occurs exception in these code, because of the markers collection has changed and no more to &nbsp;foreach operation.</p>",
+    "PostedDate": "2010-01-19T17:10:20.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279434",
+    "ThreadId": "81371",
+    "Html": "<p>do you add them from other thread?</p>",
+    "PostedDate": "2010-01-20T05:04:21.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

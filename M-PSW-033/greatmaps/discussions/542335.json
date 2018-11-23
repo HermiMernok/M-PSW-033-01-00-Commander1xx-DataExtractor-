@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1234412",
+    "ThreadId": "542335",
+    "Html": "HI Everyone!\r<br />\n<br />\nI wanted to ask if there is any way to view a heat map of the points shown on the map. \r<br />\n<br />\nI have read some post right here, but none gives a solution. \r<br />\n<br />\nFrom already thank you very much!<br />\n",
+    "PostedDate": "2014-04-15T11:00:56.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1359348",
+    "ThreadId": "542335",
+    "Html": "Hi - Did you ever get a solution for this?\r<br />\n<br />\nI need to do a map(like a heat  map) indicating population density for postcode regions of the UK.\r<br />\nAdding markers for points is one thing, but how would you add colours like in the case of a heat map?\r<br />\nBTW I use VB.net 2012\r<br />\n<br />\nRegds\r<br />\nLen<br />\n",
+    "PostedDate": "2015-03-03T06:53:02.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1361446",
+    "ThreadId": "542335",
+    "Html": "It would appear there is a HEAT MAP control based on the GMAP control in CodeProject. It is called GHEAT.Net and you can find it here:\r<br />\n<a href=\"http://www.codeproject.com/Articles/88956/GHeat-NET\" rel=\"nofollow\">http://www.codeproject.com/Articles/88956/GHeat-NET</a>\r<br />\n<br />\nThe problem is that I am not sure how current this GHEAT is as it looks like the last compile for the DLL was in 2010.\r<br />\n<br />\nRadioman, is this something you can remedy for us? This would enhance the GMAP capabilities incredibly.<br />\n",
+    "PostedDate": "2015-03-09T08:39:40.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1362100",
+    "ThreadId": "542335",
+    "Html": "I managed to modify the C# source code by adding the modifications to the PointLatLng.cs class.\r<br />\nThen I recompiled the code and produced a DLL I can work with.\r<br />\n<br />\nThank you for the Source Code - this has been a great help.\r<br />\nPlease ask and I would be happy to share.\r<br />\n<br />\nThe next step now is to use the DLL to create a proper Heat Map. I will let you know how it goes.<br />\n",
+    "PostedDate": "2015-03-10T05:08:51.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1362102",
+    "ThreadId": "542335",
+    "Html": "\r\n<div dir=\"ltr\">Hi !!<br>\r\n<br>\r\n<span id=\"result_box\" lang=\"en\"><span>long time since I</span> <span>work</span>\r\n<span>with</span> <span>GHeat</span> <span>and</span> <span>GreatMaps</span> <span>\r\nago.</span> <span>I had</span> <span>problems with</span> <span>HeatMap</span> <span>\r\n(it was</span> <span>very slow)</span> <span>so I decided to</span> <span>migrate</span>\r\n<span>to web</span><span>.</span> <span>Anyway</span><span>, I'll</span> <span>see in my</span>\r\n<span>repository if</span> <span>I have</span> <span>a project that</span> <span>\r\nhad</span> <span>made</span> <span>gheat</span><span>.</span> <span>You should only</span>\r\n<span>consider</span> it <span>was very slow</span><span> </span></span><span id=\"result_box\" lang=\"en\"><span><span id=\"result_box\" lang=\"en\"><span>u_u</span>\r\n<span></span></span>.</span> <span>(</span><span>alternative</span> u can <span>use</span>\r\n<span>markers</span> with <span>opacity</span><span>, which overlap</span> <span>\r\nand cause</span> <span>a similar effect,</span> <span>and is very</span> <span>fast, but</span>\r\n<span>different)</span></span><br>\r\n</div>\r\n<div><br>\r\n<div>2015-03-10 9:08 GMT-03:00 Lenvdb64 <span dir=\"ltr\">&lt;[email removed]&gt;</span>:<br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: Lenvdb64</p>\r\n<div>I managed to modify the C# source code by adding the modifications to the PointLatLng.cs class.\r\n<br>\r\nThen I recompiled the code and produced a DLL I can work with. <br>\r\n<br>\r\nThank you for the Source Code - this has been a great help. <br>\r\nPlease ask and I would be happy to share. <br>\r\n<br>\r\nThe next step now is to use the DLL to create a proper Heat Map. I will let you know how it goes.<br>\r\n</div>\r\n<span>\r\n<div>\r\n<p>Read the <a href=\"http://greatmaps.codeplex.com/discussions/542335#post1362100\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email ([email removed])</p>\r\n<p>To start a new discussion for this project, email [email removed]</p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"http://greatmaps.codeplex.com/discussions/542335/unsubscribe/\" target=\"_blank\">\r\nunsubscribe</a> on CodePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</p>\r\n</div>\r\n</span></div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2015-03-10T05:16:53.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1362104",
+    "ThreadId": "542335",
+    "Html": "Thank you - I will look at this and see how the Heatmap feature works and if it is too slow for me.\r<br />\nUnfortunately a Web solution is not on the cards for me as all my users are Desktop PC users. I use a Windows Forms solution.\r<br />\nI am surprised that Radioman never expanded his GMAPS DLL to include Heatmap capabilities. That would have improved this so much! But I am not complaining. My users so far is happy to use points and add markers. And I am thankful for this DLL and the effort he put into it.<br />\n",
+    "PostedDate": "2015-03-10T05:23:23.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1366702",
+    "ThreadId": "542335",
+    "Html": "I'd be very interested in a Heat Map implementation.  I keep thinking I have to do something someday but I never get around to it.  How is it going?<br />\n",
+    "PostedDate": "2015-03-18T11:00:25.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

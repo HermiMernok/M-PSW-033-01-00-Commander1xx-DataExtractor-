@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "829780",
+    "ThreadId": "353918",
+    "Html": "\r\n<p>Any thoughts of implementing a custom marker that uses a path? Now we have the red and green markers, but wouldn't it be much easier for everyone to have a custommarker, (byval path as string function) or something alike, build in?</p>\r\n",
+    "PostedDate": "2012-04-28T16:21:48.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829855",
+    "ThreadId": "353918",
+    "Html": "<p><em>var m = new GMarkerGoogle(new PointLatLng(10, 20), new <strong>Bitmap</strong>(\"C:\\\\marker.png\"));</em></p>",
+    "PostedDate": "2012-04-29T03:06:33.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829856",
+    "ThreadId": "353918",
+    "Html": "<p>Hi Radioman, thanks for the reply. The \"GMakerGoogle\" doesn't exist. Could it be because it isn't implemented yet in the latest (non-beta) release?</p>",
+    "PostedDate": "2012-04-29T03:16:38.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829860",
+    "ThreadId": "353918",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2012-04-29T03:27:55.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829861",
+    "ThreadId": "353918",
+    "Html": "<p>Can't reach the source code page at the moment m8. Do you have a compiled version for me?</p>",
+    "PostedDate": "2012-04-29T03:29:08.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829862",
+    "ThreadId": "353918",
+    "Html": "<p>http://greatmaps.codeplex.com/releases/view/73162</p>\r\n<p>download latest from the bottom</p>",
+    "PostedDate": "2012-04-29T03:32:15.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829863",
+    "ThreadId": "353918",
+    "Html": "<p>Thanks m8. Will check it immediately.</p>",
+    "PostedDate": "2012-04-29T03:34:12.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829871",
+    "ThreadId": "353918",
+    "Html": "<p>Seems you simplified much more. Had a lot of changes to make :P. Works like a charm m8.</p>\r\n<p>- how do you hide the cross in the middle of the map?</p>\r\n<p>Personally I think you shouldn't embed the images into the .dll to keep it the dll itself small, but let the user add them to the project. I finally could download the sourcecode an saw that the imahes take up 50k. After optimizing the png's I took off 20kb's. Besides that I will never use all the 43 images. Perhaps something to think about. But that's my thought only. ;)</p>",
+    "PostedDate": "2012-04-29T04:27:58.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829873",
+    "ThreadId": "353918",
+    "Html": "<p>well you can remove them, it's just for demo</p>",
+    "PostedDate": "2012-04-29T04:37:15.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829875",
+    "ThreadId": "353918",
+    "Html": "<p>;)</p>\r\n<p>2 questions left:</p>\r\n<p>- how do I remove the cross in the middle of the map?</p>\r\n<p>- I am adding markers to the map at runtime, each after 500ms to see the \"animation\". This version doesn't seem to \"refresh\" the map. I only see the first marker. Adding mymap.refresh doesn't work either. When I zoom the map The markers are visible instantly. What do I need to do to see it \"live\"? In version 1.6 this worked perfect (without mymap.refresh).</p>",
+    "PostedDate": "2012-04-29T04:45:19.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829878",
+    "ThreadId": "353918",
+    "Html": "<ul>\r\n<li>map.ShowCenter = false;</li>\r\n<li>map.Refresh();</li>\r\n</ul>",
+    "PostedDate": "2012-04-29T04:55:57.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829896",
+    "ThreadId": "353918",
+    "Html": "<p>Refresh doesn't work m8. :cry:</p>\n<p>blblbl.....</p>\n<div style=\"color: black; background-color: white;\"></div>\n<p>Marker isn't placed at that point. Only when I zoom the map the marker is set to the proper point.</p>\n<p>here's an image as example: http://i50.tinypic.com/e8r1id.jpg</p>",
+    "PostedDate": "2012-04-29T06:43:00.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829897",
+    "ThreadId": "353918",
+    "Html": "<p>add overlay first</p>",
+    "PostedDate": "2012-04-29T06:44:55.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829900",
+    "ThreadId": "353918",
+    "Html": "<p>Thanks m8, that also solved the \"refresh-issue\". So first add the Overlay, then the Marker.</p>",
+    "PostedDate": "2012-04-29T06:51:39.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

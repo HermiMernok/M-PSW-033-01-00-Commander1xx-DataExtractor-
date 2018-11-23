@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "906477",
+    "ThreadId": "393794",
+    "Html": "\r\n<p>C#, Visual Studio 2005.</p>\r\n<p>I easily created a working project with the 2011 stable dll's.</p>\r\n<p>I copied the Hot-build vs10&nbsp;dll's to my existing project and get lots of errors (is that the correct way of updating?)</p>\r\n<p>Please help me with adding an overlay then adding a few markers. Mainform.cs is too complicated for me.</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-30T11:13:04.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906485",
+    "ThreadId": "393794",
+    "Html": "<p>nothing has changed except map providers</p>",
+    "PostedDate": "2012-08-30T11:27:58.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906497",
+    "ThreadId": "393794",
+    "Html": "<p>My project cannot find:</p>\r\n<p>readonly DescendingComparer ComparerIpStatus = new DescendingComparer();&nbsp; &nbsp;</p>\r\n<p>and &nbsp; &nbsp;</p>\r\n<p>GMapMarkerRect CurentRectMarker = null;</p>\r\n<p>What am I missing please?</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<pre>using System;\r\nusing System.Collections.Generic;\r\nusing System.ComponentModel;\r\nusing System.Diagnostics;\r\nusing System.Drawing;\r\nusing System.Drawing.Drawing2D;\r\nusing System.Globalization;\r\nusing System.IO;\r\nusing System.Net;\r\nusing System.Net.NetworkInformation;\r\nusing System.Threading;\r\nusing System.Windows.Forms;\r\nusing System.Xml;\r\n//using Demo.WindowsForms.CustomMarkers;\r\nusing GMap.NET;\r\nusing GMap.NET.MapProviders;\r\nusing GMap.NET.WindowsForms;\r\nusing GMap.NET.WindowsForms.Markers;\r\nusing GMap.NET.WindowsForms.ToolTips;</pre>\r\n</p>",
+    "PostedDate": "2012-08-30T11:54:01.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906502",
+    "ThreadId": "393794",
+    "Html": "\r\n<p>And if I try and use this old code that runs okay in my other project</p>\r\n<pre>activeOverlay.Markers.Add(new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new PointLatLng(30.0)));</pre>\r\n<pre>I get this error:</pre>\r\n<pre>Error<span> </span>1<span> </span>The type or namespace name 'GMapMarkerGoogleGreen' does not exist in the namespace 'GMap.NET.WindowsForms.Markers'</pre>\r\n<pre> (are you missing an assembly reference?)</pre>\r\n<pre><br></pre>\r\n",
+    "PostedDate": "2012-08-30T12:03:26.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906504",
+    "ThreadId": "393794",
+    "Html": "<p>demo markers was replaced with:&nbsp;<strong>GMarkerGoogle</strong></p>",
+    "PostedDate": "2012-08-30T12:07:30.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906508",
+    "ThreadId": "393794",
+    "Html": "<p>Okay, got it to work.&nbsp;</p>\r\n<p>Thank you.</p>",
+    "PostedDate": "2012-08-30T12:29:07.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

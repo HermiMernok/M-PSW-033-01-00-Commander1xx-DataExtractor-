@@ -1,0 +1,226 @@
+[
+  {
+    "Id": "799899",
+    "ThreadId": "344821",
+    "Html": "\r\n<p>Hey everyone :)</p>\r\n<p>for my project , i successfully created custom markers using vb.net 2010 , here is the code if anyone wanna use it :</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> GMapMarker_Custom\r\n    <span style=\"color:blue\">Inherits</span> GMapMarker\r\n\r\n    <span style=\"color:blue\">Dim</span> _image <span style=\"color:blue\">As</span> System.Drawing.Image\r\n    <span style=\"color:blue\">Dim</span> _point <span style=\"color:blue\">As</span> PointLatLng\r\n\r\n    <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>(<span style=\"color:blue\">ByVal</span> iPoint <span style=\"color:blue\">As</span> PointLatLng)\r\n        <span style=\"color:blue\">MyBase</span>.<span style=\"color:blue\">New</span>(iPoint)\r\n        _point = iPoint\r\n        ChangeImage()\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overloads</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">Sub</span> OnRender(<span style=\"color:blue\">ByVal</span> g <span style=\"color:blue\">As</span> Graphics)\r\n        <span style=\"color:blue\">MyBase</span>.OnRender(g)\r\n        g.DrawImageUnscaled(_image, System.Convert.ToInt32(LocalPosition.X), System.Convert.ToInt32(LocalPosition.Y))\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Sub</span> ChangeImage()\r\n        _image = <span style=\"color:blue\">My</span>.Resources.ship\r\n        <span style=\"color:blue\">MyBase</span>.Size = <span style=\"color:blue\">New</span> Drawing.Size(_image.Size.Width, _image.Size.Height)\r\n        <span style=\"color:blue\">MyBase</span>.Offset = <span style=\"color:blue\">New</span> Drawing.Point(-(_image.Size.Width), -_image.Size.Height)\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p>now i have a variable 'heading' goes from 0 to 359 , indicate the position&nbsp;relative to north</p>\r\n<p>can anyone plz help me how to create this function :)</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-02-25T10:37:51.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "799914",
+    "ThreadId": "344821",
+    "Html": "<p>use RenderTransform</p>",
+    "PostedDate": "2012-02-25T11:13:59.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "799919",
+    "ThreadId": "344821",
+    "Html": "<p>can you please explain how ?</p>",
+    "PostedDate": "2012-02-25T11:26:20.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "800078",
+    "ThreadId": "344821",
+    "Html": "<p>Please guys , can anyone help me ?</p>",
+    "PostedDate": "2012-02-26T03:47:33.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816850",
+    "ThreadId": "344821",
+    "Html": "<p>Hi radioman</p>\r\n<p>I have used this custome marker image for a few months now. I updated to the lastest beta version and now the Second marker (I only have two) is located top left of the map. On zoom the market seems to just float and not fixed to the LocalPosition.</p>\r\n<p>It seem like the Marker has lost it local position information....???</p>\r\n<p>thanks</p>\r\n<p>Richard</p>",
+    "PostedDate": "2012-03-28T15:42:25.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817006",
+    "ThreadId": "344821",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2012-03-29T01:03:04.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817008",
+    "ThreadId": "344821",
+    "Html": "<p>Is there a way to fix it..?&nbsp;</p>",
+    "PostedDate": "2012-03-29T01:09:09.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817015",
+    "ThreadId": "344821",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2012-03-29T01:24:59.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817019",
+    "ThreadId": "344821",
+    "Html": "<p>ok..&nbsp; so it is in the DLL or something I need to fix in my code..?</p>\r\n<p>:-)</p>",
+    "PostedDate": "2012-03-29T01:33:16.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817021",
+    "ThreadId": "344821",
+    "Html": "<p>exactly, <em>something</em> ;}</p>",
+    "PostedDate": "2012-03-29T01:40:38.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817022",
+    "ThreadId": "344821",
+    "Html": "<p>could you be a bit more informative please.</p>\r\n<p>If you think the&nbsp;DLL is ok then say so. I am here to find an answer to the problem. I will help if I can but need more information.</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-29T01:44:08.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817025",
+    "ThreadId": "344821",
+    "Html": "<p>there is no problem, you use experimental build, and you get experimental results</p>",
+    "PostedDate": "2012-03-29T01:54:42.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817027",
+    "ThreadId": "344821",
+    "Html": "<p>But there is a problem as the marker does not show in the correct position, which it did before you updated the build ..???</p>\r\n<p>I understand beta release etc, but if you say there is no problen then the code is of now use.</p>\r\n<p>Can this be fixed in the DLL or not..?</p>",
+    "PostedDate": "2012-03-29T02:08:16.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817034",
+    "ThreadId": "344821",
+    "Html": "<p>yes, it can ;} someday when someone, probably me, will have enough motivation</p>",
+    "PostedDate": "2012-03-29T02:15:59.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817035",
+    "ThreadId": "344821",
+    "Html": "<p>thanks.. I hope soon as I can not make use of the code.</p>\r\n<p>&nbsp;It is a great product, just needs a tweak&nbsp; ;-)</p>",
+    "PostedDate": "2012-03-29T02:18:20.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817049",
+    "ThreadId": "344821",
+    "Html": "<p>'just' ;}</p>",
+    "PostedDate": "2012-03-29T03:04:47.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817773",
+    "ThreadId": "344821",
+    "Html": "<p>OK, this is something i already make and this is the code for the custome marker with heading parameter</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">using</span> System.Drawing;\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms;\n<span style=\"color: blue;\">using</span> System.Collections.Generic;\n<span style=\"color: blue;\">using</span> System.Drawing.Drawing2D;\n<span style=\"color: blue;\">using</span> System.Drawing.Imaging;\n<span style=\"color: blue;\">using</span> System;\n\n\n    <span style=\"color: blue;\">namespace</span> GMap.NET.WindowsForms.Markers\n    {\n\n\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GMapMarkerImage : GMapMarker\n        {\n            <span style=\"color: blue;\">public</span> Pen Pen;\n            <span style=\"color: blue;\">float</span> angle;\n            <span style=\"color: blue;\">float</span> prevAngle;\n            Bitmap image;\n\n            <span style=\"color: blue;\">public</span> GMapMarkerImage(PointLatLng p,Bitmap pImage)\n                : <span style=\"color: blue;\">base</span>(p)\n            {\n                Pen = <span style=\"color: blue;\">new</span> Pen(Brushes.AliceBlue, 2);\n\n                <span style=\"color: green;\">// do not forget set Size of the marker</span>\n                <span style=\"color: green;\">// if so, you shall have no event on it ;}</span>\n                Size = <span style=\"color: blue;\">new</span> Size(55, 55);\n                angle = 0;\n                \n                \n                image = pImage;\n               \n                    \n            }\n\n            <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(Graphics g)\n            {\n                Bitmap image1 = RotateImage(image,angle);\n                g.DrawImage(image1, <span style=\"color: blue;\">new</span> Point(LocalPosition.X-image1.Width/2, LocalPosition.Y-image1.Height/2));   \n            }\n\n            <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> setRotation(<span style=\"color: blue;\">float</span> Angle)\n            {\n                angle = Angle;\n            }\n\n            <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">static</span> Bitmap RotateImage(Image image, <span style=\"color: blue;\">float</span> angle)\n            {\n                <span style=\"color: blue;\">if</span> (image == <span style=\"color: blue;\">null</span>)\n                    <span style=\"color: blue;\">throw</span> <span style=\"color: blue;\">new</span> ArgumentNullException(<span style=\"color: #a31515;\">\"image\"</span>);\n\n                <span style=\"color: blue;\">const</span> <span style=\"color: blue;\">double</span> pi2 = Math.PI / 2.0;\n\n                <span style=\"color: green;\">// Why can't C# allow these to be const, or at least readonly</span>\n                <span style=\"color: blue;\">double</span> oldWidth = (<span style=\"color: blue;\">double</span>)image.Width;\n                <span style=\"color: blue;\">double</span> oldHeight = (<span style=\"color: blue;\">double</span>)image.Height;\n\n                <span style=\"color: green;\">// Convert degrees to radians</span>\n                <span style=\"color: blue;\">double</span> theta = ((<span style=\"color: blue;\">double</span>)angle) * Math.PI / 180.0;\n                <span style=\"color: blue;\">double</span> locked_theta = theta;\n\n                <span style=\"color: green;\">// Make sure theta is now [0, 2pi)</span>\n                <span style=\"color: blue;\">while</span> (locked_theta &lt; 0.0)\n                    locked_theta += 2 * Math.PI;\n\n                <span style=\"color: blue;\">double</span> newWidth, newHeight;\n                <span style=\"color: blue;\">int</span> nWidth, nHeight; <span style=\"color: green;\">// The newWidth/newHeight expressed as ints</span>\n\n                <span style=\"color: blue;\">#region</span> Explaination of the calculations\n                <span style=\"color: green;\">/*\n\t\t\t * The trig involved in calculating the new width and height\n\t\t\t * is fairly simple; the hard part was remembering that when \n\t\t\t * PI/2 &lt;= theta &lt;= PI and 3PI/2 &lt;= theta &lt; 2PI the width and \n\t\t\t * height are switched.\n\t\t\t * \n\t\t\t * When you rotate a rectangle, r, the bounding box surrounding r\n\t\t\t * contains for right-triangles of empty space.  Each of the \n\t\t\t * triangles hypotenuse's are a known length, either the width or\n\t\t\t * the height of r.  Because we know the length of the hypotenuse\n\t\t\t * and we have a known angle of rotation, we can use the trig\n\t\t\t * function identities to find the length of the other two sides.\n\t\t\t * \n\t\t\t * sine = opposite/hypotenuse\n\t\t\t * cosine = adjacent/hypotenuse\n\t\t\t * \n\t\t\t * solving for the unknown we get\n\t\t\t * \n\t\t\t * opposite = sine * hypotenuse\n\t\t\t * adjacent = cosine * hypotenuse\n\t\t\t * \n\t\t\t * Another interesting point about these triangles is that there\n\t\t\t * are only two different triangles. The proof for which is easy\n\t\t\t * to see, but its been too long since I've written a proof that\n\t\t\t * I can't explain it well enough to want to publish it.  \n\t\t\t * \n\t\t\t * Just trust me when I say the triangles formed by the lengths \n\t\t\t * width are always the same (for a given theta) and the same \n\t\t\t * goes for the height of r.\n\t\t\t * \n\t\t\t * Rather than associate the opposite/adjacent sides with the\n\t\t\t * width and height of the original bitmap, I'll associate them\n\t\t\t * based on their position.\n\t\t\t * \n\t\t\t * adjacent/oppositeTop will refer to the triangles making up the \n\t\t\t * upper right and lower left corners\n\t\t\t * \n\t\t\t * adjacent/oppositeBottom will refer to the triangles making up \n\t\t\t * the upper left and lower right corners\n\t\t\t * \n\t\t\t * The names are based on the right side corners, because thats \n\t\t\t * where I did my work on paper (the right side).\n\t\t\t * \n\t\t\t * Now if you draw this out, you will see that the width of the \n\t\t\t * bounding box is calculated by adding together adjacentTop and \n\t\t\t * oppositeBottom while the height is calculate by adding \n\t\t\t * together adjacentBottom and oppositeTop.\n\t\t\t */</span>\n                <span style=\"color: blue;\">#endregion</span>\n\n                <span style=\"color: blue;\">double</span> adjacentTop, oppositeTop;\n                <span style=\"color: blue;\">double</span> adjacentBottom, oppositeBottom;\n\n                <span style=\"color: green;\">// We need to calculate the sides of the triangles based</span>\n                <span style=\"color: green;\">// on how much rotation is being done to the bitmap.</span>\n                <span style=\"color: green;\">//   Refer to the first paragraph in the explaination above for </span>\n                <span style=\"color: green;\">//   reasons why.</span>\n                <span style=\"color: blue;\">if</span> ((locked_theta &gt;= 0.0 &amp;&amp; locked_theta &lt; pi2) ||\n                    (locked_theta &gt;= Math.PI &amp;&amp; locked_theta &lt; (Math.PI + pi2)))\n                {\n                    adjacentTop = Math.Abs(Math.Cos(locked_theta)) * oldWidth;\n                    oppositeTop = Math.Abs(Math.Sin(locked_theta)) * oldWidth;\n\n                    adjacentBottom = Math.Abs(Math.Cos(locked_theta)) * oldHeight;\n                    oppositeBottom = Math.Abs(Math.Sin(locked_theta)) * oldHeight;\n                }\n                <span style=\"color: blue;\">else</span>\n                {\n                    adjacentTop = Math.Abs(Math.Sin(locked_theta)) * oldHeight;\n                    oppositeTop = Math.Abs(Math.Cos(locked_theta)) * oldHeight;\n\n                    adjacentBottom = Math.Abs(Math.Sin(locked_theta)) * oldWidth;\n                    oppositeBottom = Math.Abs(Math.Cos(locked_theta)) * oldWidth;\n                }\n\n                newWidth = adjacentTop + oppositeBottom;\n                newHeight = adjacentBottom + oppositeTop;\n\n                nWidth = (<span style=\"color: blue;\">int</span>)Math.Ceiling(newWidth);\n                nHeight = (<span style=\"color: blue;\">int</span>)Math.Ceiling(newHeight);\n\n                Bitmap rotatedBmp = <span style=\"color: blue;\">new</span> Bitmap(nWidth, nHeight);\n\n                <span style=\"color: blue;\">using</span> (Graphics g = Graphics.FromImage(rotatedBmp))\n                {\n                    <span style=\"color: green;\">// This array will be used to pass in the three points that </span>\n                    <span style=\"color: green;\">// make up the rotated image</span>\n                    Point[] points;\n                    g.SmoothingMode = SmoothingMode.AntiAlias;\n                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;\n                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;\n\n\n                    <span style=\"color: green;\">/*\n                     * The values of opposite/adjacentTop/Bottom are referring to \n                     * fixed locations instead of in relation to the\n                     * rotating image so I need to change which values are used\n                     * based on the how much the image is rotating.\n                     * \n                     * For each point, one of the coordinates will always be 0, \n                     * nWidth, or nHeight.  This because the Bitmap we are drawing on\n                     * is the bounding box for the rotated bitmap.  If both of the \n                     * corrdinates for any of the given points wasn't in the set above\n                     * then the bitmap we are drawing on WOULDN'T be the bounding box\n                     * as required.\n                     */</span>\n                    <span style=\"color: blue;\">if</span> (locked_theta &gt;= 0.0 &amp;&amp; locked_theta &lt; pi2)\n                    {\n                        points = <span style=\"color: blue;\">new</span> Point[] {<span style=\"color: blue;\">new</span> Point( (<span style=\"color: blue;\">int</span>) oppositeBottom, 0 ), <span style=\"color: blue;\">new</span> Point( nWidth, (<span style=\"color: blue;\">int</span>) oppositeTop ),<span style=\"color: blue;\">new</span> Point( 0, (<span style=\"color: blue;\">int</span>) adjacentBottom )};\n\n                    }\n                    <span style=\"color: blue;\">else</span> <span style=\"color: blue;\">if</span> (locked_theta &gt;= pi2 &amp;&amp; locked_theta &lt; Math.PI)\n                    {\n                        points = <span style=\"color: blue;\">new</span> Point[] {<span style=\"color: blue;\">new</span> Point( nWidth, (<span style=\"color: blue;\">int</span>) oppositeTop ),<span style=\"color: blue;\">new</span> Point( (<span style=\"color: blue;\">int</span>) adjacentTop, nHeight ), <span style=\"color: blue;\">new</span> Point( (<span style=\"color: blue;\">int</span>) oppositeBottom, 0 )};\n                    }\n                    <span style=\"color: blue;\">else</span> <span style=\"color: blue;\">if</span> (locked_theta &gt;= Math.PI &amp;&amp; locked_theta &lt; (Math.PI + pi2))\n                    {\n                        points = <span style=\"color: blue;\">new</span> Point[] { <span style=\"color: blue;\">new</span> Point( (<span style=\"color: blue;\">int</span>) adjacentTop, nHeight ), <span style=\"color: blue;\">new</span> Point( 0, (<span style=\"color: blue;\">int</span>) adjacentBottom ), <span style=\"color: blue;\">new</span> Point( nWidth, (<span style=\"color: blue;\">int</span>) oppositeTop )};\n                    }\n                    <span style=\"color: blue;\">else</span>\n                    {\n                        points = <span style=\"color: blue;\">new</span> Point[] { <span style=\"color: blue;\">new</span> Point( 0, (<span style=\"color: blue;\">int</span>) adjacentBottom ), <span style=\"color: blue;\">new</span> Point( (<span style=\"color: blue;\">int</span>) oppositeBottom, 0 ), <span style=\"color: blue;\">new</span> Point( (<span style=\"color: blue;\">int</span>) adjacentTop, nHeight )\t\t\n\t\t\t\t\t\t\t\t\t\t };\n                    }\n\n                    g.DrawImage(image, points);\n                }\n\n                <span style=\"color: blue;\">return</span> rotatedBmp;\n            }\n        }</pre>\n<pre>    }\n\n</pre>\n</div>\n<p>And you can use it this way</p>\n<div style=\"color: black; background-color: white;\">\n<pre>overlay = <span style=\"color: blue;\">new</span> GMapOverlay(gMapControl1, <span style=\"color: #a31515;\">\"overlay\"</span>);\nmarker = <span style=\"color: blue;\">new</span> GMap.NET.WindowsForms.Markers.GMapMarkerImage(point,Properties.Resources.Marker_Image);\noverlay.Markers.Add(marker);\ngMapControl1.Overlays.Add(overlay);</pre>\n<pre><pre>marker.Position=<span>new</span> PointLatLng(lat, lon);\nmarker.setRotation((<span>float</span>)(theta)); //Theta in degrees\noverlay.Markers[0]=marker;</pre>\n</pre>\n</div>\n<p>Hope it help.</p>\n<p>Logan</p>",
+    "PostedDate": "2012-03-30T08:04:28.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817781",
+    "ThreadId": "344821",
+    "Html": "<p>public override void OnRender(Graphics g)<br /> {<br />&nbsp; &nbsp;<strong>using</strong>(Bitmap image1 = RotateImage(image,angle))<br />&nbsp; &nbsp;{<br />&nbsp; &nbsp; &nbsp; g.DrawImage(image1, new Point(LocalPosition.X-image1.Width/2, LocalPosition.Y-image1.Height/2));&nbsp;<br /> &nbsp; &nbsp;}<br /> }</p>",
+    "PostedDate": "2012-03-30T08:17:40.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821793",
+    "ThreadId": "344821",
+    "Html": "<p>Hi Logan</p>\r\n<p>I tried your code with the new Beta update too. Still the same.. the second marker is just floating, not fixed to the map location.</p>\r\n<p>Richard</p>",
+    "PostedDate": "2012-04-09T21:06:43.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821797",
+    "ThreadId": "344821",
+    "Html": "<p>OK.. just started to work correctly now... not sure why.</p>\r\n<p>R.</p>",
+    "PostedDate": "2012-04-09T21:13:10.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "861267",
+    "ThreadId": "344821",
+    "Html": "<pre><span style=\"color: green;\"></span><span style=\"color: green;\"><br />Why don't use bitmap size??<br /></span>public GMapMarkerImage(PointLatLng p, Bitmap pImage)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : base(p)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pen = new Pen(Brushes.AliceBlue, 2);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // do not forget set Size of the marker<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // if so, you shall have no event on it ;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Size = new Size(55, 55);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Size = new Size(pImage.Width, pImage.Height);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; angle = 0;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; image = pImage;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><span style=\"color: green;\"></span></pre>",
+    "PostedDate": "2012-07-12T07:43:27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "956511",
+    "ThreadId": "344821",
+    "Html": "\r\n<p>muchas!!! gracias!! tu clase funciona perfectamente!!!!!!!</p>\r\n",
+    "PostedDate": "2012-12-15T11:35:49.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004576",
+    "ThreadId": "344821",
+    "Html": "Hi all,<br />\nfirst of all let me apologize for resurrecting an old topic.<br />\n<br />\nI am very new to C# and I am trying to improve my knowledge by modifying and tinkering with the supplied demo's (Winforms), specifically I am customizing the &quot;Flight radar demo&quot; section, everything is working nicely, I am able to filter flights by airport departure/destination and also by airline.<br />\n<br />\nI have created a custom marker for the flights and would like to rotate the marker to show the current heading for each flight.<br />\n<br />\nI have added a new class to my project and added x_logan's code and radioman's modification to it.<br />\n<br />\nWhen trying to use the class I have a bit of a problem<br />\n<br />\nIntelliSense is happy with this part of my projects code and it compiles and works perfectly,<br />\n&quot;marker = new GMap.NET.WindowsForms.Markers.GMapMarkerImage(d.point, Properties.Resources.FlightMarker);&quot;<br />\n<br />\nBut, this part gives an IntelliSense error,<br />\n&quot;marker.setRotation((float)(d.bearing)); //Theta in degrees&quot;<br />\n<br />\n'GMap.NET.WindowsForms.GMapMarker' does not contain a definition for 'setRotation' and no extension method 'setRotation' accepting a first argument type 'GMap.NET.WindowsForms.GMapMarker' could be found (are you missing a using directive or an assembly reference?)<br />\n<br />\nAny clues as to what I'm doing wrong?<br />\nLike I said before I'm a no0b with C#, my previous experience being with VB.NET (beginner to intermediate), any help would be greatly appreciated.<br />\n<br />\nP.s.<br />\n@ radioman, fantastic piece of work my friend, truly brilliant, thank you :-)<br />\n<br />\n@ everyone else here, thank you so much for your contributions,,, I have learnt a lot by reading through the discussions section :-)<br />\n<br />\nP.p.s.<br />\nOff topic I'm affraid, does anyone know how to copy IntelliSense errors to the clipboard, I've tried Googling it but can't find anything.<br />\n",
+    "PostedDate": "2013-02-21T03:58:21.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004677",
+    "ThreadId": "344821",
+    "Html": "well rotation isn't implemented by default, but you can use rotation function from this forum\r<br />\n<br />\nthe idea is to use a reference image and for each rotation update the markers image<br />\n",
+    "PostedDate": "2013-02-21T07:05:11.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004686",
+    "ThreadId": "344821",
+    "Html": "I too need rotated markers (bearing). I just uncommented the bearing code (I forget the filename). It looked promising, but didn't work out of the box.... I am curious why it was removed... <br />\n",
+    "PostedDate": "2013-02-21T07:18:15.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004689",
+    "ThreadId": "344821",
+    "Html": "Thanks for the fast response radioman.\r<br />\n<br />\nYes I understand that rotation isn't implemented by default, that's why I have added the code from Logans post (#17 on this page) and the code modifications from your post (#18 on this page) to a new class.\r<br />\n<br />\nBut IntelliSense still doesn't like the code.\r<br />\n<br />\n&quot;marker.setRotation((float)(d.bearing)); //Theta in degrees&quot;\r<br />\n<br />\n'GMap.NET.WindowsForms.GMapMarker' does not contain a definition for 'setRotation' and no extension method 'setRotation' accepting a first argument type 'GMap.NET.WindowsForms.GMapMarker' could be found (are you missing a using directive or an assembly reference?)\r<br />\n<br />\nSorry if I am being stupid, but I really am trying to learn. \r<br />\n<br />\nNot easy for someone of my age (49) just starting out in programming   ;-p<br />\n",
+    "PostedDate": "2013-02-21T07:20:02.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004697",
+    "ThreadId": "344821",
+    "Html": "use just use your custom marker instance, GMapMarker is base class<br />\n",
+    "PostedDate": "2013-02-21T07:28:36.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342221",
+    "ThreadId": "344821",
+    "Html": "p.s. marker rotation demo [left menu, Live-&gt;FlightRadar] and <strong>GMarkerArrow.cs</strong><br />\n",
+    "PostedDate": "2015-01-15T08:16:48.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-15T08:16:58.88-08:00"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1230274",
+    "ThreadId": "541174",
+    "Html": "Hi,\r<br />\n<br />\nI just started to experiment with the GMAP library, and have a question about a marker on an overlay.\r<br />\n<br />\nWhen I use for example Google Map as a map provider, it works as expected, but when I change to &quot;EmptyProvider&quot;, the markers seem to dissappear from a certain &quot;invisible border&quot; within the control. The control which I dragged on to my form is called simply &quot;gmap&quot;.\r<br />\nSo the marker will show correctly, but if I drag (holding the right mouse button), it will dissappear at some point. \r<br />\n<br />\nAny idea would be very welcome!<br />\n<pre><code>Imports GMap.NET\nImports GMap.NET.MapProviders\nImports GMap.NET.WindowsForms\n\ngmap.MapProvider = GMapProviders.EmptyProvider\ngmap.MinZoom = 1\ngmap.MaxZoom = 17\ngmap.Zoom = 1\ngmap.SetCurrentPositionByKeywords(&quot;Lint, Belgium&quot;)\n\nDim markerone As New GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(New PointLatLng(51, 4))\n\nmarkersoverlay.Markers.Add(markerone)\ngmap.Overlays.Add(markersoverlay)\n\n\n</code></pre>\n\nthanks a lot!<br />\n",
+    "PostedDate": "2014-04-04T03:24:55.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1314901",
+    "ThreadId": "541174",
+    "Html": "Try DisableRegionCheck<br />\n",
+    "PostedDate": "2014-10-20T02:43:42.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

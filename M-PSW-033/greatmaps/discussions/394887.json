@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "910110",
+    "ThreadId": "394887",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I use this code to access to map control and change position of it, i change map control modifier to public, no error happend but map not move,</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">void</span> explorerBar_ItemClick(<span style=\"color:blue\">object</span> sender, Janus.Windows.ExplorerBar.ItemEventArgs e)\r\n{\r\n    UI.MainForm main = <span style=\"color:blue\">new</span> UI.MainForm();\r\n    main.ResetMarkerSize();\r\n    <span style=\"color:blue\">try</span>\r\n    {\r\n        main.SelectedPoint = Convert.ToInt32(e.Item.Key);\r\n\r\n        <span style=\"color:blue\">double</span>[] Position = DAL.DataAccessClass.PointPosition.GetPointPosition(Convert.ToInt32(e.Item.Key));\r\n        PointLatLng ItemPosition = <span style=\"color:blue\">new</span> PointLatLng(Position[0], Position[1]);\r\n\r\n        MapLayers.CreateLayerMapInDifferentZoom(main.MainMapControl, main.Pointslayer);\r\n\r\n        <span style=\"color:blue\">foreach</span> (GMapMarker marker <span style=\"color:blue\">in</span> main.AllPointslayer.Markers)\r\n        {\r\n            <span style=\"color:blue\">if</span> (marker.Tag.ToString() == e.Item.Key.ToString())\r\n            {\r\n                marker.Size = <span style=\"color:blue\">new</span> Size(main.MapMarkerBiggerSize, main.MapMarkerBiggerSize);\r\n                <span style=\"color:blue\">break</span>;\r\n            }\r\n        }\r\n\r\n        main.MainMapControl.Zoom = 18;\r\n        main.MainMapControl.Position = ItemPosition;\r\n    }\r\n    <span style=\"color:blue\">catch</span> (Exception ex)\r\n    {\r\n        BLL.FunctionsClass.LogExceptions.WriteLogException(ex);\r\n    }\r\n    main.GetSelectedPointExtraInfo();\r\n}\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>I Create janus explorer bar in class and when i want to click on item map move.</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-09-09T01:39:43.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910121",
+    "ThreadId": "394887",
+    "Html": "<p>it doen't matter from what class you access other classes ;}</p>",
+    "PostedDate": "2012-09-09T03:56:20.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910146",
+    "ThreadId": "394887",
+    "Html": "<p>so why map control not change&nbsp;position? this is bug? or what?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2012-09-09T05:44:57.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910151",
+    "ThreadId": "394887",
+    "Html": "<p>map.Position = ..., and it changes position, always worked, works today too ;}</p>",
+    "PostedDate": "2012-09-09T06:04:48.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

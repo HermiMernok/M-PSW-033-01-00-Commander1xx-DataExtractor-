@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "287673",
+    "ThreadId": "83767",
+    "Html": "<p>Hello all,</p>\r\n<p>I wonder if someone could point me in the right direction?&nbsp; Essentially I am attempting to solve the &quot;traveling salesman problem&quot; (TSP).&nbsp; We have an application that currently interfaces with MapPoint.&nbsp; We are also investigating using this GMap.NET framework as another option.&nbsp; I found some vehicle routing software from DNA Evolutions (http://www.dna-evolutions.com/joptnet.html) that we can interface with, but it has no internal GIS database.&nbsp; Therefore, the matrices have to be provided by our third party GIS SDK (i.e. MapPoint, GMap.Net).&nbsp; So, my question is what is the best way to get these matrices I need?&nbsp; Is there anything built into GMap.Net that returns a distance matrix based on a set of locations?&nbsp; Anyone have any suggestions for how I should approach this?&nbsp; Thanks in advance!</p>",
+    "PostedDate": "2010-02-09T07:16:44.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "287748",
+    "ThreadId": "83767",
+    "Html": "<p>check&nbsp;<a href=\"http://geonamesdotorgdotnet.codeplex.com/\">http://geonamesdotorgdotnet.codeplex.com/</a></p>",
+    "PostedDate": "2010-02-09T10:54:43.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "287824",
+    "ThreadId": "83767",
+    "Html": "<p>Is there a specific webservice they offer that you are suggesting?</p>",
+    "PostedDate": "2010-02-09T13:18:38.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "287825",
+    "ThreadId": "83767",
+    "Html": "<p>i suppose yes</p>",
+    "PostedDate": "2010-02-09T13:21:48.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "287827",
+    "ThreadId": "83767",
+    "Html": "<p>Ok, so what specific webservice do they offer that you suggesting to help me with my problem?&nbsp; I didn't see any that seemed to return any type of matrix.</p>",
+    "PostedDate": "2010-02-09T13:27:42.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "287831",
+    "ThreadId": "83767",
+    "Html": "<p>i don't know if they publish all data</p>",
+    "PostedDate": "2010-02-09T13:40:51.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "416988",
+    "ThreadId": "83767",
+    "Html": "<p>We have similar requirements. I think the license terms state that you are not allowed to use the routing data for commercial delivery routing.</p>\r\n<p>Google also limits the number of requests you can make.</p>\r\n<p>On the other hand, using map data to visualize positions is allowed, as far as I know.</p>\r\n<p>We use commercial map data (PTV) and we plan to use GMaps for visualisation and interaction.</p>\r\n<p>BTW: we put the results from our route server in a time/distance database as a means to cache data.</p>",
+    "PostedDate": "2010-03-11T07:19:57.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

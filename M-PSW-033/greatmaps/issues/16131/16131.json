@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "p.s. use https://greatmaps.codeplex.com/discussions",
+    "ClosedDate": "2015-09-09T13:39:56.53-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI have one sample project that I used to test the GMap control sucessfully in a Win CE device, then I added the component (GMapControl) to a project that I already had and it started freezing the equipament when I instantiate the GMapControl, after some investigation I added the DLL 'System.Data.SqlServerCe' in the test project that was working fine and it started freezing the equipment as well. I use this DLL in my project because I store data in a SQL Compact 3.5 database.\r\n\r\nIs there any known incompatibility with this DLL? \r\n\r\nThank you.",
+    "LastUpdatedDate": "2015-09-13T13:57:56.313-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-09-09T08:01:01.383-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMaps and SQL Compact (Win CE)",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16131
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "what do you mean 'freezing '?\n",
+      "PostedDate": "2015-09-09T13:39:49.433-07:00",
+      "Id": 190040
+    },
+    {
+      "Message": "Hi Radioman,\n\nBy freezing I mean that the app stops working, gets locked, you cannot use it anymore.\n\nP.S.: Opened a discussion: http://greatmaps.codeplex.com/discussions/644788 ",
+      "PostedDate": "2015-09-13T13:57:56.313-07:00",
+      "Id": 190173
+    }
+  ]
+}

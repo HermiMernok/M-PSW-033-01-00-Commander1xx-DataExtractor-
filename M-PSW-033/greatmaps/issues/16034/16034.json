@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "ok",
+    "ClosedDate": "2012-03-04T23:36:04.513-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI think that you should change this code:\r\n\r\n      // center markers on start\r\n      private void MainForm_Load(object sender, EventArgs e)\r\n      {\r\n         if(objects.Markers.Count > 0)\r\n         {\r\n            MainMap.ZoomAndCenterMarkers(null);\r\n            trackBar1.Value = (int)MainMap.Zoom * 100;\r\n         }\r\n         Activate();\r\n      }\r\n\r\nby moving \"trackBar1.Value = (int)MainMap.Zoom * 100;\" outside the IF statement",
+    "LastUpdatedDate": "2012-03-04T23:36:04.513-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-03-04T11:55:15.36-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Demo project. Track bar value is not updated on startup",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16034
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

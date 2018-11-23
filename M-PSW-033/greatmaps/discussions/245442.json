@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "563925",
+    "ThreadId": "245442",
+    "Html": "\r\n<p>Would it be easy to add additional layers?</p>\r\n<p>Our enterprise server can serve up additional raster layers of data that are overlayed on the background imagery map.</p>\r\n",
+    "PostedDate": "2011-02-10T05:57:32.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564075",
+    "ThreadId": "245442",
+    "Html": "\r\n<p>depends on map projection, if its the same as google/bin it's easy to add</p>\r\n",
+    "PostedDate": "2011-02-10T09:43:38.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564102",
+    "ThreadId": "245442",
+    "Html": "\r\n<p>Yes, its the same projection as the underlying imagery.</p>\r\n<p>How would I go about it?</p>\r\n",
+    "PostedDate": "2011-02-10T10:27:32.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564115",
+    "ThreadId": "245442",
+    "Html": "\r\n<ul>\r\n<li>add new maptype </li><li>add url handling in&nbsp;GMap.NET.Core/GMap.NET/GMaps.cs/<strong>MakeImageUrl</strong>\r\n</li><li>change function <strong>GetAllLayersOfType</strong>&nbsp;is you mix layers </li></ul>\r\n",
+    "PostedDate": "2011-02-10T10:40:45.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564151",
+    "ThreadId": "245442",
+    "Html": "Thanks, that works.<br>\r\n<br>\r\nOn 10/02/2011 1:40 PM, radioman wrote:\r\n<blockquote type=\"cite\">\r\n<p>From: radioman</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<ul>\r\n<li>add new maptype </li><li>add url handling in GMap.NET.Core/GMap.NET/GMaps.cs/<strong>MakeImageUrl</strong>\r\n</li><li>change function <strong>GetAllLayersOfType</strong> is you mix layers </li></ul>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-02-10T11:46:53.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250305",
+    "ThreadId": "245442",
+    "Html": "And what about additional raster layers in gmap wpf? Is it possible to add layers onto bingmap?<br />\n",
+    "PostedDate": "2014-05-27T23:34:55.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250343",
+    "ThreadId": "245442",
+    "Html": "you can use marker as image, but somehow you need to scale it according the zoom level..<br />\n",
+    "PostedDate": "2014-05-28T01:05:12.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250372",
+    "ThreadId": "245442",
+    "Html": "Maybe there is an option to place image layer above bingmap like tiles are placed?<br />\n",
+    "PostedDate": "2014-05-28T02:26:28.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250406",
+    "ThreadId": "245442",
+    "Html": "if you have the tiles, yes<br />\n<br />\np.s. you can make tiles from bitmap using Tools/MapCruncher<br />\n",
+    "PostedDate": "2014-05-28T04:45:05.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250447",
+    "ThreadId": "245442",
+    "Html": "i have made tiles with MapCruncher, now i have folder with tiles and xml file, which references each tile. could you provide procedure how to put tiles above bingmap layer?<br />\n",
+    "PostedDate": "2014-05-28T06:28:24.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250453",
+    "ThreadId": "245442",
+    "Html": "make new map provider and use it as secondary layer, also you can import tiles using Testing/ConsoleApplication<br />\n",
+    "PostedDate": "2014-05-28T06:39:21.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250751",
+    "ThreadId": "245442",
+    "Html": "it would be nice to find the exact code how to add second layer<br />\n",
+    "PostedDate": "2014-05-29T00:51:04.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250755",
+    "ThreadId": "245442",
+    "Html": "<pre><code>         MySQLPureImageCache ch = new MySQLPureImageCache();\n         ch.ConnectionString = @&quot;server=sql2008;User Id=trolis;Persist Security Info=True;database=gmapnetcache;password=trolis;&quot;;\n         MainMap.Manager.SecondaryCache = ch;\n\n          set your proxy here if need\n         GMapProvider.IsSocksProxy = true;\n         GMapProvider.WebProxy = new WebProxy(&quot;127.0.0.1&quot;, 1080);\n         GMapProvider.WebProxy.Credentials = new NetworkCredential(&quot;ogrenci@bilgeadam.com&quot;, &quot;bilgeada&quot;);\n          or\n         GMapProvider.WebProxy = WebRequest.DefaultWebProxy;</code></pre>\n\ni found example, but i want to set only path to my tiles folder on hard drive<br />\n",
+    "PostedDate": "2014-05-29T00:59:18.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1469956",
+    "ThreadId": "653535",
+    "Html": "I have three different route overlays. #2 and #3 look like this:<br />\n<pre><code>MapRoute route2 = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(p2, p1, false, false, (int)gMapControl1.Zoom);\nif (route2 != null)\n{\n      GMapRoute r2 = new GMapRoute(route2.Points, &quot;toroutes&quot;);\n      r2.Stroke.Width = 2;\n      r2.Stroke.Color = Color.Green;\n      toTerminalOverlay.Routes.Add(r2);\n      distance += route2.Distance;\n}\n\nMapRoute route3 = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(start, end, false, false, (int)gMapControl1.Zoom);\nif (route3 != null)\n{\n      GMapRoute r3 = new GMapRoute(route3.Points, &quot;My route&quot;);\n      r3.Stroke.Width = 1.5F;\n      r3.Stroke.Color = Color.Blue;\n      routesOverlay.Routes.Add(r3);\n      distance += route3.Distance;\n}</code></pre>\n\nThey all route properly but I cannot change the Stroke.Color or Stroke.Width for each individual route overlay.<br />\n<br />\nThey all use the last Color and Width declared (#3).<br />\n<br />\nAm I missing something?<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2016-04-13T06:49:29.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470184",
+    "ThreadId": "653535",
+    "Html": "r2.Stroke = new Stro... // or new one for each layer and reuse it<br />\n",
+    "PostedDate": "2016-04-14T11:46:21.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-04-14T11:46:25.117-07:00"
+  },
+  {
+    "Id": "1470195",
+    "ThreadId": "653535",
+    "Html": "That did not work but it make me think and this works:<br />\n<pre><code>r1.Stroke = new Pen(Color.Blue);</code></pre>\n\nThanks RadioMan\r<br />\n<br />\nDennis<br />\n",
+    "PostedDate": "2016-04-14T13:20:09.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-04-14T13:20:13.663-07:00"
+  }
+]

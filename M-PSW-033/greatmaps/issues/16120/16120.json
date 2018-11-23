@@ -1,0 +1,90 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 10,
+    "Custom": null,
+    "Description": "I'm using GMap.NET build 1.7 and when I select the Google or Yahoo satellite image providers I'm no longer able to get imagery in some areas and at higher zoom levels. I suspect the API key used for these map provider s are no longer valid.\r\nIs there a commercial version or a newer release of GMAP.NET that do not have this problem?\r\nOur budget is from 500 to 1000 USD for this version.\r\n\r\n",
+    "LastUpdatedDate": "2016-02-12T09:44:24.343-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-05-12T10:22:44.383-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Google or Yahoo satellite image providers I'm no longer able to get imagery in some areas",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16120
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "you can try latest build for google, api key isn't used for map imagery access\n\np.s. yahoo started using new authentication which isn't supported yet",
+      "PostedDate": "2015-05-12T23:31:01.793-07:00",
+      "Id": 184263
+    },
+    {
+      "Message": "Thank you for your valuable help.\n\nI did get Google imagery with the latest GMap.NET build, but the images doesn't update to a higher resolution when the zoom level is increased and I get blurred images. Specifically, I'm using the Google Satellite Map Provider.\nI've found the same problem using the Demo.WindowsForms.exe application and selecting the Google Satellite Map Provider.\n\nI'll gladly donate to your great cause if you can fix this problem as I'm in a tight deadline to finish a software app.",
+      "PostedDate": "2015-05-13T07:57:53.993-07:00",
+      "Id": 184276
+    },
+    {
+      "Message": "well not all areas have very high zoom, it's not really gmap.net issue\n\ncan you post max level you get and the position, i'll check it?",
+      "PostedDate": "2015-05-13T09:28:23.573-07:00",
+      "Id": 184280
+    },
+    {
+      "Message": "\nThe coordinates are:\nLatitude: 32.661922\nLongitude: -117.105632\nIntended zoom level: 18\nProvider: Google Satellite Map \n\nI'm only able to get imagery at zoom level 13 and when I increase the zoom level the imagery doesn't update to a higher resolution, resulting in blurred images. Before, I could get imagery at higher resolutions with zoom levels up to 18.\n\nThank you for your valuable help.",
+      "PostedDate": "2015-05-13T11:00:29.61-07:00",
+      "Id": 184289
+    },
+    {
+      "Message": "works fine for me, i can see even the cars, if you would send me the http request log, i would compare",
+      "PostedDate": "2015-05-13T13:12:46.5-07:00",
+      "Id": 184297
+    },
+    {
+      "Message": "Hi,\n\nI did change the GMap.NET server access mode to GMap.NET.AccessMode.ServerAndCache and I did get clear images in some areas but blurred in others. I guess the satellite images were loaded from a cache in my computer and not from the Google satellite image server.\n\nI use following statements before using the GMap.NET Control for server connection:\n\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n            GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();\n            GMapProvider.WebProxy.Credentials = CredentialCache.DefaultNetworkCredentials;\n\nMay be the default credentials are no longer valid to access the Google satellite image server?",
+      "PostedDate": "2015-05-21T13:24:26.807-07:00",
+      "Id": 184664
+    },
+    {
+      "Message": "does it work without any proxy?",
+      "PostedDate": "2015-05-21T23:26:10.09-07:00",
+      "Id": 184673
+    },
+    {
+      "Message": "\nHello,  thank you for your valuable help.\n\nI have removed the webproxy statements (GMapProvider.WebProxy = WebRequest.GetSystemWebProxy() and \nGMapProvider.WebProxy.Credentials = CredentialCache.DefaultNetworkCredentials) and still get blurred images when I choose the Google or satelite satelite image provider and when I select the Yahoo satelite image provider I don't get any images at all.  I'm interested specifically in the Google Satellite image provider because they offer the most updated and highest resolution imagery.",
+      "PostedDate": "2015-05-22T10:41:10.043-07:00",
+      "Id": 184719
+    },
+    {
+      "Message": "Hi,\n\nI've donated $200USD to your great cause.\n\nI'll gladly donate another $200USD if you can solve the following problems I have with GMap.NET control:\n\n-I need to access high resolution satellite images from the Google Earth  provider. Before, I could access detailed imagery up to zoom level 13. Now I get blurred images or no imagery at all if I use the  Map.NET.AccessMode.ServerOnly mode. Do I have to pay royalties to Google to access their high resolution imagery now?\n-I don't get any images from the Yahoo satellite image provider. Can this problem be solved by an update in your GMap.NET control?\n\nThank you for your valuable help,\n\nHector Martinez/Arqcom\n",
+      "PostedDate": "2015-05-27T08:04:26.357-07:00",
+      "Id": 184833
+    },
+    {
+      "Message": "Hi, I'm facing the problem with the latest build. Could anyone can tell me how to fix this?",
+      "PostedDate": "2016-02-12T09:44:24.343-08:00",
+      "Id": 196522
+    }
+  ]
+}

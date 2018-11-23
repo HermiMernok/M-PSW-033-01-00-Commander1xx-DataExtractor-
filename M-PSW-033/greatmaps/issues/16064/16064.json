@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "?",
+    "ClosedDate": "2013-04-01T11:17:34.207-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "GMapControl.Zoom is already double. Thanks.",
+    "LastUpdatedDate": "2013-04-02T09:41:49.82-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-04-01T10:25:13.537-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WPF Smooth Zoom",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16064
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Although GMapControl.Zoom is of \"double\" datatype, there's no Zoom level 12.5, for example.\nWhy setting it to \"close\"?",
+      "PostedDate": "2013-04-01T13:17:15.073-07:00",
+      "Id": 95519
+    },
+    {
+      "Message": "check map.**ScaleMode**, default setting is __Integer__ because there are some bugs for fractional mode...",
+      "PostedDate": "2013-04-01T23:59:45.767-07:00",
+      "Id": 95592
+    },
+    {
+      "Message": "If \"there are some bugs for fractional mode\" why close this issue? :)\nIs there another related issue open?",
+      "PostedDate": "2013-04-02T02:02:04.423-07:00",
+      "Id": 95601
+    },
+    {
+      "Message": "yes",
+      "PostedDate": "2013-04-02T09:41:49.82-07:00",
+      "Id": 95628
+    }
+  ]
+}

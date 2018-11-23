@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "435568",
+    "ThreadId": "210586",
+    "Html": "<p>Hi,</p>\r\n<p>First of all, thanks, this control is so GREAT!!!, i have a little problem, i'm generating a PDF File with the image on the control that i call &quot;mapGIS&quot;, with the mapaGIS.ToImage() method. The control is on a Windows Form and it load the map add a route and a marker, all work fine.</p>\r\n<p>Now i try to do the same thing but with a control created by code and without be visible, i mean, i need to make a lot of images of a lot of points, so i make all on code, but then i use the &quot;.ToImage()&quot; method, it save the image of the current state of the application, i mean it show the &quot;form&quot; and not the map.</p>\r\n<p>The question is, do i need to put visible the user control to save the image?</p>\r\n<p>Thanks for all, and take care.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp; Iv&aacute;n.</p>",
+    "PostedDate": "2010-04-26T09:28:14.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435574",
+    "ThreadId": "210586",
+    "Html": "<p>hey, ..well <em>ToImage</em> just copy/save current view from control, so yes, but <em>no</em>, if you use static image maker ;}</p>\r\n<p>p.s. check the button 'Get Static', there is code, you can easily draw any objects on generated image in off-screen mode</p>",
+    "PostedDate": "2010-04-26T09:39:31.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

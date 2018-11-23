@@ -1,0 +1,57 @@
+<div class="wikidoc"><b>Project Description</b><br />GeoUtility library is a tool supporting complex mathematical calculations in geographical coordinate systems like Latitude&#47;Longitude, UTM, MGRS, etc.  It can be used for desktop/web development in CLI implementations like .NET, MONO. Supported map services: Google Maps, Virtual Earth, Yahoo Maps.<br />But, GeoUtility Library is more than a simple coordinate conversion library. Unlike other similar libraries it can calculate and download satellite images from several providers for given coordinates and zoom levels. Switching from one satellite image provider to another is only one line of code. Developers do not have to care about technical details. In advance the library also provides many calculations on these satellite images.<br /><br /><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geoutility&DownloadId=148165" alt="Main&#32;demo&#32;application" title="Main&#32;demo&#32;application" />  <img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geoutility&DownloadId=145897" alt="GeoUtility&#32;Library&#32;Mobile&#32;on&#32;a&#32;smart&#32;device" title="GeoUtility&#32;Library&#32;Mobile&#32;on&#32;a&#32;smart&#32;device" /> Screenshot demo applications.<br />
+<h2><a href="http://www.codeplex.com/site/users/contact/geoutility?OriginalUrl=http%3a%2f%2fgeoutility.codeplex.com">Need support for your software projects? Hire us!</a></h2>
+<h3>Examples:</h3>
+<br /><b>Transforming Latitude/Longitude to UTM:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> GeoUtility.GeoSystem;
+Geographic geo = <span style="color:Blue;">new</span> Geographic(8.12345, 50.56789);
+UTM utm = (UTM)geo;
+<span style="color:Blue;">double</span> east = utm.East;
+<span style="color:Blue;">double</span> north = utm.North;
+<span style="color:Blue;">int</span> zone = utm.Zone;
+<span style="color:Blue;">string</span> band = utm.Band;
+</pre></div><br /><b>Transforming UTM to Gauss-Krueger:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> GeoUtility.GeoSystem;
+UTM utm = <span style="color:Blue;">new</span> UTM(32, <span style="color:#A31515;">&quot;U&quot;</span>, 412345, 5567890);
+GaussKrueger gauss = (GaussKrueger)utm;
+<span style="color:Blue;">double</span> east = gauss.East;
+<span style="color:Blue;">double</span> north = gauss.North;
+</pre></div><br /><b>Transforming Gauss-Krueger to MGRS/UTMRef:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> GeoUtility.GeoSystem;
+GaussKrueger gauss = <span style="color:Blue;">new</span> GaussKrueger(3456789, 5612345);
+MGRS mgrs = (MGRS)gauss;
+<span style="color:Blue;">double</span> east = mgrs.East;
+<span style="color:Blue;">double</span> north = mgrs.North;
+<span style="color:Blue;">int</span> zone = mgrs.Zone;
+<span style="color:Blue;">string</span> band = mgrs.Band;
+<span style="color:Blue;">string</span> grid = mgrs.Grid;
+</pre></div><br /><b>Transforming MGRS/UTMRef to Latitude/Longitude:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> GeoUtility.GeoSystem;
+MGRS mgrs = <span style="color:Blue;">new</span> MGRS(32, <span style="color:#A31515;">&quot;U&quot;</span>, <span style="color:#A31515;">&quot;MA&quot;</span>, 12345, 67890);
+Geographic geo = (Geographic)mgrs;
+<span style="color:Blue;">double</span> lon = geo.Longitude;
+<span style="color:Blue;">double</span> lat = geo.Latitude;
+</pre></div><br /><b>Transforming Gauss-Krueger to Google Earth satellite image:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> GeoUtility.GeoSystem;
+GaussKrueger gauss = <span style="color:Blue;">new</span> GaussKrueger(3456789, 5612345);
+MapService maps = (MapService)gauss;
+maps.MapServer = MapService.Info.MapServer.GoogleMaps;
+maps.Zoom = 18;
+Image image = maps.Image.Load(); 
+</pre></div><br /><b>Moving Yahoo Maps satellite image in north-western direction:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> GeoUtility.GeoSystem;
+Geographic geo = <span style="color:Blue;">new</span> Geographic(8.12345, 50.56789);
+MapService.Info.MapServer server = MapService.Info.MapServer.YahooMaps;
+MapService map = <span style="color:Blue;">new</span> MapService(geo, server);
+GeoUtility.GeoSystem.MapService.Info.MapServiceTileBase tile;
+tile = map.Move(MapService.Info.MapDirection.Northwest, 1, <span style="color:Blue;">false</span>);
+<span style="color:Blue;">string</span> output = tile.URL;
+</pre></div><br /><b>Calculate a satellite image (Bing Maps / Microsoft Virtual Earth) that contains two different coordinates on it:</b><br /><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">using</span> GeoUtility.GeoSystem;
+Geographic geo = <span style="color:Blue;">new</span> Geographic(13.377829, 52.515934);   <span style="color:Green;">// Berlin Brandenburg Gate</span>
+Geographic geo2 = <span style="color:Blue;">new</span> Geographic(13.376026, 52.518597);  <span style="color:Green;">// Berlin Reichstag</span>
+MapService map = <span style="color:Blue;">new</span> MapService(geo);
+MapService.Info.MapServiceVirtualEarthMapsTile tile;                
+tile = map.CalculateCommonTile(geo2, MapService.Info.MapServer.VirtualEarth);
+Image image = <span style="color:Blue;">new</span> MapService(tile).Image.Load();         <span style="color:Green;">// new MapService-object from tile and load image</span>
+<span style="color:Blue;">string</span> output = tile.URL;                                <span style="color:Green;">// or retrieve a url to the satellite image</span>
+</pre></div><br /><i>Copyright 2008-2010 Steffen Habermehl</i></div><div class="ClearBoth"></div>

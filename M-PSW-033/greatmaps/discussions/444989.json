@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1048717",
+    "ThreadId": "444989",
+    "Html": "hello I'm a newbie with C #, but with this project is very easy to create beautiful programs. I'm writing a program similar to OziExplorer.\r<br />\nNow how can I count the waypoints that are on layers and how I can list them and their property?\r<br />\nThanks and sorry if the question is silly<br />\n",
+    "PostedDate": "2013-05-25T14:57:18.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1048764",
+    "ThreadId": "444989",
+    "Html": "int a = gMapControl1.Overlays.Count;\r<br />\nint b = gMapControl1.Overlays[0].Markers.Count;\r<br />\nPointLatLng place = gMapControl1.Overlays[0].Markers[0].Position;<br />\n",
+    "PostedDate": "2013-05-25T23:13:13.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049063",
+    "ThreadId": "444989",
+    "Html": "thanks sailor!!!<br />\n<br />\nIf in a gMapControl1_MouseClick funciton i declare<br />\n<br />\nGMapOverlay punti = new GMapOverlay(gMapControl1, &quot;punti&quot;);<br />\ngMapControl1.Overlays.Add(punti); <br />\n<br />\neverytime I click on map i create a new layer and with gMapControl1.Overlays[0].Markers.Count; i have everytime &quot;1&quot;!!! one marker for layer!<br />\n<br />\nIf i declare <br />\nGMapOverlay punti = new GMapOverlay(gMapControl1, &quot;punti&quot;);<br />\ngMapControl1.Overlays.Add(punti); <br />\n<br />\nin public Form1(){..........} i can'use punti in gMapControl1_MouseClick function because name&quot;punti&quot; don't exsits in contest<br />\n<br />\nHave you a solution for me? <br />\n<br />\nThanks again?!<br />\n",
+    "PostedDate": "2013-05-27T01:55:15.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

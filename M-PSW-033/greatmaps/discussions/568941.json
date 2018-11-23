@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1310162",
+    "ThreadId": "568941",
+    "Html": "With large screens performance is a bit of issue. I believe that it can easily get better. First I believe that these settings can be used <br />\n<pre><code>       e.Graphics.CompositingMode = CompositingMode.SourceCopy;\n       e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;\n</code></pre>\n\nIf you dont stretch tiles NearestNeighbor is fine even with stretching not all would notice any difference. Also sourcecopy is very fast if you dont have transparency at tiles which is the case most of the time I guess. Finnally DrawImage() Bitmap should be used not Image . It has great performance benefits <br />\nHere is what I use for my application (irrelevant).<br />\nWith these optimizations I draw a 1920x1000 image within 1ms . <br />\n<br />\n  using (Bitmap oldBmp = new Bitmap(String.Format(path, i)))<br />\n<pre><code>            using (Bitmap newBmp = new Bitmap(oldBmp))\n            {\n                cache.Add(newBmp.Clone(new Rectangle(0, 0, newBmp.Width, newBmp.Height), PixelFormat.Format32bppPArgb));\n            }\n</code></pre>\n\nQuick proof - in debug mode. In realease mode it was VERY smooth.<br />\n<img src=\"http://i.imgur.com/dYtEDW0.jpg\" alt=\"Image\" /> <br />\n",
+    "PostedDate": "2014-10-03T01:49:43.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1310432",
+    "ThreadId": "568941",
+    "Html": "Where is your code supposed to go exactly?<br />\n",
+    "PostedDate": "2014-10-04T02:18:56.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1310690",
+    "ThreadId": "568941",
+    "Html": "Where tiles are drawn.However the bitmap conversion is more important<br />\n",
+    "PostedDate": "2014-10-06T02:53:36.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311079",
+    "ThreadId": "568941",
+    "Html": "And where should i implement your Bitmap Conversion - Snippet exactly?<br />\n<br />\n<br />\nI guess i found the correct place to implement these statements (GMapControl.OnPaint()):<br />\n<blockquote>\ne.Graphics.CompositingMode = CompositingMode.SourceCopy;<br />\n e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;<br />\n</blockquote>\nBut not this:<br />\n<blockquote>\nusing (Bitmap oldBmp = new Bitmap(String.Format(path, i)))<br />\nusing (Bitmap newBmp = new Bitmap(oldBmp))<br />\n{<br />\n<pre><code> cache.Add(newBmp.Clone(new Rectangle(0, 0, newBmp.Width, newBmp.Height), PixelFormat.Format32bppPArgb));</code></pre>\n\n}<br />\n</blockquote>\n",
+    "PostedDate": "2014-10-07T02:09:56.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311108",
+    "ThreadId": "568941",
+    "Html": "In GMapImage.cs<br />\nHowever SourceCopy would crash if you try to render text so it should be used temporary.<br />\n<pre><code>  public override PureImage FromStream(Stream stream)\n      {\n         GMapImage ret = null;\n         try\n         {\n#if !PocketPC\n            Image m = Image.FromStream(stream, true, Win7OrLater ? false : true);\n\n            using (Bitmap newBmp = new Bitmap(m))\n            {\n               m=newBmp.Clone(new Rectangle(0, 0, newBmp.Width, newBmp.Height), PixelFormat.Format32bppPArgb);\n            }\n\n#else\n            Image m = new Bitmap(stream);\n#endif\n            if(m != null)\n            {\n               ret = new GMapImage();\n#if !PocketPC\n               ret.Img = ColorMatrix != null ? ApplyColorMatrix(m, ColorMatrix) : m;\n#else\n               ret.Img = m;\n#endif\n            }\n\n         }\n         catch(Exception ex)\n         {\n            ret = null;\n            Debug.WriteLine(&quot;FromStream: &quot; + ex.ToString());\n         }\n\n         return ret;\n      }</code></pre>\n\n",
+    "PostedDate": "2014-10-07T03:49:39.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311132",
+    "ThreadId": "568941",
+    "Html": "Thank you very much, i´ll give it a try later :)\r<br />\n<br />\nBest regards, drugstar500<br />\n",
+    "PostedDate": "2014-10-07T05:35:48.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

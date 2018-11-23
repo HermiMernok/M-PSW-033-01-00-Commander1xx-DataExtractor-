@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1247023",
+    "ThreadId": "545847",
+    "Html": "Hey radioman,<br />\n<br />\nthank you a lot for your awesome library. Relly helped me a lot and it is quite powerfull.<br />\n<br />\nI know some guys asked you before but any recomendations on how to use Map.BoundsOfMap<br />\nWhenever and however i try to use it, afterwards it doesnt seem possible to drag the map.<br />\nI am working with WPF. Here the code i tried so far: <br />\n<pre><code>LiveViewMap.BoundsOfMap = new RectLatLng(new PointLatLng(0, 0), new SizeLatLng(-180, -180));\n\nLiveViewMap.BoundsOfMap = new RectLatLng(new PointLatLng(180, 0), new SizeLatLng(180, 180));\n\nLiveViewMap.BoundsOfMap = new RectLatLng(new PointLatLng(180, 0), new SizeLatLng(0, 0));\n\nLiveViewMap.BoundsOfMap = new RectLatLng(new PointLatLng(180, 20), new SizeLatLng(180, 180));\n\nand so on\n\n</code></pre>\n\nEDIT// I Worked on the last hot build.<br />\n<br />\n<br />\nAny sugestions on how to get it to work?<br />\n<ol>\n<li>\nEDIT// I checked your source code. <br />\nIn the Project Gmap.NET.WindowsPresentation,  in the class GmapControl the methode OnMouseMove contains an if statement to check if BoundsOfMap has a value and if the curren Position is outside that Boundary.<br />\nBut inside the if-Statement there is no Code. I have the strong feeling, there is missing quite some code so it doesnt work.<br />\n</li>\n</ol>\nHope i could help you with it.<br />\nDo you have any tipps on how to fix it in my project. A kind of workaround or something?<br />\n<br />\nGreetings<br />\nnicosurf<br />\n",
+    "PostedDate": "2014-05-19T09:38:38.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247043",
+    "ThreadId": "545847",
+    "Html": "make smaller area<br />\n",
+    "PostedDate": "2014-05-19T10:06:53.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247313",
+    "ThreadId": "545847",
+    "Html": "You mean for the Bounds of Map?\r<br />\nDid you check if it really works. As i said i think i found an error in your source code. <br />\n",
+    "PostedDate": "2014-05-20T02:49:33.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247315",
+    "ThreadId": "545847",
+    "Html": "it worked for me the last time i've checked, but i'll check again..<br />\n",
+    "PostedDate": "2014-05-20T02:54:49.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1324245",
+    "ThreadId": "545847",
+    "Html": "Hi, nicosurf!\r<br />\n<br />\nAny luck on limiting the area where users can drag the map?\r<br />\n<br />\nAs you have said before, once the BoundsOfMap are set, the user can no longer drag the map.\r<br />\n<br />\nI've seen a lot of question on this matter but none that points to a solution.<br />\n",
+    "PostedDate": "2014-11-20T04:48:46.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1324267",
+    "ThreadId": "545847",
+    "Html": "are you sure you set coordinates correctly?<br />\n",
+    "PostedDate": "2014-11-20T05:52:43.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

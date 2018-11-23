@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1157256",
+    "ThreadId": "489432",
+    "Html": "hi \r<br />\nwhen i draw the route with the function &quot;routebetweenpoints&quot; i need that the route croos over specifing points\r<br />\ni have 900 coordinates \r<br />\nhere is my code :\r<br />\n<br />\n  Dim route As MapRoute = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRouteBetweenPoints(start, endStop, False, False, 15)<br />\n<pre><code>    route.Points.Clear()\n    For i As Integer = 0 To listOfRoutes.Count - 1  \n        Dim Coordinates As PointLatLng = New PointLatLng(listOfRoutes.Item(i).latitude, listOfRoutes.Item(i).longitude)\n        route.Points.Add(Coordinates)\n\n    Next\n\n    Dim NewRoute As GMap.NET.WindowsForms.GMapOverlay\n\n    NewRoute = New GMap.NET.WindowsForms.GMapOverlay(MainMap, &quot;My Route&quot;)\n    MainMap.Overlays.Add(NewRoute)\n     Dim r As GMapRoute = New GMapRoute(route.Points, &quot;My Route&quot;)\n     r.IsVisible = True\n    Dim routesOverlay As GMapOverlay = New GMapOverlay(MainMap, &quot;routes&quot;)\n    routesOverlay.Routes.Add(r)\n    MainMap.Overlays.Add(routesOverlay)\n    r.Stroke.Width = 3\n    r.Stroke.Color = Color.GreenYellow\n    MainMap.ZoomAndCenterRoute(route)\n    MainMap.SelectedAreaFill.Dispose()\n</code></pre>\n\ni got a blue screen with agriturismo sandrone\r<br />\n<br />\n<br />\ni also try this :\r<br />\n Dim listPointlatlon As New List(Of PointLatLng)<br />\n<pre><code>    For Each lst In listofRoute\n        listPointlatlon.Add(New PointLatLng(lst.latitude, lst.longitude))\n    Next\n    Dim r As GMapRoute = New GMapRoute(listPointlatlon, &quot;routes&quot;)\n    r.Stroke.Width = 5\n    r.Stroke.Color = Color.Blue\n    Dim routesOverlay As GMapOverlay = New GMapOverlay(MainMap, &quot;routes&quot;)\n\n    routesOverlay.Routes.Add(r)\n    MainMap.ZoomAndCenterRoute(r)\n\n</code></pre>\n\nplease help\r<br />\nthanks a lot<br />\n",
+    "PostedDate": "2014-01-12T04:01:05.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,378 @@
+[
+  {
+    "Id": "547394",
+    "ThreadId": "241332",
+    "Html": "\r\n<p>Hi</p>\r\n<p>Awesome app</p>\r\n<p>I was wondering if it would be possible to add street directions in the routing info along with the points</p>\r\n<p>for example when you get a route from google it gives you :</p>\r\n<p>turn right at 1st street</p>\r\n<p>turn left at north street</p>\r\n<p>etc</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>thanks again for an awesome app</p>\r\n<p>i8sy</p>\r\n",
+    "PostedDate": "2011-01-11T09:48:48.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547417",
+    "ThreadId": "241332",
+    "Html": "\r\n<p>yes, its possible, just need add some functions to parse data from http://code.google.com/intl/en/apis/maps/documentation/directions/</p>\r\n",
+    "PostedDate": "2011-01-11T10:16:56.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "561170",
+    "ThreadId": "241332",
+    "Html": "\r\n<p>been searching ( im not good with C# ) and not sure where or how you retreive the routing directions from</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-05T03:26:09.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673690",
+    "ThreadId": "241332",
+    "Html": "<p>i8sy did you ever get anywhere with this? Looked around and can't see any examples? I am no good with C# neither</p>\r\n<p>thanks</p>",
+    "PostedDate": "2011-09-19T07:44:41.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673696",
+    "ThreadId": "241332",
+    "Html": "<p>check&nbsp;GoogleMapProviderBase.<strong>GetRoutePointsKml</strong></p>\r\n<p>p.s. deserialization isn't implemented, but if you can handle manual xml parsing, go ahead, and use it, i'll add direction interfaces asynchronously later some day in the near future ;}</p>",
+    "PostedDate": "2011-09-19T08:02:17.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673724",
+    "ThreadId": "241332",
+    "Html": "<p>superb! thanks</p>",
+    "PostedDate": "2011-09-19T09:06:35.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673737",
+    "ThreadId": "241332",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>Downloaded latest version and tried to compile but i am getting :-</p>\r\n<p>The type or namespace cannot be found GMapRoutingProvider in Googmapprovider.cs and Openstreetmapprovider.cs?</p>",
+    "PostedDate": "2011-09-19T09:31:14.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673740",
+    "ThreadId": "241332",
+    "Html": "<p>Sorry, checking hotbuild now!</p>",
+    "PostedDate": "2011-09-19T09:40:46.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673744",
+    "ThreadId": "241332",
+    "Html": "<p>Nope, won't compile windows mobile dll</p>",
+    "PostedDate": "2011-09-19T09:50:28.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673753",
+    "ThreadId": "241332",
+    "Html": "<p>try it now ;}</p>",
+    "PostedDate": "2011-09-19T10:07:21.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673755",
+    "ThreadId": "241332",
+    "Html": "<p>Compiled all ok! thanks</p>",
+    "PostedDate": "2011-09-19T10:13:31.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673779",
+    "ThreadId": "241332",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>My old code :- Singleton(Of GMaps).Instance.GetRouteBetweenPoints(r_strt, r_end, False, zm) doesn't work now because of i guess the new GMapRoutingProvider. I can't seem to find the gmaproutingprovider anywhere. Can you tell me how to get my old code working again? Thanks</p>",
+    "PostedDate": "2011-09-19T10:59:11.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673784",
+    "ThreadId": "241332",
+    "Html": "<p>check the demo source, this function is moved to GoogleMap provider</p>",
+    "PostedDate": "2011-09-19T11:07:44.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673787",
+    "ThreadId": "241332",
+    "Html": "<p>right, demo source. will do</p>",
+    "PostedDate": "2011-09-19T11:09:25.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673807",
+    "ThreadId": "241332",
+    "Html": "<p>Hi Radioman, I got the routing working thanks but GoogleMapProviderBase does not contain GetRoutePointskml? I am using the mobile solution. There is no demo code for using it.</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-09-19T11:47:37.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673841",
+    "ThreadId": "241332",
+    "Html": "<p>it's incomplete, therefore private,&nbsp;GoogleMapProviderBase contains it ;}</p>",
+    "PostedDate": "2011-09-19T13:04:52.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674217",
+    "ThreadId": "241332",
+    "Html": "<p>check the sound, i've finnaly managed to implement directions provider for google!</p>",
+    "PostedDate": "2011-09-20T07:51:20.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674385",
+    "ThreadId": "241332",
+    "Html": "<p>Hi Radioman,</p>\n<p>Someone's been busy :-) When you get a chance could you give a quick example of using the Gdirections, GDirectionStep? I found gdirections in the console app but doesn't help.</p>\n<p>Forget the above Radioman, your a genius :-)</p>\n<p>Thanks</p>",
+    "PostedDate": "2011-09-20T13:23:17.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674415",
+    "ThreadId": "241332",
+    "Html": "<p>..well you just call direction function and get the results, thats it ;} ..i'll add some functionality in demos some day</p>",
+    "PostedDate": "2011-09-20T14:21:50.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674459",
+    "ThreadId": "241332",
+    "Html": "<p>HURRY!</p>\n<p>Price: 39.99&nbsp;USD&nbsp;<span style=\"color: red;\"><span style=\"text-decoration: line-through;\">79.99&nbsp;USD</span> (50% off offer expires&nbsp;September 20, 2011)</span></p>\n<p>Looking into this text to speech for pocket pc, will get back with results :-)</p>\n<p>http://www.digitalfuturesoft.com/texttospeechproductsforpocketpccheckout.php</p>\n<p>I ordered the wrong one :-( it's actually here for more than 39.99 USD</p>\n<p>http://www.digitalfuturesoft.com/dfttsmobilesdk.php</p>\n<p>Well it is pretty late, that's my excuse.</p>",
+    "PostedDate": "2011-09-20T16:08:46.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674623",
+    "ThreadId": "241332",
+    "Html": "<p>The sample .net project from Digital Future has been compile and is working on my HD2. If anyone knows of a FREE tts sdk please let me know before I have to buy this one.</p>",
+    "PostedDate": "2011-09-21T04:14:48.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675089",
+    "ThreadId": "241332",
+    "Html": "<p>sounds great&nbsp; radioman</p>\r\n<p>&nbsp;</p>\r\n<p>any quick clues how to get this going?</p>",
+    "PostedDate": "2011-09-21T23:22:24.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675095",
+    "ThreadId": "241332",
+    "Html": "<p><em>GDirections s;<br /> var x = GMapProviders.GoogleMap.GetDirections(out s, \"Lithuania,Vilnius\", \"Lithuania,Kaunas\", false, false, false, true);<br /> if(x == DirectionsStatusCode.OK)<br /> {<br />&nbsp; &nbsp;Debug.WriteLine(s.Summary + \", \" + s.Copyrights);<br />&nbsp; &nbsp;Debug.WriteLine(s.StartAddress + \" -&gt; \" + s.EndAddress);<br />&nbsp; &nbsp;Debug.WriteLine(s.Distance);<br />&nbsp; &nbsp;Debug.WriteLine(s.Duration);<br />&nbsp; &nbsp;foreach(var step in s.Steps)<br />&nbsp; &nbsp;{<br />&nbsp; &nbsp; &nbsp;Debug.WriteLine(step);                   &nbsp;<br />&nbsp; &nbsp;}<br /> }<br /></em></p>\r\n<p><em>-&gt;</em></p>\r\n<p><em>A1/E85, Map data &copy;2011 Tele Atlas<br />Vilnius, Lithuania -&gt; Kaunas, Lithuania<br />105 km<br />1 hour 25 mins<br />DRIVING | 0.2 km | 1 min | Head &lt;b&gt;north&lt;/b&gt; on &lt;b&gt;Vilniaus gatvė&lt;/b&gt; toward &lt;b&gt;Tilto gatvė&lt;/b&gt;<br />DRIVING | 1.3 km | 2 mins | Turn &lt;b&gt;left&lt;/b&gt; onto &lt;b&gt;A. Go&scaron;tauto gatvė&lt;/b&gt;<br />DRIVING | 3.8 km | 5 mins | Turn &lt;b&gt;left&lt;/b&gt; to merge onto &lt;b&gt;Geležinio Vilko gatvė&lt;/b&gt;<br />DRIVING | 8.5 km | 9 mins | Continue onto &lt;b&gt;Savanorių prospektas&lt;/b&gt;<br />DRIVING | 85.8 km | 58 mins | Continue onto &lt;b&gt;A1/E85&lt;/b&gt;<br />DRIVING | 0.5 km | 1 min | Take the exit toward &lt;b&gt;Senamiestis/Aleksotas&lt;/b&gt;<br />DRIVING | 0.2 km | 1 min | Turn &lt;b&gt;left&lt;/b&gt; onto &lt;b&gt;Kleboni&scaron;kio gatvė&lt;/b&gt;<br />DRIVING | 4.3 km | 7 mins | Continue onto &lt;b&gt;Jonavos gatvė&lt;/b&gt;<br />DRIVING | 0.5 km | 1 min | At the roundabout, take the &lt;b&gt;3rd&lt;/b&gt; exit and stay on &lt;b&gt;Jonavos gatvė&lt;/b&gt;<br />DRIVING | 0.2 km | 1 min | Turn &lt;b&gt;right&lt;/b&gt; onto &lt;b&gt;A. Mapu gatvė&lt;/b&gt;&lt;div style=\"font-size:0.9em\"&gt;Destination will be on the right&lt;/div&gt;&nbsp;</em></p>",
+    "PostedDate": "2011-09-21T23:38:31.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675111",
+    "ThreadId": "241332",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p><em>GDirections s;<br /> var x = GMapProviders.GoogleMap.GetDirections(out s, \"Lithuania,Vilnius\", \"Lithuania,Kaunas\", false, false, false, true);<br /> if(x == DirectionsStatusCode.OK)<br /> {<br /> &nbsp; &nbsp;Debug.WriteLine(s.Summary + \", \" + s.Copyrights);<br /> &nbsp; &nbsp;Debug.WriteLine(s.StartAddress + \" -&gt; \" + s.EndAddress);<br /> &nbsp; &nbsp;Debug.WriteLine(s.Distance);<br /> &nbsp; &nbsp;Debug.WriteLine(s.Duration);<br /> &nbsp; &nbsp;foreach(var step in s.Steps)<br /> &nbsp; &nbsp;{<br /> &nbsp; &nbsp; &nbsp;Debug.WriteLine(step); &nbsp;<br /> &nbsp; &nbsp;}<br /> }<br /> </em></p>\r\n<p><em>-&gt;</em></p>\r\n<p><em>A1/E85, Map data &copy;2011 Tele Atlas<br /> Vilnius, Lithuania -&gt; Kaunas, Lithuania<br /> 105 km<br /> 1 hour 25 mins<br /> DRIVING | 0.2 km | 1 min | Head &lt;b&gt;north&lt;/b&gt; on &lt;b&gt;Vilniaus gatvė&lt;/b&gt; toward &lt;b&gt;Tilto gatvė&lt;/b&gt;<br /> DRIVING | 1.3 km | 2 mins | Turn &lt;b&gt;left&lt;/b&gt; onto &lt;b&gt;A. Go&scaron;tauto gatvė&lt;/b&gt;<br /> DRIVING | 3.8 km | 5 mins | Turn &lt;b&gt;left&lt;/b&gt; to merge onto &lt;b&gt;Geležinio Vilko gatvė&lt;/b&gt;<br /> DRIVING | 8.5 km | 9 mins | Continue onto &lt;b&gt;Savanorių prospektas&lt;/b&gt;<br /> DRIVING | 85.8 km | 58 mins | Continue onto &lt;b&gt;A1/E85&lt;/b&gt;<br /> DRIVING | 0.5 km | 1 min | Take the exit toward &lt;b&gt;Senamiestis/Aleksotas&lt;/b&gt;<br /> DRIVING | 0.2 km | 1 min | Turn &lt;b&gt;left&lt;/b&gt; onto &lt;b&gt;Kleboni&scaron;kio gatvė&lt;/b&gt;<br /> DRIVING | 4.3 km | 7 mins | Continue onto &lt;b&gt;Jonavos gatvė&lt;/b&gt;<br /> DRIVING | 0.5 km | 1 min | At the roundabout, take the &lt;b&gt;3rd&lt;/b&gt; exit and stay on &lt;b&gt;Jonavos gatvė&lt;/b&gt;<br /> DRIVING | 0.2 km | 1 min | Turn &lt;b&gt;right&lt;/b&gt; onto &lt;b&gt;A. Mapu gatvė&lt;/b&gt;&lt;div style=\"font-size:0.9em\"&gt;Destination will be on the right&lt;/div&gt;&nbsp;</em></p>\r\n</blockquote>\r\n<p>awesome thanks for the quick reply</p>",
+    "PostedDate": "2011-09-22T00:14:32.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675497",
+    "ThreadId": "241332",
+    "Html": "<p>I translated the above into :</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Dim</span> s <span style=\"color: blue;\">As</span> GDirections\r\n        <span style=\"color: blue;\">Dim</span> x <span style=\"color: blue;\">As</span> DirectionsStatusCode = GMapProviders.GoogleMap.GetDirections(s, <span style=\"color: #a31515;\">\"Lithuania,Vilnius\"</span>, <span style=\"color: #a31515;\">\"Lithuania,Kaunas\"</span>, <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">False</span>, _\r\n         <span style=\"color: blue;\">True</span>)\r\n        <span style=\"color: blue;\">If</span> x = DirectionsStatusCode.OK <span style=\"color: blue;\">Then</span>\r\n            Debug.WriteLine(s.Summary + <span style=\"color: #a31515;\">\", \"</span> + s.Copyrights)\r\n            Debug.WriteLine(s.StartAddress + <span style=\"color: #a31515;\">\" -&gt; \"</span> + s.EndAddress)\r\n            Debug.WriteLine(s.Distance)\r\n            Debug.WriteLine(s.Duration)\r\n            <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> [<span style=\"color: blue;\">step</span>] <span style=\"color: blue;\">In</span> s.Steps\r\n                Debug.WriteLine([<span style=\"color: blue;\">step</span>])\r\n            <span style=\"color: blue;\">Next</span>\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>which works great</p>\r\n<p>however when i change the&nbsp;</p>\r\n<pre style=\"font-family: Consolas; font-size: 13; color: black; background: white;\"><span style=\"color: #a31515;\">\"Lithuania,Vilnius\"</span>,&nbsp;<span style=\"color: #a31515;\">\"Lithuania,Kaunas\"</span>\r\n</pre>\r\n<p>to some gmap.net.pointlatlng it doesnt work&nbsp; ( x = NOT_FOUND (1))</p>\r\n<p>am i doing something wrong????</p>\r\n<p>also s as GDirections is not being assigned a value?</p>\r\n<p>&nbsp;</p>\r\n<pre><span style=\"color: #a31515;\"><br /></span></pre>",
+    "PostedDate": "2011-09-22T13:03:18.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675498",
+    "ThreadId": "241332",
+    "Html": "<p>show me the code ;}</p>",
+    "PostedDate": "2011-09-22T13:07:27.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675615",
+    "ThreadId": "241332",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>    <span style=\"color: blue;\">Dim</span> start <span style=\"color: blue;\">As</span> PointLatLng\r\n        start.Lat = -37.8401568360413\r\n        start.Lng = 145.1953125\r\n        <span style=\"color: blue;\">Dim</span> [<span style=\"color: blue;\">end</span>] <span style=\"color: blue;\">As</span> PointLatLng\r\n        [<span style=\"color: blue;\">end</span>].Lat = -37.9290340623256\r\n        [<span style=\"color: blue;\">end</span>].Lng = 145.816040039063\r\n\r\n        <span style=\"color: blue;\">Dim</span> rp <span style=\"color: blue;\">As</span> RoutingProvider = TryCast(Form1.Mainmap.MapProvider, RoutingProvider)\r\n        <span style=\"color: blue;\">If</span> rp <span style=\"color: blue;\">Is</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">Then</span>\r\n            <span style=\"color: green;\">' use google if provider does not implement routing</span>\r\n            rp = GMapProviders.GoogleMap\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n       \r\n        <span style=\"color: blue;\">Dim</span> s <span style=\"color: blue;\">As</span> GDirections\r\n        <span style=\"color: blue;\">Dim</span> x <span style=\"color: blue;\">As</span> DirectionsStatusCode = GMapProviders.GoogleMap.GetDirections(s, start, [<span style=\"color: blue;\">end</span>], <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">True</span>)\r\n        <span style=\"color: blue;\">If</span> x = DirectionsStatusCode.OK <span style=\"color: blue;\">Then</span>\r\n            Debug.WriteLine(s.Summary + <span style=\"color: #a31515;\">\", \"</span> + s.Copyrights)\r\n            Debug.WriteLine(s.StartAddress + <span style=\"color: #a31515;\">\" -&gt; \"</span> + s.EndAddress)\r\n            Debug.WriteLine(s.Distance)\r\n            Debug.WriteLine(s.Duration)\r\n            <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> [<span style=\"color: blue;\">step</span>] <span style=\"color: blue;\">In</span> s.Steps\r\n                Debug.WriteLine([<span style=\"color: blue;\">step</span>])\r\n            <span style=\"color: blue;\">Next</span>\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-09-22T20:39:58.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675666",
+    "ThreadId": "241332",
+    "Html": "<p>fixed</p>",
+    "PostedDate": "2011-09-22T23:41:11.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675673",
+    "ThreadId": "241332",
+    "Html": "<p>awesome thanks alot</p>",
+    "PostedDate": "2011-09-23T00:03:46.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677751",
+    "ThreadId": "241332",
+    "Html": "<p>Hi Radioman, Instead of me changing splitting the gpsroute.Distance string is it possible to have an option for Miles instead of Kilometres and yards instead of mtr?</p>",
+    "PostedDate": "2011-09-28T08:49:01.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678012",
+    "ThreadId": "241332",
+    "Html": "<p>set parameter <strong>metric</strong> to false, and you get miles</p>",
+    "PostedDate": "2011-09-28T23:27:17.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680319",
+    "ThreadId": "241332",
+    "Html": "<p>i tried above code but the X return Error in code (8). what the objective from RP. Thanks</p>",
+    "PostedDate": "2011-10-05T08:51:27.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684710",
+    "ThreadId": "241332",
+    "Html": "<p>What are your import statements?&nbsp; It's telling me GDirections is not defined on the Dim statement.</p>",
+    "PostedDate": "2011-10-15T13:52:34.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684721",
+    "ThreadId": "241332",
+    "Html": "<p>? ;}</p>",
+    "PostedDate": "2011-10-15T15:02:21.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684869",
+    "ThreadId": "241332",
+    "Html": "<p>I'm using vs2010 vb and the line:</p>\r\n<p><span style=\"color: blue;\">Dim</span> s <span style=\"color: blue;\">As</span> GDirections</p>\r\n<p>is giving me an error.. I went through the object browser and could not find any reference to GDirections</p>",
+    "PostedDate": "2011-10-16T09:50:59.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684873",
+    "ThreadId": "241332",
+    "Html": "<p>use the latest version</p>",
+    "PostedDate": "2011-10-16T10:15:44.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684892",
+    "ThreadId": "241332",
+    "Html": "<p>Thanks, I did and got that issue resolved.&nbsp; Now I have another on this line:</p>\r\n<p><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">Dim</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"> rp </span></span><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">As</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"> RoutingProvider = </span></span><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">TryCast</span></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">(Form1.mymap.MapProvider, RoutingProvider)</span></span></p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">Telling me RoutingProcider is not defined.</span></span></p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;</span></p>",
+    "PostedDate": "2011-10-16T12:19:54.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684894",
+    "ThreadId": "241332",
+    "Html": "<p>right click -&gt; resolve references, very hard to do, requires mastery of nanoquantum engineering ;}</p>",
+    "PostedDate": "2011-10-16T12:33:14.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684902",
+    "ThreadId": "241332",
+    "Html": "<p>Not working.. Doesn't come up with resolve references when right clicking.&nbsp; This is what I have in my imports statement</p>\r\n<p><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">\r\n<p>Imports&nbsp;<span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">GMap.NET.WindowsForms</span></span></p>\r\n</span></span></span></span></p>\r\n<p><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">\r\n<p>Imports <span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">GMap.NET.WindowsForms.Markers</span></span></p>\r\n</span></span></span></span></p>\r\n<p><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">\r\n<p>Imports&nbsp;<span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">GMap.NET.WindowsForms.ToolTips</span></span></p>\r\n</span></span></span></span></p>\r\n<p><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">\r\n<p>Imports&nbsp;<span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">GMap.NET</span></span></p>\r\n</span></span></span></span></p>\r\n<p><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\"><span style=\"font-family: Consolas; color: #0000ff; font-size: x-small;\">\r\n<p>Imports&nbsp;<span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">GMap.NET.MapProviders</span></span></p>\r\n</span></span></span></span></p>",
+    "PostedDate": "2011-10-16T12:58:23.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684906",
+    "ThreadId": "241332",
+    "Html": "<p>http://greatmaps.codeplex.com/SourceControl/changeset/view/08617bef8024#GMap.NET.Core%2fGMap.NET%2fRoutingProvider.cs</p>",
+    "PostedDate": "2011-10-16T13:03:03.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684909",
+    "ThreadId": "241332",
+    "Html": "<p>Maybe i'm doing something wrong.. but when I go under object browser and look in gmap.net.core-&gt;gmap.net I don't see RoutingProvider there..</p>",
+    "PostedDate": "2011-10-16T13:16:40.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684910",
+    "ThreadId": "241332",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>use the latest version</p>\r\n</blockquote>\r\n<p>;}</p>",
+    "PostedDate": "2011-10-16T13:18:05.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684915",
+    "ThreadId": "241332",
+    "Html": "<p>I am.. <a id=\"fileDownload20\" class=\"FileNameLink\" onclick=\"suppressUnsavedData();return downloadFile(this, true, false)\" tabindex=\"9\" href=\"http://greatmaps.codeplex.com/releases/view/73162#DownloadId=293389\">GMap.NET Build 08617bef8024.zip</a></p>",
+    "PostedDate": "2011-10-16T13:29:59.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684917",
+    "ThreadId": "241332",
+    "Html": "<p>so whats the problem? man...</p>",
+    "PostedDate": "2011-10-16T13:34:22.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684918",
+    "ThreadId": "241332",
+    "Html": "<p>RoutingProvider is not showing in the latest build..</p>",
+    "PostedDate": "2011-10-16T13:35:14.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684919",
+    "ThreadId": "241332",
+    "Html": "<p>nonsense</p>",
+    "PostedDate": "2011-10-16T13:41:45.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684961",
+    "ThreadId": "241332",
+    "Html": "<p>Werid.. I had to download the source and compile it.&nbsp; Once I used the built .dll files then it worked.</p>",
+    "PostedDate": "2011-10-16T15:58:24.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "762995",
+    "ThreadId": "312382",
+    "Html": "<p>Just downloaded the latest version (and tried with some of the other older versions). OnPolygonClick,&nbsp;OnPolygonEnter and&nbsp;OnPolygonLeave are not firing in the WinForms version.</p>\n<p>On my form load event I put the following in...</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myMap.OnPolygonClick += new PolygonClick(myMap_OnPolygonClick);</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myMap.OnPolygonEnter += new PolygonEnter(myMap_OnPolygonEnter);</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; myMap.OnPolygonLeave += new PolygonLeave(myMap_OnPolygonLeave);</p>\n<p>I create a polygon with the following..</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; List&lt;PointLatLng&gt; polygonPoints = new List&lt;PointLatLng&gt;();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foreach (GMapMarker m in top.Markers)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (m is GMapMarker)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m.Tag = polygonPoints.Count;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; polygonPoints.Add(m.Position);&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; GMapPolygon polygon = new GMapPolygon(polygonPoints, \"polygon tester\");&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; top.Polygons.Add(polygon);</p>\n<p>Which draws the polygon on the map.</p>\n<p>I create a myMap_OnPolygonClick event and put a breakpoint in but it never gets hit - same with the enter and leave events (Marker works correctly)</p>\n<p>&nbsp;</p>\n<p>Have I missed something or done something wrong RadioMan?</p>\n<p>Thanks Charlotte</p>",
+    "PostedDate": "2012-02-14T05:36:44.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "763106",
+    "ThreadId": "312382",
+    "Html": "<p>Figured it out - needed to add&nbsp;<strong>IsHitTestVisible</strong><span>&nbsp;when creating my polygons :)</span></p>",
+    "PostedDate": "2012-02-14T06:01:59.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "763115",
+    "ThreadId": "312382",
+    "Html": "<p>yes, by default polygons do not receive events</p>",
+    "PostedDate": "2012-02-14T06:04:41.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "764920",
+    "ThreadId": "312382",
+    "Html": "<p>Thanks for the reply radioman - GMaps project is amazing - Totally love it - many thanks for all your hard work and support.</p>",
+    "PostedDate": "2012-02-14T13:21:07.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

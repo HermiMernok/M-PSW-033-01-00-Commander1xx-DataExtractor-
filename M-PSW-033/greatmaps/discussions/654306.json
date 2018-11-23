@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1472408",
+    "ThreadId": "654306",
+    "Html": "I kept having problems with ViewArea not being accurate and not updating after zooming. Perhaps because I use factions to zoom. \r<br />\n<br />\nSo I created something that works for me everytime. I'm posting it here in case Radioman can use it.<br />\n<pre><code>private RectLatLng MyViewArea(GMapControl gmc)\n{\n    RectLatLng map_area = gMapControl1.ViewArea;  // KEEP HERE before MyViewArea code - resets something?\n            \n    RectLatLng r = new RectLatLng();\n    Point pts = PointToScreen(gmc.Location);\n            \n    Win32.POINT p = new Win32.POINT();\n    p.x = -1;               // -1 because of the GMapControl border is shown?\n    p.y = -1;\n\n    Win32.ClientToScreen(gmc.Handle, ref p);\n    PointLatLng gtop = new PointLatLng(gmc.FromLocalToLatLng(p.x - pts.X, p.y - pts.Y - 1).Lat, gmc.FromLocalToLatLng(p.x - pts.X, p.y - pts.Y - 1).Lng);\n\n    p.x = gmc.Width - 3;    // not sure why - 3 but partly because of the border\n    p.y = gmc.Height - 3;\n\n    Win32.ClientToScreen(gmc.Handle, ref p);\n    PointLatLng gleft = new PointLatLng(gmc.FromLocalToLatLng(p.x - pts.X, p.y - pts.Y - 1).Lat, gmc.FromLocalToLatLng(p.x - pts.X, p.y - pts.Y - 1).Lng);\n\n    r.Lng = gtop.Lng;\n    r.Lat = gtop.Lat;\n    r.WidthLng = (gleft.Lng - gtop.Lng);\n    r.HeightLat = (gtop.Lat - gleft.Lat);\n\n    return (r);\n}\n</code></pre>\n\n",
+    "PostedDate": "2016-05-04T07:53:14.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1472539",
+    "ThreadId": "654306",
+    "Html": "Just realized I should have include this:<br />\n<pre><code>public class Win32\n        {\n            [DllImport(&quot;User32.Dll&quot;)]\n            public static extern long SetCursorPos(int x, int y);\n\n            [DllImport(&quot;User32.Dll&quot;)]\n            public static extern bool ClientToScreen(IntPtr hWnd, ref POINT point);\n\n            [StructLayout(LayoutKind.Sequential)]\n            public struct POINT\n            {\n                public int x;\n                public int y;\n            }\n        }</code></pre>\n\n",
+    "PostedDate": "2016-05-05T05:49:21.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

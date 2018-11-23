@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "465945",
+    "ThreadId": "219063",
+    "Html": "(why sometimes editing toolbar doesn't appear???)\r\nHi Radioman.\r\nI'd really like to set orientation of the image of a marker someway.\r\nI defined my other marker, and could pass some other value to the creation instance (i can get gps ground track).\r\nBut your marker definition is quite complicated and i can't understand where would i go to rotate the image.\r\n\r\nI tried something like\r\n[code]\r\npublic class MyCustomMarker\r\n  inherits GMapMarker\r\n  private bearing as single\r\n    public overrides sub new()\r\n    ...\r\n    end sub\r\nend class\r\n[/code]\r\n\r\nbut the internal GMapMarker variables are hidden even if i inherit.\r\nSo how should i do it?\r\n",
+    "PostedDate": "2010-07-11T03:05:41.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465954",
+    "ThreadId": "219063",
+    "Html": "<p>check what Bearing property does, and create your own marker</p>",
+    "PostedDate": "2010-07-11T05:04:12.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465962",
+    "ThreadId": "219063",
+    "Html": "It seems that the bearing property is defined only for the windowsform marker. I'm using WPF. There you implement it in your CircleVisual class.\r\nBut i do not understand it :(",
+    "PostedDate": "2010-07-11T06:15:58.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465964",
+    "ThreadId": "219063",
+    "Html": "<p>learn, observe, practice makes perfect ;}</p>",
+    "PostedDate": "2010-07-11T06:31:09.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465966",
+    "ThreadId": "219063",
+    "Html": "Man it's 10 years i've been programming, just not in this ambient.\r\nHaving God before yourself doesn't necessarily mean you're going to understand him ;)",
+    "PostedDate": "2010-07-11T06:33:44.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465967",
+    "ThreadId": "219063",
+    "Html": "<p>the only <em>'God'</em> you'll find is in your self ;}</p>\r\n<p>&nbsp;..anyway if you have a few markers you can simply use RenderTransform property on your visual, but if you gave hundreds of markers it will be slow, and thats why i've 'invented' CircleVisual ;}</p>",
+    "PostedDate": "2010-07-11T06:37:27.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465991",
+    "ThreadId": "219063",
+    "Html": "Do layers exist in WPF?",
+    "PostedDate": "2010-07-11T09:39:15.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465992",
+    "ThreadId": "219063",
+    "Html": "<p>in wpf each visual/marker has ZIndex property</p>",
+    "PostedDate": "2010-07-11T09:44:29.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466017",
+    "ThreadId": "219063",
+    "Html": "Yeah i know, it was just for ordering purpose. Thanks",
+    "PostedDate": "2010-07-11T11:50:12.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

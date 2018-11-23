@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "602876",
+    "ThreadId": "255280",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>If GMapControl has its cursor changed from the default, say to Cursors.Cross, and the user moves over a marker the cursor is reset to an arrow upon leaving the marker. &nbsp;It should be remembering the previous cursor in the same way as the drag handling\r\n code does. &nbsp;This can be corrected in the Mouse Move event but it would be nice if GMapControl could do it instead.</p>\r\n",
+    "PostedDate": "2011-04-26T05:16:12.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661967",
+    "ThreadId": "255280",
+    "Html": "<p>I fixed it. In GMapControl of GMap.Net.WindowsForms, I changed OnMouseMove function by replacing red lines by green lines :</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>            <span style=\"color: blue;\">else</span> <span style=\"color: blue;\">if</span>(Core.mouseDown.IsEmpty)\r\n<span style=\"color: blue;\">#endif</span>\r\n            {\r\n               <span style=\"color: blue;\">for</span>(<span style=\"color: blue;\">int</span> i = Overlays.Count - 1; i &gt;= 0; i--)\r\n               {\r\n                  GMapOverlay o = Overlays[i];\r\n                  <span style=\"color: blue;\">if</span>(o != <span style=\"color: blue;\">null</span> &amp;&amp; o.IsVisibile)\r\n                  {\r\n                     <span style=\"color: blue;\">foreach</span>(GMapMarker m <span style=\"color: blue;\">in</span> o.Markers)\r\n                     {\r\n                        <span style=\"color: blue;\">if</span>(m.IsVisible &amp;&amp; m.IsHitTestVisible)\r\n                        {\r\n                           <span style=\"color: blue;\">if</span>(m.LocalArea.Contains(e.X, e.Y))\r\n                           {\r\n                              <span style=\"color: blue;\">if</span>(!m.IsMouseOver)\r\n                              {\r\n<span style=\"color: blue;\">#if</span> !PocketPC\r\n                                 <span style=\"color: #008000;\"><strong>this.cursorBefore = this.Cursor;</strong></span>\r\n                                 <span style=\"color: blue;\">this</span>.Cursor = Cursors.Hand;\r\n<span style=\"color: blue;\">#endif</span>\r\n                                 Invalidate();\r\n\r\n                                 m.IsMouseOver = <span style=\"color: blue;\">true</span>;\r\n\r\n                                 <span style=\"color: blue;\">if</span>(OnMarkerEnter != <span style=\"color: blue;\">null</span>)\r\n                                 {\r\n                                    OnMarkerEnter(m);\r\n                                 }\r\n                              }\r\n                           }\r\n                           <span style=\"color: blue;\">else</span> <span style=\"color: blue;\">if</span>(m.IsMouseOver)\r\n                           {\r\n<span style=\"color: blue;\">#if</span> !PocketPC<br />                              <span style=\"color: #ff0000;\">this.Cursor = Cursors.Default;</span><br />                              <span style=\"color: blue;\">&nbsp;</span><strong><span style=\"color: #008000;\">this.Cursor = this.cursorBefore;\r\n                              this.cursorBefore = null;</span></strong>\r\n<span style=\"color: blue;\">#endif</span>\r\n                              m.IsMouseOver = <span style=\"color: blue;\">false</span>;\r\n                              Invalidate();\r\n\r\n                              <span style=\"color: blue;\">if</span>(OnMarkerLeave != <span style=\"color: blue;\">null</span>)\r\n                              {\r\n                                 OnMarkerLeave(m);\r\n                              }\r\n                           }\r\n                        }\r\n                     }\r\n                  }\r\n               }\r\n            }\r\n         }\r\n         <span style=\"color: blue;\">base</span>.OnMouseMove(e);\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>May be radioman could include this in a next changeset ?</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" class=\"mcePaste\" style=\"position: absolute; left: -10000px; top: 7px; width: 1px; height: 1px; overflow: hidden;\">\r\n<pre>                                 <span style=\"color: blue;\">&nbsp;</span></pre>\r\n</div>",
+    "PostedDate": "2011-08-23T02:18:26.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662326",
+    "ThreadId": "255280",
+    "Html": "<p>Nice work Fredgate! I just ran into this issue today.</p>",
+    "PostedDate": "2011-08-23T13:35:55.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667798",
+    "ThreadId": "255280",
+    "Html": "<p>fixed, thanks ;}</p>",
+    "PostedDate": "2011-09-05T10:19:21.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

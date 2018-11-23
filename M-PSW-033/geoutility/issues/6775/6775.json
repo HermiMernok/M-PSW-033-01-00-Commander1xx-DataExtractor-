@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-06-06T08:00:29.923-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "T've found that when trying to convert MGRS to UTM/GEO there are errors when the MGRS strign represents a GEO coordinate with latitude higher than 55N/55S\n \nMaybe the developer could take a look to correct that.\n \nThe library is GREAT ans IMPRESIVE!\n \nI'm including a correction to extend the range to latitudes 72N/72S, but cannot reach higher\n \n        If Coord_UTM_Zone_Letter >= \"N\" Then\n            If (Coord_UTM_Zone_Letter = \"Q\") AndAlso (Aux2 < 10) Then Aux2 += 20\n            If Coord_UTM_Zone_Letter >= \"R\" Then Aux2 += 20\n            If (Coord_UTM_Zone_Letter = \"S\") AndAlso (Aux2 < 30) Then Aux2 += 20\n            If Coord_UTM_Zone_Letter >= \"T\" Then Aux2 += 20\n            If (Coord_UTM_Zone_Letter = \"U\") AndAlso (Aux2 < 50) Then Aux2 += 20\n            If (Coord_UTM_Zone_Letter >= \"V\") Then Aux2 += 20\n        Else\n            If (Coord_UTM_Zone_Letter = \"C\") AndAlso (Aux2 < 10) Then Aux2 += 20\n            If Coord_UTM_Zone_Letter >= \"D\" Then Aux2 += 20\n            If (Coord_UTM_Zone_Letter = \"F\") AndAlso (Aux2 < 30) Then Aux2 += 20\n            If Coord_UTM_Zone_Letter >= \"G\" Then Aux2 += 20\n            If (Coord_UTM_Zone_Letter = \"H\") AndAlso (Aux2 < 50) Then Aux2 += 20\n            If Coord_UTM_Zone_Letter >= \"J\" Then Aux2 += 20\n            If (Coord_UTM_Zone_Letter = \"K\") AndAlso (Aux2 < 70) Then Aux2 += 20\n            If Coord_UTM_Zone_Letter >= \"L\" Then Aux2 += 20\n        End If",
+    "LastUpdatedDate": "2013-05-15T22:07:20.963-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "geoutility",
+    "ReportedDate": "2010-05-31T05:45:43.563-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MGRS to UTM/GEO has errors",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6775
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

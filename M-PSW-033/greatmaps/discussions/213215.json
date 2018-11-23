@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "445108",
+    "ThreadId": "213215",
+    "Html": "<p>I have a number of markers on a map. When I click on one I can change the marker colour and store it's Lat/Long position.&nbsp; If I then click another marker how can I find which was the previous selection so that I can change it back to the normal colour before changing the colour of the new selection?</p>\r\n<p>This is how I create the markers and route:<br>---------------------------------------------------------------------------------------------------------------<br><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> PlotRoute()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> OverlayRoutes = <span style=\"color:blue\">New</span> GMapOverlay(MyMap, &amp;quot;Layer-Route&amp;quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> MyRoute <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> List(Of GMap.NET.PointLatLng)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> MyMarkers = <span style=\"color:blue\">New</span> GMapOverlay(MyMap, &amp;quot;Layer-Stops&amp;quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> MyPoint <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> PointLatLng<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> TempData <span style=\"color:blue\">As</span> Record<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> x <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span> = 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:green\">' Step through all the gps data reading the Lat and Long into the Markers and Route.</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">For</span> <span style=\"color:blue\">Each</span> TempData <span style=\"color:blue\">In</span> GpsData<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyPoint = <span style=\"color:blue\">New</span> PointLatLng(TempData.Latitude, TempData.Longditude)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> M <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapMarker_RedDot(MyPoint)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyMarkers.Markers.Add(M)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyRoute.Add(MyPoint)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Next</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:green\">' Show the Markers overlay.</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyMap.Overlays.Add(MyMarkers)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:green\">' Create and show the Route Track.</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">Dim</span> Track <span style=\"color:blue\">As</span> MapRoute = <span style=\"color:blue\">New</span> GMapRoute(MyRoute, &amp;quot;track&amp;quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OverlayRoutes.Routes.Add(Track)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyMap.Overlays.Add(OverlayRoutes)<br>&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span><br>----------------------------------------------------------------------------------------------------<br>BTW this is such a fantastic bit of programming.</p>\r\n<p>TIA<br>Dennis.</p>\r\n<p>P.S.&nbsp;<span style=\"text-decoration:line-through\"><span style=\"color:black;font-size:10pt\">Sorry, I can't find a way to stop the code all going into one block!</span></span><span style=\"color:black;font-size:10pt\"> Don&rsquo;t use Firefox for discussions, then everthing works!</span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-19T13:29:16.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445115",
+    "ThreadId": "213215",
+    "Html": "<p>hey, just store your selected marker, and restore it before assigning new one</p>",
+    "PostedDate": "2010-05-19T13:37:04.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445354",
+    "ThreadId": "213215",
+    "Html": "Thanks, but two things.\r\n1. How do I get a code list to look right instead of the block that has appeared.  It looked correct in the editor!\r\n2. I can't see how to delete a particular marker.\r\n\r\nThanks,\r\nDennis.",
+    "PostedDate": "2010-05-20T04:39:13.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445363",
+    "ThreadId": "213215",
+    "Html": "<p>when you paste code, use 'Insert code Snippet', and how to delete marker, check&nbsp;<strong>MainForm_KeyUp</strong>&nbsp;in&nbsp;<em>Demo.WindowsForms</em></p>",
+    "PostedDate": "2010-05-20T05:05:57.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445387",
+    "ThreadId": "213215",
+    "Html": "<p>Thanks.</p>\r\n<p>I rarely use Internet Explorer and all this rich formating doesn't show in Firefox.&nbsp; Another exeption to add!</p>\r\n<p>TTFN</p>\r\n<p>Dennis</p>",
+    "PostedDate": "2010-05-20T06:09:23.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

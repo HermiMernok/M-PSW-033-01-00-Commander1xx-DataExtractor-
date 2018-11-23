@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks, it's finally fixed",
+    "ClosedDate": "2015-03-23T01:25:33.997-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "I think it would be better if the image saved with the \"Static Map maker\" is not overlaid with boundary, coordinates and scale when \"make Worldfile\" is checked so the plain image could be used in a GIS software with other layers.\r\n\r\nIt's simple to implement this enhancement.\r\n\r\nJust add:\r\n```\r\nif (!info.MakeWorldFile)\r\n\r\n```\r\nafter\r\n```\r\n// draw info\r\n```\r\nin the file _StaticImage.cs_.\r\n\r\nOr you could add an additional check-box in the \"Static Map maker\" window to choose to enable or disable the boundary, coordinates and scale overlaying.\r\n\r\nHope you agree with me.\r\n\r\nThank you for your effort.\r\n\r\nAndrea Giudiceandrea",
+    "LastUpdatedDate": "2015-03-23T01:25:33.997-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-02-10T14:30:55.047-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Avoid overlaying map image got static with boundary, coordinates and scale when MakeWorldFile is checked",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16096
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "ok",
+      "PostedDate": "2014-02-11T07:40:31.917-08:00",
+      "Id": 133258
+    },
+    {
+      "Message": "Thank you!",
+      "PostedDate": "2014-02-14T01:50:48.083-08:00",
+      "Id": 133565
+    },
+    {
+      "Message": "Hi radioman,\nit seems you forgot to add this enhancement in the new hotbuild Jan 15, 2015, Alpha Change Set ed05c9b2385d.\n\nDo you plan to add it in a future release?",
+      "PostedDate": "2015-01-21T10:42:23.243-08:00",
+      "Id": 170607
+    }
+  ]
+}

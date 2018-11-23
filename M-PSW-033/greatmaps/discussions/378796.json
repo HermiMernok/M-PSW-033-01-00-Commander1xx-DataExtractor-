@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "879335",
+    "ThreadId": "378796",
+    "Html": "\r\n<p>Hello! Help me please!</p>\r\n<p>How can I change or replace marker on gMapControl?</p>\r\n<p>In standart markers I can select only 3 types of marker</p>\r\n<pre>like this:</pre>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>overlayOne.Markers.Add(<span style=\"color:blue\">new</span> GMap.NET.WindowsForms.Markers.GMapMarkerCross(<span style=\"color:blue\">new</span> PointLatLng(Convert.ToDouble(tb_lat.Text), Convert.ToDouble(tb_lng.Text))));</pre>\r\n<pre><br></pre>\r\n<pre>Similarly &quot;GMapMarkerGoogleRed&quot; and <span style=\"background-color:white\">&quot;GMapMarkerGoogleGreen&quot;</span></pre>\r\n<pre><span style=\"background-color:white\"><br></span></pre>\r\n<pre><span style=\"background-color:white\">Only three and can not be replaced :((<br>I want the marker is my own picture. How can I do this?<br>In advance thank you very much.<br></span></pre>\r\n</div>\r\n",
+    "PostedDate": "2012-07-20T02:25:04.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "879360",
+    "ThreadId": "378796",
+    "Html": "<p>use custom marker, new version</p>",
+    "PostedDate": "2012-07-20T02:36:05.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "879369",
+    "ThreadId": "378796",
+    "Html": "<p>I'm sorry, I'm new. Where can I find it?</p>",
+    "PostedDate": "2012-07-20T02:38:33.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895384",
+    "ThreadId": "378796",
+    "Html": "<p>Hi, u can use this code</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>GMarkerGoogle ReadedPoint = <span style=\"color: blue;\">new</span> GMarkerGoogle(ReadedPointLatLng, GetIcon(GetPointsPositionReader[<span style=\"color: #a31515;\">\"PointMarkerKind\"</span>].ToString()));\r\n\r\n\r\n<span style=\"color: blue;\">internal</span> <span style=\"color: blue;\">static</span> Bitmap GetIcon(<span style=\"color: blue;\">string</span> name)\r\n{\r\n    Bitmap ret = IslamAtlas.Properties.Resources.ResourceManager.GetObject(name, IslamAtlas.Properties.Resources.Culture) <span style=\"color: blue;\">as</span> Bitmap;\r\n    <span style=\"color: blue;\">return</span> ret;\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-08-03T14:02:54.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "904591",
+    "ThreadId": "378796",
+    "Html": "<p>Or this :</p>\r\n<p>This code on a module :</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Module</span> CustomMarkers\r\n        <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Class</span> GMapMarker_Custom\r\n            <span style=\"color: blue;\">Inherits</span> GMapMarker\r\n\r\n            <span style=\"color: blue;\">Dim</span> _image <span style=\"color: blue;\">As</span> System.Drawing.Image\r\n            <span style=\"color: blue;\">Dim</span> _point <span style=\"color: blue;\">As</span> PointLatLng\r\n\r\n            <span style=\"color: blue;\">Sub</span> <span style=\"color: blue;\">New</span>(<span style=\"color: blue;\">ByVal</span> iPoint <span style=\"color: blue;\">As</span> PointLatLng, <span style=\"color: blue;\">ByVal</span> discipline <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>)\r\n                <span style=\"color: blue;\">MyBase</span>.<span style=\"color: blue;\">New</span>(iPoint)\r\n                _point = iPoint\r\n                ChangeImage(discipline)\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n            <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Overloads</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">Sub</span> OnRender(<span style=\"color: blue;\">ByVal</span> g <span style=\"color: blue;\">As</span> Graphics)\r\n                <span style=\"color: green;\">'Dim p As New System.Drawing.Point(_point.Lat, _point.Lng)</span>\r\n                <span style=\"color: blue;\">MyBase</span>.OnRender(g)\r\n                g.DrawImageUnscaled(_image, System.Convert.ToInt32(LocalPosition.X), System.Convert.ToInt32(LocalPosition.Y))\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n            <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Sub</span> ChangeImage(<span style=\"color: blue;\">ByVal</span> Type <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>)\r\n                <span style=\"color: blue;\">Select</span> <span style=\"color: blue;\">Case</span> Type\r\n                    <span style=\"color: blue;\">Case</span> <span style=\"color: #a31515;\">\"CDOK\"</span>\r\n                        _image = <span style=\"color: blue;\">My</span>.Resources.CD_OK  ' this are images added on App resources\r\n                    <span style=\"color: blue;\">Case</span> <span style=\"color: #a31515;\">\"CDBAD\"</span>\r\n                        _image = <span style=\"color: blue;\">My</span>.Resources.CD_BAD\r\n                    <span style=\"color: blue;\">Case</span> <span style=\"color: #a31515;\">\"SSEE\"</span>\r\n                        _image = <span style=\"color: blue;\">My</span>.Resources.SSEE\r\n\r\n                <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Select</span>\r\n                <span style=\"color: blue;\">MyBase</span>.Size = <span style=\"color: blue;\">New</span> Drawing.Size(_image.Size.Width, _image.Size.Height)\r\n                <span style=\"color: blue;\">MyBase</span>.Offset = <span style=\"color: blue;\">New</span> Drawing.Point(-(_image.Size.Width / 2), -_image.Size.Height)\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Class</span>\r\n\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Module</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>And this to call :</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre> <span style=\"color: blue;\">Dim</span> ArrayMarkers <span style=\"color: blue;\">As</span> GMapMarker_Custom\r\n ArrayMarkers = <span style=\"color: blue;\">New</span> GMapMarker_Custom(<span style=\"color: blue;\">New</span> PointLatLng(41.40963739, 2.15529274), <span style=\"color: #a31515;\">\"CDOK\"</span>)\r\n ArrayMarkers.ToolTipText = <span style=\"color: #a31515;\">\"custoom \"</span>\r\n\r\n  overlayOne.Markers.Add(ArrayMarkers)\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Goood Luck !</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-08-27T06:33:49.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911540",
+    "ThreadId": "378796",
+    "Html": "<p>hmdmmdi: &nbsp; My program don't find the GMarkerGoogle class.... :((( &nbsp;How i can include it? Thank you! :)</p>",
+    "PostedDate": "2012-09-12T06:55:32.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911548",
+    "ThreadId": "378796",
+    "Html": "<p>use latest hot build version</p>",
+    "PostedDate": "2012-09-12T07:01:27.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087231",
+    "ThreadId": "378796",
+    "Html": "I use lastest version, but my program cannot find  GMarkerGoogle class. I want to change color of marker or icon of marker. Is there any way for this?<br />\n",
+    "PostedDate": "2013-09-02T00:12:25.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087233",
+    "ThreadId": "378796",
+    "Html": "just pass your image to constructor<br />\n",
+    "PostedDate": "2013-09-02T00:13:26.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087238",
+    "ThreadId": "378796",
+    "Html": "I don't know how to do. Can you help me about it?<br />\n",
+    "PostedDate": "2013-09-02T00:27:11.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1089217",
+    "ThreadId": "378796",
+    "Html": "Something like this:\r<br />\n<br />\nImage myImage =Image.FromFile(imageFileName);\r<br />\nGMarkerGoogle myMarker = new GMarkerGoogle(new PointLatLng( lat, lng ), myImage);<br />\n",
+    "PostedDate": "2013-09-06T07:01:49.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1089383",
+    "ThreadId": "378796",
+    "Html": "GMarkerGoogle  is undefined! how can I add it?<br />\n",
+    "PostedDate": "2013-09-06T17:16:00.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

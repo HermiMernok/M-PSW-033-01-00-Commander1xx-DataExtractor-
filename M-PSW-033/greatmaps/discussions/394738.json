@@ -1,0 +1,186 @@
+[
+  {
+    "Id": "909528",
+    "ThreadId": "394738",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I found that GMAP.NET creates a temp folder (GMap.NET) in the <code><em>%USERPROFILE%</em>\\AppData\\Local, for cache. How do I change that path?</code></p>\r\n<p>Thanks for the tip/help in advance.</p>\r\n",
+    "PostedDate": "2012-09-07T03:09:10.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909544",
+    "ThreadId": "394738",
+    "Html": "<p>map.<strong>CacheLocation</strong> = ...</p>",
+    "PostedDate": "2012-09-07T03:48:23.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909545",
+    "ThreadId": "394738",
+    "Html": "<p>Thanks ;)</p>",
+    "PostedDate": "2012-09-07T03:49:04.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909634",
+    "ThreadId": "394738",
+    "Html": "<p>I have added the code in the load-event of the map, but it keeps creating the folder GMap.NET, with the folders \"DllCache\" + subfolder and System.Data.SQLite.DLL and the folder \"TileDBv5\" + + subfolder and Data.gmdb...</p>",
+    "PostedDate": "2012-09-07T07:23:08.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909638",
+    "ThreadId": "394738",
+    "Html": "<p>and?</p>",
+    "PostedDate": "2012-09-07T07:29:22.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909641",
+    "ThreadId": "394738",
+    "Html": "<p>It shouldn't. I changed the path of the cache to C:\\example, but it keeps creating the folder GMap.NET in the userprofile\\...etc.</p>",
+    "PostedDate": "2012-09-07T07:31:18.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909642",
+    "ThreadId": "394738",
+    "Html": "<p>load event is too late, set it in the constructor as usual</p>",
+    "PostedDate": "2012-09-07T07:35:52.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909652",
+    "ThreadId": "394738",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Public</span> map_cache <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span> = <span style=\"color: #a31515;\">\"C:\\test\"</span>\r\n\r\n<span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Sub</span> <span style=\"color: blue;\">New</span>()\r\n\r\n        <span style=\"color: green;\">' This call is required by the designer.</span>\r\n        InitializeComponent()\r\n\r\n        <span style=\"color: green;\">' Add any initialization after the InitializeComponent() call.</span>\r\n\r\n        <span style=\"color: green;\">'   set the path of the map-cache</span>\r\n        <span style=\"color: green;\">'   first create the folder if it doesn't exist</span>\r\n        <span style=\"color: blue;\">If</span> <span style=\"color: blue;\">Not</span> Directory.Exists(map_cache) <span style=\"color: blue;\">Then</span>\r\n            Directory.CreateDirectory(map_cache)\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n\r\n        map.CacheLocation = map_cache\r\n        besl_map.CacheLocation = map_cache\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n</pre>\r\n</div>\r\nThe folder GMap.NET is back again...???</p>",
+    "PostedDate": "2012-09-07T07:52:58.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909670",
+    "ThreadId": "394738",
+    "Html": "<p>damn, it's a bug, setting location triggers default folders too, i'll fix it</p>\r\n<p>..anyway why do you want to change default location?</p>",
+    "PostedDate": "2012-09-07T08:42:10.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909678",
+    "ThreadId": "394738",
+    "Html": "<p>Thanks for the fix in advance.</p>\r\n<p>It's not that really interesting, but I use more temp files in my app. This way I can add the folder for the map also the app-tempfolder, just to keep things clean. Like I said, not very interesting ;)</p>",
+    "PostedDate": "2012-09-07T09:00:29.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909703",
+    "ThreadId": "394738",
+    "Html": "<p>done ;}</p>\r\n<p>p.s. sqlite dll are saved in default directory</p>",
+    "PostedDate": "2012-09-07T09:57:50.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909705",
+    "ThreadId": "394738",
+    "Html": "<p>Thanks.</p>\r\n<p>What do you mean with \"default directory\"? What is the default-directory?</p>",
+    "PostedDate": "2012-09-07T10:00:44.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909717",
+    "ThreadId": "394738",
+    "Html": "<p>%USERPROFILE%\\AppData\\Local\\GMap.NET</p>",
+    "PostedDate": "2012-09-07T10:30:55.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909721",
+    "ThreadId": "394738",
+    "Html": "<p>-Well, that was actually what I was trying to avoid. I want to have every file/(sub)folder to be located in my app-temp-.path. Without that I don't see any purpose using the CacheLocation.</p>",
+    "PostedDate": "2012-09-07T10:39:52.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909743",
+    "ThreadId": "394738",
+    "Html": "<p>cache is for map cache, application files deosn't belong there</p>",
+    "PostedDate": "2012-09-07T11:27:35.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909745",
+    "ThreadId": "394738",
+    "Html": "<p>Ah. Okay, I understand. Any way to have that folder/file located in the application path?</p>",
+    "PostedDate": "2012-09-07T11:28:54.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909753",
+    "ThreadId": "394738",
+    "Html": "<p>manualy changing the source</p>",
+    "PostedDate": "2012-09-07T12:00:16.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909754",
+    "ThreadId": "394738",
+    "Html": "<p>Okay, will do that. Any way to have this as standard behaviour?</p>",
+    "PostedDate": "2012-09-07T12:02:52.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909756",
+    "ThreadId": "394738",
+    "Html": "<p>but why do you need these dll in your map cache folder?</p>",
+    "PostedDate": "2012-09-07T12:07:44.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909757",
+    "ThreadId": "394738",
+    "Html": "<p>No, no, no. Sorry for being confusing. The dll's can be located in the application path. Means, instead of adding the dll's in the userprofile, why not simply in the application.startuppath.</p>",
+    "PostedDate": "2012-09-07T12:09:43.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909762",
+    "ThreadId": "394738",
+    "Html": "<p>it wont work if you use AnyCPU target, sqlite dll is native and doesn't work when you have different cpu/.net version... long story, it was pain in the ass</p>\r\n<p>i've fixed the mess by extracting required version automatically therefore user doesn't need to to experience the configuration process...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-09-07T12:24:19.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909767",
+    "ThreadId": "394738",
+    "Html": "\r\n<p>Thanks for the info. Clear now. Was hoping it would be simple :P</p>\r\n<p>Any change to let the user set his/her own folder for that in the %USERPROFILE%? If not, I understand.</p>\r\n<p>EDIT: Also less coding in INNOSETUP for uninstall-procedure. :P</p>\r\n",
+    "PostedDate": "2012-09-07T12:42:32.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909779",
+    "ThreadId": "394738",
+    "Html": "<p>SQLitePureImageCache.cs, CurrentDomain_AssemblyResolve:</p>\r\n<p>string rootDir = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + Path.DirectorySeparatorChar + \"GMap.NET\" + Path.DirectorySeparatorChar;</p>\r\n<p>replace to =&gt;</p>\r\n<p>string rootDir = GMap.NET.Internals.CacheLocator.Location + Path.DirectorySeparatorChar;</p>",
+    "PostedDate": "2012-09-07T13:03:05.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

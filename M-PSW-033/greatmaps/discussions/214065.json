@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "448172",
+    "ThreadId": "214065",
+    "Html": "<p>Hi ..</p>\r\n<p>it's really&nbsp;amazing&nbsp;project that can help us to develop&nbsp;navigation&nbsp;systems.</p>\r\n<p>in my navigation project i wanted to calculate true north heading between two points and didn't find any&nbsp;reference&nbsp;that discuss' it&nbsp;clearly&nbsp;</p>\r\n<p>I'm just wondering if there's any method in this project that can calculate true north heading between two Coordinates..</p>\r\n<p>If not could you take me a&nbsp;web reference about this equations.</p>\r\n<p>Thanks alot .</p>",
+    "PostedDate": "2010-05-27T06:48:47.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448255",
+    "ThreadId": "214065",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n      <span style=\"color:gray\">///</span><span style=\"color:green\"> Accepts two coordinates in degrees.</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:green\">A double value in degrees.  From 0 to 360.&lt;/returns&gt;</span>\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">double</span> Bearing(<span style=\"color:blue\">double</span> p1Lat, <span style=\"color:blue\">double</span> p1Lng, <span style=\"color:blue\">double</span> p2Lat, <span style=\"color:blue\">double</span> p2Lng)\r\n      {\r\n         <span style=\"color:blue\">var</span> latitude1 = ToRadian(p1Lat);\r\n         <span style=\"color:blue\">var</span> latitude2 = ToRadian(p2Lat);\r\n         <span style=\"color:blue\">var</span> longitudeDifference = ToRadian(p2Lng - p1Lng);\r\n\r\n         <span style=\"color:blue\">var</span> y = Math.Sin(longitudeDifference) * Math.Cos(latitude2);\r\n         <span style=\"color:blue\">var</span> x = Math.Cos(latitude1) * Math.Sin(latitude2) - Math.Sin(latitude1) * Math.Cos(latitude2) * Math.Cos(longitudeDifference);\r\n\r\n         <span style=\"color:blue\">return</span> (ToDegree(Math.Atan2(y, x)) + 360) % 360;\r\n      }\r\n\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n      <span style=\"color:gray\">///</span><span style=\"color:green\"> Converts degrees to Radians.</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:green\">Returns a radian from degrees.&lt;/returns&gt;</span>\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> Double ToRadian(Double degree)\r\n      {\r\n         <span style=\"color:blue\">return</span> (degree * Math.PI / 180.0);\r\n      }\r\n\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n      <span style=\"color:gray\">///</span><span style=\"color:green\"> To degress from a radian value.</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:green\">Returns degrees from radians.&lt;/returns&gt;</span>\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> Double ToDegree(Double radian)\r\n      {\r\n         <span style=\"color:blue\">return</span> (radian / Math.PI * 180.0);\r\n      }\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-05-27T09:17:41.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448265",
+    "ThreadId": "214065",
+    "Html": "<p><span>Thank you very much for this help<br></span><span>I've lost a long time without any solution.<br></span><span>My wish is to be added to this procedural GMap.net.<br></span><span>Thanks again</span></p>",
+    "PostedDate": "2010-05-27T09:41:10.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

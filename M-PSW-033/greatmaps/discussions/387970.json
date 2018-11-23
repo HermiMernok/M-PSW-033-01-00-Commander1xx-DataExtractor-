@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "889799",
+    "ThreadId": "387970",
+    "Html": "\r\n<p>Hi!<br>\r\n<br>\r\nVery nice tool, thanks!<br>\r\n<br>\r\nI'm triyng to find out how to move the markers with the map when i'm moving the map. I suppose I can capture the event &quot;onmapdrag&quot; and clear all the markers and add them again, but since the markers are added with &quot;real&quot; coordinates (not screen coordinates)\r\n I suppose there could be some thing to update them automatically? (I mean, stick them to the coordinates they have)</p>\r\n<p>&nbsp;</p>\r\n<p>Regards!&nbsp;</p>\r\n",
+    "PostedDate": "2012-07-24T09:44:37.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "889833",
+    "ThreadId": "387970",
+    "Html": "\r\n<p>you probably forget to add overlay, check the demo how to do it</p>\r\n",
+    "PostedDate": "2012-07-24T10:17:01.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "889836",
+    "ThreadId": "387970",
+    "Html": "<p>Hi!<br /><br />Thanks for your answer!<br /><br />No, I have the overlay added and I see the markers. The problem is when I move the map; the markers stay where they are (\"stay\" relative to screen position, not to the lat/lon position)</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-07-24T10:20:56.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "889838",
+    "ThreadId": "387970",
+    "Html": "<p>it's impossible ;}</p>",
+    "PostedDate": "2012-07-24T10:24:46.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "889839",
+    "ThreadId": "387970",
+    "Html": "<p>nothing is impossible... maybe you just don't know how to do it :P</p>\r\n<p>(just quoting you; i've read the discussions before asking :P)</p>",
+    "PostedDate": "2012-07-24T10:27:05.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "889866",
+    "ThreadId": "387970",
+    "Html": "<p>so why markers in demos doesn't 'fly' too ? ;}</p>",
+    "PostedDate": "2012-07-24T11:28:37.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891029",
+    "ThreadId": "387970",
+    "Html": "<p>Post your code, then I can perhaps help you.</p>",
+    "PostedDate": "2012-07-25T03:53:34.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891142",
+    "ThreadId": "387970",
+    "Html": "<p>Hi!</p>\r\n<p>It happens that radioman was right. I forgot to add the overlay to the map. I mean; I create the overlay instance but I didn't add it to the map. I was confused because I've found Gmap.UpdateMarkerLocalPosition and&nbsp;UpdateMarkerLocalPosition and, using those, the markers and polygons were displayed on the map. I realize I was missing to add the overlay when I was looking why onmouseover tooltips were not working.</p>\r\n<p>Thanks radioman and xandolph.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards!</p>",
+    "PostedDate": "2012-07-25T06:17:22.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891145",
+    "ThreadId": "387970",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2012-07-25T06:19:38.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "805443",
+    "ThreadId": "347317",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I create my own marker, but when i add marker to map it's not show <span id=\"result_box\" lang=\"en\">\r\n<span>properly.</span></span></p>\r\n<p><span lang=\"en\"><span>Code of custom marker OnRender function:</span></span></p>\r\n<p><span lang=\"en\"><span></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n        {\r\n            Icon icon= WindowsFormsApplication1.Properties.Resources.truck;\r\n            Image image = icon.ToBitmap();\r\n            Size = <span style=\"color:blue\">new</span> System.Drawing.Size(image.Width, image.Height);\r\n            Offset = <span style=\"color:blue\">new</span> Point(-image.Width / 2, - image.Height / 2);\r\n            g.DrawImage(image, LocalPosition.X , LocalPosition.Y, Size.Width, Size.Height);\r\n        }\r\n</pre>\r\n</div>\r\n</span></span>\r\n<p></p>\r\n<p><span lang=\"en\"><span><a href=\"http://desmond.imageshack.us/Himg535/scaled.php?server=535&filename=exam1l.jpg&res=medium\">Picture example of problem</a></span></span></p>\r\n<p>&nbsp;</p>\r\n<p><span id=\"result_box\" lang=\"en\"><span>I figured, when i clicked button for maximize form, then marker moved to the correct place</span></span></p>\r\n<p><a href=\"http://desmond.imageshack.us/Himg403/scaled.php?server=403&filename=exam2.jpg&res=medium\"><span lang=\"en\"><span>Picture example after maximize form</span></span></a></p>\r\n<p>&nbsp;</p>\r\n<p>Have anyone that similar problems?</p>\r\n<p><span lang=\"en\"><span><br>\r\n</span></span></p>\r\n<p><span lang=\"en\"><span><br>\r\n</span></span></p>\r\n",
+    "PostedDate": "2012-03-05T03:44:36.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805450",
+    "ThreadId": "347317",
+    "Html": "<p>first move these to constructor:</p>\r\n<p><em>Icon icon= WindowsFormsApplication1.Properties.Resources.truck;</em><br /><em> Image image = icon.ToBitmap();</em><br /><em> Size = new System.Drawing.Size(image.Width, image.Height);</em><br /><em> Offset = new Point(-image.Width / 2, - image.Height / 2);&nbsp;</em></p>",
+    "PostedDate": "2012-03-05T04:06:55.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805462",
+    "ThreadId": "347317",
+    "Html": "<p>tnx ;)</p>",
+    "PostedDate": "2012-03-05T04:30:32.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820892",
+    "ThreadId": "347317",
+    "Html": "<p>Hi;</p>\n<p>I create a marker and I add it to my map, when I compile I have no error but the map show this:</p>\n<p><a href=\"https://dl-web.dropbox.com/get/mapError.PNG?w=1979c28f\">https://dl-web.dropbox.com/get/mapError.PNG?w=1979c28f</a></p>\n<p>This is the class of the marker</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>[NonSerialized]\n        <span style=\"color: blue;\">public</span> Image image;\n\n        <span style=\"color: blue;\">public</span> GMapMarkerCam(PointLatLng p)\n            : <span style=\"color: blue;\">base</span>(p)\n        {           \n            Image image = WindowsFormsApplication1<span style=\"background-color: white;\">.Properties.Resources.cam;</span></pre>\n</div>\n<div style=\"color: black; background-color: white;\">\n<pre>            Size = <span style=\"color: blue;\">new</span> System.Drawing.Size(image.Width, image.Height);\n            Offset = <span style=\"color: blue;\">new</span> Point(-image.Width / 2, -image.Height / 2);\n        }\n\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(Graphics g)\n        {\n            <span style=\"color: green;\">//base.OnRender(g);</span>\n            g.DrawImage(image, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n        }\n\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> Dispose()\n        {\n\n            <span style=\"color: blue;\">if</span> (image != <span style=\"color: blue;\">null</span>)\n            {\n                image.Dispose();\n                image = <span style=\"color: blue;\">null</span>;\n            }\n            <span style=\"color: blue;\">if</span> (InnerMarker != <span style=\"color: blue;\">null</span>)\n            {\n                InnerMarker.Dispose();\n                InnerMarker = <span style=\"color: blue;\">null</span>;\n            }\n\n            <span style=\"color: blue;\">base</span>.Dispose();\n        }\n\n        <span style=\"color: blue;\">#region</span> ISerializable Members\n\n        <span style=\"color: blue;\">void</span> ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)\n        {\n            <span style=\"color: blue;\">base</span>.GetObjectData(info, context);\n        }\n\n        <span style=\"color: blue;\">protected</span> GMapMarkerCam(SerializationInfo info, StreamingContext context)\n            : <span style=\"color: blue;\">base</span>(info, context)\n        {\n        }\n\n        <span style=\"color: blue;\">#endregion</span>\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>The size of image is 130x69 .png</p>\n<p>Any help please?</p>",
+    "PostedDate": "2012-04-06T10:16:50.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820939",
+    "ThreadId": "347317",
+    "Html": "<p>can't see the picture, try&nbsp;4shared.com or something...</p>",
+    "PostedDate": "2012-04-06T13:22:40.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820947",
+    "ThreadId": "347317",
+    "Html": "<p>http://www.4shared.com/photo/tyWZyvmc/mapError.html</p>\r\n<p>it shows me</p>",
+    "PostedDate": "2012-04-06T13:45:36.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820950",
+    "ThreadId": "347317",
+    "Html": "<p>hm, well strange error, it doesn't happen for me or anyone else ;/</p>",
+    "PostedDate": "2012-04-06T13:57:35.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820959",
+    "ThreadId": "347317",
+    "Html": "<p>so? do you think there is error in custom class?</p>",
+    "PostedDate": "2012-04-06T14:25:23.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821070",
+    "ThreadId": "347317",
+    "Html": "<p>just noticed:</p>\r\n<p>&nbsp;<em><strong>Image</strong> image = WindowsFormsApplication1.Properties.Resources.cam; // remove first keyword ;}</em></p>",
+    "PostedDate": "2012-04-07T02:29:56.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821082",
+    "ThreadId": "347317",
+    "Html": "<p>which keyword? <em>if do you mean <strong>Image, </strong>even if&nbsp; I remove it it don't change anything!!</em></p>",
+    "PostedDate": "2012-04-07T03:40:24.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821086",
+    "ThreadId": "347317",
+    "Html": "<p>public Image <strong>image</strong>;<br /><br /> public GMapMarkerCam(PointLatLng p)<br /> : base(p)<br /> {           <br /> <strong>Image</strong> image = WindowsFormsApplication1.Properties.Resources.cam;<br /> Size = new System.Drawing.Size(image.Width, image.Height);<br /> Offset = new Point(-image.Width / 2, -image.Height / 2);<br /> }</p>",
+    "PostedDate": "2012-04-07T04:04:09.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821087",
+    "ThreadId": "347317",
+    "Html": "<p>ok, thanks very much, it works ;)</p>",
+    "PostedDate": "2012-04-07T04:08:04.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821088",
+    "ThreadId": "347317",
+    "Html": "<p>;]</p>",
+    "PostedDate": "2012-04-07T04:10:48.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1447240",
+    "ThreadId": "645865",
+    "Html": "I have managed to dynamically add polygons from a KML file created in Google earth in a windows form . Is it possible to call the polygon and fill it with a different colour by either a Tag or Name? Shown below is some of my vb.net code to read a kml file and put each polygon on the map. I am new to programming so any help would be appreciated.\r<br />\n<br />\n  Friend FarmOverlay2 As GMapOverlay<br />\n<pre><code>Public Sub ReadKMLFile(ByVal _filename As String, ByVal _NodeName As String)\n\n\n    Dim baypointslist As New List(Of PointLatLng)\n    GMap.Overlays.Clear()\n    Dim BayPolygon As GMapPolygon\n\n\n    FarmOverlay2 = New GMapOverlay(GMap, &quot;Bayoverlay&quot;)\n\n\n    'Clear All polygons first\n    Me.FarmOverlay2.Polygons.Clear()\n\n\n    If TextBox2.TextLength = 0 Then\n        MsgBox(&quot;No file selected&quot;)\n\n    Else\n        Dim xmldoc As New XmlDataDocument()\n        Dim xmlNode As XmlNodeList\n        Dim i As Integer\n        Dim str1, str2, str3, str4 As String\n        Dim fs As New FileStream(_filename, FileMode.Open, FileAccess.Read)\n\n        Dim lat As String\n        Dim lon As String\n\n\n\n        xmldoc.Load(fs)\n        xmlNode = xmldoc.GetElementsByTagName(_NodeName) 'Placemark\n\n\n        For i = 0 To xmlNode.Count - 1\n\n            str1 = xmlNode(i).ChildNodes.Item(0).InnerText.Trim()\n            str2 = xmlNode(i).ChildNodes.Item(1).InnerText.Trim()\n            str3 = xmlNode(i).ChildNodes.Item(2).InnerText.Trim()\n            'extract all lat lons from node\n            str4 = str3.Substring(2)\n            'break up all lat lons into individual strings\n            Dim latlons() As String\n            latlons = Split(str4, &quot;,&quot;)\n\n\n            For j = 0 To UBound(latlons) - 1\n                'get every second record as longitude\n                If j Mod 2 = 0 Then\n                    'trim the kml file of the 0 in front of the lon\n                    'Make first record a lat\n                    If latlons(j).StartsWith(&quot;0&quot;) Then\n\n\n                        lon = latlons(j).Substring(1).Trim()\n                    Else\n\n\n                        lon = latlons(j).Trim()\n\n                    End If\n                Else\n                    'Else every other record is a latitude\n                    If latlons(j).StartsWith(&quot;0&quot;) Then\n\n                        lat = latlons(j).Substring(1).Trim()\n\n                    Else\n\n                        lat = latlons(j).Trim()\n                        ListBox1.Items.Add(latlons(j).Trim())\n\n                    End If\n\n\n                    baypointslist.Add(New PointLatLng(lat, lon))\n\n                End If\n\n\n\n\n            Next j\n\n\n            BayPolygon = New GMapPolygon(baypointslist, str1)\n            BayPolygon.Stroke.Width = 1\n            BayPolygon.Stroke.Color = Color.DarkBlue\n            BayPolygon.Tag = str1\n\n\n\n            baypointslist.Clear()\n\n\n            Me.FarmOverlay2.Polygons.Add(BayPolygon)\n            'MsgBox(Me.FarmOverlay2.Polygons.Count)\n\n\n        Next i\n\n\n        fs.Close()\n        fs.Dispose()\n    End If\n\n    GMap.Overlays.Add(FarmOverlay2)\n\nEnd Sub\n</code></pre>\n\nThe code reads a saved kml file nicely but I would like to be able to call up particular polygons and change the fill color based on str1 that is allocated to each polygon if possible?<br />\n",
+    "PostedDate": "2015-10-06T04:26:20.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447324",
+    "ThreadId": "645865",
+    "Html": "BayPolygon.Stroke = <strong>new</strong> ...<br />\n",
+    "PostedDate": "2015-10-06T10:46:52.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447406",
+    "ThreadId": "645865",
+    "Html": "Worked this out myself thanks for a great control anyway by the way radioman<br />\n<br />\n<br />\n<br />\n<br />\nPrivate Sub changeBayPolygonColor(byVal _bayname as String)<br />\n<pre><code>     For i = 0 To FarmOverlay2.Polygons.Count - 1 ' Loop through all polygons dynamically added\n        If FarmOverlay2.Polygons.Item(i).Name = _bayname ' Name dynamically allocated to the polygon (str1 above)\n            FarmOverlay2.Polygons.Item(i).Fill = Brushes.Green\n        End If\n\n    Next\n    Me.Refresh()\n\n\n\nEnd Sub</code></pre>\n\n",
+    "PostedDate": "2015-10-07T02:09:44.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-10-07T02:38:41.207-07:00"
+  }
+]

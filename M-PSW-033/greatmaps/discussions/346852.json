@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "803694",
+    "ThreadId": "346852",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>In the constructor of winforms demo you are using below line of code to get the Lat and long.</p>\r\n<pre>PointLatLng? pos = GMapProviders.GoogleMap.GetPoint(&quot;Lithuania, Vilnius&quot;, out status);</pre>\r\n<p>Now my question is that I am planning to use CloudeMade apis for my application as it looks like they are less pricy than google and bing, can you suggest me how can I get pointLatLong if I set the GMapProvers.CloudMade. I tried the code but looks like there\r\n is no Method like GetPoint which will give the PointLongLat.</p>\r\n<p>&nbsp;</p>\r\n<p>Can you also share you thoughts the cloudMade apis are fully supported by GMAP or I need to add something.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your time.</p>\r\n<p></p>\r\n<pre><br><br><br></pre>\r\n<p></p>\r\n",
+    "PostedDate": "2012-03-01T04:10:38.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803703",
+    "ThreadId": "346852",
+    "Html": "<p>cloudMade provider now has only&nbsp;RoutingProvider, DirectionsProvider, no geocoder</p>",
+    "PostedDate": "2012-03-01T04:24:15.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803705",
+    "ThreadId": "346852",
+    "Html": "<p>For your info boss</p>\r\n<p>http://developers.cloudmade.com/projects/show/geocoding-http-api</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-01T04:28:16.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803711",
+    "ThreadId": "346852",
+    "Html": "<p>bored to implement yourself? ;}</p>",
+    "PostedDate": "2012-03-01T04:36:53.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803803",
+    "ThreadId": "346852",
+    "Html": "<p>ha ha ha no worries Radiaoman. I will give it a short and will try to implement it otherwise you have to jumpin to save me</p>",
+    "PostedDate": "2012-03-01T07:30:07.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803807",
+    "ThreadId": "346852",
+    "Html": "<p>radioman can <em>save</em> the world! ;}</p>",
+    "PostedDate": "2012-03-01T07:39:07.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

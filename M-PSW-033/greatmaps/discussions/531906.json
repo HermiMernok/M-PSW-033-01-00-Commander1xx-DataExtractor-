@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1208419",
+    "ThreadId": "531906",
+    "Html": "After Use NuGet to install SQlite ref, it shows&quot; Collection was modified, enumeration operation may not execute &quot;.\r<br />\nFirst I thought it's caused by tree view, but it's not. And when I seperate SQLite and GMap in two different project, there won't show any errors. But I had to publish this project to add ref in Start Project, that drives me crazy. Is there any idea how to fix this?<br />\n",
+    "PostedDate": "2014-02-14T07:50:48.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1208433",
+    "ThreadId": "531906",
+    "Html": "sqlite is integrated, you don't need to reference it, in case you do use it for other things, you must use the same version as gmap.net, and set copy to local = false<br />\n",
+    "PostedDate": "2014-02-14T08:09:49.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

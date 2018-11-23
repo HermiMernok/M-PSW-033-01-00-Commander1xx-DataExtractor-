@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "908616",
+    "ThreadId": "394470",
+    "Html": "\r\n<p>here is my code i can see the map but can not zoom in and out</p>\r\n<p></p>\r\n<pre>            PointLatLng position = new PointLatLng(lat, long);\r\n\r\n            gMapControl1.SetCurrentPositionByKeywords(&quot;USA&quot;);\r\n            gMapControl1.Zoom = 17;\r\n            gMapControl1.MapProvider = OpenStreetMapProvider.Instance;\r\n            gMapControl1.Position = position;\r\n\r\n            GMapOverlay overlay = new GMapOverlay(gMapControl1, &quot;1&quot;);\r\n            overlay.Markers.Add(new GMapMarkerGoogleRed(position));\r\n            gMapControl1.Overlays.Add(overlay);</pre>\r\n<p></p>\r\n<p>i also tried with this but doesn't help a lot.</p>\r\n<p></p>\r\n<pre>        private void gMapControl1_MouseDoubleClick(object sender, MouseEventArgs e)\r\n        {\r\n            if ((Control.ModifierKeys &amp; Keys.Control) == Keys.Control)\r\n            {\r\n                gMapControl1.Zoom--;\r\n            }\r\n            else\r\n            {\r\n                gMapControl1.Zoom&#43;&#43;;\r\n            }\r\n            base.OnMouseDoubleClick(e);\r\n        }</pre>\r\n<p></p>\r\n",
+    "PostedDate": "2012-09-05T04:28:13.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "908622",
+    "ThreadId": "394470",
+    "Html": "<p>your forget to set Min/Max zooms:</p>\r\n<p>map.MinZoom = ... <br />map.<strong>MaxZoom</strong> = ...</p>",
+    "PostedDate": "2012-09-05T04:51:00.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "908627",
+    "ThreadId": "394470",
+    "Html": "<p>a lot of thanks.</p>\r\n<p>such a stupid mistake</p>",
+    "PostedDate": "2012-09-05T04:57:58.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

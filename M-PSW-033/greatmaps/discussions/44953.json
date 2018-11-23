@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "149798",
+    "ThreadId": "44953",
+    "Html": "Can i access the MARKERS collection from the MapControl&nbsp; ?<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-22T08:45:41.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149871",
+    "ThreadId": "44953",
+    "Html": "<ul id=false>    <li>AddMarker</li>    <li>RemoveMarker</li>    <li>ClearAllMarkers</li></ul><div>if you need list, you can manage it by yourself, just store what you add or remove ;}</div>",
+    "PostedDate": "2009-01-22T11:39:08.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150089",
+    "ThreadId": "44953",
+    "Html": "Well i could do that, but if i have lots of markers im using double the resources, and then whenever i use your AddMarker/RemoveMarker i need to manage my collection too, it just seems duplication.<br>\r\nI am just looking to implement ShowAllToolTips and&nbsp; HideAllToolTips&nbsp; from within my form, if it is easy enough, making the collection public i can then do other operations on the markers too.<br>\r\n<br>\r\nThanks,<br>\r\n",
+    "PostedDate": "2009-01-22T23:39:09.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150101",
+    "ThreadId": "44953",
+    "Html": "not a double, just two lists with the same data, one list for you, one list for control to render markers. Anyway in real application saving data in controls internal list is not the best idea. Internal list is used only for currently used markers, also each marker has property Visible and MarkerTooltipMode. So you set them temporaly hide or visible. But it's best to awoid performance drop, by add/remove marker if you want/don't show it. I don't want to make internal list public because of thread safety, so control can add/remove markers from diff threads. <div><br></div><div><div>added <span style=\"font-weight:bold\">SetCurrentMarkersVisibility</span>: manages currently markers on map visibility</div><div>added <span style=\"font-weight:bold\">SetCurrentMarkersTooltipMode</span>: manages currently markers on map tooltip mode</div></div>",
+    "PostedDate": "2009-01-23T00:03:59.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150103",
+    "ThreadId": "44953",
+    "Html": "Agreed, thanks<br>\r\n",
+    "PostedDate": "2009-01-23T00:05:48.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

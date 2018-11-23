@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "198413",
+    "ThreadId": "58613",
+    "Html": "<p>Hi radioman</p>\r\n<p>First I want to thank you for great control. It is realy awesome!!!</p>\r\n<p>I am quite new to this and I have&nbsp;trying your&nbsp;control for a few days&nbsp;now - I am using standard windows forms application.</p>\r\n<p>I have a problem and I hope somebody would be able to help me out or point me in right direction.</p>\r\n<p>I would need a possibility to draw route that would have different colors based on speed of tracking wehicle. I think currently this is not available but I would appreciate if somebody can point me into right direction how to do that or what would be nedded to change in source code.</p>\r\n<p>If somebody is interesting I have managed to expand a bit route property&nbsp;where I have add Pen property so that I can change thickness of the route dynamicaly. I don't know this is interesting to anybody and if it is the right way to do but it works fine for me - just small contribution to community :-)&nbsp;</p>\r\n<p>In GMapRoute.cs&nbsp;below public Color color; I have add public&nbsp;Pen pen; and in GMapOverlay.cs&nbsp;under DrawRoutes method&nbsp;below RoutePen.Color = r.Color; I have added RoutePen.Width = r.Pen.Width;</p>\r\n<p>If somebody would like to use other property of the Pen they can add it like RoutePen.DashStyle = r.Pen.DashStyle</p>\r\n<p>Best regards radioman and all.&nbsp;</p>",
+    "PostedDate": "2009-06-05T13:56:14.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198421",
+    "ThreadId": "58613",
+    "Html": "<p>you can&nbsp;override&nbsp;protected virtual void DrawRoutes(Graphics g) in&nbsp;GMapOverlay</p>",
+    "PostedDate": "2009-06-05T14:21:23.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198425",
+    "ThreadId": "58613",
+    "Html": "<p>Hi radioman</p>\r\n<p>thank you for fast reply. I would do this but I don't know how - unfortunately. <br>What I have managed to do today&nbsp;is that I have&nbsp;tested in GMapOverlay trying to put code like two colors depend upon number of point like:</p>\r\n<p>if (i&lt;3) //points<br><span style=\"font-size:x-small\">{<br>RoutePen.Color = Color.Red<br></span><span style=\"font-size:x-small\">g.DrawLine(RoutePen, p2.X, p2.Y, p2.X, p2.Y);//instead of <span style=\"font-size:x-small\">rp.AddLine(p2.X, p2.Y, p2.X, p2.Y);<br>}<br>else<br>{<br>RoutePen.Color = Color.Red<br><span style=\"font-size:x-small\">g.DrawLine(RoutePen, p2.X, p2.Y, p2.X, p2.Y);//instead of <span style=\"font-size:x-small\">rp.AddLine(p2.X, p2.Y, p2.X, p2.Y);<br></span></span>}<br><br>But this is hard coded just for testing purposes to see how I can do this but I don't know how foe example to pass parameter for example number of points to be in this color and others in other color. I am not sure this is the right way to do it in the first place :-)<br><br>I would appreciate if you can just write me base code snippet for override protected virtual void DrawRoutes(Graphics g) in GmapOverlay -Howto do this&nbsp;- I hope it is not to much work for you.<br></span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><br>Looking forward for your feedback.</span></span></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">Best regards<br></span></span></p>\r\n<p><span style=\"font-size:x-small\"></span></p>",
+    "PostedDate": "2009-06-05T14:45:41.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

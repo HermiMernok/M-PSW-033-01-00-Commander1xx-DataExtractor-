@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1232101",
+    "ThreadId": "541663",
+    "Html": "Hello everyone! Sorry about my broken English.<br />\nI have a project about GPS device. I wanna convert address to longitude and latitude.But, I dont know how to do that.<br />\nAnd SetCurrentPositionByKeywords() doesn't work. And then, I can't find the location by string<br />\n<pre><code>//use google provider\n            gMapControl1.MapProvider = GoogleMapProvider.Instance;\n            //get tiles from server only\n            gMapControl1.Manager.Mode = AccessMode.ServerOnly;\n            //not use proxy\n            GMapProvider.WebProxy = null;\n            //center map on moscow\n            gMapControl1.SetCurrentPositionByKeywords(&quot;Viet Nam&quot;);// it doesn't work\n\n            //zoom min/max; default both = 2\n            gMapControl1.MinZoom = 1;\n            gMapControl1.MaxZoom = 20;\n            //set zoom\n            gMapControl1.Zoom = 10;</code></pre>\n\nSo, I need your help! please<br />\nThank you so much<br />\n",
+    "PostedDate": "2014-04-08T19:47:10.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

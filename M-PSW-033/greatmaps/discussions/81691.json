@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "280513",
+    "ThreadId": "81691",
+    "Html": "<p>Radioman,</p>\r\n<p>I have several markers (polygons) on the right and left side of the map.</p>\r\n<p>Actualy it is one overlay, but map doesn't continue on left and right, so thats why i divided them in two.</p>\r\n<p>In zoom level 2 everything looks fine, but when i zoom in it looks like google uses different map edges on every zoomlevel.</p>\r\n<p>I want my marker hit always the right and/or left side of the map because it actually continues on the other side.</p>\r\n<p>The maximum long is not always 180?!</p>\r\n<p>What is the best way to solves this?</p>\r\n<p>For every marker i have a txt file with the coordinates, like:</p>\r\n<p>{Lat=26,745610382199, Lng=180,0}<br>{Lat=26,745610382199, Lng=179,6484375}<br>{Lat=27,9944014110462, Lng=175,78125}<br>{Lat=27,371767300523, Lng=174,375}<br>{Lat=26,4312280645064, Lng=172,6171875}<br>{Lat=25,7998911820883, Lng=171,2109375}<br>{Lat=23,885837699862, Lng=170,5078125}<br>{Lat=21,6165793367406, Lng=169,8046875}<br>{Lat=20,3034175184893, Lng=169,453125}<br>{Lat=16,6361918783977, Lng=169,1015625}<br>{Lat=11,5230875068685, Lng=168,3984375}<br>{Lat=8,05922962720017, Lng=168,046875}<br>{Lat=4,56547355071028, Lng=166,9921875}<br>{Lat=2,10889865924312, Lng=165,9375}<br>{Lat=-1,0546279422759, Lng=165,234375}<br>{Lat=-6,31529853833004, Lng=164,1796875}<br>{Lat=-9,79567758282975, Lng=162,7734375}<br>{Lat=-12,8974891837559, Lng=162,0703125}<br>{Lat=-16,972741019999, Lng=161,71875}<br>{Lat=-18,9790259532553, Lng=161,3671875}<br>{Lat=-20,632784250388, Lng=162,421875}<br>{Lat=-22,268764039074, Lng=163,828125}<br>{Lat=-24,8465653482198, Lng=165,9375}<br>{Lat=-27,0591257843741, Lng=168,75}<br>{Lat=-27,6835280837878, Lng=170,5078125}<br>{Lat=-28,6134594240044, Lng=172,265625}<br>{Lat=-28,9216312824213, Lng=172,96875}<br>{Lat=-28,9216312824213, Lng=174,375}<br>{Lat=-31,952162238025, Lng=179,6484375}<br>{Lat=26,745610382199, Lng=179,6484375}<br>{Lat=26,745610382199, Lng=180,0}</p>\r\n<p>But i can not get the polygon drawn to the end of the map.</p>\r\n<p>Any idea?</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-22T04:00:03.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280517",
+    "ThreadId": "81691",
+    "Html": "<p>yes, thats a quite issue ;/ any ideas on fix?</p>",
+    "PostedDate": "2010-01-22T04:05:53.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280611",
+    "ThreadId": "81691",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>Maybe its wise to skip this and try to solve the continues map issue. That would be even a better solution (for me).</p>\r\n<p>You replied with:&quot;It should be rendered like that&quot;.</p>\r\n<p>I am prepaired to put some efford in trying to solve this, although i am not a C programmer.</p>\r\n<p>Do you have any guidelines?/</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-22T08:03:58.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280618",
+    "ThreadId": "81691",
+    "Html": "<p>not so much, it's quite old issue, need to invent new tile drawing technique, still fast but more beautiful ;}</p>",
+    "PostedDate": "2010-01-22T08:12:35.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

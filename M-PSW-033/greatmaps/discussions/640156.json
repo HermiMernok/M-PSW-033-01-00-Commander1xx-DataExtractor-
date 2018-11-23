@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1431026",
+    "ThreadId": "640156",
+    "Html": "How can I change how much zoom is incremented? Currently, one mouse roll zooms in too much for me. I want to be able to do one mouse roll and it should only zoom very little. Thanks<br />\n",
+    "PostedDate": "2015-06-19T06:08:31.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1431052",
+    "ThreadId": "640156",
+    "Html": "you can try implement this yourself, check the source<br />\n",
+    "PostedDate": "2015-06-19T08:33:53.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432876",
+    "ThreadId": "640156",
+    "Html": "Which source file do I need to modify? <br />\n",
+    "PostedDate": "2015-07-02T06:39:23.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1434331",
+    "ThreadId": "640156",
+    "Html": "Hi. I found the code to modify but if I put anything less than 1, it doesn't do anything. I want to lower the increments/decrements. I am modifying the following code in GmapControl.cs<br />\n<pre><code>if (e.Delta &gt; 0)\n                {\n                    if (!InvertedMouseWheelZooming)\n                    {\n                        Zoom = ((int)Zoom) + 1;\n                    }\n                    else\n                    {\n                        Zoom = ((int)(Zoom + 0.99)) - 1;\n                    }\n                }\n                else if (e.Delta &lt; 0)\n                {\n                    if (!InvertedMouseWheelZooming)\n                    {\n                        Zoom = ((int)(Zoom + 0.99)) - 1;\n                    }\n                    else\n                    {\n                        Zoom = ((int)Zoom) + 1;\n                    }\n                }</code></pre>\n\n",
+    "PostedDate": "2015-07-14T07:21:49.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1457743",
+    "ThreadId": "640156",
+    "Html": "I made a hack using a numericUpDown. But I wish there was an easier way.<br />\n<br />\nI set numericUpDown1 font size = 20 which made the buttons larger and then reduced the width to hide the values so only the buttons are visible.<br />\n<br />\nI set numericUpDown1.Value to 50 and left everything else default.<br />\n<br />\nI have a global bool loading = false and a global GMapControl named globalgmc because I use multiple GMapControls on the same form.<br />\n<br />\nThis sets globalgmc to the clicked GMapControl. You don't need if you only have one GMapControl.<br />\n<pre><code>private void gMapControl1_MouseClick(object sender, MouseEventArgs e) // all maps come here\n{\n      if (globalgmc != null) globalgmc.BorderStyle = BorderStyle.FixedSingle;\n      globalgmc = sender as GMapControl;\n      globalgmc.BorderStyle = BorderStyle.Fixed3D;\n}\n</code></pre>\n\nThe only way for me to tell if one of the GMapControls has been clicked is to change the border style. I wish I could control the border size which would be more obvious. Any other ideas on what to set?<br />\n<br />\nThen do this:<br />\n<pre><code>private void numericUpDown1_ValueChanged(object sender, EventArgs e)\n{                                    // the default value was set to 50\n      if (loading) return;\n      if (globalgmc == null)\n      {\n          MessageBox.Show(&quot;Please Click On a Map to Select It&quot;, &quot; Nothing Selected&quot;);\n          return;\n      }\n      loading = true;                // stop cycling back\n      if (numericUpDown1.Value &gt; 50) globalgmc.Zoom = Math.Round(globalgmc.Zoom + .006, 2);\n      else                           globalgmc.Zoom = Math.Round(globalgmc.Zoom - .006, 2);\n      numericUpDown1.Value = 50;    // reset to 50 but will cause another call here\n      loading = false;              // which is why loading is needed\n}\n</code></pre>\n\nAgain, if you only have one map you don't need globalgmc or the message.<br />\n<br />\nBTW, &quot;loading&quot; is used on other controls. I set it to true in Form1_Loading and to false in Form1_Shown and back to true on Form1_Closing to stop unwanted calls to any control that has a SelectedIndex.<br />\n",
+    "PostedDate": "2016-01-02T06:50:22.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1457795",
+    "ThreadId": "640156",
+    "Html": "I discovered something interesting. Apparently a numericeUpDown control also responds to the mouse wheel when it has the focus.<br />\n<br />\nSo I covered the above numericUpDown1 control with a panel to hide it (making it not visible disables it and will not work).<br />\n<br />\nThen I added a checkbox &quot;Check for Fine Zooming&quot;<br />\n<br />\nWhen the checkbox is checked I set the focus to the numericUpDown1 control with <em>numericUpDown1.Focus();</em>  and the mouse wheel will now trigger <em>numericUpDown1_ValueChanged</em> and the mouse wheel will change the zoom by the very small amount of .006.<br />\n<br />\nWhen the checkbox is unchecked I set the focus to anything other than numericUpDown1 and the mouse wheel behaves normally for zooming.<br />\n<br />\nAlso, you may have noticed in the above code that the zoom is incremented / decremented by .006. For some reason if you set it to .005 zooming will hang.<br />\n",
+    "PostedDate": "2016-01-03T04:51:36.8-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

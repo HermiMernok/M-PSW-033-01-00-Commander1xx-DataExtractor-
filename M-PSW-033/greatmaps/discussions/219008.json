@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "465768",
+    "ThreadId": "219008",
+    "Html": "<p>Hello, radioman!</p>\r\n<p>My task is to write simple application, that shows small part of OpenStreetMap. I select this part at www.openstreetmap.org, and export into osm formatted file.</p>\r\n<p>Now I have file named &quot;map.osm&quot;.</p>\r\n<p>How show this file in WindowsForms form with GMapControl?</p>",
+    "PostedDate": "2010-07-10T03:29:05.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465770",
+    "ThreadId": "219008",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>MainMap.MapType = MapType.OpenStreetMap;\r\nMainMap.MaxZoom = 11;\r\nMainMap.MinZoom = 1;\r\nMainMap.Zoom = MainMap.MinZoom + 1;\r\nMainMap.<strong>CurrentPosition</strong> = <span style=\"color:blue\">new</span> PointLatLng(54.6961334816182, 25.2985095977783);\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-10T03:34:29.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465772",
+    "ThreadId": "219008",
+    "Html": "<p>Thanks! But where I must write path to my local file?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-10T03:36:52.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465774",
+    "ThreadId": "219008",
+    "Html": "<p>And one note:</p>\r\n<p>my application must work in offline mode. It has only one data source - locally saved osm file.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-10T03:40:30.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465775",
+    "ThreadId": "219008",
+    "Html": "<p>thats wrong, just prefetch your wanted are, and be happy using&nbsp;MainMap.Manager.<strong>Mode</strong> = AccessMode.<strong>CacheOnly</strong>;</p>",
+    "PostedDate": "2010-07-10T03:41:55.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465779",
+    "ThreadId": "219008",
+    "Html": "<p>In my app GMapControl is called &quot;gMap&quot;. I write:</p>\r\n<p>public partial class Form1 : Form<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Form1()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMap.Manager.Mode = GMap.NET.AccessMode.CacheOnly;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMap.Manager.Language = GMap.NET.LanguageType.Russian;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMap.CacheLocation = &quot;D:\\\\map.osm&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMap.ReloadMap();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>}</p>\r\n<p>It don't work</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-10T03:56:12.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465780",
+    "ThreadId": "219008",
+    "Html": "<p>When I run my app - in GMapControl i see - &quot;Exception: No data in local tile cache&quot;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-10T03:58:16.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465782",
+    "ThreadId": "219008",
+    "Html": "<p>your code is nonsense ;} <span style=\"text-decoration:underline\">no need to call</span> ReloadMap, <strong><span style=\"text-decoration:underline\">no need to use any map.osm</span></strong>, all you need is <strong>just to import/prefetch tiles from your area</strong>, and use gMap.Manager.<strong>ImportFromGMDB&nbsp;</strong>if it's not imported allready</p>",
+    "PostedDate": "2010-07-10T04:06:25.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465784",
+    "ThreadId": "219008",
+    "Html": "<p>O! I understand!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-10T04:20:36.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

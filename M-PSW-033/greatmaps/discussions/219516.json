@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "467595",
+    "ThreadId": "219516",
+    "Html": "<p>how to get the tool tip always displayed in the Marker and not on MouseHover&nbsp; in WPF???</p>\r\n<p>&nbsp;</p>\r\n<p>in this code i found:</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp; Popup.Placement =&nbsp; PlacementMode.MousePoint;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label.Background = Brushes.Blue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label.Foreground = Brushes.White;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label.BorderBrush = Brushes.WhiteSmoke;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label.BorderThickness = new Thickness(2);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label.Padding = new Thickness(5);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label.FontSize = 22;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label.Content = title;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Popup.Child = Label;</p>\r\n<p>&nbsp;</p>\r\n<p>this as tooltip on Mouse Hover using&nbsp; Mouse Events u created.</p>\r\n<p>&nbsp;</p>\r\n<p>how to get the tool tip displayed always when the marker is displayed in the map.....</p>",
+    "PostedDate": "2010-07-15T00:00:25.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "467678",
+    "ThreadId": "219516",
+    "Html": "<p>you need integrate tooltip in the marker and set it visible when needed</p>",
+    "PostedDate": "2010-07-15T03:20:38.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "467750",
+    "ThreadId": "219516",
+    "Html": "<p>We integrated the Tooltip as you said but we are still not getting it. There is no bugs but some where I'm going wrong I guess. Any Help????? If you could give some examples????</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>JankCD</p>",
+    "PostedDate": "2010-07-15T06:00:49.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468033",
+    "ThreadId": "219516",
+    "Html": "<p>you need <a href=\"http://www.wpftutorial.net/XAML.html\">xaml examples</a>? ;}</p>",
+    "PostedDate": "2010-07-15T20:07:17.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468109",
+    "ThreadId": "219516",
+    "Html": "<p>To Add tooltip we have done a code:</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp; public&nbsp; Canvas VisualRectangle()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Canvas cn = new Canvas();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rectangle exampleRectangle = new Rectangle();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exampleRectangle.Width = 70;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exampleRectangle.Height = 50;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exampleRectangle.StrokeThickness = 3;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exampleRectangle.RadiusX = 10;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exampleRectangle.RadiusY = 10;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exampleRectangle.Stroke = Brushes.Red;<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create a VisualBrush and use it<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // to paint the rectangle.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VisualBrush myBrush = new VisualBrush();<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create the brush's contents.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StackPanel aPanel = new StackPanel();<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create a DrawingBrush and use it to<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // paint the panel.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DrawingBrush myDrawingBrushBrush = new DrawingBrush();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GeometryGroup aGeometryGroup = new GeometryGroup();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aGeometryGroup.Children.Add(new RectangleGeometry(new Rect(0, 0, 50, 50)));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aGeometryGroup.Children.Add(new RectangleGeometry(new Rect(50, 50, 50, 50)));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RadialGradientBrush checkerBrush = new RadialGradientBrush();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; checkerBrush.GradientStops.Add(new GradientStop(Colors.Green, 0.0));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; checkerBrush.GradientStops.Add(new GradientStop(Colors.White, 1.0));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GeometryDrawing checkers = new GeometryDrawing(checkerBrush, null, aGeometryGroup);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myDrawingBrushBrush.Drawing = checkers;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aPanel.Background = myDrawingBrushBrush;<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Create some text.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextBlock someText = new TextBlock();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; someText.Text = &quot;This is Current place &quot;;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FontSizeConverter fSizeConverter = new FontSizeConverter();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; someText.FontSize = (double)fSizeConverter.ConvertFromString(&quot;7pt&quot;);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; someText.Margin = new Thickness(8);<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aPanel.Children.Add(someText);<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myBrush.Visual = aPanel;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exampleRectangle.Fill = myBrush;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cn.Children.Insert(0, exampleRectangle);<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return cn;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>this will return the canvas object with a Rectangle having Text.&nbsp; but while adding markers to mainmap we have used :</p>\r\n<p>&nbsp;</p>\r\n<p>Mainmap.Markers.Add(GmapMarker gm);</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>how to add this tooltip created by us using above function with the marker over here...</p>\r\n<p>&nbsp;</p>\r\n<p>pls help.....</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-16T00:44:58.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468146",
+    "ThreadId": "219516",
+    "Html": "<p>GMapMarker m1 = new GMapMarker(start);<br> m1.<strong>Shape</strong> = new <strong>YourCustomMarkerWithTooltip</strong>(this, m1);<br><br></p>",
+    "PostedDate": "2010-07-16T03:03:25.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468455",
+    "ThreadId": "219516",
+    "Html": "Cheers......... We Got it atlast!!!!!   ;}\r\n\r\nThank uuuuuuu ;}",
+    "PostedDate": "2010-07-17T00:53:05.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468458",
+    "ThreadId": "219516",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2010-07-17T01:05:05.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

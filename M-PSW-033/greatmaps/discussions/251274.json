@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "586743",
+    "ThreadId": "251274",
+    "Html": "<p>Hi</p>\n<p>I want to create marker with lntlng in offline and Cacheonly mode but in&nbsp;AddLocation function (in demo), Gmaps connect to the internet then get lntlng and status.</p>\n<p>I have lnt and lng.&nbsp;how do i pass lnt and lng to function and set marker on the map ?</p>\n<p>this code doesn't work.</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre> <span style=\"color: blue;\">double</span> lat = 35.6999651086143;\n            <span style=\"color: blue;\">double</span> lng = 51.3378238677979;\n            PointLatLng? pos = <span style=\"color: blue;\">new</span> PointLatLng(lat, lng);\n            GMapMarkerGoogleGreen m = <span style=\"color: blue;\">new</span> GMapMarkerGoogleGreen(pos.Value);\n            m.ToolTip = <span style=\"color: blue;\">new</span> GMapRoundedToolTip(m);\n            objects.Markers.Add(m);\n            MainMap.Overlays.Add(objects);\n</pre>\n</div>\n<p>Thanks.</p>\n<p>Hamid</p>",
+    "PostedDate": "2011-03-25T15:00:06.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586749",
+    "ThreadId": "251274",
+    "Html": "<p>your code is correct</p>",
+    "PostedDate": "2011-03-25T15:20:37.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586844",
+    "ThreadId": "251274",
+    "Html": "<p>at&nbsp;</p>\r\n<pre>objects.Markers.Add(m);</pre>\r\n<p>show error that m is null;but m not null.which propety of m is neccessary in code line ?</p>\r\n<p>So why marker don't show on the map ?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2011-03-26T00:13:08.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586861",
+    "ThreadId": "251274",
+    "Html": "<p>add overlay first</p>",
+    "PostedDate": "2011-03-26T03:00:47.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586864",
+    "ThreadId": "251274",
+    "Html": "<p>I changed code to below</p>\r\n<p>\r\n<pre>double lat = 35.6999651086143;\r\n            double lng = 51.3378238677979;\r\n            PointLatLng pos = new PointLatLng(lat, lng);\r\n            GMapMarkerGoogleGreen m = new GMapMarkerGoogleGreen(pos);\r\n            m.ToolTip = new GMapRoundedToolTip(m);\r\n            MainMap.Overlays.Add(objects);\r\n            objects.Markers.Add(m);</pre>\r\n</p>\r\n<p>and this</p>\r\n<p>\r\n<pre>double lat = 35.6999651086143;\r\n            double lng = 51.3378238677979;\r\n            PointLatLng? pos = new PointLatLng(lat, lng);\r\n            GMapMarkerGoogleGreen m = new GMapMarkerGoogleGreen(pos.Value);\r\n            m.ToolTip = new GMapRoundedToolTip(m);\r\n            MainMap.Overlays.Add(objects);\r\n            objects.Markers.Add(m);\r\n            </pre>\r\n</p>\r\n<p>but gives me \"Object reference not set to an instance of an object.\" error.</p>\r\n<p>how do i solved this error ?</p>\r\n<p>can you give me a sample ?</p>",
+    "PostedDate": "2011-03-26T04:05:13.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586865",
+    "ThreadId": "251274",
+    "Html": "<p>yes, it's Demo.WindowsForms, open it ;}</p>",
+    "PostedDate": "2011-03-26T04:17:23.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586873",
+    "ThreadId": "251274",
+    "Html": "<p>i forgat add top to Overlays.</p>\r\n<p>Thanks radioman</p>",
+    "PostedDate": "2011-03-26T05:00:17.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586889",
+    "ThreadId": "251274",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2011-03-26T06:31:38.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

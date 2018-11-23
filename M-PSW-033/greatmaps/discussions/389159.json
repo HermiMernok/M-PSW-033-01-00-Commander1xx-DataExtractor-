@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "891758",
+    "ThreadId": "389159",
+    "Html": "\r\n<p>Hi everyone,</p>\r\n<p>EDIT : Ok I see my question is not very clear. So when the user makes a zoom on the map, and that the software doesn't have any image for this zoom level, many squares appear. And in these squares you are told &quot;Exception : no data in local tile cache&quot;, &quot;we\r\n are sorry..&quot;.</p>\r\n<p>To make this part a bit more sexy, I would like to change the background color, the texts and the fonts. I need to access the text because I have to translate it regarding the culture.</p>\r\n<p>I'm developing under .NET 4 and WPF.</p>\r\n",
+    "PostedDate": "2012-07-26T08:04:55.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891781",
+    "ThreadId": "389159",
+    "Html": "<ul>\r\n<li>EmptyTileBorders</li>\r\n<li>EmptytileBrush</li>\r\n<li>EmptyTileText&nbsp;</li>\r\n</ul>",
+    "PostedDate": "2012-07-26T08:43:59.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892110",
+    "ThreadId": "389159",
+    "Html": "<p>Thank you. Can you tell me how to access these properties ? I've discovered GMAP.NET yesterday in the afternoon (and I've looked for the doc but haven't found yet)</p>",
+    "PostedDate": "2012-07-27T00:50:49.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892152",
+    "ThreadId": "389159",
+    "Html": "<p>instructions for dummies: you write mapControl1 then hit . and then choose one of the property ;/</p>",
+    "PostedDate": "2012-07-27T01:44:15.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892159",
+    "ThreadId": "389159",
+    "Html": "<p>Had to access the mapControl first. Not easy when you just have \"this\" in your init ;)</p>\r\n<p>(but I found it anyway)</p>",
+    "PostedDate": "2012-07-27T02:05:03.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892281",
+    "ThreadId": "389159",
+    "Html": "<p>Ok it's almost done. I just want to act on the advertisment \"Exception : no data in local tile cache\". Removing or changing it will be all right.</p>\r\n<p>(I think it must be a FormattedText but there is only EmptyTileText in gmapControl)</p>",
+    "PostedDate": "2012-07-27T07:23:28.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898682",
+    "ThreadId": "389159",
+    "Html": "\r\n<p>UP because I still haven't found (holidays make you waste so much time...)</p>\r\n<p>I just want to act on the advertisment &quot;Exception : no data in local tile cache&quot;.</p>\r\n",
+    "PostedDate": "2012-08-13T01:51:52.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "900088",
+    "ThreadId": "389159",
+    "Html": "<p>that particular exception is internal, check the source if you want to modify it..</p>",
+    "PostedDate": "2012-08-16T14:27:41.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "900440",
+    "ThreadId": "389159",
+    "Html": "<p>Thank you. Do you remember the location of the exception ?</p>",
+    "PostedDate": "2012-08-17T01:14:27.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "900542",
+    "ThreadId": "389159",
+    "Html": "<p>ant the very bottom of GMaps.cs</p>",
+    "PostedDate": "2012-08-17T03:58:38.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909505",
+    "ThreadId": "389159",
+    "Html": "<p>Thanks for your answer, I hadn't seen it. Anyway I don't find GMaps.cs in my project (Version 1.3). I checked every project without finding it. And if I search&nbsp;<span>\"Exception : no data in local tile cache\", even with truncated expression, VS returns no result.</span></p>",
+    "PostedDate": "2012-09-07T01:58:23.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909543",
+    "ThreadId": "389159",
+    "Html": "<p>you use old version</p>",
+    "PostedDate": "2012-09-07T03:47:23.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

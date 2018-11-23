@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "634640",
+    "ThreadId": "263220",
+    "Html": "\r\n<p>The map control uses for Bing Maps currently a token for authentication. This authentication method will be retired on 30 March 2012 (<a rel=\"nofollow\" href=\"http://msdn.microsoft.com/en-us/library/cc980937.aspx\">http://msdn.microsoft.com/en-us/library/cc980937.aspx</a>).</p>\r\n<p>Microsoft advices for new applications to use the Bing Maps Key. This Key must be part of the request url (?key=). Currently the token is part of the request url.</p>\r\n<p>Are there plans to support this new authentication method in the map control?</p>\r\n",
+    "PostedDate": "2011-06-29T02:32:47.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "634667",
+    "ThreadId": "263220",
+    "Html": "<p>ok</p>",
+    "PostedDate": "2011-06-29T03:32:44.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338761",
+    "ThreadId": "263220",
+    "Html": "done ;}<br />\n",
+    "PostedDate": "2015-01-03T11:44:34.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-03T11:44:42.643-08:00"
+  },
+  {
+    "Id": "1362103",
+    "ThreadId": "263220",
+    "Html": "I am moving away from the GOOGLE Map provider (due to Licensing issues with Google - which is to be expected) to the BING Map Provider instead.\r<br />\n<br />\nSo far all is well. ( I am in the UK). I am doing a simple test - Enter a start postcode into a textbox, and a End postcode into another, and submitting the postcodes to calculate the route and plot it on a Map, and then use the output to show the distance and time in the Output textbox.\r<br />\n<br />\nWith the Google Map Provider the NAME property gives me the <strong>Given Distance in Miles  + Time taken</strong>.\r<br />\n<br />\n rMapRoute = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(ptStart, ptEnd, False, False, 15)\r<br />\n g_Route = New GMapRoute(rMapRoute.Points, &quot;RouteData&quot;)\r<br />\nMe.txtInfo.Text = rMapRoute.Name ' Gives Miles + Time taken\r<br />\n<br />\nHowever in the BING MapProvider the NAME property lists all the points. The Distance Property lists the Distance in Km which is OK because I can convert this to Miles, but no Time taken is provided.\r<br />\n<br />\nWhat is the general consensus here? Which Provider other than Google provides a response that gives Distance + Time?<br />\n",
+    "PostedDate": "2015-03-10T05:17:06.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

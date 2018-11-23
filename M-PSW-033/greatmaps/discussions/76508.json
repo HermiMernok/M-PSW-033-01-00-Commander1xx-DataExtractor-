@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "261564",
+    "ThreadId": "76508",
+    "Html": "<p>Hallo there,</p>\r\n<p>&nbsp;</p>\r\n<p>I have a list of several Lat and Long. I want them on the map and connect them&nbsp;by a line.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n<p>And when all the points are drawn i want to fill the shap that is created with the point.s</p>\r\n<p>It is NOT a route, so the connectionline, doesn't have to follow roads.</p>\r\n<p>The points are available in a text file.</p>\r\n<p>How can i achieve this in VB.NET?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Thanx in advance,</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-29T05:29:09.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261583",
+    "ThreadId": "76508",
+    "Html": "<p>custom marker?</p>",
+    "PostedDate": "2009-11-29T07:41:14.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261757",
+    "ThreadId": "76508",
+    "Html": "<p>Radioman,</p>\r\n<p>If you say so... But i dont want real markers (bigger dan line thickness), just dots, so when connected by line and filled with color it just has to look like a line. But first i want to know what best way is for filling point list and connect them by line. Any VB.NET samples?</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-30T00:48:00.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261759",
+    "ThreadId": "76508",
+    "Html": "<p>nop, buts thats gdi+ stuff</p>",
+    "PostedDate": "2009-11-30T00:52:22.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261822",
+    "ThreadId": "76508",
+    "Html": "<p>Radioman,</p>\r\n<p>GDI+ is least problem. I think i know the right steps, but need your confirm (or not :-) )</p>\r\n<p>1 Open file with lat/lng coordinates</p>\r\n<p>2 Convert them with FromLatLngToLocal</p>\r\n<p>3 Add them to Point List</p>\r\n<p>4 Draw polygon</p>\r\n<p>5 Fill polygon</p>\r\n<p>I need your help for step 2.</p>\r\n<p>&nbsp;</p>\r\n<p>Gr.</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-30T04:08:35.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261835",
+    "ThreadId": "76508",
+    "Html": "<p>well just use that function ;}</p>",
+    "PostedDate": "2009-11-30T04:54:49.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261903",
+    "ThreadId": "76508",
+    "Html": "<p>Radioman,</p>\r\n<p>I managed to:</p>\r\n<p>1) read the file with coordinates</p>\r\n<p>2) translate them in local (screen) coordinates</p>\r\n<p>3) Add each point to pointlist</p>\r\n<p>4) Draw polygon from pointlist.</p>\r\n<p>But.... How to add polygon to overlay so it wil be still visible after moving map?</p>\r\n<p>Now the polygon is just visible for fraction of second</p>\r\n<p>&nbsp;</p>\r\n<p>Gr.</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-30T07:21:04.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261927",
+    "ThreadId": "76508",
+    "Html": "<p>just create custom marker, look at documentation tab for windows forms</p>",
+    "PostedDate": "2009-11-30T08:30:21.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261998",
+    "ThreadId": "76508",
+    "Html": "<p>If you are using WPF you can use the &quot;Circle&quot;-approach as demonstrated in the Demo. I use rectangles to create 10x10 km quadrants, but with WPF you can build almost anything you want.</p>",
+    "PostedDate": "2009-11-30T12:22:20.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

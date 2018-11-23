@@ -1,0 +1,410 @@
+[
+  {
+    "Id": "478417",
+    "ThreadId": "223019",
+    "Html": "Perhaps someone has some ideas about this.\r\n\r\nWhile taking my application out for a testdrive (literally) yesterday I noticed that while I was driving forward my marker was moving backwards. This was due of course to that the map take to consideration to which direction im traveling on.\r\nI have the compass direction from the GPS so if I could rotate the map or likewise then perhaps the map could adjust to my direction.\r\n\r\nAny thoughts?",
+    "PostedDate": "2010-08-09T23:00:06.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478419",
+    "ThreadId": "223019",
+    "Html": "<p>yes, rotation would be nice feature</p>",
+    "PostedDate": "2010-08-09T23:07:41.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478450",
+    "ThreadId": "223019",
+    "Html": "Wonder how though. Just rotating the map will also rotate stuff like streetnames etc.",
+    "PostedDate": "2010-08-10T00:41:44.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478471",
+    "ThreadId": "223019",
+    "Html": "<p>yes, and maker/routes need to be reallocated too</p>",
+    "PostedDate": "2010-08-10T01:33:50.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480340",
+    "ThreadId": "223019",
+    "Html": "I already try to &quot;think&quot; about it, right now the title from google or openstreetmap contain road name into the &quot;picture&quot;, so I think the best way to archive that will be generate the title without the road name, and add the name into another layer with the position, so we'll be able to &quot;rotate&quot; them. but it seem to be alot of job, from Gmap.net and from a title server.\r\n\r\nMaybe I'll try to do it with openstreetmap some day :) if you found anything let me know :)",
+    "PostedDate": "2010-08-13T12:01:45.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480446",
+    "ThreadId": "223019",
+    "Html": "<p>Is it an option to use WPF and get it to control&nbsp;the rotation for you? Of couse this does not fix the&nbsp;issue of words being not so easy to read.</p>",
+    "PostedDate": "2010-08-13T19:34:54.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480448",
+    "ThreadId": "223019",
+    "Html": "I already saw something for &quot;rotate&quot; the map into gmaps.net but the name of the road will be in reverse sometime.. so it's not really really &quot;readable&quot;\r\n",
+    "PostedDate": "2010-08-13T19:36:42.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480523",
+    "ThreadId": "223019",
+    "Html": "Feels like the only way is to actually render the map on the fly from OSM data. One more thing to consider is the caching. If the map always fetches &quot;head-up&quot; tiles from the server there will be 360 times more tiles to cache than now?",
+    "PostedDate": "2010-08-14T04:31:48.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480530",
+    "ThreadId": "223019",
+    "Html": "<p>you can cache vector data too</p>",
+    "PostedDate": "2010-08-14T05:28:03.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488119",
+    "ThreadId": "223019",
+    "Html": "<p>radioman, I know you are very busy :) but do you know someone can do the code for the map rotating (only the rotation), i'm searching someone who I can &quot;pay&quot; for doing the job and release it for everyone in your project. Do you know someone who you trust with free time? :) I'm pretty sure many other person will like this feature into gmap.net :)</p>",
+    "PostedDate": "2010-09-02T03:16:40.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488173",
+    "ThreadId": "223019",
+    "Html": "<p>there are many coders with a lot of free time and with zero motivation ;} ..anyway it's on my list, but if someone makes it faster, that's wonderful ;}</p>\r\n<p>current status ;} ...basicaly rotation is working, the <span>tough </span>part is to un-rotate markers/tooltips/routes/polygons&nbsp;back to normal</p>",
+    "PostedDate": "2010-09-02T04:50:04.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488397",
+    "ThreadId": "223019",
+    "Html": "<p>oh nice, it is already into the current code?</p>",
+    "PostedDate": "2010-09-02T11:06:34.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488401",
+    "ThreadId": "223019",
+    "Html": "<p>on my hdd ;}</p>",
+    "PostedDate": "2010-09-02T11:14:44.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488550",
+    "ThreadId": "223019",
+    "Html": "<p>oh, too bad, I'll wait you release it</p>",
+    "PostedDate": "2010-09-02T16:15:38.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488552",
+    "ThreadId": "223019",
+    "Html": "<p>waiting doesn't help much ;}</p>",
+    "PostedDate": "2010-09-02T16:24:52.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488554",
+    "ThreadId": "223019",
+    "Html": "<p>I know, but it seem you already have ot almost done, so it will be a little stupid to start it again :) at least I'll wait you release it on the current code &quot;as-is&quot; and I'll try ti modify it :)</p>",
+    "PostedDate": "2010-09-02T16:27:37.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488648",
+    "ThreadId": "223019",
+    "Html": "<p>Sweet, can't wait to get my hands on it!</p>\r\n<p>But I guess you have not found a way to also rotate streetnames etc?</p>",
+    "PostedDate": "2010-09-02T23:09:06.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488754",
+    "ThreadId": "223019",
+    "Html": "<p>nop, but you can wait for that too ;}</p>",
+    "PostedDate": "2010-09-03T03:35:26.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488981",
+    "ThreadId": "223019",
+    "Html": "<p>I have some idea to work with for the roadname, but since i'm not an expert for the &quot;rotation&quot; and wpf, I'll wait for that part, but as soon you release it I'll work on the road</p>",
+    "PostedDate": "2010-09-03T11:03:51.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489106",
+    "ThreadId": "223019",
+    "Html": "<p>great feature is comming! ..Engage ;}&nbsp;</p>\r\n<p><img src=\"http://wn6aqw.blu.livefilestore.com/y1p05mHlGfTzkeTkUE-a620ms4ai8y-6jEHBQbXIdX83nBCqNPdOgjfm8W6zuczsN3eo2hUP5e3gr7ZV-vSuS3M4VD6Zh1hZP6o/gmap rotation status markers ok.png?psid=1\" alt=\"\" width=800></p>",
+    "PostedDate": "2010-09-03T16:08:27.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489556",
+    "ThreadId": "223019",
+    "Html": "<p>really nice!! <span id=\"result_box\"><span style=\"background-color:#ffffff;color:#000000\">I can't wait longer to see it in the source :)<br></span></span></p>",
+    "PostedDate": "2010-09-05T20:47:20.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489721",
+    "ThreadId": "223019",
+    "Html": "<p>check the sound! ;} markers/routes/polygons and mouse events now are in sync even using rotation!</p>",
+    "PostedDate": "2010-09-06T06:28:38.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489830",
+    "ThreadId": "223019",
+    "Html": "<p>great, for wpf or winforms? or both? :)</p>",
+    "PostedDate": "2010-09-06T12:45:14.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489833",
+    "ThreadId": "223019",
+    "Html": "<p>both in time ;}</p>\r\n<p>..i wonder how to make it work on mobile, there is no built-in rotations ;/</p>",
+    "PostedDate": "2010-09-06T12:53:47.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489953",
+    "ThreadId": "223019",
+    "Html": "<p>MainMap.CurrentPosition = marker.Position;<br>if(marker.Bearing.HasValue)<br>{<br>&nbsp;MainMap.Bearing = marker.Bearing.Value;<br>}</p>\r\n<p>p.s. now rotated corners are filled too, basically it's ready to use, you can test it in action, by using transport demo and clicking on some bus, maps set bearing like object and tracks it</p>",
+    "PostedDate": "2010-09-07T00:48:46.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490656",
+    "ThreadId": "223019",
+    "Html": "<p>oh nice :) I'll test it :)</p>\r\n<p>&nbsp;</p>\r\n<p>it's work only with winform right?</p>",
+    "PostedDate": "2010-09-08T06:46:25.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490736",
+    "ThreadId": "223019",
+    "Html": "<p>indeed ;}</p>",
+    "PostedDate": "2010-09-08T08:54:13.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "491432",
+    "ThreadId": "223019",
+    "Html": "<p>wpf version is coming too! Hold on ;]</p>",
+    "PostedDate": "2010-09-09T12:35:16.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "491634",
+    "ThreadId": "223019",
+    "Html": "<p>great news!</p>",
+    "PostedDate": "2010-09-10T00:14:09.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494726",
+    "ThreadId": "223019",
+    "Html": "<p>Any news? I cannot sleep, I always dream of it :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-16T18:32:47.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494766",
+    "ThreadId": "223019",
+    "Html": "<p>test it, the center of rotation isn't in the center, any ideas?</p>",
+    "PostedDate": "2010-09-16T21:37:32.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494939",
+    "ThreadId": "223019",
+    "Html": "<p>sure, where can I download it?</p>",
+    "PostedDate": "2010-09-17T06:13:06.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495045",
+    "ThreadId": "223019",
+    "Html": "<p><a href=\"http://greatmaps.codeplex.com/SourceControl/list/changesets\">http://greatmaps.codeplex.com/SourceControl/list/changesets</a></p>",
+    "PostedDate": "2010-09-17T08:35:00.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495199",
+    "ThreadId": "223019",
+    "Html": "<p>oh, the code are already in the source &quot;server&quot; ?</p>",
+    "PostedDate": "2010-09-17T13:33:15.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495207",
+    "ThreadId": "223019",
+    "Html": "<p>still dreaming ;}</p>",
+    "PostedDate": "2010-09-17T14:11:11.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495299",
+    "ThreadId": "223019",
+    "Html": "<p>i'm not sure to understand,&nbsp; the center of the rotation problem in on the wpf version or winform?</p>",
+    "PostedDate": "2010-09-17T20:15:29.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495375",
+    "ThreadId": "223019",
+    "Html": "<p>wake up neo ;}</p>",
+    "PostedDate": "2010-09-18T05:00:08.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497286",
+    "ThreadId": "223019",
+    "Html": "<p>any new discovery for make it work?</p>",
+    "PostedDate": "2010-09-22T17:01:45.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497364",
+    "ThreadId": "223019",
+    "Html": "<p>it works, we need a fix, any ideas? ;}</p>",
+    "PostedDate": "2010-09-22T21:42:21.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512981",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>oh, cool it seem to work now :)</p>\r\n<p>&nbsp;</p>\r\n<p>any way for make it &quot;rotate&quot; up to down for a little projection? :)</p>\r\n",
+    "PostedDate": "2010-10-26T14:17:56.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513386",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>up/down?</p>\r\n",
+    "PostedDate": "2010-10-27T07:28:55.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513560",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>making a little incline, like what some GPS are doing, they call that 2.5D</p>\r\n",
+    "PostedDate": "2010-10-27T12:05:08.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513566",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>making a tilt angle of the map</p>\r\n",
+    "PostedDate": "2010-10-27T12:13:37.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513785",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>like:</p>\r\n<p><img src=\"http://www.cartotype.com/assets/images/promopanels/citymap.png\" alt=\"example image\"></p>\r\n",
+    "PostedDate": "2010-10-28T00:10:41.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513796",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>i see, &nbsp;yes its posible</p>\r\n",
+    "PostedDate": "2010-10-28T00:18:28.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513798",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>try insert before DrawMapDesktop:</p>\r\n<p>Matrix x = new Matrix();<br>\r\nx.Shear(2, 2);<br>\r\ne.Graphics.Transform = x;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-10-28T00:26:22.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513799",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>hmm, i'm using WPF, so I presume I need to put it before DrawMapWPF ?</p>\r\n",
+    "PostedDate": "2010-10-28T00:29:58.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513801",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>something like that ;}</p>\r\n",
+    "PostedDate": "2010-10-28T00:32:45.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513808",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>hmm something is wrong :) I don't know how to do it in WPF, it seem .shear doesn't exist. but even in windows form, it &quot;reverse&quot; the image make it appear not at the right place :)</p>\r\n<p>&nbsp;</p>\r\n<p>oh and I didn't found the DrawMapDesktop, but found DrawMapGDIplus instead</p>\r\n",
+    "PostedDate": "2010-10-28T00:46:50.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513810",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>..anyhow, it doesn't work somehow magically, you need to calculate everything precisely exact</p>\r\n",
+    "PostedDate": "2010-10-28T00:52:50.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513860",
+    "ThreadId": "223019",
+    "Html": "\r\n<p>hmm, got the command working for an &quot;image&quot;</p>\r\n<p>RotateTransform3D myRotateTransform = new RotateTransform3D(new AxisAngleRotation3D(new Vector3D(1, 0, 0), 35));</p>\r\n<p>&nbsp;</p>\r\n<p>but need to use WPF 3D, I don't think it will work with gmaps.net&nbsp; :(</p>\r\n",
+    "PostedDate": "2010-10-28T02:41:06.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "536157",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>&#65279;Dear all,</p>\r\n<p>Have some issue with adding routes.</p>\r\n<p>Route is showing but is not really following the roads.<br>\r\nI use following code:</p>\r\n<p><span style=\"color:blue\">Dim</span> myStart <span style=\"color:blue\">As</span>\r\n<span style=\"color:blue\">String</span> = TextBox1.Text<br>\r\n<span style=\"color:blue\">Dim</span> myEnd <span style=\"color:blue\">As</span> <span style=\"color:blue\">\r\nString</span> = TextBox2.Text</p>\r\n<p><span style=\"color:blue\">Dim</span> route <span style=\"color:blue\">As</span> MapRoute = GMaps.Instance.GetRouteBetweenPoints(myStart, myEnd,\r\n<span style=\"color:blue\">False</span>, 5)<br>\r\n<span style=\"color:blue\">Dim</span> top <span style=\"color:blue\">As</span> GMapOverlay =\r\n<span style=\"color:blue\">New</span> GMapOverlay(GMapControl1, <span style=\"color:#a31515\">\r\n&quot;top&quot;</span>)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">If</span> <span style=\"color:blue\">\r\nNot</span> route <span style=\"color:blue\">Is</span> <span style=\"color:blue\">Nothing</span>\r\n<span style=\"color:blue\">Then</span><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> rt <span style=\"color:blue\">As</span> GMapRoute = <span style=\"color:blue\">\r\nNew</span> GMapRoute(route.Points, <span style=\"color:#a31515\">&quot;Sample route&quot;</span>)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> m1 <span style=\"color:blue\">As</span> PointLatLng = <span style=\"color:blue\">\r\nNew</span> PointLatLng(rt.<span style=\"color:blue\">From</span>.Value.Lat, rt.<span style=\"color:blue\">From</span>.Value.Lng)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> m2 <span style=\"color:blue\">As</span> PointLatLng = <span style=\"color:blue\">\r\nNew</span> PointLatLng(rt.<span style=\"color:blue\">To</span>.Value.Lat, rt.<span style=\"color:blue\">To</span>.Value.Lng)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> myMarker1 <span style=\"color:blue\">As</span> <span style=\"color:blue\">\r\nNew</span> GMapMarkerGoogleGreen(m1)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> myMarker2 <span style=\"color:blue\">As</span> <span style=\"color:blue\">\r\nNew</span> GMapMarkerGoogleGreen(m2)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; top.Markers.Add(myMarker1)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; top.Markers.Add(myMarker2)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; top.Routes.Add(rt)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl1.Overlays.Add(top)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">End</span> <span style=\"color:blue\">\r\nIf</span></p>\r\n<p><span style=\"color:blue\">Something wrong or missing?</span></p>\r\n<p><span style=\"color:blue\">&nbsp;</span></p>\r\n<p><span style=\"color:blue\">Gr.<br>\r\n</span><span style=\"color:blue\">Hein</span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-15T07:38:08.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536162",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>Hi again,</p>\r\n<p>Extra information:<br>\r\nFrom city to city works fine. Street to street in not (right) working.</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>\r\n",
+    "PostedDate": "2010-12-15T07:46:45.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536198",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>can you post exact start/stop coordinates?</p>\r\n",
+    "PostedDate": "2010-12-15T08:35:42.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536353",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>Radioman,</p>\r\n<p>From = {Lat=51,87321, Lng=4,35487}</p>\r\n<p>To = {Lat=51,93356, Lng=4,40862}</p>\r\n<p>Route gives 5 points:</p>\r\n<p>(0) = {Lat=51,87321, Lng=4,35487}<br>\r\n(1) = {Lat=51,87493, Lng=4,38778}<br>\r\n(2) = {Lat=51,9233, Lng=4,367}<br>\r\n(3) = {Lat=51,92502, Lng=4,40443}<br>\r\n(4) = {Lat=51,93356, Lng=4,40862}</p>\r\n<p>Hein</p>\r\n",
+    "PostedDate": "2010-12-15T12:38:50.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536365",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>works well for me ;}</p>\r\n<p><img src=\"http://0wxnqw.blu.livefilestore.com/y1pByIR9nGje_YG_eieEAb67pCVlhNUhZAVyScDZjDO7naGPdEfC6bfuKZuVlYIBL5MiwbTYq2qAQEPkoXhkxsfTbnZMkQFbehR/gmap%20routing%20test.png?psid=1\" alt=\"\" width=\"800\"></p>\r\n",
+    "PostedDate": "2010-12-15T12:57:39.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536392",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>What i get is a route sometimes &quot;on&quot; the road, but most part is just &quot;near&quot; the roads.</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-15T13:32:47.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536397",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>how can i include image? copy/past doesn't work...</p>\r\n",
+    "PostedDate": "2010-12-15T13:35:40.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536404",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>Extra info: my route consists of straight lines. No curves lines</p>\r\n",
+    "PostedDate": "2010-12-15T13:45:42.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536407",
+    "ThreadId": "238472",
+    "Html": "\r\n<ul>\r\n<li>for images, in html mode you can insert &lt;img src=&quot;...&quot; /&gt;, it's not very comfortable, anyhow - works ;}\r\n</li><li>..and sure you pass zoom = 5 in function, so you get minimum points to show it from the sky heights, use map.Zoom instead ;}, GMaps.Instance.GetRouteBetweenPoints(myStart, myEnd, False,\r\n<strong>map.Zoom</strong>) </li></ul>\r\n",
+    "PostedDate": "2010-12-15T13:53:19.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536414",
+    "ThreadId": "238472",
+    "Html": "\r\n<p>* Thanks</p>\r\n<p>gmapcontrol1.zoom did the trick,</p>\r\n<p>Thanks, as usual,</p>\r\n<p>Hein</p>\r\n",
+    "PostedDate": "2010-12-15T14:02:26.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

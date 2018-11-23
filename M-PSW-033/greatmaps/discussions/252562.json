@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "591919",
+    "ThreadId": "252562",
+    "Html": "<p>Hi! I have an Question:</p>\n<p>how can I determine the current position:</p>\n<p>when I click on the marker -&gt;</p>\n<p>Private Sub GMapControl1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.MouseDown<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If GMapControl1.IsMouseOverMarker Then<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; labelLat.text =&nbsp; ??????????</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; labelLng.text= ??????????<br /> end if<br /> <br /> &nbsp;&nbsp;&nbsp; End Sub</p>\n<p>i take VB 2010</p>\n<p>thanx</p>",
+    "PostedDate": "2011-04-05T04:29:11.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "591922",
+    "ThreadId": "252562",
+    "Html": "<p>just use&nbsp;MainMap.OnMarkerClick += new MarkerClick(MainMap_OnMarkerClick);<br /> <br /> <em>void MainMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)</em><br /> <em>{</em><br /> <em>&nbsp; &nbsp;item.Position</em></p>\n<p>...</p>\n<p>.. if you just wanna know local position without any markers, use:</p>\n<p><em>void MainMap_MouseDown(object sender, MouseEventArgs e)</em><br /> <em>{</em><br /> <em>&nbsp; &nbsp; if(e.Button == MouseButtons.Left)</em><br /> <em>&nbsp; &nbsp; {</em><br /> <em>&nbsp; &nbsp; &nbsp; currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);</em></p>",
+    "PostedDate": "2011-04-05T04:41:18.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "591934",
+    "ThreadId": "252562",
+    "Html": "<p>Thanks for your fast <span class=\"definition\">answer!</span></p>\n<p>&nbsp;</p>\n<p><span class=\"definition\">The Code dose not work!</span></p>\n<p><span class=\"definition\">can you tell me the code in VB.net?</span></p>\n<p>Not working:</p>\n<p>Private Sub GMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(item.Position)<br /><br />&nbsp;&nbsp;&nbsp; End Sub</p>\n<p><span class=\"definition\">Thank you<br /> </span></p>",
+    "PostedDate": "2011-04-05T04:59:15.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "591937",
+    "ThreadId": "252562",
+    "Html": "<p>i don't know vb ;/ but the functions are the same ;}</p>",
+    "PostedDate": "2011-04-05T05:01:42.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592074",
+    "ThreadId": "252562",
+    "Html": "<p>Hi! follow code:</p>\r\n<p>Private Sub GMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; txtstrasse.Text = (item.Position.Lat)<br />&nbsp;&nbsp;&nbsp; End Sub</p>\r\n<p>when i click on the Marker (real lat position is \"48,0112860988103\")</p>\r\n<p>but the right position is \"48,0112502116883\"</p>\r\n<p>do you now what's the problem?</p>",
+    "PostedDate": "2011-04-05T07:50:47.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592544",
+    "ThreadId": "252562",
+    "Html": "<p>One Problem!<br />something is the Position ident but somthing not (I think that's a zoom Problem)</p>\r\n<p>Can i assign an ID to the Marker?</p>",
+    "PostedDate": "2011-04-05T23:14:17.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592559",
+    "ThreadId": "252562",
+    "Html": "<p>you can use Tag field, or make your own</p>",
+    "PostedDate": "2011-04-05T23:35:29.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

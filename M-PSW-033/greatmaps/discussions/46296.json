@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "154602",
+    "ThreadId": "46296",
+    "Html": "Hello radioman,<br>\r\n<br>\r\nCould you add a public function returning the local x/y from a lat/lng point taking into account the renderOffset. Actually, the opposite of FromLocalToLatLong, something like<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\"> FromLatLngToLocal(</span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\"> latlng)<br>\r\n{<br>\r\n    System.Drawing.</span><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\"> pLocal = </span><span style=\"font-size:13px;color:#2b91af\">GMaps</span><span style=\"font-size:13px\">.Instance.FromLatLngToPixel(latlng, </span><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">.Zoom);<br>\r\n    pLocal.Offset(</span><span style=\"font-size:13px;color:#0000ff\">Core.renderOffset</span><span style=\"font-size:13px\">);<br>\r\n    </span><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">pLocal;<br>\r\n</span><span style=\"font-size:13px\">}\r\n<p>&nbsp;</p>\r\n</span></p>\r\nIt would allow me to use the drawingContext to draw shapes without &quot;hacking&quot; your code.<br>\r\n<br>\r\nthanks.<br>\r\n",
+    "PostedDate": "2009-02-05T03:14:58.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154631",
+    "ThreadId": "46296",
+    "Html": "done!",
+    "PostedDate": "2009-02-05T05:12:56.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

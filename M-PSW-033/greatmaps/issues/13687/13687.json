@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "done!!",
+    "ClosedDate": "2009-08-30T06:14:10.9-07:00",
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "any ideas?",
+    "LastUpdatedDate": "2009-08-30T06:14:10.9-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-07-21T13:38:03.98-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "non integer zoom levels are causing incorrect local markers coordinates in wpf version",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 13687
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I'm having a go at this, and I think I found a semi-solution to fix it. Basically when updating the marker position in UpdateLocalPosition() and using map.FromLatLngToLocal. I'm trying to get the previous integer zoom and the next. Passing those to map.Zoom, getting two values from map.FromLatLngToLocal. Then I scale the position between the two values depending on the decimal left over from the zoomReal value. Theoretically it should work perfectly. But I'm getting odd errors. When I change the map.Zoom level and then request the new position for the marker, it gives me huge numbers. Somewhere in the 8digits. So instead I tried to manually pass the zoom level from the GMapMarker class to the GMapControl and have it pass it on to the Core. That didn't work as I'm guessing setting map.Zoom has some sort of side-effects that are essential for the calculation. Ideally, we should be able to get the position of the marker without having any effect on the state of GMapControl.\r\n\r\nAny help would be appreciated. If this method works, you could move it on to update the routes with non-integer values as well. Don't mind the code, it's just something I slapped together to test my idea. Not very elegant code, I know ;)\r\n\r\ninternal void UpdateLocalPosition()\r\n      {\r\n         if(Map != null)\r\n         {\r\n\t\t\t if ((map.zoomReal % (int)System.Math.Floor(map.zoomReal)) == 0)\r\n\t\t\t {\r\n\t\t\t\t GMap.NET.Point p = map.FromLatLngToLocal(Position);\r\n\t\t\t\t LocalPositionX = (int) p.X + (int) Offset.X;\r\n\t\t\t\t LocalPositionY = (int) p.Y + (int) Offset.Y;\r\n\t\t\t }\r\n\t\t\t else\r\n\t\t\t {\r\n\t\t\t\t double previousZoom = map.Zoom;\r\n\t\t\t\t int zoomLevel = (int)System.Math.Floor(map.zoomReal);\r\n\t\t\t\t double ratio = map.zoomReal - zoomLevel;\r\n\r\n\t\t\t\t map.Zoom = zoomLevel;\r\n\t\t\t\t GMap.NET.Point oldPos = map.FromLatLngToLocal(Position);\r\n\t\t\t\t map.Zoom = zoomLevel + 1;\r\n\t\t\t\t GMap.NET.Point newPos = map.FromLatLngToLocal(Position);\r\n\r\n\t\t\t\t LocalPositionX = (int)oldPos.X + (int)((newPos.X - oldPos.X) * ratio) + (int)Offset.X;\r\n\t\t\t\t LocalPositionX = (int)oldPos.Y + (int)((newPos.Y - oldPos.Y) * ratio) + (int)Offset.Y;\r\n\r\n\t\t\t\t map.Zoom = previousZoom;\r\n\t\t\t }\r\n\t\t\t\r\n         }\r\n      }",
+      "PostedDate": "2009-08-15T01:49:50.353-07:00",
+      "Id": 3128
+    }
+  ]
+}

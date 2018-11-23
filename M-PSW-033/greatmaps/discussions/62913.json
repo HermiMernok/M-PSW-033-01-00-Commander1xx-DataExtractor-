@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "213645",
+    "ThreadId": "62913",
+    "Html": "<p>Hi folks,</p>\r\n<p>When I drag GmapControl component to my window form, I get Error message, because in this discussion seem not for insert image, show I describe as follows:</p>\r\n<p><span style=\"color:#0000ff\">Failed to create component 'GMapControl'. The error message follows:</span></p>\r\n<p><span style=\"color:#0000ff\">'System.NullReferenceExcaption: Object reference not set to an instance of an object.</span></p>\r\n<p><span style=\"color:#0000ff\">at GMap.Net.Internals.Core.UpdateGroundResolution()</span></p>\r\n<p><span style=\"color:#0000ff\">at GMap.Net.Internals.Core.UpdateBaunds()</span></p>\r\n<p><span style=\"color:#0000ff\">at GMap.Net.Internals.Core.ReloadMap()</span></p>\r\n<p><span style=\"color:#0000ff\">at GMap.Net.Internals.Core.StartSystem()</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.GMapControl.OnLoad(EventArgs e)</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.UserControl.OnCreateControl()</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.Control.CreateControl()</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.Control.ControlCollection.Add(Control value)</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.Form.ControlCollection.Add(Control value)</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.Design.ParentControlDesigner.AddChildControl(Control newChild)</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.Design.ParentControlDesigner.AddControl(Control newChild, IDictionary defaultValues)</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Windows.Forms.Design.ControlDesignerInitializeNewComponent(IDictionary defaultvalue)</span></p>\r\n<p><span style=\"color:#0000ff\">at System.Drawing.Design.ToolboxItem.CreateCompone...'</span></p>\r\n<p>Anyone can help me?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks and Best regards,</p>\r\n<p>Cuong.</p>",
+    "PostedDate": "2009-07-19T18:44:53.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213681",
+    "ThreadId": "62913",
+    "Html": "<p>I don't think I quite understood the problem but from what I see, I think you just have to avoid the calling of the Core.StartSystem() method while in designer mode which is why in the earlier builds of the GMap Library you could see a if(!DesignMode) right in the control constructor.</p>\r\n<p>Hope this helps.</p>\r\n<p>Christian.</p>",
+    "PostedDate": "2009-07-19T23:37:45.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213697",
+    "ThreadId": "62913",
+    "Html": "<p>yes, but thats new WPF version, i have just added some check, does it work correct now?</p>",
+    "PostedDate": "2009-07-20T00:44:39.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213702",
+    "ThreadId": "62913",
+    "Html": "<p>Hi,</p>\r\n<p>Because, I don't use WPF version.</p>\r\n<p>Thanks and best regards,</p>\r\n<p>Cuong.</p>",
+    "PostedDate": "2009-07-20T00:48:41.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213713",
+    "ThreadId": "62913",
+    "Html": "<p>should be ok now</p>\r\n<p>p.s. i have no idea why thats not working for <strong>OnSizeChanged</strong> ;/</p>",
+    "PostedDate": "2009-07-20T01:21:36.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213719",
+    "ThreadId": "62913",
+    "Html": "<p>Thanks,</p>\r\n<p>I will check by update TortoiseSVN.</p>\r\n<p>Thanks and Best regards,</p>\r\n<p>Cuong.</p>",
+    "PostedDate": "2009-07-20T01:46:44.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213724",
+    "ThreadId": "62913",
+    "Html": "<p>Hi folks,</p>\r\n<p>I check in my window form, It work OK, when I adding control from toolbox in GMap.NET.WindowsForms.</p>\r\n<p>Thanks and Best regards,</p>\r\n<p>Cuong.</p>",
+    "PostedDate": "2009-07-20T02:06:53.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

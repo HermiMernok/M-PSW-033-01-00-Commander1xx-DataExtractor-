@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "517117",
+    "ThreadId": "233496",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p>I am running into some trouble during GMapOverlay.Render()</p>\r\n<p>Recent progress in our application has us placing, at times, hundreds or thousands of markers on the map. &nbsp;While iterating in these two blocks, it is possible for implementation to add/remove/move marker from the list. &nbsp;The collection iterator\r\n becomes invalid and an exception is raised. &nbsp;But the implementing application does not have the opportunity to catch this exception and handle it elegantly (because it occurs in the UI thread).</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>              <span style=\"color:green\">// markers</span>\r\n               <span style=\"color:blue\">foreach</span>(GMapMarker m <span style=\"color:blue\">in</span> Markers)\r\n               {\r\n                  <span style=\"color:blue\">if</span>(m.IsVisible &amp;&amp; (m.DisableRegionCheck || Control.Core.currentRegion.Contains(m.LocalPosition.X, m.LocalPosition.Y)))\r\n                  {\r\n                     m.OnRender(g);\r\n                  }\r\n               }\r\n\r\n               <span style=\"color:green\">// tooltips above</span>\r\n               <span style=\"color:blue\">foreach</span>(GMapMarker m <span style=\"color:blue\">in</span> Markers)\r\n               {\r\n                  <span style=\"color:blue\">if</span>(m.ToolTip != <span style=\"color:blue\">null</span> &amp;&amp; m.IsVisible &amp;&amp; Control.Core.currentRegion.Contains(m.LocalPosition.X, m.LocalPosition.Y))\r\n                  {\r\n                     <span style=\"color:blue\">if</span>(!<span style=\"color:blue\">string</span>.IsNullOrEmpty(m.ToolTipText) &amp;&amp; (m.ToolTipMode == MarkerTooltipMode.Always || (m.ToolTipMode == MarkerTooltipMode.OnMouseOver &amp;&amp; m.IsMouseOver)))\r\n                     {\r\n                        m.ToolTip.Draw(g);\r\n                     }\r\n                  }\r\n               }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Perhaps in GMap.NET.ObjectModel.ObservableCollection, add/remove/insert methods could be wrapped with a lock on a SyncRoot object, then during the render, the above blocks could lock on the same syncroot. &nbsp;This would at least prevent exceptions from\r\n orginating in the GMap.NET library. &nbsp;If the SyncRoot object were public, the implementing application might be able to utilize it as well.</p>\r\n<p>Does this seem like a reasonable solution, or do you know of a better way? &nbsp;Or am I just doing something wrong? &nbsp;Thanks for your help, and keep up the good work!</p>\r\n",
+    "PostedDate": "2010-11-04T08:22:43.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517148",
+    "ThreadId": "233496",
+    "Html": "\r\n<p>i guess so, i'll check this</p>\r\n",
+    "PostedDate": "2010-11-04T09:10:51.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552686",
+    "ThreadId": "233496",
+    "Html": "\r\n<p>I wanted to mark this as a non-bug. &nbsp;This exception was&nbsp;occurring&nbsp;because of a missing Invoke() on my behalf.</p>\r\n",
+    "PostedDate": "2011-01-20T09:07:41.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552699",
+    "ThreadId": "233496",
+    "Html": "\r\n<p>i see</p>\r\n",
+    "PostedDate": "2011-01-20T09:24:35.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

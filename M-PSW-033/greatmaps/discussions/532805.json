@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1210506",
+    "ThreadId": "532805",
+    "Html": "Hi,\r<br />\nIm using gmap.net control with the openstreetmap provider.\r<br />\nI was debugging windowspresentation demo. \r<br />\nThe problem is that when i pass HttpWebRequest from the following url :\r<br />\n<a href=\"http://nominatim.openstreetmap.org/reverse?format=xml&amp;lat=54.6542669&amp;lon=25.1504576&amp;zoom=18&amp;addressdetails=1\" rel=\"nofollow\">http://nominatim.openstreetmap.org/reverse?format=xml&lat=54.6542669&lon=25.1504576&zoom=18&addressdetails=1</a>\r<br />\n(retrieving placemark info)\r<br />\ni get response from the server error 403 unathorized acces \r<br />\nGMapProviders.OpenStreetMap.GetPlacemark(currentMarker.Position, out status) )\r<br />\nWhat is strange becaous when in the same instance of the application i pass HttpWebRequest :\r<br />\n<a href=\"http://nominatim.openstreetmap.org/search?q=paris&amp;format=xml\" rel=\"nofollow\">http://nominatim.openstreetmap.org/search?q=paris&format=xml</a> i get correct results with no errors. (public PointLatLng? GetPoint(string keywords, out GeoCoderStatusCode status))\r<br />\nCredentials = {&quot;greatmaps&quot;, &quot;greatmaps&quot;}.\r<br />\nWhen i type them both in the opera i get correct info in the xml file.\r<br />\nWhat needs to be done to pass correct request for openstreetmap ?\r<br />\nThanks for help.<br />\n",
+    "PostedDate": "2014-02-19T05:59:04.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1274852",
+    "ThreadId": "532805",
+    "Html": "string url = ... \r<br />\nstring fileName = ...\r<br />\n<br />\nWebClient wb = new WebClient();\r<br />\nwb.Headers.Add(&quot;User-Agent: Other&quot;);   //that is the simple line!\r<br />\nwb.DownloadFile(url, fileName);<br />\n",
+    "PostedDate": "2014-07-21T10:48:28.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

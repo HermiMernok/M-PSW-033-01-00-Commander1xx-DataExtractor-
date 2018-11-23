@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "423397",
+    "ThreadId": "207238",
+    "Html": "<p>Hi RadioMan,</p>\r\n<p>&nbsp;&nbsp;&nbsp; I am very thankful for this preciuos project.</p>\r\n<p>&nbsp;I have a small issue. When i am selecting the MapMode as&nbsp; &quot;SERVER AND CACHE&quot;,</p>\r\n<p>the folder &quot;TileDBv3&quot; is creating in windows XP and working fine. BUT it is not creating in the Windows 2008.</p>\r\n<p>Other folders like &quot;GeocoderCache&quot;,&quot;RouteCache&quot;&nbsp;are creating fine But db folder is not creating.</p>\r\n<p>Here i am using the I.E. 64 bit.</p>\r\n<p>It is working fine in windows XP.</p>\r\n<p>Can you please suggest how to recifty this issue.</p>\r\n<p>Thanx in advance.</p>",
+    "PostedDate": "2010-03-24T23:21:01.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423518",
+    "ThreadId": "207238",
+    "Html": "to be able run sqlite in x64 system, you must use x64 dll, or set target to x86, so it works anywhere, check documentation",
+    "PostedDate": "2010-03-25T04:50:50.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423561",
+    "ThreadId": "207238",
+    "Html": "<p>Hi RadioMan,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thanx for the reply..</p>\r\n<p>I am using&nbsp;visual studio 2005.Can you please tell me where can i find x64 dll.&nbsp;</p>\r\n<p>Thanx in advance.</p>",
+    "PostedDate": "2010-03-25T06:27:35.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423573",
+    "ThreadId": "207238",
+    "Html": "<p>\\GMap.NET\\References\\Windows\\x64\\</p>",
+    "PostedDate": "2010-03-25T06:45:31.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424876",
+    "ThreadId": "207238",
+    "Html": "<table border=0>\r\n<tbody>\r\n<tr>\r\n<td>\r\n<div id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl04_BodyDiv\">\r\n<p>Hi RadioMan,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thanx for the reply..</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>I have some issue with it.</p>\r\n<p>1. I have taken the System.Data.SQLite.DLL from x64 folder.</p>\r\n<p>2.Kept the platform target as x86.</p>\r\n<p>3.Kept the conditional sysmbols as &quot;&quot;&nbsp;MONOdisabled; MySQLdisabled;SQLiteEnabled &quot;&quot;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Is there any wrong in this.</p>\r\n<p>I am getting ERROR as Cannot load gmap.core dll.</p>\r\n<p>Thanx in advance.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-29T05:04:36.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424880",
+    "ThreadId": "207238",
+    "Html": "<p><em>1. I have taken the System.Data.SQLite.DLL from <strong>x64</strong> folder.<br><br>2.<strong>Kept</strong> the platform <strong>target as x86.</strong></em></p>\r\n<p>Can i ask you <strong>why</strong>? ;}</p>",
+    "PostedDate": "2010-03-29T05:14:47.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424884",
+    "ThreadId": "207238",
+    "Html": "<p>&nbsp;</p>\r\n<p>I followed the steps in the documnetations.</p>\r\n<li>change references </li>\r\n<li>set target to x86 so it works anywhere </li>\r\n<p>Is there any thing wrong?</p>",
+    "PostedDate": "2010-03-29T05:22:05.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424890",
+    "ThreadId": "207238",
+    "Html": "<p>exactly, but it;s not 1.2.3, but separate options * * * ;}</p>\r\n<p><em>so you</em> (can change references) <strong>or</strong> (set target to x86)</p>",
+    "PostedDate": "2010-03-29T05:31:16.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424893",
+    "ThreadId": "207238",
+    "Html": "<p>ohh.. Thanx a lot for the information.;}</p>\r\n<p>Is there any change in the conditional sysmbols when i change reference (using x64 dll).</p>\r\n<p>Currently i am using</p>\r\n<p>MONOdisabled; MySQLdisabled;SQLiteEnabled</p>",
+    "PostedDate": "2010-03-29T05:43:10.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424894",
+    "ThreadId": "207238",
+    "Html": "<p>conditional sysmbols are the same, but is you use x64 sqlite, you must set target to x64, thats all ;}</p>",
+    "PostedDate": "2010-03-29T05:47:43.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425391",
+    "ThreadId": "207238",
+    "Html": "<p>Hi RadioMan,</p>\r\n<p>&nbsp;&nbsp;&nbsp; If i use x64 sql lite, it is giving me error as</p>\r\n<p>&quot;&quot;Could not load file or assembly 'System.Data.SQLite, Version=1.0.65.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. An attempt was made to load a program with an incorrect format.&quot;&quot;</p>\r\n<p>Conditional symbols are :- MONOdisabled; MySQLdisabled;SQLiteEnabled</p>\r\n<p>Can you please help me, how to overcome this issue.</p>\r\n<p>Thanx a lot in advance.</p>",
+    "PostedDate": "2010-03-30T04:04:50.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425393",
+    "ThreadId": "207238",
+    "Html": "<p>set target to x64 ;]</p>",
+    "PostedDate": "2010-03-30T04:08:43.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425394",
+    "ThreadId": "207238",
+    "Html": "<p>now really set target to x64 ;]</p>",
+    "PostedDate": "2010-03-30T04:09:18.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

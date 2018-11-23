@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "808929",
+    "ThreadId": "348208",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>i'm new to Gmap. I'm wanna create a simple windows app with Gmap.</p>\r\n<p>I wanna find the nearest facility like Police station, Schools, Hospitals etc from the last marker placed on the map.</p>\r\n<p>the Facilities can be prefixed markers...</p>\r\n<p>any idea...<br>\r\nplease help me.....</p>\r\n<p>Rintil</p>\r\n<p>:-(&nbsp;</p>\r\n<p>thanks in advance......</p>\r\n",
+    "PostedDate": "2012-03-11T23:10:31.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809010",
+    "ThreadId": "348208",
+    "Html": "<p>it's not routing at all, anyway there is no such services</p>",
+    "PostedDate": "2012-03-12T03:55:31.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809810",
+    "ThreadId": "348208",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>&nbsp;</strong>\r\n<p>I wanna find the nearest facility like Police station, Schools, Hospitals etc from the last marker placed on the map.</p>\r\n<p>the Facilities can be prefixed markers...</p>\r\n<br /></blockquote>\r\n<p>The only way that this can be done is to have a complete list of all the police stations, Schools, Hospitals etc with their gps location ( otherwise known as POIs )and then do timed or event based checkes for the nearest POIs</p>\r\n<p>this is quite doable and the best way i have found is to only load pois on a map as markers with in a certain distance otherwise it gets very messy with so many markers</p>",
+    "PostedDate": "2012-03-13T12:18:29.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810040",
+    "ThreadId": "348208",
+    "Html": "<p>thanks i8sy....</p>\r\n<p>but how can i do that ?? any ideas.. :-(&nbsp; <br /><br />Hi Radioman...<br /><br />what are the things and codings i need to use for find a path between two or three points.</p>\r\n<p>i fount the codes in your core project but as i'm new to c# i donno what to take and what to avoid...</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color: #ff0000;\"><strong>anybody please help me.......</strong></span></p>\r\n<p>&nbsp;</p>\r\n<p>:-( :-(</p>",
+    "PostedDate": "2012-03-13T23:47:49.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810628",
+    "ThreadId": "348208",
+    "Html": "<p>rocksoon</p>\r\n<p>&nbsp;</p>\r\n<p>the way I did it was to find a list off the net of all my local POIs which included police stations, hospitals etc</p>\r\n<p>you would then want to split these up into types and then put them as markers on different layers so that each layer could be hidden or shown as required</p>\r\n<p>then you just need to do a measurement from each marker of specified type to your current position</p>",
+    "PostedDate": "2012-03-14T21:12:36.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810652",
+    "ThreadId": "348208",
+    "Html": "<p>Thanks again i8sy for encouraging me.....</p>\r\n<p>&nbsp;</p>\r\n<p>do you mind giving me the code snippet ?????</p>\r\n<p>i'm almost near to my goal..</p>\r\n<p>now i can find the path between two points....</p>\r\n<p>&nbsp;</p>\r\n<p>please help me........</p>",
+    "PostedDate": "2012-03-14T22:53:05.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811214",
+    "ThreadId": "348208",
+    "Html": "<p>show me what you&nbsp; have&nbsp; and ill help you with that</p>",
+    "PostedDate": "2012-03-15T19:46:49.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811263",
+    "ThreadId": "348208",
+    "Html": "<p>\r\n<pre>this is my coding for Find the route.....</pre>\r\n<pre><br /></pre>\r\n<pre>RoutingProvider rp = MainMap.MapProvider as RoutingProvider;\r\n            if (rp == null)\r\n            {\r\n                rp = GMapProviders.GoogleMap; // use google if provider does not implement routing\r\n            }\r\n\r\n            MapRoute route = rp.GetRoute(start, end, false, false, (int)MainMap.Zoom);\r\n            if (route != null)\r\n            {\r\n                // add route\r\n                GMapRoute r = new GMapRoute(route.Points, route.Name);\r\n                //GMapRoute r = new GMapRoute();\r\n                r.IsHitTestVisible = true;\r\n                routes.Routes.Add(r);\r\n\r\n                // add route start/end marks\r\n                GMapMarker m1 = new GMarkerGoogle(start, GMarkerGoogleType.green_big_go);\r\n                m1.ToolTipText = \"Start: \" + route.Name;\r\n                m1.ToolTipMode = MarkerTooltipMode.Always;\r\n\r\n                GMapMarker m2 = new GMarkerGoogle(end, GMarkerGoogleType.red_big_stop);\r\n                m2.ToolTipText = \"End: \" + end.ToString();\r\n                m2.ToolTipMode = MarkerTooltipMode.Always;\r\n\r\n                objects.Markers.Add(m1);\r\n                objects.Markers.Add(m2);\r\n\r\n                MainMap.ZoomAndCenterRoute(r);\r\n            }</pre>\r\n</p>",
+    "PostedDate": "2012-03-16T00:27:40.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811785",
+    "ThreadId": "348208",
+    "Html": "<p>create an array of markers (Police stations etc.)</p>\r\n<p>you can check the distance from your end point to each item in an array of markers</p>\r\n<pre style=\"font-family: Consolas; font-size: 13; color: black; background: white;\"><span style=\"color: blue;\">foreach</span>&nbsp;(<span style=\"color: blue;\">var</span>&nbsp;index&nbsp;<span style=\"color: blue;\">in</span>&nbsp;arrayofmarkers)\r\n&nbsp;&nbsp;&nbsp;&nbsp; {\r\n&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: #2b91af;\">GMapProviders</span>.EmptyProvider.Projection.GetDistance(end,&nbsp;arrayofmarkers[index]);&nbsp;\r\n&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br /><br />there are probably better ways to do this but itll give you a start<br /></pre>",
+    "PostedDate": "2012-03-17T03:13:02.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811795",
+    "ThreadId": "348208",
+    "Html": "<p>..beter: map.MapProvider.Projection.GetDistance</p>",
+    "PostedDate": "2012-03-17T04:24:01.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812040",
+    "ThreadId": "348208",
+    "Html": "<p>thanks radioman&nbsp;&nbsp; i was going off an old version i had</p>",
+    "PostedDate": "2012-03-17T22:04:53.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812320",
+    "ThreadId": "348208",
+    "Html": "<p>Thank you all......</p>\r\n<p>&nbsp;</p>\r\n<p>but still as i'm new to GMap , i don't know how to do that.....</p>\r\n<p>can anybody clarify the solution......</p>\r\n<p>&nbsp;</p>\r\n<p>please provide me the code also......</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color: #ff0000;\"><strong>please............</strong></span></p>\r\n<p><strong>:-(</strong></p>\r\n<p><strong>sorry for disturbing you.......</strong></p>",
+    "PostedDate": "2012-03-18T22:13:58.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812377",
+    "ThreadId": "348208",
+    "Html": "<p>insert my code at the end of the code you got out of the demo code</p>",
+    "PostedDate": "2012-03-19T02:34:29.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

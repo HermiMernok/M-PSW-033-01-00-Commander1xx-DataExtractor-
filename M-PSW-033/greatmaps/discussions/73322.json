@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "250573",
+    "ThreadId": "73322",
+    "Html": "<p>Hello,</p>\r\n<p>Is there a way to determine if a&nbsp;lat/long is in a given area. I have some odd shaped (No rectangle, triangle, circle...) overlays and i</p>\r\n<p>want to check when i receive a gps co&ouml;rdinate if that one is within the boundaries of that overlay.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanx.</p>\r\n<p>Hein</p>",
+    "PostedDate": "2009-10-28T03:33:56.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250599",
+    "ThreadId": "73322",
+    "Html": "<p><a href=\"http://en.wikipedia.org/wiki/Point_in_polygon\">http://en.wikipedia.org/wiki/Point_in_polygon</a></p>\r\n<p><a href=\"http://msdn.microsoft.com/en-us/library/cc451895.aspx\">http://msdn.microsoft.com/en-us/library/cc451895.aspx</a></p>",
+    "PostedDate": "2009-10-28T04:51:08.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250610",
+    "ThreadId": "73322",
+    "Html": "<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>Here are 2 ways of doing it.<br><br>Cheers.<br><br>\t\t<span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;summary&gt;</span>\r\n\t\t<span style=\"color:Gray\">///</span><span style=\"color:Green\"> Determines if a Point is inside a polygon.</span>\r\n\t\t<span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;/summary&gt;</span>\r\n\t\t<span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;returns&gt;</span><span style=\"color:Green\">Return True if the point is inside Polygon.&lt;/returns&gt;</span>\r\n\t\t<span style=\"color:Blue\">public</span> <span style=\"color:Blue\">static</span> <span style=\"color:Blue\">bool</span> IsInsidePolygon(PointF[] polygon, PointF point)\r\n\t\t{\r\n\t\t\t<span style=\"color:Blue\">using</span> (GraphicsPath gp = <span style=\"color:Blue\">new</span> GraphicsPath())\r\n\t\t\t{\r\n\t\t\t\tgp.AddPolygon(polygon);\r\n\t\t\t\t<span style=\"color:Blue\">return</span> gp.IsVisible(point.X, point.Y);\r\n\t\t\t}\r\n\t\t}\r\n\r\n<br><br>\t\t<span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;summary&gt;</span>\r\n\t\t<span style=\"color:Gray\">///</span><span style=\"color:Green\"> Determines if a Point is inside a polygon.</span>\r\n\t\t<span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;/summary&gt;</span>\r\n\t\t<span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;returns&gt;</span><span style=\"color:Green\">Return True if the point is inside the Polygon.&lt;/returns&gt;</span>\r\n\t\t<span style=\"color:Blue\">public</span> <span style=\"color:Blue\">static</span> <span style=\"color:Blue\">bool</span> InsidePolygon(Core.RX4Point[] polygon, Core.RX4Point point)\r\n\t\t{\r\n\t\t\t<span style=\"color:Blue\">int</span> polyPoints = polygon.GetUpperBound(0) + 1;\r\n\t\t\t<span style=\"color:Blue\">int</span> i = 0;\r\n\t\t\t<span style=\"color:Blue\">int</span> j = polyPoints - 1;\r\n\r\n\t\t\t<span style=\"color:Blue\">while</span> (i &lt; polyPoints)\r\n\t\t\t{\r\n\t\t\t\t<span style=\"color:Blue\">if</span> ((((polygon[i].Y &lt;= point.Y) &amp;&amp; (point.Y &lt; polygon[j].Y)) || ((polygon[j].Y &lt;= point.Y) &amp;&amp; (point.Y &lt; polygon[i].Y))) &amp;&amp; (point.X &lt; (polygon[j].X - polygon[i].X) * (point.Y - polygon[i].Y) / (polygon[j].Y - polygon[i].Y) + polygon[i].X))\r\n\t\t\t\t{\r\n\t\t\t\t\t<span style=\"color:Blue\">return</span> <span style=\"color:Blue\">true</span>;\r\n\t\t\t\t}\r\n\t\t\t\tj = i;\r\n\t\t\t\ti += 1;\r\n\t\t\t}\r\n\t\t\t<span style=\"color:Blue\">return</span> <span style=\"color:Blue\">false</span>;\r\n\t\t}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2009-10-28T05:31:30.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250715",
+    "ThreadId": "73322",
+    "Html": "<p>Azlan,</p>\r\n<p>&nbsp;</p>\r\n<p>Thanx for the quick reply...</p>\r\n<p>I am not a C programmer. I will try to translate to VB.NET.....</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>",
+    "PostedDate": "2009-10-28T08:30:30.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250742",
+    "ThreadId": "73322",
+    "Html": "<div style=\"color:Black;background-color:White\">\r\n<pre>VB is not that much different for the C# code.<br><br>Cheers<br><br>\t\t<span style=\"color:Green\">''' &lt;summary&gt;</span>\r\n\t\t<span style=\"color:Green\">''' Determines if a Point is inside a polygon.</span>\r\n\t\t<span style=\"color:Green\">''' &lt;/summary&gt;</span>\r\n\t\t<span style=\"color:Green\">''' &lt;returns&gt;Return True if the point is inside Polygon.&lt;/returns&gt;</span>\r\n\t\t<span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Shared</span> <span style=\"color:Blue\">Function</span> IsInsidePolygon(<span style=\"color:Blue\">ByVal</span> polygon() <span style=\"color:Blue\">As</span> PointF, <span style=\"color:Blue\">ByVal</span> point <span style=\"color:Blue\">As</span> PointF) <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Boolean</span>\r\n\t\t\t<span style=\"color:Blue\">Using</span> gp <span style=\"color:Blue\">As</span> GraphicsPath = <span style=\"color:Blue\">New</span> GraphicsPath()\r\n\t\t\t\tgp.AddPolygon(polygon)\r\n\t\t\t\t<span style=\"color:Blue\">Return</span> gp.IsVisible(point.X, point.Y)\r\n\t\t\t<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Using</span>\r\n\t\t<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Function</span>\r\n\r\n\r\n\r\n\t\t<span style=\"color:Green\">''' &lt;summary&gt;</span>\r\n\t\t<span style=\"color:Green\">''' Determines if a Point is inside a polygon.</span>\r\n\t\t<span style=\"color:Green\">''' &lt;/summary&gt;</span>\r\n\t\t<span style=\"color:Green\">''' &lt;returns&gt;Return True if the point is inside the Polygon.&lt;/returns&gt;</span>\r\n\t\t<span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Shared</span> <span style=\"color:Blue\">Function</span> InsidePolygon(<span style=\"color:Blue\">ByVal</span> polygon() <span style=\"color:Blue\">As</span> Core.RX4Point, <span style=\"color:Blue\">ByVal</span> point <span style=\"color:Blue\">As</span> Core.RX4Point) <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Boolean</span>\r\n\t\t\t<span style=\"color:Blue\">Dim</span> polyPoints <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Integer</span> = polygon.GetUpperBound(0) + 1\r\n\t\t\t<span style=\"color:Blue\">Dim</span> i <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Integer</span> = 0\r\n\t\t\t<span style=\"color:Blue\">Dim</span> j <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Integer</span> = polyPoints - 1\r\n\r\n\t\t\t<span style=\"color:Blue\">Do</span> <span style=\"color:Blue\">While</span> i &lt; polyPoints\r\n\t\t\t\t<span style=\"color:Blue\">If</span> (((polygon(i).Y &lt;= point.Y) <span style=\"color:Blue\">AndAlso</span> (point.Y &lt; polygon(j).Y)) <span style=\"color:Blue\">OrElse</span> ((polygon(j).Y &lt;= point.Y) <span style=\"color:Blue\">AndAlso</span> (point.Y &lt; polygon(i).Y))) <span style=\"color:Blue\">AndAlso</span> (point.X &lt; (polygon(j).X - polygon(i).X) * (point.Y - polygon(i).Y) / (polygon(j).Y - polygon(i).Y) + polygon(i).X) <span style=\"color:Blue\">Then</span>\r\n\t\t\t\t\t<span style=\"color:Blue\">Return</span> <span style=\"color:Blue\">True</span>\r\n\t\t\t\t<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">If</span>\r\n\t\t\t\tj = i\r\n\t\t\t\ti += 1\r\n\t\t\t<span style=\"color:Blue\">Loop</span>\r\n\t\t\t<span style=\"color:Blue\">Return</span> <span style=\"color:Blue\">False</span>\r\n\t\t<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Function</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-28T09:15:40.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

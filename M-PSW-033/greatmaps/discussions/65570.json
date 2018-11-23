@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "223296",
+    "ThreadId": "65570",
+    "Html": "<p>I need to paint over the map. I tried to use the drawing Paint, but an event to occur.</p>\r\n<p>What am I doing wrong?</p>",
+    "PostedDate": "2009-08-14T02:05:54.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223322",
+    "ThreadId": "65570",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Gray\">   ///</span> <span style=\"color:Gray\">&lt;summary&gt;</span>\r\n   <span style=\"color:Gray\">///</span><span style=\"color:Green\"> custom map of GMapControl</span>\r\n   <span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;/summary&gt;</span>\r\n   <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span><span style=\"color:MediumTurquoise\"> Map : GMapControl\r\n   </span>{\r\n      <span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;summary&gt;</span>\r\n      <span style=\"color:Gray\">///</span><span style=\"color:Green\"> any custom drawing here</span>\r\n      <span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;/summary&gt;</span>\r\n      <span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;param name=&quot;drawingContext&quot;&gt;</span><span style=\"color:Gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:Blue\">protected</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnPaint(PaintEventArgs e)\r\n      {\r\n         <span style=\"color:Blue\">base</span>.OnPaint(e);\r\n\r\n         <span style=\"color:Blue\">using</span>(System.Drawing.Pen p = <span style=\"color:Blue\">new</span> System.Drawing.Pen(System.Drawing.Color.Blue, 2))\r\n         {\r\n            e.Graphics.DrawLine(p, 0, 0, 200, 200);\r\n         }\r\n      }\r\n   }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-14T03:32:01.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223325",
+    "ThreadId": "65570",
+    "Html": "<p>i'm just enabled that paint event, but still recomend use technique&nbsp;above to cutomize control well ;}</p>",
+    "PostedDate": "2009-08-14T03:41:25.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

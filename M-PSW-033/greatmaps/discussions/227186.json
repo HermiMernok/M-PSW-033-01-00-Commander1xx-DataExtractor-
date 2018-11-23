@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "493371",
+    "ThreadId": "227186",
+    "Html": "<p>Hi,</p>\r\n<p>First of all, thanks for the awesome application you've posted here!! It works perfectly and it saved me a lot of work.</p>\r\n<p>Second, can you tell me where is the code that makes the map moves?? or a way to move the map when we maintain clicked the left button of the mouse???</p>\r\n<p>Thank you VERY MUCH!!!</p>",
+    "PostedDate": "2010-09-14T08:52:14.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "493443",
+    "ThreadId": "227186",
+    "Html": "<p>map.<strong>DragButton</strong> = MouseButtons.Right</p>",
+    "PostedDate": "2010-09-14T11:15:40.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "493682",
+    "ThreadId": "227186",
+    "Html": "<p>Thank you very much!!!</p>\r\n<p>I couldn't find that property!! Awesome!&nbsp;</p>\r\n<p>Thanks once again!</p>",
+    "PostedDate": "2010-09-15T00:10:22.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494643",
+    "ThreadId": "227186",
+    "Html": "<p>You can implement it by mouse down &amp; mouse move events</p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>&nbsp;</p>\r\n</span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">&nbsp;</span></span></span>\r\n<div></div>\r\n</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p><strong>add this variables as public variable</strong></p>\r\n<p><span style=\"font-size:x-small\"><strong>﻿</strong></span></p>\r\n</span></p>\r\n<p><span style=\"font-size:x-small\">﻿int move_x;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int move_y;<br></span></p>\r\n<p>\r\n<p><strong>then add this commands in the correct place. these are events of GMAP component</strong></p>\r\n<p>&nbsp;</p>\r\n</p>\r\n<p><span style=\"text-decoration:underline\"><strong>mouse-down</strong></span></p>\r\n<p>\r\n<p><strong>&nbsp;if (e.Button.ToString().Equals(MouseButtons.Left.ToString()))</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; flag_move = true;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Cursor = Cursors.Hand;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move_x = e.X;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move_y = e.Y;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</strong></p>\r\n</p>\r\n<p><br><span style=\"text-decoration:underline\"><strong>mouse-move</strong></span></p>\r\n<p>\r\n<p><strong>&nbsp;int this_x = 0;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int this_y = 0;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (flag_move)</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this_x = e.X - move_x;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this_y = e.Y - move_y;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Offset(this_x, this_y);</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move_x = e.X;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move_y = e.Y;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</strong></p>\r\n<p>&nbsp;</p>\r\n</p>\r\n<p><span style=\"text-decoration:underline\"><strong>mouse-up</strong></span></p>\r\n<p>\r\n<p><strong>flag_move = false;</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Cursor = Cursors.Arrow;</strong></p>\r\n</p>",
+    "PostedDate": "2010-09-16T13:28:35.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

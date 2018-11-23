@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "242360",
+    "ThreadId": "71070",
+    "Html": "<p>Hi! I really appreciate your work here. I am placing 100 to 200 markers on a map from a database. I need to change the size of the tool tip (text) so the map can be looked at and printed. Each tool tip just displays a name next to the marker</p>",
+    "PostedDate": "2009-10-05T17:47:29.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242504",
+    "ThreadId": "71070",
+    "Html": "<p>overlay.TooltipFont, you can even overload it:&nbsp;protected virtual void DrawToolTip(Graphics g, GMapMarker m, int x, int y)</p>",
+    "PostedDate": "2009-10-06T04:33:45.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244134",
+    "ThreadId": "71070",
+    "Html": "<p>Radioman,</p>\r\n<p>Thanks for your hard work.</p>\r\n<p>The TooltipFont work perfectly, while I think the tooltip can only work(display) when setting the</p>\r\n<p><span style=\"font-size:10pt\">cm.TooltipMode = <span style=\"color:#2b91af\">MarkerTooltipMode</span>.Always;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p>If I Set the Tooltip to another way:</p>\r\n<p><span style=\"font-size:10pt\">cm.TooltipMode = <span style=\"color:#2b91af\">MarkerTooltipMode</span>.OnMouseOver;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p>It will not shown even I place my mouse on top of it. Following is the code for it:</p>\r\n<p><span style=\"color:blue;font-size:10pt\">public</span><span style=\"font-size:10pt\"> <span style=\"color:blue\">class</span> <span style=\"color:#2b91af\">MyCustomMarker</span> : <span style=\"color:#2b91af\">GMapMarker</span></span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">private</span> <span style=\"color:#2b91af\">Image</span> img;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">public</span> <span style=\"color:#2b91af\">Image</span> MarkerImage</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> img; }</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">set</span> { img = <span style=\"color:blue\">value</span>; }</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">public</span> MyCustomMarker(<span style=\"color:#2b91af\">PointLatLng</span> p)</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span style=\"color:blue\">base</span>(p)</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(<span style=\"color:#2b91af\">Graphics</span> g)</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawImageUnscaledAndClipped(img, <span style=\"color:blue\">new</span> System.Drawing.<span style=\"color:#2b91af\">Rectangle</span>(<span style=\"color:blue\">base</span>.LocalPosition.X, <span style=\"color:blue\">base</span>.LocalPosition.Y, img.Width, img.Height));</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p><span style=\"color:#2b91af;font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapOverlay</span><span style=\"font-size:10pt\"> top = <span style=\"color:blue\">new</span> <span style=\"color:#2b91af\">GMapOverlay</span>(gMapControl1, <span style=\"color:#a31515\">&quot;top&quot;</span>);</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMapControl1.Overlays.Add(top);</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:#2b91af\">MyCustomMarker</span> cm = <span style=\"color:blue\">new</span> <span style=\"color:#2b91af\">MyCustomMarker</span>(gMapControl1.CurrentPosition);</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm.MarkerImage = <span style=\"color:blue\">new</span> <span style=\"color:#2b91af\">Bitmap</span>(<span style=\"color:#a31515\">@&quot;C:\\bak\\Gmap.net\\PostData\\zoomin.png&quot;</span>);</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm.ToolTipText = <span style=\"color:#a31515\">&quot;Hei, Sumvel, Nice to see you&quot;</span>;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm.TooltipMode = <span style=\"color:#2b91af\">MarkerTooltipMode</span>.OnMouseOver;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:green\">//cm.ToolTipOffset = new System.Drawing.Point(0, 0);</span></span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; top.Markers.Add(cm);</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; top.TooltipFont = <span style=\"color:blue\">new</span> <span style=\"color:#2b91af\">Font</span>(<span style=\"color:#a31515\">&quot;Arial&quot;</span>, 10, <span style=\"color:#2b91af\">FontStyle</span>.Bold);</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMapControl1.Overlays.Add(top);</span></p>\r\n<p><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p>Any hints would be appricated.</p>\r\n<p>Thanks.</p>\r\n<p>Sumvel</p>",
+    "PostedDate": "2009-10-10T01:46:07.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244206",
+    "ThreadId": "71070",
+    "Html": "<p>Thank you for your help and especaily the code for the custom marker. I have been on jury duty for a month (primal scream!) so I have not tested it yet. I hope to try it next week. Any other sample code on custom markers would be apprciated.</p>",
+    "PostedDate": "2009-10-10T10:21:22.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244245",
+    "ThreadId": "71070",
+    "Html": "<p>you need set marker Size to make it workon mouse move events...</p>",
+    "PostedDate": "2009-10-10T13:02:11.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244287",
+    "ThreadId": "71070",
+    "Html": "<p>Radioman,</p>\r\n<p>Yes, when I set Marker size, it works.&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>Sumvel</p>",
+    "PostedDate": "2009-10-10T17:37:11.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

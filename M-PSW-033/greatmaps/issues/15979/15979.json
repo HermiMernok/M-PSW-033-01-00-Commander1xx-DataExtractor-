@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed since bf9bef9b1773",
+    "ClosedDate": "2010-07-12T08:49:37.247-07:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "I just need to hold the mousebutton down on the map for the control to set IsDragging to True, even if I have'nt  moved the map even 1 pixel.",
+    "LastUpdatedDate": "2010-07-12T08:49:37.247-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-07-11T12:29:39.063-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "IsDragging returns True as long as you just hold down the mousebutton",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15979
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "is that bad?",
+      "PostedDate": "2010-07-11T23:10:04.67-07:00",
+      "Id": 14469
+    },
+    {
+      "Message": "Well since the user was'nt dragging the map; Yes.\n\nIn my case I have an application for a touchscreen PC. When the user presses his finger on a location and releases (for minimum 3 secs) a contextmenu is shown (Letting the user send the co-ordinates or copy to clipboard). But the contextmenu is activated every time the user pans the map. I then added a check for IsDragging, but since it's always true when the finger is pressed nothing will happen.\n\nIsDragging should tell the truth, or change name. In my opinion :).",
+      "PostedDate": "2010-07-12T05:40:44.317-07:00",
+      "Id": 14475
+    },
+    {
+      "Message": "mm, i see",
+      "PostedDate": "2010-07-12T08:14:52.8-07:00",
+      "Id": 14478
+    }
+  ]
+}

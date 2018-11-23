@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed, thanks!",
+    "ClosedDate": "2012-03-20T03:31:28.827-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Not much of an issue perhaps, but the WPF control is currently using an OpenFileDialog rather than a SaveFileDialog in the ShowExportDialog() function.",
+    "LastUpdatedDate": "2012-03-20T08:31:22.263-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-03-20T02:41:32.857-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SaveFileDialog for ShowExportDialog()",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16036
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Cool. It seems though as versions since ac61f84445dc requires the target framework to be set higher than 3.5 to successfully build.\nAlso, wouldn't it be nice to use WebRequest.DefaultWebProxy in GMapProvider.cs?\n\nGreat work, by the way.",
+      "PostedDate": "2012-03-20T07:56:32.907-07:00",
+      "Id": 58536
+    },
+    {
+      "Message": "* not at all, windows forms project targets .net2\n* by defaut proxy is set to EmptyWebProxy, because it's faster, and other settings cause delays for some users, you can set to other value manually if needed",
+      "PostedDate": "2012-03-20T08:31:22.263-07:00",
+      "Id": 58539
+    }
+  ]
+}

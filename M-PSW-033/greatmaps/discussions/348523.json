@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "810045",
+    "ThreadId": "348523",
+    "Html": "<p>Hi Radioman,</p>\n<p>Since quit a while i am working on app with the control. In form_Load i have following settings:</p>\n<pre><br /></pre>\n<pre>        GMap.NET.GMaps.Instance.UseRouteCache = True\n        GMap.NET.GMaps.Instance.UseGeocoderCache = True\n        GMap.NET.GMaps.Instance.UsePlacemarkCache = True\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache\n        GMapControl1.MapProvider = MapProviders.GoogleMapProvider.Instance\n        GMapControl1.DragButton = Windows.Forms.MouseButtons.Left\n        GMapControl1.Width = Me.Width\n        GMapControl1.Height = Me.Height - 40\n        GMapControl1.MouseWheelZoomType = MouseWheelZoomType.MousePositionAndCenter\n        GMapControl1.MaxZoom = 17\n        GMapControl1.MinZoom = 2\n        GMapControl1.Zoom = 8\n        GMapControl1.MarkersEnabled = True\n        GMapControl1.CanDragMap = True\n        GMapControl1.SetCurrentPositionByKeywords(\"Rotterdam\")</pre>\n<pre><br /></pre>\n<pre>In a Button click event is have following code:</pre>\n<pre><pre> Dim TopOverlay = New GMapOverlay(GMapControl1, \"TopOverlay\")\n        For i As Integer = 0 To arrKlanten.GetUpperBound(0) - 1\n            If Not arrKlanten(i, 0) = Nothing Then\n                GMapControl1.SetCurrentPositionByKeywords(arrKlanten(i, 1) &amp; \",\" &amp; arrKlanten(i, 3))\n                Dim myPlaats As GMap.NET.PointLatLng\n                myPlaats.Lat = GMapControl1.Position.Lat\n                myPlaats.Lng = GMapControl1.Position.Lng\n                Try\n                    If Not myPlaats.Lat.ToString = \"\" Or myPlaats.Lng.ToString = \"\" Then\n                        Dim strLat As String = myPlaats.Lat.ToString.Replace(\".\", \",\")\n                        Dim strLong As String = myPlaats.Lng.ToString.Replace(\".\", \",\")\n                        Dim myPoint As New GMap.NET.PointLatLng(CDec(strLat), CDec(strLong))\n                        Dim myMarker As New GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(New PointLatLng(myPoint.Lat, myPoint.Lng))\n                        '  myMarker.ToolTipText = arrKlanten(i, 0) &amp; vbCrLf &amp; arrKlanten(i, 1) &amp; vbCrLf &amp; arrKlanten(i, 2) &amp; vbCrLf &amp; arrKlanten(i, 3)\n                        TopOverlay.Markers.Add(myMarker)\n                        GMapControl1.Overlays.Add(TopOverlay)\n                    End If\n                Catch\n\n                End Try\n            End If\n        Next\n\n        GMapControl1.ZoomAndCenterMarkers(0)\n        GMapControl1.Refresh()</pre>\n<br /></pre>\n<p>In <a id=\"_GPLITA_1\" style=\"text-decoration: underline;\" title=\"Powered by Text-Enhance\" href=\"#\">short</a> i read from a array, the street and city. With that code i place about 150 markers on the map. All in the Netherlands.&nbsp;</p>\n<p>But i have several issues with that code. (So time to change:-) ). The first proble is that it takes about 10 seconds before the map is shown. This is even before i fire the rest of the code. The next problem is that with every&nbsp;SetCurrentPositionByKeywords  the map shift to that position (of course). And <a id=\"_GPLITA_2\" style=\"text-decoration: underline;\" title=\"Powered by Text-Enhance\" href=\"#\">the last</a> problem is that when all the markers are in place, every click on the map let the app hang.</p>\n<p>&nbsp;</p>\n<p>So , is there a better way to get the lat/lng from the address <a id=\"_GPLITA_0\" style=\"text-decoration: underline;\" title=\"Powered by Text-Enhance\" href=\"#\">info</a>, and after that show all the markers. And what can cause the problem with showing the map in the first place?</p>\n<p>&nbsp;</p>\n<p>Thanks,</p>\n<p>Hein</p>",
+    "PostedDate": "2012-03-13T23:56:22.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810095",
+    "ThreadId": "348523",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>One problem is \"solved\". I have changed the mapprovider to OpenStreetMap. Than map is loaded in few seconds.&nbsp;</p>\r\n<p>Gr.</p>\r\n<p>Hein</p>",
+    "PostedDate": "2012-03-14T02:05:16.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810187",
+    "ThreadId": "348523",
+    "Html": "<p>so whats the problem? ;}</p>",
+    "PostedDate": "2012-03-14T06:04:31.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810308",
+    "ThreadId": "348523",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>As i wrote, there were several issues. The first &nbsp;problem was with just showing a map, with just one marker. With GoogleMap it toke more than 15 seconds.&nbsp;</p>\r\n<p>But that one is solved by using an other map provider.</p>\r\n<p>&nbsp;</p>\r\n<p>That leaves me with the issue that when looping through a list of addresses and show the corresponding markers with&nbsp;<span>SetCurrentPositionByKeywords with every new marker the screen is centered around the new marker. With 150 markers which needs a refresh every 5 minutes is that not an option. Although the function is like that, for me it is not a good solution. So my question is: Is there a way to get the lat/lng which belongs to a address in the background, and when the list is made, than show the markers.&nbsp;</span></p>\r\n<p><span>Regards,</span></p>\r\n<p><span>Hein</span></p>",
+    "PostedDate": "2012-03-14T09:14:38.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810435",
+    "ThreadId": "348523",
+    "Html": "<p>happy reading:&nbsp;http://www.albahari.com/threading/</p>",
+    "PostedDate": "2012-03-14T12:44:36.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810460",
+    "ThreadId": "348523",
+    "Html": "<p>I don't need to read that stuff. I am familiar with multi threading (VB). I hoped that there was a way to not let the map jump with every new marker.</p>\r\n<p>Is there a way to show new markers, just like when having the lat/lng. So actually a combination of the normal way of showing a ,marker and the way with&nbsp;</p>\r\n<p>SetCurrentPositionByKeywords. &nbsp;For example SetMarkerByKeywords.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-14T13:34:54.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

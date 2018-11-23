@@ -1,0 +1,202 @@
+[
+  {
+    "Id": "824053",
+    "ThreadId": "352361",
+    "Html": "\r\n<p>Hi Radioman;</p>\r\n<p>How could i set the &nbsp;current position by entering the latitude and longitude instead textGeo adress?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-04-15T10:45:57.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824054",
+    "ThreadId": "352361",
+    "Html": "<p>map.Position = new ...</p>",
+    "PostedDate": "2012-04-15T10:54:17.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824061",
+    "ThreadId": "352361",
+    "Html": "<p>thanks!</p>",
+    "PostedDate": "2012-04-15T11:19:22.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824063",
+    "ThreadId": "352361",
+    "Html": "<p>Why when I add other markers(image), I don't have myPosition displaying in the center of map?</p>",
+    "PostedDate": "2012-04-15T11:31:30.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824064",
+    "ThreadId": "352361",
+    "Html": "<p>?</p>",
+    "PostedDate": "2012-04-15T11:42:23.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824071",
+    "ThreadId": "352361",
+    "Html": "<p>I mean that,when i set position (map.Position = new ...) in main  function, and i add green marker to this position,&nbsp; I see the marker in  the center of map.</p>\r\n<p>But when i add other markers (image) in  different position, the map try to display all markers(with reducing zoom), so the current position isn't in the center of map</p>\r\n<p>is it  normal?</p>",
+    "PostedDate": "2012-04-15T12:30:36.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824077",
+    "ThreadId": "352361",
+    "Html": "<p>show me, i don't get it</p>",
+    "PostedDate": "2012-04-15T12:56:34.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824227",
+    "ThreadId": "352361",
+    "Html": "<p>Sorry to be late,</p>\r\n<p>this is image with marker in the center</p>\r\n<p><a href=\"http://www.4shared.com/photo/F4XpRAGw/Mapcenter.html?\">http://www.4shared.com/photo/F4XpRAGw/Mapcenter.html?</a></p>\r\n<p>and this with marker image</p>\r\n<p><a href=\"http://www.4shared.com/photo/tMKjt3UG/MapMarker.html?\">http://www.4shared.com/photo/tMKjt3UG/MapMarker.html?</a></p>",
+    "PostedDate": "2012-04-16T00:14:14.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824463",
+    "ThreadId": "352361",
+    "Html": "<p>so where is the problem? it's on the map, thats it</p>",
+    "PostedDate": "2012-04-16T09:18:02.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824483",
+    "ThreadId": "352361",
+    "Html": "<p>Ok, thanks ;)</p>\r\n<p>As you saw i use camera as marker and i want that this marker flashes when there is detection.</p>\r\n<p>Any idea, how to make it?</p>",
+    "PostedDate": "2012-04-16T10:11:26.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825426",
+    "ThreadId": "352361",
+    "Html": "<p>Radioman,</p>\r\n<p>I created markerCamera class, and i added 3 cameras on map, how could make these markers invisible</p>\r\n<p>i if the checkbox.unchecked&nbsp;</p>\r\n<p>this is the method to create cameras&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> addCamera(<span style=\"color: blue;\">double</span> lat, <span style=\"color: blue;\">double</span> lgt, <span style=\"color: blue;\">string</span> cam)\r\n        {\r\n            PointLatLng point = <span style=\"color: blue;\">new</span> PointLatLng(lat, lgt);\r\n            z = <span style=\"color: blue;\">new</span> GMapMarkerCam(point);           \r\n            z.ToolTipText = cam;\r\n            z.ToolTipMode = MarkerTooltipMode.Always;\r\n            objects.Markers.Add(z);\r\n        }\r\n</pre>\r\n<pre>and i call this when i display on the map.</pre>\r\n<pre>I wante to remove markers but it remove the last object created</pre>\r\n<pre>Any idea how to remove or hide these markers?</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-04-18T07:17:18.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825438",
+    "ThreadId": "352361",
+    "Html": "<p>objects.<strong>IsVisible</strong> = <strong>false</strong>;</p>",
+    "PostedDate": "2012-04-18T07:40:45.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825491",
+    "ThreadId": "352361",
+    "Html": "<p>Thanks ;)</p>",
+    "PostedDate": "2012-04-18T08:57:58.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825869",
+    "ThreadId": "352361",
+    "Html": "<p>Radioman,</p>\r\n<p><span>&nbsp;How could I display more than one window of camera on map if i have an event or i click on?</span></p>\r\n<p>&nbsp;</p>\r\n<p><span><br /></span></p>",
+    "PostedDate": "2012-04-19T03:26:18.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825902",
+    "ThreadId": "352361",
+    "Html": "<p>use&nbsp;Modeless Windows,&nbsp;http://msdn.microsoft.com/en-us/library/39wcs2dh(v=vs.80).aspx</p>",
+    "PostedDate": "2012-04-19T05:20:52.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825922",
+    "ThreadId": "352361",
+    "Html": "<p>Yes I use this before</p>\r\n<pre>Form frmAbout = <span>new</span> Form();\r\nfrmAbout.ShowDialog();</pre>\r\n<pre>it show me the new form but when i want to click on map is disable</pre>\r\n<pre>So I used just show instead showDialog, but the problem when i move the mouse, the new window is minimised.</pre>\r\n<pre>What i want it that new form stay on map and i can also show another</pre>",
+    "PostedDate": "2012-04-19T06:03:10.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825925",
+    "ThreadId": "352361",
+    "Html": "<p>learn c#, <em>From f = new Form(); f.Owner = this; f.Show();</em></p>",
+    "PostedDate": "2012-04-19T06:07:27.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825951",
+    "ThreadId": "352361",
+    "Html": "<p>thank you ;)</p>",
+    "PostedDate": "2012-04-19T06:50:08.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830133",
+    "ThreadId": "352361",
+    "Html": "<p>Hi Radiman</p>\r\n<p>Could you please help me on this feature,</p>\r\n<p>when I create the new Form f I trasfer with it one parameter (camera)</p>\r\n<p>I have a list of camera instances (camera1, 2 ...5)</p>\r\n<p>And I want there is a move it shows me one window for each camera</p>\r\n<p>I tried do it with one camera</p>\r\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> timer1_Tick(<span style=\"color: blue;\">object</span> source, EventArgs e)        \r\n        {            \r\n                                \r\n            <span style=\"color: blue;\">if</span> (camera1.MoveDetection == <span style=\"color: blue;\">true</span>)\r\n            {\r\n                \r\n                <span style=\"color: blue;\">foreach</span> (Form S <span style=\"color: blue;\">in</span> Application.OpenForms)\r\n                {\r\n                    <span style=\"color: blue;\">if</span> (S.GetType() == <span style=\"color: blue;\">typeof</span>(Formes.CameraViewVS))\r\n                    {\r\n                        S.Show();\r\n                        <span style=\"color: blue;\">return</span>;\r\n                    }\r\n                }\r\n\r\n                Formes.CameraViewVS f1 = <span style=\"color: blue;\">new</span> Formes.CameraViewVS(camera1);\r\n                f1.Owner = <span style=\"color: blue;\">this</span>;\r\n                f1.Show();                                                                \r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n<br /></pre>\r\n<pre>But I don't know how to apply it for the all list of camera, how could I identify a window for each camera?</pre>\r\n<pre>Thank you</pre>",
+    "PostedDate": "2012-04-30T04:40:05.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830139",
+    "ThreadId": "352361",
+    "Html": "<p>try assign some parameter to window</p>",
+    "PostedDate": "2012-04-30T04:50:38.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830141",
+    "ThreadId": "352361",
+    "Html": "<p>How?</p>",
+    "PostedDate": "2012-04-30T05:06:15.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830152",
+    "ThreadId": "352361",
+    "Html": "<p>f2.CameraId = 5;</p>",
+    "PostedDate": "2012-04-30T05:51:27.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830161",
+    "ThreadId": "352361",
+    "Html": "<p>Do you mean that i add a parameter CameraId\n<div style=\"color: black; background-color: white;\">\n<pre>Formes.CameraViewVS f1 = <span style=\"color: blue;\">new</span> Formes.CameraViewVS(camera1, cameraId);\n                f1.Owner = <span style=\"color: blue;\">this</span>;\n                f1.Show();   \n</pre>\n<pre><br /></pre>\n<pre>And here I test <div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">foreach</span> (Form S <span style=\"color: blue;\">in</span> Application.OpenForms)\n                {\n                    <span style=\"color: blue;\">if</span> (S.GetType() == <span style=\"color: blue;\">typeof</span>(Formes.CameraViewVS)) &amp;&amp; (F1.CameraId == CameraId)\n                    {\n                        S.Show();\n                        <span style=\"color: blue;\">return</span>;\n                    }\n                }\n</pre>\n<pre><br /></pre>\n<pre>??</pre>\n</div>\n</pre>\n</div>\n</p>",
+    "PostedDate": "2012-04-30T06:11:08.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830166",
+    "ThreadId": "352361",
+    "Html": "<p>i don't know what exactly are you trying to do, good luck ;}</p>",
+    "PostedDate": "2012-04-30T06:27:25.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830183",
+    "ThreadId": "352361",
+    "Html": "<p>ok, thanks</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-04-30T07:10:05.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

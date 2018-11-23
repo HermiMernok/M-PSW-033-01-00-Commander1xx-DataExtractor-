@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "834430",
+    "ThreadId": "355223",
+    "Html": "\r\n<p>Hello Mr.RadionMan,</p>\r\n<p>The following 'if' condition is commented out in GetTileWithNoLock function:</p>\r\n<p>public Tile GetTileWithNoLock(int zoom, GPoint p)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tile ret = null;<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //if(zoom &lt; Levels.Count)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Levels[zoom].TryGetValue(p, out ret);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ret;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>But, the size of the list &quot;Levels&quot; is 33. At times, we get the zoom level as 50,&nbsp; which is causing the exception.</p>\r\n<p>Exception details:</p>\r\n<p>************* Exception Text **************<br>\r\nSystem.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.<br>\r\nParameter name: index<br>\r\n&nbsp;&nbsp; at System.ThrowHelper.ThrowArgumentOutOfRangeException()<br>\r\n&nbsp;&nbsp; at System.Collections.Generic.List`1.get_Item(Int32 index)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.TileMatrix.GetTileWithNoLock(Int32 zoom, GPoint p) TileMatrix.cs:line 172</p>\r\n<p>Is there any reason why the 'if' condition is commented out?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks in Advance</p>\r\n",
+    "PostedDate": "2012-05-10T01:09:26.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "834448",
+    "ThreadId": "355223",
+    "Html": "<p>there is no level 50, not even 30</p>",
+    "PostedDate": "2012-05-10T01:43:18.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

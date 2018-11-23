@@ -1,0 +1,146 @@
+[
+  {
+    "Id": "986449",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>Is there an easy way to draw a marker, for instance a circle, that has specific position and diameter in meters (so that it changes its size if zoomed)?</p>\r\n",
+    "PostedDate": "2013-01-14T06:28:03.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986462",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>make custom marker, adjust the size on the zoom event</p>\r\n",
+    "PostedDate": "2013-01-14T06:52:45.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989159",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>Radioman,</p>\r\n<p>I created custom marker (drawing circle), but I dont know how to adjust size of circle. Please, suggest code for that in function for zoom event...</p>\r\n<p><span style=\"font-size:10pt\">I manualy create zoom event<br>\r\n<br>\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre> <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> zoomplus(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n\r\n            gMapControl.Zoom = gMapControl.Zoom + 1;\r\n\r\n            <span style=\"color:blue\">this</span>.label30.Text = gMapControl.Zoom.ToString();\r\n\r\n        }\r\n</pre>\r\n</div>\r\n&nbsp;</span>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-19T11:06:02.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989161",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>use map.MapProvider.Projection.<strong>GetGroundResolution</strong> and set circle radius according zoom level</p>\r\n",
+    "PostedDate": "2013-01-19T11:24:35.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989550",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>Yes, I saw this function, for example:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">int</span> R1 = (<span style=\"color:blue\">int</span>)((R) / Overlay.Control.MapProvider.Projection.GetGroundResolution((<span style=\"color:blue\">int</span>)Overlay.Control.Zoom, Position.Lat)) * 2;\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>But when I compiled, i see error:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:#a31515\">'GMap.NET.WindowsForms.GMapOverlay'</span> does not contain a definition <span style=\"color:blue\">for</span> <span style=\"color:#a31515\">'Control'</span> and no extension method <span style=\"color:#a31515\">'Control'</span> accepting a first argument of type <span style=\"color:#a31515\">'GMap.NET.WindowsForms.GMapOverlay'</span> could be found (are you missing a <span style=\"color:blue\">using</span> directive or an assembly reference?)\t\r\n\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-21T00:42:44.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989582",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>i guess it's not in last release, try use latest hot build</p>\r\n",
+    "PostedDate": "2013-01-21T01:54:04.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989632",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>Thanks a lot Radioman, I solved my problem...</p>\r\n",
+    "PostedDate": "2013-01-21T03:31:38.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989642",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>One additional question. I need to add more custom markers (circle), but i dont need in the same time. First, I add circle (radius=1000m), and when I will add new circle with bigger radius, in that moment I will see both circle. I dont know how to reset\r\n old value, and see only new value (new circle). Which function doing that?</p>\r\n",
+    "PostedDate": "2013-01-21T03:56:50.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989651",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>why just not reuse the old circle?</p>\r\n",
+    "PostedDate": "2013-01-21T04:23:38.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989655",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>How, because I start program with drawed circle (with smaller radius), and later &nbsp;i need to change radius...</p>\r\n",
+    "PostedDate": "2013-01-21T04:28:53.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989659",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>just change the radius ;}</p>\r\n",
+    "PostedDate": "2013-01-21T04:31:16.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989660",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>Change value in comboBox:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre> <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> Radius(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            <span style=\"color:blue\">if</span> (comboBox9.SelectedIndex == 0)\r\n            {      \r\n                radius = 10000;\r\n                circle();\r\n            }\r\n...\r\n}\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> circle()\r\n        {\r\n            mBorders = <span style=\"color:blue\">new</span> GMapMarkerCircle(<span style=\"color:blue\">new</span> PointLatLng(44.44, 25.25), radius);\r\n            {\r\n                mBorders.ToolTipMode = MarkerTooltipMode.Always;\r\n            }\r\n            overlayOne.Markers.Add(mBorders);\r\n            gMapControl.Overlays.Add(overlayOne);\r\n\r\n            gMapControl.Refresh();\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-21T04:31:26.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989662",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>Yes, I change radius, but then I see both circles.... Please, see above code</p>\r\n",
+    "PostedDate": "2013-01-21T04:38:24.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989664",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>if(mBorders != null) { mBorders.<strong>Radius</strong> = xxx...</p>\r\n",
+    "PostedDate": "2013-01-21T04:44:56.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989669",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>Yes, this code works. But, I set brush on transparent 20, for example. And, when I change circle, transparance grow for the same value.&nbsp;</p>\r\n<p>First circle =20</p>\r\n<p>Second 20+20</p>\r\n<p>Third 20+20+20</p>\r\n<p>...</p>\r\n<p>&nbsp;</p>\r\n<p>Please, what i need to add near mBorders.Radius=xxx....</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>mBorders.Stroke=<span style=\"color:blue\">new</span> SolidBrush(Color.FromArgb(100, Color.MidnightBlue));\r\n                mBorders.Fill = <span style=\"color:blue\">new</span> SolidBrush(Color.FromArgb(10, Color.AliceBlue));\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-21T04:59:11.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992010",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>any answer?</p>\r\n<p>I need to update custom marker, and I drawed circle with transparence, for example, 5. But when I call function again, and again, transparence will grow... And for few call fucntion transparence is 100. But I need constant transparence (value 5).</p>\r\n",
+    "PostedDate": "2013-01-25T03:55:41.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992018",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>;/</p>\r\n",
+    "PostedDate": "2013-01-25T04:11:12.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992036",
+    "ThreadId": "429544",
+    "Html": "\r\n<p>solved :)</p>\r\n",
+    "PostedDate": "2013-01-25T04:58:37.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "709408",
+    "ThreadId": "282283",
+    "Html": "\r\n<p>Please i just want a little help...</p>\r\n<p>i want disconnect the first point with last point.</p>\r\n<p><br>\r\ni try to create a custom overlay .. &nbsp; override de polygon paiting &nbsp;but not work... here my code</p>\r\n<p>poly.add(MainMap.Position) here ok</p>\r\n<p>&nbsp;</p>\r\n<p>----------------------------<br>\r\n<br>\r\nGmapOverlay lu;</p>\r\n<p>lu = new GmapOverlay(&quot;polygon&quot;);</p>\r\n<p>MainMap.Overlays.Add(lu);</p>\r\n<p>polygon = new GmapPolygon(poly,&quot;test&quot;);</p>\r\n<p>polygons.Polygons.Add(polygon);</p>\r\n<p>lu.Polygons.Add(polygon)&nbsp;</p>\r\n<p>--------------------------------</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>thanks in advanced.</p>\r\n",
+    "PostedDate": "2011-12-08T10:08:32.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709412",
+    "ThreadId": "282283",
+    "Html": "<p>create custom polygon, and remove&nbsp;rp.CloseFigure(); in OnRender</p>",
+    "PostedDate": "2011-12-08T10:15:12.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709423",
+    "ThreadId": "282283",
+    "Html": "<p>with this code &nbsp;..work ??&nbsp;<br /><br />&nbsp;</p>\r\n<p>poly.add(MainMap.Position) here ok</p>\r\n<p>&nbsp;</p>\r\n<p>----------------------------<br /><br />GmapOverlay lu;</p>\r\n<p>lu = new GmapOverlay(\"polygon\");</p>\r\n<p>MainMap.Overlays.Add(lu);</p>\r\n<p>polygon = new GmapPolygon(poly,\"test\");</p>\r\n<p>polygons.Polygons.Add(polygon);</p>\r\n<p>lu.Polygons.Add(polygon)&nbsp;<br /><br />custom polygon ?? &nbsp; i removed &nbsp;the rp.closefigure &nbsp;but nothing =/&nbsp;</p>",
+    "PostedDate": "2011-12-08T10:28:47.72-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709424",
+    "ThreadId": "282283",
+    "Html": "<p>sorry for this boring topic ..but im noob</p>",
+    "PostedDate": "2011-12-08T10:29:01.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709430",
+    "ThreadId": "282283",
+    "Html": "<p>OK ! its work !&nbsp;<br /><br />but have some white part &nbsp;line side ... , how i take off that white part ? &nbsp; its like&nbsp;growing up &nbsp;... when you are moving &nbsp;left or right ..&nbsp;<br />the intersection its ok now ! i remove the Close figure &nbsp;! &nbsp; &nbsp; juts this now! <br /><br />you said custom marker ? where .. im searching i didnt find..<br /><br />thanks a lot ! you are a genius!&nbsp;</p>",
+    "PostedDate": "2011-12-08T10:36:30.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

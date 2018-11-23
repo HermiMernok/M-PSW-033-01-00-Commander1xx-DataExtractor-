@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "726991",
+    "ThreadId": "286535",
+    "Html": "\r\n<p>hello radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>sth. changed. :) If you have a focus on a textbox e.g. textboxLng and after that you move your mouse over the MainMap control, you lost the focus of the Textbox. In the past, you didn't lost the focus.</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>      <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnMouseEnter(EventArgs e)\r\n      {\r\n         <span style=\"color:blue\">base</span>.OnMouseEnter(e);\r\n       <span style=\"color:green\">//  Focus();</span>\r\n      }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Is there a reason for it?</p>\r\n<p>&nbsp;</p>\r\n<p>bye EDE</p>\r\n",
+    "PostedDate": "2012-01-18T04:12:32.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727002",
+    "ThreadId": "286535",
+    "Html": "<p>to be able zoom in/out using mouse scroll</p>",
+    "PostedDate": "2012-01-18T04:31:23.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727041",
+    "ThreadId": "286535",
+    "Html": "<p>OK i understand, but i think its better to hit control before zooming is not that bad^^</p>",
+    "PostedDate": "2012-01-18T06:06:46.58-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727055",
+    "ThreadId": "286535",
+    "Html": "<p>it's not better at all, it sucks ;}</p>",
+    "PostedDate": "2012-01-18T06:35:29.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727079",
+    "ThreadId": "286535",
+    "Html": "<p>a solutionexample :)</p>\r\n<p>in Demo</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> MainForm()\r\n{\r\n    ....\r\n    <span style=\"color: blue;\">this</span>.MouseWheel += <span style=\"color: blue;\">new</span> MouseEventHandler(Form_MouseWheel);<br />    ....<br />&nbsp;}\r\n\r\n      <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> Form_MouseWheel(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n      {\r\n          <span style=\"color: blue;\">this</span>.MainMap.Zoom =<span style=\"color: blue;\">this</span>.MainMap.Zoom + (e.Delta / 120);\r\n      }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Zoom still works everywhere, but you do not lost focus on textboxes...^^</p>\r\n<p>Bye EDE</p>",
+    "PostedDate": "2012-01-18T07:26:20.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727081",
+    "ThreadId": "286535",
+    "Html": "<p>you forget that zooming is integrated</p>",
+    "PostedDate": "2012-01-18T07:33:04.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727084",
+    "ThreadId": "286535",
+    "Html": "<p>..anyway i can add some property to disable auto focus if you wish?</p>",
+    "PostedDate": "2012-01-18T07:33:40.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727089",
+    "ThreadId": "286535",
+    "Html": "<p>would be nice.</p>\r\n<p>THANKS!</p>",
+    "PostedDate": "2012-01-18T07:41:02.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727092",
+    "ThreadId": "286535",
+    "Html": "<p>map.<strong>DisableFocusOnMouseEnter</strong> = true;</p>",
+    "PostedDate": "2012-01-18T07:48:59.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1061317",
+    "ThreadId": "286535",
+    "Html": "very useful. needed to turn this off in order to prevent lookupeditors to inadvertently change edit values.<br />\n",
+    "PostedDate": "2013-06-26T02:36:01.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1206282",
+    "ThreadId": "286535",
+    "Html": "I used Gmap vesion 1.6, but not property DisableFocusOnMouseEnter. I'm so tired of this problem. Looking format to help.<br />\n",
+    "PostedDate": "2014-02-10T04:12:37.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1206284",
+    "ThreadId": "286535",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nmap.DisableFocusOnMouseEnter = true;<br />\n</blockquote>\nI used GMap vesion 1.6 but not property DisableFocusOnMouseEnter. I not understand.???<br />\n",
+    "PostedDate": "2014-02-10T04:15:19.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

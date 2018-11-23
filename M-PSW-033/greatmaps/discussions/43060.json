@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "143135",
+    "ThreadId": "43060",
+    "Html": "<p>Hi radioman,</p>\r\n<p>I tried to use the control in my app and are very content with. It would be outstanding, if we could compute the route between 2 locations and show this on the map. Would that be possible?</p>\r\n<p>greetings</p>\r\n<p>Erich</p>\r\n",
+    "PostedDate": "2008-12-27T09:44:13.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "143312",
+    "ThreadId": "43060",
+    "Html": "Hey,\r\nI'll definitely try to investigate that ;}\r\n",
+    "PostedDate": "2008-12-29T05:09:56.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "144960",
+    "ThreadId": "43060",
+    "Html": "<p>investigation done, this gives us coordinate list of route:</p>\r\n<p>*geocoding:   http://maps.google.com/maps?f=q&amp;output=kml&amp;doflg=p&amp;hl=lt&amp;q=&amp;saddr=klaipeda&amp;daddr=vilnius<br>\r\n<br>\r\n*coordinates: http://maps.google.com/maps?f=q&amp;output=kml&amp;doflg=p&amp;hl=lt&amp;q=&amp;saddr=@54.7233,25.24287&amp;daddr=@54.702011,25.288124</p>\r\n<p>start -&gt; &amp;saddr</p>\r\n<p>end-&gt; &amp;daddr</p>\r\n<p>//-----------------------------------------------------------------------------------</p>\r\n<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; <br>\r\n- &lt;kml xmlns=&quot;http://earth.google.com/kml/2.0&quot;&gt;<br>\r\n- &lt;Document&gt;<br>\r\n&lt;name&gt;Ukmergės gatvė į Trimitų gatvė&lt;/name&gt; <br>\r\n- &lt;Style id=&quot;roadStyle&quot;&gt;<br>\r\n- &lt;LineStyle&gt;<br>\r\n&lt;color&gt;7fcf0064&lt;/color&gt; <br>\r\n&lt;width&gt;6&lt;/width&gt; <br>\r\n&lt;/LineStyle&gt;<br>\r\n&lt;/Style&gt;<br>\r\n- &lt;Snippet&gt;<br>\r\n- &lt;![CDATA[ &lt;font size=+1&gt;&lt;a href=&quot;http://maps.google.com/maps?f=q&amp;doflg=p&amp;hl=lt&amp;q=&amp;saddr=@54.7233,25.242870000000003&amp;daddr=@54.702011,25.288124&quot;&gt;Spausdinamas vaizdas&lt;/a&gt;&lt;/font&gt;<br>\r\n]]&gt; <br>\r\n&lt;/Snippet&gt;<br>\r\n- &lt;Placemark&gt;<br>\r\n- &lt;description&gt;<br>\r\n- &lt;![CDATA[ eiti 5,9&amp;#160;km<br>\r\n]]&gt; <br>\r\n&lt;/description&gt;<br>\r\n&lt;address&gt;Ukmerges gatve&lt;/address&gt; <br>\r\n&lt;styleUrl&gt;root://styleMaps#default+nicon=0x406+hicon=0x416&lt;/styleUrl&gt; <br>\r\n- &lt;Point&gt;<br>\r\n&lt;coordinates&gt;25.242870,54.723300,0&lt;/coordinates&gt; <br>\r\n&lt;/Point&gt;<br>\r\n- &lt;LookAt&gt;<br>\r\n&lt;longitude&gt;25.242870&lt;/longitude&gt; <br>\r\n&lt;latitude&gt;54.723300&lt;/latitude&gt; <br>\r\n&lt;range&gt;100.000000&lt;/range&gt; <br>\r\n&lt;tilt&gt;45.000000&lt;/tilt&gt; <br>\r\n&lt;heading&gt;162.044556&lt;/heading&gt; <br>\r\n&lt;/LookAt&gt;<br>\r\n&lt;/Placemark&gt;<br>\r\n- &lt;Placemark&gt;<br>\r\n&lt;name&gt;Atvyksta: Trimitų gatvė&lt;/name&gt; <br>\r\n&lt;address&gt;Trimitu gatve&lt;/address&gt; <br>\r\n&lt;styleUrl&gt;root://styleMaps#default+nicon=0x467+hicon=0x477&lt;/styleUrl&gt; <br>\r\n- &lt;Point&gt;<br>\r\n&lt;coordinates&gt;25.288124,54.702510,0&lt;/coordinates&gt; <br>\r\n&lt;/Point&gt;<br>\r\n&lt;/Placemark&gt;<br>\r\n- &lt;Placemark&gt;<br>\r\n&lt;name&gt;Maršrutas&lt;/name&gt; <br>\r\n- &lt;description&gt;<br>\r\n- &lt;![CDATA[ Atstumas: 5,9&amp;#160;km (apie 9 minutės)&lt;br/&gt;Žemėlapio duomenys &amp;#169;2009 Tele Atlas<br>\r\n]]&gt; <br>\r\n&lt;/description&gt;<br>\r\n- &lt;GeometryCollection&gt;<br>\r\n<blockquote>\r\n- &lt;LineString&gt;<br>\r\n</blockquote><blockquote>\r\n&lt;coordinates&gt;25.242870,54.723300,0.000000 25.244110,54.721090,0.000000 25.245720,54.718430,0.000000 25.246230,54.717260,0.000000 25.246710,54.716350,0.000000 25.248480,54.713440,0.000000 25.249800,54.711600,0.000000 25.250470,54.710850,0.000000 25.252230,54.709100,0.000000 25.253210,54.708020,0.000000 25.257630,54.703660,0.000000 25.257970,54.703380,0.000000 25.258520,54.703070,0.000000 25.259150,54.702830,0.000000 25.261760,54.702140,0.000000 25.261930,54.702070,0.000000 25.262340,54.701840,0.000000 25.262870,54.701360,0.000000 25.263220,54.700560,0.000000 25.263080,54.700220,0.000000 25.263000,54.699280,0.000000 25.262810,54.698910,0.000000 25.262630,54.698730,0.000000 25.262560,54.698590,0.000000 25.262560,54.698460,0.000000 25.262600,54.698300,0.000000 25.262760,54.698080,0.000000 25.262980,54.697970,0.000000 25.263090,54.697920,0.000000 25.263430,54.697850,0.000000 25.263710,54.697850,0.000000 25.264050,54.697900,0.000000 25.264350,54.698010,0.000000 25.264970,54.698360,0.000000 25.265150,54.698400,0.000000 25.265480,54.698410,0.000000 25.267540,54.698170,0.000000 25.267640,54.698190,0.000000 25.269980,54.697780,0.000000 25.271160,54.697470,0.000000 25.274150,54.696450,0.000000 25.278810,54.695110,0.000000 25.280890,54.694780,0.000000 25.284900,54.694380,0.000000 25.285310,54.694380,0.000000 25.288300,54.694750,0.000000 25.286540,54.699420,0.000000 25.286340,54.700280,0.000000 25.286370,54.700800,0.000000 25.286520,54.701460,0.000000 25.286610,54.701710,0.000000 25.286960,54.702270,0.000000 25.287170,54.702510,0.000000 25.288120,54.702510,0.000000&lt;/coordinates&gt; <br>\r\n</blockquote><blockquote>\r\n&lt;/LineString&gt;<br>\r\n</blockquote>\r\n&lt;/GeometryCollection&gt;<br>\r\n&lt;styleUrl&gt;#roadStyle&lt;/styleUrl&gt; <br>\r\n&lt;/Placemark&gt;<br>\r\n&lt;/Document&gt;<br>\r\n&lt;/kml&gt;<br>\r\n//-----------------------------------------------------------------------------------</p>\r\n",
+    "PostedDate": "2009-01-06T21:43:11.943-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "146592",
+    "ThreadId": "43060",
+    "Html": "<p>Hi radioman,<br>\r\n<br>\r\nSorry about my English ... </p>\r\n<p>Offer the possibility to avoid the highway:<br>\r\n<br>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>&nbsp;</p>\r\n<p>public</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> MakeRouteUrl(</span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\"> start, </span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\"> end, </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> language, </span><span style=\"font-size:13px;color:#0000ff\">bool</span><span style=\"font-size:13px\"> useHighway)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">var</span><span style=\"font-size:13px\"> highway = !useHighway ? </span><span style=\"font-size:13px;color:#a31515\">&quot;&amp;mra=ls&amp;dirflg=h&quot;</span><span style=\"font-size:13px\"> : </span><span style=\"font-size:13px;color:#a31515\">&quot;&quot;</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">return\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Format(\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#a31515\">&quot;http://maps.google.com/maps?f=q&amp;output=dragdir&amp;doflg=p&amp;mra=ls&amp;dirflg=h&amp;hl={0}&amp;q=&amp;saddr=@{1},{2}&amp;daddr=@{3},{4}{5}&quot;</span><span style=\"font-size:13px\">,\r\n<p>&nbsp;</p>\r\n<p>language, start.Lat.ToString(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture),\r\n<p>&nbsp;</p>\r\n<p>start.Lng.ToString(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture), end.Lat.ToString(</span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture),\r\n<p>&nbsp;</p>\r\n<p>end.Lng.ToString(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture), highway);\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> MakeRouteUrl(</span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> start, </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> end, </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> language, </span><span style=\"font-size:13px;color:#0000ff\">bool</span><span style=\"font-size:13px\"> useHighway)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">var</span><span style=\"font-size:13px\"> highway = !useHighway ? </span><span style=\"font-size:13px;color:#a31515\">&quot;&amp;mra=ls&amp;dirflg=h&quot;</span><span style=\"font-size:13px\"> : </span><span style=\"font-size:13px;color:#a31515\">&quot;&quot;</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">return\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Format(\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#a31515\">&quot;http://maps.google.com/maps?f=q&amp;output=dragdir&amp;doflg=p&amp;hl={0}&amp;q=&amp;saddr=@{1}&amp;daddr=@{2}{3}&quot;</span><span style=\"font-size:13px\">, language,\r\n<p>&nbsp;</p>\r\n<p>start.Replace(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#a31515\">' '</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#a31515\">'+'</span><span style=\"font-size:13px\">), end.Replace(</span><span style=\"font-size:13px;color:#a31515\">' '</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#a31515\">'+'</span><span style=\"font-size:13px\">), highway);\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-13T00:46:24.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "146610",
+    "ThreadId": "43060",
+    "Html": "<p>Is it possible to get a text representation of the route? </p>\r\n<p>Example: <br>\r\n1. Head west on XXX 0.7 km <br>\r\n2. Turn left at YYY 2.1 km</p>\r\n",
+    "PostedDate": "2009-01-13T01:40:26.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "146703",
+    "ThreadId": "43060",
+    "Html": "thanks for tip of &quot;Avoid Highways&quot; mode.<br>\r\n<br>\r\n..and about 'text representation' i specially choose JSON format to speed things up  instead of KML with text. I can create separate functions for that maybe...\r\n",
+    "PostedDate": "2009-01-13T08:18:37.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "146936",
+    "ThreadId": "43060",
+    "Html": "I look forward to this function.\r\n",
+    "PostedDate": "2009-01-14T00:55:25.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

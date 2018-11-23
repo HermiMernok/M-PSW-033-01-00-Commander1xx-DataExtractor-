@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "801555",
+    "ThreadId": "346109",
+    "Html": "<p>All the map can display in your mobile demo,but GoogleMap include GoogleChinaMap.But i use the other maps can display,like YahooMap.</p>\n<p>I need use GoogleChinaMap in my project.Can u help me?</p>\n<p><img src=\"http://i1147.photobucket.com/albums/o548/anynav/2.png\" alt=\"\" /></p>\n<p><img src=\"http://i1147.photobucket.com/albums/o548/anynav/3.png\" alt=\"\" /></p>\n<p><img src=\"http://i1147.photobucket.com/albums/o548/anynav/9a2297ce.jpg\" alt=\"\" /></p>\n<p>Debug：</p>\n<pre>MapType: LithuaniaMap -&gt; GoogleMap\nCacheEngine[6]: storing tile 1529441131 at zoom 2, pos: {X=42,Y=29}, CacheType:Both, 13kB...\nCacheEngine[5]: storing tile 1529441131 at zoom 2, pos: {X=41,Y=28}, CacheType:Both, 38kB...\n<span style=\"color: #ff0000;\">A first chance exception of type 'System.Net.Sockets.SocketException' occurred in System.dll</span>\n<span style=\"color: #ff0000;\">A first chance exception of type 'System.Net.WebException' occurred in System.dll</span>\n<span style=\"color: #ff0000;\">TryCorrectGoogleVersions failed: System.Net.WebException: Unable to resolve the remote name&nbsp;</span>\n<span style=\"color: #ff0000;\">---&gt; System.Net.Sockets.SocketException:Unable to identify the host</span>\nfrom System.Net.Dns.ResolveInternal(String hostName)\nfrom System.Net.Dns.GetHostEntry(String hostNameOrAddress)\nfrom System.Net.ServicePoint.resolve()\nfrom System.Net.Connection.connect(Object ignored)\nfrom System.Threading.ThreadPool.WorkItem.doWork(Object o)\nfrom System.Threading.Timer.ring()\nfrom System.Net.HttpWebRequest.finishGetResponse()\nfrom System.Net.HttpWebRequest.GetResponse()\nfrom GMap.NET.MapProviders.GMapProvider.GetContentUsingHttp(String url)\nfrom GMap.NET.MapProviders.GoogleMapProviderBase.OnInitialized()\nfrom GMap.NET.Internals.Core.set_Provider(GMapProvider value)\nfrom GMap.NET.WOnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}\nOnTileLoadStart - at zoom 2, time: 14:51:21\n------------------</pre>",
+    "PostedDate": "2012-02-26T23:24:48.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801577",
+    "ThreadId": "346109",
+    "Html": "<p>to be able to use internet connection in emulator you have to 'cradle' it at connection manager</p>",
+    "PostedDate": "2012-02-26T23:37:54.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801808",
+    "ThreadId": "346109",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>to be able to use internet connection in emulator you have to 'cradle' it at connection manager</p>\r\n</blockquote>\r\n<p>radioman, i have 'cradled' at connection manager.and also i can use internet connection in emulator.</p>\r\n<p>and use ur demo,i can display all the map except GoogleMap. so strange...</p>",
+    "PostedDate": "2012-02-27T02:21:20.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801929",
+    "ThreadId": "346109",
+    "Html": "<p>i'll check it later</p>",
+    "PostedDate": "2012-02-27T04:06:46.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801998",
+    "ThreadId": "346109",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>i'll check it later</p>\r\n</blockquote>\r\n<p>After checked,tell me,plz...or reply..ok?.thanks a lot.~ ~lol</p>",
+    "PostedDate": "2012-02-27T06:20:19.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802951",
+    "ThreadId": "346109",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>i'll check it later</p>\r\n</blockquote>\r\n<p>radioman,i have solve this problem.the reason why i can't display the googlemap is i changed \"etc/host\" file.in China,sometimes we can't visit google in ipv4.</p>\r\n<p>So i change google ip to visit in ipv6.That's why the emulator cant display the only googlemap.</p>",
+    "PostedDate": "2012-02-28T19:22:25.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803014",
+    "ThreadId": "346109",
+    "Html": "<p>i see, roger that ;}</p>",
+    "PostedDate": "2012-02-29T00:30:19.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

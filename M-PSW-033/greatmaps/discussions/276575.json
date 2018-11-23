@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "686847",
+    "ThreadId": "276575",
+    "Html": "\r\n<p>Ola,</p>\r\n<p>I'm reading my coordinates from a table with 3 columns (place - lat- long). Goes perfect, but when I convert the string to double for a marker it goes horribly wrong.</p>\r\n<p>Does anyone know how to do this properly?</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> gps_place <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> =  .SelectedNode.Cells(1).Text\r\n<span style=\"color:blue\">Dim</span> cmd_gps <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> MySqlCommand(<span style=\"color:#a31515\">&quot;SELECT `lat`, `long` FROM gps WHERE place = &quot;</span> &amp; <span style=\"color:#a31515\">&quot;'&quot;</span> &amp; gps_place &amp; <span style=\"color:#a31515\">&quot;'&quot;</span>, conn)\r\nreader = cmd_gps.ExecuteReader\r\n<span style=\"color:blue\">While</span> reader.Read\r\n    <span style=\"color:blue\">Dim</span> strLat <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span> = <span style=\"color:blue\">CDbl</span>(reader.Item(<span style=\"color:#a31515\">&quot;lat&quot;</span>).ToString)\r\n    MsgBox(strLat.ToString)  <span style=\"color:green\">' result: 5237861    should be: 52.37861</span>\r\n\r\n    <span style=\"color:blue\">Dim</span> strLong <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span> = <span style=\"color:blue\">CDbl</span>(reader.Item(<span style=\"color:#a31515\">&quot;long&quot;</span>).ToString)\r\n    MsgBox(strLong.ToString)  <span style=\"color:green\">' result: 662722   should be: 6.62722</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">While</span>\r\n<br>Thanks in advance</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-10-20T06:22:42.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686876",
+    "ThreadId": "276575",
+    "Html": "<p>this is not mysql forum, but anyway you should use:</p>\r\n<p>lat = reader.GetDouble(0);<br />lng =reader.GetDouble(1);</p>",
+    "PostedDate": "2011-10-20T06:58:05.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686902",
+    "ThreadId": "276575",
+    "Html": "<p>Thanks, but unfortunately still giving the result without the \"dot\".</p>",
+    "PostedDate": "2011-10-20T07:36:27.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686914",
+    "ThreadId": "276575",
+    "Html": "<p>GetDouble returns double, it has the point ;}</p>",
+    "PostedDate": "2011-10-20T07:53:44.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686921",
+    "ThreadId": "276575",
+    "Html": "<p>Hmmmm... The marker is addd at the upper right corner of the map:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: green;\">'  row-type lat = varchar = 52.37861</span>\r\n<span style=\"color: green;\">'  row-type long = varchar = 6.62722</span>\r\n\r\n<span style=\"color: blue;\">While</span> reader.Read\r\n<span style=\"color: blue;\">   Dim</span> strLat <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Double</span> = reader.GetDouble(0)\r\n<span style=\"color: blue;\">   Dim</span> strLong <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Double</span> = reader.GetDouble(1)\r\n\r\n<span style=\"color: blue;\">   Dim</span> overlayOne <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMapOverlay(map_control, <span style=\"color: #a31515;\">\"overlay1\"</span>)\r\n<span style=\"color: blue;\">   Dim</span> map_marker <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMapMarkerGoogleGreen(<span style=\"color: blue;\">New</span> PointLatLng(strLat, strLong))\r\n   overlayOne.Markers.Add(map_marker)\r\n\r\n   map_marker.ToolTipMode = MarkerTooltipMode.OnMouseOver\r\n   map_marker.ToolTipText = gps_place\r\n   map_control.Overlays.Add(overlayOne)\r\n   map_control.ZoomAndCenterMarkers(overlayOne.Id)\r\n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">While</span>\r\n</pre>\r\n</div>",
+    "PostedDate": "2011-10-20T08:03:42.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687249",
+    "ThreadId": "276575",
+    "Html": "<p>Anyone with some experience with this?</p>",
+    "PostedDate": "2011-10-20T23:38:12.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687324",
+    "ThreadId": "276575",
+    "Html": "<p>More info: columns are \"varchar\"&nbsp; <a href=\"http://i56.tinypic.com/5nkc8w.png\" target=\"_blank\">http://i56.tinypic.com/5nkc8w.png</a></p>\n<p>this is the result with the code: <a href=\"http://i51.tinypic.com/i2oyt3.png\" target=\"_blank\">http://i51.tinypic.com/i2oyt3.png</a></p>",
+    "PostedDate": "2011-10-21T03:26:43.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687351",
+    "ThreadId": "276575",
+    "Html": "<p>and why they are varchar? ;/ ..anyway then you need to do:</p>\r\n<p>double t = double.Parse(\"25.222\", CultureInfo.InvariantCulture);</p>",
+    "PostedDate": "2011-10-21T04:06:32.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687368",
+    "ThreadId": "276575",
+    "Html": "<p>Ah. now I see it. I shouldn't use the dot, but the comma. Thanks for the help. Works like a charm.</p>\n<p>By the way, the \"varchar\" was simply a test. What is a better type?</p>",
+    "PostedDate": "2011-10-21T04:45:02.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687378",
+    "ThreadId": "276575",
+    "Html": "<p>but it fails on systems where default culture uses dots, so the sure way is to use dots and provide invariant culture</p>",
+    "PostedDate": "2011-10-21T04:57:46.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687382",
+    "ThreadId": "276575",
+    "Html": "<p>Thanks. Will use as you told me.</p>",
+    "PostedDate": "2011-10-21T05:19:35.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

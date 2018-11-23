@@ -1,0 +1,202 @@
+[
+  {
+    "Id": "685458",
+    "ThreadId": "276206",
+    "Html": "\r\n<p>Hey :)</p>\r\n<p>I use Vb.net 2010 express and i've just found your control&nbsp;</p>\r\n<p>i just can't get it work</p>\r\n<p>i think the problem is in this line</p>\r\n<p><strong>Mainmap.MapProvider = MapProviders.GoogleMapProvider.WebProxy</strong></p>\r\n<p>plzz help :p</p>\r\n",
+    "PostedDate": "2011-10-17T15:23:06.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685561",
+    "ThreadId": "276206",
+    "Html": "<p>WebProxy ;}</p>\r\n<p>man, you just do: Mainmap.<strong>MapProvider</strong> = MapProviders.<strong>GoogleMap</strong>;</p>",
+    "PostedDate": "2011-10-17T23:20:53.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685728",
+    "ThreadId": "276206",
+    "Html": "<p>didn't work with &nbsp; : Mainmap.MapProvider = MapProviders.GoogleMap</p>\r\n<p>but it works with &nbsp;:&nbsp;Mainmap.MapProvider = MapProviders.GoogleMapProvider.Instance</p>\r\n<p>Thank you for yur help</p>",
+    "PostedDate": "2011-10-18T06:12:55.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685733",
+    "ThreadId": "276206",
+    "Html": "<p>sorry:&nbsp;MainMap.MapProvider = <strong>GMapProviders</strong>.GoogleMap;</p>",
+    "PostedDate": "2011-10-18T06:22:15.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685737",
+    "ThreadId": "276206",
+    "Html": "<p>with :&nbsp;Mainmap.MapProvider = GMapProviders.GoogleMap it gives me&nbsp;</p>\r\n<p>'GMapProviders' n'est pas d&eacute;clar&eacute;. Il peut &ecirc;tre inaccessible en raison de son niveau de protection</p>\r\n<p>'GMapProviders' is not declared , maybe because of its protection level</p>",
+    "PostedDate": "2011-10-18T06:25:51.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685765",
+    "ThreadId": "276206",
+    "Html": "<p>add:</p>\r\n<p><em>using GMap.NET.MapProviders;&nbsp;</em></p>",
+    "PostedDate": "2011-10-18T06:53:03.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685942",
+    "ThreadId": "276206",
+    "Html": "<p>Ty so much RadioMan , it works :) :)</p>\r\n<p>i have other questions i wish u have time for me :)</p>",
+    "PostedDate": "2011-10-18T11:55:29.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685978",
+    "ThreadId": "276206",
+    "Html": "<p>How to surf in the map using mouse (up,down,left,right) like in googleMaps ?</p>",
+    "PostedDate": "2011-10-18T12:55:39.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685994",
+    "ThreadId": "276206",
+    "Html": "<p>surf ;} you mean drag?</p>",
+    "PostedDate": "2011-10-18T13:04:58.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685995",
+    "ThreadId": "276206",
+    "Html": "<p>srry for my bad english :p :p</p>\r\n<p>yes its drag :) , how to do it ??</p>",
+    "PostedDate": "2011-10-18T13:06:59.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686002",
+    "ThreadId": "276206",
+    "Html": "<p>i found it lol&nbsp;</p>\r\n<p>Mainmap.DragButton = MouseButtons.Left</p>\r\n<p>an other question plzz</p>\r\n<p>how to costumize markers , when user click on it , &nbsp;it give him something</p>",
+    "PostedDate": "2011-10-18T13:17:33.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686003",
+    "ThreadId": "276206",
+    "Html": "<p>what do you mean?</p>",
+    "PostedDate": "2011-10-18T13:19:10.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686004",
+    "ThreadId": "276206",
+    "Html": "<p>i have a point with lat and long marked in the map with that google marker green</p>\r\n<p>i want when user click on it in the map , a small form showing information will appear</p>",
+    "PostedDate": "2011-10-18T13:24:10.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686023",
+    "ThreadId": "276206",
+    "Html": "<p>map.<strong>OnMarkerClick</strong> ?</p>",
+    "PostedDate": "2011-10-18T14:05:47.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686026",
+    "ThreadId": "276206",
+    "Html": "<p>im gonna try it :)</p>\r\n<p>Ty so much my friend</p>",
+    "PostedDate": "2011-10-18T14:10:58.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686027",
+    "ThreadId": "276206",
+    "Html": "<p>im gonna try it :)</p>\r\n<p>Ty so much my friend</p>",
+    "PostedDate": "2011-10-18T14:10:59.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686078",
+    "ThreadId": "276206",
+    "Html": "<p>an other question Radioman :)</p>\n<p>im trying to make an overlay so i can mark points but i have a problem</p>\n<p>i make this in form_load</p>\n<p>Dim overlayOne As New GMapOverlay(Mainmap, \"OverlayOne\")&nbsp; &nbsp;</p>\n<p>Mainmap.Overlays.Add(overlayOne)</p>\n<p>and i have a Module where the function getlocation that marks points , i put this code in the function.</p>\n<p>\" overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMapMarkerCross(New PointLatLng(Lat, Lon))) \"</p>\n<p>but it gives me that : \" Overlyeone is not declared , maybe because of protection level \"</p>",
+    "PostedDate": "2011-10-18T16:39:16.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686079",
+    "ThreadId": "276206",
+    "Html": "<p>an other question Radioman :)</p>\r\n<p>im trying to make an overlay but i have a problem</p>\r\n<p>i make this in form_load</p>\r\n<p>Dim overlayOne As New GMapOverlay(Mainmap, \"OverlayOne\")&nbsp; &nbsp;</p>\r\n<p>Mainmap.Overlays.Add(overlayOne)</p>\r\n<p>and i have a function getlocation , where im gonna put markers , i put this code in it :</p>\r\n<p>\" overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMapMarkerCross(New PointLatLng(Lat, Lon))) \"</p>\r\n<p>but it gives me that : \" Overlyeone is not declared , maybe because of protection level \"</p>",
+    "PostedDate": "2011-10-18T16:39:18.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "686182",
+    "ThreadId": "276206",
+    "Html": "<p>i'm not here to teach you programming language ;}</p>",
+    "PostedDate": "2011-10-18T23:25:12.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910836",
+    "ThreadId": "276206",
+    "Html": "<p>Hi,</p>\r\n<p>I am having a bit of a trouble using&nbsp;</p>\r\n<p><span>.\"MapProvider = GMapProviders.GoogleMap\"</span></p>\r\n<p><span>Here in case i use Bing or yahoomap it works fine but when i tried using GoogleMap it dose not run,</span></p>\r\n<p><span>I get no errors but it just dose not run. Is there anything i need to include for GoogleMap ?</span></p>\r\n<p>&nbsp;</p>\r\n<p><span>Thanks</span></p>",
+    "PostedDate": "2012-09-11T04:46:51.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910837",
+    "ThreadId": "276206",
+    "Html": "<p>i bet you use debug build and do not see the output window ;}</p>",
+    "PostedDate": "2012-09-11T04:54:22.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910840",
+    "ThreadId": "276206",
+    "Html": "<p>Nop just running the program not using debug.</p>",
+    "PostedDate": "2012-09-11T05:02:54.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910845",
+    "ThreadId": "276206",
+    "Html": "<p>you mean, your program or the demo?</p>",
+    "PostedDate": "2012-09-11T05:11:47.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910846",
+    "ThreadId": "276206",
+    "Html": "<p>My Program</p>\r\n<p>simple code example available.</p>",
+    "PostedDate": "2012-09-11T05:13:41.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910850",
+    "ThreadId": "276206",
+    "Html": "<p>hot build has no problems for me</p>",
+    "PostedDate": "2012-09-11T05:24:14.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

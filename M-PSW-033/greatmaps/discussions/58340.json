@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "197305",
+    "ThreadId": "58340",
+    "Html": "<p>Hi,</p>\r\n<p>In your sample, when you get an EmptyTileError your MainMap.CurrentPosition remains the same.&nbsp; In my project, when I get that error, the CurrentPosition seems to default to 0,0.&nbsp; How are you keeping it at the CurrentPosition??</p>",
+    "PostedDate": "2009-06-03T08:39:41.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197323",
+    "ThreadId": "58340",
+    "Html": "<p>welll this event do not change&nbsp;<span style=\"color:#30332d\">CurrentPosition, check all places of its modifications</span></p>",
+    "PostedDate": "2009-06-03T09:42:18.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197348",
+    "ThreadId": "58340",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>In my project I have a scrollbar, and in the zoomBar_Scroll event, I have this:</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p>MainMap.Zoom = zoomBar.Value;</p>\r\n<p><span style=\"font-size:x-small\">label3.Text = mapCentre.ToString() + </span><span style=\"font-size:x-small;color:#800000\"><span style=\"font-size:x-small;color:#800000\">&quot; -- &quot;</span></span><span style=\"font-size:x-small\"> + MainMap.CurrentPosition.ToString();&nbsp; //to help debug what is going on</span></p>\r\n<p><span style=\"font-size:x-small\">When I hit the zoomBar, it will increase the zoom by 1.&nbsp; When I get the error, the Map.CurrentPosition value is Lat = 0, Long = 0, but previous to the error it is as expected.&nbsp; Shouldn't this stay at whatever it was prior to the error happening??&nbsp; I noticed in your sample that you have similar code in the OnEmptyTileError event.&nbsp; The messageBox also shows Lat = 0, Long = 0, but your map stays at the current position.&nbsp; How are you doing it?</span></p>\r\n</span></p>",
+    "PostedDate": "2009-06-03T10:36:23.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197408",
+    "ThreadId": "58340",
+    "Html": "<p>zooming do not change position, there must be some place where you reset it ;}</p>",
+    "PostedDate": "2009-06-03T12:57:56.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198215",
+    "ThreadId": "58340",
+    "Html": "<p>Hi,</p>\r\n<p>Well there is nothing in my code that is changing.&nbsp; What I did discover though, is that by taking my project and running it on another PC, it works fine!!&nbsp; Weird....I will blame this weird behaviour on Microsoft.&nbsp; :-)</p>",
+    "PostedDate": "2009-06-05T06:45:43.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198231",
+    "ThreadId": "58340",
+    "Html": "<p>any chance that it's 64bit os?</p>",
+    "PostedDate": "2009-06-05T07:20:01.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198238",
+    "ThreadId": "58340",
+    "Html": "<p>No.&nbsp; Both are 32.&nbsp; The one it doesn't work in is XP running C# Express 2005.&nbsp; The on it does work on is Vista running VS2005 Standard.</p>",
+    "PostedDate": "2009-06-05T07:23:43.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198240",
+    "ThreadId": "58340",
+    "Html": "<p>strange o.O</p>",
+    "PostedDate": "2009-06-05T07:25:35.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

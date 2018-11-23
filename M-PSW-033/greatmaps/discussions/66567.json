@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "226156",
+    "ThreadId": "66567",
+    "Html": "<p>@Radioman</p>\r\n<p>Thannnnnnnnnkkkkkkkkkksssssssssssssss for sharing such a gooooooood Control with us, really helpful.</p>\r\n<p>Thanks again.</p>",
+    "PostedDate": "2009-08-20T22:09:35.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "226170",
+    "ThreadId": "66567",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2009-08-20T23:19:15.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232092",
+    "ThreadId": "66567",
+    "Html": "<p>Hay dear,</p>\r\n<p>I want to know that how did u get maps type from combobox and assign it to MainMap.Maptype Please replay me i cant understand from the code. and i want to use this in wpf.</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2009-09-08T01:54:18.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232109",
+    "ThreadId": "66567",
+    "Html": "<p>Hi,</p>\r\n<p>In MainWindow only below code:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>// <span style=\"color:Blue\">get</span> map types\r\n            comboBoxMapType.ItemsSource = Enum.GetValues(<span style=\"color:Blue\">typeof</span>(MapType));\r\n            comboBoxMapType.SelectedItem = MainMap.MapType;\r\n<br></pre>\r\n</div>\r\n</p>\r\n<p>//In MapType.cs</p>\r\n<p>&nbsp;&nbsp; /// &lt;summary&gt;<br> &nbsp;&nbsp; /// types of great maps<br> &nbsp;&nbsp; /// &lt;/summary&gt;</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> <span style=\"color:Blue\">enum</span> MapType\r\n   {\r\n      GoogleMap=1,\r\n      GoogleSatellite=4,\r\n      GoogleLabels=8,      \r\n      GoogleTerrain=16,\r\n      GoogleHybrid=20,\r\n\r\n      GoogleMapChina=22,\r\n      GoogleSatelliteChina=24,\r\n      GoogleLabelsChina=26,\r\n      GoogleTerrainChina=28,\r\n      GoogleHybridChina=29,\r\n\r\n      OpenStreetMap=32,\r\n      OpenStreetOsm=33,\r\n\r\n      YahooMap=64,\r\n      YahooSatellite=128,\r\n      YahooLabels=256,\r\n      YahooHybrid=333,\r\n\r\n      VirtualEarthMap=444,\r\n      VirtualEarthSatellite=555,\r\n      VirtualEarthHybrid=666,\r\n\r\n      ArcGIS_Map = 777,\r\n      ArcGIS_Satellite=788,\r\n      ArcGIS_ShadedRelief=799,\r\n      ArcGIS_Terrain=811, \r\n      \r\n      ArcGIS_MapsLT_Map=877,\r\n      ArcGIS_MapsLT_OrtoFoto=888,\r\n      ArcGIS_MapsLT_Map_Labels=890,\r\n      ArcGIS_MapsLT_Map_Hybrid=899,\r\n   }\r\n<br>Any ideas?<br></pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2009-09-08T02:34:58.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232159",
+    "ThreadId": "66567",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Green\">// map type changed</span>\r\n<span style=\"color:Blue\">private</span> <span style=\"color:Blue\">void</span> comboBoxMapType_DropDownClosed(<span style=\"color:Blue\">object</span> sender, EventArgs e)\r\n{\r\n    MainMap.MapType = (MapType) comboBoxMapType.SelectedItem;\r\n<span style=\"color:Green\">    // ... </span>\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-08T04:46:41.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "233428",
+    "ThreadId": "66567",
+    "Html": "<p>Thanks for replay, i found another solution which is</p>\r\n<p>Variable var&nbsp; = (Type in which you want to convert)Enum.Parse(typeof(Type in which you want to convert), string, false);</p>\r\n<p>by using this i convert the following.</p>\r\n<p>dataSeries[i].RenderAs = (RenderAs)Enum.Parse(typeof(RenderAs), strChartType, false);</p>\r\n<p>Thanks again</p>\r\n<p>Regards:</p>\r\n<p>KAshif Usman</p>",
+    "PostedDate": "2009-09-11T00:02:16.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

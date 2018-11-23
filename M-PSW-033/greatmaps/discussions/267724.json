@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "652331",
+    "ThreadId": "267724",
+    "Html": "\r\n<p>I am using greatmaps in WPF and I have already tried disabling the red cross by doing</p>\r\n<pre>mainMap.ShowCenter=<span>false</span></pre>\r\n<p>but the Red Cross remains in the middle. Any help is appreciated.</p>\r\n",
+    "PostedDate": "2011-08-04T05:49:29.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "652403",
+    "ThreadId": "267724",
+    "Html": "<p>call map.<strong>InvalidateVisual</strong>();</p>",
+    "PostedDate": "2011-08-04T07:20:53.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "652466",
+    "ThreadId": "267724",
+    "Html": "<p>Did that and it still doesn't remove the red cross</p>",
+    "PostedDate": "2011-08-04T08:56:23.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "652573",
+    "ThreadId": "267724",
+    "Html": "<p>i don't believe you ;}</p>",
+    "PostedDate": "2011-08-04T10:58:53.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734851",
+    "ThreadId": "267724",
+    "Html": "<p>Under which event should the ShowCenter property and InvalidateVisual method be called to remove the cross? I tried this in the wondow constructor with no luck.</p>\r\n<p>Thank you.</p>",
+    "PostedDate": "2012-02-01T08:22:23.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735145",
+    "ThreadId": "267724",
+    "Html": "<p>it doesn't matter where, it works perfectly as expected, wake up ;}</p>",
+    "PostedDate": "2012-02-01T11:28:27.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

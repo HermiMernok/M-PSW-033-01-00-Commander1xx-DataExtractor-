@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1343575",
+    "ThreadId": "578163",
+    "Html": "How would one go about drawing an overlay image onto a map (a good example would be a radar image tile)?\r<br />\nI have the lat/lon coordinates of the corners of the image and am using FromLatLngToLocal() in the OnRender event to come up with the rectangle to paint to.\r<br />\n<br />\nI am having two issues with this method though, one is more serious than the other:\r<br />\n1) When panning around the map with this method the image is not anchored to the map; instead it moves around the map as if its several thousand feet above the map (e.g. small pans are amplified: If the map is panned 10 pixels to the East the overlaying image actually moves 20 pixels)\r<br />\n2) This method does not properly paint the image to the map using the current projection. Instead the image is scaled to the pixel points and not projected on the map.\r<br />\n<br />\nIs there an easy way to overcome both of these two issues?\r<br />\nThanks<br />\n",
+    "PostedDate": "2015-01-20T09:56:32.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

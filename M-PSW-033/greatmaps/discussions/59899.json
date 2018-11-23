@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "202792",
+    "ThreadId": "59899",
+    "Html": "<p>Hi Radioman.<br><br>Is it possible to draw a layer that can resize according to the zoom level.<br><br>I want to draw lines on the map with specific lengths (length based on distance) and then when the map zoom changes the layer adjusts accordingly.<br><br>I'm using it to draw Wind Plume lines based on wind speed over time.</p>",
+    "PostedDate": "2009-06-18T00:10:51.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "202845",
+    "ThreadId": "59899",
+    "Html": "<p>OnRender functions, you can use current zoom level to draw things&nbsp;accordingly, try look at scale info drawing code</p>",
+    "PostedDate": "2009-06-18T03:17:41.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "202852",
+    "ThreadId": "59899",
+    "Html": "<p>Thanks for the speedy reply.<br><br>My current OnRender function calls my DrawPlumeLines(Graphics g) Method.<br><br>If I understand correctly I can pass the current zoom level to it as well and then use it in my calculation of the Distance.<br><br>Currently I'm using two <span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">PointLatLng </span></span>on the map and converting them to System.Drawing.Point s. <br><span style=\"font-size:x-small\"><br><span style=\"color:#008000\">//Code Sample</span><br><span style=\"font-size:x-small\">centerP.X = LocalPosition.X;<br>centerP.Y = LocalPosition.Y</span>\r\n<p><span style=\"font-size:x-small;color:#008000\"><span style=\"font-size:x-small;color:#008000\">//Convert the EndPoint&nbsp;and Calculate the Distance<br></span></span><span style=\"font-size:x-small\">GMap.NET.</span><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">Point </span></span><span style=\"font-size:x-small\">ep = mapControl.FromLatLngToLocal(endPoint);<br>ePoint.X = ep.X;<br>ePoint.Y = ep.Y;</span></p>\r\n<p>plumeLeadingEdge = GetDist(centerP, ePoint);<br><br><br><span style=\"color:#008000\">//GetDist Method</span><br><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">private</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">float</span></span><span style=\"font-size:x-small\"> GetDist(System.Drawing.</span><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">Point</span></span><span style=\"font-size:x-small\"> startPoint, System.Drawing.</span><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">Point</span></span><span style=\"font-size:x-small\"> endPoint)<br>{<br></span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float</span></span><span style=\"font-size:x-small\"> dist = 0;<br></span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float</span></span><span style=\"font-size:x-small\"> diffX = endPoint.X - startPoint.X;<br></span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float</span></span><span style=\"font-size:x-small\"> diffY = endPoint.Y - startPoint.Y;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dist = (</span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">float</span></span><span style=\"font-size:x-small\">)</span><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">Math</span></span><span style=\"font-size:x-small\">.Pow((</span><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">Math</span></span><span style=\"font-size:x-small\">.Pow(diffX, 2) + </span><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">Math</span></span><span style=\"font-size:x-small\">.Pow(diffY, 2)), 0.5);<br></span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return</span></span><span style=\"font-size:x-small\"> dist;<br>}<br><br>Can you give me push in the right direction?</span></p>\r\n</span>&nbsp;</p>",
+    "PostedDate": "2009-06-18T03:37:23.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

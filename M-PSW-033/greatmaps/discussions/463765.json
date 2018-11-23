@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1112617",
+    "ThreadId": "463765",
+    "Html": "Hi,\r<br />\n<br />\nFor some time now I am trying to get all the markers of one Overlay into a string Array.\r<br />\n<br />\nI tried all the approaches I could think off, however I haven't been able to find anything that would let me do that.\r<br />\n<br />\nFor instance:<br />\n<blockquote>\nstring[] customArray = markersOverlay.Markers.ToArray();<br />\n</blockquote>\nIs there a function for that? Advise needed.\r<br />\n<br />\nThank You,\r<br />\n<br />\nJonathan<br />\n",
+    "PostedDate": "2013-10-27T02:25:32.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112953",
+    "ThreadId": "463765",
+    "Html": ";/<br />\n",
+    "PostedDate": "2013-10-28T03:03:46.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114054",
+    "ThreadId": "463765",
+    "Html": "I came up with a little workaround for my problem. I am writing every single marker into an array at the same time it is placed on the map. If anyone is intrested:<br />\n<pre><code>GMarkerGoogle marker = new GMarkerGoogle(Map.FromLocalToLatLng(e.X, e.Y), UnitMarker);      \n//Placing the marker on mouse coordinates. UnitMarker is the custom marker.\n\nUnitArray[UnitCounter, 0] = Convert.ToString(UnitCounter);\n//Adding the uniqe UnitID to the array.\n\nUnitArray[UnitCounter, 1] = Map.FromLocalToLatLng(e.X, e.Y).ToString();\n//Adding the postion of the marker to the array.\n\nUnitArray[UnitCounter, 2] = UnitMarker.Tag.ToString();\n//Adding the tag to the array. The tag is set at the point where the bitmap (out of multiple bitmaps) is selected and has the same name as the selected bitmap.\n\nUnitArray[UnitCounter, 3] = &quot;0&quot;;\n//That is the orientation of the unit. 0 is pointing up. If I rotate the unit at a later point by 90° this number in the array will be increased.\n\nUnitArray[UnitCounter, 4] = &quot;normal&quot;;\n//Same as orientation, but if the unit is flipped or not.\n\nmarker.Tag = UnitCounter;\n//Changing the Tag of the marker to it's uniqe ID. This is necessary to aling the array and the unit in further steps.\n\nmarkersOverlay.Markers.Add(marker);\n//Well, adding the marker to the overlay.\n\nUnitCounter = UnitCounter + 1;\n//Increasing the unit's ID.</code></pre>\n\nFor removing of a marker I use this code:<br />\n<pre><code>void Map_OnMarkerClick(GMapMarker item, MouseEventArgs e)\n{   \n   if (e.Button == System.Windows.Forms.MouseButtons.Right &amp;&amp; Map.IsMouseOverMarker)\n   {\n       CMSMarker.Show(MousePosition.X, MousePosition.Y);      //Shows a Contex Menu Strip at the unit's location\n       SelectedUnit = item;                                                       //Stores the item (item = selected marker)\n   }\n}\n\nprivate void deleteMarkerToolStripMenuItem_Click(object sender, EventArgs e)\n{\n   markersOverlay.Markers.Remove(SelectedUnit);                   // The item stored earlier is now removed\n   UnitArray[Convert.ToInt16(SelectedUnit.Tag.ToString()), 1] = &quot;DELETED&quot;;\n   UnitArray[Convert.ToInt16(SelectedUnit.Tag.ToString()), 2] = &quot;DELETED&quot;;\n   UnitArray[Convert.ToInt16(SelectedUnit.Tag.ToString()), 3] = &quot;DELETED&quot;;\n   UnitArray[Convert.ToInt16(SelectedUnit.Tag.ToString()), 4] = &quot;DELETED&quot;;\n   UnitArray[Convert.ToInt16(SelectedUnit.Tag.ToString()), 5] = &quot;DELETED&quot;;\n   //All the lines in the Array are marked as DELETED, expect the uniqe ID. The ID is still remaining in the array.\n}</code></pre>\n\nMaybe someone is intrested in that kind of stuff. \r<br />\nI also could change the ToolTip of any given marker on the map. \r<br />\nRotating and flipping also works, however only for the last placed marker. If anyone has an idea how to flip any given marker on the map, please post.\r<br />\n<br />\nThanks!\r<br />\n<br />\nJonathan<br />\n",
+    "PostedDate": "2013-10-30T03:00:45.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

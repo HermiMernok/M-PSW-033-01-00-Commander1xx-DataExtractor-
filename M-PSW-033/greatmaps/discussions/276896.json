@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "688091",
+    "ThreadId": "276896",
+    "Html": "\r\n<p>Hey :)</p>\r\n<p>Is it possible to create an array of markers ?</p>\r\n",
+    "PostedDate": "2011-10-23T11:18:35.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688102",
+    "ThreadId": "276896",
+    "Html": "<p>everything is possible ;} but what do you mean?</p>",
+    "PostedDate": "2011-10-23T11:34:13.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688103",
+    "ThreadId": "276896",
+    "Html": "<p>something like :</p>\r\n<p>Dim marker(12) As New GMapMarkerCross(Form1.GMapControl1.Position)</p>",
+    "PostedDate": "2011-10-23T11:58:06.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688106",
+    "ThreadId": "276896",
+    "Html": "<p>?</p>",
+    "PostedDate": "2011-10-23T12:05:32.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688109",
+    "ThreadId": "276896",
+    "Html": "<p><span style=\"color: #888888;\">instead of&nbsp;</span></p>\r\n<p><span style=\"color: #888888;\">Dim marker As New GMapMarkerCross(Form1.GMapControl1.Position)</span></p>\r\n<p><span style=\"color: #888888;\">Dim marker1 As New GMapMarkerCross(Form1.GMapControl1.Position)</span></p>\r\n<p><span style=\"color: #888888;\">Dim marker2 As New GMapMarkerCross(Form1.GMapControl1.Position)</span></p>\r\n<p><span style=\"color: #888888;\">i want to have an array of markers &nbsp;: Marker(i)&nbsp;</span></p>\r\n<p><span style=\"color: #888888;\"><br /></span></p>",
+    "PostedDate": "2011-10-23T12:08:46.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688110",
+    "ThreadId": "276896",
+    "Html": "<p>so whats the problem? ;}</p>",
+    "PostedDate": "2011-10-23T12:13:32.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688115",
+    "ThreadId": "276896",
+    "Html": "<p>just tell me if this is correct :</p>\r\n<p>Dim marker() As GMapMarkerCross</p>\r\n<p>in button click event</p>\r\n<p>marker(1).Position = New PointLatLng(Lat, Lon)</p>\r\n<p>overlayOne.Markers.Add(marker(1))</p>\r\n<p>&nbsp;</p>\r\n<p>i don't get anything in the map ?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-10-23T12:21:20.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688118",
+    "ThreadId": "276896",
+    "Html": "<p>i'm not vb expert, i've no idea</p>",
+    "PostedDate": "2011-10-23T12:29:16.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691225",
+    "ThreadId": "276896",
+    "Html": "<p>How do u create an array of markers on C#</p>",
+    "PostedDate": "2011-10-29T19:06:57.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

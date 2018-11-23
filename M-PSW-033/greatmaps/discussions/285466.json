@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "722453",
+    "ThreadId": "285466",
+    "Html": "\r\n<p>Hello radioman,</p>\r\n<p>i updatet my program from GMap.dll 1.5.3 to 1.6.0.</p>\r\n<p>I had a marker wich shows from a clicked position up to the current mouse position a line.</p>\r\n<p>my marker:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">Dim</span> TmpPoint_Drawing_End <span style=\"color:blue\">As</span> GPoint = Form_Main.MainMap.FromLatLngToLocal(<span style=\"color:blue\">Me</span>.EndPoint)\r\n        g.DrawLine(Pen, LocalPosition.X, LocalPosition.Y, TmpPoint_Drawing_End.X, TmpPoint_Drawing_End.Y)\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>but in the new Version the function</p>\r\n<pre>FromLatLngToLocal returns wrong values<br></pre>\r\n<p>is there a new way, how to calculate the new Position of the local mouse Position?</p>\r\n<p>If i draw a route instead, it works, but now i want to draw a circle instead of this line. So i can't use route or polygon.</p>\r\n<p>Do you have a answer for it?</p>\r\n<p>Thanks an happy new year readioman.</p>\r\n<p>regards EDE</p>\r\n",
+    "PostedDate": "2012-01-09T05:59:46.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722488",
+    "ThreadId": "285466",
+    "Html": "<p>it returns good value, but rendering should be done in overrided function&nbsp;<strong>OnPaintOverlays</strong>, the other option is to use custom marker, check&nbsp;GMapMarkerCircle in&nbsp;Demo.WindowsForms, double click add 100m circle</p>\n<p>p.s. checked it works as expected:</p>\n<p><em>protected override void OnPaintOverlays(System.Drawing.Graphics g)</em><br /><em> {</em><br /><em>&nbsp; base.OnPaintOverlays(g);&nbsp;</em></p>\n<p><em>&nbsp;var p = PointToClient(Form.MousePosition);</em><br /><em>&nbsp;g.DrawLine(Pens.Blue, 10, 10, p.X, p.Y); </em><br /><em>}&nbsp;</em></p>",
+    "PostedDate": "2012-01-09T06:34:49.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723047",
+    "ThreadId": "285466",
+    "Html": "<p>damn my fault.</p>\r\n<pre>e.Graphics.DrawRectangle(blackPen, p1.x, p1.y, <strong>WIDTH, HEIGHT</strong>) not e.Graphics.DrawRectangle(blackPen, p1.x, p1.y, <strong>p2.x, p2.y</strong>)<br /><br /><pre>now it works fine. <br /><br />Bye EDE</pre>\r\n<br /></pre>",
+    "PostedDate": "2012-01-10T05:03:06.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

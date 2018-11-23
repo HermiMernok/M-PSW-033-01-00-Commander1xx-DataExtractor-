@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "679668",
+    "ThreadId": "274675",
+    "Html": "\r\n<p>Hy,</p>\r\n<p>i&acute;ve updated to the hotbuild and ai get an error with the proxy authentication:</p>\r\n<p>GMaps.Instance.Proxy = new WebProxy(serverip, serverport.Value);<br>\r\nGMaps.Instance.Proxy.Credentials = new NetworkCredential(user, password);</p>\r\n<p>Instance.Proxy is not known...</p>\r\n<p>How do i do this with the hot build?</p>\r\n<p>Thank you.</p>\r\n",
+    "PostedDate": "2011-10-04T01:04:34.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679671",
+    "ThreadId": "274675",
+    "Html": "<p>GMapProvider.<strong>WebProxy</strong> = new WebProxy(\"10.2.0.100\", 8080);<br />GMapProvider.<strong>WebProxy</strong>.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeada\");</p>",
+    "PostedDate": "2011-10-04T01:14:12.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679678",
+    "ThreadId": "274675",
+    "Html": "<p>Thank you</p>",
+    "PostedDate": "2011-10-04T01:26:07.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

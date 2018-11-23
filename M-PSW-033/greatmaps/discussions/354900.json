@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "833344",
+    "ThreadId": "354900",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Removing a route is simple, but I can't think of a way how to remove the markers that belong to the marker. Any suggestions?</p>\r\n",
+    "PostedDate": "2012-05-08T02:58:34.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833345",
+    "ThreadId": "354900",
+    "Html": "<p>\"markers that belong to the marker\" ?</p>",
+    "PostedDate": "2012-05-08T03:03:13.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833381",
+    "ThreadId": "354900",
+    "Html": "<p>Yeah, I guess I'm not explaining myself very well.</p>\r\n<p>Before I add the route I add a marker for begin and end of the route. So I need a solution to make it a part of the route.</p>\r\n<p>- EDIT: Hmmmm, perhaps I have an idea.</p>",
+    "PostedDate": "2012-05-08T04:17:34.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833446",
+    "ThreadId": "354900",
+    "Html": "<p>m1.Tag = route1;<br />m2.Tag = route2;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-05-08T06:33:11.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833474",
+    "ThreadId": "354900",
+    "Html": "<p>Yep, that is (almost) exactly what I did, but struggling with the removal. The begin marker has the same tag as the end marker, but the code somehow isn't working. Have to dig a little deeper.</p>",
+    "PostedDate": "2012-05-08T07:27:36.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833512",
+    "ThreadId": "354900",
+    "Html": "<p>This code obviously will only remove one marker, how do I modify it to remove more?</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">Dim</span> m <span style=\"color: blue;\">As</span> GMapMarker = route_overlay.Markers.FirstOrDefault(<span style=\"color: blue;\">Function</span>(p) p <span style=\"color: blue;\">IsNot</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">AndAlso</span> TryCast(p.Tag, <span style=\"color: blue;\">String</span>) = \"1\")\n<span style=\"color: blue;\">If</span> m <span style=\"color: blue;\">IsNot</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">Then</span>\n   route_overlay.Markers.Remove(m)\n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\n</pre>\n</div>\n<p>Have to use this kindof code, cause the \"For Each\" simply doesn't work if you want to remove multiple markers using the&nbsp; tags.</p>",
+    "PostedDate": "2012-05-08T08:42:49.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833541",
+    "ThreadId": "354900",
+    "Html": "<p>build list of wanted markers then use that list and remove one by one from overlay, clear the list</p>",
+    "PostedDate": "2012-05-08T09:28:40.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "836643",
+    "ThreadId": "354900",
+    "Html": "<p>He Radioman. Sorry for my late reply. Caught the flue last week. Still not 100%. Hope to feel better soon.</p>\r\n<p>What do you mean with building a list?</p>",
+    "PostedDate": "2012-05-15T05:58:10.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "836695",
+    "ThreadId": "354900",
+    "Html": "<p>list a;<br />foreach(var m in overlay.Markers)<br />{<br />&nbsp; if(int)m.Tag == 1)<br />&nbsp; a.Add(m)<br />}</p>\r\n<p>foreach(var m in a)<br />{<br />&nbsp; &nbsp;overlay.Markers.Remove(m);<br />}</p>\r\n<p>a.Clear();</p>\r\n<p>p.s. grab more fruit ;}</p>",
+    "PostedDate": "2012-05-15T08:05:03.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "836771",
+    "ThreadId": "354900",
+    "Html": "<p>\"An apple a day , keeps the doctor away....\" Don't believe the one that is telling you this crap lol. Last weekend I died, but I remembered that I had a question left here.&nbsp; It was a long journey, but h&eacute;, I'm back. :P</p>\n<p>Thanks m8. Will have a look-see later. Now I'm going to climb the couch and have a rest ;)</p>",
+    "PostedDate": "2012-05-15T09:32:23.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838544",
+    "ThreadId": "354900",
+    "Html": "<p>Things are finally getting better with me ;) and your solution is wonderful. Thank you.</p>",
+    "PostedDate": "2012-05-20T04:15:47.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1329758",
+    "ThreadId": "354900",
+    "Html": "Hi radioman,<br />\n<br />\nwe use gmap.net for windows from project. but we have a problem about removing markers and routes. we can only remove  that  last added marker.<br />\nhow we solve this problem?<br />\nthanks for your hepls.<br />\n",
+    "PostedDate": "2014-12-08T05:20:01.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1329831",
+    "ThreadId": "354900",
+    "Html": "you can add//remove any marker<br />\n",
+    "PostedDate": "2014-12-08T08:16:22.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

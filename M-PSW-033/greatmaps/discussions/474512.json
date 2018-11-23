@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1137551",
+    "ThreadId": "474512",
+    "Html": "Hi Radioman! \r<br />\nThanks for your job, I already used it for my projects, really helpful!\r<br />\nI am stuck with an issue concerning custom marker route for WPF. \r<br />\nI did some custom marker for points (defined in xaml) but I didn't manage to do it for routes. \r<br />\n<br />\nI put my code below, can you give me some advices?\r<br />\n<br />\nThanks for your help,\r<br />\nMelanie\r<br />\n<br />\nXAML <br />\n<pre><code>&lt;UserControl...&gt;\n    &lt;Path Name=&quot;pathMarker&quot; /&gt;\n&lt;/UserControl&gt;</code></pre>\n\nCodeBehind<br />\n<pre><code>{\n    public partial class PathMarker : UserControl, IGenericMarker\n    {\n        #region Properties\n        public int StartVisibiltyZoomLevel { get; set; }\n        public int StopVisibiltyZoomLevel { get; set; }\n        public GMapControl Map { get; set; }\n        #endregion\n\n        #region Constructor\n        public PathMarker (GMapControl mainMap, int visibilityStartLevel, int visibilityStopLeve, Brush color)\n        {\n            InitializeComponent();\n            this.Map = mainMap;\n            InitializeComponent();\n            pathMarker.Stroke = color;\n            this.StartVisibiltyZoomLevel = visibilityStartLevel;\n            this.StopVisibiltyZoomLevel = visibilityStopLevel;\n        }\n        #endregion\n</code></pre>\n\nMarker instantiation<br />\n<pre><code>PointLatLng ptw = new PointLatLng(marker.StartPoint.Lat, marker.StartPoint.Long);\n                        GMapMarker path = new GMapMarker(ptw);\n                        path.Shape = new PathMarker(MainMap, marker.VisibilityStartLevel, MainMap.MaxZoom, Brushes.Orange);\n                        MainMap.Markers.Add(path );\n                    </code></pre>\n\nThank you and sorry for my broken english\r<br />\nMelanie<br />\n",
+    "PostedDate": "2013-12-18T07:29:45.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1150483",
+    "ThreadId": "474512",
+    "Html": "Any ideas?<br />\n",
+    "PostedDate": "2014-01-07T08:22:58.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "531299",
+    "ThreadId": "237187",
+    "Html": "\r\n<p>Hi Radioman!</p>\r\n<p>I created a derived class from &quot;GMapControl.cs&quot; to paint some custom stuff for which I also need access to &quot;Core.cs&quot;.</p>\r\n<p>Unfortunately I cannot access Core.cs because it is internal. Any idea how to solve that?</p>\r\n<p>Thanks a lot</p>\r\n<p>Xandolph</p>\r\n",
+    "PostedDate": "2010-12-05T04:16:03.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531327",
+    "ThreadId": "237187",
+    "Html": "\r\n<p>you do not need it, just override void <strong>OnPaintEtc</strong></p>\r\n",
+    "PostedDate": "2010-12-05T05:59:22.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

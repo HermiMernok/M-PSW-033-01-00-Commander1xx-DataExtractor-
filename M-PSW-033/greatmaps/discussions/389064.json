@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "891426",
+    "ThreadId": "389064",
+    "Html": "\r\n<p>hello! i'm quite new to visual studio C# and GMap.NET, and i encounter some problems. There this grey&nbsp;square&nbsp;with a red &quot;&#43;&quot; at the&nbsp;center&nbsp;of the grey square and is obstructing the view of the map. I suspect that is because of the grey\r\n square with a red &quot;&#43;&quot; that cause the map not able to be drag, but i'm not too sure either because i'm new with these 2 programs. Below are the&nbsp;codes:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System;\r\n<span style=\"color:blue\">using</span> System.Collections.Generic;\r\n<span style=\"color:blue\">using</span> System.ComponentModel;\r\n<span style=\"color:blue\">using</span> System.Data;\r\n<span style=\"color:blue\">using</span> System.Drawing;\r\n<span style=\"color:blue\">using</span> System.Linq;\r\n<span style=\"color:blue\">using</span> System.Text;\r\n<span style=\"color:blue\">using</span> GMap.NET;             <span style=\"color:green\">//Required</span>\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms; <span style=\"color:green\">//Required</span>\r\n<span style=\"color:blue\">using</span> GMap.NET.MapProviders; <span style=\"color:green\">//Required</span>\r\n<span style=\"color:blue\">using</span> System.Windows.Forms;\r\n\r\n<span style=\"color:blue\">namespace</span> GPSMap\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">partial</span> <span style=\"color:blue\">class</span> Form1 : Form\r\n    {\r\n        <span style=\"color:blue\">public</span> Form1()\r\n        {\r\n            InitializeComponent();\r\n\r\n            GMapControl MainMap = <span style=\"color:blue\">new</span> GMapControl();\r\n            {\r\n                MainMap.MapProvider = GMapProviders.YahooMap;\r\n                MainMap.SetCurrentPositionByKeywords(<span style=\"color:#a31515\">&quot;USA&quot;</span>);\r\n                MainMap.MinZoom = 1;\r\n                MainMap.MaxZoom = 17;\r\n                MainMap.Zoom = 7;\r\n                MainMap.CanDragMap = <span style=\"color:blue\">true</span>;\r\n                MainMap.Dock = DockStyle.Fill;\r\n            }\r\n            Controls.Add(MainMap);\r\n            ResumeLayout(<span style=\"color:blue\">true</span>);\r\n        }\r\n    }\r\n\r\n}\r\n\r\n</pre>\r\n</div>\r\nIs there any way to solve the problem? Thanks! :)\r\n<p></p>\r\n",
+    "PostedDate": "2012-07-25T18:46:15.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891471",
+    "ThreadId": "389064",
+    "Html": "<p>oh i manage to solve the problem. :)</p>",
+    "PostedDate": "2012-07-25T23:14:40.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891492",
+    "ThreadId": "389064",
+    "Html": "<p>did you added <em>SuspendLayout</em> ?</p>",
+    "PostedDate": "2012-07-26T00:06:26.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891516",
+    "ThreadId": "389064",
+    "Html": "<p>so i just add SuspendLayout() below&nbsp;InitializeComponent(); right?&nbsp;</p>\r\n<p>and i manage to remove the grey square by including the codes in \"private void gMapControl1_Load(object sender, EventArgs e)\". i was reading the forum and i saw some people added their codes there so i decided to give it a try.</p>\r\n<p>anyway, thanks so much! :)</p>",
+    "PostedDate": "2012-07-26T01:17:18.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891517",
+    "ThreadId": "389064",
+    "Html": "<p>oh yes, just to clarify, the demo that has been referring all around the forum page can be found under the \"source code\" category right?</p>",
+    "PostedDate": "2012-07-26T01:19:12.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891572",
+    "ThreadId": "389064",
+    "Html": "<p>indeed</p>",
+    "PostedDate": "2012-07-26T03:03:44.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892046",
+    "ThreadId": "389064",
+    "Html": "<p>decided to just use the same post. I would like to customise my own marker design. I'm using a plane image (planetracker.png file) and try to use it as a marker. Is it possible? The codes that i had done is below:</p>\r\n<p>\r\n<pre>using System.Drawing;\r\nusing System.Drawing.Drawing2D;\r\nusing GMap.NET;\r\nusing GMap.NET.WindowsForms;\r\n\r\nnamespace GMap.NET.WindowsForms.Markers\r\n{\r\n    public class GMapMarkerImage : GMapMarker\r\n    {\r\n        \r\n        public System.Drawing.Image Images;\r\n\r\n        public GMapMarkerImage(PointLatLng p)\r\n            : base(p)\r\n        {\r\n            Images = Image.FromFile(\"C:\\\\Users\\\\HP\\\\Documents\\\\Visual Studio 2010\\\\Projects\\\\GPSMap3\\\\GPSMap3\\\\Resources\\\\planetracker.png\");\r\n        }\r\n\r\n        public override void OnRender(Graphics g)\r\n        {\r\n            Images = Image.FromFile(\"C:\\\\Users\\\\HP\\\\Documents\\\\Visual Studio 2010\\\\Projects\\\\GPSMap3\\\\GPSMap3\\\\Resources\\\\planetracker.png\");\r\n            g.DrawImage(Images, System.Convert.ToInt32(LocalPosition.X - Size.Width / 2), System.Convert.ToInt32(LocalPosition.Y - Size.Height / 2), Size.Width, Size.Height);\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</p>\r\n<p>I'm not sure where i have done wrongly, as when i debug the program, the plane image didn't show up. Could anybody please help me? or maybe give me some hints to solve the problem. or which demo i can look at and try to understand and solve the problem. Quite confused and lost here. :/</p>\r\n<p>Thank you!</p>",
+    "PostedDate": "2012-07-26T20:08:37.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892264",
+    "ThreadId": "389064",
+    "Html": "<p>Why on earth do you set a hardcoded path to your image in the GMapMarkerImage class?</p>\r\n<p>Try this:</p>\r\n<p>&nbsp;</p>\r\n<p>GMapMarkerImage m = new GMapMarkerImage(yourpos);</p>\r\n<p>m.Images = Image.FromFile...</p>\r\n<p>yourOverlay.Markers.Add(m);</p>",
+    "PostedDate": "2012-07-27T06:49:29.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892697",
+    "ThreadId": "389064",
+    "Html": "<p>AHAHAHAHA i add it into my resource. I'm totally noob at this. hahaha!</p>\r\n<p>Anyway, i manage to solve the problem. Thanks so much for your help! :)</p>",
+    "PostedDate": "2012-07-29T03:25:02.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894985",
+    "ThreadId": "389064",
+    "Html": "<p>I have one more question! i'm trying to display marker with the current location of my GPS. I tried to read the demo and look at some discussion but i still can't display the marker with GPS current location. Here are my codes:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">using</span> System;\r\n<span style=\"color: blue;\">using</span> System.Collections.Generic;\r\n<span style=\"color: blue;\">using</span> System.ComponentModel;\r\n<span style=\"color: blue;\">using</span> System.Data;\r\n<span style=\"color: blue;\">using</span> System.Drawing;\r\n<span style=\"color: blue;\">using</span> System.Linq;\r\n<span style=\"color: blue;\">using</span> System.Text;\r\n<span style=\"color: blue;\">using</span> System.Globalization;\r\n<span style=\"color: blue;\">using</span> System.Windows.Forms;\r\n<span style=\"color: blue;\">using</span> GMap.NET;             <span style=\"color: green;\">//Required</span>\r\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms; <span style=\"color: green;\">//Required</span>\r\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms.Markers;\r\n<span style=\"color: blue;\">using</span> GMap.NET.MapProviders;<span style=\"color: green;\">//Required</span>\r\n<span style=\"color: blue;\">using</span> System.Threading;\r\n\r\n<span style=\"color: blue;\">namespace</span> GPSMap3\r\n{\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">partial</span> <span style=\"color: blue;\">class</span> Form1 : Form\r\n    {\r\n        <span style=\"color: blue;\">public</span> Form1()\r\n        {\r\n            InitializeComponent();\r\n\r\n            SuspendLayout();\r\n\r\n            GMapControl MainMap = <span style=\"color: blue;\">new</span> GMapControl();                          \r\n            GMapOverlay overlayOne = <span style=\"color: blue;\">new</span> GMapOverlay(MainMap, <span style=\"color: #a31515;\">\"OverlayOne\"</span>);\r\n\r\n            MainMap.MapProvider = GMapProviders.YahooMap;\r\n\r\n                MainMap.SetCurrentPositionByKeywords(<span style=\"color: #a31515;\">\"Singapore\"</span>);\r\n                MainMap.MinZoom = 1;\r\n                MainMap.MaxZoom = 24;\r\n                MainMap.Zoom = 13;\r\n                MainMap.CanDragMap = <span style=\"color: blue;\">true</span>;\r\n                MainMap.RoutesEnabled = <span style=\"color: blue;\">true</span>;\r\n                MainMap.DragButton = MouseButtons.Left;\r\n                MainMap.Dock = DockStyle.Fill;\r\n                MainMap.Manager.Mode = AccessMode.ServerAndCache;\r\n            \r\n                Controls.Add(MainMap);\r\n                ResumeLayout(<span style=\"color: blue;\">true</span>);\r\n            \r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> button1_Click(<span style=\"color: blue;\">object</span> sender, EventArgs e)  <span style=\"color: green;\">//if button1 (running program button) is clicked</span>\r\n        {\r\n            <span style=\"color: blue;\">if</span> (!serialPort1.IsOpen)    <span style=\"color: green;\">//if serial port is not open</span>\r\n                <span style=\"color: blue;\">try</span>\r\n                {\r\n                    serialPort1.Open(); <span style=\"color: green;\">//Open Serial Port</span>\r\n                    timer1.Enabled = <span style=\"color: blue;\">true</span>;\r\n                }\r\n                <span style=\"color: blue;\">catch</span>\r\n                {\r\n                    <span style=\"color: green;\">//A message box will display this message, informing user either a wrong port has been chosen, or have not been plugged in.</span>\r\n                    MessageBox.Show(<span style=\"color: #a31515;\">\"There was an error. Please make sure that the correct port was selected, and the device, plugged in.\"</span>);\r\n                }\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> button2_Click(<span style=\"color: blue;\">object</span> sender, EventArgs e)  <span style=\"color: green;\">//if button2 (stop program) is clicked</span>\r\n        {\r\n            <span style=\"color: blue;\">if</span> (serialPort1.IsOpen)                <span style=\"color: green;\">// if Serial Port is open</span>\r\n            {\r\n                timer1.Enabled = <span style=\"color: blue;\">false</span>;\r\n                serialPort1.Close();               <span style=\"color: green;\">//Close Serial Port</span>\r\n                <span style=\"color: green;\">//Remove data displayed in the textbox</span>\r\n                Latitude.Text = <span style=\"color: #a31515;\">\"     \"</span>;              \r\n                Longitude.Text = <span style=\"color: #a31515;\">\"     \"</span>;                 \r\n                Altitude.Text = <span style=\"color: #a31515;\">\"    \"</span>;                   \r\n            }\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> serialPort1_DataReceived(<span style=\"color: blue;\">object</span> sender, System.IO.Ports.SerialDataReceivedEventArgs e) <span style=\"color: green;\">//When microsoft visual studio receive data</span>\r\n        {\r\n            timer1.Enabled = <span style=\"color: blue;\">true</span>;\r\n            Thread.Sleep(100);\r\n        }\r\n\r\n        <span style=\"color: blue;\">void</span> timer1_Tick(<span style=\"color: blue;\">object</span> sender, EventArgs e)\r\n        {\r\n            GMapControl MainMap = <span style=\"color: blue;\">new</span> GMapControl();                          <span style=\"color: green;\">//Initialise to use GMap Controls</span>\r\n            GMapOverlay overlayOne = <span style=\"color: blue;\">new</span> GMapOverlay(MainMap, <span style=\"color: #a31515;\">\"OverlayOne\"</span>);\r\n          \r\n            <span style=\"color: blue;\">string</span>[] c = serialPort1.ReadLine().Split(<span style=\"color: #a31515;\">','</span>);  <span style=\"color: green;\">//Stored data seperately by using array &amp; using the Split() function</span>\r\n            Latitude.Text = c[9] + <span style=\"color: #a31515;\">\"\\n\"</span>;                     <span style=\"color: green;\">//display Latitude data in textbox</span>\r\n            Longitude.Text = c[10] + <span style=\"color: #a31515;\">\"\\n\"</span>;                  <span style=\"color: green;\">//Display Longitude data in textbox</span>\r\n            Altitude.Text = c[11] + <span style=\"color: #a31515;\">\"\\n\"</span>;                   <span style=\"color: green;\">//Display Altitude data in textboxy</span>\r\n\r\n            <span style=\"color: blue;\">double</span> lat = <span style=\"color: blue;\">double</span>.Parse(Latitude.Text, CultureInfo.InvariantCulture); <span style=\"color: green;\">//get Latitude data</span>\r\n            <span style=\"color: blue;\">double</span> lng = <span style=\"color: blue;\">double</span>.Parse(Longitude.Text, CultureInfo.InvariantCulture); <span style=\"color: green;\">//get Longitude data</span>\r\n\r\n            GMapMarker m = <span style=\"color: blue;\">new</span> GMapMarkerImage(<span style=\"color: blue;\">new</span> PointLatLng(lat, lng));              <span style=\"color: green;\">//customise marker</span>\r\n            overlayOne.Markers.Add(m);\r\n            MainMap.Overlays.Add(overlayOne);\r\n\r\n        }\r\n\r\n    }\r\n}\r\n\r\n</pre>\r\n</div>\r\ni manage to get the data through serialPort1 and display it in the textbox. i read the demo and realise that i can actually use the values in the textbox for the marker position. i tried but i still can't display the marker. Does anybody know how i can display the marker once i receive data from the GPS module? and also update the marker as the GPS module position changed? Thanks! i really need help and i'm trying to understand the demo codes as well. Thanks!</p>",
+    "PostedDate": "2012-08-02T21:43:37.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894994",
+    "ThreadId": "389064",
+    "Html": "<p>there is few gps demos already, just use common sense man.. wtf with \"GMapControl MainMap = new GMapControl();\" in timer thread..</p>",
+    "PostedDate": "2012-08-02T23:12:47.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

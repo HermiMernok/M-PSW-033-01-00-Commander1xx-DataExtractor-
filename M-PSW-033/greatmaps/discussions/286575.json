@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "727167",
+    "ThreadId": "286575",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>We are testing your very interesting API on multitouch devices. We added pan with one finger, but we have some problems for zooming with several fingers.</p>\r\n<p>I look at the method called OnMouseWheel in GMapControl and I perform the same code below when I put 2 or 3 fingers in touch callback :</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:green\">// Set current position</span>\r\nCore.currentPosition = FromLocalToLatLng((<span style=\"color:blue\">int</span>)scaleCenterPoint.X, (<span style=\"color:blue\">int</span>)scaleCenterPoint.Y);\r\n\r\n<span style=\"color:green\">// Save last scale center</span>\r\nCore.mouseLastZoom.X = (<span style=\"color:blue\">int</span>)scaleCenterPoint.X;\r\nCore.mouseLastZoom.Y = (<span style=\"color:blue\">int</span>)scaleCenterPoint.Y;\r\n\r\nCore.MouseWheelZooming = <span style=\"color:blue\">true</span>;\r\n\r\nZoom = myScaleFactor;\r\n\r\nCore.MouseWheelZooming = <span style=\"color:blue\">false;</span></pre>\r\n</div>\r\n<p></p>\r\n<p><br>\r\nThis code works very well when I perform a test from button click with a scale center and a scale factor as examples.</p>\r\n<p>But when I test this code in touch callback (manipulations API), it does'nt work : I don't have a center scale like&nbsp;MousePositionWithoutCenter (Bing or Google Maps like).</p>\r\n<p>Do you have any idea to solve our problems ?</p>\r\n<p>Thanks,</p>\r\n<p>Thitony</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\"><br></span></pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-01-18T10:19:36.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727219",
+    "ThreadId": "286575",
+    "Html": "<p>it's complicated... and i don't have touch device, maybe in the next life when economy will be operational ;}</p>",
+    "PostedDate": "2012-01-18T12:16:47.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727236",
+    "ThreadId": "286575",
+    "Html": "<p>;}</p>\r\n<p><span class=\"hps\">you have no</span><span>&nbsp;</span><span class=\"hps\">idea where</span><span>&nbsp;</span><span class=\"hps\">the problem</span><span>&nbsp;</span><span class=\"hps\">might come&nbsp;</span><span>?</span></p>\r\n<p><span><span class=\"hps\">It is strange that</span><span>&nbsp;</span><span class=\"hps\">it works well</span><span>&nbsp;</span><span class=\"hps\">when I apply</span><span>&nbsp;</span><span class=\"hps\">the position and</span><span>&nbsp;</span><span class=\"hps\">zoom</span><span>&nbsp;</span><span class=\"hps\">through a</span><span>&nbsp;</span><span class=\"hps\">click of a button</span><span>&nbsp;</span><span class=\"hps\">but not when I</span><span>&nbsp;</span><span class=\"hps\">applied</span><span>&nbsp;</span><span class=\"hps\">successively</span><span>&nbsp;</span><span class=\"hps\">...</span><span>&nbsp;</span><span class=\"hps\">I still</span><span>&nbsp;</span><span class=\"hps\">tried to apply</span><span>&nbsp;</span><span class=\"hps\">the new</span><span>&nbsp;</span><span class=\"hps\">zoom</span><span>&nbsp;</span><span class=\"hps\">and offset</span><span>&nbsp;</span><span class=\"hps\">only</span><span>&nbsp;</span><span class=\"hps\">every 50 milliseconds</span><span>, but</span><span>&nbsp;</span><span class=\"hps\">it makes no difference</span><span>&nbsp;</span><span class=\"hps\">...</span></span></p>\r\n<p>You can simulate touch devices with the simulator provided by Microsoft Surface 2 SDK (<a href=\"http://www.microsoft.com/download/en/details.aspx?id=26716\">http://www.microsoft.com/download/en/details.aspx?id=26716</a>)</p>",
+    "PostedDate": "2012-01-18T12:42:56.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727243",
+    "ThreadId": "286575",
+    "Html": "<p>hm.. i might try, thanks</p>",
+    "PostedDate": "2012-01-18T12:49:21.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

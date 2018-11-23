@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "553993",
+    "ThreadId": "242946",
+    "Html": "\r\n<p>Hi,&nbsp;</p>\r\n<p>My application (VB) &nbsp;using GMap.Net has a number of layers, each layer having a number of markers and routes.</p>\r\n<p>I allow the user to Add and Remove each layer, as they choose, using a CheckBox for each Overlay, for map clarity, using the following code.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Private Sub cboxRunUpSights_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboxRunUpSights.CheckedChanged</p>\r\n<p>Dim pos As GMap.NET.PointLatLng = map.Position</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;If cboxRunUpSights.Checked Then</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;map.Overlays.Add(ovSightsRun)&nbsp;</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp;Else</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;map.Overlays.Remove(ovSightsRun)&nbsp;</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp;End If</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; map.Invalidate()</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; map.Refresh()</p>\r\n<p>End Sub</p>\r\n<p>&nbsp;</p>\r\n<p>Provided the map is not Panned, or Zoom changed, between removing and re-adding an overlay, this works a treat.</p>\r\n<p>However, if an Overlay removed, the map zoom changed, or panned, then the Overlay added again, it appears in the wrong place relative to other overlays; UNTIL the map zoom is again changed OR the map is again panned, where after the Overlay is redrawn in\r\n correct relation to other Overlays?</p>\r\n",
+    "PostedDate": "2011-01-23T10:25:32.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "553998",
+    "ThreadId": "242946",
+    "Html": "\r\n<p>i recommend instead of adding/removing overlay, use&nbsp;<strong>IsVisibile</strong> property:</p>\r\n<p>Private Sub cboxRunUpSights_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboxRunUpSights.CheckedChanged\r\n<br>\r\n&nbsp; &nbsp; ovSightsRun.<strong>IsVisibile =&nbsp;</strong>cboxRunUpSights<strong>.Checked;<br>\r\n</strong>End Sub</p>\r\n",
+    "PostedDate": "2011-01-23T10:53:10.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554005",
+    "ThreadId": "242946",
+    "Html": "\r\n<p>Had not come across the <strong>IsVisible</strong> property</p>\r\n<p>Your suggestion works perfectly. Thank you</p>\r\n",
+    "PostedDate": "2011-01-23T11:13:17.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554538",
+    "ThreadId": "242946",
+    "Html": "\r\n<p>I have experienced this behavior as well.</p>\r\n<p>In our application, we have a bank of available overlays that the user can add to their map. &nbsp;Once added, the user can (via the IsVisible property) hide and show the individual overlays.</p>\r\n<p>So from a structuring perspective, it makes sense for us to maintain a distinction between an overlay that is on/off the map, and an overlay that is visible/invisible on the map. &nbsp;So then, would it make sense to expose a method on the overlay class,\r\n similar to&nbsp;UpdatePolygonLocalPosition method for the polygon class? &nbsp;The method would recalculate the local position of all objects on the overlay. &nbsp;Perhaps the underlying code could call this method implicitly when an overlay is added to the\r\n map?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-24T10:43:24.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554590",
+    "ThreadId": "242946",
+    "Html": "\r\n<p>yes, i'll fix it later</p>\r\n",
+    "PostedDate": "2011-01-24T12:09:55.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1292374",
+    "ThreadId": "242946",
+    "Html": "i got a problem with removing overlays from the gmapscontrol. <br />\n<pre><code>gMapControl1.Overlays.Remove(gmoOverlay); </code></pre>\n\nthis doesn't work for me... when i try removing with the index, the Overlays.IndexOf(gmoOverlay) alwas return -1, even the overlay is 5 times in it... please help me.<br />\n",
+    "PostedDate": "2014-08-22T03:00:56.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

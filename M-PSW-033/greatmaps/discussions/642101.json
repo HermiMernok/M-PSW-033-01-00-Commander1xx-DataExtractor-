@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1436465",
+    "ThreadId": "642101",
+    "Html": "I'm working on a project and I need to calculate the route via coordinates.\r<br />\nThe coordinates can just be input to textboxes and the number of the coordinates is not pre-defined.\r<br />\nSo I created a list and saved the values there, but I don't know how to use them to calculate the route.\r<br />\n<br />\nMy Nodes are defined like this;<br />\n<pre><code>List&lt;Nodes&gt; Nodeslist = new List&lt;Nodes&gt;();\n        Nodes Node;\n        System.Windows.Forms.TextBox Nodebox;\n\n        foreach (var item in this.Controls)\n        {\n            if (item.GetType().Name == &quot;TextBox&quot;)\n            {\n                Node = new Nodes();\n                Nodebox = (System.Windows.Forms.TextBox)(item);\n                if (Nodebox.Name.StartsWith(&quot;TextBoxLat&quot; + i.ToString()))\n                {\n                    Node._Lattitude = Convert.ToDouble(Nodebox.Text);\n                }\n                else if (Nodebox.Name.StartsWith(&quot;TextBoxLong&quot; + i.ToString()))\n                {\n                    Node._Longitude = Convert.ToDouble(Nodebox.Text);\n                }\n\n                Nodeslist.Add(Node);\n\n            }\n\n\n        }\n\n</code></pre>\n\nAnd also when I try to calculate the route downwards, it returns null.<br />\n<pre><code>PointLatLng start = new PointLatLng(38.481858, 27.089006);\n        PointLatLng end = new PointLatLng(38.468447, 27.113793);\n\n        MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(start, end, false, false, 15);\n        GMapRoute r = new GMapRoute(route.Points, &quot;My route&quot;);\n        GMapOverlay routeOverlay = new GMapOverlay(&quot;route&quot;);\n        routeOverlay.Routes.Add(r);\n        gMap.Overlays.Add(routeOverlay);\n        double distance;\n        distance = route.Distance;\n\n        r.Stroke.Width = 2;\n        r.Stroke.Color = Color.OrangeRed;\n\n</code></pre>\n\nAny kind of help would be greatly appreciated.<br />\n",
+    "PostedDate": "2015-07-29T02:00:10.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1436502",
+    "ThreadId": "642101",
+    "Html": "routing service recently was removed by google, try directions instead<br />\n",
+    "PostedDate": "2015-07-29T10:10:10.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1436618",
+    "ThreadId": "642101",
+    "Html": "Oh, My mind was about to blow.. Thanks.<br />\n",
+    "PostedDate": "2015-07-30T04:26:42.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

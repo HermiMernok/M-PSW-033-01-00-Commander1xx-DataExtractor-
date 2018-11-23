@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "474620",
+    "ThreadId": "221960",
+    "Html": "<p>I'm using the Gmaps.Net in a Windows Mobile application. I regulary receive the following error when I exit the application. I have also had this exception in the demo application, also when terminating the application:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>ObjectDisposedException \r\nat \r\nSystem.Threading.Waithandle.CheckResultInternal(<span style=\"color:blue\">Boolean</span> r) \r\nat \r\nSystem.Threading.EventWaitHandle.WaitOne() \r\nat \r\nGmap.NET.Internals.Core.ProcessLoadTask() \r\nat \r\nOpenNetCF.Threading.Thread2.ShimProc() \r\n</pre>\r\n</div>\r\n<p>Anyone an idea how I can prevent this error from happening?</p>",
+    "PostedDate": "2010-07-30T01:19:29.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474679",
+    "ThreadId": "221960",
+    "Html": "<p>is it <strong><em>only</em></strong> mobile issue?</p>",
+    "PostedDate": "2010-07-30T03:28:52.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474681",
+    "ThreadId": "221960",
+    "Html": "<p>I've only used and tested it in mobile, can't say anything about other platforms...</p>",
+    "PostedDate": "2010-07-30T03:30:50.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474684",
+    "ThreadId": "221960",
+    "Html": "<p>i see, well on exit event, i dispose that handle while loading threads still are waiting:\r\n<div style=\"color:black;background-color:white\">\r\n<pre>      <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> OnMapClose()\r\n      {\r\n         CancelAsyncTasks();\r\n\r\n         <span style=\"color:blue\">if</span>(waitForTileLoad != <span style=\"color:blue\">null</span>)\r\n         {\r\n            <span style=\"color:blue\">try</span>\r\n            {\r\n               waitForTileLoad.Set();\r\n               waitForTileLoad.Close();\r\n            }\r\n            <span style=\"color:blue\">catch</span>\r\n            {\r\n            }\r\n         }\r\n      }<br><br>..for fast solution, you can comment out try block<br>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-07-30T03:41:34.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474695",
+    "ThreadId": "221960",
+    "Html": "<p>Thanks radioman, I'll try that!</p>\r\n<p>/edit: Commenting out that block did solve the problem, thanks!</p>",
+    "PostedDate": "2010-07-30T04:30:31.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478759",
+    "ThreadId": "221960",
+    "Html": "<p>fixed</p>",
+    "PostedDate": "2010-08-10T12:27:02.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478786",
+    "ThreadId": "221960",
+    "Html": "<p>Great, thanks!</p>",
+    "PostedDate": "2010-08-10T13:17:25.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

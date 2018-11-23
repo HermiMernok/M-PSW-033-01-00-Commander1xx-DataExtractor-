@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1005882",
+    "ThreadId": "434301",
+    "Html": "I'm trying to figure the best way to move a marker along the route using right / left arrow or MouseWheel\r<br />\n<br />\nThe idea is to emulate manualy the vehicle movement (can be usefull when track looks like spaghetti)\r<br />\n<br />\nFor mousewheel it can be tricky as long as mousewheel is used for Zoom\r<br />\n<br />\nFor Arrows I plan to use the PreviewKeyDown event to increment / decrepent an index on the Route and change the position of an HighLighting maker\r<br />\n<br />\nAny comment or other suggestion ?<br />\n",
+    "PostedDate": "2013-02-24T05:49:54.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006817",
+    "ThreadId": "434301",
+    "Html": "also you can add some forward/back buttons<br />\n",
+    "PostedDate": "2013-02-26T02:15:06.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006828",
+    "ThreadId": "434301",
+    "Html": "Yes buttons is the easy way !\r<br />\nSome suggestion to use MouseWheel would be appreciated !\r<br />\n<br />\nMaybe Shift+MouseWheel\r<br />\nBut is seems more tricky<br />\n",
+    "PostedDate": "2013-02-26T02:43:09.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007752",
+    "ThreadId": "434301",
+    "Html": "How are you going to position the marker? Just on the points of the route?\r<br />\nIf the distance between the route points is large, the movement of the marker will be jumpy...\r<br />\nIf you need a method to get the position BETWEEN route points as well (e.g. a point that lies ON the route and is a certain distance from the start point) just tell me. I needed that as well, and made a little method for it :-)<br />\n",
+    "PostedDate": "2013-02-27T10:06:54.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108008",
+    "ThreadId": "434301",
+    "Html": "Hi Xandolph, I need what are you tell, I need to get the position on a route and the distance from the start to the mark on the route.<br />\n<br />\nCould you help me pleas.<br />\nThanks<br />\n",
+    "PostedDate": "2013-10-15T15:12:05.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108634",
+    "ThreadId": "434301",
+    "Html": "Here's a <a href=\"https://dl.dropboxusercontent.com/u/7026787/GMapUtils.cs\" rel=\"nofollow\">link</a> to my complete Utilities class, there are some other helpful methods as well :-)<br />\n",
+    "PostedDate": "2013-10-17T00:44:49.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1201604",
+    "ThreadId": "434301",
+    "Html": "<strong>Xandolph wrote:</strong><br />\n<blockquote>\nHere's a <a href=\"https://dl.dropboxusercontent.com/u/7026787/GMapUtils.cs\" rel=\"nofollow\">link</a> to my complete Utilities class, there are some other helpful methods as well :-)<br />\n</blockquote>\nWhat is library that you used for ( using MapTools; ) in your code, i found the (ProjNet Library).<br />\n",
+    "PostedDate": "2014-02-01T04:40:45.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1201722",
+    "ThreadId": "434301",
+    "Html": "MapTools.dll is just a .NET wrapper for shapelib.dll, it is used to read and write shapefiles.<br />\nCheckout the method GetRoutesFromShapefile()...<br />\nProjNet is used to convert projections (e.g. from Gauss-Krüger to WGS1984,...)<br />\n",
+    "PostedDate": "2014-02-02T00:13:45.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

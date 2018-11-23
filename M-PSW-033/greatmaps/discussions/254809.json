@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "600967",
+    "ThreadId": "254809",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Thanks for this great library!</p>\r\n<p>&nbsp;</p>\r\n<p>I haven't found an answer yet to this question:</p>\r\n<p>How would I use a custom map in GMap? For example I have a .jpg and I want to use this instead of the Google Maps tiles (which I obviously don't use ;-) ). Is there an &quot;easy&quot; way to do this?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!</p>\r\n<p>Tom</p>\r\n",
+    "PostedDate": "2011-04-21T06:31:35.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "600977",
+    "ThreadId": "254809",
+    "Html": "<p>hey,</p>\r\n<p>you can add custom map only if the provider is tile based</p>",
+    "PostedDate": "2011-04-21T06:35:12.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "600994",
+    "ThreadId": "254809",
+    "Html": "<p>Thanks for your quick answer!</p>\r\n<p>Do you happen to know any tools that can convert a .jpg into tiles/a tile based provider?</p>\r\n<p>From a technical point of view, you would need to assign LatLon coordinates to 3 points on this JPG map, so it has a geographical reference.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>&nbsp;</p>\r\n<p>Tom</p>",
+    "PostedDate": "2011-04-21T06:56:04.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "600995",
+    "ThreadId": "254809",
+    "Html": "<p>&nbsp;</p>\r\n<p>Something like \"Google ground overlays\" would be perfect to use GMap without google maps but a custom map:&nbsp;http://code.google.com/intl/nl-NL/apis/maps/documentation/mapplets/overlays.html#Ground_Overlays</p>\r\n<p>As this would be \"at most\" one or 2 JPG images with limited resolution, performance won't be a problem IMHO.</p>\r\n<p>&nbsp;</p>\r\n<p>Would this be feasable? Any hints on a possible implementation is appreciated!</p>",
+    "PostedDate": "2011-04-21T06:58:31.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

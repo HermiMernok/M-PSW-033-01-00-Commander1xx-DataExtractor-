@@ -1,0 +1,154 @@
+[
+  {
+    "Id": "185150",
+    "ThreadId": "54869",
+    "Html": "I want to use the GMap control from within VB.&nbsp; I have included your Gmap.NET.Core&nbsp; and Gmap.NET.WindowsForms&nbsp; projects, along with my VB.NET project into a VS2008 solution.<br>\r\nI add the&nbsp;&nbsp; System.Windows.Forms.GmapWindowsForms&nbsp; control to my VB.NET form and added the following code :<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim mGmap As GMapNET.GMaps<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; With mGmap.Instance<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Language = &quot;lt&quot;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .UseTileCache = True<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .UseRouteCache = True<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .UseGeocoderCache = True<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .UsePlacemarkCache = True<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End With<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; With GMap1<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .MapType = MapType.GoogleMap<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Zoom = 12<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .CurrentPosition = New PointLatLng(54.6961334816182, 25.2985095977783)<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .ReloadMap()<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim myMarker As New GMapMarkerGoogleRed(GMap1.CurrentPosition)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Markers.Add(myMarker)<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End With<br>\r\n<br>\r\n<br>\r\nBut when the form load, i only see a black empty map.&nbsp;&nbsp;&nbsp; I notice in the Windows Froms Demo,&nbsp; you use MAP control interited from GMAP&nbsp;&nbsp; , do i need to use this MAP control in my VB project rather<br>\r\nthan the&nbsp; System.Windows.Forms.GmapWindowsForms&nbsp;&nbsp; control.&nbsp; If so, then how ??? as this control is not displayed within the TOOLBOX<br>\r\n<br>\r\nPlease help,<br>\r\nThanks <br>\r\nPaul.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-29T12:06:21.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "185162",
+    "ThreadId": "54869",
+    "Html": "no need of interhitance, its just for advance; try call map.ReloadMap(); on form load event",
+    "PostedDate": "2009-04-29T12:22:56.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "185168",
+    "ThreadId": "54869",
+    "Html": "Still dos'nt work, only a blank , empty , black map.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-29T12:28:37.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "185170",
+    "ThreadId": "54869",
+    "Html": "when i set the STARTUP PROJECT back to the Demo.Winforms, the demo works ok, so nothing wrong with my internet connection etc.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-29T12:31:40.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "185174",
+    "ThreadId": "54869",
+    "Html": "Hmm,&nbsp; i have added the above code to set map type etc onto a button. When the form loads,&nbsp; nothing,&nbsp; then click the button, nothing again,&nbsp; but a 2nd click of the button now displays the map ok. Very strange ???<br>\r\n",
+    "PostedDate": "2009-04-29T12:40:06.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "185183",
+    "ThreadId": "54869",
+    "Html": ";}",
+    "PostedDate": "2009-04-29T12:49:26.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "186127",
+    "ThreadId": "54869",
+    "Html": "Hello<br>\r\n<br>\r\nOk but now my question why we have have this behavior ? :-) <br>\r\nThen press a button 1 or 2 or 3 times is not a solution I guess.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-05-02T09:17:26.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "186153",
+    "ThreadId": "54869",
+    "Html": "i think you miss some thing which i don't know ;/",
+    "PostedDate": "2009-05-02T12:44:34.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192122",
+    "ThreadId": "54869",
+    "Html": "<p>I am having the same problem.</p>\r\n<p>I tested the demo fine. Then I created a new VB project, with a form, map, and button, then set up the GMaps.Instance variables, followed by MapType, Min/Max/Zoom, and the CurrentPosition and did a ReloadMap.</p>\r\n<p>I get a black screen with a button, I click it a few times and nothing happens. But when I resize the window even just a little bit, the map loads. So it's some kind of re-painting issue?</p>\r\n<p>I think the Map control itself in Visual Studio is also broken, on reloading the project the control didn't remember its size properly, and doesn't let you adjust it in the properties toolbox. I'm using VS2008.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-19T15:53:30.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192174",
+    "ThreadId": "54869",
+    "Html": "<p>Found the problem.</p>\r\n<p>After setting CurrentPosition you must execute a GoToCurrentPosition() before doing the ReloadMap(). Then it will work.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-19T20:33:10.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471545",
+    "ThreadId": "54869",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>paulmoliver wrote:</strong><br><br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim myMarker As New GMapMarkerGoogleRed(GMap1.CurrentPosition)<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .Markers.Add(myMarker)<br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End With<br> <br> <br></blockquote>\r\n<p>Hello all!</p>\r\n<p>I'm not found .Markers.Add ...&nbsp; method in GMap control</p>\r\n<p>Please help me about this</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2010-07-23T04:16:28.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471547",
+    "ThreadId": "54869",
+    "Html": "<p>GMap1.<strong>Markers</strong></p>",
+    "PostedDate": "2010-07-23T04:22:08.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471557",
+    "ThreadId": "54869",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>GMap1.<strong>Markers</strong></p>\r\n</blockquote>\r\n<p>Thanks!</p>\r\n<p>But not have this method of Gmap control</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-23T04:43:10.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471559",
+    "ThreadId": "54869",
+    "Html": "<p>yes, we do have it ;}</p>",
+    "PostedDate": "2010-07-23T04:51:01.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471560",
+    "ThreadId": "54869",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>yes, we do have it ;}</p>\r\n</blockquote>\r\n<p>ok !</p>\r\n<p>I'm use gmap for windows forms</p>\r\n<p>But i'm need to add markers</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-23T05:07:44.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471562",
+    "ThreadId": "54869",
+    "Html": "<p>mm, then you need to create overlay, add to it your marker, and add the overlay itself to map, check the demo for windows forms</p>",
+    "PostedDate": "2010-07-23T05:13:55.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472288",
+    "ThreadId": "54869",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>mm, then you need to create overlay, add to it your marker, and add the overlay itself to map, check the demo for windows forms</p>\r\n</blockquote>\r\n<p>What is overlay ?</p>\r\n<p>Please tell me</p>",
+    "PostedDate": "2010-07-25T03:22:07.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472346",
+    "ThreadId": "54869",
+    "Html": "<p>overlay is overlay as well as life is life ;}</p>",
+    "PostedDate": "2010-07-25T09:18:39.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472389",
+    "ThreadId": "54869",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>overlay is overlay as well as life is life ;}</p>\r\n</blockquote>\r\n<p>okey! I'm understand how create overlays</p>\r\n<p>I'm look example</p>\r\n<p>Thanks!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-25T13:37:05.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

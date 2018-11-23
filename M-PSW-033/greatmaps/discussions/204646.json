@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "416976",
+    "ThreadId": "204646",
+    "Html": "<p>I added a function to GMapControl.cs to mimic the behaviour of maps.google.com:</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;#if !PocketPC</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; protected override void OnMouseDoubleClick(MouseEventArgs e)</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp;{</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Core.IsDragging = false;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if ((Control.ModifierKeys &amp; Keys.Control) == Keys.Control)</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Zoom--;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Zoom++;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; base.OnMouseDoubleClick(e);</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp;}</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">#endif</div>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre> <span style=\"color:Blue\">#if</span> !PocketPC\r\n     <span style=\"color:Blue\">protected</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnMouseDoubleClick(MouseEventArgs e)\r\n      {\r\n          Core.IsDragging = <span style=\"color:Blue\">false</span>;\r\n          <span style=\"color:Blue\">if</span> ((Control.ModifierKeys &amp; Keys.Control) == Keys.Control)\r\n          {\r\n              Zoom--;\r\n          }\r\n          <span style=\"color:Blue\">else</span>\r\n          {\r\n              Zoom++;\r\n          }\r\n         <span style=\"color:Blue\">base</span>.OnMouseDoubleClick(e);\r\n      }\r\n<span style=\"color:Blue\">#endif</span>\r\n</pre>\r\n</div>\r\n<p>Could someone put this in the source code?</p>\r\n<p>Also, I made a small change to MinZoom and MaxZoom, so they appear in the designer, like so:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>      <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">int</span> maxZoom = 2;\r\n      [Category(<span style=\"color:#A31515\">&quot;GMap.NET&quot;</span>)]\r\n      <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">int</span> MaxZoom { <span style=\"color:Blue\">get</span> { <span style=\"color:Blue\">return</span> maxZoom; } <span style=\"color:Blue\">set</span> { maxZoom = value; } }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-11T06:52:55.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "417006",
+    "ThreadId": "204646",
+    "Html": "<p>MinZoom/MaxZoom fixed. ..But i doubt about zooming on double click, maybe someone wants use double click for other purposes(adding marker, etc...), anyway you can easily override OnMouseDoubleClick and zoom if you want</p>",
+    "PostedDate": "2010-03-11T07:55:13.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569455",
+    "ThreadId": "204646",
+    "Html": "<p>Hi, radioman. I agree with your point that the double click event shouldn't be restricted to specific funtionality. However, perhaps consider including the following:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnMouseDoubleClick(MouseEventArgs e)\r\n{\r\n     Core.EndDrag();\r\n     <span style=\"color: blue;\">base</span>.OnMouseDoubleClick(e);\r\n}\r\n</pre>\r\n</div>\r\n</p>\r\n<p>I think the double click event happens before the MouseUp event, so IsDragging is still true within the mouse double click handler. This prevents many map manipulations (such as zooming) from being performed within this event handler.</p>\r\n<p>Hope this helps.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-02-20T23:23:26.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569577",
+    "ThreadId": "204646",
+    "Html": "<p>actually in double click event there are 3 events:</p>\r\n<p>OnMouseUp<br />OnMouseDoubleClick<br />OnMouseUp</p>\r\n<p>So&nbsp;isDragging = false in OnMouseDoubleClick</p>",
+    "PostedDate": "2011-02-21T05:13:43.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569598",
+    "ThreadId": "204646",
+    "Html": "<p>This problem comes up when DragButton = MouseButtons.Left.</p>\r\n<p>When DragButton = MouseButtons.Right - both GMapControl IsDragging and Core.IsDragging are false in the OnMouseDoubleClick handler.</p>\r\n<p>When DragButton = MouseButtons.Left - GMapControl IsDragging is false (as expected) but Core.IsDragging is <strong>true</strong>. This disables any zoom functionality within the MouseDoubleClick handler.</p>\r\n<p>That's why I found the easiest workaround was to add the Core.EndDrag to the GMapControl MouseDoubleClick event. Do you have a better way to do this (when DragButton is Left)?</p>",
+    "PostedDate": "2011-02-21T06:04:34.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "570247",
+    "ThreadId": "204646",
+    "Html": "<p>I've encountered this issue as well, and have been unable to implement doubleclick zooming when DragButton is set to MouseButtons.Left. &nbsp;Further to this, I have been unable to implement a two-click select+zoom pattern intended to work like this:</p>\n<p>1) User activates \"Zoom to Selection\" mode.&nbsp;</p>\n<p>2) First click on map &nbsp;-- sets origin of selected region.</p>\n<p>3) Move cursor -- cursor indicates second point of selected region. &nbsp;User moves cursor until they are happy with the selection.</p>\n<p>4) Second click -- end selection. Zoom and center the selected region. &nbsp;Clear selection. &nbsp;Disable \"Zoom to Selection\" mode.</p>\n<p>So during the second click event in step 4, IsDragging = true, and the zoom and center does not work.</p>\n<p>&nbsp;</p>\n<p>I think a full-proof solution exists that would make the Click and DoubleClick events completely usable for whatever purposes in all scenarios. &nbsp;The idea is to set IsDragging=True after the user has initiated a drag by actually moving the mouse. &nbsp;During  the MouseDown event, the location of the click can be captured. &nbsp;Then during the MouseMove event, we could determine whether the user has actually moved the cursor beyond the&nbsp;System.Windows.Forms<span>.</span>SystemInformation.DragSize (<a href=\"http://msdn.microsoft.com/en-us/library/system.windows.forms.systeminformation.dragsize.aspx\">http://msdn.microsoft.com/en-us/library/system.windows.forms.systeminformation.dragsize.aspx</a>).  &nbsp;Once the user has moved beyond the DragSize, set IsDragging=True.</p>\n<p>What do you think?</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-02-22T08:45:51.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "570277",
+    "ThreadId": "204646",
+    "Html": "<p>first you can zoom to area holding shift and dragging rectangle, and about doubleclick, need some tuning i guess...</p>",
+    "PostedDate": "2011-02-22T09:23:47.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "570292",
+    "ThreadId": "204646",
+    "Html": "<p>Agreed about holding shift -- there are many alternative methods available. &nbsp;</p>\r\n<p>However, users of our application may have no mouse or keyboard, having only touchscreen for input. &nbsp;So we need to build all functionality into single and double clicks.</p>\r\n<p>I have no problem creating a fork for the solution proposed above -- I just wanted your feedback and direction before doing so. &nbsp;If you like the idea, I can make the fork.</p>\r\n<p>Thanks again for all of your hard work.</p>",
+    "PostedDate": "2011-02-22T09:59:31.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "570318",
+    "ThreadId": "204646",
+    "Html": "<p>fork sounds nice ;}</p>",
+    "PostedDate": "2011-02-22T10:44:12.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571083",
+    "ThreadId": "204646",
+    "Html": "<p>Fork complete. &nbsp;Please review the changes when you get a chance.</p>\r\n<p>I updated WindowsForms and WPF controls. &nbsp;I did not modify GMapControlNew in WPF version -- that version of the control does not utilize the Core.BeginDrag/Core.EndDrag paradigm -- I thought it would be best to leave that implementation up to you :-)</p>\r\n<p>Thanks again,</p>\r\n<p>Matt</p>",
+    "PostedDate": "2011-02-23T13:33:19.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "573371",
+    "ThreadId": "204646",
+    "Html": "<p>perfect,&nbsp;finally we have DoubleClick support ;} thx mattgerg</p>",
+    "PostedDate": "2011-02-28T10:19:08.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "618508",
+    "ThreadId": "204646",
+    "Html": "<p>Hello</p>\r\n<p>I am also interested in the doubleclick for zooming in on the map. Great work :-)<br />But unfortunately I couldn't find the fork you guys are referring to above... Could you please post the link here?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2011-05-26T00:44:08.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "618516",
+    "ThreadId": "204646",
+    "Html": "<p>...as i remember it was fixed, doesn't it work?</p>",
+    "PostedDate": "2011-05-26T01:03:45.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619152",
+    "ThreadId": "204646",
+    "Html": "<p>did you merge the fork with the main release? because i couldn't find the fork mattgerg was talking above.<br />we need to zoom with the doubleclick with the wpf version... any suggestion how this can be achieved without changing the library code?</p>",
+    "PostedDate": "2011-05-27T00:56:19.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619263",
+    "ThreadId": "204646",
+    "Html": "<p>freesurfer,</p>\r\n<p>The doubleclick zoom does not work out of the box. &nbsp;You have to implement it yourself by overriding the OnDoubleClick method in an inherited control, or handling the DoubleClick event otherwise. &nbsp;Something like....</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">void</span> OnDoubleClick(MouseEventArgs e) {\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left) {\r\n        ZoomIn();\r\n    } <span style=\"color: blue;\">else</span> {\r\n        ZoomOut();\r\n    }\r\n}\r\n\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-05-27T05:07:59.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619436",
+    "ThreadId": "204646",
+    "Html": "<p>so whats the problem ;/</p>",
+    "PostedDate": "2011-05-27T10:04:32.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619457",
+    "ThreadId": "204646",
+    "Html": "<p>I dunno? &nbsp;:-)</p>",
+    "PostedDate": "2011-05-27T10:34:12.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619569",
+    "ThreadId": "204646",
+    "Html": "<p>the time is the problem ;-) we don't have much time left before we have to hand in our thesis. the software is part of that and we need more time for testing and documenting. we realized kind of late that zooming with a double click would be nice... changing the code now for that takes too much time, unfortunately.<br />but thanks for your interest and your support :-)</p>",
+    "PostedDate": "2011-05-27T14:14:31.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619652",
+    "ThreadId": "204646",
+    "Html": "<p>10s is to much ;/ really</p>",
+    "PostedDate": "2011-05-27T18:52:03.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622597",
+    "ThreadId": "204646",
+    "Html": "<p>i tried to inherit from GMap.NET.WindowsPresentation.GMapControl but i can't get it to work... :( when i want to instantiate that control in my xaml code i get an error in the code behind that the map does not exist in the current context...</p>\n<p>here my code</p>\n<p><strong>new class</strong></p>\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">namespace</span> WVSH.Ui.Controls\n{\n    <span style=\"color: blue;\">class</span> GMapControl123 : GMap.NET.WindowsPresentation.GMapControl\n    {\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> OnDoubleClick(MouseEventArgs e)\n        {\n            <span style=\"color: blue;\">if</span> (e.LeftButton == MouseButtonState.Pressed)\n            {\n                <span style=\"color: blue;\">base</span>.Zoom++;\n            }\n            <span style=\"color: blue;\">else</span>\n            {\n                <span style=\"color: blue;\">base</span>.Zoom--;\n            }\n        }\n\n    }\n}\n\n</pre>\n</div>\n</pre>\n<p>&nbsp;</p>\n<p><strong>xaml from mainwindow</strong></p>\n<div style=\"color: black; background-color: white;\">\n<pre>xmlns:controls=\"clr-namespace:WVSH.Ui.Controls\"<br />[...]<br />&lt;controls:GMapControl123 Name=<span style=\"color: #a31515;\">\"map\"</span> ItemsSource=<span style=\"color: #a31515;\">\"{Binding Markers}\"</span> MapType=<span style=\"color: #a31515;\">\"GoogleMap\"</span> MouseWheelZoomType=<span style=\"color: #a31515;\">\"MousePositionWithoutCenter\"</span> OnMapDrag=<span style=\"color: #a31515;\">\"map_OnMapDrag\"</span> /&gt;\n</pre>\n</div>\n<p>&nbsp;</p>\n<p><strong>code behind from mainwindow</strong> where i get the \"map does not exist in the current context\" error message</p>\n<div style=\"color: black; background-color: white;\">\n<pre>            <span style=\"color: green;\">// initalize map</span>\n            map.Manager.Mode = AccessMode.ServerAndCache;\n            map.CacheLocation = System.IO.Directory.GetCurrentDirectory() + \"\\\\\";\n            map.ShowCenter = <span style=\"color: blue;\">false</span>;\n            map.IgnoreMarkerOnMouseWheel = <span style=\"color: blue;\">true</span>;\n            map.DragButton = MouseButton.Left;\n<br /><br />//Error&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; The name 'map' does not exist in the current context&nbsp;&nbsp;&nbsp; D:\\WVSH\\WVSH.Ui\\MainWindow.xaml.cs&nbsp;&nbsp;&nbsp; 84&nbsp;&nbsp;&nbsp; 13&nbsp;&nbsp;&nbsp; WVSH.Ui<br /></pre>\n</div>\n<p>&nbsp;</p>\n<p>before when i used the original GMapControl all of this code did work just fine... maybe you guys can help me. as radioman said, the adjustment should just take 10s.... ;/</p>\n<p>thanks for your support</p>",
+    "PostedDate": "2011-06-03T08:21:23.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622647",
+    "ThreadId": "204646",
+    "Html": "<p>tried public override void OnDoubleClick?</p>",
+    "PostedDate": "2011-06-03T09:53:59.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622658",
+    "ThreadId": "204646",
+    "Html": "<p>Also, you will probably want to use:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">class</span> GMapControl123 : GMap.NET.WindowsPresentation.GMapControl\r\n    {\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> OnDoubleClick(MouseEventArgs e)\r\n        {\r\n            <span style=\"color: blue;\">if</span> (e.LeftButton == MouseButtonState.Pressed)\r\n            {\r\n                <span style=\"color: blue;\">base</span>.Zoom++;\r\n            }\r\n            <span style=\"color: blue;\">else</span> <span style=\"color: blue;\">if</span> (e.RightButton == MouseButtonState.Pressed)\r\n            {\r\n                <span style=\"color: blue;\">base</span>.Zoom--;\r\n            }\r\n        }\r\n\r\n    }\r\n</pre>\r\n</div>\r\nThis way, for 3+ button mice, you don't zoom out for every button other than Left :-)</p>",
+    "PostedDate": "2011-06-03T10:23:26.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622999",
+    "ThreadId": "204646",
+    "Html": "<p>override doesn't work:</p>\n<p>&nbsp;</p>\n<pre>Error\t1\t'WVSH.Ui.Controls.GMapControl123.OnDoubleClick(System.Windows.Input.MouseEventArgs)': no suitable method found to override\t\n</pre>\n<p>&nbsp;</p>\n<p>thanks mattgerg for the additional code ;-)<br /> i still have the problem that after the xaml code i get an error in the code behind for the variable \"map\"... (see my post above)<br /> what am i missing?</p>",
+    "PostedDate": "2011-06-04T11:35:40.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "623001",
+    "ThreadId": "204646",
+    "Html": "<p>;/</p>",
+    "PostedDate": "2011-06-04T11:44:31.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

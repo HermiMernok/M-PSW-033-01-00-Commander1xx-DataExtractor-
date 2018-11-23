@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "429523",
+    "ThreadId": "208902",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>Does MsSQLPureImageCache cache provider support MS SQL 2000?</p>\r\n<p>&nbsp;</p>\r\n<p>I've implemented the code as instructed.&nbsp;</p>\r\n<p>Created a separate user for GMAP on the server with full rights and tested the connectionstring</p>\r\n<p>During initialization, no table is created by GMAP.</p>\r\n<p>Also, when creating the table myself, the table is not filled. I suspect the GMAP code is not compliant to SQL 2000?</p>\r\n<p>&nbsp;</p>\r\n<p>Br,</p>\r\n<p>Guy</p>",
+    "PostedDate": "2010-04-10T04:38:33.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429525",
+    "ThreadId": "208902",
+    "Html": "<p>please paste your debug trace</p>",
+    "PostedDate": "2010-04-10T04:45:05.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429576",
+    "ThreadId": "208902",
+    "Html": "<p>Currently i'm using gmap dll's as references in my project.</p>\r\n<p>i'm not using the actual source as there was no need (so far). Hence i'm not able to trace an error.</p>\r\n<p>Any suggestions?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-10T09:56:32.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429579",
+    "ThreadId": "208902",
+    "Html": "<p>use the source, run debug, show me error ;}</p>",
+    "PostedDate": "2010-04-10T10:00:21.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429593",
+    "ThreadId": "208902",
+    "Html": "<p>i was suspecting that answer :) i'll have a look and inform you.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-10T11:07:42.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434662",
+    "ThreadId": "208902",
+    "Html": "<p>Ok, had a look and did some tests:</p>\r\n<p>The problem is the SQL language that is used in the code:</p>\r\n<p>using(SqlCommand cmd = new SqlCommand( &quot;</p>\r\n<p>CREATE TABLE [GMapNETcache] (</p>\r\n<p>[Type] [int] &nbsp; NOT NULL,</p>\r\n<p>[Zoom] [int] &nbsp; NOT NULL</p>\r\n<p>[X] &nbsp; &nbsp;[int] &nbsp; NOT NULL</p>\r\n<p>&nbsp;[Y] &nbsp; &nbsp;[int] &nbsp; NOT NULL</p>\r\n<p>[Tile] [image] NOT NULL</p>\r\n<p>CONSTRAINT [PK_GMapNETcache] PRIMARY KEY CLUSTERED (Type, Zoom, X, Y)&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>SQL2000 doesn't like the square brackets. The SQL that was successful is:</p>\r\n<p>CREATE TABLE GMapNETcache &nbsp;</p>\r\n<p>(Type integer &nbsp; NOT NULL,&nbsp;Zoom integer &nbsp; NOT NULL,X &nbsp; &nbsp;integer &nbsp; NOT NULL,&nbsp;&nbsp;Y &nbsp; &nbsp;integer &nbsp; NOT NULL,&nbsp;&nbsp;Tile image NOT NULL,CONSTRAINT PK_GMapNETcache PRIMARY KEY CLUSTERED (Type, Zoom, X, Y))</p>\r\n<p>&nbsp;</p>\r\n<p>The same applies for the other INSERT and SELECT statement. The SQL without squared brackets would be in my opinion be more generalized form and hence have preference.</p>\r\n<p>&nbsp;</p>\r\n<p>Are you willing to change that in your code?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-23T08:18:13.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434913",
+    "ThreadId": "208902",
+    "Html": "<p>i can do that, but i have no idea how to test it, anyway sql2000 is 10 years old stuff</p>",
+    "PostedDate": "2010-04-24T04:40:27.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434958",
+    "ThreadId": "208902",
+    "Html": "<p>can you do that, and create fork?</p>",
+    "PostedDate": "2010-04-24T08:50:14.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437814",
+    "ThreadId": "208902",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>i've implemented the changes in the&nbsp;MSSQLPureImageCache.cs.</p>\r\n<p>Also tested it on SQL2000 and SQL2005. Both work.</p>\r\n<p>&nbsp;</p>\r\n<p>concerning this fork thing,</p>\r\n<p>i created a fork and put some name and description. so how do i actually provide the changes?</p>\r\n<p>(never done this before)</p>\r\n<p>Br,Guy</p>",
+    "PostedDate": "2010-05-01T05:13:08.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437823",
+    "ThreadId": "208902",
+    "Html": "<p>perfect! ...well, now just commit your changes and push to the codeplex server, thanks for your help</p>\r\n<p>p.s. check <a href=\"http://blogs.msdn.com/codeplex/archive/2010/03/05/codeplex-mercurial-support-for-forks.aspx\">http://blogs.msdn.com/codeplex/archive/2010/03/05/codeplex-mercurial-support-for-forks.aspx&nbsp;</a></p>",
+    "PostedDate": "2010-05-01T05:27:35.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439443",
+    "ThreadId": "208902",
+    "Html": "<p>Are you still alive? We wanna your changes, please push it to codeplex server ;}</p>",
+    "PostedDate": "2010-05-05T11:51:11.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

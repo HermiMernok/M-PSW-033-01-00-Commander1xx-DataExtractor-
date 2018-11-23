@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "I'm using a GMapControl in an AvalonDock tab. Marker shows correctly at program start, but when I change between tabs, markers disappears (their shape become null). I've read about a similar (or equal) issue [here](https://greatmaps.codeplex.com/workitem/16015) that told the same, but it was closed as solved.\r\nMarkers also disappear when the tab is dragged as a floating window.\r\nIt's still happening. I've searched for a possible workaround without success.\r\n\r\nI've attached a little sample project that reproduces the issue.",
+    "LastUpdatedDate": "2013-05-31T05:38:59.417-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-05-29T02:50:23.863-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Marker disappears when WPF GMapControl on a TabItem",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16071
+  },
+  "FileAttachments": [
+    {
+      "FileId": 686157,
+      "FileName": "AvalonDock.MVVMTestApp.zip",
+      "DownloadUrl": ".\\686157"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "the TabControl itself the one who destroys all the childs in the unload TabItem",
+      "PostedDate": "2013-05-29T03:47:11.693-07:00",
+      "Id": 101531
+    },
+    {
+      "Message": "Is there any possible solution/workaround? Thanks.",
+      "PostedDate": "2013-05-29T23:18:40.707-07:00",
+      "Id": 101623
+    },
+    {
+      "Message": "save/restore markers manually?",
+      "PostedDate": "2013-05-31T05:38:59.417-07:00",
+      "Id": 101774
+    }
+  ]
+}

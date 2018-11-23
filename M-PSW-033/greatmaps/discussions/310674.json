@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "760875",
+    "ThreadId": "310674",
+    "Html": "\r\n<p>Hi everyone,</p>\r\n<p>I'm a new guy in gmaps.net, and have some problems with Gmap in Vb.Net 2010.</p>\r\n<p>I use this code for show me a map, and a marker.</p>\r\n<p>I would like the marker appear center in the map, but it doesn't..</p>\r\n<p>Why not??</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> GMapControl1_Load(<span style=\"color:blue\">ByVal</span> sender <span style=\"color:blue\">As</span> System.Object, <span style=\"color:blue\">ByVal</span> e <span style=\"color:blue\">As</span> System.EventArgs) <span style=\"color:blue\">Handles</span> GMapControl1.Load\r\n        <span style=\"color:blue\">With</span> GMapControl1\r\n            .SetCurrentPositionByKeywords(<span style=\"color:#a31515\">&quot;Lisbon, Portugal&quot;</span>)\r\n            .MapProvider = GMapProviders.GoogleSatelliteMap\r\n            .MinZoom = 3\r\n            .MaxZoom = 17\r\n            .Zoom = 16\r\n            .Manager.Mode = AccessMode.ServerAndCache\r\n            <span style=\"color:blue\">Dim</span> overlayOne = <span style=\"color:blue\">New</span> GMapOverlay(GMapControl1, <span style=\"color:#a31515\">&quot;OverlayOne&quot;</span>)\r\n            overlayOne.Markers.Add(<span style=\"color:blue\">New</span> GMap.NET.WindowsForms.Markers.GMapMarkerGoogleRed(<span style=\"color:blue\">New</span> PointLatLng(40.707101, -8.491374)))\r\n            .Overlays.Add(overlayOne)\r\n            GMapControl1.ZoomAndCenterMarkers(<span style=\"color:#a31515\">&quot;overlayone&quot;</span>)\r\n            GMapControl1.DragButton = Windows.Forms.MouseButtons.Left\r\n            GMapControl1.CanDragMap = <span style=\"color:blue\">True</span>\r\n\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">With</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-02-13T09:00:28.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "762116",
+    "ThreadId": "310674",
+    "Html": "<p>OverlayOne !=&nbsp;overlayone, and use forms constructor</p>",
+    "PostedDate": "2012-02-13T23:24:57.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

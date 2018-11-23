@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "834998",
+    "ThreadId": "355423",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have a list of hundreds of points. I want to draw a polygon that contain all the points. Is there an easy way to generate that?</p>\r\n",
+    "PostedDate": "2012-05-11T01:57:38.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835019",
+    "ThreadId": "355423",
+    "Html": "<p>just create&nbsp;GMapPolygon and add it to your overlay</p>",
+    "PostedDate": "2012-05-11T02:23:16.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835025",
+    "ThreadId": "355423",
+    "Html": "<p>Sorry. I clearly sucked at explaining what I meant.</p>\r\n<p>The points are scattered over an area and I only want to draw the polygon that connects the outer points.</p>",
+    "PostedDate": "2012-05-11T02:43:03.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835028",
+    "ThreadId": "355423",
+    "Html": "<p>mm, thats requires some calculations, never needed that</p>",
+    "PostedDate": "2012-05-11T02:51:56.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835692",
+    "ThreadId": "355423",
+    "Html": "<p>Hello ta,</p>\r\n<p>the easiest way is a complex hull. see discussion below</p>\r\n<p><a title=\"Convex Hull Graham\" href=\"http://greatmaps.codeplex.com/discussions/269680\" target=\"_blank\">http://greatmaps.codeplex.com/discussions/269680</a></p>\r\n<p>bye EDE</p>",
+    "PostedDate": "2012-05-13T03:08:54.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

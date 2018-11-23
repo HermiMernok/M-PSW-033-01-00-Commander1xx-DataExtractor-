@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "258569",
+    "ThreadId": "75570",
+    "Html": "<p>Hi all,</p>\r\n<p>I don't know if this is a WPF problem or something related to Gmaps.NET but i have not found a solution to this problem yet so i tought maybe somebody can help me with this.</p>\r\n<p>I am using the WPF Version of the control (Via ElementHost in an Windows Forms Application). I have created a marker shape that includes an image and a XAML shape (a PATH).<br>In the XAML designer in Visual Studio the shape looks great! but when i run the app it seems like anti-alias is not beeing used.</p>\r\n<p>This allso happens for simple shapes like Ellipse found in the designer's toolbox.</p>\r\n<p>Below are to screenshots to illustrate my problem</p>\r\n<p>Runtime:&nbsp;<a href=\"http://img685.imageshack.us/img685/6166/runtime.png\">http://img685.imageshack.us/img685/6166/runtime.png</a></p>\r\n<p>Designer:&nbsp;<a href=\"http://img22.imageshack.us/img22/772/designery.png\">http://img22.imageshack.us/img22/772/designery.png</a></p>\r\n<p>Did anyone of you had this problem before?</p>\r\n<p>Thanks in advance,</p>\r\n<p>Piet</p>",
+    "PostedDate": "2009-11-19T01:11:50.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "258603",
+    "ThreadId": "75570",
+    "Html": "<p>can you test it with empty canvas with that one marker, is it still alias?</p>",
+    "PostedDate": "2009-11-19T03:23:35.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "258613",
+    "ThreadId": "75570",
+    "Html": "<p>I tested with this stripped down xaml is this what you mean?</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">UserControl</span> <span style=\"color:Red\">x:Class</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">RelationPointer</span><span style=\"color:Black\">&quot;</span>\r\n\r\n&nbsp;&nbsp; &nbsp;<span style=\"color:Red\">xmlns</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">http://schemas.microsoft.com/winfx/2006/xaml/presentation</span><span style=\"color:Black\">&quot;</span>\r\n\r\n&nbsp;&nbsp; &nbsp;<span style=\"color:Red\">xmlns:x</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">http://schemas.microsoft.com/winfx/2006/xaml</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n\r\n&nbsp;&nbsp; &nbsp;<span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Path</span> &nbsp;<span style=\"color:Red\">Width</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">330</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Height</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">250</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Name</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">Balloon</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Data</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">F1 M 119.04,141.44 L 119.04,78.88 319.36,78.88 319.36,245.76 119.04,245.76 119.04,183.2 54.88,188.96 119.04,141.44 z</span><span style=\"color:Black\">&quot;</span></pre>\r\n<pre><span style=\"color:Red\">Stroke</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">Black</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">StrokeThickness</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">2</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Margin</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">-50,-110,60,2</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Fill</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">White</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span><span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">Path</span><span style=\"color:Blue\">&gt;</span>\r\n\r\n<span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">UserControl</span><span style=\"color:Blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p>Inside a &lt;Canvas&gt; the &lt;Path&gt; is still alias.</p>",
+    "PostedDate": "2009-11-19T03:53:59.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "258626",
+    "ThreadId": "75570",
+    "Html": "<p>canvas.childern.Add(new&nbsp;<span style=\"font-family:Consolas, 'Courier New', Courier, monospace;color:#0000ff;white-space:pre\">RelationPointe()); // is it alias or not?</span></p>",
+    "PostedDate": "2009-11-19T04:34:43.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "258635",
+    "ThreadId": "75570",
+    "Html": "<p>When i add another ElementHost on my Form and select my custom shape as Hosted content it renders correctly!</p>\r\n<p>so only when the shape is used inside gmaps it will loose its anti-alias:</p>\r\n<p><a href=\"http://img10.imageshack.us/img10/3140/elementhost.png\">http://img10.imageshack.us/img10/3140/elementhost.png</a></p>",
+    "PostedDate": "2009-11-19T05:04:32.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "259800",
+    "ThreadId": "75570",
+    "Html": "<p>Hi Piet, Radioman,</p>\r\n<p>Is this the same as the circle in the WPF demo?</p>\r\n<p>When you set pxCircleRadius = 20; in method UpdateCircle you get not a nice circle as in the Circle.xaml.</p>\r\n<p>I want to create very very small ellipses (a bit thicker than a dot), and I also have not so round circles.</p>\r\n<p>Frank.</p>",
+    "PostedDate": "2009-11-23T05:29:20.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418974",
+    "ThreadId": "75570",
+    "Html": "<p>Hi radioman,</p>\r\n<p>Thanks for this great control, but I was also wondering about the lack of anti-aliasing for markers etc. How can I fix this?</p>",
+    "PostedDate": "2010-03-16T18:40:56.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "419029",
+    "ThreadId": "75570",
+    "Html": "<p>MainMap.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Unspecified); // but this makes some spaces between tiles</p>",
+    "PostedDate": "2010-03-16T23:15:02.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

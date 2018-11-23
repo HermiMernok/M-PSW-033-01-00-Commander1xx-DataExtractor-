@@ -1,0 +1,154 @@
+[
+  {
+    "Id": "483462",
+    "ThreadId": "224464",
+    "Html": "<p>Hi,</p>\r\n<p>I've build up a very simple WPF aplication using <a title=AvalonDock href=\"http://avalondock.codeplex.com/\">AvalonDock </a>and <span>GMapControl</span> as main document. When move dockpanel to different possition (from left to top), GMapControl crashes at Core.cs #line 930, <em>while(waitForTileLoad.WaitOne(TimeSpan.FromMinutes(5)))</em> with save handle closed.</p>\r\n<p>Same error can be reproduced when <a title=\"Odyssey Outlook Bar\" href=\"http://odyssey.codeplex.com/\">Odyssey Outlook Bar</a> is used. With this docking GMapControl crashes immediately after start with same reason on same line.</p>\r\n<p>Any idea? I would be very happy for any hint. Anyway I would like to thank you for this great control!</p>\r\n<p>Regards,</p>\r\n<p>Bop</p>",
+    "PostedDate": "2010-08-23T01:07:12.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "483465",
+    "ThreadId": "224464",
+    "Html": "<p>so it's in designer mode?</p>",
+    "PostedDate": "2010-08-23T01:19:59.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "483468",
+    "ThreadId": "224464",
+    "Html": "<p>no, in designer mode is everything ok.</p>\r\n<p>Maybe wrote bad description. The problem is not in VS studio. I'm writing map application, where docking panes are used. I tried AvalonDock and Odyssey Outlook Bar within my application. And this error happens when my application runs.</p>",
+    "PostedDate": "2010-08-23T01:26:30.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "483472",
+    "ThreadId": "224464",
+    "Html": "<p>hm, i see, and whats the stack trace?</p>",
+    "PostedDate": "2010-08-23T01:31:12.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "483480",
+    "ThreadId": "224464",
+    "Html": "<p>I'm sorry, I don't have project here now. I can send stack trace tonight.</p>\r\n<p>Or if you <a title=\"download avalon dock sample project\" href=\"http://www.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=AvalonDock&DownloadId=124216\">download</a> AvalonDock sample project file, just add GMapControl into &lt;ad:DocumentContent Title=&quot;MyDocument!&quot;&gt;&lt;/ad:DocumentContent&gt;, do the basic initialization, run app and try to dock any side panel to top -&gt; you'll get it.</p>",
+    "PostedDate": "2010-08-23T01:43:19.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "483515",
+    "ThreadId": "224464",
+    "Html": "<p>roger</p>",
+    "PostedDate": "2010-08-23T02:57:01.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484155",
+    "ThreadId": "224464",
+    "Html": "<p>I'm sorry, what does this means? :-)</p>",
+    "PostedDate": "2010-08-24T07:30:07.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484166",
+    "ThreadId": "224464",
+    "Html": "<p><a href=\"http://www.urbandictionary.com/define.php?term=Roger that\">http://www.urbandictionary.com/define.php?term=Roger%20that</a></p>",
+    "PostedDate": "2010-08-24T07:48:32.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484188",
+    "ThreadId": "224464",
+    "Html": "<p>yes,but I still don't know whether you understand that I don't have project here, so I can't send stack trace, or whether you reproduced steps how to get error yourself.</p>",
+    "PostedDate": "2010-08-24T08:18:15.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484199",
+    "ThreadId": "224464",
+    "Html": "<p>yes i do, i'l fix it as soon as i can</p>",
+    "PostedDate": "2010-08-24T08:35:35.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484201",
+    "ThreadId": "224464",
+    "Html": "<p>now it's clear. Thank you very much!</p>",
+    "PostedDate": "2010-08-24T08:36:38.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484207",
+    "ThreadId": "224464",
+    "Html": "<p>there are many request, whew, i can't promise fast solution ;}</p>",
+    "PostedDate": "2010-08-24T08:42:50.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "496345",
+    "ThreadId": "224464",
+    "Html": "<p>works just perfect for me, using&nbsp;AvalonDock 1.3.3571 &amp; changeset&nbsp;5b688b20c7f7</p>",
+    "PostedDate": "2010-09-21T00:12:40.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497391",
+    "ThreadId": "224464",
+    "Html": "<p>p.s. check the&nbsp;<em>Demo.Docking</em> in testing projects</p>",
+    "PostedDate": "2010-09-22T23:47:32.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497506",
+    "ThreadId": "224464",
+    "Html": "<p>i have the same problem of bop and i was waiting for your reply on this issue. I've tried to check if avalondock works using the same lib versions you said but the issue remains. I've tried using a dockable content and docking it at the top or at bottom part of the window (docking at left or right works fine) the result is shown in the link below....and it doesn't look good.</p>\r\n<p><a href=\"http://img814.imageshack.us/img814/2802/immaginecx.png\">http://img814.imageshack.us/img814/2802/immaginecx.png</a></p>\r\n<p>but i think it's an avalondock issue e not a gmap issue, unfortunately the avalondock's creator won't reply on the forum or at pm's......</p>",
+    "PostedDate": "2010-09-23T05:51:06.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497525",
+    "ThreadId": "224464",
+    "Html": "<p>hm.. did you checked Demo.Docking? Is it working?</p>",
+    "PostedDate": "2010-09-23T06:29:31.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497554",
+    "ThreadId": "224464",
+    "Html": "<p>yes i've checked and it seems working but i didn't see anything wrong about the code i wrote (because it's almost a copy of what is done in the demo :P )</p>\r\n<p>they way it works it's a bit strange because if you dock at the top (or bottom) a dockable content&nbsp;it does what you've seen in the image, but if you dock at top a dockable content when there's another dockable content docked on the right or left it works fine; so i think the avalondock it work fine when there're other avalondock's objects but it won't work fine with non avalondock's objects</p>\r\n<p>i'll put my code maybe i did some stupid error :P</p>\r\n<p>in the mainwindow.xaml (just below &lt;/Window.Resources&gt;</p>\r\n<p>&nbsp;&nbsp;&nbsp; &lt;ad:DockingManager x:Name=&quot;DockManager&quot; Grid.Row=&quot;1&quot;&nbsp; Loaded=&quot;DockManager_Loaded&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ActiveContent=&quot;{Binding ElementName=Content1}&quot; DocumentClosing=&quot;DockManager_DocumentClosing&quot; VerticalAlignment=&quot;Stretch&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ad:ResizingPanel Name=&quot;plugin_panel&quot;&gt;</p>\r\n<p>in the mainwindow.xmal.cs (in the constructor)</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DockableContent options = new DockableContent();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options.Content = viewerOptions;&nbsp; //vieweroptions is a usercontrol</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options.Title = &quot;Opzioni&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options.Show(DockManager, AnchorStyle.Right);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options.FloatingWindowSize = new System.Windows.Size(viewerOptions.Width, viewerOptions.Height);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options.IsCloseable = false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options.Activate();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DockManager.ActiveContent = options;</p>\r\n<p>this is all the code i wrote of avalondock</p>",
+    "PostedDate": "2010-09-23T07:16:13.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497568",
+    "ThreadId": "224464",
+    "Html": "<p>i see, hm..</p>",
+    "PostedDate": "2010-09-23T07:31:44.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1068585",
+    "ThreadId": "224464",
+    "Html": "I have the exact same problem.<br />\n<br />\nI was using AvalonDock 1.3 and it was working fine, tried to upgrade to 2.0 and now every time I drag a docking window out the whole screen freeze (even others applications) until I do alt+tab. I searched for hours the difference between the TestApp and mine until I noticed that if I don't use GMap everything works fine.<br />\n<br />\nI guess I'll stay with 1.3 until someone find the culprit.<br />\n",
+    "PostedDate": "2013-07-15T11:13:31.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

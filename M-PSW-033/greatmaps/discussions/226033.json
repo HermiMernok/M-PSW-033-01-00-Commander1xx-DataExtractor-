@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "489139",
+    "ThreadId": "226033",
+    "Html": "<p>Hi guys,</p>\r\n<p>Part of the usage of the application I am developing is to allow a user to configure some settings on a remote controlled aircraft, fly it, and then download GPS data from the plane after (and possibly during) the flight. Once the person downlaods the data, I have a screen where the user can 'play' the flight he just did, which is a route being drawn on the map as he flys. (I am working on making it into a moving plane, but stuck..).</p>\r\n<p>However, this app might be used at a flying field, or away from an internet connection. So, is there a way a user can cache a certain area, so that when he goes flying... he can bypass internet settings, and use the cached map data for that area?</p>\r\n<p><img src=\"http://images.freeimagestore.com/?imageId=5a19754b-4725-4400-850c-4d59e0104430\" alt=\"\"></p>\r\n<p>That's what I have so far... BAsically, you can see the light grey line where the plane has been.. and then the blue line represents the last 5 GPS samples.... and the red cross os the plane. (Want to change that into a plane, showing direction of flight...)</p>",
+    "PostedDate": "2010-09-03T19:38:14.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489140",
+    "ThreadId": "226033",
+    "Html": "<p>Here's what I am trying, but the latest code doersn't match the demo I had...</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>RectLatLng area = MainMap.CurrentViewArea;\r\n            <span style=\"color:blue\">if</span> (!area.IsEmpty)\r\n            {\r\n                <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = (<span style=\"color:blue\">int</span>)MainMap.Zoom; i &lt;= MainMap.MaxZoom; i++)\r\n                {\r\n                    List&lt;GMap.NET.Point&gt; x = MainMap.Projection.GetAreaTileList(area, i, 0);\r\n\r\n                    DialogResult res = MessageBox.Show(<span style=\"color:#a31515\">&quot;Ready ripp at Zoom = &quot;</span> + i + <span style=\"color:#a31515\">&quot; ? Total =&gt; &quot;</span> + x.Count, <span style=\"color:#a31515\">&quot;GMap.NET&quot;</span>, MessageBoxButtons.YesNoCancel);\r\n\r\n                    <span style=\"color:blue\">if</span> (res == DialogResult.Yes)\r\n                    {\r\n                        TilePrefetcher obj = <span style=\"color:blue\">new</span> TilePrefetcher();\r\n                        obj.ShowCompleteMessage = <span style=\"color:blue\">true</span>;\r\n                        obj.Start(area, <span style=\"color:blue\">null</span>, i, MainMap.MapType, 100);\r\n                    }\r\n                    <span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (res == DialogResult.No)\r\n                    {\r\n                        <span style=\"color:blue\">continue</span>;\r\n                    }\r\n                    <span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (res == DialogResult.Cancel)\r\n                    {\r\n                        <span style=\"color:blue\">break</span>;\r\n                    }\r\n\r\n                    x.Clear();\r\n                }\r\n            }\r\n            <span style=\"color:blue\">else</span>\r\n            {\r\n                MessageBox.Show(<span style=\"color:#a31515\">&quot;Select map area holding ALT&quot;</span>, <span style=\"color:#a31515\">&quot;GMap.NET&quot;</span>, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\nThe</p>\r\n<pre>obj.Start(area, <span style=\"color:blue\">null</span>, i, MainMap.MapType, 100);<br><br>part is wrong. Instead of a NULL, I should be passing something called a 'PureProjection'. What's that!?<br></pre>",
+    "PostedDate": "2010-09-03T19:59:07.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489142",
+    "ThreadId": "226033",
+    "Html": "<p>Wait, wait, wait.. :)</p>\r\n<p>I seem to have it caching now... but .. where does the cache get stores, and how do you tell it to use the cache, instead of live internet?</p>",
+    "PostedDate": "2010-09-03T20:07:42.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489190",
+    "ThreadId": "226033",
+    "Html": "<p>database is located here: map.<strong>CacheLocation</strong></p>\r\n<p><strong>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:green\">// set cache mode only if no internet avaible</span>\r\n<span style=\"color:blue\">try</span>\r\n{\r\n   System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry(<span style=\"color:#a31515\">&quot;www.google.com&quot;</span>);\r\n}\r\n<span style=\"color:blue\">catch</span>\r\n{\r\n   MainMap.Manager.Mode = AccessMode.CacheOnly;\r\n   MessageBox.Show(<span style=\"color:#a31515\">&quot;No internet connection avaible, going to CacheOnly mode.&quot;</span>, <span style=\"color:#a31515\">&quot;GMap.NET - Demo.WindowsForms&quot;</span>, MessageBoxButtons.OK, MessageBoxIcon.Warning);\r\n}\r\n</pre>\r\n</div>\r\n</strong></p>",
+    "PostedDate": "2010-09-04T02:18:51.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489192",
+    "ThreadId": "226033",
+    "Html": "<p>radioman, that is fantatic!</p>\r\n<p>Where is the cached data stored though?</p>",
+    "PostedDate": "2010-09-04T02:44:59.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489194",
+    "ThreadId": "226033",
+    "Html": "<p>database is located here: map.<strong>CacheLocation</strong></p>",
+    "PostedDate": "2010-09-04T02:56:24.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

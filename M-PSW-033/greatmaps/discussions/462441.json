@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1108210",
+    "ThreadId": "462441",
+    "Html": "Hello. My English is bad. I'm sorry.<br />\nI'm using GMaps.Net Build ffebdc20a6b8 in my application.<br />\nI added a button &quot;Prefetch selected area&quot; on the form in my application.<br />\nI copied the code for the button of your program.<br />\nI set map mode as ServerAndCache<br />\nI run my program, then select area and then click on button &quot;Prefetch selected area&quot;.<br />\nThe screen displays an error on line:<br />\nobj.Start(area, i, gmap.MapProvider, gmap.Manager.Mode == AccessMode.CacheOnly ? 0 : 100, gmap.Manager.Mode == AccessMode.CacheOnly ? 0 : 1);<br />\nError: &quot;TargetInvocationException&quot;<br />\n<br />\nPlease, help me. How to fix it? What did I do wrong?<br />\n",
+    "PostedDate": "2013-10-16T03:54:20.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108361",
+    "ThreadId": "462441",
+    "Html": "My project: <a href=\"http://rghost.ru/49419770\" rel=\"nofollow\">http://rghost.ru/49419770</a>\r<br />\nPlease, help me. <br />\n",
+    "PostedDate": "2013-10-16T08:12:20.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108739",
+    "ThreadId": "462441",
+    "Html": "InnerException: System.NullReferenceException: Object reference not set to an instance of an object.  in GMap.NET.TilePrefetcher.worker_ProgressChanged(Object sender, ProgressChangedEventArgs e)   in  System.ComponentModel.BackgroundWorker.OnProgressChanged(ProgressChangedEventArgs e)  in System.ComponentModel.BackgroundWorker.ProgressReporter(Object arg)\r<br />\n<br />\nTargetInvocationException occurred but I have absolutely no idea why.<br />\n",
+    "PostedDate": "2013-10-17T05:42:58.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108768",
+    "ThreadId": "462441",
+    "Html": "I forgot to add gmap.Overlays.Add(objects);\r<br />\nThis corrected the problem.\r<br />\nThanks!<br />\n",
+    "PostedDate": "2013-10-17T06:49:01.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

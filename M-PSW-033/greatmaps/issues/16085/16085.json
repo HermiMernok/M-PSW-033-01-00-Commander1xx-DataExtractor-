@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, \r\ni try to save my Overlay as XML with \r\n```\r\nXmlSerializer writer = new XmlSerializer(typeof(CustomOverlay));\r\n                System.IO.StreamWriter file = new System.IO.StreamWriter(\r\n                    @\"c:\\temp\\SerializationTest.xml\");\r\n\r\n```\r\n\r\nI think it would work, but i get the following error:\r\n> Das Element 'GMap.NET.WindowsForms.GMapMarker.ToolTip' des Typs 'GMap.NET.WindowsForms.GMapToolTip' kann nicht serialisiert werden. Details finden Sie in der inneren Ausnahme. ---> System.InvalidOperationException: 'GMap.NET.WindowsForms.GMapToolTip' kann nicht serialisiert werden, weil dafür kein parameterloser Konstruktor verfügbar ist.\r\n\r\nenglish:\r\n>  System.InvalidOperationException: GMap.NET.WindowsForms.GMapToolTip cannot be serialized because it does not have a parameterless constructor....\r\n\r\nLooks like i need a parameterless constructor for the Marker ToolTip.\r\n\r\nAny ideas what i could do?\r\n\r\nthx,\r\nKevin ",
+    "LastUpdatedDate": "2013-10-11T01:41:06.827-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-10-11T01:41:06.827-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Serialize Overlay to XML",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16085
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

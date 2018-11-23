@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1427072",
+    "ThreadId": "638586",
+    "Html": "Good day,<br />\n<br />\nI have been using your great map control in my .Net 3.5 Windows Forms product for quite some time.<br />\nRecently my clients have started reporting that Google Satellite and Hybrid Map tiles are no longer working at higher zoom levels.  I am using the source code from commit 76d7772bd36e (currently the latest).<br />\n<br />\nAll seems fine up until zoom level 14.  Here are some of terse summaries from Fiddler:<br />\nZoom 13, view area = RectLatLng: {Lat=-26.071586453171,Lng=27.9426956176758,WidthLng=0.282211303710938,HeightLat=0.0937124431450655}<br />\nGET <a href=\"http://mt2.google.com/vt/lyrs=h@298000000&amp;hl=en&amp;x=4736&amp;y=4711&amp;z=13&amp;s=Galileo\" rel=\"nofollow\">http://mt2.google.com/vt/lyrs=h@298000000&hl=en&x=4736&y=4711&z=13&s=Galileo</a><br />\n200 OK (image/png)<br />\nGET <a href=\"http://mt1.google.com/vt/lyrs=h@298000000&amp;hl=en&amp;x=4737&amp;y=4714&amp;z=13&amp;s=Galil\" rel=\"nofollow\">http://mt1.google.com/vt/lyrs=h@298000000&hl=en&x=4737&y=4714&z=13&s=Galil</a><br />\n200 OK (image/png)<br />\nGET <a href=\"http://khm3.google.com/kh/v=170&amp;hl=en&amp;x=4735&amp;y=4714&amp;z=13&amp;s=Galileo\" rel=\"nofollow\">http://khm3.google.com/kh/v=170&hl=en&x=4735&y=4714&z=13&s=Galileo</a><br />\n200 OK (image/jpeg)<br />\n<br />\nZoom 14, view area = RectLatLng: {Lat=-26.0950216077775,Lng=28.0132484436035,WidthLng=0.141105651855469,HeightLat=0.0468562245480086}<br />\nGET <a href=\"http://khm0.google.com/kh/v=170&amp;hl=en&amp;x=9474&amp;y=9423&amp;z=14&amp;s=Galil\" rel=\"nofollow\">http://khm0.google.com/kh/v=170&hl=en&x=9474&y=9423&z=14&s=Galil</a><br />\n404 Not Found (text/html)<br />\nGET <a href=\"http://khm2.google.com/kh/v=170&amp;hl=en&amp;x=9466&amp;y=9422&amp;z=14&amp;s=Gali\" rel=\"nofollow\">http://khm2.google.com/kh/v=170&hl=en&x=9466&y=9422&z=14&s=Gali</a><br />\n404 Not Found (text/html)<br />\nGET <a href=\"http://mt2.google.com/vt/lyrs=h@298000000&amp;hl=en&amp;x=9474&amp;y=9426&amp;z=14&amp;s=\" rel=\"nofollow\">http://mt2.google.com/vt/lyrs=h@298000000&hl=en&x=9474&y=9426&z=14&s=</a><br />\n200 OK (image/png)<br />\n<br />\nPlease could you help, this is causing my clients and I a lot of headaches.<br />\n",
+    "PostedDate": "2015-05-22T05:36:24.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427127",
+    "ThreadId": "638586",
+    "Html": "works just fine: even at max zoom, <a href=\"http://khm0.google.com/kh/v=172&amp;hl=en&amp;x=302886&amp;y=301591&amp;z=19&amp;s=G\" rel=\"nofollow\">http://khm0.google.com/kh/v=172&hl=en&x=302886&y=301591&z=19&s=G</a>\r<br />\n<br />\n..check if version detection works correctly when you switch to google provider?\r<br />\n<br />\nit should be <strong>172</strong> at the moment<br />\n",
+    "PostedDate": "2015-05-22T09:30:12.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-05-25T00:33:16.673-07:00"
+  },
+  {
+    "Id": "1427406",
+    "ThreadId": "638586",
+    "Html": "Thanks radioman<br />\n",
+    "PostedDate": "2015-05-25T00:33:41.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1431789",
+    "ThreadId": "638586",
+    "Html": "Hello!\r<br />\n<br />\nI have same problems on version 1.7.1 for .NET 4.5 WPF.\r<br />\nCould you explain what means &quot;heck if version detection works correctly when you switch to google provider&quot;?\r<br />\nThank you.<br />\n",
+    "PostedDate": "2015-06-24T20:43:46.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

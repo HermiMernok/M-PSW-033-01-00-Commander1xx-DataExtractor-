@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "443682",
+    "ThreadId": "212855",
+    "Html": "<p>In the process of geting this to run on linux (all I did was update the sqllite references - brilliant!!) I noticed that the version compiled using MONO runs much slower and seems to get stuck loading tiles sometimes. Comparing the MONO and Visual Studio version both on windows I noticed that the \\AppData\\Roaming\\GMap.NET\\TileDBv3\\en\\Data.gmdb file is only created and accessed when using the visual studio version - even the MONO version on the downloads page doesn't work.</p>\r\n<p>Is this an error with something silently failing?</p>",
+    "PostedDate": "2010-05-17T02:12:47.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443694",
+    "ThreadId": "212855",
+    "Html": "<p>i don't know exactly yet ;/</p>",
+    "PostedDate": "2010-05-17T02:55:53.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443712",
+    "ThreadId": "212855",
+    "Html": "i've just tested in in virtualbox with ubuntu 10.04, it somehow fails to create empty database ;/",
+    "PostedDate": "2010-05-17T04:07:12.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443715",
+    "ThreadId": "212855",
+    "Html": "<p>hm ..&nbsp;File.Exists fails to work o.O</p>",
+    "PostedDate": "2010-05-17T04:14:00.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443752",
+    "ThreadId": "212855",
+    "Html": "<p>i solved issue by checking for empty db on startup once, because sqlite in mono version somehow locks the database... Still first time takes a little more time than usual, but after that, all seems to work as good as expected, check the demo again</p>",
+    "PostedDate": "2010-05-17T05:38:10.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443761",
+    "ThreadId": "212855",
+    "Html": "<p>Purrrfect!! Runs like it should now, thanks!</p>",
+    "PostedDate": "2010-05-17T05:59:28.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

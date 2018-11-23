@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1091049",
+    "ThreadId": "456481",
+    "Html": "I read a large amount of lat long points (=-3500) from a file and add them to the map.\r<br />\nThis goes quite fast, although it still takes several seconds, so if anyone knows how to speed up this process that would be great. \r<br />\nWhat I already do:             model.GMapView.HoldInvalidation = true;\r<br />\nand only refresh after all markers have been added.\r<br />\n<br />\nThe second issue is that after adding all those markers the mapcontrol get's quite slow.\r<br />\nI mean that it start's to &quot;lag&quot;.\r<br />\nAre there any tweaks that could keep the map responsive?\r<br />\nI already use: ServerAndCache mode, BoostCacheEngine and CacheOnIdleRead\r<br />\n<br />\nThank you<br />\n",
+    "PostedDate": "2013-09-11T02:03:14.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091058",
+    "ThreadId": "456481",
+    "Html": "you can iterate via points ant skip the point if the distance from the last point is too little<br />\n",
+    "PostedDate": "2013-09-11T02:31:03.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091070",
+    "ThreadId": "456481",
+    "Html": "the problem is that every point represents a picture taken on-site. So I need every marker.<br />\n<br />\nedit: problem is fixed, I used to add duplicates to the map. This proves that the map easily supports 3500 markers. <br />\nThanks again!<br />\n",
+    "PostedDate": "2013-09-11T03:04:19.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "494317",
+    "ThreadId": "227432",
+    "Html": "<p>Hi all<br>I tried to put marker on map - but it didn't appear there ((</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> GMapOverlay _gMapLayerTop;\r\n\r\n_gMapLayerTop = <span style=\"color:blue\">new</span> GMapOverlay(gMapControl1, <span style=\"color:#a31515\">&quot;top&quot;</span>);\r\n\r\n<span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> gMapControl1_MouseUp(<span style=\"color:blue\">object</span> sender, MouseEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">try</span>\r\n            {\r\n                <span style=\"color:blue\">if</span>(e.Button == MouseButtons.Left)\r\n                {                    \r\n                    <span style=\"color:blue\">var</span> gP = gMapControl1.FromLocalToLatLng(e.X, e.Y);\r\n                    <span style=\"color:blue\">var</span> marker = <span style=\"color:blue\">new</span> GMapMarkerGoogleGreen(gP);                   \r\n                    _gMapLayerTop.Markers.Add(marker);\r\n                    gMapControl1.CurrentPosition = gP;\r\n                    <span style=\"color:blue\">return</span>;\r\n                }\r\n            }<span style=\"color:blue\">catch</span>(Exception ex)\r\n            {\r\n                log.WriteLog(<span style=\"color:#a31515\">&quot;Form1.gMapControl1_MouseUp&quot;</span>, <span style=\"color:#a31515\">&quot;Err:&quot;</span>+ex.Message);\r\n            }\r\n        }\r\n</pre>\r\n<pre> </pre>\r\n</div>\r\n</p>\r\n<p>Map centerred to click place (gP), but marker didn't appear.</p>\r\n<p>I tried doing this on empty project - it worked fine,<br>but when I tried to do this on my work project (Sharpmap + GMap.Net)&nbsp;I could not draw marker on the map (((</p>\r\n<p>What problem could be in this case?</p>\r\n<p>--</p>\r\n<p>I've just tried to debug it and saw - gMapControl1.Overlays.Count=0 after&nbsp;</p>\r\n<pre>_gMapLayerTop = <span>new</span> GMapOverlay(gMapControl1, <span>&quot;top&quot;</span>);</pre>\r\n<pre><br></pre>\r\n<pre>Can you suggest a reason a top layer hasn't added to layers gMapControl?</pre>",
+    "PostedDate": "2010-09-16T01:36:34.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494318",
+    "ThreadId": "227432",
+    "Html": "<p>well you have to add your layer to map, gMapControl1.Overlays.Add(gMapLayerTop);</p>",
+    "PostedDate": "2010-09-16T01:40:20.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494319",
+    "ThreadId": "227432",
+    "Html": "<p>I fogot to add my layer to&nbsp;gMapControl1.Overlays in this project ((</p>\r\n<p>gMapControl1.Overlays.Add(_gMapLayerTop);</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,&nbsp;<a id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl02_UserNameLink\" href=\"http://www.codeplex.com/site/users/view/radioman\">radioman</a>&nbsp;)</p>",
+    "PostedDate": "2010-09-16T01:42:41.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494320",
+    "ThreadId": "227432",
+    "Html": "<p>Now all works fine!</p>\r\n<p>Thanks &nbsp; ))</p>\r\n<p>//sorry for my inattentiveness</p>",
+    "PostedDate": "2010-09-16T01:45:11.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494323",
+    "ThreadId": "227432",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2010-09-16T01:47:33.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

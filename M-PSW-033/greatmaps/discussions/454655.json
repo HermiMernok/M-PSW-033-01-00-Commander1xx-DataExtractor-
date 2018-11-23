@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1085364",
+    "ThreadId": "454655",
+    "Html": "Hi!\r<br />\n<br />\nI'm trying to use TilePreFetcher() in my app. I know it works in the demo.\r<br />\nI tried to do this in my code:<br />\n<pre><code>                            using (GMap.NET.TilePrefetcher obj = new GMap.NET.TilePrefetcher())\n                            {\n                                //obj.Overlay = overlay; // set overlay if you want to see cache progress on the map\n\n                                //obj.Shuffle = MainMap.Manager.Mode != AccessMode.CacheOnly;\n\n                                obj.Owner = this;\n                                obj.ShowCompleteMessage = true;\n                                obj.Start(area, 10, myMap.MapProvider, 100);\n                            }</code></pre>\n\nThe reaseon obj.Overlay and obj.Shuffle is commented out is because Visual studio claims they do not exist.\r<br />\n<br />\nWhen I run my program and select an area and then use tileprefetcher it seems to work fine except when it is done it says: &quot;Prefetch Complete! =&gt; 0 of 6&quot;. And when I run my program again it aint cached. If I cache with the Demo it works.\r<br />\n<br />\nAlso I found that the demo used some events called: OnTileCacheComplete, OnTileCacheStart, OnTileCacheProgress. My map controll doesn't seem to have those. On the other hand the methods they use seems to be in the TilePrefetcher.cs so.<br />\n",
+    "PostedDate": "2013-08-27T06:17:56.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085428",
+    "ThreadId": "454655",
+    "Html": "try update to latest version<br />\n",
+    "PostedDate": "2013-08-27T07:58:38.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085695",
+    "ThreadId": "454655",
+    "Html": "Thank you! All the methods are there.\r<br />\n<br />\nHowever, I'm afraid, prefetching doesn't seem to work. In my app it still says &quot;Prefetch Complete! =&gt; 0 of x&quot;.  While it is fetching it says 1 of x, 2 of x, ... , x of x. \r<br />\n What I want is for my app to let the user to manualy choose an area to cache so it will be there if the computer later lacks an internet connection.\r<br />\nI read some where that I have to use GMap.NET.AccessMode.ServerAndCache; for it too work but that makes it cach automaticly if I zoom/move to a new area on the map.\r<br />\n<br />\nI tried in the Demo to set to ServerOnly and then fetch and it sayed &quot;Prefetch Complete! =&gt; x of x&quot; but when I restart the program and choose cache only or turn of internet the area I fetched is not there. \r<br />\nSo in the end it doesnt matter if I &quot;prefetch&quot; or not as long as have ServerAndCache. Which means the caching is automatic. \r<br />\n How can I make it pure manual?\r<br />\n<br />\nThank you!<br />\n",
+    "PostedDate": "2013-08-28T02:08:58.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085705",
+    "ThreadId": "454655",
+    "Html": "set mode to ServerAndCache, launch prefetcher form, close it, set mode to cache only<br />\n",
+    "PostedDate": "2013-08-28T02:58:01.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085721",
+    "ThreadId": "454655",
+    "Html": "Thanks again, it works!\r<br />\n<br />\nIt still says 0 =&gt; x but I just make sure the user dont see it. It is obviously something I've missed but nvm the program does what it is supose to.<br />\n",
+    "PostedDate": "2013-08-28T04:10:47.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

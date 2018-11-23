@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "984895",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Please help me !</p>\r\n<p>I am blocked. I searched a lot of information on the internet, but it is difficult for me to understand how to implement this. I need to add a Transverse Mercator Projection. I saw into the code that Mercator projection is already implemented. My client\r\n has&nbsp;ArcGis Web Service configured under the following parameters:</p>\r\n<p>/////</p>\r\n<p>PROJCS[&quot;ETRS_1989_UTM_Zone_33N&quot;,<br>\r\nGEOGCS[&quot;GCS_ETRS_1989&quot;,<br>\r\nDATUM[&quot;D_ETRS_1989&quot;,<br>\r\nSPHEROID[&quot;GRS_1980&quot;,6378137.0,298.257222101]],<br>\r\nPRIMEM[&quot;Greenwich&quot;,0.0],<br>\r\nUNIT[&quot;Degree&quot;,0.01745329251994328]],<br>\r\nPROJECTION[&quot;Transverse_Mercator&quot;],<br>\r\nPARAMETER[&quot;False_Easting&quot;,500000.0],<br>\r\nPARAMETER[&quot;False_Northing&quot;,0.0],<br>\r\nPARAMETER[&quot;Central_Meridian&quot;,15],<br>\r\nPARAMETER[&quot;Scale_Factor&quot;,0.9996],<br>\r\nPARAMETER[&quot;Latitude_Of_Origin&quot;,0.0],<br>\r\nUNIT[&quot;Meter&quot;,1.0]]</p>\r\n<p><span style=\"color:#1f497d; font-size:10pt\">The EPSG-Code for the spatial reference is 25832.</span></p>\r\n<p><span style=\"color:#1f497d; font-size:10pt\">//////</span></p>\r\n<p><span style=\"color:#000000; font-size:10pt\">So PlateCarreeProjection does not work properly like for\r\n<a href=\"http://www.arcggisonline.com\">www.arcggisonline.com</a>.&nbsp; Any idea where can i found the formulas how to make the transformation from/in pixels, tiles ... ?</span></p>\r\n<p><span style=\"color:#000000; font-size:10pt\">Thanks !</span></p>\r\n",
+    "PostedDate": "2013-01-10T03:14:48.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "984937",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>it's complicated...</p>\r\n",
+    "PostedDate": "2013-01-10T05:35:41.607-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "984941",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>if you see somewhere in the web code similar to this, you probably can implement it:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:green\">//&quot;tileInfo&quot;:{&quot;rows&quot;:256,&quot;cols&quot;:256,&quot;dpi&quot;:96,&quot;format&quot;:&quot;PNG32&quot;,&quot;compressionQuality&quot;:0,</span>\n      <span style=\"color:green\">//&quot;origin&quot;:{&quot;x&quot;:-5122000,&quot;y&quot;:10000100},&quot;spatialReference&quot;:{&quot;wkid&quot;:3346},</span>\n\n      <span style=\"color:green\">//{&quot;level&quot;:0,&quot;resolution&quot;:1587.50317500635,&quot;scale&quot;:6000000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:1,&quot;resolution&quot;:793.751587503175,&quot;scale&quot;:3000000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:2,&quot;resolution&quot;:529.167725002117,&quot;scale&quot;:2000000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:3,&quot;resolution&quot;:264.583862501058,&quot;scale&quot;:1000000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:4,&quot;resolution&quot;:132.291931250529,&quot;scale&quot;:500000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:5,&quot;resolution&quot;:52.9167725002117,&quot;scale&quot;:200000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:6,&quot;resolution&quot;:26.4583862501058,&quot;scale&quot;:100000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:7,&quot;resolution&quot;:13.2291931250529,&quot;scale&quot;:50000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:8,&quot;resolution&quot;:6.61459656252646,&quot;scale&quot;:25000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:9,&quot;resolution&quot;:2.64583862501058,&quot;scale&quot;:10000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:10,&quot;resolution&quot;:1.32291931250529,&quot;scale&quot;:5000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:11,&quot;resolution&quot;:0.529167725002117,&quot;scale&quot;:2000},</span>\n      <span style=\"color:green\">//{&quot;level&quot;:12,&quot;resolution&quot;:0.264583862501058,&quot;scale&quot;:1000}]},</span>\n\n      <span style=\"color:green\">//&quot;initialExtent&quot;:{&quot;xmin&quot;:-412335.466179159,&quot;ymin&quot;:5288235.83180987,</span>\n      <span style=\"color:green\">//                 &quot;xmax&quot;:1417335.46617916,&quot;ymax&quot;:6965767.82449726,</span>\n\n      <span style=\"color:green\">//&quot;fullExtent&quot;:{&quot;xmin&quot;:-45000,&quot;ymin&quot;:5750000,</span>\n      <span style=\"color:green\">//              &quot;xmax&quot;:1050000,&quot;ymax&quot;:6500000, units&quot;:&quot;esriMeters&quot;</span>\n      \n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-10T05:40:00.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990775",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>Thanks a lot !&nbsp; I have found this info on the web side. I have implemented my custom TransverseMercator projection based on the found parameters and now it is working as expected !</p>\r\n",
+    "PostedDate": "2013-01-23T01:58:19.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990800",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>can you share the code here? thanks</p>\r\n",
+    "PostedDate": "2013-01-23T02:40:59.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990879",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>I have adjusted&nbsp;already implemented <em>LKS94Projection</em> on my own. I didn't change something into the functions\r\n<em>FromPixelToLatLng()</em> and<em> FromLatLngToPixel(). </em>I have modifed the functions<em> GetTileMatrixResolution(...), GetTileMatrixMinXY(...), GetTileMatrixMaxXY(...)\r\n</em>and set some input variables like<em> orignX, originY, scaleFactor, centralMeridian, falseNorthing, falseEasting, semiMajor, semiMinor\r\n</em>with new values found on the web side.. I didn't find on the web side <em>semiMinor</em> value, but i found the formula how to calculate it. So&nbsp;semiMinor = semiMajor * (1 - Flattening).&nbsp; For testing if the concrete latitude/longitude point into the right\r\n tile i have used the following formulae:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X(UTMLocal) = OriginX + X(UTMAbsolute); Y(UTMLocal) = OriginY - Y(UTM Absolute). TileNumber(X) = FLOOR(UTMLocalX/(tile_size*resolution)). TileNumber(Y) = FLOOR(Y Local/(tile_size*resolution)).&nbsp;&nbsp;Also\r\n i have found a good site for transformation from WGS84(lat, lng) to UTM 32(E- meters, N - meters)<a href=\"http://www.baseloc.com/dls/#ll=49.866317%206.152344\">http://www.baseloc.com/dls/#ll=49.866317%206.152344</a>. Using this site it is simple to find UTM\r\n coordinates for the specified latitude/longitude. For example. 6.152344 degree east = 295366E UTM 32N. Using the formulas described above we have: Tile(X) = (200000 +&nbsp;&nbsp;295366) /(256 * 529.1677250021168), so Tile(X) = 3.</p>\r\n",
+    "PostedDate": "2013-01-23T04:30:43.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990934",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>i see, thanks</p>\r\n",
+    "PostedDate": "2013-01-23T05:56:32.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992046",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>Also the following important changes should be done as well into the two functions:<em>FromPixelToLatLng() and FromLatLngToPixel().\r\n</em>Two lines of code should be small modified as following:</p>\r\n<p>1.&nbsp;&nbsp;&nbsp; ret.X = (int) Math.Floor((lks[0] + orignX)/res); -&gt; on -&gt; ret.X = (int) Math.Floor((lks[0] - orignX)/res);</p>\r\n<p>2.&nbsp;&nbsp;&nbsp;&nbsp; double[] lks = new double[] { (x * res) - orignX, -(y * res) + orignY } -&gt; on -&gt; double[] lks = new double[] { (x * res) + orignX, -(y * res) + orignY }</p>\r\n",
+    "PostedDate": "2013-01-25T05:23:20.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993858",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Hi teddmax2004, hi radioman, hi everyone,</p>\r\n<p>&nbsp;</p>\r\n<p>i am not an expert for GIS. But there is a lot a of UTM32-data in client-databases, waiting to be shown on a GMap.</p>\r\n<p>By reading this threat i hoped LKS94Projection / FromCartesianTGeodetic might help. Didn't work:-(((</p>\r\n<p>&nbsp;</p>\r\n<p>So what's missing is a way to transform UTM32 (e32, n32) to (Lat, Lng). Any idea?</p>\r\n",
+    "PostedDate": "2013-01-29T13:43:23.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994107",
+    "ThreadId": "429145",
+    "Html": "\r\n<p>try DotSpatial, it can reproject any coordinate system</p>\r\n",
+    "PostedDate": "2013-01-30T04:50:09.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994442",
+    "ThreadId": "429145",
+    "Html": "Thanx 4 the hint, took a look but i'm very fond of GMap. I found ProjNet, added the reference to my GMap-project. Quite simple to transform UTM to LatLng, just a few lines of code...<br />\n",
+    "PostedDate": "2013-01-30T16:11:58.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

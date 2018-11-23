@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "198984",
+    "ThreadId": "58756",
+    "Html": "<p>Hi,</p>\r\n<p>I have found that GMap uses an own definition of</p>\r\n<p>&nbsp;&nbsp;<em> public class ObservableCollection&lt;T&gt; : Collection&lt;T&gt;, INotifyCollectionChanged, INotifyPropertyChanged</em></p>\r\n<p>Is there a specific reason for this? Why not using the class in the WindowsBase Assembly of .NET 3.0?</p>\r\n<p>Using your map control now interferes with other code of my applications.</p>\r\n<p>br, Marcel</p>",
+    "PostedDate": "2009-06-08T04:50:58.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198985",
+    "ThreadId": "58756",
+    "Html": "<p>and how he can interfere ? ;D</p>",
+    "PostedDate": "2009-06-08T04:53:11.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198990",
+    "ThreadId": "58756",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><a name=\"OLE_LINK1\"></a><a name=\"OLE_LINK2\"><span style=\"font-size:10.0pt;font-family:Arial;color:navy\">Hi radioman,</span></a></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">when we use the\r\nWindowsBase Assembly, there will be 2 definitions of the ObservableCollection,\r\none from your project, and the one by Microsoft.  See below, when I\r\ncompile.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><i><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy;font-style:italic\">Error     2          The\r\ntype 'System.Collections.ObjectModel.ObservableCollection&lt;T&gt;' exists in\r\nboth\r\n'd:\\SRVDIS\\HR310001_PerMIT_Prepare\\trunk\\SOURCE\\Modules\\RouteMan\\Ihc.Geo.RouteMapControl\\GMap.NET.WindowsForms.dll'\r\nand 'c:\\Program Files\\Reference Assemblies\\Microsoft\\Framework\\v3.0\\WindowsBase.dll'</span></i></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">The first DLL is where\r\nthe GMap control resides, and the other one is a proprietary DLL where we use Observable\r\ncollections, via referencing of WindowsBase DLL.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">My question is, why not\r\nusing the Microsoft/.NET one in the GMap project in the first place. The only\r\nthing you need to do is add a reference to WindowsBase, and voila, you use the code\r\nfrom Microsoft. There is no need to have that class coded for your own, IMHO.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Hope this makes sense.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<div style=\"border:none;border-top:solid #CCCCCC 1.0pt;padding:0cm 0cm 0cm 0cm\" id=ThreadNotificationFooter>\r\n\r\n<p><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Br, Marcel</span><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\"></span></p>\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-06-08T05:01:59.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198991",
+    "ThreadId": "58756",
+    "Html": "<p>that collection is only for .net2, why you use winforms in wpf?</p>",
+    "PostedDate": "2009-06-08T05:04:33.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198996",
+    "ThreadId": "58756",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><a name=\"OLE_LINK1\"></a><a name=\"OLE_LINK2\"><span style=\"font-size:10.0pt;font-family:Arial;color:navy\">Hi radioman,</span></a></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Yes, I use winforms, but\r\nmy project will be entierly in winforms. I do not use WPF at all. I have seen,\r\nthat in the WPF part of your code, you already use WindowsBase. WindowsBase is\r\nnot available in the .NET Framework version 2. However, the relevant projects\r\nin your solution are of Version 2.0. Is this because of some compatibility reason?</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Here’s what I did:</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Changed the Framwork\r\nversion of the GMap.Net.WindowsForms project to 3.5, added the WindowsBase DLL\r\nas Reference.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">The same for the WinForms\r\nDemo Project.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Removed the\r\nOvservableCollection and ObservableCollectionThreadsafe classes.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Compiling, ready!</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Now I do not have the\r\nerror anymore.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:12.0pt\">Br, Marcel</span><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\"></span></p>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-06-08T05:29:49.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199101",
+    "ThreadId": "58756",
+    "Html": "<p>yes, but thats exactly why i created these files, to &nbsp;be not dependend &gt; 2.0, so it works on mono</p>",
+    "PostedDate": "2009-06-08T09:11:42.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199360",
+    "ThreadId": "58756",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><a name=\"OLE_LINK1\"></a><a name=\"OLE_LINK2\"><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">OK, I see that. Probably you should mention that somewhere in\r\nthe code. Best would be as a &lt;devdoc&gt; right at the class definition of\r\nthose classes. </span></a></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">By mentioning mono, does\r\nit actually work on mono then?</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:12.0pt\">Br, Marcel</span><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\"></span></p>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-06-08T23:21:50.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199433",
+    "ThreadId": "58756",
+    "Html": "<p>it worker fine before i switched to sqlite cache, i don't test after that, but should be ok</p>",
+    "PostedDate": "2009-06-09T03:09:48.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "721893",
+    "ThreadId": "285321",
+    "Html": "\r\n<p>hey everyone :)</p>\r\n<p>can anyone help me on this</p>\r\n<p>i need to locate 4 cars in my map using their id , so everytime the car send latitude and longitude , its marker move to the new location</p>\r\n<p>how to know the id of marker that i have to move</p>\r\n<p>srry for my english</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-01-07T11:02:23.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722120",
+    "ThreadId": "285321",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">foreach</span>(Marker <span style=\"color: blue;\">in</span> overlay.Markers)\r\n{\r\n      <span style=\"color: blue;\">if</span>((<span style=\"color: blue;\">int</span>)Marker.Tag == id)\r\n      {\r\n            Marker.Position = <span style=\"color: blue;\">new</span> PointLatLng(lat, lng);\r\n            <span style=\"color: blue;\">break</span>;\r\n      }\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-01-08T09:16:57.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917212",
+    "ThreadId": "285321",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>Xandolph wrote:</strong><br />\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">foreach</span>(Marker <span style=\"color: blue;\">in</span> overlay.Markers)\r\n{\r\n      <span style=\"color: blue;\">if</span>((<span style=\"color: blue;\">int</span>)Marker.Tag == id)\r\n      {\r\n            Marker.Position = <span style=\"color: blue;\">new</span> PointLatLng(lat, lng);\r\n            <span style=\"color: blue;\">break</span>;\r\n      }\r\n}\r\n</pre>\r\n</div>\r\n<p>Friends,</p>\r\n<p>Please how can I declare \"Marker\" shown above ?</p>\r\n<p>I&acute;m using this in the example \"Demo.WindowsForms\" but is giving me&nbsp; an error</p>\r\n<p>i tryed to declare as \"GMarkerGoogle Marker;\"&nbsp; , GMarker Marker; , ... but without sucess</p>\r\n<p>thanks in advance</p>\r\n<p>Marcelo</p>\r\n</blockquote>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-09-25T06:16:15.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917467",
+    "ThreadId": "285321",
+    "Html": "<p>I found the error and the correct is below:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>      <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> UpdatePositionTest(<span style=\"color: blue;\">int</span> id, <span style=\"color: blue;\">double</span> lat, <span style=\"color: blue;\">double</span> lng)\r\n       {\r\n           \r\n           <span style=\"color: blue;\">foreach</span> (GMarkerGoogle Marker <span style=\"color: blue;\">in</span> objects.Markers)\r\n           {\r\n               <span style=\"color: blue;\">if</span> (Marker.Tag != <span style=\"color: blue;\">null</span>)\r\n               {\r\n                   <span style=\"color: blue;\">if</span> ((<span style=\"color: blue;\">int</span>)Marker.Tag == id)\r\n                   {\r\n                       Marker.Position = <span style=\"color: blue;\">new</span> PointLatLng(lat, lng);\r\n                       <span style=\"color: blue;\">break</span>;\r\n                   }\r\n               }\r\n           }\r\n\r\n       }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>so now, i can call this with desired \"id\"&nbsp; and position (<span style=\"color: blue;\">\"double</span> lat, <span style=\"color: blue;\">double</span> lng\") that work fine to move Marker to a new position</p>\r\n<p>regards,</p>\r\n<p>Marcelo</p>",
+    "PostedDate": "2012-09-25T13:17:37.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917472",
+    "ThreadId": "285321",
+    "Html": "<p>..anyway if you have many markers, dictionary is the fastest way</p>",
+    "PostedDate": "2012-09-25T13:25:11.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917729",
+    "ThreadId": "285321",
+    "Html": "<p>Ok radioman, i agree with you this is not the fastest way</p>\r\n<p>thank you</p>\r\n<p>Marcelo</p>",
+    "PostedDate": "2012-09-26T03:36:43.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

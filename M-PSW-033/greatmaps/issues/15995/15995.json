@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fix commited, thx",
+    "ClosedDate": "2011-01-08T04:54:30.367-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "When the Application is closing, the Application.Current in GMapControl_Loaded can be null (don't have the exception any more).\r\nThe problem is not solved when you only test it before invoking the action to add the Current_Exit handler. You have to check for null before the += too (at least that's what works for me):\r\n\r\nvoid GMapControl_Loaded(object sender, RoutedEventArgs e)\r\n\t\t{\r\n\t\t\tCore.StartSystem();\r\n\t\t\tCore_OnMapZoomChanged();\r\n\r\n\t\t\tif (Application.Current != null)\r\n\t\t\t{\r\n\t\t\t\tApplication.Current.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,\r\n\t\t\t\t   new Action(delegate()\r\n\t\t\t\t   {\r\n\t\t\t\t\t -->  if (Application.Current != null) <--\r\n\t\t\t\t\t\t   Application.Current.Exit += new ExitEventHandler(Current_Exit);\r\n\r\n\t\t\t\t   }\r\n\t\t\t\t   ));\r\n\t\t\t}\r\n\t\t}\r\n\r\nHope you understand and maybe this \"patch\" will be introduced into the next release.",
+    "LastUpdatedDate": "2011-01-08T04:54:30.367-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-12-30T06:51:04.837-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Application.Current == null in GMapControl_Loaded",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15995
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "roger!",
+      "PostedDate": "2010-12-31T06:17:15.95-08:00",
+      "Id": 25715
+    }
+  ]
+}

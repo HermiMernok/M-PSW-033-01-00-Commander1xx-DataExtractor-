@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "692683",
+    "ThreadId": "278030",
+    "Html": "\r\n<p>I am currently using the GMap dlls in application intended for&nbsp;commercial&nbsp;and enterprise use.</p>\r\n<p>Are there any map providers that do not require a paid licence ?</p>\r\n<p>There is Open Street maps, but i would also like one that also provides satellite view.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you for any help you can provide&nbsp;</p>\r\n",
+    "PostedDate": "2011-11-02T05:24:23.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692715",
+    "ThreadId": "278030",
+    "Html": "<p>doubtfully.. but i'm not sure</p>",
+    "PostedDate": "2011-11-02T06:29:38.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692726",
+    "ThreadId": "278030",
+    "Html": "<p>If i understood correctly from different threads, google maps can't be used since the GMap .NET component isn't using Google APIs directly.</p>\r\n<p>&nbsp;</p>\r\n<p>Would you know if it is possible to obtain a licence say for Bing and still use the control ?</p>\r\n<p>In other words , is the legal licensing problem related to the control itself or just the tile source?</p>\r\n<p>That is if we obtain a licence from Microsoft to use Bing maps, there wouldn't be a problem in using your control to access the tile information.</p>",
+    "PostedDate": "2011-11-02T06:38:54.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692736",
+    "ThreadId": "278030",
+    "Html": "<p>i guess each tile provider have it's own rules, so you have o ask them directly</p>",
+    "PostedDate": "2011-11-02T06:49:08.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "693321",
+    "ThreadId": "278030",
+    "Html": "<p>thank you for the replies&nbsp;</p>\r\n<p>I have been in contaact with Microsoft regarding license for there service.</p>\r\n<p>I was wondering what your control uses from the Bing services , that is are you only&nbsp;downloading&nbsp;Map tile images from them or do u also use there services for calculations and locations</p>\r\n<p>thank you for the help</p>",
+    "PostedDate": "2011-11-03T06:58:46.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "693326",
+    "ThreadId": "278030",
+    "Html": "<p>for bing, only tiles</p>",
+    "PostedDate": "2011-11-03T07:06:25.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831138",
+    "ThreadId": "278030",
+    "Html": "<p>I am planning to use gMap + Bing in a commercial application, and pay for Bing. I understand \"contact them to find out their terms\" but they won't answer directly if it is permissible to use gMap. I think I have to figure it out myself. So... from this web page (http://msdn.microsoft.com/en-us/library/dd877180.aspx) does the way gMap consumes Bing tiles fit any of those APIs? Or is it something else entirely?</p>\r\n<p>Once we get our own Bing license key, how do we introduce it into gMap?</p>\r\n<p>gMaps is indeed GREAT software!&nbsp; We just want to stay within the rules when we use it.</p>\r\n<p>Thanks</p>\r\n<p>Jeff</p>",
+    "PostedDate": "2012-05-02T07:49:28.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831166",
+    "ThreadId": "278030",
+    "Html": "<p>control downloads tiles directly from their servers, just like browser, and if you have your&nbsp;ClientKey, set:&nbsp;         GMapProviders.BingMap.ClientKey = \"xxx\";</p>",
+    "PostedDate": "2012-05-02T08:37:43.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

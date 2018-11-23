@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Tried to use GMAP.NET in winform using C#, when I set map properties to GoogleSatelliteMapProvider it gives an error. Exception :The remote Server returned in error:(404) Not found.\r\n\r\nI am using latest GMAP.Net version. 1.7.0.0 ",
+    "LastUpdatedDate": "2016-03-28T11:12:12.787-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-02-03T04:12:31.523-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMAP.Net Google Satellite map error in C#?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16137
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi, I'm facing the problem too. Could anyone can tell me how to fix this?",
+      "PostedDate": "2016-02-12T09:42:47.967-08:00",
+      "Id": 196521
+    },
+    {
+      "Message": "works for me",
+      "PostedDate": "2016-02-12T15:06:55.583-08:00",
+      "Id": 196530
+    },
+    {
+      "Message": "Hello, I notice this behaviour with the google satellite map too. Thought i had a problem/bug in my application, but it is also not working in the demo (Demo.WindowsPresentation.exe). Btw: no problem with the bing satellite map!\n\ngreetz,\nahold",
+      "PostedDate": "2016-03-03T05:42:22.723-08:00",
+      "Id": 197160
+    },
+    {
+      "Message": "I also tried the Demo.WindowsForms and it is working. \n\nDemo.WindowsPresentation still not wokring.",
+      "PostedDate": "2016-03-03T06:11:06.483-08:00",
+      "Id": 197161
+    },
+    {
+      "Message": "I believe the problem is that Google has updated their database. The latest source code has the Version for GoogleSatelliteMap set at \"192\". Where I am downloading, this works in very few areas. If I increase the version to \"193\". it works, I have tested that the latest us accepts is \"198\". So in short, the latest code will only work in certain areas where \"192\" is still a valid version.\nTo update the version requires the Core dll to be updated.\nI have posted an Issue on this problem (see next issue after this one)",
+      "PostedDate": "2016-03-28T11:12:12.787-07:00",
+      "Id": 198233
+    }
+  ]
+}

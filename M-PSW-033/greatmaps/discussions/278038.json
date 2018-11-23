@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "692708",
+    "ThreadId": "278038",
+    "Html": "\r\n<p>It would be great if Whoots (<a href=\"http://whoots.mapwarper.net/\" target=\"_blank\">http://whoots.mapwarper.net/</a>) can be implemented in GMap.</p>\r\n<p>Then GMap can also be used for WMS services and that will make GMap much more versatile and useful.</p>\r\n<p>Is this a route the GMap developers would consider?</p>\r\n<p>BTW. I'm asking this because we are in the middle of implementing GMap in MapWindow GIS v4.9 (http://mapwindow4.codeplex.com/) and we are looking for a good WMS/WFS client.</p>\r\n<p>Thanks,<br>\r\nPaul</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-11-02T06:15:35.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692714",
+    "ThreadId": "278038",
+    "Html": "<p>you can easily create wms provider, or wait until i'll make it</p>\r\n<p>p.s. there is MapBenderWMSProvider already as demo, so you can change format url and it should work</p>",
+    "PostedDate": "2011-11-02T06:27:48.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692724",
+    "ThreadId": "278038",
+    "Html": "<p>WOW! Thanks for the quick reply!</p>\r\n<p>Using a WMS isn't the problem.<br />We already have a simple WMS plug-in in MapWindow that works fine.</p>\r\n<p>But using GMap combined with Whoots gives you more options like caching and working off-line.<br />Do you have plans combining Whoots with GMap? We can wait for it and perhaps even find some funding.</p>\r\n<p>BTW. I can find MapBenderWMSProvider. Is it part of MapBender?</p>",
+    "PostedDate": "2011-11-02T06:36:40.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692735",
+    "ThreadId": "278038",
+    "Html": "<p>i've added that provider just for demo, so others can create their own wms providers, i'll add&nbsp;WhooTS demo if you need it</p>",
+    "PostedDate": "2011-11-02T06:48:29.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692746",
+    "ThreadId": "278038",
+    "Html": "<p>A Whoots demo would be much appreciated.</p>\r\n<p>It would also be great if GMap can just act like Whoots without needing their webserver or webservice.<br />I mean GMap would natively create tiles from WMS and cache them like Whoots does.</p>",
+    "PostedDate": "2011-11-02T07:10:38.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692756",
+    "ThreadId": "278038",
+    "Html": "<p>thats exactly what mapbender demo provider does</p>",
+    "PostedDate": "2011-11-02T07:24:33.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

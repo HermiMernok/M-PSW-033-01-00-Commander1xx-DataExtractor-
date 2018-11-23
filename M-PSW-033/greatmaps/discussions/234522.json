@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "521318",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I have a problem with following Code. I have already download and study the demo but i could not solve this problem!</p>\r\n<p>I would like to place a marker on the map with the coordinates 48.20662, 16.38282. The problem is the marker does not displayed</p>\r\n<p>on the map. I work with Visual Studio 2010 and it is a WPF Projekt.</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>PointLatLng point1 = <span style=\"color:blue\">new</span> PointLatLng(48.20662, 16.38282);\r\nGMapMarker m = <span style=\"color:blue\">new</span> GMapMarker(point1);\r\nmGMapControl.Markers.Add(m); \r\n</pre>\r\n</div>\r\n<p>&nbsp;Thanks</p>\r\n",
+    "PostedDate": "2010-11-12T14:58:26.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521323",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>the problem that marker is just invisible ;}</p>\r\n<p>&nbsp;to show something, you must assign some visual to it: var b = new Button(); b.Content = &quot;test&quot;; marker.Shape = b;</p>\r\n",
+    "PostedDate": "2010-11-12T15:04:32.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521333",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>mmm i have adding your code but there is already the same problem</p>\r\n<pre>PointLatLng point1 = new PointLatLng(48.20662, 16.38282); \r\nGMapMarker m = new GMapMarker(point1);\r\nvar b = new Button();\r\nb.Content = &quot;test&quot;;\r\nm.Shape = b;\r\nmGMapControl.Markers.Add(m); </pre>\r\n",
+    "PostedDate": "2010-11-12T15:25:22.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521346",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>your button is just to small to see ;} has zero width and height, try increase it &quot;_^</p>\r\n",
+    "PostedDate": "2010-11-12T16:49:36.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521416",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2010-11-13T00:02:02.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521678",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>When I change the zoom then the markers are not on the same position as before I have&nbsp;changed the zoom.</p>\r\n<p>How can I solve this problem?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-14T02:21:48.72-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521721",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>please explain more in detail</p>\r\n",
+    "PostedDate": "2010-11-14T06:19:10.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521754",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>I place a marker exaktly on the corner of a feld. Now I change the zoom then the marker&nbsp; is not exaktly on the corner of the field</p>\r\n<p>but aside. They marker must be on the corner whatever zoom&nbsp;was choosen</p>\r\n<p>The marker do not customize the zoom level</p>\r\n<p>Do you know what i mean?</p>\r\n",
+    "PostedDate": "2010-11-14T09:06:39.19-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521810",
+    "ThreadId": "234522",
+    "Html": "\r\n<p>ok this problem is resolved i have forgotten&nbsp;to implement some events</p>\r\n",
+    "PostedDate": "2010-11-14T11:55:14.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

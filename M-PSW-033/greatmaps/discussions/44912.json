@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "149651",
+    "ThreadId": "44912",
+    "Html": "Thanks radioman for the FromLocalToLatLong method.!<br>\r\n<br>\r\nI see that all your markers are compiled in the control. It would be nice to be able to add custom markers. <br>\r\n<br>\r\nMaybe you could just add an CustomImage property in the Marker class of type System.Drawing.Bitmap that would be handled in the GMapControl.Drawmarker, something like:<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">foreach</span><span style=\"font-size:13px\">(</span><span style=\"font-size:13px;color:#2b91af\">Marker</span><span style=\"font-size:13px\"> m </span><span style=\"font-size:13px;color:#0000ff\">in</span><span style=\"font-size:13px\"> markers)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\"> p = Manager.FromLatLngToPixel(m.Position, Zoom);\r\n<p>&nbsp;</p>\r\n<p>p.Offset(renderOffset);</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(m.Visible &amp;&amp; </span><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">.Region.IsVisible(p))\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n</span></p>\r\n    if (marker.CustomImage != null)<br>\r\n        g.DrawImageUnscaled(m.CustomImage,.....)<br>\r\n    else<br>\r\n    {<br>\r\n        switch (m.Type)<br>\r\n        {<br>\r\n                ...<br>\r\n",
+    "PostedDate": "2009-01-22T02:38:00.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149652",
+    "ThreadId": "44912",
+    "Html": "welcome, good idea!",
+    "PostedDate": "2009-01-22T02:42:00.177-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149656",
+    "ThreadId": "44912",
+    "Html": "..where to set custom image center? ..with google markers i set it to middle bottom",
+    "PostedDate": "2009-01-22T02:50:03.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149657",
+    "ThreadId": "44912",
+    "Html": "How about&nbsp; enum&nbsp; TOPLEFT, TOPMIDDLE, TOPRIGHT, MIDDLELEFT, etc <br>\r\n",
+    "PostedDate": "2009-01-22T02:51:27.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149658",
+    "ThreadId": "44912",
+    "Html": "okey ;}",
+    "PostedDate": "2009-01-22T02:54:25.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149663",
+    "ThreadId": "44912",
+    "Html": "done, can you test it, if all aligment modes is good?",
+    "PostedDate": "2009-01-22T03:08:48.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149672",
+    "ThreadId": "44912",
+    "Html": "Thanks, works for me! I'll do a some more testing later and let you know if there are any problems.\r\n",
+    "PostedDate": "2009-01-22T03:31:53.393-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149678",
+    "ThreadId": "44912",
+    "Html": "great!",
+    "PostedDate": "2009-01-22T03:42:57.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149706",
+    "ThreadId": "44912",
+    "Html": "Well, almost ok. You missed the tooltip in the DrawMarkers for the CustomMarker.<br>\r\n<br>\r\nI think you could place the switch(m.Mode) outside of the switch(m.Type) not to repeat the code.<br>\r\n<br>\r\nAlso it'd be nice to have the method drawSimpleToolTip marked as virtua in order to customize.\r\n",
+    "PostedDate": "2009-01-22T05:13:53.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149867",
+    "ThreadId": "44912",
+    "Html": "i'm not missed, it's just not complete, because custom markers have custom size with custom center aligment, so there is need for some calculations before drawing...<br><br>good point about virtual DrawSimpleToolTip!",
+    "PostedDate": "2009-01-22T11:36:31.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150505",
+    "ThreadId": "44912",
+    "Html": "done!",
+    "PostedDate": "2009-01-24T04:50:32.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

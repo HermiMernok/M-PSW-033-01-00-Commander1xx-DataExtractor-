@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "499598",
+    "ThreadId": "228911",
+    "Html": "<p><span style=\"color:blue\">I was using version 1.5.3.3 of GMap.Net WinForm edition. I would draw rectangles on the map&nbsp;by overriding&nbsp;the GMapMarker class as such:</span></p>\r\n<p><span style=\"color:blue\">Private RectWidth, RectHeight As Double<br><br></span><span style=\"color:blue\">Public</span>&nbsp;<span style=\"color:blue\">Sub</span>&nbsp;<span style=\"color:blue\">New</span>(<span style=\"color:blue\">ByVal</span>&nbsp;topLeft&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">PointLatLng</span>,&nbsp;<span style=\"color:blue\">ByVal</span>&nbsp;bottomRight&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">PointLatLng</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">MyBase</span>.New(topLeft)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">Dim</span>&nbsp;pntTopLeft&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">New</span>&nbsp;Drawing.<span style=\"color:#2b91af\">Point</span>(GMap.FromLatLngToLocal(topLeft).X,&nbsp;GMap.FromLatLngToLocal(topLeft).Y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">Dim</span>&nbsp;pntBottomRight&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">New</span>&nbsp;Drawing.<span style=\"color:#2b91af\">Point</span>(GMap.FromLatLngToLocal(bottomRight).X,&nbsp;GMap.FromLatLngToLocal(bottomRight).Y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RectWidth&nbsp;=&nbsp;pntBottomRight.X&nbsp;-&nbsp;pntTopLeft.X<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RectHeight&nbsp;=&nbsp;pntTopLeft.Y&nbsp;-&nbsp;pntBottomRight.Y<br><span style=\"color:blue\">End</span>&nbsp;<span style=\"color:blue\">Sub</span></p>\r\n<p><span style=\"color:blue\">Public</span>&nbsp;<span style=\"color:blue\">Overrides</span>&nbsp;<span style=\"color:blue\">Sub</span>&nbsp;OnRender(<span style=\"color:blue\">ByVal</span>&nbsp;g&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">Graphics</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">Dim</span>&nbsp;scaledWidth&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">Integer</span>&nbsp;=&nbsp;RectWidth&nbsp;/&nbsp;mGMap.Projection.GetGroundResolution(mGMap.Zoom,&nbsp;Position.Lat<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">Dim</span>&nbsp;scaledHeight&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">Integer</span>&nbsp;=&nbsp;<span style=\"color:blue\">RectWidth&nbsp;</span>/&nbsp;mGMap.Projection.GetGroundResolution(mGMap.Zoom,&nbsp;Position.Lat<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.FillRectangle(FillBrush,&nbsp;<span style=\"color:blue\">New</span>&nbsp;System.Drawing.<span style=\"color:#2b91af\">Rectangle</span>(LocalPosition.X,&nbsp;LocalPosition.Y,&nbsp;scaledWidth,&nbsp;scaledHeight))<br><span style=\"color:blue\">End</span>&nbsp;<span style=\"color:blue\">Sub</span></p>\r\n<p><span style=\"color:blue\">This worked great.&nbsp;If I centered the map on a point using:<br><br></span>GMapControl.Position&nbsp;=&nbsp;<span style=\"color:blue\">New</span>&nbsp;<span style=\"color:#2b91af\">PointLatLng</span>(Y,&nbsp;X)<br><br>﻿The rectangles would move with the map and&nbsp;so remain in their correct location. (i.e. if I drew a rectangle on a street intersection, when I used CenterAt the rectangle would remain at that intersection).<br><br>Then I upgraded to the latest version of GMap.Net (changeset <a id=ChangeSetLink0 style=\"font-weight:bold\" title=\"View change set a58a060485bd\" href=\"http://greatmaps.codeplex.com/SourceControl/changeset/changes/a58a060485bd\">a58a060485bd</a>) and now when I draw the rectangles, if I use the CenterAt method, the rectangles don't move with the map! They remain in their absolute X/Y positions - i.e. the map moves beneath them. If I pan with the right mouse button it is fine - the rectangles follow the map. But if I use the CenterAt command, they don't.&nbsp;And&nbsp;when using the CenterAt command - and therefore mesing up the rectangle locations - if I pan the map using the right mouse button, or if I zoom in or out, the rectangles return to their correct locations.&nbsp;Is there a change in functionality between the stable version and the latest changeset that I'm not aware of?</p>\r\n<p>Thanks ;)</p>",
+    "PostedDate": "2010-09-28T12:03:36.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499612",
+    "ThreadId": "228911",
+    "Html": "<p>what do you mean 'CenterAt' ?</p>",
+    "PostedDate": "2010-09-28T12:37:59.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499620",
+    "ThreadId": "228911",
+    "Html": "<p>Oops sorry, it's getting late here in South Africa and I'm not thinking very clearly anymore. CenterAt is just the name of a subroutine I have in my app. What I mean is that if I center the map using the Position method, such as:</p>\r\n<p>GMapControl.Position&nbsp;=&nbsp;<span style=\"color:blue\">New</span>&nbsp;<span style=\"color:#2b91af\">PointLatLng</span>(Y,&nbsp;X)</p>\r\n<p>Then the rectangles I drew don't follow the map. (They used to in version 1.5.3.3). But as soon as I pan using the right mouse button, or if I zoom in or out, then the rectangles snap to their correct places.</p>",
+    "PostedDate": "2010-09-28T12:52:25.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499672",
+    "ThreadId": "228911",
+    "Html": "<p>oh, i see, thats a bug, thanks for reporting this ;}</p>",
+    "PostedDate": "2010-09-28T15:28:09.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499797",
+    "ThreadId": "228911",
+    "Html": "<p>Hehe, no prob. Just glad it's not something I was doing wrong!! :)</p>",
+    "PostedDate": "2010-09-29T01:02:41.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499798",
+    "ThreadId": "228911",
+    "Html": "<p>P.s. thanks again for a fantastic product and fantastic support!</p>",
+    "PostedDate": "2010-09-29T01:04:38.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499818",
+    "ThreadId": "228911",
+    "Html": "<p>it's fixed now, carry on! ;}</p>",
+    "PostedDate": "2010-09-29T01:39:31.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

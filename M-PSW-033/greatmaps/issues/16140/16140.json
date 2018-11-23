@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Calls to GetRoute() from an instance of GoogleSatelliteMapProvider and GoogleTerrainMapProvider have stopped working. They are now failing in GetContentUsingHttp because request.GetResponse() throws an exception. The exception message is \"The remote server returned an error: (404) Not Found.\"\r\n\r\nThis only started happening in the last few days. I suspect google have changed their api. :-(",
+    "LastUpdatedDate": "2016-04-01T14:17:15.907-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-04-01T14:17:15.907-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GetRoute() for GoogleSatellite and GoogleTerrain get 404 error",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16140
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

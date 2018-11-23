@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "658675",
+    "ThreadId": "269201",
+    "Html": "\r\n<p>How I can clear Cach?</p>\r\n<p><span id=\"result_box\" lang=\"en\"><span>I know</span> <span>that</span> <span>\r\nin the demo</span> <span>project</span> <span>there is a button</span> ClearAll<span></span><span>, it deletes</span>\r\n<span>all the files</span> <span>simply</span><span>, I believe</span> <span>this is</span>\r\n<span>not</span> <span>acceptable.</span><br>\r\n<span>Another mechanism</span> <span>nenashel</span> <span>I</span> <span>just</span>\r\n<span>write my</span> <span>function</span> <span>to delete all</span> <span>records from the database</span><span>,</span>\r\n<span>it</span> <span>will help me</span><span>?</span></span></p>\r\n",
+    "PostedDate": "2011-08-15T22:39:41.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "658931",
+    "ThreadId": "269201",
+    "Html": "<p>PureImageCache.<strong>DeleteOlderThan</strong></p>",
+    "PostedDate": "2011-08-16T10:03:28.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659693",
+    "ThreadId": "269201",
+    "Html": "<p>Using WinForms, example code to do this is:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>MyMapControl.Manager.ImageCacheLocal.DeleteOlderThan(DateTime.Today.AddDays(1));\r\n</pre>\r\n</div>\r\n<p>This will delete any cached data that is older than tommorrow (which is everything).</p>\r\n<p>MyMapControl&nbsp;would be your&nbsp;GMapControl object.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-08-17T16:15:47.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

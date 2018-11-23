@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1004904",
+    "ThreadId": "434033",
+    "Html": "I am displaying my map and marker with the following code snippet.....<br />\n<pre><code>gMapControl1.Position = new PointLatLng(38.497501, -120.564003);\noverlayOne = new GMapOverlay(gMapControl1, &quot;OverlayOne&quot;);\nmarker1 = new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleRed(new PointLatLng(0, 0));\nmarker1.Position = new PointLatLng(38.497501, -120.564003);\noverlayOne.Markers.Add(marker1);\ngMapControl1.Overlays.Add(overlayOne);\n</code></pre>\n\nThat's all fine. I then click on a button to execute the following code.<br />\n<pre><code>        private void button1_Click(object sender, EventArgs e)\n            {\n            marker1.Position = new PointLatLng(38.4937, -120.582);\n            \n            if (marker1.IsVisible==false)\n                {\n                MessageBox.Show(&quot;Not Visible&quot;);\n                gMapControl1.Position = marker1.Position;\n                gMapControl1.ReloadMap();\n                }\n            else MessageBox.Show(&quot;Visible&quot;);\n            }\n</code></pre>\n\nThe marker will move to the new location. It disappears from view, and when I drag the map to the new location, I can see the marker where I intended it to be.<br />\n<br />\nTo my surprise, marker1.IsVisible is TRUE! I would expect it to be false once the new marker location is set. Am I not understanding how this works?<br />\n<br />\nMy ultimate goal is to move the marker, and if it is no longer visible in the current view, move the map so that the marker is once again centered on the map.<br />\n<br />\nWhat am I not getting and what do I need to do different?<br />\n<br />\nChuck<br />\n<br />\nEdit #1:<br />\n<br />\nI just figured out IsVisible doesn't do what I thought it does - it basically turns the marker off and on. OK, I am now a little smarter.<br />\n<br />\nThe discussions I've found on how to detect whether or not a particular marker is actually in view on the currently displayed map didn't seem to clear things up for me. So in short, my two questions are:<br />\n<br />\n1) How can I tell when a marker is in the currently displayed map or not, and<br />\n2) How do I move the map to center on a marker?<br />\n<br />\nI will continue to play with it while watching for answers. Thanks.<br />\n<br />\nEdit #2:<br />\n<br />\nOK, I can move my map to center on the new marker location. I just need to figure out how to detect it is out of view.<br />\n<br />\nStill playing and looking for replies.<br />\n",
+    "PostedDate": "2013-02-21T13:48:17.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004953",
+    "ThreadId": "434033",
+    "Html": "OK, solution in hand. This routine works. It will need some refinement to make it a function that works in the general case, but it's a start.<br />\n<pre><code>        private void button4_Click(object sender, EventArgs e)\n            {\n            double ULLat = gMapControl1.CurrentViewArea.Lat;\n            double ULLng = gMapControl1.CurrentViewArea.Lng;\n            double LRLat = ULLat - gMapControl1.CurrentViewArea.HeightLat;\n            double LRLng = ULLng + gMapControl1.CurrentViewArea.WidthLng;\n\n            if ((LRLng &gt; marker1.Position.Lng) &amp;&amp; (marker1.Position.Lng &gt; ULLng) &amp;&amp;\n                (LRLat &lt; marker1.Position.Lat) &amp;&amp; (marker1.Position.Lat &lt; ULLat))\n                MessageBox.Show(&quot;In View&quot;);\n            else MessageBox.Show(&quot;Out of View&quot;);\n            }\n</code></pre>\n\nUL = Upper Left\r<br />\nLR = Lower Right<br />\n",
+    "PostedDate": "2013-02-21T16:01:28.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005187",
+    "ThreadId": "434033",
+    "Html": "How about:<br />\n<pre><code>        private bool IsMarkerVisibleInMap(GMapControl map, GMapMarker marker)\n        {\n            return map.CurrentViewArea.Contains(marker.Position);\n        }</code></pre>\n\n",
+    "PostedDate": "2013-02-22T04:39:48.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005302",
+    "ThreadId": "434033",
+    "Html": "That's alot easier. Thank-you, Xandolph.  -Chuck<br />\n",
+    "PostedDate": "2013-02-22T08:49:07.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005389",
+    "ThreadId": "434033",
+    "Html": "So, here's my final solution. It also takes into account the size of the marker, making sure it is entirely in view.\r<br />\n<br />\nThanks again to Xandolph.<br />\n<pre><code>        private Boolean IsInView(GMapControl Map, GMapMarker Marker)\n            {\n            if ((Map.CurrentViewArea.Contains(Marker.Position)) &amp;&amp;\n               (Marker.LocalPosition.X &gt; 0) &amp;&amp;\n               (Marker.LocalPosition.X &lt; (Map.Bounds.Size.Width - Marker.Size.Width)) &amp;&amp;\n               (Marker.LocalPosition.Y &gt; 0) &amp;&amp;\n               (Marker.LocalPosition.Y &lt; (Map.Bounds.Size.Height - Marker.Size.Height)))\n                return true;\n            else return false;\n            }\n</code></pre>\n\n",
+    "PostedDate": "2013-02-22T11:53:55.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

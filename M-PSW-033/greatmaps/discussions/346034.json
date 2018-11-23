@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "801463",
+    "ThreadId": "346034",
+    "Html": "\r\n<p>hi radioman,I am doing project in c#.....and i have only basic knowledge in this language..</p>\r\n<p>my program is</p>\r\n<p>namespace WindowsFormsApplication7<br>\r\n{<br>\r\n&nbsp;&nbsp;&nbsp; public partial class Form1 : Form<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Form1()<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent();<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SuspendLayout();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl MainMap = new GMapControl();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.MapProvider = GMapProviders.YahooMap;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Position = new GMap.NET.PointLatLng(12.9461334816182, 80.1485095977783);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.MinZoom = 1;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.MaxZoom = 17;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Zoom = 15;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Dock = DockStyle.Fill;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Controls.Add(MainMap);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResumeLayout(false);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp; }<br>\r\n}</p>\r\n<p>i need to add marker to map and i need to get lat,long values from GPS receiver through serial port and show it on map..</p>\r\n<p>help me please..</p>\r\n",
+    "PostedDate": "2012-02-26T22:12:07.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801570",
+    "ThreadId": "346034",
+    "Html": "<p>i recommend you to check source of the demos, it shows some basics and how to add layers/markers/routes..</p>",
+    "PostedDate": "2012-02-26T23:35:18.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806655",
+    "ThreadId": "346034",
+    "Html": "<p>hello radioman</p>\r\n<p>&nbsp;my trackbar zoom is not working can you help me</p>\r\n<p>from demo i got this code</p>\r\n<p><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; trackBar1.Minimum = MainMap.MinZoom * 100;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; trackBar1.Maximum = MainMap.MaxZoom * 100;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; trackBar1.TickFrequency = 100</p>\r\n<p>but its not working</p>",
+    "PostedDate": "2012-03-06T22:01:39.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

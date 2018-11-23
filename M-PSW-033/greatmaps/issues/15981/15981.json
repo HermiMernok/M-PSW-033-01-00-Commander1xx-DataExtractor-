@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I wanted to display some items based on the selection. I tried to use RectLatLng Union, Intersect and IntersectsWith methods, but it turned out they are incorrect.\r\nThe problem lies in that these functions (basically all of those in the usure region) take Lat as /bottom/ and Lat + Height as /top/, but the object is constructed with Height counting to the south so Lat is /top/ and Lat - Height is /bottom/.\r\nI suggest rewriting all these functions in terms of the Top, Left, Right and Bottom properties to avoid this confusion.\r\n\r\nHere are my replacement implementations of Union and IntersectsWith:\r\n\r\n\r\n        public static GMap.NET.RectLatLng RectUnion(GMap.NET.RectLatLng x, GMap.NET.RectLatLng y)\r\n        {\r\n            return GMap.NET.RectLatLng.FromLTRB(\r\n                Math.Min(x.Left, y.Left),\r\n                Math.Max(x.Top, y.Top),\r\n                Math.Max(x.Right, y.Right),\r\n                Math.Min(x.Bottom, y.Bottom));\r\n        }\r\n\r\n\r\n        public static bool RectIntersects(GMap.NET.RectLatLng x, GMap.NET.RectLatLng y)\r\n        {\r\n            return y.Left < x.Right &&\r\n                y.Top > x.Bottom &&\r\n                y.Right > x.Left &&\r\n                y.Bottom < x.Top;\r\n        }\r\n\r\nMy code works with these.",
+    "LastUpdatedDate": "2010-07-16T03:08:37.78-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-07-16T00:20:52.373-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "RectLatLng set operations are wrong",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15981
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "what exactly is wrong? I haven't tested all function in RectLatLng",
+      "PostedDate": "2010-07-16T03:08:37.78-07:00",
+      "Id": 14568
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "Id": "770635",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>I am sorry to disturb you all, but I didn't manage to open two times the windows form containing the GmapControl.</p>\r\n<p>In my MainForm I have one button that leads to this event:</p>\r\n<p>private void tSBGoogle_Click(object sender, EventArgs e)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>\r\n<p style=\"padding-left:60px\">GoogleForm google = new GoogleForm();<br>\r\ngoogle.ShowDialog();</p>\r\n<p style=\"padding-left:60px\">if (google.DialogResult == DialogResult.OK)</p>\r\n<p style=\"padding-left:60px\">{<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; label1Site.Visible = true;</p>\r\n<p style=\"padding-left:60px\">}</p>\r\n<p style=\"padding-left:30px\">}</p>\r\n<p>the second time that I click on this button at the google.ShowDialog(); command appears an error &quot;Parameter is not valid&quot;.</p>\r\n<p>I do not know where to look to find the problem... I have tried to invoke google.Dispose() but it doesn't solve the problem... Can you give me some leads?</p>\r\n<p>Thank you very much for your help!</p>\r\n",
+    "PostedDate": "2012-02-16T12:06:07.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "770775",
+    "ThreadId": "318928",
+    "Html": "<p>fix&nbsp;GoogleForm ;}</p>",
+    "PostedDate": "2012-02-16T12:40:52.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829372",
+    "ThreadId": "318928",
+    "Html": "<p>Hi radioman! I have the same issue and problem is not in the win form. If I am not init Gmap control -I can open form many times without any error, but if I ones init those code at load form, close the form and open again the form - I got the same error.</p>\n<pre style=\"font-size: 21px; background: white; color: black; font-family: Consolas;\"><span style=\"color: blue;\">try</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Net.<span style=\"color: #2b91af;\">IPHostEntry</span>&nbsp;e&nbsp;=&nbsp;System.Net.<span style=\"color: #2b91af;\">Dns</span>.GetHostEntry(<span style=\"color: #a31515;\">\"www.google.com\"</span>);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">catch</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MainMap.Manager.Mode&nbsp;=&nbsp;<span style=\"color: #2b91af;\">AccessMode</span>.CacheOnly;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: #2b91af;\">MessageBox</span>.Show(<span style=\"color: #a31515;\">\"No&nbsp;internet&nbsp;connection&nbsp;available,&nbsp;going&nbsp;to&nbsp;CacheOnly&nbsp;mode.\"</span>,&nbsp;<span style=\"color: #a31515;\">\"GMap.NET&nbsp;-&nbsp;Test\"</span>,&nbsp;<span style=\"color: #2b91af;\">MessageBoxButtons</span>.OK,&nbsp;<span style=\"color: #2b91af;\">MessageBoxIcon</span>.Warning);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Net.<span style=\"color: #2b91af;\">WebProxy</span>&nbsp;prx&nbsp;=&nbsp;<span style=\"color: blue;\">new</span>&nbsp;System.Net.<span style=\"color: #2b91af;\">WebProxy</span>(<span style=\"color: #a31515;\">\"healthproxy.health.dohmh.nycnet\"</span>,&nbsp;8080);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prx.UseDefaultCredentials&nbsp;=&nbsp;<span style=\"color: blue;\">true</span>;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: #2b91af;\">GMapProvider</span>.WebProxy&nbsp;=&nbsp;prx;\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MainMap.MapProvider&nbsp;=&nbsp;<span style=\"color: #2b91af;\">GMapProviders</span>.OpenStreetMap;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MainMap.Position&nbsp;=&nbsp;<span style=\"color: blue;\">new</span>&nbsp;<span style=\"color: #2b91af;\">PointLatLng</span>(40.744207000000000000,&nbsp;-73.845978000000000000);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MainMap.MinZoom&nbsp;=&nbsp;1;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MainMap.MaxZoom&nbsp;=&nbsp;24;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MainMap.Zoom&nbsp;=&nbsp;11;</pre>\n<pre style=\"font-size: 21px; background: white; color: black; font-family: Consolas;\"><p>please check the following error messages: <br />Parameter is not valid.</p><p><br />Stack:&nbsp;&nbsp;&nbsp; at System.Drawing.Graphics.CheckErrorStatus(Int32 status)<br />&nbsp;&nbsp; at System.Drawing.Graphics.DrawString(String s, Font font, Brush brush, RectangleF layoutRectangle, StringFormat format)<br />&nbsp;&nbsp; at System.Drawing.Graphics.DrawString(String s, Font font, Brush brush, Single x, Single y)<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnPaintOverlays(Graphics g)<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer, Boolean disposeEventArgs)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.WmPaint(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.ContainerControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.UserControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)<br />&nbsp;&nbsp; at System.Windows.Forms.SafeNativeMethods.UpdateWindow(HandleRef hWnd)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.Update()<br />&nbsp;&nbsp; at System.Windows.Forms.Control.Refresh()<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.Refresh()<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.ForceUpdateOverlays()<br />&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.set_Position(PointLatLng value)<br />&nbsp;&nbsp; at BEGDC.NYCETrack.Client.NYCMap.MyMap.InitMap() in C:\\DEV\\NTM\\BEGDC.NYCETrack.Client\\NYCMap\\MyMap.cs:line 58</p></pre>",
+    "PostedDate": "2012-04-27T06:54:54.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829379",
+    "ThreadId": "318928",
+    "Html": "<p>it's not gmap related, child forms works perfect in modal and modalless forms, if you dispose form, you cant use it again</p>\n<p>p.s. share demo project, and i'll fix it</p>",
+    "PostedDate": "2012-04-27T07:15:18.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929189",
+    "ThreadId": "318928",
+    "Html": "<p><strong>Hi radioman.</strong></p>\r\n<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">When I open</span> <span class=\"hps\">the form</span> <span class=\"hps\">for the first time</span><span>, everything is</span> <span class=\"hps\">ok, but</span> <span class=\"hps\">when I open</span> <span class=\"hps\">the next</span> <span class=\"hps\">time</span> <span class=\"hps\">I see</span> <span class=\"hps atn\">the error \"</span><span>Parameter</span> <span class=\"hps\">is not</span> <span class=\"hps\">valid\"</span><span>.</span> </span><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Can I</span> <span class=\"hps\">ask you to provide</span> <span class=\"hps\">an example?</span></span><span id=\"result_box\" lang=\"en\"><span class=\"hps\">.</span> <span class=\"hps\">I know</span> <span class=\"hps\">that the problem</span> <span class=\"hps\">lies in the</span> <span class=\"hps\">type of</span> <span class=\"hps\">window,</span> <span class=\"hps\">but I don't know</span> <span class=\"hps\">how to solve it</span><span>.</span></span></p>\r\n<p><br /><strong><span id=\"result_box\" lang=\"en\"><span class=\"hps\">This is the code</span> <span class=\"hps\">window</span> <span class=\"hps\">with the map:</span></span></strong></p>\r\n<p>public partial class frmLatLng : Form<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public frmLatLng()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private void frmLatLng_Load(object sender, EventArgs e)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cursor = Cursors.WaitCursor;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ShowMap();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cursor = Cursors.Default;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void ShowMap()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SuspendLayout();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.MapProvider = GMapProviders.GoogleSatelliteMap;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.Position = new PointLatLng(50.9351787221145, 21.3810038566589);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.MinZoom = 1;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.MaxZoom = 24;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.Zoom = 17;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.CanDragMap = true;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.Height = this.Height - 100;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.Dock = DockStyle.Fill;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mapa.Manager.Mode = AccessMode.ServerAndCache;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResumeLayout();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;}</p>\r\n<p><strong><span id=\"result_box\" lang=\"en\"><span class=\"hps\">This is the code</span> <span class=\"hps\">that opens</span> <span class=\"hps\">a window</span> <span class=\"hps\">with the map.</span></span></strong></p>\r\n<p><br />private void bttShowMap_Click(object sender, EventArgs e)<br />{</p>\r\n<p>&nbsp;&nbsp;&nbsp; Cursor = Cursors.WaitCursor;<br />&nbsp;&nbsp;&nbsp; frmLatLng ll = new frmLatLng();<br />&nbsp;&nbsp;&nbsp; ll.Show();<br />&nbsp;&nbsp;&nbsp; Cursor = Cursors.Default;<br />&nbsp;}</p>\r\n<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Regards</span></span></p>",
+    "PostedDate": "2012-10-18T22:58:18.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929249",
+    "ThreadId": "318928",
+    "Html": "<p>just don't use&nbsp;frmLatLng_Load event, put everything in constructor</p>",
+    "PostedDate": "2012-10-19T01:41:05.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929445",
+    "ThreadId": "318928",
+    "Html": "<p>I had the same problem some time ago. The solution:</p>\r\n<p>I used in a Marker or Route (can't remember) a static Brush or Pen (Pens.Black, Brushes.Green,...). That caused the error, when the form was opened again, because the Dispose() method could not dispose of static Brushes/Pens (which seems logical :-).</p>\r\n<p>So just use for example:</p>\r\n<p>route.Stroke = new Pen(Color.Black) instead of route.Stroke = Pens.Black.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-10-19T08:08:09.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929487",
+    "ThreadId": "318928",
+    "Html": "<p>route.Stroke = Colors.Red; // that is correct way, no need to make new instances...</p>",
+    "PostedDate": "2012-10-19T09:15:55.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945770",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>I have the same Problem on VB.net (VS2010). I have a Basic form (F_Basic) with a button. If I press the button I call the form SimpleMap. At first time pressing the button it works perfect, SimpleMap is opended. Then I close SimpleMap and press the button\r\n in F_Basic again. The program crashes with &quot;invalid Parameter&quot;</p>\r\n<p><strong>Code of F_Basic:</strong></p>\r\n<p>Public Class F_Basic</p>\r\n<p>&nbsp;&nbsp;&nbsp; Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SimpleMap.Show()<br>\r\n&nbsp;&nbsp;&nbsp; End Sub<br>\r\nEnd Class</p>\r\n<p><strong>Code of SimpleMap:</strong></p>\r\n<p>Imports GMap.NET<br>\r\nImports GMap.NET.WindowsForms</p>\r\n<p>Public Class SimpleMap</p>\r\n<p>&nbsp;&nbsp;&nbsp; Private Sub SimpleMap_Load(sender As Object, e As System.EventArgs) Handles Me.Load<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Me.GMapControl1.MinZoom = 1<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Me.GMapControl1.MaxZoom = 17<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Me.GMapControl1.Position = New PointLatLng(48, 11)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Default-Zoom-Faktor<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Me.GMapControl1.Zoom = 7<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Me.GMapControl1.Manager.Mode = AccessMode.ServerAndCache<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Me.GMapControl1.Manager.Mode = AccessMode.ServerOnly<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Me.GMapControl1.MapProvider = GMap.NET.MapProviders.BingHybridMapProvider.Instance<br>\r\n&nbsp;&nbsp;&nbsp; End Sub<br>\r\nEnd Class</p>\r\n<p><strong>Also I have tried this code for F_Basic (but it is the same result)</strong></p>\r\n<p>Public Class F_Basic</p>\r\n<p>&nbsp;&nbsp;&nbsp; Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim f As SimpleMap<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If f Is Nothing Then<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f = New SimpleMap<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f.Owner = Me<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f.ShowDialog()<br>\r\n&nbsp;&nbsp;&nbsp; End Sub<br>\r\nEnd Class</p>\r\n<p>On Debugging I saw that it is crashing in SimpleMap at second call at line &quot;Me.GMapControl1.MapProvider =...&quot;</p>\r\n<p>All my tries with dispose and so on does not help. Can anybody help me?</p>\r\n",
+    "PostedDate": "2012-11-22T10:06:41.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945773",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>if you want reuse the form, don't close it, hide it, or else use new form instance</p>\r\n",
+    "PostedDate": "2012-11-22T10:15:41.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945865",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>Thank you for your quick response. I do not want to hide form because of Memory. Also I want use&nbsp;GMapControls in more different forms of application.</p>\r\n<p>I have tried this one with a new form instance. But it is still not working.</p>\r\n<p>Public Class F_Basic</p>\r\n<p>&nbsp;&nbsp;&nbsp; Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim f As New SimpleMap<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; f.ShowDialog()<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp; End Sub<br>\r\nEnd Class</p>\r\n<p>Do you have any idea? It would be great because GMap.Net is a great tool, but only this problem is really a big&nbsp;problem for me.</p>\r\n",
+    "PostedDate": "2012-11-22T13:48:54.633-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945882",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>try don't use load event</p>\r\n<p>p.s. what version do you use?</p>\r\n",
+    "PostedDate": "2012-11-22T14:31:08.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945975",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>Thank you for your patience. I have tried in SimpleMap-Form to move the code from Load-Event to a button event. But this also doesn't help. Now I can open and close the SimpleMap-Form very often, but if I click in SimplMap the Button with &quot;Me.GMapControl1.MinZoom...&quot;\r\n the next time when I open SimpleMap it crashes at pressing this button.</p>\r\n<p>I program in VS 2010, Framework 4.0 (I have tried it also with Framework 2.0, but it is the same).</p>\r\n<p>I use:</p>\r\n<p>- GMap.Net.Core.dll Version 1.6.0.0 from 31.01.2012/17:51 (2,19MB)</p>\r\n<p>- GMap.Net.WindowsForms.dll Version 1.6.0.0 from 31.01.2012/17:51 (138KB)</p>\r\n",
+    "PostedDate": "2012-11-22T23:08:35.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946093",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>hm, it's quite old build, try latest</p>\r\n",
+    "PostedDate": "2012-11-23T04:47:58.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946126",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>Where can I find it. Here on Codeplex is only an older one.</p>\r\n",
+    "PostedDate": "2012-11-23T06:16:24.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946130",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>check&nbsp;http://greatmaps.codeplex.com/releases/view/73162</p>\r\n<p>latest build at the bottom</p>\r\n",
+    "PostedDate": "2012-11-23T06:26:34.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946135",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>Now it works!!!! Thank you very, very much!!!</p>\r\n",
+    "PostedDate": "2012-11-23T06:37:07.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946144",
+    "ThreadId": "318928",
+    "Html": "\r\n<p>..i guess it's some old bug..</p>\r\n",
+    "PostedDate": "2012-11-23T07:03:19.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025413",
+    "ThreadId": "318928",
+    "Html": "Xandolph: I had the same problem.\r<br />\nrestrictedArea is a polygon.\r<br />\n<br />\nWrong way:\r<br />\nrestrictedArea.Stroke.Brush = Brushes.Red;\r<br />\nrestrictedArea.Stroke.Width = 1.2f;\r<br />\nrestrictedArea.Fill = Brushes.Transparent;\r<br />\n<br />\nCorrect way:\r<br />\nrestrictedArea.Stroke = new Pen(Color.Red);\r<br />\nrestrictedArea.Stroke.Width = 1.2f;\r<br />\nrestrictedArea.Fill = new SolidBrush(Color.Transparent);<br />\n",
+    "PostedDate": "2013-04-04T07:37:13.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

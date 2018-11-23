@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "287043",
+    "ThreadId": "83481",
+    "Html": "<p>I have been building a mapping application for a CarPC front end and am using GMap.&nbsp; I love every single thing about it.... except one.&nbsp; The one thing that has been on my mind is that even thoug you can cache tiles you still need an internet connection to make the map usable beyond just tracking where you are.&nbsp; The challenge is that in order to incorporate routing, turn by turn directions, POI queries, etc. you need to have a good connection to the internet and the Google servers have to be responding properly and quickly.&nbsp; I understand that there is &quot;route caching&quot; available in GMap.net, and while that seems like a great feature it still doesn't fully get rid of the reliance to an internet connection.</p>\r\n<p>I have thought about using Mappoint but my CarPC application is in WPF and there is no WPF mapping control for it.&nbsp; I believe that Microsoft's stance is that they will not be developing a WPF control for Mappoint and they are relying on the community or partners to fill this gap.&nbsp; Well, WPF has been around for years, and there is still no WPF Mappoint control.</p>\r\n<p>Question:&nbsp; Since GMap.net is a mapping control that can be implemented in WPF, would it be possible to have GMap.NET use a local installation of Mappoint as one of it's source options&nbsp;(along with Bing maps, Yahoo maps, Google maps, etc.).&nbsp; I have tried to use Google maps as my tile source while using a local instance of Mappoint for routing tasks.&nbsp; It's pretty close but there are a couple of issues (coordinates between the two are slightly different; the Mappoint API does not return detailed coordinates of the route to be taken - instead it only gives you the coordinates for the middle of each route segment; etc.)</p>\r\n<p>So, I think this is possble, but I have no idea about how to turn the WPF GMap.net into a true WPF control for Mappoint.&nbsp; Is there a secret api we would need to access?&nbsp;</p>\r\n<p>Anyone have any knowledge or thoughs on this?</p>\r\n<p>Thanks,<br>Joe</p>",
+    "PostedDate": "2010-02-08T01:17:32.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "287048",
+    "ThreadId": "83481",
+    "Html": "<p>maybe</p>",
+    "PostedDate": "2010-02-08T01:27:38.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

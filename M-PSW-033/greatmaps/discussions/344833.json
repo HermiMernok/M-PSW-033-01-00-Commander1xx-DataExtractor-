@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "799969",
+    "ThreadId": "344833",
+    "Html": "<p>Hi!</p>\n<p>First, thank you&nbsp;for that great control!</p>\n<p>I think, there is a bug in rendering of regular shapes (in Windows Forms). In old version (cf74894b9a5c (19.4.2011)) it is ok, but in new versions it's wrong. Can you please fix it?</p>\n<p>Thanks</p>\n<p>Here&nbsp;is image of this bug:</p>\n<p><img src=\"http://www.kpp.unas.cz/Image.png\" alt=\"\" /></p>",
+    "PostedDate": "2012-02-25T16:57:46.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "799970",
+    "ThreadId": "344833",
+    "Html": "<p>i don't have telepathic abilities yet, so provide more info ;}</p>",
+    "PostedDate": "2012-02-25T17:07:23.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "799972",
+    "ThreadId": "344833",
+    "Html": "<p>:-)</p>\n<p>Here is my code:</p>\n<p>Drawing:</p>\n<p>List&lt;PointLatLng&gt; PointS = new List&lt;PointLatLng&gt;();</p>\n<p>PointS.Add(new PointLatLng(49.8761111111111, 18.2186111111111));<br />PointS.Add(new PointLatLng(49.8761111111111, 18.2188888888889));<br />PointS.Add(new PointLatLng(49.8761111111111, 18.2191666666667));<br />PointS.Add(new PointLatLng(49.8761111111111, 18.2194444444444));<br />PointS.Add(new PointLatLng(49.8761111111111, 18.2197222222222));<br />PointS.Add(new PointLatLng(49.8763888888889, 18.2186111111111));<br />PointS.Add(new PointLatLng(49.8763888888889, 18.2188888888889));<br />PointS.Add(new PointLatLng(49.8763888888889, 18.2191666666667));<br />PointS.Add(new PointLatLng(49.8763888888889, 18.2194444444444));<br />PointS.Add(new PointLatLng(49.8763888888889, 18.2197222222222));</p>\n<p>foreach (PointLatLng pointS in PointS)<br />{<br />&nbsp;GMapMarker markerA = new GMapMarkerBlank(new PointLatLng(pointS.Lat + 0.00027777777777777777777777777777778 / 2, pointS.Lng - 0.00027777777777777777777777777777778 / 2));<br />&nbsp;GMapMarker markerB = new GMapMarkerBlank(new PointLatLng(pointS.Lat - 0.00027777777777777777777777777777778 / 2, pointS.Lng + 0.00027777777777777777777777777777778 / 2));</p>\n<p>&nbsp;objects.Markers.Add(markerA);<br />&nbsp;objects.Markers.Add(markerB);</p>\n<p>&nbsp;GMapMarkerPolygon mBorders;<br />&nbsp;mBorders = new GMapMarkerPolygon(markerA.Position, markerB) { Color = Color.Orange };</p>\n<p>&nbsp;objects.Markers.Add(mBorders);<br />}</p>\n<p>And class:</p>\n<p>public class GMapMarkerBlank : GMapMarker<br />{<br />&nbsp;public GMapMarkerBlank(PointLatLng p)<br />&nbsp;&nbsp;: base(p)<br />&nbsp;{<br />&nbsp;}<br />}</p>\n<p>public class GMapMarkerPolygon : GMapMarker<br />{<br />&nbsp;public Color Color { get; set; }<br />&nbsp;public GMapMarker MarkerB { get; set; }</p>\n<p>&nbsp;public GMapMarkerPolygon(PointLatLng pointA, GMapMarker markerB)<br />&nbsp;&nbsp;: base(pointA)<br />&nbsp;{<br />&nbsp;&nbsp;this.MarkerB = markerB;<br />&nbsp;}</p>\n<p>&nbsp;public override void OnRender(Graphics g)<br />&nbsp;{<br />&nbsp;&nbsp;PointF p1, p2, p3, p4;<br />&nbsp;&nbsp;p1 = new PointF(LocalPosition.X, MarkerB.LocalPosition.Y);<br />&nbsp;&nbsp;p2 = new PointF(MarkerB.LocalPosition.X, MarkerB.LocalPosition.Y);<br />&nbsp;&nbsp;p3 = new PointF(MarkerB.LocalPosition.X, LocalPosition.Y);<br />&nbsp;&nbsp;p4 = new PointF(LocalPosition.X, LocalPosition.Y);</p>\n<p>&nbsp;&nbsp;PointF[] points = { p1, p2, p3, p4 };</p>\n<p>&nbsp;&nbsp;g.FillPolygon(new SolidBrush(System.Drawing.Color.FromArgb(255, Color.R, Color.G, Color.B)), points);<br />&nbsp;}<br />}</p>",
+    "PostedDate": "2012-02-25T17:41:12.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807159",
+    "ThreadId": "344833",
+    "Html": "<p>I found, that the problem only occurs in Czech* maps providers, so there is maybe problem in MapyCZProjection. And there is also problem with zoom in Czech* maps.</p>\r\n<p>Can you please fix these problems? Thanks</p>",
+    "PostedDate": "2012-03-07T14:34:47.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807166",
+    "ThreadId": "344833",
+    "Html": "<p>whats the problem?</p>",
+    "PostedDate": "2012-03-07T14:44:40.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807167",
+    "ThreadId": "344833",
+    "Html": "<p>The problem is, that rectangles are wrongly rendered. When I use Czech maps they are displayed as in the right top image, and this is wrong. When I use Google map they are displayed correctly as in the left top image. You can use my code to see this.</p>",
+    "PostedDate": "2012-03-07T14:51:02.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807175",
+    "ThreadId": "344833",
+    "Html": "<p>your code doesn't render anything</p>",
+    "PostedDate": "2012-03-07T15:09:33.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807177",
+    "ThreadId": "344833",
+    "Html": "<p>Try go to 49.8761111111111, 18.2186111111111</p>\r\n<p>There are small shapes (30mx30m)</p>",
+    "PostedDate": "2012-03-07T15:11:49.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807180",
+    "ThreadId": "344833",
+    "Html": "<p>..man can't you make it bigger ;/</p>",
+    "PostedDate": "2012-03-07T15:21:24.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807181",
+    "ThreadId": "344833",
+    "Html": "<p>..well you made a mistake: new PointLatLng(pointS.Lat <strong>- 0.00027777777777777777777777777777778 / 2</strong>, pointS.Lng <strong>+ 0.00027777777777777777777777777777778 / 2</strong>)</p>\n<p>if you want precision, render using pixels, not lat/lng</p>",
+    "PostedDate": "2012-03-07T15:28:06.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807182",
+    "ThreadId": "344833",
+    "Html": "<p>OK, but why this occur only in Czech maps?</p>",
+    "PostedDate": "2012-03-07T15:30:14.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807184",
+    "ThreadId": "344833",
+    "Html": "<p>because they use very complicated and nonstandard map projection, so the point to point conversions are not very accurate</p>",
+    "PostedDate": "2012-03-07T15:40:11.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807185",
+    "ThreadId": "344833",
+    "Html": "<p>OK, thanks for your support</p>",
+    "PostedDate": "2012-03-07T15:41:44.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

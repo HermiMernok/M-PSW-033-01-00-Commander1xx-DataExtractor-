@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "660485",
+    "ThreadId": "269680",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>Imagine the simplest scenario. There are 12 markers on the map in the positions of numbers on a clock, drawing a line between each marker i would end up with an outline of a clock. How would I get an outline of a shape if there are markers in the middle\r\n of the clock and i only want the outer markers?&nbsp;The zoomtomarker? command may be of help because that must know the outer markers to zoom in to.</p>\r\n<p>Ideas anyone?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2011-08-19T03:30:56.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "660491",
+    "ThreadId": "269680",
+    "Html": "<p>Suppose one way is a loop getting the left most, then the right most but that may take a while so if there is a quicker way than to literate through the markers?</p>",
+    "PostedDate": "2011-08-19T03:41:21.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "660516",
+    "ThreadId": "269680",
+    "Html": "<p>doubtly</p>",
+    "PostedDate": "2011-08-19T04:19:47.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "663282",
+    "ThreadId": "269680",
+    "Html": "<p>ok found something.</p>\n<p>the \"quickhull\" algorithm</p>\n<p><a href=\"http://westhoffswelt.de/blog/0040_quickhull_introduction_and_php_implementation.html\">http://westhoffswelt.de/blog/0040_quickhull_introduction_and_php_implementation.html</a><a href=\"http://www.northeastraces.com/runningstatic/pcas/\"></a></p>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-08-25T08:00:03.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "664807",
+    "ThreadId": "269680",
+    "Html": "<p>Hello tradford,</p>\r\n<p>&nbsp;</p>\r\n<p>i use the Grahamalgorithmen for it. Works well up to thousand points and more.</p>\r\n<p>&nbsp;</p>\r\n<p>The code-example you can find here:</p>\r\n<p><a title=\"GrahamScan\" href=\"http://www.activevb.de/tipps/vbnettipps/tipp0113.html\" target=\"_blank\">http://www.activevb.de/tipps/vbnettipps/tipp0113.html</a></p>\r\n<p>&nbsp;</p>\r\n<p>how to use with GMap:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">Dim</span> Ret = GrahamScan.ConvexHull(m_Points)\r\n        <span style=\"color: blue;\">Dim</span> polygonPoints <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> List(Of PointLatLng)()\r\n\r\n        <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> DrawingPoint <span style=\"color: blue;\">In</span> Ret\r\n            TempPoint = Form_Main.MainMap.FromLocalToLatLng(DrawingPoint.X, DrawingPoint.Y)\r\n            polygonPoints.Add(TempPoint)\r\n        <span style=\"color: blue;\">Next</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>Bye RobbeEDE</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-08-29T06:05:39.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665742",
+    "ThreadId": "269680",
+    "Html": "<p>Thanks a lot RobbeEDE will try!</p>",
+    "PostedDate": "2011-08-31T05:38:26.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665758",
+    "ThreadId": "269680",
+    "Html": "<p>I tried the demo of the above and the convex hull still selects the very outside points which is what it's supposed to do but what i need is something that will trace the outside edge, so if the shape is a star it draws a star insted of a circle which the convex hull would do.</p>",
+    "PostedDate": "2011-08-31T06:45:47.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665769",
+    "ThreadId": "269680",
+    "Html": "<p>I think the answer lies here but i never studied genometry in school :-</p>\r\n<p>Taken from <a href=\"http://www.northeastraces.com/runningstatic/pcas/\">http://www.northeastraces.com/runningstatic/pcas/</a></p>\r\n<p>Removing the overlaps</p>\r\n<p>Many of these polygons overlap. This means a polygon has at least one vertex from a neighbouring polygon inside its area. <br />I&nbsp;call such a vertex an <em>insider</em>. If you like the polygon is taking a shortcut across the territory of its neighbour. <br />In some ways it would be better to alter the polygon so that the offending side of the polygon were bent to go round the insider.</p>\r\n<p>The problem is widespread: the 120 polygons contain 1488 insiders.</p>\r\n<p>Here is my <em>improvement algorithm</em> that alters each polygon so that it goes round the insiders:</p>\r\n<pre>   for each postcode area\r\n      let \"current polygon\" be the polygon of this postcode area\r\n      for each postcode area other than the current one\r\n         for each vertex of the polygon of this postcode area\r\n            if the vertex is inside the current polygon, \r\n            then add it to a set of \"insiders\"\r\n      while the set is not empty\r\n         choose the insider that causes fewer points to be insiders if\r\n                  the chosen insider were added to the current polygon\r\n         for each side of the current polygon\r\n            determine the distance of this insider from the side\r\n         let \"grafting point\" be the point at the start of the side that\r\n             has the smallest distance\r\n         add the point of this insider to the polygon after the grafting point\r\n         remove this insider from the set of insiders\r\n         remove any points that are no longer insiders from the set of insiders\r\n</pre>",
+    "PostedDate": "2011-08-31T07:06:54.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

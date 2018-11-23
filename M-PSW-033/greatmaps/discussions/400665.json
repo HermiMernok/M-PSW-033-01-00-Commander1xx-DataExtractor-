@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "931924",
+    "ThreadId": "400665",
+    "Html": "\r\n<p>Hello, I have got problem. I am writing c# application which get nmea data from gps receiver, parse that and display points on the gmap - in real time as markers, point after point. But performance is not good. When I get about 300 points, application is\r\n slowly and slowly, in the end it's freeze. I am getting data from RichTextBox with event when it's change. When I have a lot of points, RichTextBox is slowly too.. Display a point is realised by:</p>\r\n<pre>overlayOne.Markers.Add...,\ngMapControl1.Overlays.Add(overlayOne);\ngMapControl1.ZoomAndCenterMarkers(<span>&quot;OverlayOne&quot;</span>);\ngMapControl1.Refresh();</pre>\r\n<p>And it's in every event.. It refresh whole map everytime when I add new marker..</p>\r\n<p>Can someone write me a universal code, which is quicker?</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-10-24T11:50:03.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "931935",
+    "ThreadId": "400665",
+    "Html": "<p>check the demo, there is real time flight and vehicle visualization, pretty fast, handles thousands of markers</p>",
+    "PostedDate": "2012-10-24T12:13:19.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "931954",
+    "ThreadId": "400665",
+    "Html": "<p>OK, I will check it. Thanks</p>",
+    "PostedDate": "2012-10-24T12:49:06.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

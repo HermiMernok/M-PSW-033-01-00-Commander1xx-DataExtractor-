@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1023828",
+    "ThreadId": "438682",
+    "Html": "This may sound a little strange but I have tried to change the naming of the directories,  projects, assemblies and source code from GMap.NET to just GMap, GMap.GEO or anything else and the code will not compile. I get a few error messages stating the following:\r<br />\n<br />\n&quot;GMap.GEO.Internals.RawTile is inaccessible due to its protection level&quot;\r<br />\n&quot;GMap.GEO.Internals.Core is inaccessible due to its protection level&quot;\r<br />\n<br />\nSeems that structures defined as &quot;internal&quot; get flagged. I have looked online and seen the discussions about &quot;internal&quot; versus &quot;public&quot; declarations. I just do not know why this occurs just by changing the source code naming conventions.\r<br />\n<br />\nI have searched through the entire code base and have changed everything, getting all references so I do not understand what the problem is. I have had success in modifying parts of the code for customizing an application I am working on.\r<br />\n<br />\nAnyone else run into this or know the answer?<br />\n",
+    "PostedDate": "2013-04-01T09:16:33.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023833",
+    "ThreadId": "438682",
+    "Html": "namespace doesn't matter, you can rename it to whatever you want, but you have to to rename it in all files...<br />\n",
+    "PostedDate": "2013-04-01T09:26:00.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023836",
+    "ThreadId": "438682",
+    "Html": "Wow radioman, thank you for such a quick response.\r<br />\n<br />\nI renamed it everywhere by the following method. I first did a global replace walking through each individual replace i the solution. Then I meticulously changed everything and then re-added the references. Also I went to the properties page of each project verifying the Assembly names and Default Namespaces that everything was matching.\r<br />\n<br />\nI think that all the references were caught because the compile errors do not show anything not found or errors like &quot;did you forget to add a reference&quot;; but rather problems with accessibility.<br />\n",
+    "PostedDate": "2013-04-01T09:37:38.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

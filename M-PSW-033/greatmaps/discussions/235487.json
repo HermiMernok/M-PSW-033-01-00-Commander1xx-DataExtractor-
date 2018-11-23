@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "524923",
+    "ThreadId": "235487",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p>as we have seen, you have already added some OSM Maps to your list.</p>\r\n<p>Is there a chance, that you also add these two maps:</p>\r\n<p>http://www.opencyclemap.org</p>\r\n<p>and</p>\r\n<p>http://www.wanderreitkarte.de/</p>\r\n<p>Thank you for reading!</p>\r\n<p>Jockel</p>\r\n",
+    "PostedDate": "2010-11-21T05:24:44.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "524928",
+    "ThreadId": "235487",
+    "Html": "\r\n<p>roger ;}</p>\r\n",
+    "PostedDate": "2010-11-21T05:34:23.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525998",
+    "ThreadId": "235487",
+    "Html": "\r\n<p>opencyclemap done, so far on http://www.wanderreitkarte.de/ analyze:</p>\r\n<p>//Eingrenzung auf ein Land<br>\r\nvar leftBottom = new OpenLayers.LonLat(0.9,35.2) <br>\r\n.transform(<br>\r\nnew OpenLayers.Projection(&quot;EPSG:4326&quot;), // transform from WGS 1984<br>\r\nnew OpenLayers.Projection(&quot;EPSG:900913&quot;) // to Spherical Mercator Projection<br>\r\n)<br>\r\nvar rightTop = new OpenLayers.LonLat(23,58.1) <br>\r\n.transform(<br>\r\nnew OpenLayers.Projection(&quot;EPSG:4326&quot;), // transform from WGS 1984<br>\r\nnew OpenLayers.Projection(&quot;EPSG:900913&quot;) // to Spherical Mercator Projection<br>\r\n)<br>\r\nvar extent = new OpenLayers.Bounds(leftBottom.lon, leftBottom.lat, rightTop.lon, rightTop.lat);<br>\r\n<br>\r\nvar options = {<br>\r\nprojection : &quot;EPSG:900913&quot;,<br>\r\nnumZoomLevels: 19,<br>\r\n<br>\r\ncontrols: [ new OpenLayers.Control.KeyboardDefaults(), // keyboard must be first<br>\r\nnew OpenLayers.Control.MouseDefaults(),<br>\r\n//new OpenLayers.Control.LayerSwitcher(),<br>\r\nnew OpenLayers.Control.PanZoomBar(),<br>\r\n<br>\r\nnew OpenLayers.Control.ScaleLine({geodesic: true})<br>\r\n]<br>\r\n};<br>\r\n<br>\r\nvar map = new OpenLayers.Map('map', options);<br>\r\nmap.restrictedExtent = extent;<br>\r\n<br>\r\nvar base = new OpenLayers.Layer.Topo('base', [<br>\r\n'http://base.wanderreitkarte.de/base/${z}/${x}/${y}.png',<br>\r\n'http://base2.wanderreitkarte.de/base/${z}/${x}/${y}.png'],<br>\r\n{isBaseLayer:true});<br>\r\nmap.addLayer(base);<br>\r\n<br>\r\nvar hills = new OpenLayers.Layer.Contour(&quot;shade&quot;, [<br>\r\n&quot;http://wanderreitkarte.de/hills/${z}/${x}/${y}.png&quot;,<br>\r\n'http://www.wanderreitkarte.de/hills/${z}/${x}/${y}.png'],<br>\r\n{minZoomLevel: 9, maxZoomLevel: 19 , isBaseLayer:false });<br>\r\nmap.addLayer(hills); <br>\r\n<br>\r\nvar trails = new OpenLayers.Layer.Topo('topo', [<br>\r\n'http://topo.wanderreitkarte.de/topo/${z}/${x}/${y}.png',<br>\r\n'http://topo2.wanderreitkarte.de/topo/${z}/${x}/${y}.png'], <br>\r\n{isBaseLayer:false});<br>\r\nmap.addLayer(trails);<br>\r\n<br>\r\n<br>\r\n// have to figure out how this can be done automatically<br>\r\nProj4js.defs[&quot;EPSG:54004&quot;] = <br>\r\n&quot;&#43;proj=merc &#43;lon_0=0 &#43;k=1 &#43;x_0=0 &#43;y_0=0 &#43;ellps=WGS84 &#43;datum=WGS84 &#43;units=m &#43;no_defs &quot;;<br>\r\nProj4js.defs[&quot;EPSG:54004&quot;] = &quot;&#43;proj=merc &#43;lat_ts=0 &#43;lon_0=0 &#43;k=1.000000 &#43;x_0=0 &#43;y_0=0 &#43;ellps=WGS84 &#43;datum=WGS84 &#43;units=m no_defs&quot;<br>\r\nProj4js.defs[&quot;EPSG:900913&quot;] = &quot;&#43;proj=merc &#43;a=6378137 &#43;b=6378137 &#43;lat_ts=0.0 &#43;lon_0=0.0 &#43;x_0=0.0 &#43;y_0=0 &#43;k=1.0 &#43;units=m &#43;nadgrids=@null &#43;wktext &#43;no_defs&quot;;<br>\r\n<br>\r\np54004 = new Proj4js.Proj(&quot;EPSG:54004&quot;);<br>\r\np4326 = new Proj4js.Proj(&quot;EPSG:4326&quot;);<br>\r\np900913 = new Proj4js.Proj(&quot;EPSG:900913&quot;);<br>\r\n<br>\r\n/*<br>\r\nfunction sizeMap(deltaPx) { <br>\r\nvar e = document.getElementById('map');<br>\r\nvar h = e.style.height;<br>\r\nif( h=='' ) h = window.getComputedStyle(e, null).height;<br>\r\nvar height = parseInt(h)&#43;deltaPx;<br>\r\nif( height&lt;100 ) return;<br>\r\ne.style.height = &quot;&quot;&#43; height &#43; 'px';<br>\r\nmap.updateSize();<br>\r\n};<br>\r\n*/<br>\r\n/**<br>\r\n* convert from one projection to other. <br>\r\n* @param Proj4js.Proj pFrom input projection<br>\r\n* @param Proj4js.Proj pTo output projection<br>\r\n* @param OpenLayers.LonLat lonlat value to convert<br>\r\n*/<br>\r\nfunction p2p(pFrom, pTo, lonlat) {<br>\r\nvar xy = {x: lonlat.lon, y:lonlat.lat};<br>\r\nxy = Proj4js.transform(pFrom, pTo, xy);<br>\r\nreturn new OpenLayers.LonLat(xy.x, xy.y); <br>\r\n};<br>\r\n<br>\r\nfunction mapFullsize() {<br>\r\nvar maph = window.innerHeight;<br>\r\ndocument.getElementById(&quot;map&quot;).style.height = maph&#43;&quot;px&quot;;<br>\r\nmap.updateSize();<br>\r\n}<br>\r\n<br>\r\n// parse URL parameters for lat, lon and zoom<br>\r\n/*var floatreString = &quot;([-]?[0-9]&#43;([.][0-9]&#43;)?)($|&amp;)&quot;;<br>\r\nvar paramDef = {<br>\r\nlat : [new RegExp(&quot;[?&amp;]lat=&quot;&#43;floatreString), null],<br>\r\nlon : [new RegExp(&quot;[?&amp;]lon=&quot;&#43;floatreString), null],<br>\r\nzoom : [new RegExp(&quot;[?&amp;]zoom=([0-9]|1[0-9])($|&amp;)&quot;), null],<br>\r\n//maph : [new RegExp(&quot;[?&amp;]maph=([0-9][0-9][0-9][0-9]?)($|&amp;)&quot;), null],<br>\r\n//layer : [new RegExp(&quot;[?&amp;]layer=([A-Za-z]&#43;)($|&amp;)&quot;), &quot;Mapnik&quot;],<br>\r\nurlLang : [new RegExp(&quot;[?&amp;]lang=(en|it)($|&amp;)&quot;), null]<br>\r\n};<br>\r\nvar params = {};<br>\r\nfor(key in paramDef) {<br>\r\nvar m = location.search.match(paramDef[key][0]);<br>\r\neval(&quot;var &quot;&#43;key&#43;&quot; = (m==null) ? paramDef[key][1] : m[1]&quot;);<br>\r\n};<br>\r\n*/<br>\r\n<br>\r\n// initialize the map coordinates, zoom, size and layer from the URL<br>\r\n// parameters or from defaults. For the coordinates we remember<br>\r\n// whether we used the default. If yes, a track just loaded is allowed<br>\r\n// to override the settings to zoom to its extend.<br>\r\nif( lat &amp;&amp; lon ) {<br>\r\nlonlatIsDefault = false;<br>\r\nvar lonlat = new OpenLayers.LonLat(lon, lat);<br>\r\n} else {<br>\r\nlonlatIsDefault = true;<br>\r\nvar lonlat = new OpenLayers.LonLat(11.75,49);<br>\r\n}<br>\r\nlonlat = p2p(p4326, p900913, lonlat);<br>\r\n<br>\r\nif( zoom ) {<br>\r\nzoomIsDefault = false;<br>\r\n} else {<br>\r\nzoomIsDefault = true;<br>\r\nzoom = 5;<br>\r\n}<br>\r\n<br>\r\n/*<br>\r\nif( maph ) {<br>\r\ndocument.getElementById('map').style.height = &quot;&quot;&#43;maph&#43;&quot;px&quot;;<br>\r\nmap.updateSize();<br>\r\n} else {<br>\r\nmapFullsize();<br>\r\n}<br>\r\n*/<br>\r\nmapFullsize();<br>\r\n//var l = map.getLayersByName(&quot;Reitkarte&quot;);<br>\r\n//if( l &amp;&amp; l.length&gt;0 ) map.setBaseLayer(l[0]);<br>\r\n<br>\r\nmap.events.register(&quot;zoomend&quot;, map, updateScale);<br>\r\nmap.events.register(&quot;moveend&quot;, map, updateLocation);<br>\r\n<br>\r\n// called at the end of the generated tail of index.html, just before<br>\r\n// the track points are created.<br>\r\nfunction initMapCoords(lonlat, zoom, map) {<br>\r\nmap.setCenter(lonlat, zoom, false, false);<br>\r\n//updateScale.apply(map, null);<br>\r\nd = document.getElementById('mapWrapper');<br>\r\n&nbsp;d.style.width=window.innerWidth-250;<br>\r\n}<br>\r\n<br>\r\n</p>\r\n",
+    "PostedDate": "2010-11-23T10:47:45.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526016",
+    "ThreadId": "235487",
+    "Html": "\r\n<p>Hi radioman :-)</p>\r\n<p>so this is very different from the ones we have seen integrated here before?</p>\r\n",
+    "PostedDate": "2010-11-23T11:21:35.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526022",
+    "ThreadId": "235487",
+    "Html": "\r\n<p>hey,</p>\r\n<p>..not so much, just another projection ;}</p>\r\n",
+    "PostedDate": "2010-11-23T11:32:55.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

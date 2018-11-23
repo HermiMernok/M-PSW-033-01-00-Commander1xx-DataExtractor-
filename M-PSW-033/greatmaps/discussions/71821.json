@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "245085",
+    "ThreadId": "71821",
+    "Html": "<p>How do I add a name to a placemark? There is no property on the GMapMarker or PointLatLng classes for such. Is this possible some other way?</p>",
+    "PostedDate": "2009-10-13T07:43:02.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245097",
+    "ThreadId": "71821",
+    "Html": "<p>Maybe use TAG property of placemark?</p>",
+    "PostedDate": "2009-10-13T08:15:32.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245099",
+    "ThreadId": "71821",
+    "Html": "<p>That doesn't do anything. Don't see why it would.&nbsp; Any other ideas?</p>",
+    "PostedDate": "2009-10-13T08:20:08.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245116",
+    "ThreadId": "71821",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">class</span> MySuperAllKnowingMarker : GMapMarker\r\n{\r\n   <span style=\"color:Green\">// ...</span>\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-13T08:40:40.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245255",
+    "ThreadId": "71821",
+    "Html": "<p>Err... yeah, that's quite simple enough of course, but what I am after is actually showing a name next&nbsp;to the placemark on the map - Visually... sorry if I confused the issue LOL.</p>",
+    "PostedDate": "2009-10-13T13:25:33.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245258",
+    "ThreadId": "71821",
+    "Html": "<p>?</p>",
+    "PostedDate": "2009-10-13T13:32:13.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245407",
+    "ThreadId": "71821",
+    "Html": "<p>Okay, let's try this again...</p>\r\n<p>I currently have a Google Earth application which allows me to draw a route and add some placemarks. Now, I can add a NAME property to each placemark which will then be displayed on the actual map next to each placemark. I was hoping that the GMap / Google Maps API had a similar feature whereby I could somehow tell it to display some text next to&nbsp;each placemark. This is a requirement for my application and if it can't be done with GMaps, I will need to look elsewhere or figure out how to modify your code to enable such a feature. If you are still lost, I can send a screenshot to make things clearer, but I don't see an upload file option here.</p>\r\n<p>By the way, great&nbsp;control - I just hope I have the chance to use it. If you currently don't support this feature, will you be planning to do so?</p>\r\n<p>Cheers</p>",
+    "PostedDate": "2009-10-14T00:15:11.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245414",
+    "ThreadId": "71821",
+    "Html": "<p>are you trying to say that you want tooltips? ;}</p>",
+    "PostedDate": "2009-10-14T00:33:57.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245416",
+    "ThreadId": "71821",
+    "Html": "<p>Nope, though that would be useful to me as well for another purpose.</p>\r\n<p>Is there any way I can send you an image&nbsp;to make things clearer?</p>",
+    "PostedDate": "2009-10-14T00:36:52.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245418",
+    "ThreadId": "71821",
+    "Html": "<p>there are many ways, skydrive, imageshack, etc ;}</p>",
+    "PostedDate": "2009-10-14T00:39:31.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245420",
+    "ThreadId": "71821",
+    "Html": "<p>Very true. In any case, I thought I would just send you soem example KML:</p>\r\n<p>Save this as a .kml file and open with Google Earth. This should clear up any confusion. :-)</p>\r\n<p>&lt;kml&gt;<br>&nbsp; &lt;Document&gt;<br>&nbsp;&nbsp;&nbsp; &lt;name&gt;930&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp; &lt;visibility&gt;1&lt;/visibility&gt;<br>&nbsp;&nbsp;&nbsp; &lt;description&gt;Place your mouse over the icon to see it display the new icon&lt;/description&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Style id=&quot;styleLine&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;IconStyle&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;scale&gt;0&lt;/scale&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/IconStyle&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;LineStyle&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;color&gt;7f0000ff&lt;/color&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;width&gt;4&lt;/width&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/LineStyle&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Style&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Style id=&quot;styleRedPlacemark&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;IconStyle&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Icon&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;href&gt;http://www.iconbazaar.com/dots/1dot1a.gif&lt;/href&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;x&gt;96&lt;/x&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;y&gt;160&lt;/y&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;w&gt;64&lt;/w&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;h&gt;64&lt;/h&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Icon&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;scale&gt;0.3&lt;/scale&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/IconStyle&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Style&gt;<br>&nbsp;&nbsp;&nbsp; &lt;StyleMap id=&quot;styleMapRed&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Pair&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key&gt;normal&lt;/key&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleRedPlacemark&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Pair&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Pair&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;key&gt;highlight&lt;/key&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleRedPlacemark&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Pair&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/StyleMap&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Placemark&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;1 opp Balunie Gdns&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;visibility&gt;1&lt;/visibility&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleRedPlacemark&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extrude&gt;1&lt;/extrude&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;coordinates&gt;-2.8980033155,56.4782479709,25&lt;/coordinates&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;description /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Placemark&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Placemark&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;2 Baluniefield South&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;visibility&gt;1&lt;/visibility&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleRedPlacemark&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extrude&gt;1&lt;/extrude&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;coordinates&gt;-2.9017694621,56.478229656,25&lt;/coordinates&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;description /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Placemark&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Placemark&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;3 Balbeggie Place&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;visibility&gt;1&lt;/visibility&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleRedPlacemark&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extrude&gt;1&lt;/extrude&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;coordinates&gt;-2.9064632534,56.4789861013,25&lt;/coordinates&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;description /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Placemark&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Placemark&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;4 Balmerino Place&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;visibility&gt;1&lt;/visibility&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleRedPlacemark&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extrude&gt;1&lt;/extrude&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;coordinates&gt;-2.910677218,56.4793595604,25&lt;/coordinates&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;description /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Placemark&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Placemark&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;5 Ballindean Road&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;visibility&gt;1&lt;/visibility&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleRedPlacemark&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extrude&gt;1&lt;/extrude&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;coordinates&gt;-2.9149326126,56.4794271011,25&lt;/coordinates&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Point&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;description /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Placemark&gt;<br>&nbsp;&nbsp;&nbsp; &lt;Placemark&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;extruded&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;visibility&gt;1&lt;/visibility&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;styleUrl&gt;#styleLine&lt;/styleUrl&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;LineString&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;extrude&gt;0&lt;/extrude&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;tessellate&gt;1&lt;/tessellate&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;altitudeMode&gt;relativeToGround&lt;/altitudeMode&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;coordinates&gt;-2.8980033155,56.4782479709,15<br>-2.9017694621,56.478229656,15<br>-2.9064632534,56.4789861013,15<br>-2.910677218,56.4793595604,15<br>-2.9149326126,56.4794271011,15<br>-2.9161334223,56.481421772,15<br>&lt;/coordinates&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/LineString&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;description /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/Placemark&gt;<br>&nbsp; &lt;/Document&gt;<br>&lt;/kml&gt;</p>",
+    "PostedDate": "2009-10-14T00:43:53.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245421",
+    "ThreadId": "71821",
+    "Html": "<p>you just increased confusion ;D maybe some javascript too?</p>",
+    "PostedDate": "2009-10-14T00:45:57.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245423",
+    "ThreadId": "71821",
+    "Html": "<p>LOL. Having fun, are we?&nbsp; :-D</p>\r\n<p>Did you actually open it in GE to take a look? If you don't have GE, I will upload an image and send you the URL</p>",
+    "PostedDate": "2009-10-14T00:47:53.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245424",
+    "ThreadId": "71821",
+    "Html": "<p>would be great! ;}</p>",
+    "PostedDate": "2009-10-14T00:51:10.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245426",
+    "ThreadId": "71821",
+    "Html": "<p><a href=\"http://s903.photobucket.com/albums/ac235/gordon_matt/?action=view&current=example.jpg\">http://s903.photobucket.com/albums/ac235/gordon_matt/?action=view&amp;current=example.jpg</a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-14T01:01:47.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245429",
+    "ThreadId": "71821",
+    "Html": "<p>mm, so it's just marker/tooltip with transparent background?</p>",
+    "PostedDate": "2009-10-14T01:04:17.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245431",
+    "ThreadId": "71821",
+    "Html": "<p>I have not actually used your tooltips feature yet, but judging by normal tooltips,&nbsp;wouldn't a user have to click each one to see the text? Can they be set to always show instead of having to&nbsp;popup? If so, please give me some example code.&nbsp; :-)</p>",
+    "PostedDate": "2009-10-14T01:07:05.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245438",
+    "ThreadId": "71821",
+    "Html": "<p><span style=\"font-size:x-small\">\r\n<p>placemark.TooltipMode = <span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">MarkerTooltipMode</span></span><span style=\"font-size:x-small\">.Always; </span></p>\r\n<p><span style=\"font-size:x-small\">&nbsp;</span>placemark.ToolTipText = stop.ShortName;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</p>\r\n<p>Wow... as simple as that LOL. I didn't expect a tooltip to have an always mode. Thanks for this. I do have a couple of other queries, but let me have a play around first and get back to you on another discussion if necessary.</p>\r\n<p>Thanks for your time!</p>",
+    "PostedDate": "2009-10-14T01:25:39.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245442",
+    "ThreadId": "71821",
+    "Html": "<p>One more&nbsp;query on this though - how do I change the size and color of the tooltip text?</p>",
+    "PostedDate": "2009-10-14T01:33:09.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245444",
+    "ThreadId": "71821",
+    "Html": "<p>;} check GMapOverlay properties</p>",
+    "PostedDate": "2009-10-14T01:34:28.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245483",
+    "ThreadId": "71821",
+    "Html": "<p>Fantastic!</p>",
+    "PostedDate": "2009-10-14T03:05:14.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245493",
+    "ThreadId": "71821",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2009-10-14T03:36:09.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525681",
+    "ThreadId": "71821",
+    "Html": "\r\n<p>Another suggestion here... tooltips alway on are great, no doubt... the only problem with this solution is that most of the time any meaningful info on them take space and when I display 20 POIs they have tendency to overlap each other thus the user can\r\n see most of the info.../<br>\r\nSo, I wonder if it is possible to mark Placemarks, 1,2,3,4,etc... they are bif enough to put a double digit in them. Then the developer (that also have access to tooltip text itself could put a legend whereever he/she wants... This legend ID (1,2,3,4 can be\r\n in the tag or somewhere else...) What do you think?</p>\r\n",
+    "PostedDate": "2010-11-22T23:06:47.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526004",
+    "ThreadId": "71821",
+    "Html": "\r\n<p>maybe</p>\r\n",
+    "PostedDate": "2010-11-23T10:56:29.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

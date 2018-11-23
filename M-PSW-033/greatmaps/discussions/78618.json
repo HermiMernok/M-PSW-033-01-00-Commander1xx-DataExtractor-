@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "269199",
+    "ThreadId": "78618",
+    "Html": "<p>Hello,</p>\r\n<p>First, thank you very much for making this fantastic software.&nbsp; I am very new to mapping and this tool has made my project so much easier.</p>\r\n<p>I have prefetched the tiles for the entire state of Georgia from OpenStreetMaps, by&nbsp;selecting a square around it ( an option to select an irregular shape would be nice ).&nbsp; Now,&nbsp;I would&nbsp;like to reduce the size of the .gmdb cache file by removing the bordering states and ocean tiles.</p>\r\n<p>Looking at the tables in the cached database file, I couldn't find anything that allowed me to associate a tile record with a Lat and Lon position, or which state it was part of. How can Gmap.NET continue to find street names and addresses&nbsp;perfectly using this cached file when the required data doesn't appear to be in it?</p>\r\n<p>Am I looking in the wrong place?&nbsp; Is the data embedded in the PNG blob field?&nbsp; How can I selectively remove un-needed tiles?</p>\r\n<p>Thanks in advance.</p>",
+    "PostedDate": "2009-12-18T22:20:50.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269233",
+    "ThreadId": "78618",
+    "Html": "<p>only if can dump google geochache names dadabase ;} ..and you can remove un-needed tiles by deleting them ;} but there is no built-in function for that, maybe i'll create more functional&nbsp;coaching&nbsp;tool some day</p>",
+    "PostedDate": "2009-12-19T07:14:23.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269248",
+    "ThreadId": "78618",
+    "Html": "<p>How&nbsp;does GMap.NET still find streets and addresses on a&nbsp;&quot;Cache-Only&quot; OpenStreetMaps map when&nbsp;I'm disconnected from the network? Is the Google geochache names database embedded somewhere?</p>\r\n<p>Please don't get me wrong, I'm very impressed, but I'd just like to know how it works and where the data is coming from. I thought the data would have to be in the &quot;data.gmdb&quot; file, but I didn't see anything.</p>\r\n<p>Thanks again for this great tool.</p>\r\n<p>Don</p>",
+    "PostedDate": "2009-12-19T09:21:17.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269257",
+    "ThreadId": "78618",
+    "Html": "<p>there is local cache for geocoding, look at <strong>C:\\Users\\xxxxxx\\AppData\\Roaming\\GMap.NET</strong></p>",
+    "PostedDate": "2009-12-19T10:13:58.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269325",
+    "ThreadId": "78618",
+    "Html": "<p>O.k., I see what's happening now.&nbsp;</p>\r\n<p>I thought the &quot;CacheOnly&quot; mode meant &quot;no network needed at all&quot;.&nbsp; But in reality,&nbsp;the demo&nbsp;still connects to Google's Geocoding database when doing new searches using the &quot;goto&quot; text box.</p>\r\n<p>Thanks.</p>\r\n<p>Don</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-19T17:06:41.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269326",
+    "ThreadId": "78618",
+    "Html": "<p>yes, mode is just for tiles</p>",
+    "PostedDate": "2009-12-19T17:32:04.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285042",
+    "ThreadId": "78618",
+    "Html": "<p>Is there any way to cache everything needed so the entire map can be rendered completely offline? I will need to use the program in an area not connected to the internet.</p>",
+    "PostedDate": "2010-02-02T16:24:36.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285116",
+    "ThreadId": "78618",
+    "Html": "<p>define 'everything needed' ?</p>",
+    "PostedDate": "2010-02-02T21:37:38.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285121",
+    "ThreadId": "78618",
+    "Html": "<p>donnell said: <em>I thought the &quot;CacheOnly&quot; mode meant &quot;no network needed at all&quot;.&nbsp; But in reality,&nbsp;the demo&nbsp;still connects to Google's Geocoding database when doing new searches using the &quot;goto&quot; text box.</em></p>\r\n<p>everything needed = cached tiles + geocoding database + ...?</p>\r\n<p>Is there already a way to use GMap completely unplugged from the internet? Also how do I get to the <strong>Instance</strong> property?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-02T21:56:29.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285123",
+    "ThreadId": "78618",
+    "Html": "<p>offline geocoding database, that a big base ;} where do you&nbsp;suppose&nbsp;you get it? All you can do is just prefetch wanted area in wanted zoom levels</p>",
+    "PostedDate": "2010-02-02T21:59:27.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285124",
+    "ThreadId": "78618",
+    "Html": "<p>I noticed the demo does not zoom out all of the way. I want to prefetch the earth's surface.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-02T22:03:11.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285126",
+    "ThreadId": "78618",
+    "Html": "<p>..but demos are just demos, they are created just for functionality show, you can easily create your custom tool for exactly what you need</p>",
+    "PostedDate": "2010-02-02T22:07:35.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285130",
+    "ThreadId": "78618",
+    "Html": "<p>:(&nbsp; I'm only a beginning programmer. It's tough for me.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-02T22:12:23.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285131",
+    "ThreadId": "78618",
+    "Html": "<p>..but i have some plans for 'CacheMaker', for now you can use prefetcher in demos</p>",
+    "PostedDate": "2010-02-02T22:15:52.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285133",
+    "ThreadId": "78618",
+    "Html": "<p>Thanks. I'm looking forward to your CacheMaker. :)&nbsp; By the way, what do you think about opening up the <strong>Documentation</strong> area as a Wiki? All of the users could post documentation as they figure out how to do certain things. This would save you the time of having to do it yourself. Also, can we donate money to the project if we cannot contribute in other ways?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-02T22:21:28.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285181",
+    "ThreadId": "78618",
+    "Html": "<p>..maybe but there are not so much what to document, donation is ok but not required, anyway it's free project ;}</p>",
+    "PostedDate": "2010-02-03T01:30:55.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

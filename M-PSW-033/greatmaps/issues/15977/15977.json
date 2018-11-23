@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": ";} but i have plan for continues map too without longitude boundaries",
+    "ClosedDate": "2010-07-07T22:59:38.37-07:00",
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "Hi there,\r\n\r\nIs there a reason why markers will not move past either longitude 177 or -177?\r\n\r\n",
+    "LastUpdatedDate": "2010-07-07T22:59:38.37-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-07-06T20:16:39.883-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Markers and Longitude -177 , 177",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15977
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "const double MinLongitude = -177;\nconst double MaxLongitude = 177;",
+      "PostedDate": "2010-07-06T22:18:39.17-07:00",
+      "Id": 14370
+    },
+    {
+      "Message": "awesome cheers!",
+      "PostedDate": "2010-07-07T13:45:39.417-07:00",
+      "Id": 14393
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "\r\nWhen tried to save the current map view to an image using GmapControl1.__ToImage__, i got the following exception:\r\n\r\n```\r\n    System.ArgumentException: Parameter is not valid.\r\n   at System.Drawing.Bitmap..ctor(Int32 width, Int32 height, PixelFormat format)\r\n   at GMap.NET.WindowsForms.GMapControl.UpdateBackBuffer() in C:\\GMap.Net\\Dev\\greatmaps_19c2f09442a6\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 1789\r\n   at GMap.NET.WindowsForms.GMapControl.ToImage() in C:\\GMap.Net\\Dev\\greatmaps_19c2f09442a6\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 1038\r\n```\r\n\r\nNote: \r\n\r\n* __This error only appears when running the application from the (.Exe) file__ and not appear when running from Debug in VS2010\r\n\r\nSO Kindly what is the solution for this problem .\r\n\r\nThanks",
+    "LastUpdatedDate": "2015-08-22T00:33:30.85-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-08-19T07:41:35.993-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error when using \"ToImage\" method",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16128
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Answering my own question to help anyone else:\n\n\nI edit the method (ToImage())\n\nInstead of using the following code:\n\n```\nusing (MemoryStream ms = new MemoryStream())\n                {\n                    using (var frame = (backBuffer.Clone() as Bitmap))\n                    {\n                        if (frame != null) frame.Save(ms, ImageFormat.Png);\n                    }\n                    ret = Image.FromStream(ms);\n                }\n```\n\nI replaced them using the following code:\n\n```\nret = Image.FromHbitmap(backBuffer.GetHbitmap());\n```\n\nI think their is something wrong with memory steam with large images.\n\nThat's it and it worked with me.",
+      "PostedDate": "2015-08-22T00:33:30.85-07:00",
+      "Id": 189472
+    }
+  ]
+}

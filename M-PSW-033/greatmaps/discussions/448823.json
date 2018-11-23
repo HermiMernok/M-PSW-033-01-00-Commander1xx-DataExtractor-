@@ -1,0 +1,210 @@
+[
+  {
+    "Id": "1063585",
+    "ThreadId": "448823",
+    "Html": "I tried many ways but not to success my windows does not point to any markers.<br />\n<pre><code> if (comboBox5.SelectedIndex == 0)//(REGION 1)\n            {\n               \n                String Query = &quot; SELECT top 500  Latitude,Longitude  FROM  [Sheet3_kir]   &quot;;\n                SqlConnection conDatabase = new SqlConnection(constring);\n                SqlCommand cmdDatabase = new SqlCommand(Query, conDatabase);\n                SqlDataReader myReader;\n                gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\n                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n\n                GMapOverlay markersOverlay = new GMapOverlay(&quot;VCS MAP&quot;);\n              \n\n                    for (int i = 0; i &lt;= dataGridView1.Rows.Count; i++)\n                    {\n                        foreach (DataGridViewRow row in dataGridView1.Rows)\n                        {\n                            var Latitude = double.Parse((dataGridView1.Columns[1].ToString()), CultureInfo.InvariantCulture);\n                            var Longitude = double.Parse((dataGridView1.Columns[2].ToString()), CultureInfo.InvariantCulture);\n                            //gMapControl1.Position = new PointLatLng(Latitude, Longitude);\n                           // GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(float.Parse(this.dataGridView1.Columns[1].ToString), if (comboBox5.SelectedIndex == 0)//(REGION 1)\n            {\n                string constring = &quot;Data Source = 192.168.0.8 ; USER ID  = sa ; PASSWORD = excel&quot;;\n                String Query = &quot; SELECT top 500  Latitude,Longitude  FROM[ICPS].[dbo].[Sheet3_kir]   &quot;;\n                SqlConnection conDatabase = new SqlConnection(constring);\n                SqlCommand cmdDatabase = new SqlCommand(Query, conDatabase);\n                SqlDataReader myReader;\n                gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\n                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n\n                GMapOverlay markersOverlay = new GMapOverlay(&quot;VCS MAP&quot;);\n              \n\n                    for (int i = 0; i &lt;= dataGridView1.Rows.Count; i++)\n                    {\n                        foreach (DataGridViewRow row in dataGridView1.Rows)\n                        {\n                            var Latitude = double.Parse((dataGridView1.Columns[1].ToString()), CultureInfo.InvariantCulture);\n                            var Longitude = double.Parse((dataGridView1.Columns[2].ToString()), CultureInfo.InvariantCulture);\n                            //gMapControl1.Position = new PointLatLng(Latitude, Longitude);\n                           // GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(float.Parse(this.dataGridView1.Columns[1].ToString), float.Parse(this.textBox26.Text)),\n            // GMarkerGoogleType.green);\n                           // GMarkerGoogle m = new GMarkerGoogle(gMapControl1.Position, GMarkerGoogleType.green_pushpin);\n                            markersOverlay.Markers.Add(m);\n                        }\n                    })),</code></pre>\n\n<blockquote>\n<pre><code>        // GMarkerGoogleType.green);</code></pre>\n\n</blockquote>\n<pre><code>                           // GMarkerGoogle m = new GMarkerGoogle(gMapControl1.Position, GMarkerGoogleType.green_pushpin);\n                            markersOverlay.Markers.Add(m);\n                        }\n                    }</code></pre>\n\n",
+    "PostedDate": "2013-07-02T06:01:09.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063587",
+    "ThreadId": "448823",
+    "Html": "GMapOverlay markersOverlay = new GMapOverlay(&quot;VCS MAP&quot;);\r<br />\n<strong>map.Overlays.Add(markersOverlay);</strong>\r<br />\n<br />\ncheck the demo for more..<br />\n",
+    "PostedDate": "2013-07-02T06:12:13.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063597",
+    "ThreadId": "448823",
+    "Html": "Thanks for the quick reply but my error \r<br />\nshows here<br />\n<pre><code>var Latitude = float.Parse((dataGridView1.Columns[0].ToString()), CultureInfo.InvariantCulture);\n var Longitude = float.Parse((dataGridView1.Columns[1].ToString()), CultureInfo.InvariantCulture);</code></pre>\n\n",
+    "PostedDate": "2013-07-02T06:23:50.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063604",
+    "ThreadId": "448823",
+    "Html": "what error ;/<br />\n",
+    "PostedDate": "2013-07-02T06:36:48.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063614",
+    "ThreadId": "448823",
+    "Html": "I get an error as &quot;input string was not in correct format &quot;.<br />\n",
+    "PostedDate": "2013-07-02T07:06:50.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063616",
+    "ThreadId": "448823",
+    "Html": "your current culture probably isn't Invariant<br />\n",
+    "PostedDate": "2013-07-02T07:12:37.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063623",
+    "ThreadId": "448823",
+    "Html": "Hi radioman, \r<br />\nIs there any way to sort this out  I cant find any alternative to do that just need some help..<br />\n",
+    "PostedDate": "2013-07-02T07:22:54.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063632",
+    "ThreadId": "448823",
+    "Html": "remove ', CultureInfo.InvariantCulture'<br />\n",
+    "PostedDate": "2013-07-02T07:36:33.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063634",
+    "ThreadId": "448823",
+    "Html": "tried it still the same error..<br />\n",
+    "PostedDate": "2013-07-02T07:45:51.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063958",
+    "ThreadId": "448823",
+    "Html": "HI radioman,\r<br />\n You are the only one who can help me out I tried different ways to do but not to success.. Please help me\r<br />\n..\r<br />\nI am near completion of my project ..\r<br />\n<br />\niam stuck with this..i am newbie and really need some help..please tell me where i am going wrong.....<br />\n<pre><code> if (comboBox5.SelectedIndex == 0)//(REGION 1)\n            {\n\n\n                String Query = &quot; SELECT top  Latitude,Longitude  FROM[ICPS].[dbo].[Sheet3_kir]   &quot;;\n\n                SqlCommand cmdDatabase = new SqlCommand(Query, conDatabase);\n                SqlDataReader myReader;\n                gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\n                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n\n                GMapOverlay markersOverlay = new GMapOverlay(&quot;VCS MAP&quot;);\n                //gMapControl1.Overlays.Add(markersOverlay); \n\n\n                for (int i = 0; i &lt;= dataGridView1.Rows.Count; i++)\n                {\n                    foreach (DataGridViewRow row in dataGridView1.Rows)\n                    {\n                        var Latitude = double.Parse(dataGridView1.Columns[1].ToString());\n                        var Longitude = double.Parse(dataGridView1.Columns[2].ToString());\n                        gMapControl1.Position = new PointLatLng(Latitude, Longitude);\n                        // GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(float.Parse(this.dataGridView1.Columns[1].ToString), float.Parse(this.textBox26.Text)),\n                        // GMarkerGoogleType.green);\n                        GMarkerGoogle m = new GMarkerGoogle(gMapControl1.Position, GMarkerGoogleType.green_pushpin);\n                        //markersOverlay.Markers.Add(m);\n                    }\n                }\n</code></pre>\n\n",
+    "PostedDate": "2013-07-03T01:02:45.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063969",
+    "ThreadId": "448823",
+    "Html": "whats wrong?<br />\n",
+    "PostedDate": "2013-07-03T01:40:44.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063974",
+    "ThreadId": "448823",
+    "Html": "Input string was not in correct format. <br />\n<pre><code>#var Latitude = double.Parse(dataGridView1.Columns[1].ToString( ));</code></pre>\n\n",
+    "PostedDate": "2013-07-03T01:51:04.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063982",
+    "ThreadId": "448823",
+    "Html": "so whats the string you are trying to parse?<br />\n",
+    "PostedDate": "2013-07-03T01:59:15.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063988",
+    "ThreadId": "448823",
+    "Html": "I have latitudes and longitudes in datagridview with column 1 and column 2 so when i click the combobox(region 1) it should select the top 10 long and lat and display it on gmapcontrol1.  <br />\n",
+    "PostedDate": "2013-07-03T02:06:14.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064005",
+    "ThreadId": "448823",
+    "Html": "var x = dataGridView1.Columns[1].ToString( );\r<br />\nx = ?<br />\n",
+    "PostedDate": "2013-07-03T02:57:46.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064021",
+    "ThreadId": "448823",
+    "Html": "sorry for my stupid question as I am really new to this<br />\nbut  I am passing the latitude and longitude values from datagridview to var latitude and longitude \r<br />\n<code>var Latitude = double.Parse(dataGridView1.Columns[1].ToString());</code> and then  gmap1control recieves this latitude , longitudes and displays in mapcontrol\r<br />\ngMapControl1.Position = new PointLatLng(Latitude, Longitude); \r<br />\n<br />\nso, where exactly the problem lies.... I really do not understand x=? \r<br />\nsorry for the stupid question....again....please<br />\n",
+    "PostedDate": "2013-07-03T03:26:39.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064029",
+    "ThreadId": "448823",
+    "Html": "what is the value of the x ?<br />\n",
+    "PostedDate": "2013-07-03T03:50:34.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064033",
+    "ThreadId": "448823",
+    "Html": "lat 56.4602\r<br />\nlong  -2.98 <br />\n",
+    "PostedDate": "2013-07-03T04:05:18.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064076",
+    "ThreadId": "448823",
+    "Html": "then parse it with invariant culture<br />\n",
+    "PostedDate": "2013-07-03T05:41:37.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064086",
+    "ThreadId": "448823",
+    "Html": "thanks for the help radioman..\r<br />\n<br />\n\t\r<br />\nI have some null values in the lat and long columns when i load the datagrid view would that be the problem if it is how can i get rid of them<br />\n",
+    "PostedDate": "2013-07-03T05:56:34.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064627",
+    "ThreadId": "448823",
+    "Html": "Hi Radio man can you help me with this please<br />\n",
+    "PostedDate": "2013-07-04T09:20:32.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064803",
+    "ThreadId": "448823",
+    "Html": "just check if it's not null and then add it ;}<br />\n",
+    "PostedDate": "2013-07-05T01:16:52.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1065985",
+    "ThreadId": "448823",
+    "Html": "Thanks radioman solved.<br />\n",
+    "PostedDate": "2013-07-09T01:51:55.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090688",
+    "ThreadId": "448823",
+    "Html": "Private Sub btnPlot_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPlot.Click<br />\n<pre><code>    myMap.Visible = True\n    myMap.BringToFront()\n\n\n    myMap.MapProvider = GoogleMapProvider.Instance\n    'get tiles from server only\n    myMap.Manager.Mode = AccessMode.ServerOnly\n    'not use proxy\n    GMapProvider.WebProxy = Nothing\n\n    Dim overlayOne As New GMapOverlay(&quot;testone&quot;)\n    myMap.Overlays.Add(overlayOne)\n    myMap.SetCurrentPositionByKeywords(&quot;Camden,Australia&quot;)\n    Dim i As Integer = 0\n\n    For Each itm As ListViewItem In lstResults.Items\n        Dim SR As SEARCH_RESULT = itm.Tag            \n        Dim m As GMarkerGoogle = New GMarkerGoogle(New PointLatLng(SR.LATITUDE, SR.LONGITUDE), GMarkerGoogleType.green_pushpin)\n        myMap.UpdateMarkerLocalPosition(m)\n        overlayOne.Markers.Add(m)\n    Next\n\n    myMap.MinZoom = 1\n    myMap.MaxZoom = 20\n    'set zoom\n    myMap.Zoom = CInt(NumericUpDown1.Value)\nEnd Sub\n</code></pre>\n\nThis code is not working correctly. Can you guide me on this. There are more than 1200 lat and lon but only one is displayed in the map. Your help on this is highly appreciated.<br />\n",
+    "PostedDate": "2013-09-10T08:37:49.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090689",
+    "ThreadId": "448823",
+    "Html": "Thanks<br />\n",
+    "PostedDate": "2013-09-10T08:38:18.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090690",
+    "ThreadId": "448823",
+    "Html": "Also Kiran can you tell me how did you solve this problem.\r<br />\n<br />\nThanking you in advance\r<br />\nRoshan<br />\n",
+    "PostedDate": "2013-09-10T08:39:07.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

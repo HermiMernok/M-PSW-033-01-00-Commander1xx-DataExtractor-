@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1473021",
+    "ThreadId": "654517",
+    "Html": "I found this code put labels under markers in Gmap.NET. The problem is that the marker is at a wrong place, whatever position you give to it, it is always at the same default place. Can someone help me?\r<br />\n<br />\nthis is the code:\r<br />\n<br />\npublic class GmapMarkerWithLabel : GMapMarker, ISerializable\r<br />\n{<br />\n<pre><code>private Font font;\nprivate GMarkerGoogle innerMarker;\n\npublic string Caption;\n\npublic GmapMarkerWithLabel(PointLatLng p, string caption, GMarkerGoogleType type)\n    : base(p)\n{\n    font = new Font(&quot;Arial&quot;, 14);\n    innerMarker = new GMarkerGoogle(p, type);\n\n    Caption = caption;\n}\n\npublic override void OnRender(Graphics g)\n{\n    if (innerMarker != null)\n    {\n        innerMarker.OnRender(g);    \n    }\n\n    g.DrawString(Caption, font, Brushes.Black, new PointF(0.0f, innerMarker.Size.Height));\n}\n\npublic override void Dispose()\n{\n    if(innerMarker != null)\n    {\n        innerMarker.Dispose();\n        innerMarker = null;\n    }\n\n    base.Dispose();\n}\n\n#region ISerializable Members\n\nvoid ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)\n{\n    base.GetObjectData(info, context);\n}\n\nprotected GmapMarkerWithLabel(SerializationInfo info, StreamingContext context)\n    : base(info, context)\n{\n}\n\n#endregion\n</code></pre>\n\n",
+    "PostedDate": "2016-05-10T07:38:39.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

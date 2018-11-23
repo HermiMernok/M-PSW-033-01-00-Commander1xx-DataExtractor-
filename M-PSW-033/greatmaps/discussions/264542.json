@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "639941",
+    "ThreadId": "264542",
+    "Html": "\r\n<p>Hello!</p>\r\n<p>&nbsp;</p>\r\n<p>I would like to run GMap in my own app under Linux (Mono).</p>\r\n<p>I can compile GMap normaly, but when i run my App and start the Map, after some minits I receve a &quot;Exception: the request timed out&quot; Exception!</p>\r\n<p>I get also this Messages:</p>\r\n<p></p>\r\n<pre>** (/home/rupert/Projekt/ils-simConfig/ils-simConfig/bin/Debug/ils-simConfig.exe:6820): WARNING **: Missing method .ctor in assembly /usr/lib/mono/gac/System/2.0.0.0__b77a5c561934e089/System.dll, type Mono.Security.Protocol.Tls.CertificateValidationCallback2\r\n\r\n** (/home/rupert/Projekt/ils-simConfig/ils-simConfig/bin/Debug/ils-simConfig.exe:6820): WARNING **: The class Mono.Security.Protocol.Tls.CertificateValidationCallback2 could not be loaded, used in System</pre>\r\n<p></p>\r\n<p>When I try to compile and run your source (Demo App), I receve a &quot;Unhandled Exception: System.IO.FileNotFoundException: Could not find file &quot;/home/rupert/.local/share/GMap.NET/TileDBv5/en/Data.gmdb&quot;.&quot; Exception and the programm is closing. (PreCompiled Programm\r\n is normal working!)</p>\r\n<p>Do you have any ideas? Do I have to cange any compile settings? (I have tried it with MonoDevelop)</p>\r\n<p>&nbsp;</p>\r\n<p>Thx, Peter</p>\r\n",
+    "PostedDate": "2011-07-09T13:55:09.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "639949",
+    "ThreadId": "264542",
+    "Html": "<p>yes, when compile mono version, you must change compilation symbols in Core and Demo project:</p>\n<p><strong>MONO_disabled -&gt; MONO&nbsp;</strong></p>\n<p>..and i don't test mono version very often so it might be out of sync from time to time ;} help is welcome</p>",
+    "PostedDate": "2011-07-09T14:29:35.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "639952",
+    "ThreadId": "264542",
+    "Html": "<p>thx for the reply</p>\r\n<p>I have set the symbols already to: TRACE;DEBUG;MONO; MySQL_disabled; PostgreSQL_disabled; SQLite</p>\r\n<p>you have uploaded on 4. May a working Mono version.. I will try to compile this version and see if this is running, maybe this will work... :)</p>",
+    "PostedDate": "2011-07-09T14:52:14.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "639970",
+    "ThreadId": "264542",
+    "Html": "<p>I have found a very funy answer to this problem:</p>\r\n<p>when I compile my program (or yours), the compiler is creating this files too:</p>\r\n<p>* Mono.Data.SqliteClient.dll</p>\r\n<p>* Mono.Security.dll</p>\r\n<p>* Npgsql.dll</p>\r\n<p>when I delete, or cut this files, all is working corectly, but when the are in the same folder as the exe I will get the Exception!</p>\r\n<p>&nbsp;</p>\r\n<p>I have tried every dll from the dir, the problem is on Mono.Security.dll. If I del this file, all is ok ;)</p>",
+    "PostedDate": "2011-07-09T16:18:06.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640028",
+    "ThreadId": "264542",
+    "Html": "<p>i see, well these dll are from windows ;} makes sense</p>",
+    "PostedDate": "2011-07-10T00:48:56.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640052",
+    "ThreadId": "264542",
+    "Html": "<p>..and there was few incompatibilities, I've just fixed them, also when you build the demo, there is compilations symbols too</p>",
+    "PostedDate": "2011-07-10T03:36:16.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "641397",
+    "ThreadId": "264542",
+    "Html": "<p>Hy radioman!</p>\r\n<p>thx for the very fast update!</p>\r\n<p>the new version is working very good with Mono!</p>\r\n<p>&nbsp;</p>\r\n<p>I have just some incompatiles found with Linux: (Pathname with little characters) BSE.WindowsForms - Resources.resx:</p>\r\n<p>Line 137: ..\\Resources\\Collapse.jpg</p>\r\n<p>Line 140: ..\\Resources\\Collapse_h.jpg</p>\r\n<p>Line 143: ..\\Resources\\Expand.jpg</p>\r\n<p>Line 146: ..\\Resources\\Expand_h.jpg</p>",
+    "PostedDate": "2011-07-12T16:46:51.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

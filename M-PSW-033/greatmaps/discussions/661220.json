@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1492371",
+    "ThreadId": "661220",
+    "Html": "I tried adding a new map provider (GeoPortail, see below)\r<br />\nAnd it seems to be working for the most part, except that sometimes when i zoom in it does not grab the imagery. I have to switch map type and switch back before it starts grabbing again.\r<br />\nI am not sure if I did something wrong.<br />\n<pre><code>  string MakeTileImageUrl(GPoint pos, int zoom, string language)\n  {\n     // http://m3.mapserver.mapy.cz/ophoto-m/14-8802-5528\n     // https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=ORTHOIMAGERY.ORTHOPHOTOS&amp;style=normal&amp;tilematrixset=PM&amp;Service=WMTS&amp;Request=GetTile&amp;Version=1.0.0&amp;Format=image%2Fjpeg&amp;TileMatrix=19&amp;TileCol=264884&amp;TileRow=187337\n\n     return string.Format(UrlFormat, zoom, pos.Y, pos.X);\n  }\n\n  static readonly string UrlFormat = &quot;https://wxs.ign.fr/an7nvfzojv5wa96dsga5nk8w/geoportail/wmts?layer=ORTHOIMAGERY.ORTHOPHOTOS&amp;style=normal&amp;tilematrixset=PM&amp;Service=WMTS&amp;Request=GetTile&amp;Version=1.0.0&amp;Format=image%2Fjpeg&amp;TileMatrix={0}&amp;TileCol={2}&amp;TileRow={1}&quot;;</code></pre>\n\n",
+    "PostedDate": "2017-02-08T06:37:07.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

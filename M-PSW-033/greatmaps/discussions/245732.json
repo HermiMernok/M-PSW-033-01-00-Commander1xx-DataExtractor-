@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "565052",
+    "ThreadId": "245732",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp; nice control this GMap.net. I really enjoy code with it. Now I have little problem about OnMarkerClick event, because when I click on of the markers, it causes more that one event.</p>\r\n<p>&nbsp;</p>\r\n<p>private void gMapControl1_OnMarkerClick(GMapMarker item, MouseEventArgs e)<br>\r\n{<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (e.Button == MouseButtons.Left)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox.Show(&quot;HELLO&quot;);</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n<p>With this code I get three MessageBox and I expect only one. What I do wrong or is there bug?</p>\r\n<p>I am using WindowsForm.</p>\r\n",
+    "PostedDate": "2011-02-12T00:44:08.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "565129",
+    "ThreadId": "245732",
+    "Html": "<p>i guess you click on few overlapped markers?</p>",
+    "PostedDate": "2011-02-12T07:15:32.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "565394",
+    "ThreadId": "245732",
+    "Html": "<p>Yes problem was that I accidently add same overlay many time to mapcontrol. Now it seems to work.</p>\r\n<p>&nbsp;</p>\r\n<p>T</p>",
+    "PostedDate": "2011-02-13T06:16:08.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "565463",
+    "ThreadId": "245732",
+    "Html": "<p>i see ;}</p>",
+    "PostedDate": "2011-02-13T09:42:17.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819972",
+    "ThreadId": "245732",
+    "Html": "<p>Hi Radioman;</p>\r\n<p>I created some markers to show some pictures or video, I want when I click just on these markers show the video and not all markers.</p>\r\n<p>How could I treat this</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>PointLatLng point1 = <span style=\"color: blue;\">new</span> PointLatLng(54.6961334816182, 25.2985095977783);\r\n                GMapMarker m = <span style=\"color: blue;\">new</span> GMarkerGoogle(point1, GMarkerGoogleType.red);\r\n                m.ToolTipText = <span style=\"color: #a31515;\">\"video or pictures\"</span>;\r\n                m.ToolTipMode = MarkerTooltipMode.Always;                \r\n                objects.Markers.Add(m);\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-04-04T10:44:01.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819990",
+    "ThreadId": "245732",
+    "Html": "<p>?</p>",
+    "PostedDate": "2012-04-04T11:21:00.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820212",
+    "ThreadId": "245732",
+    "Html": "<p>I'd like when I click on JUST ONE marker it shows me the picture, not ALL markers (<span>private void gMapControl1_OnMarkerClick(GMapMarker item, MouseEventArgs e)</span>).</p>",
+    "PostedDate": "2012-04-05T00:19:31.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820213",
+    "ThreadId": "245732",
+    "Html": "<p>so whats the problem? ;]</p>",
+    "PostedDate": "2012-04-05T00:22:28.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820220",
+    "ThreadId": "245732",
+    "Html": "<p>How could I make that?</p>",
+    "PostedDate": "2012-04-05T00:31:08.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820221",
+    "ThreadId": "245732",
+    "Html": "<p>I added this&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left &amp;&amp; m.ToolTipText == <span style=\"color: #a31515;\">\"video or pictures\"</span>)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>but it don't work, I have pictures or message on all markers!</p>",
+    "PostedDate": "2012-04-05T00:36:08.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820229",
+    "ThreadId": "245732",
+    "Html": "<p>Ok, ok that's ok ;)</p>",
+    "PostedDate": "2012-04-05T00:59:19.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

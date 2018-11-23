@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "1485286",
+    "ThreadId": "658474",
+    "Html": "Hi<br />\n<br />\nI have an app that is using your maps engine and it is great !!!<br />\n<br />\nI notice some problems today, Open Street maps are fine, Google maps are fine<br />\n<br />\nbut Google Satellite view is not loading maps it is reporting 404<br />\n<br />\nGoogle Hybrid display some roads and some city names but there are no tiles <br />\n<br />\nIt was fully working a couple of days ago, any idea what is going on ?<br />\n<br />\nEdit: I checked on example application and behave the same.<br />\n",
+    "PostedDate": "2016-10-04T13:48:41.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485307",
+    "ThreadId": "658474",
+    "Html": "Unfortunately, I have the exact same problem here :-(\r<br />\nFor the record, I'm having these issues with both 1.7 version and August 2016 hot build.<br />\n",
+    "PostedDate": "2016-10-04T23:30:12.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485364",
+    "ThreadId": "658474",
+    "Html": "works for me ;/\r<br />\n<br />\n<img src=\"https://s15.postimg.org/m51hm7na3/gmap.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2016-10-05T10:24:49.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485375",
+    "ThreadId": "658474",
+    "Html": "Thanks for response, I tested this on 4 different Pc's OS 7 32/64 and ,2x Win 10\r<br />\n<br />\nDemo.WindowsForms.exe\r<br />\nDemo.WindowsPresentation.exe\r<br />\nwith 1.7 hmmm... any one with problems like this ?\r<br />\n<br />\ncashed items are working fine it is all on new downloads. Anyone else have the same problems ?\r<br />\n<br />\nradioman: can you check on your system Demo apps with 1.7 lib, I will be very grateful \r<br />\n<br />\n<img src=\"https://i.imgsafe.org/555a5d6839.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2016-10-05T12:53:19.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485376",
+    "ThreadId": "658474",
+    "Html": "dunno about old versions, i've checked latest it's ok, google api change version numbers, but autodetection works fine, does it fail on all locations?<br />\n",
+    "PostedDate": "2016-10-05T13:05:44.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485377",
+    "ThreadId": "658474",
+    "Html": "Sorry but what is new version ? I thought 1.7 was latest with and then Hot Build and from I have seen one change in code diff HotBuild has only one.\r<br />\n<br />\nAny chance that you have compiled newer version ?\r<br />\n<br />\nI checked on multiple locations and zoom levels. \r<br />\n<br />\nI tested on demo app and my one.\r<br />\n<br />\nThans<br />\n",
+    "PostedDate": "2016-10-05T13:10:03.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485378",
+    "ThreadId": "658474",
+    "Html": "<a href=\"https://greatmaps.codeplex.com/downloads/get/1610638\" rel=\"nofollow\">https://greatmaps.codeplex.com/downloads/get/1610638</a><br />\n",
+    "PostedDate": "2016-10-05T13:16:10.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485379",
+    "ThreadId": "658474",
+    "Html": "Release-NETv4.0<br />\n<br />\nWindows Form Demo when I switch to Google Satelite Maps<br />\n<br />\nwhen I updated maps library in my project it crashes, I need to check where :(<br />\n<br />\n<img src=\"https://i.imgsafe.org/563ed5faea.png\" alt=\"Image\" /><br />\n<br />\nSee the end of this message for details on invoking <br />\njust-in-time (JIT) debugging instead of this dialog box.<br />\n<br />\n************** Exception Text **************<br />\nSystem.ArgumentOutOfRangeException: StartIndex cannot be less than zero.<br />\nParameter name: startIndex<br />\n   at System.String.Substring(Int32 startIndex, Int32 length)<br />\n   at Demo.WindowsForms.MainForm.comboBoxMapType_DropDownClosed(Object sender, EventArgs e)<br />\n   at System.Windows.Forms.ComboBox.OnDropDownClosed(EventArgs e)<br />\n   at System.Windows.Forms.ComboBox.WmReflectCommand(Message&amp; m)<br />\n   at System.Windows.Forms.ComboBox.WndProc(Message&amp; m)<br />\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)<br />\n",
+    "PostedDate": "2016-10-05T13:37:57.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485380",
+    "ThreadId": "658474",
+    "Html": "Strange, tonight it's working perfectly well again. Only difference with this morning is that right now I'm not using my usual proxy. I'll check tomorrow if it's proxy related or if it xas a transitory hickup of google.\r<br />\nPS : by the way my proxy if working absolutely well with Greatmaps since 3 years, so I don't think it might be the issue ;-)<br />\n",
+    "PostedDate": "2016-10-05T13:42:13.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485382",
+    "ThreadId": "658474",
+    "Html": "This is the Exception that I ma getting in VS now after updating library\r<br />\n<br />\n<img src=\"https://i.imgsafe.org/56846469d7.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2016-10-05T13:54:59.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485406",
+    "ThreadId": "658474",
+    "Html": "Weird, everything went back to normal this morning... :-/<br />\n",
+    "PostedDate": "2016-10-06T01:22:22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1485425",
+    "ThreadId": "658474",
+    "Html": "Same here, I do not know what was going on but update of library from radioman that was not working yesterday is working today.\r<br />\n<br />\nThanks gents for help.<br />\n",
+    "PostedDate": "2016-10-06T03:56:44.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1487282",
+    "ThreadId": "658474",
+    "Html": "I have the same problem, Google Map does not load on my fresh win 10 PC  when trying to install the sample project.\r<br />\n I downloaded the sample project on the link above suggested by Radioman  -&gt;  <a href=\"https://greatmaps.codeplex.com/downloads/get/1610638\" rel=\"nofollow\">https://greatmaps.codeplex.com/downloads/get/1610638</a>\r<br />\n<br />\nAny other suggestions ? <br />\n",
+    "PostedDate": "2016-11-02T10:20:02.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

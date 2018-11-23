@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "666124",
+    "ThreadId": "271110",
+    "Html": "<p>Hi,</p>\n<p>I found your code and it's incredible!! Great! I managed to find most help from your examples.</p>\n<p>Still one thing left: when I draw a route, it's shown as expected. When I use ZoomAndCenterRoute() the zoom factor is much too big. The route is in the middle 10% of the picture. I would expect something like a bit of overzoom around the bounding boxes,  but not so much...</p>\n<p>ZoomAndCenterMarkers has similar behaviour.</p>\n<p>Am i doing something wrong?</p>\n<p>Another thing: when I use MainApp.Offset(10,0); to pan, the map is moving correctly, but the route.Markers and route.Routes stay where they are. When zooming they jump in place. So my current hack is</p>\n<p>&nbsp;MainMap.SuspendLayout();<br />MainMap.Zoom = MainMap.Zoom*1.1;<br />MainMap.Zoom = MainMap.Zoom/1.1;<br />MainMap.ResumeLayout();</p>\n<p>But htat stinks...</p>\n<p>Do you have a suggestion?</p>\n<p>&nbsp;</p>\n<p>Here my code snippet. (Code Snippet editor doesn't seem to work with Opera)</p>\n<p>MainMap.MapProvider = GMapProviders.OpenStreetMap;<br /> MainMap.MinZoom = 1;<br /> MainMap.MaxZoom = 17;<br /> MainMap.Zoom = MainMap.MinZoom;<br /> MainMap.DragButton = MouseButtons.Left;<br /> <br /> routes = new GMapOverlay(MainMap, \"routes\");<br /> MainMap.Overlays.Add(routes);<br /> MainMap.RoutesEnabled = true;<br /> MyRouteList rt = new MyRouteList(); // is a List&lt;PointLatLng&gt;<br /> MapRoute route = new MapRoute(rt, \"MyRoute\");<br /> <br /> if (route != null)<br /> {<br /> GMapRoute r = new GMapRoute(route.Points, route.Name);<br /> r.Stroke.Color = Color.Red;<br /> routes.Routes.Add(r);<br /> <br /> GMapMarker m1 = new GMapMarkerGoogleRed((PointLatLng)route.From);<br /> m1.ToolTipText = \"From\";<br /> GMapMarker m2 = new GMapMarkerGoogleGreen((PointLatLng)route.To);<br /> m2.ToolTipText = \"To\";<br /> <br /> routes.Markers.Add(m1);<br /> routes.Markers.Add(m2);<br /> <br /> MainMap.ZoomAndCenterRoute(r);<br /> //MainMap.ZoomAndCenterMarkers(\"routes\");<br /> }</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-08-31T23:57:23.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667789",
+    "ThreadId": "271110",
+    "Html": "<p>ZoomAndCenterRoute, works fine for me</p>\n<p>p.s. fixed Offset issue, new invalidation system bug, thx</p>",
+    "PostedDate": "2011-09-05T09:55:16.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669053",
+    "ThreadId": "271110",
+    "Html": "<p>I tried to make my project work with the latest version, so I could make a demo app to show you the zoom problem. But then I got troubles with System.Data.SQLite.DLL</p>\n<p>I added a link the x86 and x64 files to my project (no build action, Copy always) and they are correctly placed in (x86/x64) sub folders of the exe folder.</p>\n<p>BUT: after build also a copy of System.Data.SQLite.DLL aapears in the same dir as the exe, most probably because GMap.NEt.Core references it still.</p>\n<p>&nbsp;When starting it then gives a reference error. When I copy the accompanying xml file as well in the exe folder, it works again.</p>\n<p>When I remove System.Data.SQLite.DLL from the exe folder by hand, after buiding, all is working fine too. Than it references the x86 folder System.Data.SQLite.DLL and XML</p>\n<p>So as a workaround I leave a copy of the XML in the exe folder for now</p>\n<p>I could solve it as well by not linking your source code but only your dll's but during development that is less convenient.</p>\n<p>Any clue?</p>\n<p>&nbsp;</p>\n<p>BTW: the offset issue still exists. Or do i have to refresh/invalidate them in a way?</p>",
+    "PostedDate": "2011-09-08T04:56:14.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669069",
+    "ThreadId": "271110",
+    "Html": "<p>latest version doesn't require to reference sqlite dlls, if you use sqlite in your app too, just set copy to local false, map core still load it from its resources</p>\r\n<p>p.s. offset issue doesn't exist, check the demos in latest, meaning&nbsp;<em>source</em>, version</p>",
+    "PostedDate": "2011-09-08T05:43:25.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669142",
+    "ThreadId": "271110",
+    "Html": "<p>Seemed i didnt have the real latest source code. Now i use e0d856e3fcc9 and&nbsp;the offset issue is solved. Great!</p>\n<p>But the&nbsp;System.Data.SQLite.DLL issue still exists. In my own project i don't reference System.Data.SQLite.DLL but it is copied because i reference GMap.Core, which references System.Data.SQLite.DLL.</p>\n<p>Each time when i rebuild it's copied. The difference with previous situation is that it now also copies the XML. But still it doesn't load till i delete them. And it takes now more thant 10 seconds to load</p>\n<p>&nbsp;</p>\n<p>You can find my test proj here:</p>\n<p>http://jumbofiles.com/5819ynnw31yp]MMTest.zip &nbsp;(75.2 KB)</p>\n<p>&nbsp;You can see the over-zoom issue and the System.Data.SQLite.DLL issue</p>\n<p>just place it in your main &nbsp;project dir and include the project in the solution.</p>\n<p>The track (a walk in India) was added hardcoded, just for a test</p>",
+    "PostedDate": "2011-09-08T07:53:27.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669214",
+    "ThreadId": "271110",
+    "Html": "<p>it doesn't matter if GMap.Core references sqlite or not, it isn't copied to output dir, Copy Local = <strong>false</strong>&nbsp;;} unless you manually added reference to it, just don't, at least with vs2010 sp1 it isn't copied</p>\r\n<p>p.s. i can't download you demo project, use www.4shared.com</p>",
+    "PostedDate": "2011-09-08T10:08:29.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "670466",
+    "ThreadId": "271110",
+    "Html": "<p>Hi</p>\r\n<p>I downladed todays code and now the x86 and x64 folders are gone, also the problem with SQLLite is solved. Thx.</p>\r\n<p>The problem with the overzoom is still there. The link to my test project:</p>\r\n<p>http://jumbofiles.com/yph901gansu2 &nbsp; &nbsp;(the previous undownloadable was a copy/paste error. It works if you leave the part starting from ] away)</p>",
+    "PostedDate": "2011-09-12T00:25:53.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "670483",
+    "ThreadId": "271110",
+    "Html": "<p>try call <em>ZoomAndCenterRoute</em>&nbsp;in Load event, i guess in constructor the size of the control is unknown, so at that moment you can't really use this function:</p>\r\n<p><em>void InitGMap()</em><br /><em>{</em><br /><em>&nbsp; &nbsp; // ...</em><br /><em><strong>&nbsp; &nbsp; Load</strong> += new EventHandler(MainForm_Load);</em><br /><em>}</em></p>\r\n<p><em>void MainForm_Load(object sender, EventArgs e)</em><br /><em> {</em><br /><em>&nbsp; &nbsp; if(r != null)</em><br /><em>&nbsp; &nbsp; {</em><br /><em>&nbsp; &nbsp; &nbsp; &nbsp; MainMap.<strong>ZoomAndCenterRoute</strong>(r);</em><br /><em>&nbsp; &nbsp; }</em><br /><em> }&nbsp;</em></p>",
+    "PostedDate": "2011-09-12T01:29:46.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "670573",
+    "ThreadId": "271110",
+    "Html": "<p>Indeed, calling the ZoomAndCenter func from the OnLoadHadler did the job</p>\r\n<p>Thanx &nbsp;for this great app and the quick support</p>",
+    "PostedDate": "2011-09-12T06:09:20.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "670575",
+    "ThreadId": "271110",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2011-09-12T06:14:59.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1222550",
+    "ThreadId": "271110",
+    "Html": "Hi guys,\r<br />\n<br />\ncan you give me more details? Didn't work for me<br />\n<pre><code>    private void frmMap_Load(object sender, EventArgs e)\n    {\n        gMapControl.MapProvider = GMapProviders.OpenStreetMap;\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;\n\n        markersOverlay = new GMapOverlay(gMapControl, &quot;markersOverlay&quot;);\n        MainServiceClient mainService = new MainServiceClient();\n        this.listEvent = mainService.GetShippingListEventMPV(PersonEntity.Id);\n        foreach (ShippingEvent shippingEvent in listEvent.data)\n        {\n            GMapMarkerGoogleRed marker = new GMapMarkerGoogleRed(new PointLatLng(shippingEvent.latitude, shippingEvent.longitude));\n            marker.ToolTipText = shippingEvent.description;\n            markersOverlay.Markers.Add(marker);\n        }\n\n        gMapControl.Overlays.Add(markersOverlay);\n\n        gMapControl.ZoomAndCenterMarkers(&quot;markersOverlay&quot;);\n     }\n</code></pre>\n\nIf a put on a button click, works well.\r<br />\n<br />\n<br />\nThanks a lot,<br />\n",
+    "PostedDate": "2014-03-13T15:06:28.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

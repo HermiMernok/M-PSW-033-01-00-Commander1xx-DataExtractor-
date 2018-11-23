@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "675153",
+    "ThreadId": "273435",
+    "Html": "\r\n<p>GetImageFrom: System.IO.FileNotFoundException: can't find file&ldquo;\\Application Data\\GMap.NET\\TileDBv5\\en\\Data.gmdb&rdquo;</p>\r\n<pre>I'm trying to integrate GMap.net into my C# mobile app.I never get any maps to show,but blue screen.</pre>\r\n<pre>it says System.IO.FileNotFoundException: can't find file&ldquo;\\Application Data\\GMap.NET\\TileDBv5\\en\\Data.gmdb&rdquo;.</pre>\r\n<pre><pre>The code:</pre>\r\n<br></pre>\r\n<pre><pre>using System;\r\nusing System.Linq;\r\nusing System.Collections.Generic;\r\nusing System.ComponentModel;\r\nusing System.Data;\r\nusing System.Drawing;\r\nusing System.Text;\r\nusing System.Windows.Forms;\r\nusing GMap.NET.WindowsForms;\r\nusing GMap.NET;\r\nusing GMap.NET.MapProviders;\r\n\r\nnamespace DeviceRunn\r\n{\r\n    public partial class Form1 : Form\r\n    {\r\n        public GMapControl MainMap;\r\n\r\n        public Form1()\r\n        {\r\n            InitializeComponent();\r\n            MainMapInitialization();\r\n        }\r\n\r\n        #region System\r\n        private void MainMapInitialization()\r\n        {\r\n            this.MainMap = new GMapControl();\r\n\r\n            this.Controls.Add(this.MainMap);\r\n\r\n            this.MainMap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)\r\n                        | System.Windows.Forms.AnchorStyles.Left)\r\n                        | System.Windows.Forms.AnchorStyles.Right)));\r\n            this.MainMap.CanDragMap = true;\r\n            this.MainMap.Dock = System.Windows.Forms.DockStyle.Fill;\r\n            this.MainMap.LevelsKeepInMemmory = 5;\r\n            this.MainMap.Location = new System.Drawing.Point(0, 0);\r\n            this.MainMap.MarkersEnabled = true;\r\n            this.MainMap.MapProvider = GMapProviders.GoogleChinaMap;\r\n            this.MainMap.MaxZoom = 15;\r\n            this.MainMap.MinZoom = 0;\r\n            this.MainMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;\r\n            this.MainMap.Name = &quot;MainMap&quot;;\r\n            this.MainMap.PolygonsEnabled = true;\r\n            this.MainMap.RetryLoadTile = 0;\r\n            this.MainMap.RoutesEnabled = true;\r\n            this.MainMap.ShowTileGridLines = false;\r\n            this.MainMap.Size = new System.Drawing.Size(240, 268);\r\n            this.MainMap.TabIndex = 8;\r\n            this.MainMap.Zoom = 3;\r\n        }\r\n        #endregion\r\n    }\r\n}</pre>\r\n<br></pre>\r\n",
+    "PostedDate": "2011-09-22T01:46:24.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675155",
+    "ThreadId": "273435",
+    "Html": "<p>did you deploy&nbsp;<strong>SQLite.Interop.074.dll </strong>as content?</p>\r\n<p>p.s. on mobile LevelsKeepInMemmory = 5; will overload your memory, remove that line so default will be 1</p>\r\n<p>and use:</p>\r\n<p>this.<strong>SuspendLayout</strong>(); <br />MainMapInitialization();<br />this.<strong>ResumeLayout</strong>(false);</p>",
+    "PostedDate": "2011-09-22T02:01:54.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675167",
+    "ThreadId": "273435",
+    "Html": "<p>No,I ididnt.Because when i was deploying&nbsp;<strong>SQLite.Interop.074.dll&nbsp;</strong>as content,it happended to\"Fails to add <strong>SQLite.Interop.074.dll</strong> references\"</p>\r\n<p>what can i do..</p>",
+    "PostedDate": "2011-09-22T02:26:56.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675171",
+    "ThreadId": "273435",
+    "Html": "<p>did you deploy SQLite.Interop.074.dll <strong>as content</strong>?</p>\r\n<p>it's not a reference</p>",
+    "PostedDate": "2011-09-22T02:34:34.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675178",
+    "ThreadId": "273435",
+    "Html": "<p>could u tell me how to deploy.- -.this is first time i learn GMap.Net.</p>\r\n<p>help me.Thx...</p>",
+    "PostedDate": "2011-09-22T02:43:46.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675179",
+    "ThreadId": "273435",
+    "Html": "<p>it makes crazy.i have solved it.Light-headedness</p>",
+    "PostedDate": "2011-09-22T02:46:54.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

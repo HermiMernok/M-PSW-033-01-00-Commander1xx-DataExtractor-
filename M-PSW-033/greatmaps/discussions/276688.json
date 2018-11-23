@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "687318",
+    "ThreadId": "276688",
+    "Html": "\r\n<p>Ola,</p>\r\n<p>I have a textbox with a place name in it: e.g. Amsterdam, Netherlands. When I click a button I want to get the poinlatlng of the city. Which parameter do I need to look into?</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>button1_click(....) <span style=\"color:blue\">handles</span> button1.click\r\n   messagebox (........)\r\n<span style=\"color:blue\">end</span> <span style=\"color:blue\">sub</span>\r\n</pre>\r\n</div>\r\nThanks in advance.\r\n<p></p>\r\n",
+    "PostedDate": "2011-10-21T03:04:39.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687352",
+    "ThreadId": "276688",
+    "Html": "<p>GMapProviders.GoogleMap.<strong>GetPoint</strong></p>",
+    "PostedDate": "2011-10-21T04:08:37.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687411",
+    "ThreadId": "276688",
+    "Html": "<p>Thanks works like a charm. There is a small thing left. I read that you can use myMap.MapProvider.GetPlacemark, to \"convert\" it to \"name\", but it isn't there.</p>",
+    "PostedDate": "2011-10-21T06:26:12.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687438",
+    "ThreadId": "276688",
+    "Html": "<p>because not every provider has implemented geocoding/etc first you need to cast it:</p>\n<p>var g = map.MapProvider as GeocodingProvider;<br /> if( g != null)<br /> {<br /> &nbsp;...</p>\n<p>or just use exact provider, like openstreet or google:</p>\n<p>GMapProviders.GoogleMap.GetRouteBetweenPoint/etc<br /> GMapProviders.OpenStreetMap.GetRouteBetweenPoints...<br /> GMapProviders.CloudMadeMap.GetRouteBetweenPoints ...</p>",
+    "PostedDate": "2011-10-21T07:13:54.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

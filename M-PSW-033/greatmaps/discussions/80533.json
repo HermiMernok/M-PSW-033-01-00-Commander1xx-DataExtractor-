@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "276092",
+    "ThreadId": "80533",
+    "Html": "<p>Hello,</p>\r\n<p>Thanks for the great Gmaps project.</p>\r\n<p>Q: Is there any way to change the color of the route from default navy in WPF?</p>\r\n<p>I've seen there's a way, but only for Windows Forms. From what I have found it looks like the navy color is hard-coded into the library and the only way is to change the source code.</p>\r\n<p>I don't have a good grasp of Dependency Properties - can it be done through them?</p>\r\n<p>&nbsp;</p>\r\n<p>Kind regards,</p>\r\n<p>Adam.</p>",
+    "PostedDate": "2010-01-12T02:58:13.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "276107",
+    "ThreadId": "80533",
+    "Html": "<p>yes you can change it, <strong>(route.Shape as System.Windows.Shapes.Path).Fill = Brushes.Red;</strong></p>",
+    "PostedDate": "2010-01-12T04:06:38.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "276113",
+    "ThreadId": "80533",
+    "Html": "<p><strong>(route.Shape as System.Windows.Shapes.Path).Fill = Brushes.Red;</strong> gives me an exception (System.Windows.Markup.XamlParseException).</p>\r\n<p>&nbsp;</p>\r\n<p>So far, I modified the source code adding the Brush property to the GMapMarker class and passing this Brush to CreateRoutePath() function invoked by RegenerateRouteShape() in GMapMarker class.</p>\r\n<p>In the body of CreateRoutePath() I changed the line &quot;myPath.Stroke = Brushes.navy;&quot; to &quot;myPath.Stroke = brush;&quot;</p>\r\n<p>And that works. (The only problem is that I had to recompile the library)</p>\r\n<p>&nbsp;</p>\r\n<p>And by the way:</p>\r\n<p>1)How to achieve the red GoogleMaps marker with a shadow, like in the picture from codeproject: http://www.codeproject.com/KB/miscctrl/GMapNET/GMapNETv7cp.PNG</p>\r\n<p>2) (Important) How did you manage to make the graph from http://jjvkug.blu.livefilestore.com/y1pLxH_8gtCggPiPzkZMOeOG6BJeH9AgCDUSD4OKK2HRWgZSUjgCNNcfS4wv3ooM6F2Dt7-V9KLrSXFBaxvo-LmvP9SQif83eyM/trolis-demo.png? (Did you use any special library for this, like Visifire or just WPF?)</p>",
+    "PostedDate": "2010-01-12T04:33:32.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "276116",
+    "ThreadId": "80533",
+    "Html": "<p>..strange, it should work as i said anyway. But do you call it&nbsp;<em>After </em>shape generation?</p>\r\n<p>1) just render shadow image nexto marker, check winforms demo markers</p>\r\n<p>2) <a href=\"http://dynamicdatadisplay.codeplex.com/\">http://dynamicdatadisplay.codeplex.com/</a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-12T04:40:33.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "276130",
+    "ThreadId": "80533",
+    "Html": "<p>Of course ;), I called it before <em>route.RegenerateRouteShape(MainMap);</em></p>\r\n<p>But <em>Fill </em>doesn't change the color. What works is <em>Stroke</em>: <strong>(route.Shape as System.Windows.Shapes.Path).<em>Stroke </em>= Brushes.Red;</strong></p>\r\n<p>So it looks like:</p>\r\n<p>GMapMarker route= new GMapMarker(new PointLatLng(lat,lng));<br>route.Route.AddRange(Points); //(defined before)<br>route.RegenerateRouteShape(MainMap);<br>(route.Shape as System.Windows.Shapes.Path).Stroke = Brushes.Green;<br>route.ZIndex = -1;<br>MainMap.Markers.Add(route);</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you for your rapid help!</p>\r\n<p>Adam</p>",
+    "PostedDate": "2010-01-12T05:20:27.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "276136",
+    "ThreadId": "80533",
+    "Html": "<p>welcome&nbsp;;}</p>",
+    "PostedDate": "2010-01-12T05:41:23.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

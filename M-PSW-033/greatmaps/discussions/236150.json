@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "527414",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<pre>Hi, when we try to draw lines on map, the program throws InvalidOperationException from GMap.Net.WindowForms.GMapControl</pre>\r\n<pre>My Code <div style=\"color:black; background-color:white\"><pre>        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> Track(PointLatLng point, <span style=\"color:blue\">string</span> terminalId)\r\n        {\r\n            _gr = <span style=\"color:blue\">new</span> GMapRoute(_track[terminalId], terminalId);\r\n            {\r\n                _gr.Stroke = <span style=\"color:blue\">new</span> Pen(Color.FromArgb(144, Color.Red))\r\n                                {\r\n                                    Width = 5,\r\n                                    DashStyle = System.Drawing.Drawing2D.DashStyle.DashDot\r\n                                };\r\n            }\r\n\r\n            _routes = <span style=\"color:blue\">new</span> GMapOverlay(<span style=\"color:blue\">this</span>, terminalId);\r\n            Overlays.Add(_routes);\r\n            _routes.Routes.Add(_gr);\r\n        }\r\n</pre>\r\n</div>\r\n</pre>\r\n<pre><br></pre>\r\n<pre>protected virtual void OnPaintEtc(Graphics g)\r\n      {\r\n#if !PocketPC\r\n         g.SmoothingMode = SmoothingMode.HighQuality;\r\n#endif\r\n         foreach(GMapOverlay o in Overlays) //&lt;-- Collection was modified; enumeration operation may not execute.<br>\r\n         {\r\n            if(o.IsVisibile)\r\n            {\r\n               o.Render(g);\r\n            }\r\n         }\r\n....</pre>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-26T08:12:08.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "527441",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>i guess you add it in other thread?</p>\r\n",
+    "PostedDate": "2010-11-26T09:14:06.177-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "527577",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>ramazanulucay,</p>\r\n<p>Are you are calling your Track(...) function from the main (GUI) thread or from&nbsp;some other thread? I&nbsp;expect that the OnPaintEtc(...) function is called on the main thread, and will only&nbsp;fail due to the Overlays collection being updated if\r\n you did that from another thread. I am making some guesses here, but maybe&nbsp;it will help...&nbsp;</p>\r\n<p>Martin.</p>\r\n",
+    "PostedDate": "2010-11-26T20:12:01.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528090",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>hi;</p>\r\n<p>there is one thread for socket connections and i catch the incoming data from the socket in an event with this thread, but i never update map in this event, i update map in main thread. Is it possible to &nbsp;get a trace log or a trace file to find this\r\n error.</p>\r\n<p>Ramazan ULUCAY</p>\r\n",
+    "PostedDate": "2010-11-29T01:31:38.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528123",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>hi again;</p>\r\n<p>&nbsp;</p>\r\n<p>There is no problem when you do not change the map center and zoom value, but when you change them the program throw exception. Sometimes i use Track function and HoldScreen function after and after, first i call track and then HoldScreen. What is the deal\r\n with this HoldScreen ?? When i don't call this HoldScreen, there is no problem.</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> HoldScreen(PointLatLng latlng)\r\n{\r\n\t<span style=\"color:blue\">if</span> (!Program.MapControls.CurrentViewArea.Contains(latlng))\r\n    {\r\n\t\tMapControls.SetCenter(latlng);\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>Ramazan ULUCAY</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-29T02:59:18.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528138",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>from what thread do you call it?</p>\r\n",
+    "PostedDate": "2010-11-29T03:13:50.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528195",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>from main threat. The code is here;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">void</span> SocketConn_onDataReceviedNewPosition(Sockets.EventArgsReceiveGP e)\r\n        {\r\n            <span style=\"color:blue\">if</span> (MapControls == <span style=\"color:blue\">null</span>) <span style=\"color:blue\">return</span>;\r\n            <span style=\"color:blue\">if</span> (!Program.TerminalList.ContainsKey(e.TerminalID)) <span style=\"color:blue\">return</span>;\r\n            <span style=\"color:blue\">var</span> terminal = Program.TerminalList[e.TerminalID];\r\n            <span style=\"color:blue\">var</span> latlng = MapControls.ToPointLatLng(e.Latitude, e.Longitude);\r\n            <span style=\"color:blue\">if</span> (terminal.PropLeaveTrace == 1)\r\n            {\r\n                MapControls.TrackVehicle(latlng, e.TerminalID);\r\n            }\r\n            TerminalCommandListCtrl(e.TerminalID, Command.newPosition, <span style=\"color:#a31515\">&quot;Position Update&quot;</span>);\r\n            <span style=\"color:blue\">if</span> (terminal.PropHoldOnScreen == 1)\r\n            {\r\n                <span style=\"color:blue\">if</span> (!MapControls.CurrentViewArea.Contains(latlng))\r\n                {\r\n                    MapControls.SetCenter(latlng);\r\n                }\r\n            }\r\n\r\n            <span style=\"color:blue\">if</span> (terminal.PropAlertSounds == 1)\r\n            {\r\n                Program.StreamPlayer(Properties.Resources.info);\r\n            }\r\n\r\n            Program.TerminalList[e.TerminalID].Latitude = e.Latitude;\r\n            Program.TerminalList[e.TerminalID].Longitude = e.Longitude;\r\n            Program.TerminalList[e.TerminalID].Direction = e.Direction;\r\n            <span style=\"color:blue\">if</span> (_near != <span style=\"color:blue\">null</span>) { _near.RefreshList(); }\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2010-11-29T05:05:12.15-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528201",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>i doubt that onDataReceviedNewPosition is executed on main thread ;}</p>\r\n",
+    "PostedDate": "2010-11-29T05:14:36.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528220",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>Ok then, how can i call this onDataRecieved from the main thread, any suggestions?</p>\r\n<p>Ramazan ULUCAY</p>\r\n",
+    "PostedDate": "2010-11-29T05:36:27.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528224",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>I change code, but I don't know how can i call from the main thread.</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>         <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt; Overlays.Count; i&#43;&#43;)\r\n         {\r\n             GMapOverlay o = Overlays[i];\r\n             <span style=\"color:blue\">if</span> (o.IsVisibile)\r\n             {\r\n                 o.Render(g);\r\n             }\r\n         }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2010-11-29T05:42:46.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528241",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>You will need to use a delegate:)</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-29T06:14:01.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528253",
+    "ThreadId": "236150",
+    "Html": "\r\n<p>Thanks azlan, I am using delegate, but allways a solution does not in to mind :)&nbsp;\r\n</p>\r\n<div id=\"x_gt-res-content\">\r\n<div dir=\"ltr\"><span id=\"x_result_box\" lang=\"en\"><span>Problem solved.</span></span>\r\n<div></div>\r\n<div><span>Ramazan</span></div>\r\n</div>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2010-11-29T06:32:30.8-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

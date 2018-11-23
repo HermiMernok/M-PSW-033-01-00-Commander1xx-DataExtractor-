@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1357088",
+    "ThreadId": "582494",
+    "Html": "Hello radioman.\r<br />\n<br />\nProblem regarding GetDistance function.\r<br />\npublic double GetDistance(PointLatLng p1, PointLatLng p2) function have bug.\r<br />\nYou uses formula from:  <a href=\"http://www.movable-type.co.uk/scripts/latlong.html\" rel=\"nofollow\">http://www.movable-type.co.uk/scripts/latlong.html</a>\r<br />\nFormula is:\r<br />\nHaversine\r<br />\nformula: \ta = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)\r<br />\nc = 2 ⋅ atan2( √a, √(1−a) )\r<br />\nd = R ⋅ c\r<br />\nwhere φ is latitude, λ is longitude, R is earth’s radius (mean radius = 6,371km);\r<br />\n<br />\nYour code is \r<br />\ndouble dDistance = (Axis / 1000.0) * c;\r<br />\nreturn dDistance;\r<br />\nwhere Axis is Semi-major axis of ellipsoid, in meters and value is 6378137;\r<br />\n<br />\nThis is incorrect value for this formula. Must be 6371210 (mean radius = 6,371km) instead 6378137\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2015-02-28T18:30:09.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

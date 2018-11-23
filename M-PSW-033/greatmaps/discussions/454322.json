@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1084028",
+    "ThreadId": "454322",
+    "Html": "I found the following bug.<br />\nYour solution to release the selected area works fine.<br />\nHowever it reveals a bug. After selection of the area, the selection is emptied. Then when I click on the map the map position moves to 0, 0 (lat, lng).<br />\n<br />\nIn my situation:<br />\n<pre><code>mGmapControl.DragButton = MouseButtons.Left;\nmGmapControl.DisableAltForSelection = true;\n\n// on release of the selected area\nmGmapControl.OnSelectionChange += new SelectionChange(mGmapControl_OnSelectionRelease);\n\n/// &lt;summary&gt;\n/// Zoom to selected area\n/// &lt;/summary&gt;\nprivate void mGmapControl_OnSelectionRelease(RectLatLng Selection, bool ZoomToFit)\n{\n     mGmapControl.SetZoomToFitRect(Selection);\n     mGmapControl.SelectedArea = RectLatLng.Empty;\n     mGmapControl.ReloadMap();\n}</code></pre>\n\nYou can reproduce the bug in your demo project.<br />\nIn the MainForm.cs:<br />\n<br />\nAdd on line 79:<br />\n<pre><code>MainMap.DragButton = MouseButtons.Left;\nMainMap.DisableAltForSelection = true;\n</code></pre>\n\nAdd on line 114:<br />\n<pre><code>MainMap.OnSelectionChange += new SelectionChange(MainMap_SelectionChange);  \n</code></pre>\n\nAdd on line 259:<br />\n<pre><code>private void MainMap_SelectionChange(RectLatLng Selection, bool ZoomToFit)\n{\n          MainMap.SetZoomToFitRect(Selection);\n          MainMap.SelectedArea = RectLatLng.Empty;\n          MainMap.ReloadMap();\n}</code></pre>\n\n",
+    "PostedDate": "2013-08-23T01:27:45.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084051",
+    "ThreadId": "454322",
+    "Html": "because you set zero position in MainMap_SelectionChange, internally after selection change it zooms to selected area<br />\n",
+    "PostedDate": "2013-08-23T02:32:26.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084055",
+    "ThreadId": "454322",
+    "Html": "p.s. if you hold the <strong>Shift</strong><br />\n<br />\n..and i've added small change, maybe it helps<br />\n",
+    "PostedDate": "2013-08-23T02:38:29.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084071",
+    "ThreadId": "454322",
+    "Html": "I've tested with the change you made in RectLatLng.cs. Doesn' t make a difference.<br />\nI'm trying to create a work around.<br />\n",
+    "PostedDate": "2013-08-23T03:18:34.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

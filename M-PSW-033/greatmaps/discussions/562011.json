@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1293007",
+    "ThreadId": "562011",
+    "Html": "I've just used this great lib to write my WPF application. But one problem is puzzled me.\r<br />\n<br />\nWhen I add points to an exist route, it can not be refreshed until zoom in or out. I searched for this problem, and only find to use MapControl.UpdateRouteLocalPosition(route)) in WinForm. But how should I do to achieve the same function in WPF?\r<br />\n<br />\n<br />\nThank you for read it and can anyone help me ?<br />\n",
+    "PostedDate": "2014-08-25T01:10:37.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293009",
+    "ThreadId": "562011",
+    "Html": "aha\r<br />\n<br />\nI tried one way that it works. <br />\n<pre><code>route.RegenerateShape(MainMapControl);</code></pre>\n\n",
+    "PostedDate": "2014-08-25T01:15:00.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1221707",
+    "ThreadId": "538703",
+    "Html": "Hi, this is my code on vb.net \r<br />\n<br />\nDim map As New GMap.NET.WindowsForms.GMapControl<br />\n<pre><code>    map.Position = New PointLatLng(14.621333, -90.525391)\n    map.Dock = DockStyle.Fill\n    GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance.APIKey = &quot;AIzaSyAWdNLn_ldEL5FFpo5suXTwZipbPKMkAdc&quot;\n    map.MapProvider = MapProviders.GoogleMapProvider.Instance\n    map.MinZoom = 3\n    map.MaxZoom = 17\n    map.Zoom = 6\n    map.CanDragMap = True\n    map.DragButton = MouseButtons.Left\n    map.Manager.Mode = AccessMode.ServerOnly\n    Me.Controls.Add(map)\n</code></pre>\n\nI just got a white screen on the handheld. Any idea ? I'm using vs 2008 framework 3.5 window mobile 6.<br />\n",
+    "PostedDate": "2014-03-11T22:45:24.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1224809",
+    "ThreadId": "538703",
+    "Html": "make sure that you have the internet connection on your device<br />\n",
+    "PostedDate": "2014-03-20T06:54:31.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

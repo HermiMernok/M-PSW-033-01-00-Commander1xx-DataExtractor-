@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "557507",
+    "ThreadId": "243853",
+    "Html": "\r\n<p>VS2008 is tellling that RectLatLng is read only when&nbsp;I try to set values for .Top, .Bottom, .Left, .Right in my version of the prefetcher.&nbsp; What I want to be able t do is type into textboxes the boundaries of the SelectedArea:</p>\r\n<p>double north = 48; double south = 47; double west = -123; double east = -122;</p>\r\n<p>SelectedArea.Top = north; SelectedArea.Bottom = south; SelectedArea.Left = west; SelectedArea.Right = east;</p>\r\n<p>Is there a way to do this without changing the GMap.NET.Core? or what all do I have to change in the core to be able to make this work?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2011-01-29T23:23:02.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "557517",
+    "ThreadId": "243853",
+    "Html": "\r\n<p>OK, I figured it out after playing around with the code for a few minutes.</p>\r\n<p><em>public RectLatLng area;</em></p>\r\n<p><em>area = new RectLatLng(double lat, double lng, double widthLng, double heightLng);</em></p>\r\n<p>And I wrote it in as:</p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><font size=\"2\"></p>\r\n<p>area =</p>\r\n</font><span style=\"color:#0000ff; font-size:x-small\"><span style=\"color:#0000ff; font-size:x-small\">new</span></span><span style=\"font-size:x-small\">\r\n</span><span style=\"color:#2b91af; font-size:x-small\"><span style=\"color:#2b91af; font-size:x-small\">RectLatLng</span></span><span style=\"font-size:x-small\">(north, east, (east - west), (north - south));</span></span>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&nbsp;</span></span></span></p>\r\n<p><span style=\"font-size:x-small\">Now I just have to figure out how to get the rectangle to draw properly on the map. :)</span></p>\r\n</span>\r\n<p></p>\r\n",
+    "PostedDate": "2011-01-30T00:28:07.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "557598",
+    "ThreadId": "243853",
+    "Html": "\r\n<p>public RectLatLng <strong>SelectedArea</strong>, just assign your wanted value and it will draw it for you</p>\r\n<p>p.s. demo MainMap.SelectedArea = MainMap.CurrentViewArea;</p>\r\n",
+    "PostedDate": "2011-01-30T06:49:02.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "562399",
+    "ThreadId": "243853",
+    "Html": "\r\n<p>Thanks for that. I got it working so an area can be selected by ether entering the values manually or by using the &lt;alt&gt; &#43; &lt;leftMouseClick&gt;.</p>\r\n<p>Now to the real issue.....I think I found the code I need to edit so that the application will only export part of the map data cache instead of the entire cache.</p>\r\n<p>GMap.NET.CacheProviders - SQLitePureImageCache.cs - ExportMapDataToDB - Lines 317-348</p>\r\n<p>Really, I think the only line I have to change is:</p>\r\n<p><span style=\"color:blue\">using</span>(SQLiteCommand cmd = <span style=\"color:blue\">\r\nnew</span> SQLiteCommand(<span style=\"color:#a31515\">&quot;SELECT id, X, Y, Zoom, Type FROM Tiles;&quot;</span>, cn1))</p>\r\n<p>so that it only exports&nbsp;one tile at a time&nbsp;from the selected map from the selected zoom level.</p>\r\n<p>Example:</p>\r\n<p>Export&nbsp;tile {0,0} from zoom level 0 from OpenStreetMap.</p>\r\n<p>Export tile {164,360} from zoom level 10 from OpenStreetMap.</p>\r\n<p>I know I'll have to create a few if or while loops to get all the tiles in a selected area ( {163,358} to {165,360} is 9 tiles) but I need to get that SQLiteCommand() figured out first.</p>\r\n<p>Any ideas?</p>\r\n<p>Thanks again.</p>\r\n",
+    "PostedDate": "2011-02-07T23:10:28.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "562548",
+    "ThreadId": "243853",
+    "Html": "\r\n<p>maybe <em>SELECT id, X, Y, Zoom, Type FROM Tiles <strong>WHERE X &gt;= 0 &amp;&amp; x &lt;= 164 &amp;&amp; Y &gt;= 0 &amp;&amp; Y &lt;= 360</strong></em></p>\r\n",
+    "PostedDate": "2011-02-08T04:09:24.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1223515",
+    "ThreadId": "539245",
+    "Html": "Hi all,<br />\nI'm totally new to this so i try to follow the tutorial. But when I use SetPositionByKeywords, the map didn't show exactly what i have entered. for example: gMapControl1.SetPositionByKeywords(&quot;Brisbane, Australia&quot;); <br />\n<br />\nAnd the other thing is get the name of place base on position, I did the same as the other threads.<br />\nList&lt;Placemark&gt; plc = null;<br />\nvar st = GMapProviders.GoogleMap.GetPlacemarks(gMapControl1.Position, out plc);<br />\nif(st == GeoCoderStatusCode.G_GEO_SUCCESS &amp;&amp; plc != null)<br />\n{<br />\n<pre><code>foreach(var pl in plc)\n{\n    if(!string.IsNullOrEmpty(pl.PostalCodeNumber))\n    {\n        Debug.WriteLine(&quot;Accuracy: &quot; + pl.Accuracy + &quot;, &quot; + pl.Address + &quot;, PostalCodeNumber: &quot; + pl.PostalCodeNumber);\n    }\n}</code></pre>\n\n}<br />\n<br />\nBut nothing happened, I try to print out and it seems that st is not G_GEO_SUCCESS.<br />\nSorry If my question is the same as the other.<br />\nI'm using GMap.net 1.7<br />\n",
+    "PostedDate": "2014-03-17T07:23:21.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1224802",
+    "ThreadId": "539245",
+    "Html": "dunno, you have to dig deeper.. ;}<br />\n",
+    "PostedDate": "2014-03-20T06:49:43.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

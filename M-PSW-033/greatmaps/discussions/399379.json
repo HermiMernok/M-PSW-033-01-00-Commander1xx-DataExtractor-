@@ -1,0 +1,234 @@
+[
+  {
+    "Id": "926662",
+    "ThreadId": "399379",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I'm developing a program to show a route for a vehicle.</p>\r\n<p>i want to know , could the GMAP.Net do this for me and how to do that?</p>\r\n<p>just a sample app i need for testing the speed of the GMAP.NET</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2012-10-15T05:21:05.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926668",
+    "ThreadId": "399379",
+    "Html": "<p>just try, check the demos</p>",
+    "PostedDate": "2012-10-15T05:40:58.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926707",
+    "ThreadId": "399379",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>just try, check the demos</p>\r\n</blockquote>\r\n<p>where can i download demos only?</p>",
+    "PostedDate": "2012-10-15T06:36:05.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926788",
+    "ThreadId": "399379",
+    "Html": "<p>here ;}</p>",
+    "PostedDate": "2012-10-15T08:40:18.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926863",
+    "ThreadId": "399379",
+    "Html": "<p>i added all of the markers</p>\r\n<p>now i need to make contact between them using drawing lines between points</p>\r\n<p>how could i draw lines between them?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-10-15T10:54:42.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926874",
+    "ThreadId": "399379",
+    "Html": "<p>add the route</p>",
+    "PostedDate": "2012-10-15T11:22:56.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926878",
+    "ThreadId": "399379",
+    "Html": "<p>i've added that as an overlay to gmap component.</p>\r\n<p>but the route is polygon</p>\r\n<p>i need just lines</p>",
+    "PostedDate": "2012-10-15T11:27:19.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926886",
+    "ThreadId": "399379",
+    "Html": "<p>check the demo source</p>",
+    "PostedDate": "2012-10-15T11:37:15.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926897",
+    "ThreadId": "399379",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>check the demo source</p>\r\n</blockquote>\r\n<p>what do you mean by demo source?</p>\r\n<p>i have downloaded \"greatmaps_197400b3a921.zip\" from the source code section.</p>\r\n<p>there is just a demo application which draws polygon.</p>\r\n<p>would you please tell me which parts you mean by demo?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-10-15T12:08:52.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926929",
+    "ThreadId": "399379",
+    "Html": "<p>'Add Route' button</p>",
+    "PostedDate": "2012-10-15T12:51:27.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927126",
+    "ThreadId": "399379",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>'Add Route' button</p>\r\n</blockquote>\r\n<p>&nbsp;</p>\r\n<p>i have done this way:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">internal</span> <span style=\"color: blue;\">readonly</span> GMapOverlay objects = <span style=\"color: blue;\">new</span> GMapOverlay(<span style=\"color: #a31515;\">\"objects\"</span>);\r\n        <span style=\"color: blue;\">internal</span> <span style=\"color: blue;\">readonly</span> GMapOverlay routes = <span style=\"color: blue;\">new</span> GMapOverlay(<span style=\"color: #a31515;\">\"routes\"</span>);\r\n\r\n        <span style=\"color: blue;\">public</span> Form1()\r\n        {\r\n            InitializeComponent();\r\n\r\n            gMapControl1.MapProvider = GMapProviders.GoogleMap;\r\n            gMapControl1.Position = <span style=\"color: blue;\">new</span> PointLatLng(32.6961334816182, 52.2985095977783);\r\n            gMapControl1.MinZoom = 0;\r\n            gMapControl1.MaxZoom = 24;\r\n            gMapControl1.Zoom = 9;\r\n            gMapControl1.Overlays.Add(routes);\r\n            gMapControl1.Overlays.Add(objects);\r\n\r\n        }\r\n\r\n        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> Form1_Load(<span style=\"color: blue;\">object</span> sender, EventArgs e)\r\n        {\r\n            List&lt;PointLatLng&gt; list = <span style=\"color: blue;\">new</span> List&lt;PointLatLng&gt;();\r\n\r\n            <span style=\"color: green;\">// fill the list</span>\r\n\r\n            GMapRoute r = <span style=\"color: blue;\">new</span> GMapRoute(list, <span style=\"color: #a31515;\">\"my route\"</span>);\r\n            r.IsHitTestVisible = <span style=\"color: blue;\">true</span>;\r\n            routes.Routes.Add(r);\r\n            gMapControl1.ZoomAndCenterRoute(r);\r\n        }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>markers shows on map but there is no connection line between them!</p>\r\n<p>i want to make my (offline) passed route visible on map!</p>\r\n<p>and another thing, i have used my own rotated bitmap for my markers to show the direction, but the resulted markers have offset from the original position on map</p>\r\n<p>why?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-10-15T23:20:51.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927188",
+    "ThreadId": "399379",
+    "Html": "<p>route should be correct, and for markers if you rotate it, rotate it at the center</p>",
+    "PostedDate": "2012-10-16T01:39:21.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927193",
+    "ThreadId": "399379",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>route should be correct, and for markers if you rotate it, rotate it at the center</p>\r\n</blockquote>\r\n<p>what you mean by correct?</p>\r\n<p>the path is correct. and got from the GPS device</p>\r\n<p>i only want to draw a line between the points.</p>\r\n<p>i rotate the bitmap marker around the center of it.</p>",
+    "PostedDate": "2012-10-16T01:50:49.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927230",
+    "ThreadId": "399379",
+    "Html": "<p>this is my route points</p>\r\n<p>\r\n<pre>32.710525233333,51.709773683333\r\n32.711725983333,51.704725066667\r\n32.712161566667,51.7016886\r\n32.71156525,51.700573083333\r\n32.711619183333,51.697707483333\r\n32.711683333333,51.693647033333\r\n32.713998866667,51.69232\r\n32.716209366667,51.69141195\r\n32.716029866667,51.6902065\r\n32.715211833333,51.687279733333\r\n32.714487533333,51.684649283333\r\n32.7138501,51.682203766667\r\n32.713188,51.6800163\r\n32.712567716667,51.677681383333\r\n32.712951733333,51.676638066667\r\n32.71328285,51.675441133333\r\n32.713514866667,51.67297225\r\n32.713735066667,51.670455\r\n32.713785566667,51.66982365\r\n32.713969216667,51.6673657\r\n</pre>\r\n</p>\r\n<p>could you please make a route with these points and give me the code?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-10-16T02:51:26.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927232",
+    "ThreadId": "399379",
+    "Html": "<p>and this is my rotation code:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre> <span style=\"color: blue;\">public</span> Bitmap RotateImage(Image img, <span style=\"color: blue;\">int</span> rotationAngle)\r\n        {\r\n            <span style=\"color: green;\">// When drawing the returned image to a form, modify your points by </span>\r\n            <span style=\"color: green;\">// (-(img.Width / 2) - 1, -(img.Height / 2) - 1) to draw for actual co-ordinates.</span>\r\n\r\n            <span style=\"color: green;\">//create an empty Bitmap image </span>\r\n            Bitmap bmp = <span style=\"color: blue;\">new</span> Bitmap((img.Width), (img.Height));\r\n\r\n            <span style=\"color: green;\">//turn the Bitmap into a Graphics object</span>\r\n            Graphics gfx = Graphics.FromImage(bmp);\r\n\r\n            <span style=\"color: green;\">//set the point system origin to the center of our image</span>\r\n            gfx.TranslateTransform((<span style=\"color: blue;\">float</span>)bmp.Width / 2, (<span style=\"color: blue;\">float</span>)bmp.Height / 2);\r\n\r\n            <span style=\"color: green;\">//now rotate the image</span>\r\n            gfx.RotateTransform(rotationAngle);\r\n\r\n            <span style=\"color: green;\">//move the point system origin back to 0,0</span>\r\n            gfx.TranslateTransform(-(<span style=\"color: blue;\">float</span>)bmp.Width / 2, -(<span style=\"color: blue;\">float</span>)bmp.Height / 2);\r\n\r\n            <span style=\"color: green;\">//set the InterpolationMode to HighQualityBicubic so to ensure a high</span>\r\n            <span style=\"color: green;\">//quality image once it is transformed to the specified size</span>\r\n            gfx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;\r\n\r\n            <span style=\"color: green;\">//draw our new image onto the graphics object with its center on the center of rotation</span>\r\n            gfx.DrawImage(img, 0, 0);\r\n\r\n            <span style=\"color: green;\">//dispose of our Graphics object</span>\r\n            gfx.Dispose();\r\n\r\n            <span style=\"color: green;\">//return the image</span>\r\n            <span style=\"color: blue;\">return</span> bmp;\r\n        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-10-16T02:53:22.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927246",
+    "ThreadId": "399379",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>         List&lt;PointLatLng&gt; list = <span style=\"color: blue;\">new</span> List&lt;PointLatLng&gt;();\r\n\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.710525233333, 51.709773683333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711725983333, 51.704725066667));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712161566667, 51.7016886));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.71156525, 51.700573083333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711619183333, 51.697707483333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711683333333, 51.693647033333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713998866667, 51.69232));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.716209366667, 51.69141195));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.716029866667, 51.6902065));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.715211833333, 51.687279733333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.714487533333, 51.684649283333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.7138501, 51.682203766667));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713188, 51.6800163));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712567716667, 51.677681383333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712951733333, 51.676638066667));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.71328285, 51.675441133333));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713514866667, 51.67297225));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713735066667, 51.670455));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713785566667, 51.66982365));\r\n         list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713969216667, 51.6673657));\r\n\r\n         GMapRoute r = <span style=\"color: blue;\">new</span> GMapRoute(list, <span style=\"color: #a31515;\">\"my route\"</span>);\r\n         r.Stroke.Width = 22;\r\n         r.Stroke.Color = Color.Red;\r\n\r\n         routes.Routes.Add(r);\r\n         MainMap.ZoomAndCenterRoute(r);\r\n</pre>\r\n</div>\r\n<p>&nbsp;<img src=\"http://imageshack.us/a/img20/6365/gmapdemoroute.png\" alt=\"\" /></p>",
+    "PostedDate": "2012-10-16T03:24:53.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927250",
+    "ThreadId": "399379",
+    "Html": "\r\n<p>thanks</p>\r\n<p>now the only problem is rotating the bitmap</p>\r\n<p>i don't know why in my program rotation is not working while in the attached program rotation is working fine!</p>\r\n<p><a href=\"https://hotfile.com/dl/176275791/6f0a1a4/WindowsFormsApplication3.rar.html\">https://hotfile.com/dl/176275791/6f0a1a4/WindowsFormsApplication3.rar.html</a></p>\r\n",
+    "PostedDate": "2012-10-16T03:37:03.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927254",
+    "ThreadId": "399379",
+    "Html": "<p>did you call map.<strong>Invalidate</strong>() after rotating the marker image?</p>",
+    "PostedDate": "2012-10-16T03:48:44.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927256",
+    "ThreadId": "399379",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>did you call map.<strong>Invalidate</strong>() after rotating the marker image?</p>\r\n</blockquote>\r\n<p>no! should i do that?</p>",
+    "PostedDate": "2012-10-16T03:49:52.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927259",
+    "ThreadId": "399379",
+    "Html": "<p>depends, i don't know what are you doing there ;}</p>",
+    "PostedDate": "2012-10-16T03:52:15.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927261",
+    "ThreadId": "399379",
+    "Html": "<p>ok thanks</p>\r\n<p>problem solved</p>\r\n<p>i have to make a new instance of the image from the resource.</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-10-16T03:58:10.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927263",
+    "ThreadId": "399379",
+    "Html": "\r\n<p>now the rotation is ok</p>\r\n<p>thanks</p>\r\n<p>but</p>\r\n<p>the place of the image is not correct</p>\r\n<p>it has a offset to the route i've created</p>\r\n<p>the route is really correct but the markers are not</p>\r\n<p>when i use GMarkerGoogleType.arrow for the icon, its correct</p>\r\n<p>why?</p>\r\n",
+    "PostedDate": "2012-10-16T04:00:34.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927271",
+    "ThreadId": "399379",
+    "Html": "<p>set:</p>\r\n<p>Size = new System.Drawing.Size(Bitmap.Width, Bitmap.Height);<br /> <strong>Offset</strong> = new Point(-Size.Width / 2, -Size.Height);</p>",
+    "PostedDate": "2012-10-16T04:09:55.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927281",
+    "ThreadId": "399379",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>set:</p>\r\n<p>Size = new System.Drawing.Size(Bitmap.Width, Bitmap.Height);<br /> <strong>Offset</strong> = new Point(-Size.Width / 2, -Size.Height);</p>\r\n</blockquote>\r\n<p>with the code below, my problem solved</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>m.Size = <span style=\"color: blue;\">new</span> System.Drawing.Size(bmp.Width, bmp.Height);\r\nm.Offset = <span style=\"color: blue;\">new</span> Point(-bmp.Width / 2, -bmp.Height <span style=\"color: #ff0000;\">/ 2</span>);\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-10-16T04:21:49.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927288",
+    "ThreadId": "399379",
+    "Html": "<p>good ;}</p>",
+    "PostedDate": "2012-10-16T04:37:00.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933678",
+    "ThreadId": "399379",
+    "Html": "<p>Thankyou , both of you, your Above discussion helped me a lot. :-)</p>",
+    "PostedDate": "2012-10-29T02:20:20.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933688",
+    "ThreadId": "399379",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>naveed161 wrote:</strong><br />\r\n<p>Thankyou , both of you, your Above discussion helped me a lot. :-)</p>\r\n</blockquote>\r\n<p>;)</p>",
+    "PostedDate": "2012-10-29T02:36:45.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006842",
+    "ThreadId": "399379",
+    "Html": "Hi,<br />\n<h2>I am also looking for Vehicle Routing using GMAP.Net. Is it possible? where can i download demos?</h2>\nThanks\r<br />\nVS<br />\n",
+    "PostedDate": "2013-02-26T03:13:45.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006953",
+    "ThreadId": "399379",
+    "Html": "in the download section<br />\n",
+    "PostedDate": "2013-02-26T06:49:26.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

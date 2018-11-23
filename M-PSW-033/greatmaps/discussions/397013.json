@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "917910",
+    "ThreadId": "397013",
+    "Html": "\r\n<p>Hello all.</p>\r\n<p>Is there any posible way to take marker screen coordinates? I need to <span>programmatically move mouse cursor to marker, but i don't know screen coordinates of it.</span></p>\r\n<p><span>Any ideas?</span></p>\r\n",
+    "PostedDate": "2012-09-26T09:11:31.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "918607",
+    "ThreadId": "397013",
+    "Html": "<p>try:\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">var</span> l = MainMap.FromLatLngToLocal(currentMarker.Position);\r\n<span style=\"color: blue;\">var</span> screenPoint = MainMap.PointToScreen(<span style=\"color: blue;\">new</span> Point((<span style=\"color: blue;\">int</span>) l.X, (<span style=\"color: blue;\">int</span>) l.Y));\r\nCursor.Position = <span style=\"color: blue;\">new</span> Point((<span style=\"color: blue;\">int</span>) screenPoint.X, (<span style=\"color: blue;\">int</span>) screenPoint.Y);\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-09-27T10:04:19.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "922788",
+    "ThreadId": "397013",
+    "Html": "<p>thanks a lot)</p>",
+    "PostedDate": "2012-10-06T04:55:39.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

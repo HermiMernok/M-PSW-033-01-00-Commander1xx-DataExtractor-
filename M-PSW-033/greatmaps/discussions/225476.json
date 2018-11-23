@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "487025",
+    "ThreadId": "225476",
+    "Html": "<p>Hi radioman,</p>\r\n<p>i'm trying to manage some events on the routes (i.e. when the cursor is on the route i'll show the route highlighted) but actually it won't work, i can show the route, i can create the events on the route shape but they won't&nbsp;trigger. Do you have an idea?</p>",
+    "PostedDate": "2010-08-31T08:15:50.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487060",
+    "ThreadId": "225476",
+    "Html": "<p>wpf?</p>",
+    "PostedDate": "2010-08-31T08:59:24.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487377",
+    "ThreadId": "225476",
+    "Html": "<p>yes in wpf</p>",
+    "PostedDate": "2010-08-31T23:48:35.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487866",
+    "ThreadId": "225476",
+    "Html": "<p>should work perfectly</p>",
+    "PostedDate": "2010-09-01T14:36:11.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488031",
+    "ThreadId": "225476",
+    "Html": "<p>i thought it too but actually, i've created the mouse enter and mouse leave on the shape of&nbsp; the route (on the Path object), but these events won't trigger when the mouse cursor passes on the route</p>",
+    "PostedDate": "2010-09-01T23:56:12.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488178",
+    "ThreadId": "225476",
+    "Html": "<p>be default it's optimized and does not respond to mouse events, just <em>do myPath</em>.<strong>IsHitTestVisible</strong> = <strong>true</strong>; // and it will responds as expected</p>",
+    "PostedDate": "2010-09-02T04:56:52.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488217",
+    "ThreadId": "225476",
+    "Html": "<p>now it's perfect!</p>\r\n<p>thx radioman ;)</p>",
+    "PostedDate": "2010-09-02T05:47:09.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

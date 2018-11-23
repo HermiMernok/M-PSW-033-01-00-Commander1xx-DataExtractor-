@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1140388",
+    "ThreadId": "476764",
+    "Html": "Hello,\r<br />\n<br />\ni need help.\r<br />\n<br />\nI want save (print) gMapcontrol.\r<br />\n<br />\nI start with this\r<br />\n<br />\nvar img = gMapControl1.ToImage();<br />\n<pre><code>        PrintDialog printDlg = new PrintDialog();\n        // printDlg.ShowDialog();\n        printDlg.PrintToFile =????????????????;\n</code></pre>\n\nand now what i can do next ?<br />\n",
+    "PostedDate": "2013-12-20T11:15:41.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140404",
+    "ThreadId": "476764",
+    "Html": "Solved<br />\n<pre><code>        var img = gMapControl1.ToImage();\n        PrintDialog printDlg = new PrintDialog();\n        img.Save(&quot;kkkkkk.png&quot;, System.Drawing.Imaging.ImageFormat.Png);</code></pre>\n\n",
+    "PostedDate": "2013-12-20T12:06:13.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

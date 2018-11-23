@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1133387",
+    "ThreadId": "472370",
+    "Html": "I use my markers in ..<br />\n<pre><code>Public Sub mainMap_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles mainMap.OnMarkerClick\n    ' do code using item\nEnd Sub</code></pre>\n\nhowever, I can't use it like this..<br />\n<pre><code>Private Sub Button1_Click(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button1.Click\n       ' error says they are not compatible. but I can't access the item variable      \n       'to other events.\n\n    End Sub</code></pre>\n\nmarkers in the MainMap is the <code>item</code> declaration. the <code>item</code> refers to the existing markers. how can I use the existing markers in other events, like <code>Button1_Click</code><br />\nwhenever  I do <code>Dim marker as GMapMarker</code> gives me a new instance of marker, that doesn't have a value. it does not reference to what's on the map. I am using 1.6.0.0<br />\nthanks<br />\n",
+    "PostedDate": "2013-12-09T19:04:52.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1134804",
+    "ThreadId": "472370",
+    "Html": "problem solved..<br />\n<pre><code>mList.add(item)</code></pre>\n\nevery time I click a marker, it adds it on the List so I can pull it out on other events.<br />\n",
+    "PostedDate": "2013-12-11T17:53:40.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

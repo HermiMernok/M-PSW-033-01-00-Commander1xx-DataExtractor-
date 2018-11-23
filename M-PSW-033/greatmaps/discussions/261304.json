@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "627441",
+    "ThreadId": "261304",
+    "Html": "\r\n<p>Hello, I am impressed of the features in this project. I was able to use successfully the WindowsForms fork in my projects.</p>\r\n<p>Now, I want to use some functionality on my mobile device, but it seems that the latest version doesn't even compile. After fixing the compiler error I get thread exceptions:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>OnTileLoadStart - at zoom 2, time: 05:41:05.6460000\r\nA first chance exception of type <span style=\"color:#a31515\">'OpenNETCF.Threading.SynchronizationLockException'</span> occurred <span style=\"color:blue\">in</span> OpenNETCF.dll\r\nA first chance exception of type <span style=\"color:#a31515\">'System.Reflection.TargetInvocationException'</span> occurred <span style=\"color:blue\">in</span> mscorlib.dll\r\nA first chance exception of type <span style=\"color:#a31515\">'OpenNETCF.Threading.SynchronizationLockException'</span> occurred <span style=\"color:blue\">in</span> System.Windows.Forms.dll\r\nAn unhandled exception of type <span style=\"color:#a31515\">'OpenNETCF.Threading.SynchronizationLockException'</span> occurred <span style=\"color:blue\">in</span> System.Windows.Forms.dll<br>&nbsp;</pre>\r\n</div>\r\n<p></p>\r\n<p>I am still trying to fix this, but is it really true, that the mobile fork is not supported any more? :-(</p>\r\n",
+    "PostedDate": "2011-06-14T05:02:58.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627445",
+    "ThreadId": "261304",
+    "Html": "<p>check specific branch for WindowsMobile, works fine, it's supported, just out of sync for some time due constant changes in other desktop versions</p>",
+    "PostedDate": "2011-06-14T05:07:43.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627478",
+    "ThreadId": "261304",
+    "Html": "<p>thanks for your quick answer</p>\r\n<p>I used <a id=\"ChangeSetLink23\" style=\"font-weight: bold;\" title=\"View change set 3a8127a12ce7\" href=\"../SourceControl/changeset/changes/3a8127a12ce7\">3a8127a12ce7</a> , which is working but it is outdated. The support of the new maps is missing and some other functionality, which I appreciate, are not available.</p>\r\n<p>My aim is to fix the errors in the latest version. Any help is welcome :-)</p>",
+    "PostedDate": "2011-06-14T05:58:53.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627487",
+    "ThreadId": "261304",
+    "Html": "<p>indeed ;}</p>",
+    "PostedDate": "2011-06-14T06:07:45.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629753",
+    "ThreadId": "261304",
+    "Html": "<p>recently I had time to fix the problems related to threading</p>\r\n<p>the main issue is the use of Monitor2 class from OpenNETCF library</p>\r\n<p>since the Wait() method doesn't accept any lock objects, the synchronization syntax must be replaced at least for the tileLoadQueue Object,</p>\r\n<p>let me mention that</p>\r\n<p>lock(_lock)<br /> {<br /> // do some stuff that is being synchronized<br /> }<br /> <br /> the C# compiler generates the following code for you<br /> <br /> Monitor.Enter(_lock);<br /> try<br /> {<br /> // do some stuff that is being synchronized<br /> }<br /> finally<br /> {<br /> Monitor.Exit(_lock);<br /> }</p>\r\n<p>for this reason to connect Monitor2 object with locking object we have to use Monitor.Enter and Monitor.Exit</p>\r\n<p>I did a run with both the Desktop and Mobile version and seems to be running, but I did not test it intensively yet.</p>\r\n<p>I will try to upload the code somewhere in the mobile branch.</p>",
+    "PostedDate": "2011-06-19T07:59:20.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629754",
+    "ThreadId": "261304",
+    "Html": "<p>can you spot the exact issues?</p>",
+    "PostedDate": "2011-06-19T08:01:55.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630421",
+    "ThreadId": "261304",
+    "Html": "<p>I will upload the code soon, since there are some locations in my changes I have to simplify</p>\r\n<p>the producer / consumer implementation in the Core class simply doesn't work for mobile, because</p>\r\n<p>the synchronization between the producer and consumer using Monitor2 class from OpenNETCF</p>\r\n<p>lacks of a connection between the locking an object (lock(_lock) ... ) and unlocking it (&nbsp; Wait() or PulseAll ), therefore</p>\r\n<p>calling Monitor.Wait or Monitor.PulseAll leads to the exceptions presented in my first post</p>\r\n<p>as I tried to figure out in the last post the Monitor needs to know on which object to work,</p>\r\n<p>this is achieved by using Monitor.Enter and Monitor.Exit instead of lock(_lock) {...}</p>\r\n<p>the lock(_lock) {...} will work with Wait and PulseAll in the .Net Framework but not in .Net Compact Framework, because</p>\r\n<p>there is not Wait, which is the reason to use OpenNETCF implementation</p>\r\n<p>&nbsp;</p>\r\n<p>in the next days I will post the code</p>",
+    "PostedDate": "2011-06-21T01:03:00.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630441",
+    "ThreadId": "261304",
+    "Html": "<p>..yes, now i remember, after changes in desktop versions, i leaved this mobile issue unresolved, thanks for your cooperation</p>\n<p>p.s. few links on this:</p>\n<ul>\n<li><a href=\"https://issues.apache.org/jira/browse/AMQNET-34\" target=\"_blank\">https://issues.apache.org/jira/browse/AMQNET-34</a></li>\n<li><a href=\"http://svn.apache.org/viewvc?view=revision&amp;revision=465501\" target=\"_blank\">http://svn.apache.org/viewvc?view=revision&amp;revision=465501</a></li>\n<li><a href=\"http://www.dotnet247.com/247reference/msgs/40/203512.aspx \" target=\"_blank\">http://www.dotnet247.com/247reference/msgs/40/203512.aspx&nbsp;</a></li>\n</ul>",
+    "PostedDate": "2011-06-21T01:33:30.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631880",
+    "ThreadId": "261304",
+    "Html": "<p>I uploaded recently to the fork MobileSync, it would be nice if you could merge it to the main branch.</p>",
+    "PostedDate": "2011-06-23T08:03:06.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631979",
+    "ThreadId": "261304",
+    "Html": "<p>let's check it!</p>\n<p>thanks</p>",
+    "PostedDate": "2011-06-23T10:22:08.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "702969",
+    "ThreadId": "261304",
+    "Html": "<p>Hello,</p>\n<p>since my last post I noticed that there are ThreadAbort exceptions if you click on the close button of the gmap control. This seems to be only a problem with Windows Mobile. The exception is thrown when the UI thread is finished and other threads are still  running. To avoid this exception the UI thread has to wait until all threads are stopped.</p>\n<p>This is the way I tried to solve the problem:</p>\n<p>GMapControl.cs:</p>\n<p>there is a</p>\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnCreateControl()\n</pre>\n</div>\n<br /></pre>\n<p>&nbsp;</p>\n<p>which is not available in .Net CF, instead I added</p>\n<p>&nbsp;</p>\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">#if</span> !PocketPC\n      <span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnCreateControl()\n      {\n         <span style=\"color: blue;\">base</span>.OnCreateControl();\n\n         <span style=\"color: blue;\">var</span> f = ParentForm;\n         <span style=\"color: blue;\">if</span>(f != <span style=\"color: blue;\">null</span>)\n         {\n            <span style=\"color: blue;\">while</span>(f.ParentForm != <span style=\"color: blue;\">null</span>)\n            {\n               f = f.ParentForm;\n            }\n\n            <span style=\"color: blue;\">if</span>(f != <span style=\"color: blue;\">null</span>)\n            {\n               f.FormClosing += <span style=\"color: blue;\">new</span> FormClosingEventHandler(ParentForm_FormClosing);\n            }\n         }\n      }\n\n      <span style=\"color: blue;\">void</span> ParentForm_FormClosing(<span style=\"color: blue;\">object</span> sender, FormClosingEventArgs e)\n      {\n         <span style=\"color: blue;\">if</span>(e.CloseReason == CloseReason.WindowsShutDown || e.CloseReason == CloseReason.TaskManagerClosing)\n         {\n            Manager.CancelTileCaching();\n         }\n      }\n<span style=\"color: blue;\">#else</span>\n      <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> ParentForm_Closing(<span style=\"color: blue;\">object</span> sender, System.ComponentModel.CancelEventArgs e)\n      {\n          Manager.CancelTileCaching();\n      }\n<span style=\"color: blue;\">#endif</span>\n</pre>\n</div>\n<br /></pre>\n<p>&nbsp;</p>\n<p>this allows you to register the gmap control for a closing event of the form (i.e.: in MainForm):</p>\n<p>&nbsp;</p>\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">this</span>.Closing += <span style=\"color: blue;\">new</span> CancelEventHandler(MainMap.ParentForm_Closing);\n</pre>\n</div>\n<br /></pre>\n<p>&nbsp;</p>\n<p>and finally in Core.cs the OnMapClose method is called</p>\n<p>to wait until threads are finished this is used in the function:</p>\n<p>&nbsp;</p>\n<pre>         <div style=\"color: black; background-color: white;\"><pre><span style=\"color: green;\">// cancel waiting loaders</span>\n         Monitor.Enter(tileLoadQueue);\n         <span style=\"color: blue;\">try</span>\n         {\n            Monitor.PulseAll(tileLoadQueue);\n         }\n         <span style=\"color: blue;\">finally</span>\n         {\n            Monitor.Exit(tileLoadQueue);\n         }\n\n<span style=\"color: blue;\">#if</span> PocketPC\n         <span style=\"color: green;\">// wait until threads are stopped</span>\n         Debug.WriteLine(<span style=\"color: #a31515;\">\"Quit - all Threads\"</span>);\n         ThreadState thrdState;\n         <span style=\"color: blue;\">foreach</span> (Thread thrd <span style=\"color: blue;\">in</span> GThreadPool)\n         {\n             thrdState = thrd.State;\n             <span style=\"color: blue;\">if</span> (thrdState != ThreadState.Stopped)\n             {\n                 thrd.Join();\n                 <span style=\"color: blue;\">while</span> (thrd.IsAlive == <span style=\"color: blue;\">true</span>) ;\n             }\n         }\n         Thread.Sleep(1000);\n<span style=\"color: blue;\">#endif</span>\n</pre>\n</div>\n</pre>\n<p>&nbsp;</p>\n<p>it would be nice if radioman could merge the parts into the main branch</p>",
+    "PostedDate": "2011-11-24T06:56:21.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "702979",
+    "ThreadId": "261304",
+    "Html": "<p>all loader threads are background threads, they should die after the main thread or the caching, i'll check it again</p>",
+    "PostedDate": "2011-11-24T07:26:19.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703267",
+    "ThreadId": "261304",
+    "Html": "<p>thats true, they die if the main thread is ended, but if you run the control in debug you will see a&nbsp;\n<div style=\"color: black; background-color: white;\">\n<pre>ThreadAbortException\n</pre>\n</div>\n<code> in the output, which is not really nice to end a thread</code></p>\n<p>see:</p>\n<p><a href=\"http://www.interact-sw.co.uk/iangblog/2004/11/12/cancellation\">http://www.interact-sw.co.uk/iangblog/2004/11/12/cancellation</a></p>",
+    "PostedDate": "2011-11-25T00:23:28.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703644",
+    "ThreadId": "261304",
+    "Html": "<p>fixed, thanks for reporting the issue ;}</p>",
+    "PostedDate": "2011-11-26T07:51:02.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

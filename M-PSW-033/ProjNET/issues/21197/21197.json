@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I use the SL version I get an error that states \"'P' is not recognized.\"\n \nI tracked this down to line 183 in StreamTokenizer.cs\nIt is set to use Unicode as the encoding, if I change it to UTF8 it works as expected.\nSo this either needs to be fixed or made an option to set encoding.\n \n#if SILVERLIGHT\n            Encoding AE = System.Text.Encoding.UTF8; //Unicode\n#else\n            ASCIIEncoding AE = new ASCIIEncoding();\n#endif\n \nI also noticed that on line 115 of WKTStreamTokenizer.cs, there is another conditional build constant that is not all caps, but you have it defined in all caps in the project settings. Conditional build constants are case sensitive, so this logic needs to be looked over to see what it really is trying to do and be corrected.\n \n#if(!SilverLight)\n \nJohn",
+    "LastUpdatedDate": "2013-02-21T16:06:06.54-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2011-07-19T08:39:44.077-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Incorrect encoding used in SilverLight code",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 21197
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I just noticed that this was already discovered in Item# 14482 back in Oct 2009.\r\nIs there no one that is working on this project anymore??",
+      "PostedDate": "2011-07-19T08:43:37.36-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-05-17T13:27:41.233-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:06.54-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<div class="wikidoc"><div style="color:Black;background-color:White;"><pre>
+
+<span style="color:Blue;">namespace</span> GMap.NET.WindowsForms.Markers
+{
+   <span style="color:Blue;">using</span> System.Drawing;
+   <span style="color:Blue;">using</span> GMap.NET.WindowsForms;
+
+   <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> GMapMarkerRect : GMapMarker
+   {
+      <span style="color:Blue;">public</span> Pen Pen;
+
+      <span style="color:Blue;">public</span> GMapMarkerRect(PointLatLng p)  : <span style="color:Blue;">base</span>(p)
+      {
+         Pen = <span style="color:Blue;">new</span> Pen(Brushes.Red, 5);
+
+         <span style="color:Green;">// do not forget set Size of the marker</span>
+         <span style="color:Green;">// if so, you shall have no event on it ;}</span>
+         Size = <span style="color:Blue;">new</span> Size(55, 55);
+      }
+
+      <span style="color:Blue;">public</span> <span style="color:Blue;">override</span> <span style="color:Blue;">void</span> OnRender(Graphics g)
+      {
+         g.DrawRectangle(Pen, <span style="color:Blue;">new</span> System.Drawing.Rectangle(LocalPosition.X - Size.Width / 2, LocalPosition.Y - Size.Height / 2, Size.Width, Size.Height));
+      }
+   }
+}
+</pre></div><a href="https://greatmaps.codeplex.com/discussions/71409">Image Marker Class, and Other Markers as Time Allows</a></div><div class="ClearBoth"></div>

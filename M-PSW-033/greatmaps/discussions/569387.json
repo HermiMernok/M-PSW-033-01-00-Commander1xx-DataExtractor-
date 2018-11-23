@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1311806",
+    "ThreadId": "569387",
+    "Html": "Hello, i've a large amount on markers (about 6000), and i want to add them on the map asynchronously, without freezing map itself, what is a best way  to add them?<br />\n",
+    "PostedDate": "2014-10-09T03:06:41.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1327220",
+    "ThreadId": "569387",
+    "Html": "Hi Jesse,<br />\n<br />\nI am currently dealing with the same problem. Studying WPF I realized that &quot;drawing&quot; markers must be done using the same STA Thread which limits the asynchronous behavior that you are looking for.<br />\n<pre><code>private delegate void AddMarkerDelegate(GMapMarker marker);</code></pre>\n\n<strong>The OnDoWork event:</strong><br />\n<pre><code>foreach (var marker in markerList)\n{\n    Map.Dispatcher.Invoke(DispatcherPriority.Normal, new AddMapItemDelegate(AddMarker), marker);\n    //this allow \n    Thread.Sleep(1);\n}</code></pre>\n\n<strong>The WIndow</strong><br />\n<pre><code>public void AddMarker(GMapMarker marker)\n{\n    Map.Markers.Add(marker);\n    //...\n}</code></pre>\n\nThe Thread.Sleep(1) gives the interface a break and with that you will be able to interact with the interface.<br />\n<br />\nHave you found a better way to do that?<br />\n",
+    "PostedDate": "2014-11-29T06:11:36.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1327370",
+    "ThreadId": "569387",
+    "Html": "Each call to Add() triggers gui invalidation, to avoid that follow the same principle as in demo:<br />\n<br />\nvoid transport_ProgressChanged(object sender, ProgressChangedEventArgs e) <br />\n{<br />\n<strong><strong>using(Dispatcher.DisableProcessing())</strong></strong><br />\n{<br />\n   for(..)<br />\n   {<br />\n<pre><code>Map.Add(...);</code></pre>\n\n}<br />\n}<br />\n...<br />\n}<br />\n<br />\nadditionaly you can add markers async in batch, like 100 each few seconds<br />\n<br />\nBackgroundWorker so far worker for me ok<br />\n",
+    "PostedDate": "2014-11-30T10:17:30.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-11-30T10:17:42.62-08:00"
+  }
+]

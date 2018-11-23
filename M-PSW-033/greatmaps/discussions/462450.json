@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "1108232",
+    "ThreadId": "462450",
+    "Html": "I need to use  several diffent colours for map markers to show status of jobs at the point  so i have used \r<br />\n GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen\r<br />\n GMap.NET.WindowsForms.Markers.GMapMarkerGoogleRed\r<br />\n<br />\nand cannot find any other colours  I need grey  blue etc is it possible to  have a  general marker that the color of the marker  can be changed.\r<br />\n<br />\nRegards\r<br />\nColin<br />\n",
+    "PostedDate": "2013-10-16T04:55:09.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108237",
+    "ThreadId": "462450",
+    "Html": "use latest version<br />\n",
+    "PostedDate": "2013-10-16T05:03:18.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108245",
+    "ThreadId": "462450",
+    "Html": "Hi\r<br />\n<br />\nThanks for the reply\r<br />\n<br />\n is that  one of the betas or  Oct 17th release?\r<br />\n<br />\nRegards\r<br />\nColin<br />\n",
+    "PostedDate": "2013-10-16T05:15:21.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108257",
+    "ThreadId": "462450",
+    "Html": "changeset: 902:ffebdc20a6b8<br />\n",
+    "PostedDate": "2013-10-16T05:37:02.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108341",
+    "ThreadId": "462450",
+    "Html": "Hi Radioman\r<br />\n<br />\nI have installed the  latest version  am am getting the following \r<br />\n<br />\nFirst the designer crashed   compaining about  the mymap control not being available, when I  ignored and tried to   place the control on the form I get\r<br />\n<br />\n<br />\nFailed to create component ' GMapControl'.  the error message follows:\r<br />\n'system.MissingMethodException: Method not found: ' System.String\r<br />\nSystem.Data.SQLiteConnection.get_SQLLiteSourceID()'.\r<br />\n at GMap.NET.CacheProviders.SQLitePureImageCache.Ping()\r<br />\n at GMap.NET.GMaps.SQLitePing()\r<br />\nat GMSP.NET.WindowsForms.GMap.Control..cctor()'\r<br />\n<br />\n<br />\nGrateful for the help.\r<br />\n<br />\nRegards\r<br />\nColin<br />\n",
+    "PostedDate": "2013-10-16T07:43:27.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110578",
+    "ThreadId": "462450",
+    "Html": "Hi Radioman\r<br />\n<br />\nI have upgraded to the latest version but now  I can't display the map exact same code  with the  previous version works fine and maps are displayed with no proxy setting   set<br />\n\r<br />\n<br />\nRegards\r<br />\nColin<br />\n",
+    "PostedDate": "2013-10-22T07:48:46.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110580",
+    "ThreadId": "462450",
+    "Html": "set the proxy if needed<br />\n",
+    "PostedDate": "2013-10-22T07:51:33.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110582",
+    "ThreadId": "462450",
+    "Html": "Hi\r<br />\n<br />\nthanks  bit new  where about is the proxy setting set cant fing gmapprovider.webproxy   excuse the stupid question <br />\n",
+    "PostedDate": "2013-10-22T07:53:15.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110583",
+    "ThreadId": "462450",
+    "Html": "GMapProvider.<strong>WebProxy</strong> = WebRequest.DefaultWebProxy<br />\n",
+    "PostedDate": "2013-10-22T07:54:42.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1111016",
+    "ThreadId": "462450",
+    "Html": "Hi Radioman\r<br />\n<br />\nEverything working ( well so far lol)  now cheers for the help  why do all the coulors in latest verstion not have the same option ie  gray only has  small marker not  pushpin  etc just that gray was one of the colours I needed, so is it possible  to get a gray pushpin.\r<br />\n<br />\nCheers\r<br />\nColin<br />\n",
+    "PostedDate": "2013-10-23T05:25:28.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112057",
+    "ThreadId": "462450",
+    "Html": "Sorted it  created a  custom markers based on gmap marker  but is there any way to check if a marker exists at the coordinates before  the current marker is added to the map as I need a  different marker to indicate  there are  several  markers at that  point\r<br />\n<br />\nCheers<br />\n",
+    "PostedDate": "2013-10-25T05:25:24.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112066",
+    "ThreadId": "462450",
+    "Html": "Is there a better way than looping through  markers in the overlay  checking all position.lat   .lng   before adding the new  marker?<br />\n",
+    "PostedDate": "2013-10-25T05:45:13.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112068",
+    "ThreadId": "462450",
+    "Html": "dunno<br />\n",
+    "PostedDate": "2013-10-25T05:52:23.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

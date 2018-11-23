@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "615159",
+    "ThreadId": "258229",
+    "Html": "\r\n<p>Im currently using the component in WPF</p>\r\n<p>and i was wonderying if there is a way to or method that does same behavior as&nbsp;ZoomAndCenterMarkers</p>\r\n<p>&nbsp;</p>\r\n<p>Where i can pass a list of markers and the appropriate zoom and center &nbsp;is established</p>\r\n<p>&nbsp;</p>\r\n<p>thank you for the help</p>\r\n",
+    "PostedDate": "2011-05-19T05:18:20.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615201",
+    "ThreadId": "258229",
+    "Html": "<p>if current implementation isn't enough, make your own, calculate min/max geo-location values and call map.<strong>SetZoomToFitRect</strong></p>\n<p>p.s. by default ZoomAndCenterMarkers(null) uses all markers</p>",
+    "PostedDate": "2011-05-19T06:35:27.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615202",
+    "ThreadId": "258229",
+    "Html": "<p>Sorry i think i didnt make myself clear enough</p>\r\n<p>I cant seem to find this method when using WPF commponent</p>\r\n<p>&nbsp;</p>\r\n<p>I might be missing something simple here so any help is appreciated</p>",
+    "PostedDate": "2011-05-19T06:39:15.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615203",
+    "ThreadId": "258229",
+    "Html": "<p>look deeper then ;}</p>",
+    "PostedDate": "2011-05-19T06:40:37.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615207",
+    "ThreadId": "258229",
+    "Html": "<p>The thing is that ZoomAndCenterMarkers in WPF takes an int</p>\r\n<p>but i dont understand what that int means</p>",
+    "PostedDate": "2011-05-19T06:45:59.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615218",
+    "ThreadId": "258229",
+    "Html": "<p>ok i figured it out thank for the help</p>",
+    "PostedDate": "2011-05-19T06:57:54.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

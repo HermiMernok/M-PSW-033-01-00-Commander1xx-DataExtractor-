@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "831591",
+    "ThreadId": "354393",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p>Is there a way to remove the ALT or SHIFT key for the area selection ? I want to select a zone from left click (for that, with DragButton, no problem) ONLY</p>\r\n<p>Thanks :)</p>\r\n",
+    "PostedDate": "2012-05-03T05:53:12.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831602",
+    "ThreadId": "354393",
+    "Html": "<p>by removing code? ;}</p>",
+    "PostedDate": "2012-05-03T06:12:50.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831614",
+    "ThreadId": "354393",
+    "Html": "<p>Ok, so there is no other solution other than recompile your dll for that (and create my own branch) ?</p>\n<p>Hopped that there's an other solution, for easier update with the latest builds &nbsp;&nbsp;</p>",
+    "PostedDate": "2012-05-03T06:32:47.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831619",
+    "ThreadId": "354393",
+    "Html": "<p>explain what do you realy want, and i'll put some property to disable/enable something...</p>",
+    "PostedDate": "2012-05-03T06:43:37.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831626",
+    "ThreadId": "354393",
+    "Html": "<p>Oh, thanks, it would be very appreciated :)</p>\r\n<p>I want to have a switch with options \"move\" or \"selection\".&nbsp;</p>\r\n<p>If you click on \"move\", you can drag the map with left click</p>\r\n<p>If you click on \"selection\", you can select your area with left click</p>\r\n<p>Choosing the left click is OK with dragbutton, but selection of an area always requires a key entered in the same time.</p>\r\n<p>So, I think enable/disable need to press the default button (or ability to choose a key -including \"no button\") for selection would be helpfull. Especially for the touch devices, but not only ;}</p>\r\n<p>Thanks a lot radioman :)</p>",
+    "PostedDate": "2012-05-03T06:57:44.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831631",
+    "ThreadId": "354393",
+    "Html": "<p>sorry but i still can't grasp what do you mean ;/</p>\r\n<p>click on move? if you moving map you already holding mouse key</p>",
+    "PostedDate": "2012-05-03T07:06:36.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831634",
+    "ThreadId": "354393",
+    "Html": "<p>Sorry, I mean \"move\" the option on my switch</p>\n<p>Second try :</p>\n<p>I want to have a switch with options \"A\" or \"B\".&nbsp;</p>\n<p>If you click on \"A\", you can drag the map with left click only</p>\n<p>If you click on \"B\", you can select your area with left click only</p>\n<p><span>So, I think enable/disable the need of pressing the default key (or ability to choose this key -including the \"no key\" choice-) for selection would be helpfull. Especially for the touch devices, but not only ;}</span></p>\n<p>I this more understandable ?</p>\n<p>:/</p>",
+    "PostedDate": "2012-05-03T07:11:08.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831642",
+    "ThreadId": "354393",
+    "Html": "<p>ao a is curent default, and B would be the feature enabled?</p>\r\n<p>to select with left mouse key without holding alt?</p>",
+    "PostedDate": "2012-05-03T07:23:55.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831646",
+    "ThreadId": "354393",
+    "Html": "<p>Yes, A is current default</p>\r\n<p>B would be the feature enabled.</p>\r\n<p>And the goal is to&nbsp;<span>select with left mouse key without holding alt, exactly !</span></p>",
+    "PostedDate": "2012-05-03T07:27:34.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831702",
+    "ThreadId": "354393",
+    "Html": "<p>done:</p>\n<p>map.<span style=\"font-family: 'Courier New,courier';\"><strong>DisableAltForSelection</strong> = true;</span></p>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-05-03T09:01:17.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831705",
+    "ThreadId": "354393",
+    "Html": "<p>Thanks a lot radioman !</p>\r\n<p>Once again your reactivity is impressive :o</p>\r\n<p>;}</p>",
+    "PostedDate": "2012-05-03T09:07:43.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831711",
+    "ThreadId": "354393",
+    "Html": "<p>radioman.Boost = false; // ;}</p>",
+    "PostedDate": "2012-05-03T09:17:19.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832065",
+    "ThreadId": "354393",
+    "Html": "<p>No, radioman.Boost is readonly and already set to true ;)</p>\r\n<p>DisableAltForSelection tested today, it works like a charm.</p>\r\n<p><span class=\"hps\">Again</span><span>&nbsp;</span><span class=\"hps\">sorry for the</span><span>&nbsp;</span><span class=\"hps\">extra workload</span></p>",
+    "PostedDate": "2012-05-04T00:52:39.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832086",
+    "ThreadId": "354393",
+    "Html": "<p>any time, there are many space for improvements...</p>",
+    "PostedDate": "2012-05-04T02:43:26.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833359",
+    "ThreadId": "354393",
+    "Html": "<p>truly nice!</p>\r\n<p>thanks radioman....</p>",
+    "PostedDate": "2012-05-08T03:26:25.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

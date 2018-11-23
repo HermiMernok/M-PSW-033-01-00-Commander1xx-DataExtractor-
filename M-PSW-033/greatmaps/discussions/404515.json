@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "946691",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>Hey everybody</p>\r\n<p>i'm trying to draw a line inside the map , but i don't know how to do it , i already tryied to read the demos but i couldn't understand</p>\r\n<p>i managed to draw a line on the form , but not in the map</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> mymap_MouseClick(<span style=\"color:blue\">ByVal</span> sender <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span>, <span style=\"color:blue\">ByVal</span> e <span style=\"color:blue\">As</span> System.Windows.Forms.MouseEventArgs) <span style=\"color:blue\">Handles</span> mymap.MouseClick\r\n        <span style=\"color:blue\">If</span> m1x = 0 <span style=\"color:blue\">Then</span>\r\n            m1x = e.X\r\n            m1y = e.Y\r\n        <span style=\"color:blue\">Else</span>\r\n            m2x = e.X\r\n            m2y = e.Y\r\n            <span style=\"color:blue\">Dim</span> p <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Pen(Brushes.AliceBlue, 7)\r\n            <span style=\"color:blue\">Dim</span> g <span style=\"color:blue\">As</span> Graphics = <span style=\"color:blue\">Me</span>.CreateGraphics()\r\n            g.DrawLine(p, m1x, m1y, m2x, m2y)\r\n            m1x = 0\r\n            m1y = 0\r\n            m2x = 0\r\n            m2y = 0\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n</pre>\r\n</div>\r\ncan anyone please help me\r\n<p></p>\r\n",
+    "PostedDate": "2012-11-25T09:31:39.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946694",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>add the route with two points, man...</p>\r\n",
+    "PostedDate": "2012-11-25T09:41:40.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947616",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>i've tried this but it didn't work</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> rp <span style=\"color:blue\">As</span> RoutingProvider = <span style=\"color:blue\">CType</span>(MainMap.MapProvider,RoutingProvider)\n        <span style=\"color:blue\">Dim</span> start <span style=\"color:blue\">As</span> PointLatLng = <span style=\"color:blue\">New</span> PointLatLng(35.736056, -5.895035)\n        <span style=\"color:blue\">Dim</span> endd <span style=\"color:blue\">As</span> PointLatLng = <span style=\"color:blue\">New</span> PointLatLng(35.736056, -4.895035)\n        <span style=\"color:blue\">Dim</span> route <span style=\"color:blue\">As</span> MapRoute = rp.GetRouteBetweenPoints(start, endd, <span style=\"color:blue\">False</span>, <span style=\"color:blue\">False</span>, <span style=\"color:blue\">CType</span>(ais.Zoom, <span style=\"color:blue\">Integer</span>))\n        <span style=\"color:blue\">Dim</span> r <span style=\"color:blue\">As</span> GMapRoute = <span style=\"color:blue\">New</span> GMapRoute(route.Points, route.Name)\n        routes.Routes.Add(r)</pre>\r\n</div>\r\n<p>it gives me this</p>\r\n<p>Unable to cast an object of type 'GMap.NET.MapProviders.YahooSatelliteMapProvider' in type&nbsp;'GMap.NET.RoutingProvider'.</p>\r\n",
+    "PostedDate": "2012-11-27T05:07:54.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947629",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>using your demo software i've just got that i'm looking in the wrong direction , i don't want to draw a routing line , i want just a line between points in the sea ,</p>\r\n<p>i want something like this</p>\r\n<p>http://img4.hostingpics.net/pics/677245see.jpg</p>\r\n",
+    "PostedDate": "2012-11-27T05:21:54.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947631",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>add the route with two points, man...</p>\r\n",
+    "PostedDate": "2012-11-27T05:22:58.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947647",
+    "ThreadId": "404515",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>add the route with two points, man...</p>\r\n</blockquote>\r\n<p>even in your demo , when points are in the sea , there is no routing line in the map</p>\r\n",
+    "PostedDate": "2012-11-27T05:47:14.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947650",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>what a surprise ;} why do you even use the routing provider, do you you really think that google/etc has sea routes?</p>\r\n<p>since when highways are build in the sea...</p>\r\n",
+    "PostedDate": "2012-11-27T05:50:30.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948012",
+    "ThreadId": "404515",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>what a surprise ;} why do you even use the routing provider, do you you really think that google/etc has sea routes?</p>\r\n<p>since when highways are build in the sea...</p>\r\n</blockquote>\r\n<p>:p sorry i didn't think about that , then any ideas how can i draw a line in the sea ?</p>\r\n",
+    "PostedDate": "2012-11-27T15:38:02.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948265",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>As this can last a lot longer:</p>\r\n<p>A route in GMaps ist simply a list of points and the simplest route is a list of two points.</p>\r\n<ul>\r\n<li>Create new Overlay in Constructor </li><li>Create a new route </li><li>Create two points </li><li>Add points to route </li><li>Add route to Overlay </li><li>Finish </li></ul>\r\n<p>hth</p>\r\n<p>&nbsp;</p>\r\n<p>Michael</p>\r\n",
+    "PostedDate": "2012-11-28T04:58:33.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948446",
+    "ThreadId": "404515",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>MBDTeam wrote:</strong><br>\r\n<p>As this can last a lot longer:</p>\r\n<p>A route in GMaps ist simply a list of points and the simplest route is a list of two points.</p>\r\n<ul>\r\n<li>Create new Overlay in Constructor </li><li>Create a new route </li><li>Create two points </li><li>Add points to route </li><li>Add route to Overlay </li><li>Finish </li></ul>\r\n<p>hth</p>\r\n<p>&nbsp;</p>\r\n<p>Michael</p>\r\n</blockquote>\r\n<p>thnx , now i can draw a line between points , but how can i change the color and the&nbsp;wight&nbsp;of the line</p>\r\n",
+    "PostedDate": "2012-11-28T08:52:43.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948457",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>check route properties</p>\r\n",
+    "PostedDate": "2012-11-28T09:05:33.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948474",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>Is here everybody working without intellisense? ;-)</p>\r\n",
+    "PostedDate": "2012-11-28T09:29:26.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948516",
+    "ThreadId": "404515",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>check route properties</p>\r\n</blockquote>\r\n<p>i couldn't find it , can you please help me</p>\r\n",
+    "PostedDate": "2012-11-28T10:24:23.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948517",
+    "ThreadId": "404515",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>MBDTeam wrote:</strong><br>\r\n<p>Is here everybody working without intellisense? ;-)</p>\r\n</blockquote>\r\n<p>sorry but i'm not an expert</p>\r\n",
+    "PostedDate": "2012-11-28T10:24:36.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948525",
+    "ThreadId": "404515",
+    "Html": "\r\n<p>you don't need to be an expert to write <strong>route.</strong> and chose whatever you want ;}</p>\r\n",
+    "PostedDate": "2012-11-28T10:40:55.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949492",
+    "ThreadId": "404515",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>you don't need to be an expert to write <strong>route.</strong> and chose whatever you want ;}</p>\r\n</blockquote>\r\n<p>i'm so sorry guys , i found it :)&nbsp;</p>\r\n<p>thank you so much for your support</p>\r\n",
+    "PostedDate": "2012-11-30T04:45:24.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

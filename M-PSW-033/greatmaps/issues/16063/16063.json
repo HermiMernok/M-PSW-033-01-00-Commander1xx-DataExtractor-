@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "no",
+    "ClosedDate": "2013-03-20T13:11:39.763-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hello,\r\n\r\nBrilliant code I built an app in very little time but there was a gotcha \r\n\r\nPointLatLng? poss = GMapProviders.BingHybridMap.GetPoint(i, out status); \r\n\r\ndoes not work without a internet connection. I have tried \r\n  \r\nGMapProviders.BingHybridMap.TryCorrectVersion = false;\r\nGMapProviders.BingHybridMap.TryGetDefaultKey = true;\r\n\r\nWith little success, please can you point me in the right direction.",
+    "LastUpdatedDate": "2013-03-20T13:11:39.763-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-03-19T17:25:53.72-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MapProvider Not working without Internet",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16063
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "do we have a offline Provider?",
+      "PostedDate": "2013-03-20T10:41:41.653-07:00",
+      "Id": 93800
+    },
+    {
+      "Message": "global providers are online-only\n\r\n\r** Closed by radioman 03/20/2013 7:57AM",
+      "PostedDate": "2013-03-20T07:57:13.747-07:00",
+      "Id": 93801
+    },
+    {
+      "Message": "Do we have an offline provider?",
+      "PostedDate": "2013-03-20T10:42:38.093-07:00",
+      "Id": 93802
+    }
+  ]
+}

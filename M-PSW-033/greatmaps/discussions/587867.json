@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1366528",
+    "ThreadId": "587867",
+    "Html": "pls , any one help me in this problem,\r<br />\nwhen i try to run the Demo.WindowsForms.exe this exception out and termenate the app.\r<br />\n&quot;\r<br />\nCould not set X locale modifiers\r<br />\n<br />\nUnhandled Exception:\r<br />\nSystem.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.SqliteClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756' or one of its dependencies.\r<br />\nFile name: 'Mono.Data.SqliteClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756'\r<br />\n  at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 \r<br />\n  at GMap.NET.Internals.Cache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 \r<br />\n  at GMap.NET.Internals.Cache..ctor () [0x00000] in &lt;filename unknown&gt;:0 \r<br />\n  at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (System.Reflection.MonoCMethod,object,object[],System.Exception&amp;)\r<br />\n  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00000] in &lt;filename unknown&gt;:0 \r<br />\n[ERROR] FATAL UNHANDLED EXCEPTION: System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.SqliteClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756' or one of its dependencies.\r<br />\nFile name: 'Mono.Data.SqliteClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756'\r<br />\n  at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 \r<br />\n  at GMap.NET.Internals.Cache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 \r<br />\n  at GMap.NET.Internals.Cache..ctor () [0x00000] in &lt;filename unknown&gt;:0 \r<br />\n  at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (System.Reflection.MonoCMethod,object,object[],System.Exception&amp;)\r<br />\n  at System.Reflection.MonoCMethod.InternalInvoke (System.Object obj, System.Object[] parameters) [0x00000] in &lt;filename unknown&gt;:0\r<br />\n&quot;\r<br />\nand when i try to build anther demo all code run well except when i add this line\r<br />\n&quot;gMap.CacheLocation = @&quot;/home&quot;;&quot;\r<br />\nout the same exception.\r<br />\n<br />\nso what is the solution.<br />\n",
+    "PostedDate": "2015-03-17T22:53:30.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1366554",
+    "ThreadId": "587867",
+    "Html": "if it's linux, check if Mono.Data.SqliteClient and it's dependencies are installed, try set build target to x86<br />\n",
+    "PostedDate": "2015-03-18T00:45:32.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1366580",
+    "ThreadId": "587867",
+    "Html": "yes linux , and i installed Mono.Data.SqliteClient.dll and added it to the referance but the same result, thanks for your help<br />\n",
+    "PostedDate": "2015-03-18T03:13:50.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1371979",
+    "ThreadId": "587867",
+    "Html": "please , can you reply on the problem , if the problem the version of mono comiler what is the best version can i use it<br />\n",
+    "PostedDate": "2015-03-22T03:27:47.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1372049",
+    "ThreadId": "587867",
+    "Html": "System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.SqliteClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756' or one of its dependencies.\r<br />\n<br />\nit's not compiler issue, check dependencies, it works fine in ubuntu<br />\n",
+    "PostedDate": "2015-03-22T03:52:43.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1373901",
+    "ThreadId": "587867",
+    "Html": "ok i installed Mono.Data.SqliteClient.dll where i put it in ubuntu 14.04 to run your demo &quot;Demo.WindowsForms.exe&quot;<br />\n",
+    "PostedDate": "2015-03-22T09:46:50.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1382310",
+    "ThreadId": "587867",
+    "Html": "try using package manager<br />\n",
+    "PostedDate": "2015-03-23T00:27:14.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

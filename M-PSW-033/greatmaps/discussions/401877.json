@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "936457",
+    "ThreadId": "401877",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>So, I've goy a polygon made from a list of&nbsp;PointLatLng over the map. I change the coordinates of one of those points, and&nbsp;I'd like to update the polygon's points without removing the &quot;old&quot; polygon and adding a new one?<br>\r\n<br>\r\nRegards!&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-04T16:28:08.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936645",
+    "ThreadId": "401877",
+    "Html": "<p>map.<strong>UpdatePolygonLocalPosition</strong></p>",
+    "PostedDate": "2012-11-05T04:03:53.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "937051",
+    "ThreadId": "401877",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your answer.</p>\r\n<p>I knew that function, but I think my problem is not how to update the draw after editing the points but how to update the edited point's list.</p>\r\n<p>As I understand for your reply, being the points collection read only and setted at the \"new\" procedure, I have three choices:&nbsp;</p>\r\n<p>1) keeping in memory a list of the points which I use to build the polygon object:</p>\r\n<p style=\"padding-left: 30px;\">\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Dim</span> MiPoly <span style=\"color: blue;\">as</span> GMapPolygon\r\nMiPoly=<span style=\"color: blue;\">New</span> GMapPolygon(ListOfPoints, <span style=\"color: #a31515;\">\"my name\"</span>)\r\n</pre>\r\n</div>\r\nSo that, \"ListOfPoints\" should be always in memory and edited if I want to modify the polygon; after I edit that list y call UpdatePOlygonLocalPosition. I just tried that and it didin't seemed to work (actually it didn't worked, I'm looking if i made some mistake). It's not a memory-nice solution if I have (as I have) many polygons at the same time.</p>\r\n<p>2) Accessing the GMapPolygon's list directly, finding the point I want to modify (by index or building custom classes to include list of points with ID), modify it and call the UpdatePolygonLocalPosition</p>\r\n<p>3) cooking the source code to remove the readonly set of the points property, replacing the points list with a new one and then call UpdatePolygonLocalPosition.</p>\r\n<p>&nbsp;</p>\r\n<p>So, as modifying a polygon's points, i think, is a common issue, is that i think there should be a simplier solution i'm missing....</p>\r\n<p>&nbsp;</p>\r\n<p>Regards!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-11-05T19:45:59.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "937071",
+    "ThreadId": "401877",
+    "Html": "<p>yes, quite right</p>",
+    "PostedDate": "2012-11-05T22:03:21.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

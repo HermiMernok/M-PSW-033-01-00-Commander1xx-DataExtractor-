@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "566380",
+    "ThreadId": "246078",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>I have checked in code in the FillEmptyTiles fork that</p>\r\n<ul>\r\n<li>Extends&nbsp;the existing smooth zoom logic&nbsp;to tile retrevial from cache or web server so that most blue error tiles (HTTP 404 or tile not in cache)&nbsp;are no longer&nbsp;generated. Instead GMap.NET will work more like the mapping web sites and fill\r\n in a missing tile with a resized lower level tile.&nbsp; This particularly helps generate a better looking display when running in Cache Only mode when not all tiles have been downloaded or when looking at an area where the level of available data changes.\r\n</li><li>Sets the maximum zoom level&nbsp;for Google, Bing and NearMap to similar level to what can be seen on their web sites.\r\n</li></ul>\r\n<p>Some comments about the details of the change:</p>\r\n<p>I set MaxZoom&nbsp;to&nbsp;19 for Bing,&nbsp;21 for Google and&nbsp;22 for NearMap. If you had a reason for not going to this level of zoom that I do not know about please feel free to change it.</p>\r\n<p>NearMap allows zooming on their web site to level 24 (but I did not see any data past level 22) but I found GMap.NET failed at zoom level 23 with a numeric overflow of an int value in calculating tile pixel locations.</p>\r\n<p>I added a LRU cache of requests that returned an HTTP 404 Not Found error to prevent requesting that tile again.</p>\r\n<p>To avoid needing to add locking I&nbsp;changed the memory cache data format (as held in KiberTileCache etc)&nbsp;from MemoryStream to Byte[]. This needed code changes in quite a few places. Howerver I thought it was better to have the tile cache holding\r\n stateless data.</p>\r\n<p>The Windows Forms GMapControl now has&nbsp;FillEmptyTiles and MarkFilledEmptyTiles properties settable from designer.&nbsp; The WPF GMapControl just has FillEmptyTiles. If&nbsp;FillEmptyTiles is set false it will switch off the change in the tile retreval\r\n code as well as the drawing code.</p>\r\n<p>The smooth zoom code had been commented out in the WPF code but I enabled it (with required modifications). If there had been some reason for disabling it that I am not aware of please feel free to comment it out again.</p>\r\n<p>Be careful as the way I made the change to allow for missing tiles was to add resizing data to the tile (rather than do image resizing in the tile retreval code) that the tile drawing code needs to handle. It might create compatability issues if there is\r\n other tile drawing code - like Windows Mobile that I did not look at.</p>\r\n<p>Regards,</p>\r\n<p>Martin</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-15T02:49:28.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "566421",
+    "ThreadId": "246078",
+    "Html": "<p>thanks, i'll go to review it</p>",
+    "PostedDate": "2011-02-15T04:53:23.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "567047",
+    "ThreadId": "246078",
+    "Html": "<p>i see, you changed MemoryStream to byte[], how do you dispose it ;/</p>",
+    "PostedDate": "2011-02-16T04:34:00.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "567276",
+    "ThreadId": "246078",
+    "Html": "<p>i've just tested it, seems to work quite good, but ;} it has some issues on different projections, wrong tiles are loaded... which i intend to fix</p>",
+    "PostedDate": "2011-02-16T09:36:55.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "567545",
+    "ThreadId": "246078",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>The change from MemoryStream to byte[] was needed becase I found multiple threads trying to decode the cached image from the same MemoryStream were failing becase they were both reading at the same time and that changed&nbsp;the current&nbsp;position for the other thread. One option was to&nbsp;add a lock on the MemoryStream but I thought it better to change to a byte[] that would not need a lock becase the data does not change. I thought it was Ok to leave the byte[] to be garbage collected normally without&nbsp;doing more.</p>\r\n<p>Can you give more clues about what diffect projections were failing? You clearly have a lot more experience in testing&nbsp;all the variations that I do.&nbsp;&nbsp;</p>\r\n<p>Martin.</p>",
+    "PostedDate": "2011-02-16T17:44:07.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "567723",
+    "ThreadId": "246078",
+    "Html": "<p>hm, only one thread should decode one tile, it's queue based processing, never locked for me, can you point the exact location?</p>",
+    "PostedDate": "2011-02-17T01:57:16.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "568274",
+    "ThreadId": "246078",
+    "Html": "<p>In Core.cs the ProcessLoadTask() function is run from 5 threads. It calls GMaps.Instance.GetImageFrom(...) to get an image from memory/cacheDB/web. Before my change the queue of requests that drives ProcessLoadTask() would always&nbsp;have resulted in always resulted in a particular image only being decoded by one thread at a time. However I changed&nbsp;ProcessLoadTask() to make it handle the case of an image not found by searching lower zoom levels. In the case where you zoom in 1 level past the available data there can&nbsp;be 4 threads that all look for separate&nbsp;tiles, don't find them (becase there is no data that this zoom level) and then all threads try to get the same image from the lower zoom level. (They will pass back data indicating that they want to display&nbsp;different parts of the image when it is drawn to the screen.) If&nbsp;the treads&nbsp;find the lower zoom level image in KiberTileCache&nbsp;and need to decode it, they can be in the image decode function (now GMaps.Instance.ImageProxy.FromByteArray(...) in my code) at the same time for the same image. I hope this makes it clear.</p>\r\n<p>This is here I considered locking the MemoryStream but decided that changing lots of code&nbsp;to avoid added a lock was better option.</p>",
+    "PostedDate": "2011-02-17T17:01:34.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "568408",
+    "ThreadId": "246078",
+    "Html": "<p>hm...</p>",
+    "PostedDate": "2011-02-18T02:11:28.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "572497",
+    "ThreadId": "246078",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I am just looking at the \"wrong tiles loaded\" issue you noted. I have not had time before now. Can you give an example of how to create the problem you saw? I have seen something that might be the same bug or might be different. It appeared when I zoomed in and out fast, but everything worked Ok if I zoom slowly. I have also spotted another bug with an easy fix related to PergoTurkeyMap. I would like to get everything working before I update the fork.</p>\r\n<p>Thanks,</p>\r\n<p>Martin.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-02-26T02:52:17.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "572587",
+    "ThreadId": "246078",
+    "Html": "<p>i see, well it's related to map-types with non-standard tile offsets like maps.lt/mapy.zn/etc... i guess each projection should have some function to return lower zoom tile</p>",
+    "PostedDate": "2011-02-26T09:54:26.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578873",
+    "ThreadId": "246078",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I have updated the FillEmptyTiles fork with code to&nbsp;handle&nbsp;projections.&nbsp;&nbsp;Would you like to try it again?</p>\r\n<p>While I was testing I noticed that one of the maps (sorry I do not&nbsp;remember whick one) was generating GIF images that the WPF code did not handle,&nbsp;so I added that too.</p>\r\n<p>Martin.&nbsp;</p>",
+    "PostedDate": "2011-03-10T22:24:28.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579063",
+    "ThreadId": "246078",
+    "Html": "<p>looks great! Now i need somehow put everything in the main branch, thanks a lot</p>",
+    "PostedDate": "2011-03-11T07:28:56.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579309",
+    "ThreadId": "246078",
+    "Html": "<p>after some testing, i've found why in FindCoveringImages i get numTilesX = 2; or&nbsp;numTilesY = 2; unfilledLatLng is with low precision, need some other way to get correct pixels using MapsLTProjection.</p>\r\n<p>i'll do some experiments...</p>",
+    "PostedDate": "2011-03-11T16:08:18.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579646",
+    "ThreadId": "246078",
+    "Html": "<p>numTilesX and numTilesY are supposed to be set to 2 sometimes when projections like MapsLT result in tiles at different zoom levels not lining up. I was thinking that the worst case that needs to be handled is something like this:&nbsp;the point there the&nbsp;corners of four&nbsp;tiles&nbsp;meet in the upper zoom level lies in the middle of&nbsp;a missing tile. &nbsp;To handle this I am looping through all the tiles in the upper zoom level that can partly overlay on the area that remains of the&nbsp;missing tile. This can result in needing to process 1, 2 or 4 tiles at the current zoom level.</p>\r\n<p>Was there something actually going wrong? An exception or bad output?&nbsp;If so please describe it so I can fix it.</p>",
+    "PostedDate": "2011-03-13T03:12:33.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579700",
+    "ThreadId": "246078",
+    "Html": "<p>i see, just figuring out how it really works..</p>",
+    "PostedDate": "2011-03-13T08:43:24.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "252687",
+    "ThreadId": "73889",
+    "Html": "<p>Hello</p>\r\n<p>First of all I wanna thank you for this great piece of work! Well done!</p>\r\n<p>&nbsp;</p>\r\n<p><strong>My issue</strong></p>\r\n<p>I want to use this control in one of my pending projects. There I want to combine a cached Service with a dynamic service from ESRI.</p>\r\n<p>My first question: Is it possible to overlay a cached mapservice with a dynamic mapservice ('blended' services) in this control?</p>\r\n<p>My second question: My map services are using another tiling sheme (tile size 512,512) and projection (not WGS84). Is it possible to get this services work in the Control by adding a custom projection class?</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you &amp; Greets</p>",
+    "PostedDate": "2009-11-03T00:36:29.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252787",
+    "ThreadId": "73889",
+    "Html": "<p>definitely yes, what service do you use?</p>",
+    "PostedDate": "2009-11-03T05:09:44.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252801",
+    "ThreadId": "73889",
+    "Html": "<p>Thank you for the fast reply.</p>\r\n<p>I'm using custom mapservices created with ArcGIS from ESRI with the following config:</p>\r\n<p><strong>Mapservice 1</strong></p>\r\n<ul>\r\n<li>Type: Dynamic</li>\r\n<li>Coordinate System: CH1903_LV03 (GCS_CH1903), Projection: Hotine_Oblique_Mercator_Azimuth_Center</li>\r\n</ul>\r\n<p><strong>Mapservice 2</strong></p>\r\n<ul>\r\n<li>Type: Cached</li>\r\n<li>Tilesize: 512x512</li>\r\n<li>Tiling scheme: Default (Upper left point of the coordinate reference is the tileoriging) More Infos at <a title=\"ESRI Tiling\" href=\"http://webhelp.esri.com/arcgisserver/9.3/dotNet/index.htm#choosing_cache_properties.htm\">http://webhelp.esri.com/arcgisserver/9.3/dotNet/index.htm#choosing_cache_properties.htm</a></li>\r\n<li>Coordinate System: CH1903_LV03 (GCS_CH1903), Projection: Hotine_Oblique_Mercator_Azimuth_Center</li>\r\n</ul>\r\n<p>I hope this information helps.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you &amp; Greets</p>",
+    "PostedDate": "2009-11-03T05:54:58.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252927",
+    "ThreadId": "73889",
+    "Html": "<p>..is there online demos for these maps?&nbsp;</p>",
+    "PostedDate": "2009-11-03T10:49:26.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253136",
+    "ThreadId": "73889",
+    "Html": "<p>The 2 services are accessible via REST.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Dynamic</strong></p>\r\n<p>http://www.ag.ch/geoportal/rest/services/are_bauzonen_lite/MapServer</p>\r\n<p>information: http://www.ag.ch/geoportal/rest/services/are_bauzonen_lite/MapServer?f=json&amp;pretty=true</p>\r\n<p><strong>Cached</strong></p>\r\n<p>http://www.ag.ch/geoportal/rest/services/kai_background/MapServer</p>\r\n<p>information: http://www.ag.ch/geoportal/rest/services/kai_background/MapServer?f=json&amp;pretty=true</p>\r\n<p>&nbsp;</p>\r\n<p>If you need more information, I could provide a sample viewer which displays this services.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you very much!</p>",
+    "PostedDate": "2009-11-04T00:27:27.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253192",
+    "ThreadId": "73889",
+    "Html": "<p>REST? but where are tiles?</p>",
+    "PostedDate": "2009-11-04T03:27:10.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253229",
+    "ThreadId": "73889",
+    "Html": "<p>Look at this viewer which is consuming the cached service: <a href=\"http://www.ag.ch/geoportal/agisviewer/viewer.aspx?PageWidth=1000&PageHeight=700&map=kai_background&Benutzergruppe=3&quot;\">cached service</a></p>\r\n<p>Use firebug to look at the tiles.</p>\r\n<p>&nbsp;</p>\r\n<p>Is this the information you need?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-04T05:15:44.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253294",
+    "ThreadId": "73889",
+    "Html": "<p>can't see any map ;/</p>",
+    "PostedDate": "2009-11-04T07:27:28.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253317",
+    "ThreadId": "73889",
+    "Html": "<p>hm..can you try it once more? I can see the map without problems</p>\r\n<p>&nbsp;</p>\r\n<p>Do you see this one (just 1 zoom-level, cached)? <a href=\"http://www.ag.ch/geoportal/agisviewer/Zusatzdokumente/afu/viewer.aspx?type=hydro1\">click</a></p>",
+    "PostedDate": "2009-11-04T08:09:58.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253319",
+    "ThreadId": "73889",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2009-11-04T08:11:20.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256392",
+    "ThreadId": "73889",
+    "Html": "<p>so what do you think, is it possible to consume these services?</p>",
+    "PostedDate": "2009-11-12T09:09:11.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256846",
+    "ThreadId": "73889",
+    "Html": "<p>i still can't test it ;/ is there some public real working web interface for that?</p>",
+    "PostedDate": "2009-11-13T09:54:14.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257412",
+    "ThreadId": "73889",
+    "Html": "<p>Hi</p>\r\n<p>A public webinterface for dynamic services is available <a href=\"http://www.ag.ch/geoportal/de/pub/online_karten/agisviewer____bersicht.php\">here</a> (click on the mapimages to open the mapviewer).</p>\r\n<p>If you need more information, please tell me what exactly you need then I can set up a specific service or viewer to test with.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you &amp; Greets</p>",
+    "PostedDate": "2009-11-16T01:32:14.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257567",
+    "ThreadId": "73889",
+    "Html": "<p>sorry still can't access, so can't test, so ;}</p>",
+    "PostedDate": "2009-11-16T09:14:41.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "258330",
+    "ThreadId": "73889",
+    "Html": "<p>Hm.. kinda weird.</p>\r\n<p>So never mind, I try it by myself. Therefore I need some information from you:</p>\r\n<p>If I want to consume my services, what I have to change or consider to customize the sourcecode? I'm asking this because I'm using a different projection and a different tile size. I think I have to write a own projection class but I don't know what else..</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you very much</p>",
+    "PostedDate": "2009-11-18T08:38:42.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "258334",
+    "ThreadId": "73889",
+    "Html": "<p>just projection class and map urls</p>",
+    "PostedDate": "2009-11-18T08:42:18.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

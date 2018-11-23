@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1291609",
+    "ThreadId": "561654",
+    "Html": "hey together,<br />\ni'm working on a windows form application. over run time i add some overlays to the gMapControl and sometimes i got to refresh them. in order to to this, i use the overlay.remove method with overlay object and then i add the new object. but the old overlay is still there. here some code:<br />\n<pre><code>GMapOverlay gmoZiel = new GMapOverlay(gMapControl1, &quot;Ziel&quot;);\n            GMapMarkerCross zielcross = new GMapMarkerCross(gMapControl1.FromLocalToLatLng(e.X, e.Y));\n            int test = gMapControl1.Overlays.IndexOf(gmFahrzeuge); //= always &quot;-1&quot;\n           if (gMapControl1.Overlays.Count &gt; 0)\n                gMapControl1.Overlays.Remove(gmoZiel);\n            gmoZiel.Markers.Add(zielcross);\n            gMapControl1.Overlays.Add(gmoZiel);</code></pre>\n\nthe funny thing is, in this example (same project, even same class) it work's<br />\n<pre><code>if (gMapControl1.Overlays.Count &gt; 0)\n                gMapControl1.Overlays.Remove(gmFahrzeuge);\n            gmFahrzeuge = new GMapOverlay(gMapControl1, &quot;Fahrzeuge&quot;);</code></pre>\n\nalso i get an working index.<br />\n<br />\nany ideas or alternatives? <br />\nwhen this is solved, i got a problem with showing polygons on the map, but this is for later...<br />\nand sorry for my broken english, i'm german ;)<br />\n",
+    "PostedDate": "2014-08-20T01:53:39.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293078",
+    "ThreadId": "561654",
+    "Html": "okay, i think i found my problem. is had used the dll's from the demo project. after i found more and more differences between the documentation and my project, i changed the dll's... don't know, if the remove works, got to rebuild my entire project.<br />\n<br />\nedit: mh, it won't work either.<br />\n<br />\ngreetzes from bavaria<br />\n",
+    "PostedDate": "2014-08-25T05:20:55.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293463",
+    "ThreadId": "561654",
+    "Html": "Don't remove the overlay just set new position of marker.<br />\n",
+    "PostedDate": "2014-08-26T03:29:39.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293474",
+    "ThreadId": "561654",
+    "Html": "i would, if the IndexOf(OverlayObject) would work, but it always returns &quot;-1&quot;, even the Overlay is added to the gmapscontrol<br />\n",
+    "PostedDate": "2014-08-26T04:11:44.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293487",
+    "ThreadId": "561654",
+    "Html": "Why do you need IndexOf??\r<br />\nJust set the new position of your marker:\r<br />\n<br />\ngmoZiel.Position = new PointLtLng(...)<br />\n",
+    "PostedDate": "2014-08-26T04:36:48.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-08-26T04:46:59.6-07:00"
+  },
+  {
+    "Id": "1293492",
+    "ThreadId": "561654",
+    "Html": "o_O that works? didn't thought, the gmapscontrol got a reference to the object and because of this i tried to readd it. thank you!<br />\n",
+    "PostedDate": "2014-08-26T04:46:52.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293497",
+    "ThreadId": "561654",
+    "Html": "Check out the tuorial <a href=\"http://www.websofia.com/2013/02/gmap-net-tutorial-maps-markers-and-polygons/\" rel=\"nofollow\">here</a>.<br />\n",
+    "PostedDate": "2014-08-26T05:15:29.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

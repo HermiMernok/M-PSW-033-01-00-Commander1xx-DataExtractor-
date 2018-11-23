@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "274185",
+    "ThreadId": "80029",
+    "Html": "<p>i have a label layer of road name,and a traffic flow layer.</p>\r\n<p>what can i do,if i want to add another tile layer over the mainmap?</p>\r\n<p>I tried to use double &quot;GMapControl&quot;,but it didn't work.</p>\r\n<p>radioman,would you like to show me the way?</p>",
+    "PostedDate": "2010-01-07T00:59:13.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274187",
+    "ThreadId": "80029",
+    "Html": "<p>what is 'another tile layer' ?</p>",
+    "PostedDate": "2010-01-07T01:00:28.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274190",
+    "ThreadId": "80029",
+    "Html": "<p>i want to add a traffic flow layer.</p>\r\n<p>this 'another tile layer'&nbsp;will get tiles from&nbsp;a tile cached service,and i think it can work as the 'MainMap'.</p>\r\n<p>i tried to add another 'GMapControl' ,but it could not work ...</p>",
+    "PostedDate": "2010-01-07T01:11:09.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274196",
+    "ThreadId": "80029",
+    "Html": "<p>there is no tiles for traffic ;} all you can add is some objects with coordinates</p>",
+    "PostedDate": "2010-01-07T01:21:43.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274201",
+    "ThreadId": "80029",
+    "Html": "<p>&quot;there is no tiles for traffic&quot;, i have&nbsp;such tile service,it has web mercator projection and the same tile index rule.</p>\r\n<p>and i just want to overlap it on the mainmap, can i use two 'GMapControl'?one loads google map and another loads my traffic tiles.</p>",
+    "PostedDate": "2010-01-07T01:29:54.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274203",
+    "ThreadId": "80029",
+    "Html": "<p>hm.. and whats happens when traffic changes, but tiles are cached?</p>",
+    "PostedDate": "2010-01-07T01:31:44.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274206",
+    "ThreadId": "80029",
+    "Html": "<p>the traffic flow tiles will be updated regularly. it provides service like google map tiles.</p>\r\n<p>radioman, i want to know, can i use two 'GMapControl' in a Form?</p>",
+    "PostedDate": "2010-01-07T01:41:02.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274275",
+    "ThreadId": "80029",
+    "Html": "<p>how it will be updated if system puts it first to the local cache?</p>",
+    "PostedDate": "2010-01-07T04:55:38.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274565",
+    "ThreadId": "80029",
+    "Html": "<p>i set the timer for detecting the traffic tiles server is updated,and then it will get the new tiles replcing the local cache.</p>\r\n<p>now i just want to overlap these traffic tiles on the mainmap,what can i do?</p>",
+    "PostedDate": "2010-01-07T17:04:56.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274624",
+    "ThreadId": "80029",
+    "Html": "<p>the tiles in cache are not replaced, what will be the point then of the such&nbsp;cache. First basics, then tile stuff...</p>",
+    "PostedDate": "2010-01-07T21:40:44.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

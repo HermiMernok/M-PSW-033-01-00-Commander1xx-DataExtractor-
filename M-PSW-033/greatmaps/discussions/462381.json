@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1107973",
+    "ThreadId": "462381",
+    "Html": "Howdy,\r<br />\n<br />\nFirstly, this product is awesome. I've been using it for over a year, and it works brilliantly and your help on this forum has been amazing.\r<br />\n<br />\nI've developed a security guard tracking app in Winforms using GPS data from a device the guard carries. I've used your product displaying track data on Google Satellite maps since the beginning, with no problems, except that I had to add the app.config file at some point containing the following :\r<br />\n<br />\n&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;\r<br />\n&lt;configuration&gt;\r<br />\n  &lt;startup useLegacyV2RuntimeActivationPolicy=&quot;true&quot;&gt;<br />\n<pre><code>&lt;supportedRuntime version=&quot;v4.0&quot; sku=&quot;.NETFramework,Version=v4.0&quot;/&gt;</code></pre>\n\n&lt;/startup&gt;\r<br />\n  &lt;runtime&gt;<br />\n<pre><code>&lt;NetFx40_LegacySecurityPolicy enabled=&quot;true&quot;/&gt;</code></pre>\n\n&lt;/runtime&gt;\r<br />\n&lt;/configuration&gt;\r<br />\n<br />\n<br />\n<br />\nin order to get it to work in .NET 4.0 (because of the SQLite dlls)\r<br />\n<br />\nI always used the greatmaps_b43060cff8bb release until I started to run into a couple minor issues recently with getting map data. So I took the plunge today and downloaded the latest update i could find which was greatmaps_ffebdc20a6b8.\r<br />\n<br />\nThis solved the problems, all the maps started working again and it was great. \r<br />\nOn my development machine.\r<br />\n<br />\nThen I tried to do an install of the system on another PC and it fell apart. As soon as I try invoke a form with your control on it I get the error :\r<br />\n<br />\nSystem.TypeInitializationException: The type initializer for 'GMap.NET.WindowsForms.GMapControl' threw an exception. ---&gt; System.IO.FileLoadException: Mixed mode assembly is built against version 'v2.0.50727' of the runtime and cannot be loaded in the 4.0 runtime without additional configuration information.\r<br />\n   at GMap.NET.CacheProviders.SQLitePureImageCache.Ping()\r<br />\n   at GMap.NET.GMaps.SQLitePing()\r<br />\n   at GMap.NET.WindowsForms.GMapControl..cctor()\r<br />\n   --- End of inner exception stack trace ---\r<br />\n<br />\nno matter what I do.\r<br />\n<br />\nI still have the app.config file as shown above added to my main project. References to the GMap.NET.Core and GMap.NET.WIndowsForms are still there and remain unchanged.\r<br />\n<br />\nThe Solution compiles with no issues and continues to work on my development machine. It's only when I run it on another (I've tried 2 machines) that I get this error. The actual form I try to display never actually opens.\r<br />\n<br />\nI've tried installing .NET 2.0 Service Packs on the machine, as well as the C++ Redistributable which was mentioned in one post. Nothing makes any difference.\r<br />\n<br />\nCan you help me beat this thing ??\r<br />\n<br />\nCheers\r<br />\nCharles<br />\n",
+    "PostedDate": "2013-10-15T13:38:27.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108129",
+    "ThreadId": "462381",
+    "Html": "try remove useLegacyV2RuntimeActivationPolicy<br />\n",
+    "PostedDate": "2013-10-16T00:50:24.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108136",
+    "ThreadId": "462381",
+    "Html": "Nope. Didn't fix the problem, same error as above.\r<br />\n<br />\nLike you said, my app.config file now looks like :\r<br />\n<br />\n&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;\r<br />\n&lt;configuration&gt;\r<br />\n  &lt;startup&gt;<br />\n<pre><code>&lt;supportedRuntime version=&quot;v4.0&quot; sku=&quot;.NETFramework,Version=v4.0&quot;/&gt;</code></pre>\n\n&lt;/startup&gt;\r<br />\n  &lt;runtime&gt;<br />\n<pre><code>&lt;NetFx40_LegacySecurityPolicy enabled=&quot;true&quot;/&gt;</code></pre>\n\n&lt;/runtime&gt;\r<br />\n&lt;/configuration&gt;\r<br />\n<br />\n<br />\nI've also tried it without the :\r<br />\n<br />\n  &lt;runtime&gt;<br />\n<pre><code>&lt;NetFx40_LegacySecurityPolicy enabled=&quot;true&quot;/&gt;</code></pre>\n\n&lt;/runtime&gt;\r<br />\n<br />\nand get the same result.....\r<br />\n<br />\nI've tried copying the entire output Debug folder from my main project to the test machine, and then the software runs ! Just not when I use the installer. Is there some dependancy missing from my installer setup !??<br />\n",
+    "PostedDate": "2013-10-16T01:04:59.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108147",
+    "ThreadId": "462381",
+    "Html": "dunno<br />\n",
+    "PostedDate": "2013-10-16T01:34:15.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108876",
+    "ThreadId": "462381",
+    "Html": "Fixed it !!  :)\r<br />\n<br />\nHokay radioman.... I must admit I was pretty bummed when you gave up so quickly and I was still left out in the cold. \r<br />\n<br />\nBut then two things occurred to me :<br />\n<ol>\n<li>\nI haven't posted you a cheque or anything, so I guess I have no right to get upset if you decide I'm beyond help. ;)<br />\n</li>\n<li>\nBy not helping me, you might have done my blood pressure no good, but you forced me to find the solution myself which I guess makes me a better programmer and give me better understanding of what I do. So thanks for making me stand on my own two feet. :) .... oh and for the few thousand hours you put into this project too, thanks for that as well I guess.... :)<br />\n</li>\n</ol>\nSo here was the solution for other suckers like me :\r<br />\n<br />\nI had created the app.config file as instructed which was part of my VS project. In this environment the software worked, just not when I created an installer (using the VS Wizard) and deployed it on another machine.\r<br />\nI then took a careful look at the output files in the Debug folder of my main project, and compared it with the files which were put into Program Files by the installer... \r<br />\nI discovered that the compiler creates a local copy of the app.config file which it puts in the output folder called  &quot;&lt;application name&gt;.exe.config&quot;\r<br />\nIf I copied this into the executable folder location on my deployment test machine... it all worked !\r<br />\n<br />\nI guess the installer wizard was supposed to add this file to the installer, but take note that it DOES NOT ALWAYS do this by default.\r<br />\n<br />\nWhen I was updating the GreatMaps project, I must have broken the installer project and removed the reference to create the .config file. :)<br />\n",
+    "PostedDate": "2013-10-17T10:15:09.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2013-10-17T10:15:23.54-07:00"
+  },
+  {
+    "Id": "1108932",
+    "ThreadId": "462381",
+    "Html": ";} so it was installer issue after all, anyway application should work even without config file, just like in demos\r<br />\n<br />\n..don't forget your sword when you are out in the cold &quot;_^\r<br />\n<img src=\"http://ayay.co.uk/backgrounds/action_games/star_wars/jedi-in-the-rain.jpg\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2013-10-17T12:08:09.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

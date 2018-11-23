@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "465819",
+    "ThreadId": "219019",
+    "Html": "<p>Hi</p>\r\n<p>How can I load .shp file as a layer of map ? Can I do it ?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>",
+    "PostedDate": "2010-07-10T09:09:04.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465823",
+    "ThreadId": "219019",
+    "Html": "<p>whew, sorry, i <span>thought</span>&nbsp;thats you again ;]</p>\r\n<p>-&gt; check CloudsDemo</p>",
+    "PostedDate": "2010-07-10T09:45:19.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465840",
+    "ThreadId": "219019",
+    "Html": "<p>I loaded the web-map successfully But some of map-areas is not complete. I need to load my local map to correct it.</p>\r\n<p>bye</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-10T12:18:21.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465841",
+    "ThreadId": "219019",
+    "Html": "<p>wHERE CAN i FIND CLOUDSDEMO ?</p>",
+    "PostedDate": "2010-07-10T12:25:34.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465850",
+    "ThreadId": "219019",
+    "Html": "<p>source? ;}</p>",
+    "PostedDate": "2010-07-10T13:22:39.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466285",
+    "ThreadId": "219019",
+    "Html": "But that's loading a PNG file not a ESRI ShapeFile. ",
+    "PostedDate": "2010-07-12T05:59:01.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466290",
+    "ThreadId": "219019",
+    "Html": "<p>mm, i guess we just need volunteers to implement shape rendering ;}</p>\r\n<p>p.s. <a href=\"http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf\">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf&nbsp;</a></p>",
+    "PostedDate": "2010-07-12T06:05:25.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466300",
+    "ThreadId": "219019",
+    "Html": "Actually I am interested in helping out with GMaps. However I have not experience in using CodePlex so I would'nt even know how to start. I have installed VisualHG and downloaded the sources but from there I have no clue. Should my local version sync with the server or what?",
+    "PostedDate": "2010-07-12T06:24:06.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466363",
+    "ThreadId": "219019",
+    "Html": "<p>create fork, make changes, create feature, commit, and push to your fork.</p>",
+    "PostedDate": "2010-07-12T08:17:03.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537898",
+    "ThreadId": "219019",
+    "Html": "\r\n<p>You can use Catfood.shapefile, I have used and read all type of shapefile, it work fine.</p>\r\n<p>see:&nbsp; http://shapefile.codeplex.com/</p>\r\n",
+    "PostedDate": "2010-12-19T04:19:01.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629764",
+    "ThreadId": "219019",
+    "Html": "<p>I want to create some themes based on Shape files (eg: the more people live in a country the darker the country). As I try to avoid reinventing the wheel, someone has an example in this direction? Or how to read/display shapefiles fast?</p>\r\n<p>Thanks in advance,</p>\r\n<p>Frank</p>",
+    "PostedDate": "2011-06-19T09:18:18.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630265",
+    "ThreadId": "219019",
+    "Html": "<p>Frank</p>\r\n<p>Checkout</p>\r\n<p>http://mapwindow6.codeplex.com/</p>\r\n<p>This has build in thematic mapping features for shape files.</p>",
+    "PostedDate": "2011-06-20T16:03:31.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649449",
+    "ThreadId": "219019",
+    "Html": "<p>There is a simple solution. Download Geoserver, put you own maps in it and then use GMap using it as the server.</p>\n<p>I don't know why but the vertical tile order was reversed compared to Google but I fixed it and it worked well.</p>\n<p>Germ</p>",
+    "PostedDate": "2011-07-29T02:44:38.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808501",
+    "ThreadId": "219019",
+    "Html": "<p>&nbsp;</p>\n<p>Before the map provider existed I used this code to access a local geoserver instance rendering my shapefiles</p>\n<p>I had to reverse the vertical tile order for this to work.</p>\n<p>case MapType.LocalMap:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\n<p>{ &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char letter = \"abc\"[GetServerNum(pos, 3)]; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>\n<p><span style=\"white-space: pre;\">&nbsp;</span>//Console.WriteLine((int)(Math.Pow(2, zoom)) - pos.Y);<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int value = (int)(Math.Pow(2, zoom)) - pos.Y-1;</p>\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return string.Format(\"http://localhost:8080/geoserver/gwc/service/tms/1.0.0/test2@EPSG%3A900913@png/{0}/{1}/{2}.png\", zoom, pos.X, value); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\n<p>}</p>\n<p>&nbsp;</p>\n<p>Added as someone just e-mailed me for it :)</p>\n<p>Germ</p>",
+    "PostedDate": "2012-03-10T08:24:53.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808669",
+    "ThreadId": "219019",
+    "Html": "<p>Thank you so much. Worked for days, and got no solution for the tile server problem.</p>\r\n<p>Bye EDE</p>",
+    "PostedDate": "2012-03-10T23:30:07.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

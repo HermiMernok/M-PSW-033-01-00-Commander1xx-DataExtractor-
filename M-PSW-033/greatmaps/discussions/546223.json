@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1248348",
+    "ThreadId": "546223",
+    "Html": "Ok, so I know I'm a newbie but my app is working perfectly (displaying a map and moving the map center based on lat/lon coming from a flight simulator)<br />\n<br />\nBUT!<br />\n<br />\nI'm unable to use GMapOverlay as it keeps telling me its not found in the namespace and asking whether I've missed a reference :(<br />\n<br />\nI have :<br />\nusing GMap.NET;<br />\nusing GMap.NET.MapProviders;<br />\nusing GMap.NET.WindowsForms.Markers;<br />\n<br />\nI even tried forcing by using GMap.NET.WindowsForms.GMapOverlay, but no beans :(<br />\nHeres a snapshot and it can't even see it in the autocomplete.... <br />\n<br />\n<img src=\"http://www.chuffnuts.com/photos/Capture.PNG\" alt=\"Image\" /><br />\n<br />\nIf I comment out anything to do with overlays, then its all fine !<br />\nI'm using the latest hot release.<br />\n<br />\nTIA<br />\nSi<br />\n",
+    "PostedDate": "2014-05-22T05:23:15.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248500",
+    "ThreadId": "546223",
+    "Html": "namespace GMap.NET.WindowsForms<br />\n",
+    "PostedDate": "2014-05-22T10:08:33.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248534",
+    "ThreadId": "546223",
+    "Html": "Thanks.  And that goes where exactly ?  (currently reading up on explicitly adding additional namespaces.....)<br />\n",
+    "PostedDate": "2014-05-22T11:28:28.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248542",
+    "ThreadId": "546223",
+    "Html": "DOH!  Don't worry, figured it out :-)  Thanks for the pointers....<br />\n<br />\nAnnoyed at how simple it was :-(  Just needed a new set of eyes.<br />\n",
+    "PostedDate": "2014-05-22T11:50:30.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

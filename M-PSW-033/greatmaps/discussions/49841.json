@@ -1,0 +1,186 @@
+[
+  {
+    "Id": "166828",
+    "ThreadId": "49841",
+    "Html": "Please add a GROUP property to the marker and an optional parameter on the ZoomAndCentreAllMarkers ( optional Group )<br>\r\n<br>\r\nI plot all clients on the map using different markers for the type of clients, but i then use a different marker type for the vans that i plot in realtime from GPS links.<br>\r\nWhat i want to do is still see all the client markers on the map, but zoom to only the Vans.&nbsp;&nbsp; If you add a GROUP property to the marker class then i can<br>\r\nsimply set the van markers as group VANS,&nbsp; and then on the ZoomAndCentre method, just zoom to the VANS group. (optional GROUP parameter )<br>\r\n<br>\r\nThanks,<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-11T03:25:34.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166879",
+    "ThreadId": "49841",
+    "Html": "Ok<br><br>",
+    "PostedDate": "2009-03-11T06:23:14.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166880",
+    "ThreadId": "49841",
+    "Html": "oh in, WinForms&nbsp; pls&nbsp;&nbsp; :-)<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-11T06:24:50.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166882",
+    "ThreadId": "49841",
+    "Html": "....and please dont forget to implement the toolstrip class :-)<br>\r\n<br>\r\ngreets <br>\r\n<br>\r\nronny<br>\r\n",
+    "PostedDate": "2009-03-11T06:29:26.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "167451",
+    "ThreadId": "49841",
+    "Html": "My marker needs are slightly more complex with several overlapping groupings and some dynamic group selection.  My plan was to work up a ZoomAndCenterMarkers(MarkerList markers) method and leave the list membership selection up to my client side code.  I suppose I could update each marker's group property to be 'selected' for the current group selection criteria and then do the ZACM('selected')...  <br>\r\n<br>\r\nThanks for all the great work!\r\n",
+    "PostedDate": "2009-03-12T10:31:26.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169113",
+    "ThreadId": "49841",
+    "Html": "hi radioman,<br>\r\nany news on the ToolTips working in WinForms, when is the next release expected ? thanks<br>\r\n",
+    "PostedDate": "2009-03-17T11:07:55.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169160",
+    "ThreadId": "49841",
+    "Html": "depends of unknow, hard to tell ;} in a few weeks maybe",
+    "PostedDate": "2009-03-17T13:13:15.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169362",
+    "ThreadId": "49841",
+    "Html": "Hi Radioman, I've now got marker / overlay groups working plus the ability to link overlays to markers so they move when the parent marker moves. I am aware though that this is taking my version away from yours, would you be interested in a copy of my version?...if so, what's the best way to get it to you. I've got a set of requirement here that I'm coding for that will mean I have to implement multiple markers, radius overlays (now working) and polygon overlays (starting soon). If this is where you also want to go we can make sure there is no duplication of effort.<br>\r\n<br>\r\nCheers<br>\r\nMoose<br>\r\n<br>\r\np.s. Once again mate...excellent piece of work!\r\n",
+    "PostedDate": "2009-03-18T04:13:36.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169370",
+    "ThreadId": "49841",
+    "Html": "Is this in the WinForms version ? and if not, would anyone be able to convert to WinForms too ? thanks<br>\r\n",
+    "PostedDate": "2009-03-18T04:33:08.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169383",
+    "ThreadId": "49841",
+    "Html": "Sorry Paul, I'm on the WPF version, although changing to winforms should be a doddle...it's all c#, it's just the presentation that different.<br>\r\nMoose\r\n",
+    "PostedDate": "2009-03-18T05:01:51.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169463",
+    "ThreadId": "49841",
+    "Html": "it would be great if your marker system will use ItemSource patern, the same as in windows forms, i just currently don't know how to add custom shapes....",
+    "PostedDate": "2009-03-18T08:51:24.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169466",
+    "ThreadId": "49841",
+    "Html": "If you change it so that your not actually adding shapes, but working with FrameworkElements (which COULD be shapes), thats what I've done. I can take a look at the winforms implimentation to see how your doing it there.\r\n",
+    "PostedDate": "2009-03-18T09:11:56.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169472",
+    "ThreadId": "49841",
+    "Html": "Having looked at the way the Markers are rendering in the winforms solutions, I don't think you can use the itemsource pattern. (I may be completely wrong though).<br>\r\n<br>\r\nIf you just want to have a collection of markers that adds the markers automattically when you add one to the collection, you can handle the ObservableCollections &quot;CollectionChanged&quot; event. You can then query the Action on the <span style=\"font-size:13px\">System.Collections.Specialized.</span><span style=\"font-size:13px;color:#2b91af\">NotifyCollectionChangedEventArgs</span> . The trouble with that though is that you don't then have a good way of overloading it. In my current wpf version I've got 2 versions of AddMarker, one just adds it, the other add it and specifies the Group. It would be a pain if the only way to add a marker was to alter the collection directly.<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> AddMarker(</span><span style=\"font-size:13px;color:#2b91af\">String</span><span style=\"font-size:13px\"> group, </span><span style=\"font-size:13px;color:#2b91af\">MapObject</span><span style=\"font-size:13px\"> item)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">GMapMarker</span><span style=\"font-size:13px\"> marker = item </span><span style=\"font-size:13px;color:#0000ff\">as</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">GMapMarker</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\"> (marker == </span><span style=\"font-size:13px;color:#0000ff\">null</span><span style=\"font-size:13px\">) </span><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>marker.Group = group;</p>\r\n<p>MapMarkers.Add(marker);</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">foreach</span><span style=\"font-size:13px\"> (</span><span style=\"font-size:13px;color:#2b91af\">KeyValuePair</span><span style=\"font-size:13px\">&lt;</span><span style=\"font-size:13px;color:#2b91af\">UIElement</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\">&gt; el </span><span style=\"font-size:13px;color:#0000ff\">in</span><span style=\"font-size:13px\"> marker.Objects)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>Canvas.Children.Add(el.Key);</p>\r\n<p>}</p>\r\n<p>marker.ZIndex = MapMarkers.Count - 1;</p>\r\n<p>marker.UpdateLocalPosition(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> RemoveMarker(</span><span style=\"font-size:13px;color:#2b91af\">MapObject</span><span style=\"font-size:13px\"> item)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#2b91af\">GMapMarker</span><span style=\"font-size:13px\"> marker = item </span><span style=\"font-size:13px;color:#0000ff\">as</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">GMapMarker</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\"> (marker == </span><span style=\"font-size:13px;color:#0000ff\">null</span><span style=\"font-size:13px\">) </span><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\"> (MapMarkers.Contains(marker))\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>MapMarkers.Remove(marker);</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">foreach</span><span style=\"font-size:13px\"> (</span><span style=\"font-size:13px;color:#2b91af\">KeyValuePair</span><span style=\"font-size:13px\">&lt;</span><span style=\"font-size:13px;color:#2b91af\">UIElement</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\">&gt; el </span><span style=\"font-size:13px;color:#0000ff\">in</span><span style=\"font-size:13px\"> marker.Objects)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>Canvas.Children.Remove(el.Key);</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p>}</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-03-18T09:32:48.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169480",
+    "ThreadId": "49841",
+    "Html": "..yes i know, but using ItemsControl would be great...",
+    "PostedDate": "2009-03-18T09:58:29.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "169560",
+    "ThreadId": "49841",
+    "Html": "Any updates on clicking markers in WinForms?\r\n",
+    "PostedDate": "2009-03-18T13:15:00.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "170789",
+    "ThreadId": "49841",
+    "Html": "RadioMan, just had a &quot;brain fart&quot;, you could change your Canvas that holds markers etc to a ListBox, then change the ItemsPanelTemplate to be a canvas, you could then set the itemssource of the listbox...that would lay the items out in your canvas...here's a bit of markup to show what I mean...<br>\r\n<br>\r\ncheers<br>\r\nMoose<br>\r\n----------------------------------------------------<br>\r\n<br>\r\n<span style=\"font-size:13px;font-family:century gothic\">\r\n<p dir=ltr>&lt;UserControl x:Class=&quot;ucTest&quot;</p>\r\n<p dir=ltr>xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</p>\r\n<p dir=ltr>xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</p>\r\n<p dir=ltr>Height=&quot;300&quot; Width=&quot;300&quot;</p>\r\n<p dir=ltr>xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot; </p>\r\n<p dir=ltr>mc:Ignorable=&quot;d&quot; xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;&gt;</p>\r\n<p dir=ltr>&lt;UserControl.Resources&gt;</p>\r\n<p dir=ltr>&lt;ResourceDictionary&gt;</p>\r\n<p dir=ltr>&lt;ResourceDictionary.MergedDictionaries&gt;</p>\r\n<p dir=ltr>&lt;ResourceDictionary Source=&quot;ResourceDictionary.xaml&quot;/&gt;</p>\r\n<p dir=ltr>&lt;/ResourceDictionary.MergedDictionaries&gt;</p>\r\n<p dir=ltr>&lt;XmlDataProvider x:Key=&quot;UserData&quot; XPath=&quot;userData&quot; d:IsDataSource=&quot;True&quot; Source=&quot;userData.xml&quot; /&gt;</p>\r\n<p dir=ltr>&lt;/ResourceDictionary&gt;</p>\r\n<p dir=ltr>&lt;/UserControl.Resources&gt;</p>\r\n<p dir=ltr>&lt;Grid&gt;</p>\r\n<p dir=ltr>&lt;ListBox ItemsSource=&quot;{Binding Mode=Default, Source={StaticResource UserData}, XPath=/userData/cloudItems/item}&quot;&gt;</p>\r\n<p dir=ltr>&lt;ListBox.ItemsPanel&gt;</p>\r\n<p dir=ltr>&lt;ItemsPanelTemplate&gt;</p>\r\n<p dir=ltr>&lt;Canvas x:Name=&quot;listBoxCanvas&quot; /&gt;</p>\r\n<p dir=ltr>&lt;/ItemsPanelTemplate&gt;</p>\r\n<p dir=ltr>&lt;/ListBox.ItemsPanel&gt;</p>\r\n<p dir=ltr>&lt;ListBox.ItemTemplate&gt;</p>\r\n<p dir=ltr>&lt;DataTemplate&gt;</p>\r\n<p dir=ltr>&lt;Grid Canvas.Left=&quot;{Binding Mode=Default, XPath=left}&quot; Canvas.Top=&quot;{Binding Mode=Default, XPath=top}&quot;&gt;</p>\r\n<p dir=ltr>&lt;TextBlock HorizontalAlignment=&quot;Left&quot; VerticalAlignment=&quot;Top&quot; Text=&quot;{Binding Mode=Default, XPath=description}&quot; TextWrapping=&quot;Wrap&quot; FontSize=&quot;{Binding Mode=Default, XPath=fontSize}&quot;/&gt;</p>\r\n<p dir=ltr>&lt;/Grid&gt;</p>\r\n<p dir=ltr>&lt;/DataTemplate&gt;</p>\r\n<p dir=ltr>&lt;/ListBox.ItemTemplate&gt;</p>\r\n<p dir=ltr>&lt;/ListBox&gt; </p>\r\n<p dir=ltr>&lt;/Grid&gt;</p>\r\n<p>&lt;/UserControl&gt;<br>\r\n<br>\r\n----------------------------------------------<br>\r\n-- Here's userData.xml<br>\r\n----------------------------------------------<br>\r\n<span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">userData</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">cloudItems</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">This is item 1</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">url or something?</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">12</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">50</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">50</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;/</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">This is item 2</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">url or something?</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">18</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">100</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">100</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;/</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">This is item 3</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">url or something?</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">24</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">150</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">150</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;/</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">This is item 4</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">description</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;&lt;![CDATA[</span><span style=\"font-size:13px;color:#808080;font-family:tms rmn\">url or something?</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">]]&gt;&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">action</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">36</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">fontSize</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">200</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">top</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;</span><span style=\"font-size:13px;font-family:tms rmn\">200</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&lt;/</span><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">left</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;/</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">item</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p dir=ltr>&lt;/</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span>\r\n<p dir=ltr>&nbsp;</p>\r\n</span></p>\r\n<p dir=ltr><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">cloudItems</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\"><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n<p>&lt;/</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#a11f12;font-family:tms rmn\">userData</span><span style=\"font-size:13px;color:#0000ff;font-family:tms rmn\">&gt;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n</span>\r\n",
+    "PostedDate": "2009-03-23T03:50:36.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "170876",
+    "ThreadId": "49841",
+    "Html": "hm...",
+    "PostedDate": "2009-03-23T08:10:09.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203220",
+    "ThreadId": "49841",
+    "Html": "<p>Hey people please help me out here...</p>\r\n<p>I need simple methods to make and manage groups of markers... in which i can both add and delete. Or does it need to be implemented still ?</p>\r\n<p>Your reply will be highly appreciated. Thanks :)</p>",
+    "PostedDate": "2009-06-18T22:27:21.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203236",
+    "ThreadId": "49841",
+    "Html": "<ul>\r\n<li>save each group on separate list</li>\r\n<li>use marker tag as groupId</li>\r\n</ul>",
+    "PostedDate": "2009-06-19T00:06:34.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500020",
+    "ThreadId": "49841",
+    "Html": "<p>The WinForms version of GMapMarker I have doesn't have the group property.&nbsp; What version do I need to get to have that property?&nbsp; Also, what is the latest stable version?</p>",
+    "PostedDate": "2010-09-29T07:43:13.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500063",
+    "ThreadId": "49841",
+    "Html": "<p>latest is the only stable version ;}</p>",
+    "PostedDate": "2010-09-29T08:42:09.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500068",
+    "ThreadId": "49841",
+    "Html": "<p>So where is this group property??&nbsp;</p>",
+    "PostedDate": "2010-09-29T08:48:44.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500075",
+    "ThreadId": "49841",
+    "Html": "<p>there is no, you can use tag by default</p>",
+    "PostedDate": "2010-09-29T08:59:35.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

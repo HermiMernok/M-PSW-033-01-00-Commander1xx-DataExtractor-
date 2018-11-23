@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks, fixed",
+    "ClosedDate": "2010-08-10T10:41:22.363-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In core.cs in ProcessLoadTask you use while(waitForTileLoad.WaitOne(TimeSpan.FromMinutes(5)) this only exist after .net 3.5 sp1 is installed you need to change it too\r\n\r\nwhile(waitForTileLoad.WaitOne(TimeSpan.FromMinutes(5).Milliseconds, false))\r\n\r\nps see http://blog.darrenstokes.com/2009/03/30/watch-out-for-those-waitone-overloads-when-you-need-backwards-compatibility/\r\n\r\nbut apart from that all looks good to me\r\n",
+    "LastUpdatedDate": "2010-08-10T10:41:22.363-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-08-10T07:26:20.293-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "not .net 2.0 compatible",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15982
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

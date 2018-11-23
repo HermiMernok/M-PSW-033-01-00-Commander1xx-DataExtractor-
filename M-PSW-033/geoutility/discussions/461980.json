@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1106709",
+    "ThreadId": "461980",
+    "Html": "Please help me to find a sample code in C# for converting  UTM to MGRS or Lat/Lon to MGRS.\r<br />\n<br />\nneed very urgent.\r<br />\n<br />\nthanks in advance.<br />\n",
+    "PostedDate": "2013-10-12T09:00:30.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1106793",
+    "ThreadId": "461980",
+    "Html": "I suggest you read the home page a little more and try the examples and build upon them.\r<br />\nIt's really very simple.\r<br />\ni.e.\r<br />\nGeographic geo = new Geographic(lon, lat);\r<br />\nMGRS mgrs = (MGRS)geo;\r<br />\n<br />\nBut note that this conversion has bugs which have been raised.<br />\n",
+    "PostedDate": "2013-10-12T19:38:45.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1106796",
+    "ThreadId": "461980",
+    "Html": "<strong>rbdavison wrote:</strong><br />\n<blockquote>\nI suggest you read the home page a little more and try the examples and build upon them.<br />\nIt's really very simple.<br />\ni.e.<br />\nGeographic geo = new Geographic(lon, lat);<br />\nMGRS mgrs = (MGRS)geo;<br />\n<br />\nBut note that this conversion has bugs which have been raised.<br />\n</blockquote>\nDear\r<br />\n<br />\nThank you for your fast reply.\r<br />\nit works great.<br />\n",
+    "PostedDate": "2013-10-12T19:49:33.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1106798",
+    "ThreadId": "461980",
+    "Html": "Yes the conversion process is lovely and simple.\r<br />\nI'd recommend that you test it very thoroughly.<br />\n",
+    "PostedDate": "2013-10-12T19:53:07.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1106799",
+    "ThreadId": "461980",
+    "Html": "Dear\r<br />\n<br />\nalso need UTM to lat/lon utility,\r<br />\n<br />\ni have only UTM coordinate and wants to convert to lat/lon only.\r<br />\n<br />\nBut need very accurate one, because i am developing a very important software.\r<br />\n<br />\nIt seems very good utility, but need more documentation for use.\r<br />\n<br />\nThanks for your help.<br />\n",
+    "PostedDate": "2013-10-12T20:02:36.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1106800",
+    "ThreadId": "461980",
+    "Html": "Please read the home page and follow the patterns there.\r<br />\nIt's really not hard to work out that this is what you need\r<br />\nUTM utm = new UTM(32, &quot;U&quot;, 412345, 5567890);\r<br />\nMGRS mgrs = (MGRS)utm;\r<br />\n<br />\nIf you need accurate conversions then I don't think this library will to. At least my testing doesn't result in accurate conversions.\r<br />\n<br />\nOf course you could assist the project and make the conversions more accurate.<br />\n",
+    "PostedDate": "2013-10-12T20:08:43.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "707411",
+    "ThreadId": "281809",
+    "Html": "\r\n<p>//MyMap.MapType = MapType.GoogleMaps;</p>\r\n<p>MyMap.MaxZoom = 17;<br>\r\nMyMap.MinZoom = 2;<br>\r\nMyMap.Zoom = 12;<br>\r\nMyMap.Manager.Mode = AccessMode.ServerAndCache;<br>\r\nMyMap.Position = new PointLatLng(54.6961334816182, 25.2985095977783);</p>\r\n<p>I have included&nbsp; GMap.NET; file . I have drag the component on my form , I got all the properties as above But I do not get &quot;MapType&quot; ..Even I do not get Class Maptype for &quot;GoogleMaps&quot; . When I comment the first line and run project I am getting a blank\r\n Map.</p>\r\n",
+    "PostedDate": "2011-12-05T01:02:24.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707416",
+    "ThreadId": "281809",
+    "Html": "<p><em>MainMap.<strong>MapProvider</strong> = GMapProviders.OpenStreetMap;</em><br /><em> MainMap.Position = new PointLatLng(54.6961334816182, 25.2985095977783);</em><br /><em> MainMap.MinZoom = 1;</em><br /><em> MainMap.MaxZoom = 17;</em><br /><em> MainMap.Zoom = 9;</em></p>\r\n<p>p.s. i recommend to check the source of the demos, functionality is changing from time to time, so there is no static documentation</p>",
+    "PostedDate": "2011-12-05T01:21:13.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707991",
+    "ThreadId": "281809",
+    "Html": "<p>Yes, I got it.. thnx ..Its running Nice :)</p>",
+    "PostedDate": "2011-12-06T01:26:08.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

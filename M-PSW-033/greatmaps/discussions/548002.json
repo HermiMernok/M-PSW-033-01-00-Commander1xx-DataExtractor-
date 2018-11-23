@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1254280",
+    "ThreadId": "548002",
+    "Html": "Hi guys,\r<br />\n<br />\nI'm totally new with GMap.NET. I have been playing a few with the demo source code and it seems a really good tool.\r<br />\nThe thing is that I need to create a winform for an offline (no internet) enviroment.\r<br />\nAs far as I know it seems that is needed to prefetch the area and use the exported file later. \r<br />\n<br />\nPrefetching the whole world to a zoom level higher than 8 seems to be a crazy thing and I would like to know if someone know a better approach for this.\r<br />\n<br />\nThanks in advance for your help.<br />\n",
+    "PostedDate": "2014-06-09T01:26:39.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1254664",
+    "ThreadId": "548002",
+    "Html": "Would be nice if someone has done this and saved in SQLite to share.<br />\n",
+    "PostedDate": "2014-06-10T00:34:21.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1254752",
+    "ThreadId": "548002",
+    "Html": "The issue here is scale. As you correctly identified, it would be &quot;a crazy thing&quot; to go to a deep level of zoom across the entire map/globe. I can't really wrap my head around the file size of such a thing. But you also have to consider that there is a huge list of map providers in GMap.NET. So are you saying you want tiles for every zoom across every inch of the planet across every tile provider? Whoa.... That seems... excessive.\r<br />\n<br />\nTo give you an idea of scale... The raw vector and POI data for the world is about 12GB from OpenStreetMap the last time I checked (few years back - I'm sure it's bigger now) That is NOT the tiles - just the raw data used to create the tiles. The size of the tiles would be far greater across each level of zoom. And then as I said, if you intend to have every provider you are getting really crazy.\r<br />\n<br />\nI would imagine this is why no one has hosted a pre-fetched GMDB file to share.\r<br />\n<br />\nI suggest re-thinking what you really need for your application. The requirements of your problem, as currently written, are extreme - so the only solution will be an extreme one (read &quot;a crazy thing&quot;). If you need offline mapping, do you REALLY need the entire globe at deep levels of zoom? Can you instead have the entire globe cached with a shallow zoom level and then selectively choose portions to have a deep zoom? Perhaps you can create a tool for your end-user where they can pre-fetch their own tiles for their area of interest on an Internet connection before going offline.<br />\n",
+    "PostedDate": "2014-06-10T04:45:11.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1254755",
+    "ThreadId": "548002",
+    "Html": "Hi Mike,\r<br />\n<br />\nI'm not thinking in using all the map providers. I was thinking only in one. In any case, the problem is the same.\r<br />\n<br />\nFor sure I don't need a deep level of zoom, but at least I need a 12-13 level of it. I was thinking in the same approach that you described (selectively portions with deep zoom).\r<br />\n<br />\nThanks for your help.\r<br />\nDavid.<br />\n",
+    "PostedDate": "2014-06-10T04:55:43.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1255081",
+    "ThreadId": "548002",
+    "Html": "Hey, damoros. I use a cache of <a href=\"http://sasgis.org/\" rel=\"nofollow\">SAS Planet</a> for a large map. For this I made <a href=\"https://greatmaps.codeplex.com/discussions/541945\" rel=\"nofollow\">my cache provider</a>. Maybe it will be useful for you.  But SAS Planet cache stores as separate graphic files (tiles) and folders instead the database.<br />\n",
+    "PostedDate": "2014-06-11T01:04:27.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1255099",
+    "ThreadId": "548002",
+    "Html": "Hi Alken, many thanks for your input, I'm going to take a look.<br />\n",
+    "PostedDate": "2014-06-11T02:14:40.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

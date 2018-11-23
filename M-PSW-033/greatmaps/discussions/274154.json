@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "677863",
+    "ThreadId": "274154",
+    "Html": "<p>Hello, radioman</p>\n<p>Many thanks for your great job. Today I met an confusing things about GMAP.NET.</p>\n<p>I make my personal application using Gmap.NET. I added reference of dlls from Demo.Windows.Form to my VC2010. It works and I could see&nbsp;Open street&nbsp;map if I using the following code:</p>\n<div style=\"color: black; background-color: white;\">\n<pre>MainMap.MapType = GMap.NET.MapType.OpenStreetMap;\n\nMainMap.Position = <span style=\"color: blue;\">new</span> PointLatLng(54.6961334816182, 25.2985095977783);\n\nMainMap.MinZoom = 1;\n\nMainMap.MaxZoom = 17;\n\nMainMap.Zoom = 15;\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>But then I have adjusted some of original code for GMapMarker (I add a class inherited from it) for a new Mark. Then I have to change dll of this file from GMap.Net.WindowForms because the old version &nbsp;I cannot use MapType anymore.</p>\n<p>I follow the discussion and coding as&nbsp;</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>MainMap.MapProvider = GMapProviders.OpenStreetMap;\n\nMainMap.Position = <span style=\"color: blue;\">new</span> PointLatLng(54.6961334816182, 25.2985095977783);\n\nMainMap.MinZoom = 1;\n\nMainMap.MaxZoom = 17;\n\nMainMap.Zoom = 15;</pre>\n</div>\n<p>&nbsp;</p>\n<p>Then I cannot see the &nbsp;content from the map (such as road and building), but I still can see grey screen with OpenStreet Map logo at the left bottom of map interface. I have tried many time but I cannot find solution? many thanks for your reply by any chance.</p>",
+    "PostedDate": "2011-09-28T12:18:48.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678014",
+    "ThreadId": "274154",
+    "Html": "<p>set&nbsp;System.Data.SQLite.DLL copy to local = <strong>False</strong></p>",
+    "PostedDate": "2011-09-28T23:45:00.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678121",
+    "ThreadId": "274154",
+    "Html": "<p>Hello Radioman,</p>\r\n<p>Many thanks for your reply.</p>\r\n<p>I have adjusted the setting of System.Data.SQLite.DLL with the copy to local option to Fasle</p>\r\n<p>However, it does not work as well.</p>\r\n<p>I found that if I use Hotbuild version in Download page, it doesnot work as well. I only can use GMap.NET windows form version but I cannot adjust the codes for use.</p>\r\n<p>Do you possibly know other solution? Many thanks.</p>",
+    "PostedDate": "2011-09-29T04:38:42.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678123",
+    "ThreadId": "274154",
+    "Html": "<p>my total code as follows:\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">using</span> System;\r\n<span style=\"color: blue;\">using</span> System.Collections.Generic;\r\n<span style=\"color: blue;\">using</span> System.ComponentModel;\r\n<span style=\"color: blue;\">using</span> System.Data;\r\n<span style=\"color: blue;\">using</span> System.Drawing;\r\n<span style=\"color: blue;\">using</span> System.Linq;\r\n<span style=\"color: blue;\">using</span> System.Text;\r\n<span style=\"color: blue;\">using</span> System.Windows.Forms;\r\n<span style=\"color: blue;\">using</span> GMap.NET;\r\n<span style=\"color: blue;\">using</span> GMap.NET.MapProviders;\r\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color: blue;\">using</span> System.Data.SQLite;\r\n\r\n<span style=\"color: blue;\">namespace</span> Test2\r\n{\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">partial</span> <span style=\"color: blue;\">class</span> Form1 : Form\r\n    {\r\n        <span style=\"color: blue;\">public</span> Form1()\r\n        {\r\n            InitializeComponent();\r\n\r\n        }\r\n\r\n        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> Form1_Load(<span style=\"color: blue;\">object</span> sender, EventArgs e)\r\n        {\r\n            MainMap.MapProvider = GMapProviders.OpenStreetMap;\r\n            MainMap.MaxZoom = 17;\r\n            MainMap.MinZoom = 1;\r\n            MainMap.Zoom = 13;\r\n            MainMap.Position = <span style=\"color: blue;\">new</span> PointLatLng(52.9519863420259, -1.18429183959961);\r\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-09-29T04:40:46.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678126",
+    "ThreadId": "274154",
+    "Html": "<p>did you checked demos? They are working perfectly</p>",
+    "PostedDate": "2011-09-29T04:45:15.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806167",
+    "ThreadId": "274154",
+    "Html": "<p>Hello Radioman;</p>\r\n<p>Very greatful work, I created a new project and copy all .dll but it don't know MainMap, I saw your project designer and the MainMap is in Demo.WindowsForms.Map, but I don't see it and I would like to know how did you integred it in the design</p>\r\n<p>&nbsp;</p>\r\n<p>Many thanks.</p>",
+    "PostedDate": "2012-03-06T05:38:36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806179",
+    "ThreadId": "274154",
+    "Html": "<p>drag'n'drop</p>",
+    "PostedDate": "2012-03-06T05:56:49.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806183",
+    "ThreadId": "274154",
+    "Html": "<p>&nbsp;</p>\r\n<p>Thank you for your reply, but I don't see what I have to drag and drop in toolbox</p>",
+    "PostedDate": "2012-03-06T06:00:19.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806188",
+    "ThreadId": "274154",
+    "Html": "<p>add&nbsp;GMap.NET.WindowsForms.dll to you toolbox</p>",
+    "PostedDate": "2012-03-06T06:16:18.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806207",
+    "ThreadId": "274154",
+    "Html": "<p>&nbsp;</p>\r\n<p>Thanks again, other question how can I access at MapType.GoogleSatellite?</p>\r\n<p>thank you in advance</p>",
+    "PostedDate": "2012-03-06T06:54:54.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806220",
+    "ThreadId": "274154",
+    "Html": "<p>For WPF</p>\n<div style=\"color: black; background-color: white;\">\n<pre> MainMap.MapProvider = GMapProviders.GoogleSatelliteMap;\n</pre>\n</div>\n<p>Suppose that similar in WindowSForm ;)</p>",
+    "PostedDate": "2012-03-06T07:07:43.24-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806296",
+    "ThreadId": "274154",
+    "Html": "<p>ok thanks!</p>\r\n<p>How can we get localisation in Map by giving adress without mention the latitude and longitude?</p>",
+    "PostedDate": "2012-03-06T09:09:13.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806339",
+    "ThreadId": "274154",
+    "Html": "<p>?</p>",
+    "PostedDate": "2012-03-06T10:05:59.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806741",
+    "ThreadId": "274154",
+    "Html": "<p>&nbsp;</p>\r\n<p>Hello;</p>\r\n<p>I saw the method it in the code.</p>\r\n<p>I have some problem when I copy some instruction and method with folder BSE... to another project, it shows</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 43&nbsp;&nbsp;&nbsp; The type or namespace name 'VehicleData' could not be found (are you missing a using directive or an assembly reference?)&nbsp;&nbsp;&nbsp;</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 47&nbsp;&nbsp;&nbsp; The type or namespace name 'SQLiteIpCache' could not be found (are you missing a using directive or an assembly reference?)&nbsp;&nbsp;&nbsp;</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 16&nbsp;&nbsp;&nbsp; The type or namespace name 'Properties' does not exist in the namespace 'Demo.WindowsForms' (are you missing an assembly reference?)&nbsp;&nbsp;&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>and other error!</p>\r\n<p>Could you help me please?</p>",
+    "PostedDate": "2012-03-07T02:08:26.133-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806744",
+    "ThreadId": "274154",
+    "Html": "<p>It is common knowledge, not special for GMaps - try add references. The second thing - we don't know what part of code have you copied, and how, and what purpose of that was.&nbsp;</p>",
+    "PostedDate": "2012-03-07T02:11:58.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806754",
+    "ThreadId": "274154",
+    "Html": "<p>in short: spaghetti error ;}</p>",
+    "PostedDate": "2012-03-07T02:37:39.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

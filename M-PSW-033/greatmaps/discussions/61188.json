@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "207484",
+    "ThreadId": "61188",
+    "Html": "<p>Hello Radioman</p>\r\n<p>I'm playing around with your GMap.NET .... So far I like it very, as I was in need for such a control to improve my geocache manager. :o)</p>\r\n<p>I got some trouble understanding why you have implemented GMap.NET.Point and GMap.NET.Size classes ?<br>So I removed them from your change set 34796 and inserted &quot;using System.Drawing&quot; and I couldn't notice any disfunctions so far.</p>\r\n<p>Further I'll be implementing a marker class to display the typical Google markers, but to have the rectangle area centered around the marker (i.e. return.Offset(- HalfWidthOfImage, - FullHeightOfImage) ) and giving a choice of different marker colors in one class.</p>\r\n<p>Would you like to merge my modifications ?</p>\r\n<p>&nbsp;</p>\r\n<p>Greetings</p>\r\n<p>DeepCore</p>",
+    "PostedDate": "2009-07-01T04:47:43.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "207485",
+    "ThreadId": "61188",
+    "Html": "<p>GMap.NET.Point and GMap.NET.Size has purpose for idea: <strong>gmap &lt;= 'winForms &lt;-&gt; WPF'</strong></p>\r\n<p>p.s. for markers, there is allready green one in demo, easy to customize</p>\r\n<p>you can upload a patch, maybe somebody finds it useful</p>",
+    "PostedDate": "2009-07-01T04:54:47.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "207489",
+    "ThreadId": "61188",
+    "Html": "<p>is it possilbe to draw the google type markers using drawing methods rather than displaying the google icon, that way a scale factor and colour could be given making it very flexible ?</p>",
+    "PostedDate": "2009-07-01T05:05:55.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "207549",
+    "ThreadId": "61188",
+    "Html": "<p>definitely</p>",
+    "PostedDate": "2009-07-01T07:32:54.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

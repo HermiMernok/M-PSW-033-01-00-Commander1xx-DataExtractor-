@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "560788",
+    "ThreadId": "244656",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>I'm trying to do a specific zoom using a double value using windows forms with last version.</p>\r\n<p>However, when I do it, the overlays disappear and the grid of the tiles are shown.</p>\r\n<p>&nbsp;</p>\r\n<p>Is it working properly using double?</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-04T07:00:25.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "560798",
+    "ThreadId": "244656",
+    "Html": "\r\n<p>i didn't test it for latest versions, but i'll check. Can i ask you what slider do you use to get float values?</p>\r\n",
+    "PostedDate": "2011-02-04T07:08:24.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "561761",
+    "ThreadId": "244656",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>I use this code:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>          map.zoom = (0 &#43; ((trackBar1.Value - trackBar1.Maximum) / ((trackBar1.Minimum - trackBar1.Maximum) / (17.0 - 2))));\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>This is the result:</p>\r\n<p>https://picasaweb.google.com/lh/photo/DbWSB7ZuXHBbws0pL0KGiQ?feat=directlink</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you.</p>\r\n",
+    "PostedDate": "2011-02-06T23:38:28.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

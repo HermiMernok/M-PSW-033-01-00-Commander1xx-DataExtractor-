@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "891556",
+    "ThreadId": "389101",
+    "Html": "\r\n<p>Hi all, sorry to inflame you with yet again &quot;beginner&quot; question.<br>\r\n<br>\r\nBefore resorting to ask in this forum, I have tried to comprehend related threads for weeks to no avail :(<br>\r\nI am no .NET master or advanced programmer. I am just a novice programmer. I have to say that this GMap control is awesome, but maybe a bit too overwhelmed for me coz it is so complex and the codes, documentations, tutorials are scattered all over the place\r\n and I often confuse where to start (as a beginner) so therefore I kindly ask anyone here to share their expertise.<br>\r\n<br>\r\nI want to use my program on a computer that does not have access to internet at all (even for initial cache or prefetch), and also does not have access to the application data (so in my code i changed the local cache to @&quot;C:\\GMapCache\\&quot;; as suggested in this\r\n forum).<br>\r\n<br>\r\nSo I use a different PC that has internet to initially prefetched the maps - using the demo program, then exported it to .gmdb. and hope that I can use this file in my program to get the map offline.<br>\r\n<br>\r\nIn my program I defined the access mode to CacheOnly, and do this: put the gmdb in C:\\GMapCache\\TileDBv5\\en folder, and the map does not load (blue tiles).<br>\r\n<br>\r\nI then deleted the cache files from C:\\GMapCache\\TileDBv5\\en&nbsp; and added an import button. I imported the gmdb file, and i seen it sitting in the C:\\GMapCache\\TileDBv5\\en folder. But again the map still does not load (blue screen).<br>\r\n<br>\r\nI honestly have no idea as to why. Can anyone who has successfully access the map using CacheOnly enlighten and maybe share their piece of code?</p>\r\n",
+    "PostedDate": "2012-07-26T02:24:19.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891573",
+    "ThreadId": "389101",
+    "Html": "<p>well it should work, you are missing something else</p>",
+    "PostedDate": "2012-07-26T03:05:27.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892194",
+    "ThreadId": "389101",
+    "Html": "<p>hi radioman. thx for the response.</p>\r\n<p>i started over from scratch and tidy up the code. now it works.</p>\r\n<p>however i still wonder why the form is slow to load (as mentioned by others too in this forum).</p>\r\n<p>I use bing map and use the release mode, but the form still needs around 22 seconds to come up? why is that? Is there anything can be done about it?</p>",
+    "PostedDate": "2012-07-27T03:50:01.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892224",
+    "ThreadId": "389101",
+    "Html": "<p>you still use debug build, your problem ;}</p>",
+    "PostedDate": "2012-07-27T05:29:36.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892912",
+    "ThreadId": "389101",
+    "Html": "\r\n<p>hi radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>I have used the release build.</p>\r\n<p>If I execute the release build from the development PC, it will fire up in 8 seconds max. Also tried in another spare PC and the form shows up after 8 sec.</p>\r\n<p>But when opened on Target PC it is 22 seconds. The target PC is actually newer (more powerful) than the development PC. However it is admin restricted and I wont have access to admin account.</p>\r\n<p>also i tried to compile with dot.net 3.5 and 4, no difference.</p>\r\n",
+    "PostedDate": "2012-07-30T01:21:32.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892927",
+    "ThreadId": "389101",
+    "Html": "<p>is it only the first time or everytime?</p>",
+    "PostedDate": "2012-07-30T01:46:45.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892961",
+    "ThreadId": "389101",
+    "Html": "<p>it is&nbsp; always 22sec on the target PC each time opened.</p>\r\n<p>the one on development PC, the second time seems faster, maybe only 3 sec.</p>",
+    "PostedDate": "2012-07-30T03:45:19.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892993",
+    "ThreadId": "389101",
+    "Html": "<p>you definitely use debug build</p>",
+    "PostedDate": "2012-07-30T05:14:31.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893525",
+    "ThreadId": "389101",
+    "Html": "<p>no I am very sure I use the release build from the release folder. I have set the compilation to Release in the configuration manager.</p>\r\n<p>I then copied to the target PC, and also copied to a spare PC. The one on spare PC takes 8 sec to come up.</p>\r\n<p>Also today I have access to the admin account in the target PC but it still fired up in 22 seconds. &nbsp;</p>\r\n<div id=\"_mcePaste\" class=\"mcePaste\" style=\"position: absolute; left: -10000px; top: 0px; width: 1px; height: 1px; overflow: hidden;\">\r\n<table>\r\n<tbody>\r\n<tr>\r\n<td class=\"votecell\">\r\n<div class=\"vote\"><span class=\"vote-count-post\">2</span> <a class=\"vote-down-off\" title=\"This answer is not useful (click again to undo)\">down vote</a></div>\r\n</td>\r\n<td class=\"answercell\">\r\n<div class=\"post-text\">\r\n<p>Set your compilation to <code>Release</code> in the configuration manager.</p>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>",
+    "PostedDate": "2012-07-31T03:46:24.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893534",
+    "ThreadId": "389101",
+    "Html": "<p>can you test there 'official' hot build?</p>",
+    "PostedDate": "2012-07-31T04:03:47.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893549",
+    "ThreadId": "389101",
+    "Html": "<p>hi</p>\r\n<p>&nbsp;</p>\r\n<p>what do you mean by official hot build?</p>",
+    "PostedDate": "2012-07-31T04:34:27.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893599",
+    "ThreadId": "389101",
+    "Html": "<p><a href=\"http://greatmaps.codeplex.com/releases/view/73162\" target=\"_blank\">http://greatmaps.codeplex.com/releases/view/73162</a></p>",
+    "PostedDate": "2012-07-31T05:40:49.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894596",
+    "ThreadId": "389101",
+    "Html": "\r\n<p>I have tried your hot build on the target PC and it fired up after 50 sec. The second time even nearly 2 minutes. In both occasion it did not pop up the message box &quot;no internet connection, going into cache mode?&quot;.&nbsp;&nbsp; It fired up 8 sec on my spare\r\n PC with a pop up box asking about using the cache mode only.</p>\r\n<p>My program is only using cache mode.</p>\r\n<p>I am puzzled. there must be something missing/wrong with the target pc?</p>\r\n",
+    "PostedDate": "2012-08-02T04:24:47.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894600",
+    "ThreadId": "389101",
+    "Html": "<p>i've no idea ;/</p>",
+    "PostedDate": "2012-08-02T04:33:12.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

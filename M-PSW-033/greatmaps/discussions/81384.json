@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "279329",
+    "ThreadId": "81384",
+    "Html": "<p>case MapType.ArcGIS_MapsLT_Map_Hybrid:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; types.Add(MapType.ArcGIS_MapsLT_OrtoFoto);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; types.Add(MapType.<span style=\"color:#0000ff\">ArcGIS_MapsLT_Map_Labels</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>using this method 'g.DrawImage(img.Img, Core.tileRect.X, Core.tileRect.Y);',the labels overlap are not <span style=\"color:#0000ff\">Transparent</span>. How to make them transparent?</p>\r\n<p>Radioman,can you help me? Thank you very much!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-19T23:12:29.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279332",
+    "ThreadId": "81384",
+    "Html": "<p>Oh, I am using for GMap.NET.WindowsMobile.</p>",
+    "PostedDate": "2010-01-19T23:17:57.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279433",
+    "ThreadId": "81384",
+    "Html": "<p>you know,&nbsp;transparency&nbsp;is still issue on windows mobile, any fix-arounds?</p>",
+    "PostedDate": "2010-01-20T05:01:51.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279944",
+    "ThreadId": "81384",
+    "Html": "<p><span style=\"color:#0000ff\">ImageAttributes attr = new ImageAttributes();<br>attr.SetColorKey(Color.Transparent, Color.Transparent);</span></p>\r\n<p><span style=\"color:#0000ff\">g.DrawImage(img.Img, new System.Drawing.Rectangle(Core.tileRect.X, Core.tileRect.Y,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Core.tileRect.Width, Core.tileRect.Height), 0, 0,Core.tileRect.Width, Core.tileRect.Height, GraphicsUnit.Pixel, attr);</span></p>\r\n<p>this would be OK... any idea?</p>",
+    "PostedDate": "2010-01-21T01:50:46.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279945",
+    "ThreadId": "81384",
+    "Html": "<p>i don't know, if it's works? would be perfect</p>",
+    "PostedDate": "2010-01-21T01:53:07.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

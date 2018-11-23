@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1240425",
+    "ThreadId": "544004",
+    "Html": "Hello,<br />\n<br />\nI am trying to create a simple offline winform (using VB.net) for viewing maps. The user will input a Lat/Lon and it will show a map of the area. So far this is what I've done:<br />\n<br />\n1) Create form with GMap object and added all needed references.<br />\n2) Open winform demo to prefetch map data.<br />\n3) Exported the fetched data to a .gmdb file.<br />\n4) Tested the exported data my going into cache only mode in the demo and importing the .gmdb.<br />\n<br />\nHere is my simple code in the Load function of the form so far:<br />\n<br />\nmymap.CacheLocation = &quot;C:\\Users[USER]\\Desktop\\Data.gmdb&quot;<br />\nGMaps.Instance.Mode = AccessMode.CacheOnly<br />\nmymap.Position = New PointLatLng(-25, 30)<br />\nmyMap.MinZoom = 0<br />\nmyMap.MaxZoom = 4<br />\nmyMap.Zoom = 2<br />\n<br />\nI get 0 errors upon build but when the form opens none of tiles load at all. I do not even get the blue tiles with the errors as if I was offline using Server mode. I am not sure what I am doing wrong. Could it be the .gmdb file? It worked perfectly with the demo when I imported the file.<br />\n<br />\nI am a little lost here so I would really appreciate any help. Thank you very much in advance!<br />\n<br />\nEDIT: I am also using the latest HotBuild to fetch the maps.<br />\n<br />\nEDIT2: After digging around even more in the discussion threads, I've noticed that CacheLocation can be a directory and that all .gmdb files inside will contribute to the cached data that can be loaded. However even with that I still cannot get it to work by using this line: <br />\n<br />\nmymap.CacheLocation = &quot;C:\\Users[USER]\\Desktop&quot;<br />\n<br />\nI was however able to get it to work by placing my fetched .gmdb file in the default cache directory. I really need to be able to specify the folder where the .gmdb file(s) would be located for the final product. Any ideas?<br />\n",
+    "PostedDate": "2014-05-01T15:58:53.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1240529",
+    "ThreadId": "544004",
+    "Html": "dunno what are you doing there...<br />\n",
+    "PostedDate": "2014-05-02T00:21:56.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467935",
+    "ThreadId": "544004",
+    "Html": "ntaero,\r<br />\n<br />\nYou ever figure this out?  I'd like to get the cachelocation to a single place for every user/profile on a computer.  I've tried to use .cachelocation = application.startuppath &amp; &quot;\\&quot; and it makes a file there but for other users it also uses the appdata folders.  On some computers there are 25 users so the 256mb starts to be a significant portion of the hard drive.  I can't seem to figure out how to make EVERY user use the same tile data db.<br />\n",
+    "PostedDate": "2016-03-24T15:34:16.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1468069",
+    "ThreadId": "544004",
+    "Html": "<pre><code>MainMap.CacheLocation = @&quot;E:\\Desktop\\gmapcache\\&quot;;</code></pre>\n\np.s. initial size is 32MB<br />\n",
+    "PostedDate": "2016-03-26T07:30:07.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-03-26T07:30:11.67-07:00"
+  },
+  {
+    "Id": "1468070",
+    "ThreadId": "544004",
+    "Html": "Here's my code on FormOpen Event (In VB.Net).  I'm thinking that the @ is for C# since it generates an error?  Should the .cachelocation be someplace else?\r<br />\n<br />\nThis works for the user that installs the program, but every other user gets the tiledb placed in their appdata folder and not in application startup folder where I want it so ALL users have the same db folder/file.\r<br />\n<br />\nThanks!<br />\n<pre><code>        With GMapActive\n            .MapProvider = GMapProviders.GoogleMap\n            .LevelsKeepInMemmory = 6\n            .VerticalScroll.Enabled = True\n            .MinZoom = 3\n            .MaxZoom = 17\n            .Zoom = 4\n            .CanDragMap = True\n            .DragButton = Windows.Forms.MouseButtons.Left\n            .Manager.Mode = AccessMode.ServerAndCache\n            .CacheLocation = Application.StartupPath &amp; &quot;\\&quot;                      Only works for user that installed\n            ' .CacheLocation = @&quot;C:\\ProgramData\\GMAPTEst\\&quot;                Errors\n           ' .CacheLocation = &quot;C:\\Program Files (x86)\\GMAPTEst\\&quot;            Only works for user that installed\n        End With</code></pre>\n\n",
+    "PostedDate": "2016-03-26T08:04:02.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1468071",
+    "ThreadId": "544004",
+    "Html": "Default behavior puts the tileDB here correct?:<br />\n<br />\nC:\\Users\\ComputerName\\AppData\\Local\\GMap.NET\\TileDBv5\\en<br />\n<br />\nWould I go into the GMap source code to change this?<br />\n<br />\n<br />\n<br />\n<br />\nThe reason I ask is that I have 3 GMap controls on the same form under different tab pages so maybe that's what is causing the issue?  <br />\n",
+    "PostedDate": "2016-03-26T08:19:18.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1468075",
+    "ThreadId": "544004",
+    "Html": "As I look into this further it looks like GMap always creates the tiledb file here:\r<br />\n<br />\nC:\\Users\\ComputerName\\AppData\\Local\\GMap.NET\\TileDBv5\\en\\Data.gmdb\r<br />\n<br />\nno matter what you specify for the .CacheLocation?\r<br />\n<br />\nIt then uses the specified CacheLocation for normal operation as I can delete the AppData version once the program starts up.  <br />\n",
+    "PostedDate": "2016-03-26T08:46:04.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

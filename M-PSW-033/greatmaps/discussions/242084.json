@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "550545",
+    "ThreadId": "242084",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I am trying to do 2 things :</p>\r\n<p>1/ getting MouseEnter and MouseLeave events on a marker that is a polygon.<br>\r\nIn the provided example, the shape of the marker is a UserControl so the mouse events are provided by this UserControl.\r\n<br>\r\nIn the case of a polygon the shape is a Path, it has the events but I don't know how to declare those events in method RegeneratePolygonShape or elsewhere.</p>\r\n<p>2/ also is it possible to write directly inside the polygon without using a second Marker that I would put onto the polygon ?</p>\r\n<p>Thank you for your help :)</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-17T06:34:18.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "561848",
+    "ThreadId": "242084",
+    "Html": "\r\n<p>1/ Write a class that inherits from GMapControl and inside it redefine the method&nbsp;CreatePolygonPath with added events, something like this:</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> TheMap : GMapControl\r\n{\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> Path CreatePolygonPath(List&lt;System.Windows.Point&gt; localPath)\r\n      {\r\n         StreamGeometry geometry = <span style=\"color:blue\">new</span> StreamGeometry();\r\n         <span style=\"color:blue\">using</span>(StreamGeometryContext ctx = geometry.Open())\r\n         {\r\n            ctx.BeginFigure(localPath[0], <span style=\"color:blue\">true</span>, <span style=\"color:blue\">true</span>);\r\n\r\n            ctx.PolyLineTo(localPath, <span style=\"color:blue\">true</span>, <span style=\"color:blue\">true</span>);\r\n         }\r\n         geometry.Freeze();         \r\n         Path myPath = <span style=\"color:blue\">new</span> Path();\r\n         {\r\n            \r\n            myPath.Data = geometry;\r\n\r\n            BlurEffect ef = <span style=\"color:blue\">new</span> BlurEffect();\r\n            {\r\n               ef.KernelType = KernelType.Gaussian;\r\n               ef.Radius = 3.0;\r\n               ef.RenderingBias = RenderingBias.Quality;\r\n            }\r\n            myPath.Effect = ef;\r\n            myPath.Stroke = Brushes.MidnightBlue;\r\n            myPath.StrokeThickness = 5;\r\n            myPath.StrokeLineJoin = PenLineJoin.Round;\r\n            myPath.StrokeStartLineCap = PenLineCap.Triangle;\r\n            myPath.StrokeEndLineCap = PenLineCap.Square;\r\n\r\n            myPath.Fill = Brushes.AliceBlue;\r\n\r\n            myPath.Opacity = 0.6;\r\n            myPath.IsHitTestVisible = <span style=\"color:blue\">false</span>;\r\n         }     \r\n\t\t \r\n<span style=\"color:green\"><span style=\"white-space:pre\">\t</span>    <span style=\"color:#008000\">//register to any events you wish here</span></span>\r\n            myPath.MouseEnter &#43;= <span style=\"color:blue\">new</span> MouseEventHandler(myPath_MouseEnter);\r\n            myPath.MouseLeave &#43;= <span style=\"color:blue\">new</span> MouseEventHandler(myPath_MouseLeave);\r\n            myPath.IsHitTestVisible = <span style=\"color:blue\">true</span>;\r\n\t\t \r\n         <span style=\"color:blue\">return</span> myPath;\r\n      }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>2/ Wouldn't know about that, I think you'd still have to make it a separate object and then somehow link/stick it to the marker.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-07T04:22:44.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "562644",
+    "ThreadId": "242084",
+    "Html": "\r\n<p>Interesting, I am going to try that.</p>\r\n<p>Thank you.</p>\r\n",
+    "PostedDate": "2011-02-08T06:38:04.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

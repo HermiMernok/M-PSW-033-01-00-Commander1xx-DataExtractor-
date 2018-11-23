@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1126228",
+    "ThreadId": "470368",
+    "Html": "Using GMap.NET Build 09991dd06609, WinXP, in a forms app. I noticed, especially the first time I've used my program on a different computer, my program takes a long time to get going. I was suspicious of the mapping stuff, so I have this code for when the main window loads....<br />\n<pre><code>        private void VMLTool_Load(object sender, EventArgs e)\n            {\n            Debug.WriteLine(&quot;VMLTool_Load&quot;);\n            Stopwatch MapStartTime = Stopwatch.StartNew();\n            InitMap();\n            MapStartTime.Stop();\n            long MST = MapStartTime.ElapsedMilliseconds;\n            ServerLog(&quot;MapStartTime &quot; + MST.ToString() + &quot; milliseconds&quot;);\n            }</code></pre>\n\nHere's InitMap()<br />\n<pre><code>        private void InitMap()\n            {\n            gMapControl1.DragButton = MouseButtons.Right;\n            gMapControl1.ShowCenter = false;\n            gMapControl1.SetPositionByKeywords(&quot;USA&quot;);\n            gMapControl1.MapProvider = GMapProviders.OpenStreetMap;\n            gMapControl1.MinZoom = 3;\n            gMapControl1.MaxZoom = 17;\n            gMapControl1.Zoom = 13;\n            tbarZoom.Value = Convert.ToInt32(gMapControl1.Zoom);\n            gMapControl1.Manager.Mode = AccessMode.ServerAndCache;\n            gMapControl1.Position = new PointLatLng(38.497501, -120.564003);\n            overlayOne = new GMapOverlay(&quot;OverlayOne&quot;);\n            gMapControl1.Overlays.Add(overlayOne);\n            }</code></pre>\n\nI have seen delays of over 60 seconds in InitMap(). Usually after that, the delay is around 200 mS.\r<br />\n<br />\nI have not stopwatched anything inside InitMap() (yet).\r<br />\n<br />\nIt doesn't happen every time, but usually the first time my program is run on a specific machine. When it happens, I notice the hard drive is very busy. I haven't check the CPU load.\r<br />\n<br />\nIs this a one-shot deal where the map lib is initializing stuff it uses that it only needs to do the first time? Is there something else? Anything I can do to minimize this?\r<br />\n<br />\nChuck<br />\n",
+    "PostedDate": "2013-11-18T13:37:27.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126399",
+    "ThreadId": "470368",
+    "Html": "probably gMapControl1.SetPositionByKeywords(&quot;USA&quot;); ?<br />\n",
+    "PostedDate": "2013-11-19T00:25:10.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126774",
+    "ThreadId": "470368",
+    "Html": "OK, I get what you're saying.... preloading USA will take a while. Makes sense.\r<br />\n<br />\nI know I can change it to &quot;California, USA&quot;. Since I live in Amador COunty, in California, will if work if I pass it something like &quot;Amador, Californa, USA&quot;?\r<br />\n<br />\nChuck<br />\n",
+    "PostedDate": "2013-11-19T14:18:43.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1127023",
+    "ThreadId": "470368",
+    "Html": "no, that function just uses some remote provider, it may lag or something<br />\n",
+    "PostedDate": "2013-11-20T04:22:56.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

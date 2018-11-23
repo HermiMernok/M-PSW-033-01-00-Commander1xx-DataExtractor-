@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1337683",
+    "ThreadId": "576436",
+    "Html": "hi radiomen, I love your work please keep it up\r<br />\n<br />\n this is probably an irritating Q, but i have to ask, hope i get answer.\r<br />\n<br />\nit is about the secondary cache  i would like to use mssql \r<br />\n<br />\nuncommentated the code on main form,\r<br />\nchanged GMap.NET.CacheProviders.MySQLPureImageCache \r<br />\n  to \r<br />\nGMap.NET.CacheProviders.MsSQLPureImageCache\r<br />\n<br />\n<br />\ni know i am missing something, i am getting the following error  when debuging<br />\n\r<br />\nCannot fetch the value of field 'cmdFetch' because information about the containing class is unavailable.\r<br />\n<br />\nbut it does not throw error when run but it does not save in the db either \r<br />\n<br />\nthx , once again i love the work !<br />\n",
+    "PostedDate": "2014-12-29T09:43:37.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1337823",
+    "ThreadId": "576436",
+    "Html": "Hm, last time i've tested it, it worked. \r<br />\n<br />\nMake sure sql user has read/write permissions, and for first time it has to have permissions to create the table. \r<br />\n<br />\nDelete the table, adjust permissions and try again. Or else try debug and catch sql query, execute manualy, etc.<br />\n",
+    "PostedDate": "2014-12-30T01:49:18.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1337928",
+    "ThreadId": "576436",
+    "Html": "thx men,  was not expecting your replay so fast,\r<br />\n<br />\ni am sure it does work everything else is working, i am missing something small. \r<br />\n<br />\nwill use your advice thanks and have a wonderful new year , and much more success to you men! <br />\n",
+    "PostedDate": "2014-12-30T08:39:00.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1420276",
+    "ThreadId": "635000",
+    "Html": "Hi\r<br />\n<br />\nis there a way to import a folder that contains tiles hierarchy which was created by the Maperative tool.\r<br />\n<br />\nif not can any one guide me how to implement this kind of feature?<br />\n",
+    "PostedDate": "2015-04-28T04:16:30.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1420365",
+    "ThreadId": "635000",
+    "Html": "check <strong>Testing/ConsoleApplication</strong> demo<br />\n<pre><code>try\n            {\n                int c = 0;\n\n                int type = GMapProviders.LithuaniaTOP50Map.DbId;\n\n                //GMaps.Instance.PrimaryCache.DeleteOlderThan(DateTime.MaxValue, type);\n\n                var import = Directory.GetFiles(@&quot;T:\\tiles\\Layer_NewLayer\\&quot;, &quot;*.jpg&quot;, SearchOption.AllDirectories).Where(p =&gt; p.Contains(&quot;Layer_&quot;) &amp;&amp; !p.Contains(&quot;black&quot;)).ToList();\n\n                int total = import.Count;\n                \n                foreach (var i in import)\n                {\n                    var qk = Path.GetFileNameWithoutExtension(i);\n\n                    int x = 0;\n                    int y = 0;\n                    int z = 0;\n                    GMapProviders.BingMap.QuadKeyToTileXY(qk, out x, out y, out z);\n\n                    Debug.WriteLine(c++ + &quot; of &quot; + total + &quot;, x: &quot; + x + &quot;, y: &quot; + y + &quot;, z: &quot; + z);\n\n                    if (!GMaps.Instance.PrimaryCache.PutImageToCache(File.ReadAllBytes(i), type, new GPoint(x, y), z))\n                    {\n                        break;\n                    }\n                }\n            }\n            catch (Exception ex)\n            {\n                Debug.WriteLine(&quot;import: &quot; + ex);\n            }</code></pre>\n\n",
+    "PostedDate": "2015-04-28T07:20:45.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-04-28T07:20:48.327-07:00"
+  },
+  {
+    "Id": "1420419",
+    "ThreadId": "635000",
+    "Html": "Hi thanks for your answer but unfortunatly its not working\r<br />\n<br />\nfirst the line\r<br />\nvar import = <a href=\"mailto:Directory.GetFiles(@&quot;T:\\tiles\\Layer_NewLayer\\&quot;,\" rel=\"nofollow\">Directory.GetFiles(@\"T:\\tiles\\Layer_NewLayer\\\",</a> &quot;*.jpg&quot;, SearchOption.AllDirectories).Where(p =&gt; p.Contains(&quot;Layer_&quot;) &amp;&amp; !p.Contains(&quot;black&quot;)).ToList();\r<br />\n<br />\ni am changing the folder path to the folder under my maperative application root folder named Maperitive\\Cache\\WebTiles\\OSM Mapnik, this folder contains only *.png files and also all the png file named with number (i think its related to the coordinates) and not contain &quot;Layer_&quot; \r<br />\n<br />\nsecondly, when i remove the Where and set to look for png files then in the &quot; GMapProviders.BingMap.QuadKeyToTileXY(qk, out x, out y, out z);&quot; it finaly gets to the default case and throws new ArgumentException(&quot;Invalid QuadKey digit sequence.&quot;); \r<br />\n<br />\n<br />\nwhat am i doing wrong?<br />\n",
+    "PostedDate": "2015-04-28T07:57:01.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1420656",
+    "ThreadId": "635000",
+    "Html": "don't follow blindly, the only function you need to use is <strong>PutImageToCache</strong><br />\n",
+    "PostedDate": "2015-04-28T11:46:29.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421676",
+    "ThreadId": "635000",
+    "Html": "thanks<br />\n",
+    "PostedDate": "2015-04-30T00:54:58.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

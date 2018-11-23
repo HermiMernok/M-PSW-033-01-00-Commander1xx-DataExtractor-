@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1016550",
+    "ThreadId": "436925",
+    "Html": "Hello Master..\r<br />\n<br />\nI am new in C# and Gmapnet, i need save tiles data to sql,\r<br />\ni saw sources in gmapnet,, gmapnet default using sqlite and save data into data.gmdb.\r<br />\n<br />\nwhen open the data.gmdb i see binary data on each tile. can we save the tiles data to mysql database??\r<br />\n<br />\nif its possible can you give me tutorials or links??\r<br />\n<br />\nthanks for help<br />\n",
+    "PostedDate": "2013-03-17T02:13:23.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016551",
+    "ThreadId": "436925",
+    "Html": "use mysql/etc cache provider as SecondaryCache, check the code.. its even in documentation, even small, nobody cares to read it...<br />\n",
+    "PostedDate": "2013-03-17T02:21:13.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016841",
+    "ThreadId": "436925",
+    "Html": "its mean Secondary cache MySQLPureImageCache.cs ... i was enalble and compile,,\r<br />\n<br />\ni found this error  &quot;The type or namespace name 'MapType' could not be found (are you missing a using directive or an assembly reference?)\t&quot;\r<br />\n<br />\n<br />\n on fuction public PureImage GetImageFromCache(MapType type, GPoint pos, int zoom) ..\r<br />\n<br />\nhow to fix this??\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-03-17T22:11:40.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016890",
+    "ThreadId": "436925",
+    "Html": "okay ,, i can compiled this file,,,\r<br />\n<br />\nwhat need to be change if i want to save into sql..\r<br />\nlet me know (just what files)<br />\n",
+    "PostedDate": "2013-03-18T01:47:43.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016951",
+    "ThreadId": "436925",
+    "Html": "..i've forget that it uses old interface, i'll need to fix that<br />\n",
+    "PostedDate": "2013-03-18T03:25:11.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016955",
+    "ThreadId": "436925",
+    "Html": "fixed<br />\n",
+    "PostedDate": "2013-03-18T03:46:06.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016956",
+    "ThreadId": "436925",
+    "Html": "ok thanks radioman,,\r<br />\n<br />\nfor mysql connection \r<br />\n<br />\nits just enable and  make connection on MySQLPureImageCache.cs??? or need some code in other files??<br />\n",
+    "PostedDate": "2013-03-18T03:46:21.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1017078",
+    "ThreadId": "436925",
+    "Html": "<pre><code>var sc = new MySQLPureImageCache();\nsc.ConnectionString = @&quot;server=sql2008;User Id=trolis;Persist Security Info=True;database=gmapnetcache;password=trolis;&quot;;\nmap.Manager.SecondaryCache = sc;</code></pre>\n\n",
+    "PostedDate": "2013-03-18T07:40:59.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1017080",
+    "ThreadId": "436925",
+    "Html": "p.s. you need <strong>read/write</strong> and for the <strong>first time table creation</strong> permisions<br />\n",
+    "PostedDate": "2013-03-18T07:43:16.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1017460",
+    "ThreadId": "436925",
+    "Html": "OK... thanks for help radioman,,\r<br />\n<br />\n<br />\nfixed :)<br />\n",
+    "PostedDate": "2013-03-18T22:21:14.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

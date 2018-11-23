@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1480918",
+    "ThreadId": "657082",
+    "Html": "Hi, i'm new in gmaps<br />\n<br />\nHelp me please. i have some project in wpf <br />\ni create some line with creatroutepath but the line not show in my map but the blur is active and show in my map<br />\nand how to rotate gmap map (not rotate marker)?<br />\nsome one can help me?<br />\n<br />\nthis my code<br />\n<pre><code>List&lt;Point&gt; lPoint = new List&lt;Point&gt;();\n            lPoint.Add(new Point(Convert.ToDouble(gpStart.X.ToString()), Convert.ToDouble(gpStart.Y.ToString())));\n            lPoint.Add(new Point(Convert.ToDouble(gpBeetwen.X.ToString()), Convert.ToDouble(gpBeetwen.Y.ToString())));\n            lPoint.Add(new Point(Convert.ToDouble(gpEnd.X.ToString()), Convert.ToDouble(gpEnd.Y.ToString())));\n\nmymap.CreateRoutePath(lPoint,true);</code></pre>\n\nI use pointlatlng convert to GPoint and convert to Point  for fill list&lt;point&gt;, because my data in pointlatlng not Point(x,y)<br />\n",
+    "PostedDate": "2016-08-12T00:44:10.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482036",
+    "ThreadId": "657082",
+    "Html": "Someone can tell me? or radioman?<br />\n",
+    "PostedDate": "2016-08-24T21:31:14.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482059",
+    "ThreadId": "657082",
+    "Html": "What type of data and data this variable contain ? gpStart, gpBeetwen, gpEnd.<br />\n",
+    "PostedDate": "2016-08-25T01:48:43.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482297",
+    "ThreadId": "657082",
+    "Html": "<pre><code>PointLatLng start = new PointLatLng(-6.9143433, 107.6014166);\n            PointLatLng beetwen = new PointLatLng(-6.9143400, 1076013500);\n            PointLatLng end = new PointLatLng(-6.9143366, 107.6013050);\n            GPoint gpStart = mymap.FromLatLngToLocal(start);\n            GPoint gpBeetwen = mymap.FromLatLngToLocal(beetwen);\n            GPoint gpEnd = mymap.FromLatLngToLocal(end);\n            \n            List&lt;Point&gt; lPoint = new List&lt;Point&gt;();\n            lPoint.Add(new Point(Convert.ToDouble(gpStart.X.ToString()), Convert.ToDouble(gpStart.Y.ToString())));\n            lPoint.Add(new Point(Convert.ToDouble(gpBeetwen.X.ToString()), Convert.ToDouble(gpBeetwen.Y.ToString())));\n            lPoint.Add(new Point(Convert.ToDouble(gpEnd.X.ToString()), Convert.ToDouble(gpEnd.Y.ToString())));\n\n            mymap.CreateRoutePath(lPoint);</code></pre>\n\nThis is full code, gpStar, gpBeetwen, gpEnd is GPoint ... maybe my code less some code or some function or what ?<br />\n",
+    "PostedDate": "2016-08-28T19:49:03.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482310",
+    "ThreadId": "657082",
+    "Html": "CreateRoutePath(lPoint) return to you the instance of this class :<br />\n<a href=\"https://msdn.microsoft.com/en-us/library/system.windows.shapes.path(v=vs.110).aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/system.windows.shapes.path(v=vs.110).aspx</a><br />\nIf you want to make route on  the map you need to use some thing like next snipped of code:<br />\n<pre><code>    private List&lt;PointLatLng&gt; newRoutePoints = new List&lt;PointLatLng&gt;();\n    private bool creatingNewRoute = false;\n    void MainMap_MouseLeftButtonDown(object sender,System.Windows.Input.MouseButtonEventArgs e)\n    {\n        RoutingProvider rp = MainMap.MapProvider as RoutingProvider;\n        MapRoute r;\n\n        if (creatingNewRoute)\n        {\n            Point p = e.GetPosition(MainMap);\n            newRoutePoints.Add(MainMap.FromLocalToLatLng((int)p.X, (int)p.Y));\n            GMapMarker m = new GMapMarker(newRoutePoints.Last());\n\n            m.Shape = new CustomMarkerDemo(this, m, GetGeo(m.Position));\n            m.ZIndex = -2;\n            MainMap.Markers.Add(m);\n            //m.Shape\n            //MainMap.Markers.Remove()\n        }\n        else if (!creatingNewRoute &amp;&amp; newRoutePoints.Count &gt;= 2)\n        {\n            r = new MapRoute(newRoutePoints, textBoxNewRouteName.Text);\n\n            GMapMarker mRoute = new GMapMarker(newRoutePoints[0]);\n            {\n                mRoute.Route.AddRange(r.Points);\n                mRoute.RegenerateRouteShape(MainMap);\n                (mRoute.Shape as System.Windows.Shapes.Path).Stroke = new SolidColorBrush(ColorPicker1.SelectedColor);\n                (mRoute.Shape as System.Windows.Shapes.Path).Width = 4;\n\n                mRoute.RegenerateRouteShape(MainMap);\n                mRoute.ZIndex = -1;\n            }\n            //MainMap.CreateRoutePath(newRoutePoints);\n            MainMap.Markers.Add(new GMapMarker(newRoutePoints.First()));\n            MainMap.Markers.Add(new GMapMarker(newRoutePoints.Last()));\n            MainMap.Markers.Add(mRoute);\n            newRoutePoints.Clear();\n        }\n        else\n        {\n            newRoutePoints.Clear();\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2016-08-29T01:44:18.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482319",
+    "ThreadId": "657082",
+    "Html": "Thanks for your time and your work for answer my question..\r<br />\nsorry I new in GMap and c#..\r<br />\nIt Sure make line/polyline between two pointlatlng? i'm see your code that is make some route, but route in street yet??\r<br />\nI try use GMapMarker GDirection but the route follow street in Map .. i just want make line/polyline between two point\r<br />\nin this thread <a href=\"http://greatmaps.codeplex.com/discussions/62705\" rel=\"nofollow\">http://greatmaps.codeplex.com/discussions/62705</a> radioman say if you want custom line in WPF use public Path CreateRoutePath but i try this function but line not show<br />\n",
+    "PostedDate": "2016-08-29T02:56:47.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482473",
+    "ThreadId": "657082",
+    "Html": "i suppose that you can write this path(line) on some wpf control not on the gmapcontrol? but maybe i mistake.. or maybe exist some method in gmapcontrol that can takes a Path like parameter.<br />\n",
+    "PostedDate": "2016-08-31T00:22:43.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483092",
+    "ThreadId": "657082",
+    "Html": "Thanks for your work and for your time to answer my question hermas\r<br />\nafter i see your code i have some think to solve my question :)) i'm use GMapPolygon for make line :D<br />\n",
+    "PostedDate": "2016-09-06T20:05:49.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

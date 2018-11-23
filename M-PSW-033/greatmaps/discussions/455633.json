@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1088861",
+    "ThreadId": "455633",
+    "Html": "in C#\r<br />\nI need a few Marker and when i clicking on one of them TEXTBOX5.TEXT=TOOLTIP OF MARKER WHERE CLICKED\r<br />\n<br />\nBut only one of the markers is displayed text\r<br />\n<br />\nnamespace _4test_taxi\r<br />\n{<br />\n<pre><code>public partial class FrmDrvNextStart : Form\n{\n    string City;\n    string Pos;\n    string ToolTip;\n    string Job;\n    string Ready;\n    double X;\n    double Y;\n    GMarkerGoogle marker;\n    public FrmDrvNextStart()\n    {\n        InitializeComponent();\n    }\n\n    private void FrmDrvNextStart_Load(object sender, EventArgs e)\n    {\n        dataGridView1.DataSource = Settings.GeSlicePassCity();\n        dataGridView1.DataMember = &quot;Setting&quot;;\n        dataGridView1.Refresh();\n        City = dataGridView1.Rows[0].Cells[2].Value.ToString();\n        gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n        Pos = &quot;,ایران&quot; + City;\n        gmap.SetPositionByKeywords(Pos);\n\n        dataGridView2.DataSource = Maps.GeWhereAllDrv();\n        dataGridView2.DataMember = &quot;Driver2&quot;;\n        dataGridView2.Refresh();\n\n        int j = dataGridView2.RowCount;\n        for (int i = 0; i &lt; j - 1; i++)\n        {\n\n            ToolTip = dataGridView2.Rows[i].Cells[0].Value.ToString() + &quot;,&quot; +  dataGridView2.Rows[i].Cells[1].Value.ToString() + &quot;,&quot; + dataGridView2.Rows[i].Cells[2].Value.ToString() + &quot;,&quot; + dataGridView2.Rows[i].Cells[3].Value.ToString() + &quot;,&quot; + dataGridView2.Rows[i].Cells[4].Value.ToString();\n            X = double.Parse(dataGridView2.Rows[i].Cells[7].Value.ToString());\n            Y = double.Parse(dataGridView2.Rows[i].Cells[8].Value.ToString());\n            Ready = (dataGridView2.Rows[i].Cells[6].Value.ToString());\n            Job = (dataGridView2.Rows[i].Cells[5].Value.ToString());\n\n            //****************Markers***************************\n\n             if (Ready == &quot;True&quot; &amp; Job == &quot;False&quot;)\n            {\n                GMapOverlay markersOverlay = new GMapOverlay(&quot;markers&quot;);\n\n                 marker = new GMarkerGoogle(new PointLatLng(X, Y),\n                new Bitmap(&quot;C:\\\\Users\\\\AM\\\\Documents\\\\Visual Studio 2012\\\\Projects\\\\4test taxi\\\\4test taxi\\\\GMap\\\\pause3.png&quot;));\n\n                markersOverlay.Markers.Add(marker);\n                gmap.Overlays.Add(markersOverlay);\n\n                //*************ToolTip For Marker*****************\n                marker.ToolTip = new GMapRoundedToolTip(marker);\n                marker.ToolTipText = ToolTip + &quot;,آماده به کار&quot;;\n            }\n            //*******************************************************************\n        }\n\n\n    }\n\n    private void gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)\n    {\n        textBox5.Text = marker.ToolTipText.ToString();\n\n\n    }\n}</code></pre>\n\n}<br />\n",
+    "PostedDate": "2013-09-05T10:29:20.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1088867",
+    "ThreadId": "455633",
+    "Html": "my markers lat and lng in DataGridView2.row[i].cell[7] and [8]<br />\n",
+    "PostedDate": "2013-09-05T10:37:02.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1089104",
+    "ThreadId": "455633",
+    "Html": ":) not <strong>marker</strong> but use the <strong>item</strong> param should do the trick:<br />\n<pre><code>    private void gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)\n    {\n        textBox5.Text = item.ToolTipText.ToString();\n    }\n</code></pre>\n\nTip: add the tooltip text before you add the marker to the layer.<br />\n",
+    "PostedDate": "2013-09-06T00:15:51.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1089120",
+    "ThreadId": "455633",
+    "Html": "Thank you very very very and very much man :*\r<br />\nYou've helped me so much<br />\n",
+    "PostedDate": "2013-09-06T01:18:17.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

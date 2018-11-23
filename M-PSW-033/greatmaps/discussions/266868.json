@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "648818",
+    "ThreadId": "266868",
+    "Html": "\r\n<p>Hi Guys,</p>\r\n<p>Been struggling with this one due to lack of documentation. I have tried many ways to add a marker on a windows forms, but the marker does not display. What is the simplest way of adding a marker with description and a tooltip?</p>\r\n<p>Any suggestions are appreciated.</p>\r\n<p>Thanks,</p>\r\n<p>Jeff</p>\r\n",
+    "PostedDate": "2011-07-28T01:53:45.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "648861",
+    "ThreadId": "266868",
+    "Html": "<p>tried look in demo source? ;}</p>",
+    "PostedDate": "2011-07-28T03:19:51.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649636",
+    "ThreadId": "266868",
+    "Html": "<p>Try this...the code is in VB since most of the request here is in VB</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>  \t<span style=\"color: green;\">'Init the map control</span>\r\n\t<span style=\"color: blue;\">With</span> map\r\n            .SetCurrentPositionByKeywords(<span style=\"color: #a31515;\">\"USA\"</span>)\r\n            .MapType = MapType.BingMap\r\n            .MinZoom = 3\r\n            .MaxZoom = 17\r\n            .Zoom = 4\r\n            .Manager.Mode = AccessMode.ServerAndCache\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">With</span>\r\n\r\n\t<span style=\"color: green;\">'Load a marker(s)</span>\r\n\t\r\n\t<span style=\"color: green;\">'First is to create an overlay</span>\r\n\t<span style=\"color: blue;\">Dim</span> overlayOne <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMapOverlay(map, <span style=\"color: #a31515;\">\"OverlayOne\"</span>)\r\n        \r\n\t<span style=\"color: green;\">'Create a marker and add it to the overlay (overlayOne)</span>\r\n\toverlayOne.Markers.Add(<span style=\"color: blue;\">New</span> GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(<span style=\"color: blue;\">New</span> PointLatLng(LatitudeValue, LongitudeValue)))\r\n        \r\n<span style=\"color: green;\"><span style=\"color: #000000;\">        </span>'If you wanted to add multiple markers then you can do so via a loop, e.g.</span>\r\n        <span style=\"color: green;\">'For Each customer In Customers</span>\r\n        <span style=\"color: green;\">'       overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(New PointLatLng(customer.Lat, customer.Long)))</span>\r\n        <span style=\"color: green;\">'Next</span>\r\n\r\n        <span style=\"color: green;\">'Add the overlay to the map control</span>\r\n        map.Overlays.Add(overlayOne)\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" class=\"mcePaste\" style=\"position: absolute; width: 1px; height: 1px; overflow: hidden; top: 0px; left: -10000px;\">﻿</div>",
+    "PostedDate": "2011-07-29T10:03:52.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

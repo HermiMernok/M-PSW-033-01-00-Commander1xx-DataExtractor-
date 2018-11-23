@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "735229",
+    "ThreadId": "289327",
+    "Html": "\r\n<p>Is there a way to do this, i might not be understanding the basic math of a polygon :)</p>\r\n<p>but it there a way to generate a &quot;list of points&quot; from a RectLatLng object?</p>\r\n",
+    "PostedDate": "2012-02-01T12:22:48.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735253",
+    "ThreadId": "289327",
+    "Html": "<p>List&lt;RectLatLng&gt; points = new ... ?</p>",
+    "PostedDate": "2012-02-01T12:35:25.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735650",
+    "ThreadId": "289327",
+    "Html": "<p>I don't want a list of RectLatLng objects, i want to convert the actual border of the rectangle into a GmapRoute or Polygon, basically turning the \"border\" into a shape.</p>\r\n<p>I generate a RectLatLng object and i want to draw it on the map (sort of like your SelectedArea) to be a polygon on the map.</p>",
+    "PostedDate": "2012-02-01T16:54:18.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "736140",
+    "ThreadId": "289327",
+    "Html": "<p>so whats the problem?</p>",
+    "PostedDate": "2012-02-01T23:31:30.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805445",
+    "ThreadId": "289327",
+    "Html": "<p>Try with that. It should allow you create new marker which will be added to the map. It will have associated polygon with shape created by mouse. Dirty hack in file GMapControl.cs</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre> <span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnMouseUp(MouseButtonEventArgs e)\n      {\n         <span style=\"color: blue;\">if</span>(isSelected)\n         {\n            isSelected = <span style=\"color: blue;\">false</span>;\n         }\n\n         <span style=\"color: blue;\">if</span>(Core.IsDragging)\n         {\n            <span style=\"color: blue;\">if</span>(isDragging)\n            {\n               Mouse.Capture(<span style=\"color: blue;\">null</span>);\n\n               isDragging = <span style=\"color: blue;\">false</span>;\n               Debug.WriteLine(<span style=\"color: #a31515;\">\"IsDragging = \"</span> + isDragging);\n               Cursor = cursorBefore;\n            }\n            Core.EndDrag();\n\n            <span style=\"color: blue;\">if</span>(BoundsOfMap.HasValue &amp;&amp; !BoundsOfMap.Value.Contains(Position))\n            {\n               <span style=\"color: blue;\">if</span>(Core.LastLocationInBounds.HasValue)\n               {\n                  Position = Core.LastLocationInBounds.Value;\n               }\n            }\n         }\n         <span style=\"color: blue;\">else</span>\n         {\n            <span style=\"color: blue;\">if</span>(!selectionEnd.IsZero &amp;&amp; !selectionStart.IsZero)\n            {\n               <span style=\"color: blue;\">if</span>(!SelectedArea.IsEmpty &amp;&amp; Keyboard.Modifiers == ModifierKeys.Shift)\n               {\n                  SetZoomToFitRect(SelectedArea);\n               }\n            }\n            <span style=\"color: blue;\">else</span>\n            {\n               <span style=\"color: blue;\">if</span>(e.ChangedButton == DragButton)\n               {\n                  Core.mouseDown = GPoint.Empty;\n               }\n               InvalidateVisual();\n            }\n         }\n\n         <span style=\"color: blue;\">if</span> ((!selectionEnd.IsZero) &amp;&amp; (Keyboard.Modifiers == ModifierKeys.Alt))\n         {\n             GMap.NET.PointLatLng p1 = selectionStart;\n             GMap.NET.PointLatLng p2 = selectionEnd;\n            \n             GMapMarker m = <span style=\"color: blue;\">new</span> GMapMarker(<span style=\"color: blue;\">new</span> PointLatLng(p1.Lat, p1.Lng));\n\n             PointLatLng s1 = <span style=\"color: blue;\">new</span> PointLatLng(p1.Lat, p1.Lng);\n             PointLatLng s2 = <span style=\"color: blue;\">new</span> PointLatLng(p2.Lat, p1.Lng);\n             PointLatLng s3 = <span style=\"color: blue;\">new</span> PointLatLng(p2.Lat, p2.Lng);\n             PointLatLng s4 = <span style=\"color: blue;\">new</span> PointLatLng(p1.Lat, p2.Lng);\n\n             m.DrawColor = Brushes.DarkBlue;\n             m.Polygon.Add(s1);\n             \n\n             m.Polygon.Add(s2);\n             m.Polygon.Add(s3);\n             m.Polygon.Add(s4);\n             m.RegeneratePolygonShape(<span style=\"color: blue;\">this</span>);\n             SelectedArea = RectLatLng.Empty;\n             <span style=\"color: blue;\">this</span>.Markers.Add(m);\n         }\n\n         <span style=\"color: blue;\">base</span>.OnMouseUp(e);\n      }\n</pre>\n</div>",
+    "PostedDate": "2012-03-05T03:46:52.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805453",
+    "ThreadId": "289327",
+    "Html": "<p>..well with that you may generate thousand of shapes on each mouse move ;}</p>",
+    "PostedDate": "2012-03-05T04:13:23.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805455",
+    "ThreadId": "289327",
+    "Html": "<p>I think, that this code is run only when you finish drag mouse with pressed left key and alt.</p>",
+    "PostedDate": "2012-03-05T04:16:06.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805457",
+    "ThreadId": "289327",
+    "Html": "<p>mm, maybe you're right ;}</p>",
+    "PostedDate": "2012-03-05T04:21:02.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

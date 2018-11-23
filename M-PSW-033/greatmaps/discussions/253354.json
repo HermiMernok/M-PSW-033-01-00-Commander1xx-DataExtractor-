@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "595094",
+    "ThreadId": "253354",
+    "Html": "\r\n<p>A substantial performance improvement can be made by modifying the following especially when dealing wiht a large number of markers 10,000&#43;</p>\r\n<p>&nbsp;<span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> GMapMarkerGoogleRed : GMapMarker<br>\r\n&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">public</span> <span style=\"color:blue\">\r\nfloat</span>? Bearing;<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">public</span> GMapMarkerGoogleRed(PointLatLng p)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <span style=\"color:blue\">base</span>(p)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Size = <span style=\"color:blue\">\r\nnew</span> System.Drawing.Size(Resources.marker.Width, Resources.marker.Height);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Offset = <span style=\"color:blue\">\r\nnew</span> Point(-10, -34);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>Change</p>\r\n<p>Size = <span style=\"color:blue\">new</span> System.Drawing.Size(Resources.marker.Width, Resources.marker.Height);</p>\r\n<p>to</p>\r\n<p>Size = <span style=\"color:blue\">new</span> System.Drawing.Size(20,34);</p>\r\n<div id=\"x__mcePaste\" style=\"width:1px; height:1px; overflow:hidden; top:0px; left:-10000px\">\r\n&#65279;</div>\r\n<p>In otherwords use the actual width an height of the marker.</p>\r\n",
+    "PostedDate": "2011-04-10T23:11:52.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595102",
+    "ThreadId": "253354",
+    "Html": "<p>how much does it actually speeds up?</p>",
+    "PostedDate": "2011-04-10T23:28:38.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595111",
+    "ThreadId": "253354",
+    "Html": "<p>Tons, especially with lots of markers.</p>\n<p>With 20,000 without it, it was taking around several seconds to load the markers, with the change less than a second.</p>\n<p>An easy comparison is to use the Cross Marker as opposed to a marker that uses the \"Size\", it's where I first noticed the speed disparity on <strong>initialising </strong>the markers&nbsp;and chased it back to that.</p>",
+    "PostedDate": "2011-04-10T23:51:41.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595114",
+    "ThreadId": "253354",
+    "Html": "<p>i see, then i'll change it</p>",
+    "PostedDate": "2011-04-10T23:56:31.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595443",
+    "ThreadId": "253354",
+    "Html": "<p>done :}</p>",
+    "PostedDate": "2011-04-11T10:41:00.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

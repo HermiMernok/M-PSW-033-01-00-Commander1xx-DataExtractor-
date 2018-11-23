@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "415353",
+    "ThreadId": "204150",
+    "Html": "<p>Hi All,</p>\r\n<p>&nbsp;&nbsp; I am very much thankfull for this GMAP project...</p>\r\n<p>I have one problem...Can any one help me how to add contextmenu or softmenus&nbsp;to GMAP marker ToolTips?</p>\r\n<p>Thanks in advance.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-08T01:22:41.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "415355",
+    "ThreadId": "204150",
+    "Html": "<ul>\r\n<li>windows forms, map.<em><strong>OnMarkerClick</strong></em> and item.<strong>LocalPosition</strong></li>\r\n<li>wpf, just add context menu to your shape/marker&nbsp;</li>\r\n</ul>",
+    "PostedDate": "2010-03-08T01:42:00.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "415377",
+    "ThreadId": "204150",
+    "Html": "<p>Hi radioman,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thanks for your reply.. I am new&nbsp;developer in .net .I am using GMap in windows application.</p>\r\n<p>&nbsp;What is need is when i right click on the marker tool tip, i want display softmeu or context menu.</p>\r\n<p>Can you please send me code for adding the contextmenustrip to the marker tool tip.</p>\r\n<p>Thanks in advance</p>",
+    "PostedDate": "2010-03-08T02:34:34.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "415678",
+    "ThreadId": "204150",
+    "Html": "<p>If your new to .net, msdn is your best friend. Inside the OnMarkerClick event, add code to create the context menu at the position of the marker (as radioman said, item.LocalPosition).&nbsp; Here's the code from msdn for creating a context menu from msdn http://msdn.microsoft.com/en-us/library/system.windows.controls.contextmenu.aspx . If you don't know what events are, long story short you write a method, and you 'subscribe' that method to the OnMarkerClick event, and every time the marker is clicked, it executes the code in the method. Hope this helps...</p>",
+    "PostedDate": "2010-03-08T14:55:05.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "415747",
+    "ThreadId": "204150",
+    "Html": "<p>okk...Thanx for the help...</p>",
+    "PostedDate": "2010-03-08T19:34:36.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

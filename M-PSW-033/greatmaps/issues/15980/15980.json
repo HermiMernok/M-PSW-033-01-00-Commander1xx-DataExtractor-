@@ -1,0 +1,131 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "targeting x86, sqlite works anywhere",
+    "ClosedDate": "2010-08-10T09:45:38.2-07:00",
+    "CommentCount": 16,
+    "Custom": null,
+    "Description": "Hello sir,\r\n              I have added the screen shots. Please have a ook and let us know y it's not working for us???\r\n\r\n",
+    "LastUpdatedDate": "2010-08-10T09:45:38.2-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-07-13T05:22:37.39-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Windows 7 map not loading",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15980
+  },
+  "FileAttachments": [
+    {
+      "FileId": 132138,
+      "FileName": "Screen Shots.rar",
+      "DownloadUrl": ".\\132138"
+    },
+    {
+      "FileId": 132204,
+      "FileName": "Debug DB.rar",
+      "DownloadUrl": ".\\132204"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "debug log?",
+      "PostedDate": "2010-07-13T05:44:13.12-07:00",
+      "Id": 14496
+    },
+    {
+      "Message": "This is the Build Log :\n\nRebuild All started: Project: GMap.NET.Core, Configuration: Debug x86 ------\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.Core\\GMap.NET\\GMaps.cs(2333,10): warning CS0162: Unreachable code detected\n\nCompile complete -- 0 errors, 1 warnings\n  GMap.NET.Core -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.Core\\bin\\x86\\Debug\\GMap.NET.Core.dll\n------ Rebuild All started: Project: BSE.Windows.Forms, Configuration: Debug Any CPU ------\n  BSE.Windows.Forms -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\Libs\\BSE.Windows.Forms\\bin\\Debug\\BSE.Windows.Forms.dll\n------ Rebuild All started: Project: GMap.NET.WindowsPresentation, Configuration: Debug x86 ------\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(30,12): warning CS0414: The field 'GMap.NET.WindowsPresentation.GMapControlNew.RaiseEmptyTileError' is assigned but its value is never used\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(32,19): warning CS0169: The field 'GMap.NET.WindowsPresentation.GMapControlNew.selectionStart' is never used\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(33,19): warning CS0169: The field 'GMap.NET.WindowsPresentation.GMapControlNew.selectionEnd' is never used\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(63,35): warning CS0067: The event 'GMap.NET.WindowsPresentation.GMapControlNew.OnEmptyTileError' is never used\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(853,12): warning CS0414: The field 'GMap.NET.WindowsPresentation.GMapControlNew.isSelected' is assigned but its value is never used\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(856,44): warning CS0414: The field 'GMap.NET.WindowsPresentation.GMapControlNew.Empty' is assigned but its value is never used\nC:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControl.cs(163,14): warning CS0169: The field 'GMap.NET.WindowsPresentation.GMapControl.zoomReal' is never used\n\nCompile complete -- 0 errors, 7 warnings\nGMap.NET.WindowsPresentation\\GMapControl.cs(163,14): warning CS0169: The field 'GMap.NET.WindowsPresentation.GMapControl.zoomReal' is never used\nGMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(30,12): warning CS0414: The field 'GMap.NET.WindowsPresentation.GMapControlNew.RaiseEmptyTileError' is assigned but its value is never used\nGMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(32,19): warning CS0169: The field 'GMap.NET.WindowsPresentation.GMapControlNew.selectionStart' is never used\nGMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(33,19): warning CS0169: The field 'GMap.NET.WindowsPresentation.GMapControlNew.selectionEnd' is never used\nGMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(63,35): warning CS0067: The event 'GMap.NET.WindowsPresentation.GMapControlNew.OnEmptyTileError' is never used\nGMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(853,12): warning CS0414: The field 'GMap.NET.WindowsPresentation.GMapControlNew.isSelected' is assigned but its value is never used\nGMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs(856,44): warning CS0414: The field 'GMap.NET.WindowsPresentation.GMapControlNew.Empty' is assigned but its value is never used\n  GMap.NET.WindowsPresentation -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\bin\\x86\\Debug\\GMap.NET.WindowsPresentation.dll\n------ Rebuild All started: Project: Demo.StreetView, Configuration: Debug Any CPU ------\n  Demo.StreetView -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\Testing\\Demo.StreetView\\bin\\Debug\\Demo.StreetView.exe\n------ Rebuild All started: Project: GMap.NET.WindowsForms, Configuration: Debug x86 ------\n  GMap.NET.WindowsForms -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsForms\\bin\\x86\\Debug\\GMap.NET.WindowsForms.dll\n------ Rebuild All started: Project: WPF-GMapControlNew, Configuration: Debug x86 ------\n  WPF-GMapControlNew -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\Testing\\WPF-GMapControlNew\\bin\\Debug\\WpfApplication1.exe\n------ Rebuild All started: Project: TemplatedBinding, Configuration: Debug x86 ------\n  TemplatedBinding -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\Testing\\TemplatedBinding\\bin\\x86\\Debug\\TemplatedBinding.exe\n------ Rebuild All started: Project: Demo.WindowsPresentation, Configuration: Debug x86 ------\n  Demo.WindowsPresentation -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\Build\\Debug\\Demo.WindowsPresentation.exe\n------ Rebuild All started: Project: BigMapMaker, Configuration: Debug x86 ------\n  BigMapMaker -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\Testing\\BigMapMaker\\bin\\Debug\\BigMapMaker.exe\n------ Rebuild All started: Project: Demo.WindowsForms, Configuration: Debug x86 ------\n  Demo.WindowsForms -> C:\\Users\\Godwin\\Downloads\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\Build\\Debug\\Demo.WindowsForms.exe\n========== Rebuild All: 10 succeeded, 0 failed, 0 skipped ==========",
+      "PostedDate": "2010-07-13T06:21:45.4-07:00",
+      "Id": 14498
+    },
+    {
+      "Message": "I'm attaching the pdp files check this out. If you need any other things please let me know.",
+      "PostedDate": "2010-07-13T07:14:14.833-07:00",
+      "Id": 14501
+    },
+    {
+      "Message": "no, i need runtime log ;/",
+      "PostedDate": "2010-07-13T11:01:15.92-07:00",
+      "Id": 14508
+    },
+    {
+      "Message": "and, has the issue disappear somehow? ;}",
+      "PostedDate": "2010-07-17T01:09:19.143-07:00",
+      "Id": 14582
+    },
+    {
+      "Message": "No:-(",
+      "PostedDate": "2010-07-17T03:01:32.617-07:00",
+      "Id": 14583
+    },
+    {
+      "Message": "There is no run time log which i can find out. The thing is we maps other portion are not getting displayed which I guess might be bec of sql lite not very sure but :-(",
+      "PostedDate": "2010-07-17T03:03:11.47-07:00",
+      "Id": 14584
+    },
+    {
+      "Message": "just hit F5 in visual studio using debug mode and send me log ;}",
+      "PostedDate": "2010-07-17T08:05:42.803-07:00",
+      "Id": 14588
+    },
+    {
+      "Message": "I think that I know what's your problem, I have it in Windows 7 64 bit versions only.\n\nIn the file GMap.NET.Core/GMap.NET.Internals/Cache.cs about the line 72\n\nReplace this line:\nImageCache = new SQLitePureImageCache(); \n\nFor this one:\nImageCache = new MsSQLPureImageCache();\n\nWhen i research about this problem, I found that SQL dll was not build for 64bit or another similar issue, i tried this and now it's running perfect.\n\nPS: Sorry for my english :P",
+      "PostedDate": "2010-08-02T05:11:00.44-07:00",
+      "Id": 14877
+    },
+    {
+      "Message": "..so what is the real problem? Is it still alive? ;}",
+      "PostedDate": "2010-08-08T13:43:35.387-07:00",
+      "Id": 14999
+    },
+    {
+      "Message": "No that idea didn't work still the same problem. We are getting map image initially. While scrolling the ma is not getting updated it's getting the value from gmap but not getting displayed don't know why!!! There is no error also :-( ",
+      "PostedDate": "2010-08-09T02:24:25.437-07:00",
+      "Id": 15002
+    },
+    {
+      "Message": "is your target set to X86?",
+      "PostedDate": "2010-08-09T05:38:03.873-07:00",
+      "Id": 15004
+    },
+    {
+      "Message": "The target set to AnyCPU only.",
+      "PostedDate": "2010-08-09T22:44:07.177-07:00",
+      "Id": 15015
+    },
+    {
+      "Message": "wtf WHY? ;} you can't if you use sqlite",
+      "PostedDate": "2010-08-10T03:31:01.103-07:00",
+      "Id": 15019
+    },
+    {
+      "Message": "Ah!!!! That only was the problem!!!! Thanks it's working now :-) Cheers :-) But still one query not for windows but for WPF. At time the map using WPF is getting hanged i.e the map is not getting loaded on the spot only after five min or more and at the worst case until I start the application again. ",
+      "PostedDate": "2010-08-10T05:27:58.177-07:00",
+      "Id": 15023
+    },
+    {
+      "Message": ";} mm do you use latest version(dbb53809df1b)?",
+      "PostedDate": "2010-08-10T09:44:46.437-07:00",
+      "Id": 15027
+    }
+  ]
+}

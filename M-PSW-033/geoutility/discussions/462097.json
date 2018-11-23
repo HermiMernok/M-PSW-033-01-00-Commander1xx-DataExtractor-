@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1107169",
+    "ThreadId": "462097",
+    "Html": "I am trying to convert Geographic to GaussKrueger, but I keep getting this error.<br />\n<pre><code>Geographic co = new Geographic(73.0100, 19.0800);\nGaussKrueger gk = (GaussKrueger)co;</code></pre>\n\nAnd this is the exception:<br />\n<pre><code>System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; GeoUtility.ErrorProvider.GeoException\n   at GeoUtility.Transformation.WGSPOD(Geographic geo)\n   at GeoUtility.GeoSystem.Geographic.SetDatum(GeoDatum datum)\n   at GeoUtility.GeoSystem.UTM.op_Explicit(UTM utm)\n   at GeoConv.ViewModel.GeoViewModel.UpdateFromLatLng()\n   at GeoConv.MainPage.DoIt()\n   at GeoConv.MainPage..ctor()\n   --- End of inner exception stack trace ---\n   at System.Windows.Navigation.PageResourceContentLoader.EndLoad(IAsyncResult asyncResult)\n   at System.Windows.Navigation.NavigationService.ContentLoader_BeginLoad_Callback(IAsyncResult result)</code></pre>\n\nBut when I do this, it works: (GaussKrueger values taken from example on home page)<br />\n<pre><code>GaussKrueger gauss = new GaussKrueger(3456789, 5612345);\nGeographic co = (Geographic)gauss;\nGaussKrueger gk = (GaussKrueger)co;</code></pre>\n\nAny ideas about what I am doing wrong.<br />\n",
+    "PostedDate": "2013-10-14T06:57:34.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

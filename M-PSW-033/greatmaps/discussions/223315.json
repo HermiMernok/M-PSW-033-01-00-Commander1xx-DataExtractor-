@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "479535",
+    "ThreadId": "223315",
+    "Html": "Hi \r\n\r\n       I try to using Gmap.Net in my windows mobile application, the control will be working fine, \r\nThe problem is i can't get Route Between Points, the GMaps.Instance will be return NULL values only ,\r\nHow can i get the direction between 2 points, \r\n\r\nHere i ma added what i have done in my API.\r\n\r\n     private void menuItemRoute_Click(object sender, EventArgs e)\r\n     {\r\n          MapRoute route = GMaps.Instance.GetRouteBetweenPoints(start, end, false, (int)MainMap.Zoom)\r\n        \r\n          if (route != null)\r\n          {\r\n\r\n          }\r\n\r\n     }\r\n\r\n 1. It's supporting in WM version ??..\r\n\r\nPlease give me some solution about this,\r\nThanks in advance \r\n\r\n",
+    "PostedDate": "2010-08-12T00:27:33.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "479547",
+    "ThreadId": "223315",
+    "Html": "<p>yes, for mobile it's disabled, i don't remember why, you can try enable it in function <em>GetRouteBetweenPointsUrl</em></p>",
+    "PostedDate": "2010-08-12T00:45:50.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "479582",
+    "ThreadId": "223315",
+    "Html": "thanks radioman ..\r\n\r\nI'ill try but it's not working  \r\ncan you tell me how can i do that ? \r\n\r\n\r\n",
+    "PostedDate": "2010-08-12T02:05:42.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "479607",
+    "ThreadId": "223315",
+    "Html": "<p>remove&nbsp;#if !PocketPC ...&nbsp;#endif</p>",
+    "PostedDate": "2010-08-12T02:49:18.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "249340",
+    "ThreadId": "72986",
+    "Html": "<p>I'm having trouble hooking a double click event for a marker on the map. &nbsp;I've tried the GMapControl.MouseDoubleClicked, the GMapControl.DoubleClick and my actual Form.MouseDoubleClicked event, and none of them fire when I double click on a marker.</p>\r\n<p>Any ideas?</p>\r\n<p>&nbsp;</p>\r\n<p>thank you</p>\r\n<p>Jon</p>",
+    "PostedDate": "2009-10-24T13:17:31.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "249341",
+    "ThreadId": "72986",
+    "Html": "<p>MainMap.<strong>OnMarkerClick</strong> += new MarkerClick(MainMap_OnMarkerClick);</p>",
+    "PostedDate": "2009-10-24T13:21:15.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "249342",
+    "ThreadId": "72986",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\">That’s only for a single click, not a double click.  I’m already\r\nhooking that event for other purposes.</span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\"> </span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\">Thanks again for a quick response!</span></p>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-10-24T13:26:59.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "249343",
+    "ThreadId": "72986",
+    "Html": "<p>i'l try to implement this someday..</p>",
+    "PostedDate": "2009-10-24T13:29:39.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "249344",
+    "ThreadId": "72986",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\">Thanks I appreciate it.  Any idea why the GMapControl.MouseDoubleClick\r\nevent doesn’t fire when I double click a marker?  (it does fire when you double\r\nclick the map?)</span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\"> </span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\">Can you think of any workarounds? </span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\"> </span></p>\r\n\r\n<div>\r\n\r\n<div style=\"border:none;border-top:solid #B5C4DF 1.0pt;padding:3.0pt 0in 0in 0in\">\r\n\r\n<p class=MsoNormal><b><span style=\"font-size:10.0pt;font-family:'Tahoma','sans-serif'\">From:</span></b><span style=\"font-size:10.0pt;font-family:'Tahoma','sans-serif'\"> radioman\r\n[mailto:notifications@codeplex.com] <br>\r\n<b>Sent:</b> Saturday, October 24, 2009 4:30 PM<br>\r\n<b>To:</b> Jon Hunt<br>\r\n<b>Subject:</b> Re: Marker DoubleClick event? [greatmaps:72986]</span></p>\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n<p class=MsoNormal> </p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif'\">From:\r\nradioman</span></p>\r\n\r\n<div style=\"margin-bottom:24.0pt\" id=ThreadNotificationPostBody>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif'\">i'l try to\r\nimplement this someday..</span></p>\r\n\r\n</div>\r\n\r\n<div style=\"border:none;border-top:solid #CCCCCC 1.0pt;padding:0in 0in 0in 0in\" id=ThreadNotificationFooter>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">Read\r\nthe <a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=72986&ANCHOR#Post249343\">full\r\ndiscussion online</a>.</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">To\r\nadd a post to this discussion, reply to this email (<a href=\"mailto:greatmaps@discussions.codeplex.com?subject=[greatmaps:72986]\">greatmaps@discussions.codeplex.com</a>)</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">To\r\nstart a new discussion for this project, email <a href=\"mailto:greatmaps@discussions.codeplex.com\">greatmaps@discussions.codeplex.com</a></span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">You\r\nare receiving this email because you subscribed to this discussion on CodePlex.\r\nYou can <a href=\"http://www.codeplex.com/site/discussions/thread/unsubscribe/72986\">unsubscribe</a>\r\non codePlex.com.</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">Please\r\nnote: Images and attachments will be removed from emails. Any posts to this\r\ndiscussion will also be available online at codeplex.com</span></p>\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-10-24T13:31:29.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "249346",
+    "ThreadId": "72986",
+    "Html": "<p>no at the time</p>",
+    "PostedDate": "2009-10-24T14:07:14.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "249665",
+    "ThreadId": "72986",
+    "Html": "<p>Hallo,</p>\r\n<p>Workaround:</p>\r\n<p>In the click event start timer after first click. When clicked a second time within the timers live, jump to a sub which replaces the doubleclick event.</p>\r\n<p>When you set the timer for 1000ms you don't have to wait to long when you only want the click-event instead of the double-click event.</p>\r\n<p>A click counter tells you if you clicked twices or not.</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-26T03:49:20.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

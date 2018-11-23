@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "499305",
+    "ThreadId": "228809",
+    "Html": "<p>Hi. If I&nbsp;set GMap to use&nbsp;GoogleSatellite maps, and I zoom to my location - 11 Sunrise Avenue, Maroelana, Pretoria, South Africa (Long = 28.26,&nbsp;Lat = -25.7777), the tiles at the highest 4 zoom levels do not load. I instead get a blue tile with this following error message:</p>\r\n<p>Exception: The remote server returned an error: (404) Not Found.<br>We are sorry, but we don't have imagery at this zoom level for this region.</p>\r\n<p>The funny thing is if I go to Google Maps, and switch to Satellite view, those tiles are in fact there. Do you know why this might be? Why the Satellite maps exist on the Google Maps&nbsp;website but they apparently do not exist on GMap.NET?</p>\r\n<p>Thanks for an amazing product!!</p>",
+    "PostedDate": "2010-09-27T23:59:33.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499314",
+    "ThreadId": "228809",
+    "Html": "<p>using old version?</p>",
+    "PostedDate": "2010-09-28T00:24:15.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499364",
+    "ThreadId": "228809",
+    "Html": "<p>Hi Radioman. Thanks for your quick reply. I am using GMap.NET&nbsp;version 1.5.3.3. The WinForm version... As far as I can see that is the latest stable version? If it's not too much to ask, would you perhaps be able to go to that location and see if it is also giving you blue tiles at the 4&nbsp;greatest zoom levels?</p>",
+    "PostedDate": "2010-09-28T02:07:23.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499383",
+    "ThreadId": "228809",
+    "Html": "<p>use latest changeset, stable version is old</p>",
+    "PostedDate": "2010-09-28T02:49:39.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499439",
+    "ThreadId": "228809",
+    "Html": "<p>Oh ok. You'll have to forgive my ignorance, but how do I download the latest changeset? :)</p>",
+    "PostedDate": "2010-09-28T05:04:44.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499446",
+    "ThreadId": "228809",
+    "Html": "<p><a href=\"http://greatmaps.codeplex.com/SourceControl/list/changesets\">http://greatmaps.codeplex.com/SourceControl/list/changesets</a></p>",
+    "PostedDate": "2010-09-28T05:20:57.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517892",
+    "ThreadId": "228809",
+    "Html": "\r\n<p>Hi Radioman. &nbsp;Can you say what changed between versions that causes this problem? &nbsp;I Have the latest stable build and I'm seeing the same thing, however I notice that the latest changeset breaks in my solution. &nbsp;I'm thinking it might be best\r\n for me to merge the relevant changes with the latest stable build. &nbsp;Can you point me in the right direction? &nbsp;Thanks!</p>\r\n",
+    "PostedDate": "2010-11-05T12:38:07.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517901",
+    "ThreadId": "228809",
+    "Html": "\r\n<p>i recommend to use <a href=\"http://greatmaps.codeplex.com/SourceControl/list/changesets?branch=default\" target=\"_blank\">\r\nlatest changeset from default branch</a></p>\r\n",
+    "PostedDate": "2010-11-05T12:47:05.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520705",
+    "ThreadId": "228809",
+    "Html": "\r\n<p>i was able to build new DLLs and plop them right into my solution with only trivial adjustments to my project. &nbsp;all tiles look to be loading correctly. &nbsp;thanks a bunch!</p>\r\n",
+    "PostedDate": "2010-11-11T10:40:44.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520707",
+    "ThreadId": "228809",
+    "Html": "\r\n<p>good ;}</p>\r\n",
+    "PostedDate": "2010-11-11T10:51:36.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

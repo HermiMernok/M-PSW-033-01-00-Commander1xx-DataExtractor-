@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "484213",
+    "ThreadId": "224662",
+    "Html": "<p>Hello</p>\r\n<p>SetZoomToFitRect is not centered to the passed rectangle ! The view, is north of the selected rectangle ... do I miss something ?&nbsp;</p>\r\n<p>Using August 12th sources !&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>This is the view I get when calling SetZoomToFitRect :&nbsp;<img src=\"http://xaqc.org/linkto/gmap.net-SetZoomToFitRect.jpg\" alt=\"\"><a href=\"http://xaqc.org/linkto/gmap.net-totalview.jpg\">http://xaqc.org/linkto/gmap.net-SetZoomToFitRect.jpg</a></p>\r\n<p>If I draw a polygon of the Rect use in the previous photo ...&nbsp;<img src=\"http://xaqc.org/linkto/gmap.net-RectLatLng.jpg\" alt=\"\"><a href=\"http://xaqc.org/linkto/gmap.net-RectLatLng.jpg\">http://xaqc.org/linkto/gmap.net-RectLatLng.jpg</a></p>\r\n<p>If I show you a larger view, you can see that the view view given by SetZoomToFitrect is North of the selected Rect :&nbsp;<img src=\"http://xaqc.org/linkto/gmap.net-totalview.jpg\" alt=\"\"><a href=\"http://xaqc.org/linkto/gmap.net-totalview.jpg\">http://xaqc.org/linkto/gmap.net-totalview.jpg</a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-08-24T08:58:36.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484261",
+    "ThreadId": "224662",
+    "Html": "<p>hold SHIFT drag mouse, always zooms to center, so where is the issue?</p>",
+    "PostedDate": "2010-08-24T10:44:34.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484267",
+    "ThreadId": "224662",
+    "Html": "<p>Holding Shift + Drag works fine ... doing it programmatically ... the zoom is not ok.&nbsp;</p>\r\n<p>That made me think about the problem, I found a solution. But I dont know if the problem is from me or in the the zoom function. I guess I am wrong.</p>\r\n<p>I am used to work with gfx both in 2d and 3d ... and the latitude is a bit confusing since Top is 90 and Bottom is -90. So to be able to do easy computation with RectLatLng ... the HeightLat must be negative, but the zoom function want it positive.</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">if</span> (checkBoxGPXAutoZoom.Checked)&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n{&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n   RectLatLng temp = <span style=\"color:blue\">new</span> RectLatLng();&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \r\n   temp = zoomRect;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n   temp.HeightLat = -temp.HeightLat;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n   gMapControl.SetZoomToFitRect(temp);&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\r\n}\r\n\r\n</pre>\r\n</div>\r\n<p>This invert my negative latitude height and the zoom is fine.</p>\r\n<p>To follow every other rectangle class ... they all have some thing like : x, y, width, height.</p>\r\n<p>To get top left corner ... you have : &nbsp;x, y</p>\r\n<p>To get bottom right corner you do : &nbsp; x+width, &nbsp;y+height</p>\r\n<p>So for your rect to follow standard, with latitude axe inverted ... you need to have negative height to be able to compute bottom right corner using : r.lat+r.heightlat !</p>\r\n<p>It will be simpler for me to modify it on my side, at the one place I will autozoom ;)</p>",
+    "PostedDate": "2010-08-24T11:01:54.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484288",
+    "ThreadId": "224662",
+    "Html": "<p>hm.. thats really something ;] ..and why do you need to specify HeightLat?</p>",
+    "PostedDate": "2010-08-24T11:49:10.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484296",
+    "ThreadId": "224662",
+    "Html": "<p>True I could use the other creator : RectLatLng(PointLatLng, SizeLatLng) ... but being from the game industry its an habit to always use the fuctions that requires the less allocators as possible ;)</p>\r\n<p>So I was using : RectLatLng(lat, lng, widthlng, heightlat); &nbsp; &nbsp; &nbsp;which is wierd by the way in the order of the params .... you have : &nbsp; lat, lng, lng, lat &nbsp;!?!?!?! you should do &nbsp;: lat lat lng lng ... or lat lng lat lng :P</p>\r\n<p>Ok I stop, its your lib you do it the way you want.</p>",
+    "PostedDate": "2010-08-24T12:02:13.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484332",
+    "ThreadId": "224662",
+    "Html": "<p>he he it's not my ;}, i own nothing, but that just how the current version is, i've converted usual rect to deal with coordinates, and latitude is Y, but inverted, so it's sort of strange, i'll promise to clean it on the way.</p>\r\n<p>..There is few core issues, and my inbox is full of all kind of things from these discussions, so the sands of time are getting big but the destiny is great! ;}</p>",
+    "PostedDate": "2010-08-24T13:34:42.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

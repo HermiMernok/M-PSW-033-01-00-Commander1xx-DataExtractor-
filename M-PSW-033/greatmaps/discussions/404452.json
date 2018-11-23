@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "946436",
+    "ThreadId": "404452",
+    "Html": "\r\n<p>I tried to catch the exact location off a mouse click ( right or left click)&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Only way I succedd to get out the coordinates is by reposition the map.. this is not what I want to achieve.</p>\r\n<p>&nbsp;</p>\r\n<p>Private Sub GMap1_OnPositionChanged(ByVal point As GMap.NET.PointLatLng) Handles GMap1.OnPositionChanged &nbsp; &nbsp; &nbsp;</p>\r\n<p>Txtlat.Text = GMap1.Position.Lat.ToString(CultureInfo.InvariantCulture) &nbsp; &nbsp; &nbsp;</p>\r\n<p>txtlng.Text = GMap1.Position.Lng.ToString(CultureInfo.InvariantCulture)&nbsp; &nbsp;</p>\r\n<p>End Sub</p>\r\n",
+    "PostedDate": "2012-11-24T08:17:43.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946439",
+    "ThreadId": "404452",
+    "Html": "\r\n<p>Map.<strong>FromLocalToLatLng</strong></p>\r\n",
+    "PostedDate": "2012-11-24T08:23:15.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946454",
+    "ThreadId": "404452",
+    "Html": "\r\n<p>OK, i did like this --works ! - Thank's&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Private Sub GMap1_MouseDown1(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMap1.MouseDown&nbsp; &nbsp;</p>\r\n<p>&nbsp;Dim marker As New GMapMarkerGoogleGreen(GMap1.FromLocalToLatLng(e.X, e.Y))&nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;marker.Position = GMap1.FromLocalToLatLng(e.X, e.Y)&nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>Txtlat.Text = (marker.Position.Lat.ToString)&nbsp; &nbsp;</p>\r\n<p>Txtlng.Text = (marker.Position.Lng.ToString)&nbsp; &nbsp;</p>\r\n<p>End Sub</p>\r\n",
+    "PostedDate": "2012-11-24T09:56:33.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

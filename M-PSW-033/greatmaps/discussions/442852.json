@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "1040537",
+    "ThreadId": "442852",
+    "Html": "Hi radioman!\r<br />\n<br />\nIt took me a while to track this one down, I but I think I've gotten to the bottom of it.\r<br />\n<br />\nMy application is providing its own Brush instance that is used by all GMapPolygon instances.  But during the GMapPolygon.Dispose() method, my Brush is being disposed, which causes an exception when another polygon tries to use it later.\r<br />\n<br />\nFor example, suppose that I use System.Drawing.Brushes.Blue as a polygon fill... the current code will call Dispose on this system resource which should never be disposed.\r<br />\n<br />\n<br />\n<br />\nI think the solution is pretty straightforward though.  First, the GMapPolygon/GMapRoute should not dispose their Brush/Pen.  Instead, they can provide default brush/pen instances that are static and do not need to be explicitly disposed.\r<br />\n<br />\nFor example, the Fill/Stroke properties could be written like this:\r<br />\n<br />\nGMapPolygon:<br />\n<pre><code>      /// &lt;summary&gt;\n      /// specifies how the outline is painted\n      /// &lt;/summary&gt;\n      [NonSerialized]\n#if !PocketPC\n      private static readonly Pen DefaultStroke = new Pen(Color.FromArgb(155, Color.MidnightBlue));\n#else\n      private static readonly Pen DefaultStroke = new Pen(Color.MidnightBlue);\n#endif\n      public Pen Stroke = DefaultStroke;\n\n      /// &lt;summary&gt;\n      /// background color\n      /// &lt;/summary&gt;\n      [NonSerialized]\n#if !PocketPC\n      private static readonly Brush DefaultFill = new SolidBrush(Color.FromArgb(155, Color.AliceBlue));\n#else\n      private static readonly Brush DefaultFill = new System.Drawing.SolidBrush(Color.AliceBlue);\n#endif\n      public Brush Fill = DefaultFill;</code></pre>\n\nGMapRoute:<br />\n<pre><code>/// &lt;summary&gt;\n        /// specifies how the outline is painted\n        /// &lt;/summary&gt;\n        [NonSerialized]\n#if !PocketPC\n        private static readonly Pen DefaultStroke = new Pen(Color.FromArgb(144, Color.MidnightBlue));\n#else\n        private static readonly Pen DefaultStroke = new Pen(Color.MidnightBlue);\n#endif\n        public Pen Stroke = DefaultStroke;</code></pre>\n\nAnd finally, remove from GMapPolygon.Dispose():<br />\n<pre><code>Stroke.Dispose();\nFill.Dispose();</code></pre>\n\nAnd remove from GMapRoute.Dispose():<br />\n<pre><code>Stroke.Dispose();</code></pre>\n\nThis would allow an application to provide its own brushes and pens, and then manage the lifetime of its own objects.  Additionally, GMap becomes more lightweight because, by default, it only has 2 Pens and 1 Brush that are shared among all of the GMapPolygon and GMapRoute instances.\r<br />\n<br />\nI have tested these changes, and they work.  Would you like me to create a fork?<br />\n",
+    "PostedDate": "2013-05-07T11:50:44.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040554",
+    "ThreadId": "442852",
+    "Html": "sounds like a plan, i'll test it later<br />\n",
+    "PostedDate": "2013-05-07T12:39:46.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062420",
+    "ThreadId": "442852",
+    "Html": "Hi radioman,\r<br />\n<br />\nI am sorry if I misunderstood.  Would you like to me to create a fork for these changes?  Or are you able to make these changes?\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2013-06-28T05:13:04.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062462",
+    "ThreadId": "442852",
+    "Html": "..but what if i want polygons with different colors ;/<br />\n",
+    "PostedDate": "2013-06-28T07:05:38.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062467",
+    "ThreadId": "442852",
+    "Html": "<pre><code>// Different colors under new system\npolygon1.Fill = new SolidBrush(Color.Black); //Application created this brush, application should dispose it\npolygon2.Fill = new SolidBrush(Color.Blue); //Application created this brush, application should dispose it\npolygon3.Fill = new SolidBrush(Color.Yellow); //Application created this brush, application should dispose it\n\n//Because under the current system\npolygon4.Fill = new SolidBrush(Color.Red);\npolygon5.Fill = polygon4.Fill; //polygon5 will be broken after polygon4 is disposed</code></pre>\n\nIf you would like the polygon to dispose the brush, then maybe the polygon should clone the brush and dispose the clone?<br />\n",
+    "PostedDate": "2013-06-28T07:16:44.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062498",
+    "ThreadId": "442852",
+    "Html": "ok, done<br />\n",
+    "PostedDate": "2013-06-28T08:13:35.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062525",
+    "ThreadId": "442852",
+    "Html": "You da man!\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2013-06-28T09:05:14.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1202481",
+    "ThreadId": "442852",
+    "Html": "Did this change affect the GMapPolygon.Stroke.Brush property? I'm having issues where all my Polygons have the same brush colour as the last one added to the overlay. \r<br />\nI've just set them to black for now so its not a big issue. <br />\n",
+    "PostedDate": "2014-02-04T06:09:55.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1257835",
+    "ThreadId": "442852",
+    "Html": "Concerning Ruttager's problem, I had the same.<br />\n<br />\nAlthough to me it applies to the last added route in GmapRoute. I debugged and whenever I change the stroke the defaultstroke gets modified despite being readonly. In fact all instances of Gmaproute stroke property point to the defaultstroke, hence they all will be the same. I'm sure same issue is for polygons.<br />\n<br />\nI changed the declaration of the stroke in GmapRoute.cs<br />\n<br />\nOld:<br />\n<pre><code>Public Pen Stroke = DefaultStroke;</code></pre>\n\nNew:<br />\n<pre><code>Public Pen Stroke = (Pen)DefaultStroke.Clone();</code></pre>\n\nNow color for each route can be changed.<br />\n<br />\nProbably fix applies for GmapRoute, GmapPolygon and GmapTooltip.<br />\nAlso probably the fill, font, format and foreground property have the same issue.<br />\n<br />\n<strong>Edit:</strong> <br />\nAlright now I understand more the problem of the topic starter. Now you should create a new brush in your calling object. I don't find it pretty however because in my project I was only changing properties inside the Brush object which now fail after this change because in fact you are modifying the static default property. You think you are dealing with a property that has an own instance because it is not static, but in fact you are modifying a variable that is pointing to a static variable. I would suggest to use my solution. Makes it a bit less lightweight although I'm not too worried about that.<br />\n",
+    "PostedDate": "2014-06-19T04:41:42.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1257883",
+    "ThreadId": "442852",
+    "Html": "Hi JP!\r<br />\n<br />\nI like your solution because it would still allow an application to use its own brushes/pens, or allows the application to directly modify GMap's clones.  So the degree of lightweightedness, while probably only important to mobile, is still entirely up to the implementing application.\r<br />\n<br />\nYour solution works for me so long as we let Garbage Collection take care of the clean-up (i.e. GMap does not ever explicitly dispose the pens/brushes).\r<br />\n<br />\n<br />\nPerhaps radioman will chime in here...<br />\n",
+    "PostedDate": "2014-06-19T06:42:31.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1257924",
+    "ThreadId": "442852",
+    "Html": "Thanks mattgerg,\r<br />\n<br />\nYou could restore some of the lightweightness by adding a getter and setter which only clones or instantiates when the variable is still null. Then this cloning won't be done when you create a brush in your implementation, but will be done when you access the getter. Something like this:<br />\n<pre><code>private Pen _stroke = null;\nPublic Pen Stroke\n{\n  get\n  {\n    if (_stroke == null)\n      _stroke = (pen)DefaultStroke.Clone();\n    return _stroke;\n  }\n  set\n  {\n    _stroke = value;\n  }\n}\n\n</code></pre>\n\n",
+    "PostedDate": "2014-06-19T08:08:01.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1040191",
+    "ThreadId": "442758",
+    "Html": "So i have this program where I have a GPS module that will constantly update it's location.\r<br />\n<br />\nIt can be linked and routed to other points when the mouse double clicks and create more points.\r<br />\n<br />\nHow to constantly update the route?<br />\n",
+    "PostedDate": "2013-05-06T20:12:03.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040224",
+    "ThreadId": "442758",
+    "Html": "route.Points.Add(...);\r<br />\nmap.UpdateRouteLocalPosition(route);<br />\n",
+    "PostedDate": "2013-05-06T23:39:13.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040255",
+    "ThreadId": "442758",
+    "Html": "Thanks! I will try it out<br />\n",
+    "PostedDate": "2013-05-07T00:49:08.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040654",
+    "ThreadId": "442758",
+    "Html": "<pre><code>    public void button5_Click(object sender, EventArgs e)   //Add route function\n    {\n\n        r = new GMapRoute(point0, &quot;r&quot;);              //create new route point      \n        MainMap.UpdateRouteLocalPosition(r);\n        r.Stroke.Width = 2;                                    //Settings for route\n        r.Stroke.Color = Color.SeaGreen;\n        overlayOne.Routes.Add(r);\n\n     }\n</code></pre>\n\nHi radioman, is it suppose to place it like this? my point0 contains various points the marker(GPS) moves but the route doesnt update even if click button 5<br />\n",
+    "PostedDate": "2013-05-07T18:40:47.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040709",
+    "ThreadId": "442758",
+    "Html": "you call <em>Update</em>RouteLocalPosition when you need the <strong>Update</strong>, you don't need it here<br />\n",
+    "PostedDate": "2013-05-07T23:23:21.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1041169",
+    "ThreadId": "442758",
+    "Html": "I place it on the GPS function but how do i delete that individual point only to update it. When I call for UpdateRouteLocalPosition it wont update and move the route. \r<br />\npublic void DoUpdate(object sender, EventArgs e)<br />\n<pre><code>    {\n        string[] c = serialPort1.ReadLine().Split(',');  //Stored data seperately by using array &amp; using the Split() function\n        point0.Remove(new PointLatLng(lat, lng));\n        lat = Convert.ToDouble(c[9]);               //Convert Latitude string data to double data\n        lng = Convert.ToDouble(c[10]);              //Convert Longitude string data to double data\n\n        //Input lat and lng data in m.\n        //Updating the position of the marker\n        m.Position = new PointLatLng(lat, lng);\n        n.Position = new PointLatLng(1.310148, 103.779164); // Position of T11 Square\n        point0.Add(new PointLatLng(lat, lng));\n\n        MainMap.UpdateRouteLocalPosition(route);\n        //Update everything in form3\n        pForm3.DoUpdate1(c[1], c[2], c[3]);\n\n        // Update everything in form 4\n        pForm4.DoUpdate(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8], c[9], c[10], c[11]);\n\n        //Update everything in form 5 (CHECK AGAIN)\n        pForm5.DoUpdate(c[0], c[11], c[7], c[4]);\n\n    }\n</code></pre>\n\nIs it possible to delete that single point and replace it with another point? Then update it to the route?<br />\n",
+    "PostedDate": "2013-05-08T19:37:37.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

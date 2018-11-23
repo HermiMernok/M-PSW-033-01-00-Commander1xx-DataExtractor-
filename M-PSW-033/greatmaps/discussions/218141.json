@@ -1,0 +1,178 @@
+[
+  {
+    "Id": "462625",
+    "ThreadId": "218141",
+    "Html": "How can one detremine that while dragging a marker from one position to another it is over another marker?",
+    "PostedDate": "2010-07-02T06:19:23.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462626",
+    "ThreadId": "218141",
+    "Html": "<p>what version?</p>",
+    "PostedDate": "2010-07-02T06:20:47.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462630",
+    "ThreadId": "218141",
+    "Html": "<p><strong>GMap.NET.WindowsForms</strong>, Version 1.0.0.0</p>",
+    "PostedDate": "2010-07-02T06:33:42.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462636",
+    "ThreadId": "218141",
+    "Html": "<p>check all other markers where&nbsp;<em>IsMouseOver</em> == true</p>",
+    "PostedDate": "2010-07-02T06:42:46.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462647",
+    "ThreadId": "218141",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre><p>That doesn't seem to work. Below is a code snippet which I'm using to check whether a marker is over another marker. The event where I'm checking this is GmapControl &quot;DragOver&quot;</p><p>&nbsp;</p> <span style=\"color:blue\">if</span> (currentMarker <span style=\"color:blue\">is</span> EmployeeMarker)\r\n            {\r\n                <span style=\"color:blue\">foreach</span> (JobMarker jb <span style=\"color:blue\">in</span> jobsOverlay.Markers)\r\n                {\r\n                    <span style=\"color:blue\">if</span> (jb.IsMouseOver)\r\n                    { RadMessageBox.Show(<span style=\"color:#a31515\">&quot;JobMarker&quot;</span>); }\r\n                }\r\n            }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-02T07:08:35.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462648",
+    "ThreadId": "218141",
+    "Html": "<p>you can use&nbsp;OnMarkerEnter event, like in demo, then both markers become red</p>",
+    "PostedDate": "2010-07-02T07:12:43.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462649",
+    "ThreadId": "218141",
+    "Html": "<p>But the &quot;OnMarkerEnter&quot; event&nbsp;doesn't work when I'm dragging a marker.</p>",
+    "PostedDate": "2010-07-02T07:18:03.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462655",
+    "ThreadId": "218141",
+    "Html": "<p>yes it does ;}</p>",
+    "PostedDate": "2010-07-02T07:25:34.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462657",
+    "ThreadId": "218141",
+    "Html": "<p>It does work when&nbsp;the cursor&nbsp;enters a marker. But once I grab it and start dragging it over another marker it doesn't fire.</p>",
+    "PostedDate": "2010-07-02T07:30:47.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462658",
+    "ThreadId": "218141",
+    "Html": "<p>i guess it depends how you do that, can you tell what do you want to do?</p>",
+    "PostedDate": "2010-07-02T07:36:05.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462660",
+    "ThreadId": "218141",
+    "Html": "<p>Sure. I have two types of markers(JobMarker and EmployeeMarker). I want whenever I drag any of the jobmarkers over any of the Employeemarkers, the EmployeeMarker&nbsp;beneath the JobMarker&nbsp;should get highlighted.</p>",
+    "PostedDate": "2010-07-02T07:42:06.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462686",
+    "ThreadId": "218141",
+    "Html": "<p>well it should work, check demo, try to drag one rect over another, and both become red</p>",
+    "PostedDate": "2010-07-02T08:25:45.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462807",
+    "ThreadId": "218141",
+    "Html": "<p>But in the demo its not the &quot;DragOver&quot; event where you check for any overlapping of markers. The &quot;OnMarkerEnter&quot; works only after I release the mouse.</p>\r\n<p>I want to be able to detect any overlapping of markers while I'm dragging the marker.</p>",
+    "PostedDate": "2010-07-02T13:09:30-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462823",
+    "ThreadId": "218141",
+    "Html": "<p>no, it works <em>while</em> you dragging too</p>",
+    "PostedDate": "2010-07-02T13:44:45.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462841",
+    "ThreadId": "218141",
+    "Html": "<p>Would really appreciate if you could please post that code snippet to obtain the same functionality.</p>",
+    "PostedDate": "2010-07-02T14:20:48.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462847",
+    "ThreadId": "218141",
+    "Html": "<p>just catch the events...</p>",
+    "PostedDate": "2010-07-02T14:33:09.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462950",
+    "ThreadId": "218141",
+    "Html": "<p>if you start mainmap.dodragdrop event the onmarkerenter and onmarkerleave events do not fire until after you release the mouse is what she is saying. We could use the other method except we want to drag marker's ON the map from other controls (which is working) we just have not been able to fire the event as of yet. Any other hints?</p>",
+    "PostedDate": "2010-07-02T21:52:50.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463018",
+    "ThreadId": "218141",
+    "Html": "<p>OnMarkerEnter/OnMarkerLeave <strong>fires always</strong>, while dragging and while not dragging. It doesn't matter who what are saying ;} it is as it is.</p>",
+    "PostedDate": "2010-07-03T03:21:34.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463101",
+    "ThreadId": "218141",
+    "Html": "<p>After some more research it appears to be a feature of the DoDragDrop method from Win Forms. (As expected no fault of yours, really nice control did I mention that?)</p>\r\n<p>No mouse events fire, period, after you start that method. Below is a workaround and a link to a forum (but a simple search will reveal tons of people having this problem)</p>\r\n<p><a href=\"http://social.msdn.microsoft.com/Forums/en/wpf/thread/1053aaa4-d8b6-48d7-8d53-2af98e60d542\">MSDN Forum DODRAGDROP bad mouse events</a></p>\r\n<p>two variables to manage current Marker and minimumDistancetoHover</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        GMapMarker currentMarker = <span style=\"color:blue\">null</span>;\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">int</span> minimumDistanceToHover = 50;\r\n</pre>\r\n</div>\r\n<p>&nbsp;Some events on load to work with the map and dragdrop features</p>\r\n<pre>            // Set current marker to to actually drag\r\n            mainMap.OnMarkerEnter += new MarkerEnter(mainMap_OnMarkerEnter);\r\n            // Set current marker to null (will not allow drag)\r\n            mainMap.OnMarkerLeave += new MarkerLeave(mainMap_OnMarkerLeave);\r\n\r\n            // Start Drag Drop Event if onmarkerenter sets currentmarker\r\n            mainMap.MouseDown += new MouseEventHandler(mainMap_MouseDown);\r\n\r\n            // Checking position of drag to see if over a marker and set the marker bigger icon\r\n            // Also removes other icon sizes\r\n            mainMap.QueryContinueDrag += new QueryContinueDragEventHandler(mainMap_QueryContinueDrag);\r\n\r\n            // Set a custom Icon for the cursor\r\n            mainMap.GiveFeedback += new GiveFeedbackEventHandler(mainMap_GiveFeedback);\r\n\r\n            // Finish Drag/Drop Operation\r\n            mainMap.DragDrop += new DragEventHandler(mainMap_DragDrop);</pre>\r\n<p>Events to handle operation</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">void</span> mainMap_DragDrop(<span style=\"color:blue\">object</span> sender, DragEventArgs e)\r\n        {\r\n            <span style=\"color:green\">// Minimize all markers and grab the enter and drop marker for use</span>\r\n            GMapMarker dragFromMarker = currentMarker;\r\n            GMapMarker dragToMarker = <span style=\"color:blue\">null</span>;\r\n            <span style=\"color:blue\">if</span> (dragFromMarker != <span style=\"color:blue\">null</span>)\r\n            {\r\n                <span style=\"color:blue\">if</span> (currentMarker <span style=\"color:blue\">is</span> JobMarker)\r\n                {\r\n                    <span style=\"color:green\">// add stuff here later</span>\r\n                }\r\n                <span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (currentMarker <span style=\"color:blue\">is</span> EmployeeMarker)\r\n                {\r\n                    <span style=\"color:green\">// add stuff here later</span>\r\n                }\r\n            }\r\n        }\r\n\r\n        <span style=\"color:green\">// Set Custom Icons</span>\r\n        <span style=\"color:blue\">void</span> mainMap_GiveFeedback(<span style=\"color:blue\">object</span> sender, GiveFeedbackEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">bool</span> foundMarker = <span style=\"color:blue\">false</span>;\r\n            <span style=\"color:blue\">if</span> (currentMarker <span style=\"color:blue\">is</span> JobMarker)\r\n            {\r\n                e.UseDefaultCursors = <span style=\"color:blue\">false</span>;\r\n                <span style=\"color:blue\">string</span> fileName = ((JobMarker)currentMarker).IconFileName.Replace(<span style=\"color:#a31515\">&quot;16&quot;</span>, <span style=\"color:#a31515\">&quot;32&quot;</span>);\r\n                Bitmap bmp = (Bitmap)Properties.Resources.ResourceManager.GetObject(fileName);\r\n                <span style=\"color:blue\">try</span>\r\n                {\r\n                    Cursor.Current = CreateCursor(bmp, 0, 0);\r\n                    bmp.Dispose();\r\n                    foundMarker = <span style=\"color:blue\">true</span>;\r\n                }\r\n                <span style=\"color:blue\">catch</span> { }\r\n                foundMarker = <span style=\"color:blue\">true</span>;\r\n            }\r\n            <span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (currentMarker <span style=\"color:blue\">is</span> EmployeeMarker)\r\n            {\r\n                e.UseDefaultCursors = <span style=\"color:blue\">false</span>;\r\n                <span style=\"color:blue\">string</span> fileName = ((EmployeeMarker)currentMarker).IconFileName.Replace(<span style=\"color:#a31515\">&quot;32&quot;</span>, <span style=\"color:#a31515\">&quot;48&quot;</span>);\r\n                Bitmap bmp = (Bitmap)Properties.Resources.ResourceManager.GetObject(fileName);\r\n                <span style=\"color:blue\">try</span>\r\n                {\r\n                    Cursor.Current = CreateCursor(bmp, 0, 0);\r\n                    bmp.Dispose();\r\n                    foundMarker = <span style=\"color:blue\">true</span>;\r\n                }\r\n                <span style=\"color:blue\">catch</span> { }\r\n                foundMarker = <span style=\"color:blue\">true</span>;\r\n            }\r\n\r\n            <span style=\"color:blue\">if</span> (!foundMarker)\r\n                e.UseDefaultCursors = e.Effect != DragDropEffects.Copy;\r\n        }\r\n\r\n        <span style=\"color:green\">// Variables to evaluate distance, worked MUCH better than m.LocalArea.Contains method of mousepoint</span>\r\n        <span style=\"color:blue\">int</span> smallestDistance = -1;\r\n        <span style=\"color:blue\">int</span> distance = -1;\r\n        <span style=\"color:blue\">void</span> mainMap_QueryContinueDrag(<span style=\"color:blue\">object</span> sender, QueryContinueDragEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">if</span> (currentMarker != <span style=\"color:blue\">null</span> &amp;&amp;\r\n                Control.MouseButtons == System.Windows.Forms.MouseButtons.Left)\r\n            {\r\n                mainMap.SuspendLayout();\r\n                distance = 0;\r\n                smallestDistance = 999999999;\r\n                GMapMarker hoverMarker = <span style=\"color:blue\">null</span>;\r\n                <span style=\"color:blue\">if</span> (currentMarker <span style=\"color:blue\">is</span> JobMarker)\r\n                {\r\n                    <span style=\"color:blue\">foreach</span> (GMapMarker m <span style=\"color:blue\">in</span> jobsOverlay.Markers)\r\n                    {\r\n                        <span style=\"color:blue\">if</span> (m <span style=\"color:blue\">is</span> EmployeeMarker)\r\n                        {\r\n                            distance = 0;\r\n                            distance += Math.Abs(PointToClient(Control.MousePosition).X - m.LocalPosition.X);\r\n                            distance += Math.Abs(PointToClient(Control.MousePosition).Y - m.LocalPosition.Y);\r\n                            <span style=\"color:blue\">if</span> (smallestDistance &gt; distance)\r\n                            {\r\n                                smallestDistance = distance;\r\n                                <span style=\"color:blue\">if</span> (distance &lt; minimumDistanceToHover)\r\n                                {\r\n                                    hoverMarker = m;\r\n                                }\r\n                            }\r\n                            toolStripStatusLabel2.Text = distance.ToString();\r\n                            toolStripStatusLabel1.Text = smallestDistance.ToString();\r\n                            ((EmployeeMarker)m).usebigImage = <span style=\"color:blue\">false</span>;\r\n                        }\r\n                    }\r\n                    <span style=\"color:blue\">if</span> (hoverMarker != <span style=\"color:blue\">null</span>)\r\n                    {\r\n                        ((EmployeeMarker)hoverMarker).usebigImage = <span style=\"color:blue\">true</span>;\r\n                        toolStripStatusLabel1.Text = <span style=\"color:#a31515\">&quot;Job over Emp&quot;</span>;\r\n                    }\r\n                }\r\n                <span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (currentMarker <span style=\"color:blue\">is</span> EmployeeMarker)\r\n                {\r\n                    <span style=\"color:blue\">foreach</span> (GMapMarker m <span style=\"color:blue\">in</span> jobsOverlay.Markers)\r\n                    {\r\n                        <span style=\"color:blue\">if</span> (m <span style=\"color:blue\">is</span> JobMarker)\r\n                        {\r\n                            distance = 0;\r\n                            distance += Math.Abs(PointToClient(Control.MousePosition).X - m.LocalPosition.X);\r\n                            distance += Math.Abs(PointToClient(Control.MousePosition).Y - m.LocalPosition.Y);\r\n                            <span style=\"color:blue\">if</span> (smallestDistance &lt; 0.00)\r\n                                smallestDistance = distance;\r\n                            <span style=\"color:blue\">if</span> (smallestDistance &gt; distance)\r\n                            {\r\n                                smallestDistance = distance;\r\n                                <span style=\"color:blue\">if</span> (distance &lt; minimumDistanceToHover)\r\n                                {\r\n                                    hoverMarker = m;\r\n                                }\r\n                            }\r\n                            toolStripStatusLabel2.Text = distance.ToString();\r\n                            toolStripStatusLabel1.Text = smallestDistance.ToString();\r\n                            ((JobMarker)m).useBigImage = <span style=\"color:blue\">false</span>;\r\n                        }\r\n                    }\r\n                    <span style=\"color:blue\">if</span> (hoverMarker != <span style=\"color:blue\">null</span>)\r\n                    {\r\n                        ((JobMarker)hoverMarker).useBigImage = <span style=\"color:blue\">true</span>;\r\n                        toolStripStatusLabel1.Text = <span style=\"color:#a31515\">&quot;Emp over Job&quot;</span>;\r\n                    }\r\n                }\r\n                mainMap.ResumeLayout();\r\n                mainMap.Invalidate(<span style=\"color:blue\">false</span>);\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">void</span> mainMap_OnMarkerLeave(GMapMarker item)\r\n        {\r\n            currentMarker = <span style=\"color:blue\">null</span>;\r\n        }\r\n\r\n        <span style=\"color:blue\">void</span> mainMap_OnMarkerEnter(GMapMarker item)\r\n        {\r\n            <span style=\"color:blue\">if</span> (item <span style=\"color:blue\">is</span> JobMarker |\r\n                item <span style=\"color:blue\">is</span> EmployeeMarker)\r\n            {\r\n                currentMarker = item;\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">void</span> mainMap_MouseDown(<span style=\"color:blue\">object</span> sender, MouseEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">if</span> (currentMarker != <span style=\"color:blue\">null</span>)\r\n            {\r\n                toolStripStatusLabel1.Text = <span style=\"color:#a31515\">&quot;Start DragDrop&quot;</span>;\r\n                mainMap.DoDragDrop(currentMarker, DragDropEffects.Copy);\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"width:1px;height:1px;overflow:hidden;top:0px;left:-10000px\">﻿</div>",
+    "PostedDate": "2010-07-03T10:08:57.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463102",
+    "ThreadId": "218141",
+    "Html": "<p>O.o that's really something ;} ..is it possible to integrate that inside into control? ...would be definitely <em>b</em>e easier for anyone else to deal with it</p>",
+    "PostedDate": "2010-07-03T10:24:38.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463105",
+    "ThreadId": "218141",
+    "Html": "<p>Dunno how to do all that :) But I can give code snippets! lol</p>",
+    "PostedDate": "2010-07-03T10:39:12.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463132",
+    "ThreadId": "218141",
+    "Html": "<p>One more thing I missed above, the PointToclient method needs to be from the map control.</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>                            distance += Math.Abs(mainMap.PointToClient(Control.MousePosition).X - m.LocalPosition.X);\r\n                            distance += Math.Abs(mainMap.PointToClient(Control.MousePosition).Y - m.LocalPosition.Y);\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-07-03T13:56:47.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1251665",
+    "ThreadId": "547193",
+    "Html": "Hi Radioman,<br />\n<br />\nI used the GMap.NET two show the values of water monitoring along a river.<br />\n<br />\nI want to draw a line between to point on map, with gradient color suite to pair of the values.<br />\nI can draw a line or using polygon, but when using gradient color , I have to know exactly local coodinates. <br />\nSo, how to get exactly local coodinates, I mean the double variables. ( FromLatLngToLocal only show the point with pair (X,Y) by integer)<br />\n<br />\nHere is my code:<br />\n<pre><code>        Dim ToadoX, ToadoY As Double\n        Dim point1, point2 As PointF\n        Dim p As PointLatLng\n\n        'Dim x As Double = p1.X\n        '\n\n        ToadoX =  MyMap.FromLatLngToLocal(Pstart).X\n        ToadoY = MyMap.FromLatLngToLocal(Pstart).Y\n        point1 = New PointF(ToadoX, ToadoY)\n\n        ToadoX = MyMap.FromLatLngToLocal(Pend).X\n        ToadoY =  MyMap.FromLatLngToLocal(Pend).Y\n        point2 = New PointF(ToadoX, ToadoY)\n        Dim the_brush As New LinearGradientBrush(point1, point2, Colorstart, AColor)\n        GPoly.Stroke = New Pen(the_brush, 5)\n</code></pre>\n\nThanks,<br />\n",
+    "PostedDate": "2014-06-01T02:33:45.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

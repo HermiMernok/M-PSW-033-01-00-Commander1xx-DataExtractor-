@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1367463",
+    "ThreadId": "588415",
+    "Html": "Hi Radioman,<br />\n<br />\nI have  been using your great <strong>GMap.Net</strong> for a few months now and I have a problem to submit.<br />\n<br />\nHere is what i do:<br />\n<ul>\n<li>I display a <strong>GMapControl</strong> in my UserControl.</li>\n<li>\nThen I draw some areas on it (using <strong>GMapPolygon</strong>).<br />\n</li>\n</ul>\nHere is my problem:<br />\n<ul>\n<li>\nWhen dragging my map around the areas, the drag is very slow and cade (everything is perfect when areas are not displayed)<br />\n</li>\n</ul>\nHere is my code to draw areas:<br />\n<pre><code>                foreach (GeoZoneEntity area in areas)\n                {\n                    Color areaColor = (Color)ColorConverter.ConvertFromString(area.Color);\n\n                    // define brushes\n                    SolidColorBrush strokeBrush = new SolidColorBrush(Colors.Black);\n                    SolidColorBrush fillBrush = new SolidColorBrush(areaColor);\n\n                    // build point list as PointLatLong\n                    List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();\n                    foreach (GeoZonePointEntity point in area.GeoZonePoints)\n                    {\n                        points.Add(new PointLatLng(point.Latitude, point.Longitude));\n                    }\n\n                    GMapPolygon polygon = new GMapPolygon(points);\n                    polygon.RegenerateShape(mapControl);\n\n                    if (polygon.Shape != null &amp;&amp; polygon.Shape is Path)\n                    {\n                        (polygon.Shape as Path).StrokeThickness = 0.5;\n                        (polygon.Shape as Path).Stroke = strokeBrush;\n                        (polygon.Shape as Path).Fill = fillBrush;\n                    }\n\n                    mapControl.Markers.Add(polygon);\n                }\n</code></pre>\n\n<em>Note</em>: I have around 75 areas in my list and between 5 to 450 points in each one.<br />\n<br />\nI call this method only once at the beginning. So if you have any clue for me to improve the performance it would be great.<br />\n<br />\nThanks a lot by advance for your help and once again for your job.<br />\n<br />\nNicolas<br />\n",
+    "PostedDate": "2015-03-20T02:26:00.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1367535",
+    "ThreadId": "588415",
+    "Html": "try: <br />\n<pre><code>(polygon.Shape as Path).Effect = null;</code></pre>\n\n",
+    "PostedDate": "2015-03-20T06:58:36.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1382514",
+    "ThreadId": "588415",
+    "Html": "And once again you solved the problem in a single line.\r<br />\nThanks a lot and congratulations again for your work !!\r<br />\n<br />\nPS: could you explain me in a few words how does this solve the problem? Is there a default bitmap effect?<br />\n",
+    "PostedDate": "2015-03-23T00:35:39.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1385603",
+    "ThreadId": "588415",
+    "Html": "by default CreateRoutePath|CreatePolygonPath adds BlurEffect, i guess in large quantities it's not needed\r<br />\n<br />\n..i'll add optional parameter to enable/disable it<br />\n",
+    "PostedDate": "2015-03-23T03:01:31.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

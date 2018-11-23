@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "939258",
+    "ThreadId": "402592",
+    "Html": "\r\n<p>Hi everyone,</p>\r\n<p>I was just wondering if anyone has GmapControl working on Linux(Ubuntu). &nbsp;For starters I'm able to compile the dll successfully but my problem starts when i try to add the it to the toolbox so that i can host it on the MainWindow of my test project.\r\n &nbsp;Any ideas how to go about loading the map?</p>\r\n<p>I thought I would compile, add it to the toolbox and then drag it to the main window but it starts whining that GMapControl dos not contain any components whenever I try to do that</p>\r\n<p>cheers,</p>\r\n<p>geccko</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-09T10:12:18.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "939262",
+    "ThreadId": "402592",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>try add panel instead the map control, and in forms constructor manually add the map control into panel, set docking to full</p>\r\n",
+    "PostedDate": "2012-11-09T10:17:20.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "939477",
+    "ThreadId": "402592",
+    "Html": "<p>Thank you very much radioman for pointing me in the right direction; I'll sure try that. Silly me, never thought of doing it in the code and was limiting myself to the designer.&nbsp;</p>",
+    "PostedDate": "2012-11-09T21:53:58.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "941567",
+    "ThreadId": "402592",
+    "Html": "\r\n<p>It seems I had to change from gtk# to windows form otherwise creating a gtk# project wont work with this control since Gtk# inherits from gtk.bin class where GMap.NET inherits from usercontrol in System.Windows.Forms class.&nbsp; There are indications that it\r\n will work especially by referencing the System.Windows.Forms namespace. But it fails on this method NativeMethods.WaitForSingleObject just before it can load fully. On closer inspection I find it calls a method in kernel32.dll and there are other methods being\r\n invoked from ntdll.dll which are windows dlls. Any idea how I can get rid of these calls to windows dlls and still have GMap.NET work in linux with full functionality?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-14T05:51:03.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "941573",
+    "ThreadId": "402592",
+    "Html": "\r\n<p>add <strong>MONO</strong> to compilation symbols</p>\r\n",
+    "PostedDate": "2012-11-14T06:06:25.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942528",
+    "ThreadId": "402592",
+    "Html": "\r\n<p>Hi radioman</p>\r\n<p>Demo is running successfully now except for the fact that the tiles are not loading at all. Instead I'm getting a request timeout exception for all tiles but my internet is fast enough (21MBps) for this. I have set the timeout property to 60 secs so I can't\r\n understand why there are timeouts. If I copy the url of the tile being requested to Firefox browser it is loading okay infact immedaitely.</p>\r\n<p>Also seems like Cache database is not being created or used in Mono. Can't find it anywhere even after searching. I'm I missing something here? But this is the least of my concerns. I can do without cache but I need the tile to first load</p>\r\n<p>Any ideas?? Thanks for a wonderful control and for the support too.</p>\r\n",
+    "PostedDate": "2012-11-15T23:10:45.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942684",
+    "ThreadId": "402592",
+    "Html": "\r\n<p>to be able run via mono:</p>\r\n<ul>\r\n<li>add <strong>libmono-winforms2.0-cil</strong> (Mono System.Windows.Forms library (for CLI 2.0)) in package manager, this will add all the other needed dependencies\r\n</li><li>set&nbsp;<strong>MONO</strong> to compilation symbols&nbsp;for&nbsp;<em>GMap.NET.Core</em> and&nbsp;<em>GMap.NET.WindowsForms</em>\r\n</li><li>choose Release target, Rebuild </li><li>vuala! It works ;} </li></ul>\r\n<p>&nbsp;<a href=\"http://img812.imageshack.us/img812/6749/screenshotzey.png\" target=\"_blank\"><img src=\"http://img812.imageshack.us/img812/6749/screenshotzey.png\" alt=\"\" width=\"888\"></a></p>\r\n",
+    "PostedDate": "2012-11-16T04:35:46.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944340",
+    "ThreadId": "402592",
+    "Html": "\r\n<p>That was superb. Running just fine now, thank you very much for a great job.</p>\r\n",
+    "PostedDate": "2012-11-19T20:25:09.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

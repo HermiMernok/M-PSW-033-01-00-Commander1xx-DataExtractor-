@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1011454",
+    "ThreadId": "435657",
+    "Html": "I want to be able to make a route that consists of more than just two points, I want to have like 8 addresses or more and it should create a route between them deciding what should be the most shorter way;\r<br />\nFor example, if I have a route that consists of the following addresses:\r<br />\n<br />\n2 Dummy st., Some City , some state \r<br />\n45 Dummy Av.,Some City , some state \r<br />\nUS1 Dummy st.Some City , some state \r<br />\nUS1 125 Dummy st.Some City , some state \r<br />\n<br />\nit should be able to sort it by distance and make the route so I don't have to return to the same place twice, is there such a feature?if so, can you please post some code ?\r<br />\nthank you\r<br />\n<br />\n \r<br />\n<br />\nThanks for all!<br />\n",
+    "PostedDate": "2013-03-06T15:30:10.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011665",
+    "ThreadId": "435657",
+    "Html": "use google provider p.GetDirections(..., ..., <strong>IEnumerable&lt;string&gt; wayPoints</strong>, ..., ...)<br />\n",
+    "PostedDate": "2013-03-07T02:47:33.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011703",
+    "ThreadId": "435657",
+    "Html": "I guess thank you...but can you be more descriptive ?<br />\n",
+    "PostedDate": "2013-03-07T04:05:38.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

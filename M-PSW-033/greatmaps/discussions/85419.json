@@ -1,0 +1,290 @@
+[
+  {
+    "Id": "290958",
+    "ThreadId": "85419",
+    "Html": "<p>I use GMap.Net in my program, and I add this function, draw a polygon</p>\r\n<p><a href=\"http://6312797563042362127-a-1802744773732722657-s-sites.googlegroups.com/site/zeqkprojects/zeqktools-maps/area1.PNG\">http://6312797563042362127-a-1802744773732722657-s-sites.googlegroups.com/site/zeqkprojects/zeqktools-maps/area1.PNG</a></p>\r\n<p><a href=\"http://6312797563042362127-a-1802744773732722657-s-sites.googlegroups.com/site/zeqkprojects/zeqktools-maps/area1.PNG\">http://6312797563042362127-a-1802744773732722657-s-sites.googlegroups.com/site/zeqkprojects/zeqktools-maps/area2.PNG</a></p>\r\n<p>has the same behavior that the drawing of polygons maps.google.com&nbsp;</p>\r\n<p>http://zeqktools.googlecode.com/files/ZeqkTools.Maps.rar</p>\r\n<p>(sorry for my english)</p>",
+    "PostedDate": "2010-02-15T11:40:38.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291203",
+    "ThreadId": "85419",
+    "Html": "<p>nice idea, but it eats cpu ;} On each frame you create new list, calculate local points and convert it to array. Recalculation is needed only if map position or zoom is changing.</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnRender(Graphics g)\r\n{\r\n         _localPoints = <span style=\"color:Blue\">new</span> List&lt;Point&gt;();\r\n         <span style=\"color:Blue\">foreach</span>(<span style=\"color:Blue\">var</span> item <span style=\"color:Blue\">in</span> GeoPoints)\r\n         {\r\n            Position = item;\r\n            _localPoints.Add(LocalPosition);\r\n         }\r\n\r\n         g.DrawPolygon(Pen, _localPoints.ToArray());\r\n}\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-02-16T05:16:00.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "417308",
+    "ThreadId": "85419",
+    "Html": "<p>Thanks for the work and I am now using the code to implement my project.</p>\r\n<p>But&nbsp; there is one problem.</p>\r\n<p>If I add a tooltip to the object GMapMarkerPolygon and to set TooltipMode = MarkerTooltipMode.OnMouseOver,</p>\r\n<p>the tooltip never shows.</p>\r\n<p>Is it possible to modify the code so as to fix this bug?</p>\r\n<p>Thank you.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-11T23:58:21.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "417417",
+    "ThreadId": "85419",
+    "Html": "<p>set the marker size ;} and i hope you modify this example and test it via memory prifiler</p>",
+    "PostedDate": "2010-03-12T05:35:32.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "417922",
+    "ThreadId": "85419",
+    "Html": "<p>I found&nbsp;that to set the marker size is to actually to define a rectangle (width x height), is it right.&nbsp; When the mouse cursor is within the rectange, the code will set the ismouseover variable to true.</p>\r\n<p>However, this algorithm seems not suitable for polygon.&nbsp; So how can I modify the code to check whether the mouse cursor is within the polygon?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-14T09:05:57.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "417955",
+    "ThreadId": "85419",
+    "Html": "<p>thats a good question, hm..</p>",
+    "PostedDate": "2010-03-14T12:09:43.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418153",
+    "ThreadId": "85419",
+    "Html": "<p>Hello tcmLeung,</p>\r\n<p>I also use (many) polygons in my application and mouseover is working perfect. I use WPF together with Visual Basic 2010.</p>\r\n<p>If i can be of any help, please let me know...</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-15T04:00:37.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418242",
+    "ThreadId": "85419",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\">\r\n<p><span style=\"font-style:normal\">Hi Heru,</span></p>\r\n<p><span style=\"font-style:normal\">very glad to know you can trigger the mouseover event when mouse is over polygons.</span></p>\r\n<p><span style=\"font-style:normal\">Can you provide some code how to do so?</span></p>\r\n<p><span style=\"font-style:normal\">Actually I am using C# to implement but I can understand Visual Basic 2008 very well.</span></p>\r\n<p><span style=\"font-style:normal\">Thank you very much.</span></p>\r\n<p><span style=\"font-style:normal\">Terence</span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</blockquote>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-15T07:32:37.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418575",
+    "ThreadId": "85419",
+    "Html": "<p>Finally I found the solution. Here I want to share to all:</p>\r\n<p>1.&nbsp; In GMapMarker.cs, add the following virtual function:</p>\r\n<p><strong>public virtual bool LocalPointInPolygon(Point p)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</strong></p>\r\n<p>&nbsp;</p>\r\n<p>2.&nbsp; In GMapControl.cs, in the function <strong>protected override void OnMouseMove(MouseEventArgs e)</strong></p>\r\n<p>change this line --&nbsp;<strong> if (m.LocalArea.Contains(e.X, e.Y)</strong> to the following</p>\r\n<p><strong>if (m.LocalArea.Contains(e.X, e.Y) || m.LocalPointInPolygon(e.Location))</strong></p>\r\n<p>&nbsp;</p>\r\n<p>3.&nbsp; In the custom marker file GMapMarkerPolygon.cs, add the following function:</p>\r\n<p><strong>public override bool LocalPointInPolygon(Point p)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (_localPoints == null) return false;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i, j = _localPoints.Count - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bool oddNodes = false;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double ret;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (i = 0; i &lt; _localPoints.Count; i++)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (_localPoints[i].Y &lt; p.Y&nbsp; &amp;&amp; _localPoints[j].Y &gt;= p.Y<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; || _localPoints[j].Y &lt; p.Y &amp;&amp; _localPoints[i].Y &gt;= p.Y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ret=_localPoints[i].X + (p.Y - _localPoints[i].Y) / (_localPoints[j].Y - _localPoints[i].Y) * (_localPoints[j].X - _localPoints[i].X);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ret &lt; p.X)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oddNodes = !oddNodes;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j = i;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return oddNodes;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</strong></p>\r\n<p>Here I want to give thanks to <span style=\"font-size:8pt\"><em>Darel Rex Finley&nbsp; </em></span>that provides the algorithm of detecting point inside a polygon in the following website:</p>\r\n<p>http://alienryderflex.com/polygon/</p>",
+    "PostedDate": "2010-03-16T01:08:29.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418594",
+    "ThreadId": "85419",
+    "Html": "<p>great! i think we need 'official' polygon support ;}</p>",
+    "PostedDate": "2010-03-16T02:10:01.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "419182",
+    "ThreadId": "85419",
+    "Html": "<p>very nice!</p>",
+    "PostedDate": "2010-03-17T05:46:14.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424803",
+    "ThreadId": "85419",
+    "Html": "<p>hello,</p>\r\n<p>First of all, thanks for a great map engine!</p>\r\n<p>&nbsp;</p>\r\n<p>i've try several way to drawing polygon...</p>\r\n<p>alternatively you can customize <strong>DrawRoutes(Graphics g)</strong> method in <strong>GMapOverlay.cs</strong>,</p>\r\n<p>just add <strong>g.FillPath(..)</strong> method before <strong>g.DrawPath</strong></p>\r\n<p>&nbsp;</p>\r\n<p>the code would be like this:</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">hello,</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">First of all, thanks for a great map engine!</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">i've try several way to drawing polygon...</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">alternatively you can customize DrawRoutes(Graphics g) method in GMapOverlay.cs,</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">just add g.FillPath(..) method before g.DrawPath&nbsp;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">the code would be like this:</div>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span> GMapOverlay\r\n{\r\n......\r\n      <span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;summary&gt;</span>\r\n      <span style=\"color:Gray\">///</span><span style=\"color:Green\"> is the route drawn as polygon?</span>\r\n      <span style=\"color:Gray\">///</span> <span style=\"color:Gray\">&lt;/summary&gt;</span>\r\n\t<span style=\"color:Blue\">public</span> <span style=\"color:Blue\">bool</span> IsFillRouteAsPolygon = <span style=\"color:Blue\">false</span>;\r\n\t......\r\n\r\n\r\n\t<span style=\"color:Blue\">protected</span> <span style=\"color:Blue\">virtual</span> <span style=\"color:Blue\">void</span> DrawRoutes(Graphics g)\r\n\t{\r\n\t........\r\n               <span style=\"color:Blue\">if</span>(rp.PointCount &gt; 0)\r\n               {\r\n               \t  <span style=\"color:Blue\">if</span>(IsFillRouteAsPolygon == <span style=\"color:Blue\">true</span>)\r\n                  \tg.FillPath(YourPolygonFillBrush,rp);\r\n                  g.DrawPath(RoutePen, rp);\r\n               }\t\r\n\t}\r\n}\r\n\r\n</pre>\r\n<pre>&amp; here's the example how to use:</pre>\r\n<pre><div style=\"color:Black;background-color:White\"><pre>\tMyTestPolygon = <span style=\"color:Blue\">new</span> GMapOverlay(MainMap, <span style=\"color:#A31515\">&quot;MyTestPolygon&quot;</span>);\r\n\tMyTestPolygon.IsFillRouteAsPolygon = <span style=\"color:Blue\">true</span>;\r\n</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n<p>these works fine for me in Windows Forms but tested yet for other platforms</p>\r\n<p>&amp; off course no cpu boost</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>CMIIW</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-29T00:26:43.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424979",
+    "ThreadId": "85419",
+    "Html": "<p>works perfect, thanks!</p>\r\n<p><img src=\"http://wn6aqw.blu.livefilestore.com/y1pyWRCYWbYP_ZCmSBVInF_dxzLcRJ1BQXRweoke_fp9yH1zNOkIRG3La3yfRimbzwRZdnIuR3Xp5gYOS8e7RNia91jXQFy7NL2/gmap polygons.png\" alt=\"\"></p>",
+    "PostedDate": "2010-03-29T08:36:41.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435215",
+    "ThreadId": "85419",
+    "Html": "<p>Hi radioman, did you implement it on the code? I want to replace my &quot;mappoint&quot; control who let the user dray a filled polygon for making &quot;zone&quot; on the map?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-25T12:00:48.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435216",
+    "ThreadId": "85419",
+    "Html": "<p>check the demo ;}</p>",
+    "PostedDate": "2010-04-25T12:03:02.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435218",
+    "ThreadId": "85419",
+    "Html": "<p>hmm I just checked the Demo.WindowsPresentation and I didn't see any button for that, only in windows form?</p>",
+    "PostedDate": "2010-04-25T12:08:25.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435221",
+    "ThreadId": "85419",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2010-04-25T12:18:00.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435223",
+    "ThreadId": "85419",
+    "Html": "<p>hmm, so it's not working for the wpf version? I was using the wpf version because I was thinking it's the best for the system usage. did I make a mistake?</p>",
+    "PostedDate": "2010-04-25T12:19:29.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435225",
+    "ThreadId": "85419",
+    "Html": "<p>the polygon is just a figure generated like a route, just a question of time to implement</p>",
+    "PostedDate": "2010-04-25T12:21:31.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435226",
+    "ThreadId": "85419",
+    "Html": "<p>oh, okay. I was wondering if the new version will support the &quot;change&quot; of the polygon in realtime? :) like what mappoint do, when we click on a segment it split in 2 and put a new &quot;point&quot; and change the size of the polygon</p>",
+    "PostedDate": "2010-04-25T12:23:36.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435230",
+    "ThreadId": "85419",
+    "Html": "<p>maybe ;}</p>",
+    "PostedDate": "2010-04-25T12:34:54.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435495",
+    "ThreadId": "85419",
+    "Html": "<p>I added draw polygon functionallity, like maps.google.com draw tool</p>\r\n<p><img src=\"http://6312797563042362127-a-1802744773732722657-s-sites.googlegroups.com/site/zeqkprojects/zeqktools-maps/polygon.PNG\" alt=\"\"></p>\r\n<p>screen</p>\r\n<p><a href=\"http://6312797563042362127-a-1802744773732722657-s-sites.googlegroups.com/site/zeqkprojects/zeqktools-maps/polygon.PNG\">http://6312797563042362127-a-1802744773732722657-s-sites.googlegroups.com/site/zeqkprojects/zeqktools-maps/polygon.PNG</a></p>\r\n<p>test it in <a href=\"http://zeqktools.googlecode.com/files/Release 1.10.04.26.rar\">http://zeqktools.googlecode.com/files/Release%201.10.04.26.rar</a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-26T06:54:37.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435707",
+    "ThreadId": "85419",
+    "Html": "<p>oh really nice zeqk, radioman any chance to include it? it's exactly what I need :)</p>",
+    "PostedDate": "2010-04-26T15:23:13.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436101",
+    "ThreadId": "85419",
+    "Html": "<p>its included already, but not in wpf version ;}</p>",
+    "PostedDate": "2010-04-27T11:26:21.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436207",
+    "ThreadId": "85419",
+    "Html": "<p>we can do the same thing he did? the small box on the line for we can resize the polygon?</p>",
+    "PostedDate": "2010-04-27T15:47:03.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436208",
+    "ThreadId": "85419",
+    "Html": "<p>zeqk any chance you can share your code? :)</p>",
+    "PostedDate": "2010-04-27T15:49:53.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436220",
+    "ThreadId": "85419",
+    "Html": "yes! no problem \r\n\r\ndownload from http://zeqktools.googlecode.com/files/zeqktools1.10.04.26%20_src.zip\r\n\r\nmy project home page http://code.google.com/p/zeqktools/\r\n\r\nand \r\n\r\nsvn checkout http://zeqktools.googlecode.com/svn/trunk/ zeqktools-read-only",
+    "PostedDate": "2010-04-27T16:28:11.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439242",
+    "ThreadId": "85419",
+    "Html": "<p>the GMapPolygon will have tooltip??</p>",
+    "PostedDate": "2010-05-05T05:58:26.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439253",
+    "ThreadId": "85419",
+    "Html": "<p>nop</p>",
+    "PostedDate": "2010-05-05T06:09:42.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439414",
+    "ThreadId": "85419",
+    "Html": "<p>I use a tooltip in OnDoubleClick event</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> MainMap_MouseDoubleClick(<span style=\"color:blue\">object</span> sender, MouseEventArgs e)\r\n        {\r\n            PointLatLng point = MainMap.FromLocalToLatLng(e.X, e.Y);\r\n            <span style=\"color:blue\">foreach</span> (GMapPolygon polygon <span style=\"color:blue\">in</span> top.Polygons)\r\n            {\r\n                <span style=\"color:blue\">if</span> (Functions.PointInPolygon(point, polygon.Points.ToArray()))\r\n                {\r\n                    ToolTip tip = <span style=\"color:blue\">new</span> ToolTip();\r\n                    tip.SetToolTip(MainMap, polygon.Tag.ToString());\r\n                    tip.Show(<span style=\"color:#a31515\">&quot;&quot;</span>, <span style=\"color:blue\">this</span>, 1000);\r\n                }\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-05T11:15:31.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439691",
+    "ThreadId": "85419",
+    "Html": "<p>Hmm, is there any way for changing the color inside the polygon?</p>",
+    "PostedDate": "2010-05-06T00:36:12.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439710",
+    "ThreadId": "85419",
+    "Html": "<p>try set&nbsp;PolygonBackground in&nbsp;GMapOverlay</p>",
+    "PostedDate": "2010-05-06T01:10:06.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439962",
+    "ThreadId": "85419",
+    "Html": "<p>Hi, thank mean that will change all the background of all the polygon in this overlay, no?</p>",
+    "PostedDate": "2010-05-06T09:34:23.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440187",
+    "ThreadId": "85419",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2010-05-06T21:58:54.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440424",
+    "ThreadId": "85419",
+    "Html": "<p>Oh, that's bad, I'm in my Taxi Application, I need to load like 50 polygon for recreate &quot;Zones&quot;, each of them have a color... so by changing the overlay color that will change all the polygon color, and I don't think to create 1 overlay for each polygon will be a great idea. So why not adding public Color FillColor; to the class GMapPolygon and them replace the g.FillPath(PolygonBackground, rp); by something like</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (r.FillColor)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.FillPath(new SolidBrush(r.FillColor), rp);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.FillPath(PolygonBackground, rp);</p>\r\n<p>&nbsp;</p>\r\n<p>or at least g.FillPath(new SolidBrush(r.Color), rp);</p>\r\n<p>&nbsp;</p>\r\n<p>what do you think?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-07T10:43:26.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440498",
+    "ThreadId": "85419",
+    "Html": "<p>good idea ;} done!</p>",
+    "PostedDate": "2010-05-07T14:52:49.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

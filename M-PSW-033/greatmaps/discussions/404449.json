@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "946431",
+    "ThreadId": "404449",
+    "Html": "\r\n<p>I added a gmap control to the map when I press F5 only part of the mao shows up.</p>\r\n<p>Here is my code sofar.</p>\r\n<p>Image&nbsp;</p>\r\n<p>http://www.freebords.se/map_not_cover.jpg</p>\r\n<p>&nbsp;</p>\r\n<p>Try</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim es As system.Net.IPHostEntry=System.Net.Dns.GetHostEntry(&quot;www.google.com&quot;)</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'GMap1.Manager.Mode = AccessMode.CacheOnly</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox.Show(&quot;No internet connection available, not possible to run this software.&quot;, &quot;test&quot;, MessageBoxButtons.OK, MessageBoxIcon.Warning)</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exit Sub</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMap1.MinZoom = 1</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMap1.MaxZoom = 17</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMap1.Zoom = 11</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMap1.SetCurrentPositionByKeywords(&quot;Stockholm, Sweden&quot;)</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Get map types</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comboBoxMapType.ValueMember = &quot;Name&quot;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comboBoxMapType.DataSource = GMapProviders.List</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comboBoxMapType.SelectedItem = GMap1.MapProvider</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMap1.DragButton = Windows.Forms.MouseButtons.Left</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMap1.CanDragMap = True</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Get position</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'textBoxLat.Text = gmap.Position.Lat.ToString(CultureInfo.InvariantCulture)</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'textBoxLng.Text = gmap.Position.Lng.ToString(CultureInfo.InvariantCulture)</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'config(gmaps)</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMaps.Instance.UseRouteCache = True</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMaps.Instance.UseGeocoderCache = True</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMaps.Instance.UsePlacemarkCache = True</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMaps.Instance.Mode = AccessMode.ServerAndCache</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMap1.MapProvider = GMapProviders.GoogleMap</p>\r\n<p>&nbsp;</p>\r\n<pre><br></pre>\r\n",
+    "PostedDate": "2012-11-24T08:12:11.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946437",
+    "ThreadId": "404449",
+    "Html": "\r\n<p>set docking to full, all code in form constructor</p>\r\n",
+    "PostedDate": "2012-11-24T08:21:01.287-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946447",
+    "ThreadId": "404449",
+    "Html": "\r\n<p>Hmmm I got a parmeter that says gmap1.dock .. tried to set dock =fill ( full not available) .. The map still is still&nbsp;</p>\r\n<p>partial visible ? Can you evolve a bit further ?</p>\r\n",
+    "PostedDate": "2012-11-24T09:33:01.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946458",
+    "ThreadId": "404449",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>GMap1.MapProvider = GMapProviders.GoogleMap&nbsp;</p>\r\n<p>GMap1.Dock = DockStyle.fill &nbsp;</p>\r\n<p>GMap1.SetCurrentPositionByKeywords(&quot;Stockholm, Sweden&quot;)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Map still looks like this..&nbsp;</p>\r\n<p><span>http://www.freebords.se/map_not_cover.jpg</span></p>\r\n",
+    "PostedDate": "2012-11-24T10:08:07.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946459",
+    "ThreadId": "404449",
+    "Html": "\r\n<p><strong>all code in form constructor</strong></p>\r\n",
+    "PostedDate": "2012-11-24T10:15:58.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946461",
+    "ThreadId": "404449",
+    "Html": "\r\n<p>Sorry I am a little bit slow.. ... -This works --cheers !</p>\r\n<p>&nbsp; &nbsp; GMap1.Dock = System.Windows.Forms.DockStyle.Fill</p>\r\n",
+    "PostedDate": "2012-11-24T10:24:07.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "added FastResourceLock for x64 mode ",
+    "ClosedDate": "2011-08-13T10:53:27.593-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "any ideas? ;/\r\n\r\nthe same issue on these items:\r\n\r\nhttp://greatmaps.codeplex.com/workitem/15997\r\nhttp://greatmaps.codeplex.com/workitem/15993",
+    "LastUpdatedDate": "2011-08-13T10:53:27.593-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-02-24T13:17:23.86-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "FastReaderWriterLock, targeting x64 the SRWLock doesn't work",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 15998
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "You're using P/Invoke to acquire SRWLock. Why not using existing managed System.Threading types & methods? It may have something to do with typecasting on 64-bit OSes.",
+      "PostedDate": "2011-03-10T05:13:38.457-08:00",
+      "Id": 30328
+    },
+    {
+      "Message": "it's faster, but have issues on x64 os",
+      "PostedDate": "2011-03-10T09:35:37.06-08:00",
+      "Id": 30355
+    },
+    {
+      "Message": "It's probably due to few additional checks, but System.Threading solution should be (hm) architecture-neutral.",
+      "PostedDate": "2011-03-10T10:15:10.947-08:00",
+      "Id": 30365
+    }
+  ]
+}

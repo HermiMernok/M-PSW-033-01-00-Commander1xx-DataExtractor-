@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "846449",
+    "ThreadId": "358825",
+    "Html": "\r\n<p>I have an application which works fine with unrestricted access to the Internet but if I only wanted to allow access to the GMaps server, what would I need to do to my firewall?</p>\r\n<p>Hope this makes sense</p>\r\n<p>Thanks</p>\r\n<p>Tim</p>\r\n",
+    "PostedDate": "2012-06-08T01:25:44.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846468",
+    "ThreadId": "358825",
+    "Html": "<p>when firewall message appears, click allow ;}</p>",
+    "PostedDate": "2012-06-08T02:10:07.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846638",
+    "ThreadId": "358825",
+    "Html": "<p>Hi Radioman - thanks for coming back to me. I'm not sure that it's that simple is it?</p>\r\n<p>In most corporate environments, the user doesn't get the option to say [Allow] on a case-by-case basis, external sites are automatically and always blocked unless specifically pre-configured to be allowed by the IT Manager. Therefore, if I put my application into a commercial environment, I will need to tell the IT staff in advance what IP addresses my application will require&nbsp;access to and they configure their system accordingly. I'm not a network person, but isn't that how it works?</p>",
+    "PostedDate": "2012-06-08T08:29:58.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846716",
+    "ThreadId": "358825",
+    "Html": "<p>not my problem realy ;}</p>",
+    "PostedDate": "2012-06-08T11:18:53.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847344",
+    "ThreadId": "358825",
+    "Html": "<p>Ha Ha - Nice one and fair point radioman - except most of the requests on this site are not your problem and you still hang on in there providing support.......</p>\r\n<p>Let me rephrase my question - I somehow got the impression that my app isn't hitting the true map server but hitting some GMaps server that then patched me through to the true maps server (which is why I directed my enquiry to you, since I didn't know what this mythical GMaps server was called or what its IP address might be). I'm now coming to the conclusion that the code to patch me through to the true maps server is part of the downloaded component and, therefore, I <span style=\"text-decoration: underline;\"><strong>am</strong></span> hitting openstreetmap.org (Open Street Maps) or virtualearth.net (Bing maps) or maps2.yimg.com (Yahoo) directly</p>\r\n<p>If you can confirm the latter interpretation then I understand where you are coming from and I can just ensure that my app has access to these sites</p>\r\n<p>Thanks</p>\r\n<p>Tim</p>",
+    "PostedDate": "2012-06-11T01:58:51.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847367",
+    "ThreadId": "358825",
+    "Html": "<p>well if you can see the maps in the web browser then you should see them in GMap.NET too, they use identical tile servers, some corporations use proxy then you should set it as in demos</p>\r\n<p>to be sure run the demo, set mode to ServerOnly, reload the map, if it can't access the server you'll see the 'blue' errors</p>",
+    "PostedDate": "2012-06-11T03:14:11.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847379",
+    "ThreadId": "358825",
+    "Html": "<p>Fantastic - thanks Radioman!</p>\r\n<p>Tim</p>",
+    "PostedDate": "2012-06-11T03:30:19.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

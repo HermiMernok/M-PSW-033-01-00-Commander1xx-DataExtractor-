@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1438058",
+    "ThreadId": "642545",
+    "Html": "I draw an image (logo) on the map in the top right using the Event(GMapControl1_Paint), the image exported successfully but Without the logo image.\r<br />\n<br />\nSo please how can i export image with logo image without drawing it as a Marker.<br />\n",
+    "PostedDate": "2015-08-10T15:25:09.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1438232",
+    "ThreadId": "642545",
+    "Html": "'export '?<br />\n",
+    "PostedDate": "2015-08-11T23:45:07.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1438237",
+    "ThreadId": "642545",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\n'export '?<br />\n</blockquote>\ni mean save as image, it also means export as image using GMapControl1.toimage method<br />\n",
+    "PostedDate": "2015-08-12T00:04:08.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1438251",
+    "ThreadId": "642545",
+    "Html": "I did this some time ago in VB.Net quite successfully, converting the map to an image that can be copied to the clipboard. The Image I use\r<br />\n<br />\nYou will need to convert this into C# on your own...\r<br />\n<br />\nCreate a Button cmdCopy on a Form\r<br />\n<br />\nPrivate Sub cmdCopy_Click(sender As Object, e As EventArgs) Handles cmdCopy.Click<br />\n<pre><code>    Dim imgMap As Image\n\n    Try\n        'Copy the image to the Clipboard=========\n\n        imgMap = Me.gmapData.ToImage\n\n        Clipboard.SetImage(imgMap)\n        Me.cmdCopy.BackColor = Color.Violet\n\n    Catch ex As Exception\n        MessageBox.Show(ex.Message, &quot;Error copying map!&quot;, MessageBoxButtons.OK)\n    End Try\nEnd Sub\n</code></pre>\n\nI hope this helps<br />\n",
+    "PostedDate": "2015-08-12T01:46:53.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1438293",
+    "ThreadId": "642545",
+    "Html": "i see, try overriding <strong>OnPaintOverlays</strong> for logo rendering<br />\n",
+    "PostedDate": "2015-08-12T05:53:20.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-08-12T05:53:46.373-07:00"
+  },
+  {
+    "Id": "1438306",
+    "ThreadId": "642545",
+    "Html": "<strong>Lenvdb64 wrote:</strong><br />\n<blockquote>\nI did this some time ago in VB.Net quite successfully, converting the map to an image that can be copied to the clipboard. The Image I use<br />\n<br />\nYou will need to convert this into C# on your own...<br />\n<br />\nCreate a Button cmdCopy on a Form<br />\n<br />\nPrivate Sub cmdCopy_Click(sender As Object, e As EventArgs) Handles cmdCopy.Click<br />\n<pre><code>    Dim imgMap As Image\n\n    Try\n        'Copy the image to the Clipboard=========\n\n        imgMap = Me.gmapData.ToImage\n\n        Clipboard.SetImage(imgMap)\n        Me.cmdCopy.BackColor = Color.Violet\n\n    Catch ex As Exception\n        MessageBox.Show(ex.Message, &quot;Error copying map!&quot;, MessageBoxButtons.OK)\n    End Try\nEnd Sub\n</code></pre>\n\nI hope this helps<br />\n</blockquote>\nThanks Lenvdb64, but i already using this method but my problem was when using this method to save the map as image any drawing that i did through the Event (GMapControl1_Paint) not saved in the image, but the radioman solution worked perfectly.<br />\n",
+    "PostedDate": "2015-08-12T07:51:53.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1438307",
+    "ThreadId": "642545",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\ni see, try overriding <strong>OnPaintOverlays</strong> for logo rendering<br />\n</blockquote>\nThanks radioman\r<br />\n<br />\nYour solution worked perfectly.<br />\n",
+    "PostedDate": "2015-08-12T07:52:29.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

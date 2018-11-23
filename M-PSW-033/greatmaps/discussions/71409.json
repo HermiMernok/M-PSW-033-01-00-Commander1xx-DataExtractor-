@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "243544",
+    "ThreadId": "71409",
+    "Html": "<p>Here is a Class for an Image Maker where the image can be called from a file or an embdedded resource.</p>\r\n<p>Note: The image is centered on the point lat/lng and image size set by Size (height,width)</p>\r\n<p>Create a new class GmapMarkerImage in GMap.NET.WindowsForms.Markers and add the following if you want to add it to Gmap Windows Forms.</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">namespace</span> GMap.NET.WindowsForms.Markers\r\n{\r\n    <span style=\"color:Blue\">using</span> System.Drawing;\r\n    <span style=\"color:Blue\">using</span> System.Drawing.Drawing2D;\r\n    \r\n    <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span> GMapMarkerImage : GMapMarker\r\n    {\r\n        <span style=\"color:Blue\">public</span> System.Drawing.Image Image;\r\n\r\n        <span style=\"color:Blue\">public</span> GMapMarkerImage(PointLatLng p)\r\n            : <span style=\"color:Blue\">base</span>(p)\r\n        {\r\n            TTBorder.Width = 2;\r\n            TTBorder.LineJoin = LineJoin.Round;\r\n            TTBorder.StartCap = LineCap.RoundAnchor;\r\n            TTFormat.Alignment = StringAlignment.Center;\r\n            TTFormat.LineAlignment = StringAlignment.Center;\r\n        }\r\n\r\n        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnRender(Graphics g)\r\n        {\r\n            g.DrawImage(Image, System.Convert.ToInt32(LocalPosition.X - Size.Width / 2), System.Convert.ToInt32(LocalPosition.Y - Size.Height / 2), Size.Width, Size.Height);\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-08T11:06:33.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "243560",
+    "ThreadId": "71409",
+    "Html": "<p>p.s. there is property <strong>Offset</strong>, its purpose is to avoid<strong><em>&nbsp;</em></strong><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><em>LocalPosition.X - Size.Width / 2), System.Convert.ToInt32(LocalPosition.Y - Size.Height / 2),</em></span></p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><em><span style=\"font-style:normal\">just set <strong>Offset = new Point(Size.Width / 2, Size.Height / 2);</strong></span></em></span></p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><em><span style=\"font-style:normal\">then you can just render image at <strong>g.DrawImage(Image, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);</strong></span></em></span></p>",
+    "PostedDate": "2009-10-08T11:49:49.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "243837",
+    "ThreadId": "71409",
+    "Html": "<p>Hi, Yes I was aware of the offset but in my case 99.9% of the time I use an image it is always centered at the point.</p>\r\n<p>Less typing at coding time......Lazy:)</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-09T04:50:49.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "243860",
+    "ThreadId": "71409",
+    "Html": "<p>i see ;}</p>",
+    "PostedDate": "2009-10-09T05:43:36.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244120",
+    "ThreadId": "71409",
+    "Html": "<p>Sorry, I could not find the TTBorder and TTFormat, where can I found it?</p>",
+    "PostedDate": "2009-10-10T00:06:55.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244141",
+    "ThreadId": "71409",
+    "Html": "<p>Oops my bad,&nbsp; that should be;</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">namespace</span> GMap.NET.WindowsForms.Markers\r\n{\r\n    <span style=\"color:Blue\">using</span> System.Drawing;\r\n    <span style=\"color:Blue\">using</span> System.Drawing.Drawing2D;\r\n    \r\n    <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span> GMapMarkerImage : GMapMarker\r\n    {\r\n        <span style=\"color:Blue\">public</span> System.Drawing.Image Image;\r\n\r\n        <span style=\"color:Blue\">public</span> GMapMarkerImage(PointLatLng p) : <span style=\"color:Blue\">base</span>(p)\r\n        {\r\n        }\r\n\r\n        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnRender(Graphics g)\r\n        {\r\n            g.DrawImage(Image, System.Convert.ToInt32(LocalPosition.X - Size.Width / 2), System.Convert.ToInt32(LocalPosition.Y - Size.Height / 2), Size.Width, Size.Height);\r\n        }\r\n    }\r\n}\r\n<br><br>Cheers\r\n\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2009-10-10T02:38:58.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244158",
+    "ThreadId": "71409",
+    "Html": "<p>Thanks for letting me know.</p>\r\n<p>Sumvel</p>",
+    "PostedDate": "2009-10-10T04:07:08.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "798225",
+    "ThreadId": "71409",
+    "Html": "<p>Hi</p>\r\n<p>After making a GMapMarkerImage ,ToolTipText not showing !!!!!!</p>\r\n<p>Why?????</p>\r\n<p>&nbsp;</p>\r\n<p>Only when set ToolTipMode property to MarkerTooltipMode.Always , ToolTipText&nbsp; Will be dispaly.</p>\r\n<p>Please help me</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-02-23T13:10:15.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

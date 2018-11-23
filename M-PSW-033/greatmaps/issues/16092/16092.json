@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "GMapProvider.Language = LanguageType.Arabic;",
+    "ClosedDate": "2013-12-09T06:13:06.777-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI'm a bit embarrassed for this \"basic question\" but I have a problem with setting the language support I need. I can't find any whatsoever attribute called Language in Manager or somewhere else. I'm using the component in a Winform using the latest binary build (1.6)\r\n\r\n`Inline Code`\r\n    public class GmapHelper\r\n    {\r\n        public event EventDelegate MouseWheel;\r\n        public delegate void EventDelegate(object from, int args);\r\n\r\n        private GMapControl gMapControl;\r\n        private MapType mapType;\r\n\r\n        public void Initilize(GMapControl gMap)\r\n        {\r\n            gMapControl = gMap;\r\n\r\n            // Setting up the GMapControl.\r\n            // This line doesnt work due to \"lack of support\" in Manager.\r\n            //gMapControl.Manager.Language = LanguageType.Swedish;\r\n            gMapControl.DragButton = MouseButtons.Left;\r\n            gMapControl.CanDragMap = true;\r\n            gMapControl.MinZoom = 10;\r\n            gMapControl.MaxZoom = 18;\r\n            gMapControl.Zoom = 12;\r\n            gMapControl.Manager.Mode = AccessMode.ServerAndCache;\r\n            gMapControl.MapProvider = GoogleMapProvider.Instance;\r\n            gMapControl.Load += GMapControlOnLoad;\r\n            gMapControl.MouseWheel += GMapControlOnMouseWheel;\r\n            gMapControl.Overlays.Clear();\r\n        }",
+    "LastUpdatedDate": "2013-12-09T06:13:06.777-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-12-09T04:52:31.333-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "LanguageType",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16092
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

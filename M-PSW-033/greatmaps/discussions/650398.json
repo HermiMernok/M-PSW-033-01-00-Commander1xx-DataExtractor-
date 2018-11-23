@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1460357",
+    "ThreadId": "650398",
+    "Html": "I have a set of gps latitude and longitudes in a database and use:<br />\n<pre><code>MapRoute route = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(start, end, false, false, 15);</code></pre>\n\nto map a complex route, and it maps perfectly down to the correct traffic lane.\r<br />\n<br />\nI'm also using <strong>FromLocalToLatLng</strong> to get the map coordinates to display on a Panel on gMapControl1_MouseMove( ).\r<br />\n<br />\nBut looking at the database gps data I can tell the FromLocalToLatLng latitude and longitudes coordinates are incorrect.\r<br />\n<br />\nI found this: <a href=\"http://www.example.com\" rel=\"nofollow\">http://greatmaps.codeplex.com/discussions/623565</a> but I cannot get it to work with Winforms.\r<br />\n<br />\nAny C# Winforms help with and <em>example</em> much appreciated. \r<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2016-01-23T12:14:43.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1460430",
+    "ThreadId": "650398",
+    "Html": "are you sure? ;} check the demo, works excellent<br />\n",
+    "PostedDate": "2016-01-24T06:09:16.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-01-24T07:30:05.633-08:00"
+  },
+  {
+    "Id": "1460440",
+    "ThreadId": "650398",
+    "Html": "No, I thought I was sure it was broken but it does work perfect. Sorry\r<br />\n<br />\nHere in the US there is a company that tracks trucks and I used their gps data thinking it was more detailed. \r<br />\n<br />\nWhen I placed 'small white' markers at every gps coordinate they provide they match perfectly.<br />\n<pre><code>MapRoute route = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(start, end, false, false, 15);</code></pre>\n\nMapRoute gets a little confused with so few gps coordinates but considering that, it does a good job.\r<br />\n<img src=\"https://im1.shutterfly.com/media/47a6df05b3127cceeb653ce6350e00000030O01AZNG7duzcOQe3nwc/cC/f%3D0/ls%3D00908037774220160124150838861.JPG/ps%3D50/r%3D0/rx%3D720/ry%3D480/\" alt=\"Image\" />\r<br />\nBTW, I used this control years ago and just started using it again for another project. Back then I contributed $ and intend to send you more. All of us should reward you for your hard work. Thank you!<br />\n",
+    "PostedDate": "2016-01-24T07:29:59.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1460598",
+    "ThreadId": "650398",
+    "Html": "i'm glad it helps, thanks!<br />\n",
+    "PostedDate": "2016-01-25T12:55:05.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

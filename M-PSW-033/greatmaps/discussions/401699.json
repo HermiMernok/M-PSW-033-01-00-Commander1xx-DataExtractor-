@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "935763",
+    "ThreadId": "401699",
+    "Html": "\r\n<p>I would like to be able to&nbsp;problematically&nbsp;empty the tile cache when using a GMap control in ServerAndChache mode.&nbsp;</p>\r\n<p>Is there a specific method I can use on a GMapControl to empty the tile cache for that control? I am using the WinForms version of GMap.NET</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-11-02T08:46:28.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935767",
+    "ThreadId": "401699",
+    "Html": "<p>map.Manager.PrimaryCache.DeleteOlder...</p>",
+    "PostedDate": "2012-11-02T08:56:44.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935824",
+    "ThreadId": "401699",
+    "Html": "\r\n<p>Thanks, I appreciate the help. However, map.Manager does not seem to have a PrimaryCache property. I am using v1.6 WinForms. Is this feature present in this version?</p>\r\n<p>&nbsp;</p>\r\n<p>The properties of map.Manager I see are:</p>\r\n<p>&nbsp;</p>\r\n<p>CacheOnIdleRead</p>\r\n<p>CancelTileCaching</p>\r\n<p>DeserializeGPX</p>\r\n<p>DisableCodePlexAnalyticsPing</p>\r\n<p>Equals</p>\r\n<p>ExportGPX</p>\r\n<p>ExportToGMDB</p>\r\n<p>GetHasCode</p>\r\n<p>GetImageFrom</p>\r\n<p>GetType</p>\r\n<p>ImageCacheLocal</p>\r\n<p>ImageCacheSecond</p>\r\n<p>ImportFromGMDB</p>\r\n<p>IsRunningONMono</p>\r\n<p>MemoryCachecapacity</p>\r\n<p>MemoryCacehSize</p>\r\n<p>Mode</p>\r\n<p>OptimizeMapDb</p>\r\n<p>SerializeGPX</p>\r\n<p>ShuffleTilesONLoad</p>\r\n<p>SQLitePing</p>\r\n<p>ToString</p>\r\n<p>UseDirectionsCache</p>\r\n<p>UseGeocoderCache</p>\r\n<p>UseMemoryCache</p>\r\n<p>UsePlacemarkCache</p>\r\n<p>UserRouteCache</p>\r\n",
+    "PostedDate": "2012-11-02T11:30:16.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935826",
+    "ThreadId": "401699",
+    "Html": "<p>i think in the old version there is no such function</p>",
+    "PostedDate": "2012-11-02T11:32:33.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935836",
+    "ThreadId": "401699",
+    "Html": "<p>Ok, cool. I am using 1.6 (power) from the download on the main page. Which version would you recommend using that is the most stable and has this function?</p>",
+    "PostedDate": "2012-11-02T11:59:15.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935844",
+    "ThreadId": "401699",
+    "Html": "<p>latest</p>",
+    "PostedDate": "2012-11-02T12:14:03.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

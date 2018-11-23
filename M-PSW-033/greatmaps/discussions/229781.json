@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "502903",
+    "ThreadId": "229781",
+    "Html": "<p>Hi there. I'm using the latest GMap.NET Winform version. I'd like my application to be able to zoom in past the highest zoom level (typically zoom level 17). Obviously there is no data (i.e. no tiles) at higher zoom levels, but I'd like to simply zoom into the&nbsp;highest&nbsp;tile, or maybe&nbsp;I should say I'd like to &quot;magnify&quot; the highest tile&nbsp; (i.e. tiles at zoom level 17 or whatever the case may be). Yes, I know the image will get pixelated, but that's fine. Basically I'm looking to achieve the same behaviour as Google Earth, which allows you to keep on zooming in even after it's reached the highest zoom level tiles. Any ideas/pointers?</p>\r\n<p>Thanks...</p>",
+    "PostedDate": "2010-10-06T03:36:10.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502965",
+    "ThreadId": "229781",
+    "Html": "<p>the code is implemented already, just need some fix to allow to use higher zoom</p>",
+    "PostedDate": "2010-10-06T06:24:59.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "503314",
+    "ThreadId": "229781",
+    "Html": "<p>Can't see a delete option on CodePlex discussions.....</p>\r\n<p>Original post:</p>\r\n<p><span style=\"white-space:pre\"> </span>Alternatively, you could switch to the WPF version which supports this. &nbsp;Just change Map.MaxZoom to 20 (for example).</p>\r\n<p><span style=\"white-space:pre\"> </span>You should be able to host the WPF control in your winforms app (e.g.&nbsp;<a href=\"http://stackoverflow.com/questions/535812/using-a-custom-wpf-control-in-winforms\">http://stackoverflow.com/questions/535812/using-a-custom-wpf-control-in-winforms</a>&nbsp;)</p>\r\n<p>Correction:</p>\r\n<p><span style=\"white-space:pre\"> </span>That's what I thought was happening. &nbsp;I didn't realise that it's just that some areas support higher zoom levels (21 in the area I was working with).</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-06T17:57:11.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "503481",
+    "ThreadId": "229781",
+    "Html": "<p>Thanks for the reply. So if I understand correctly, the code to do that has already been implemented but has a bug in it?</p>",
+    "PostedDate": "2010-10-07T01:41:03.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "503527",
+    "ThreadId": "229781",
+    "Html": "<p>yes, you can edit&nbsp;TileMatrix, and in constructor add 33 levels, So your MaxZoom will be real map MaxZoom + LevelsKeepInMemmory, by default it's 5, so if google has 20 levels, you be able to zoom to 25. And its only in windows forms version, i don't know how to implement this in wpf now ;/</p>",
+    "PostedDate": "2010-10-07T03:11:15.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506501",
+    "ThreadId": "229781",
+    "Html": "<p>Mmm... I'm a little lost :) I'm looking at the contructor for the TileMatrix class:</p>\r\n<p><span style=\"color:blue\">public</span>&nbsp;TileMatrix()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">for</span>(<span style=\"color:blue\">int</span>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;Levels.Capacity;&nbsp;i++)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Levels.Add(<span style=\"color:blue\">new</span>&nbsp;<span style=\"color:#2b91af\">Dictionary</span>&lt;<span style=\"color:#2b91af\">Point</span>,&nbsp;<span style=\"color:#2b91af\">Tile</span>&gt;(55));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>\r\n<p>Where should I add the 33 levels? Sorry for my ignorance...</p>",
+    "PostedDate": "2010-10-13T02:11:59.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506527",
+    "ThreadId": "229781",
+    "Html": "<p>I was about to ask the same question.</p>",
+    "PostedDate": "2010-10-13T03:16:28.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506660",
+    "ThreadId": "229781",
+    "Html": "<p>it's already fixed, by default there is 33 levels</p>",
+    "PostedDate": "2010-10-13T07:54:34.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

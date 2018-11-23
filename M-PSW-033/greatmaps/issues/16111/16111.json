@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello radioman.\r\n\r\nProblem regarding GetDistance function.\r\npublic double GetDistance(PointLatLng p1, PointLatLng p2) function have bug.\r\nYou uses formula from: http://www.movable-type.co.uk/scripts/latlong.html\r\nFormula is:\r\nHaversine\r\nformula: a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)\r\nc = 2 ⋅ atan2( √a, √(1−a) )\r\nd = R ⋅ c\r\nwhere φ is latitude, λ is longitude, R is earth’s radius (mean radius = 6,371km);\r\n\r\nYour code is\r\ndouble dDistance = (Axis / 1000.0) * c;\r\nreturn dDistance;\r\nwhere Axis is Semi-major axis of ellipsoid, in meters and value is 6378137;\r\n\r\nThis is incorrect value for this formula. Must be 6371210 (mean radius = 6,371km) instead 6378137\r\n\r\nThanks.",
+    "LastUpdatedDate": "2015-02-28T18:34:18.1-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-02-28T18:34:18.1-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Distance calculation incorrect",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16111
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

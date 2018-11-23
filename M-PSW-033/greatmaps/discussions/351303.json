@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "820331",
+    "ThreadId": "351303",
+    "Html": "\r\n<p>HI,&nbsp;<span>first,</span><span>&nbsp;</span><span>SPECTACULAR JOB!!</span></p>\r\n<p><span>I can not find</span><span>&nbsp;</span><span>how to get the</span><span>&nbsp;</span><span>travel time</span><span>&nbsp;</span><span>on a route.</span><span>&nbsp;</span><span>MapRoute</span><span>&nbsp;</span><span>class</span><span>&nbsp;</span><span>returns</span><span>&nbsp;</span><span>the\r\n distance&nbsp;<span>but</span>&nbsp;<span>not time.</span> </p>\r\n<pre>(GMapProviders.EmptyProvider.Projection.GetDistance(Points[i - 1], Points[i]))</pre>\r\n</span><span>&nbsp;</span><span>I have searched</span><span>&nbsp;</span><span>in the</span><span>&nbsp;</span><span>Demo,</span><span>&nbsp;</span><span>but I have not</span><span>&nbsp;</span><span>found anything.</span>\r\n<p></p>\r\n<p><span>(<span>In other</span><span>&nbsp;</span><span>posts</span><span>&nbsp;</span><span>you comment</span><span>&nbsp;in demo &quot;<span>route start tooltip cointains info about route lenght and travel time&quot;,&nbsp;<span>I guess it</span><span>&nbsp;</span><span>will\r\n be an</span><span>&nbsp;</span><span>old</span><span>&nbsp;</span><span>demo</span><span>?</span></span></span></span></p>\r\n<p><span><span><span><span><span>Any</span><span>&nbsp;</span><span>information will help me</span><span>.</span><span>&nbsp;T</span><span>hank you very much!!</span><br>\r\n</span></span></span></span></p>\r\n",
+    "PostedDate": "2012-04-05T05:11:14.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820339",
+    "ThreadId": "351303",
+    "Html": "<p>t = s / v, and google provider returns average time too</p>",
+    "PostedDate": "2012-04-05T05:37:49.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820738",
+    "ThreadId": "351303",
+    "Html": "<p>&nbsp;</p>\r\n<p>trayecto = rp.GetRouteBetweenPoints(Puntos(i).pt, Puntos(i + 1).pt, False, False, MyMap.Zoom)</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;RoutingProvider = GMapProviders.OpenStreetMap</p>\r\n<p><strong>trayecto.Name = \"Driving\"</strong></p>\r\n<p><strong><br /></strong></p>\r\n<p>&nbsp;RoutingProvider = GMapProviders.GoogleMap</p>\r\n<p><strong>trayecto.Name = \" (2,9 km / 8 minutos)\"</strong></p>",
+    "PostedDate": "2012-04-06T02:24:10.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820867",
+    "ThreadId": "351303",
+    "Html": "<p>For&nbsp;RoutingProvider = GMapProviders.GoogleMap:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>trayecto = rp.GetRouteBetweenPoints(Puntos(i).pt, Puntos(i + 1).pt, <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">False</span>, MyMap.Zoom)\r\ntxt = trayecto.Name.Substring(2, trayecto.Name.Length - 3).Split(<span style=\"color: #a31515;\">\"/\"</span>)\r\n            <span style=\"color: blue;\">If</span> txt(0).Contains(<span style=\"color: #a31515;\">\"km\"</span>) <span style=\"color: blue;\">Then</span>\r\n                distancia2 += <span style=\"color: blue;\">CDec</span>(txt(0).Split(<span style=\"color: #a31515;\">\" \"</span>).First)\r\n            <span style=\"color: blue;\">Else</span>\r\n                distancia2 += <span style=\"color: blue;\">CDec</span>(<span style=\"color: #a31515;\">\"0,\"</span> &amp; txt(0).Split(<span style=\"color: #a31515;\">\" \"</span>).First)\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n            txt(1) = txt(1).TrimStart(<span style=\"color: #a31515;\">\" \"</span>)\r\n            <span style=\"color: blue;\">If</span> txt(1).Contains(<span style=\"color: #a31515;\">\"hor\"</span>) <span style=\"color: blue;\">And</span> txt(1).Contains(<span style=\"color: #a31515;\">\"minu\"</span>) <span style=\"color: blue;\">Then</span>\r\n                tiempo += <span style=\"color: blue;\">New</span> TimeSpan(txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).First, txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).ElementAt(2), 0)\r\n            <span style=\"color: blue;\">ElseIf</span> txt(1).Contains(<span style=\"color: #a31515;\">\"d&iacute;a\"</span>) <span style=\"color: blue;\">And</span> txt(1).Contains(<span style=\"color: #a31515;\">\"hor\"</span>) <span style=\"color: blue;\">Then</span>\r\n                tiempo += <span style=\"color: blue;\">New</span> TimeSpan(txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).First, txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).ElementAt(2), 0, 0)\r\n            <span style=\"color: blue;\">ElseIf</span> txt(1).Contains(<span style=\"color: #a31515;\">\"d&iacute;a\"</span>) <span style=\"color: blue;\">Then</span>\r\n                tiempo += <span style=\"color: blue;\">New</span> TimeSpan(txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).First)\r\n            <span style=\"color: blue;\">ElseIf</span> txt(1).Contains(<span style=\"color: #a31515;\">\"hor\"</span>) <span style=\"color: blue;\">Then</span>\r\n                tiempo += <span style=\"color: blue;\">New</span> TimeSpan(txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).First, 0, 0)\r\n            <span style=\"color: blue;\">ElseIf</span> txt(1).Contains(<span style=\"color: #a31515;\">\"minu\"</span>) <span style=\"color: blue;\">Then</span>\r\n                tiempo += <span style=\"color: blue;\">New</span> TimeSpan(0, txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).First, 0)\r\n            <span style=\"color: blue;\">ElseIf</span> txt(1).Contains(<span style=\"color: #a31515;\">\"segu\"</span>) <span style=\"color: blue;\">Then</span>\r\n                tiempo += <span style=\"color: blue;\">New</span> TimeSpan(0, 0, txt(1).Split(<span style=\"color: #a31515;\">\" \"</span>).First)\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n\r\n            tiempoTotal += <span style=\"color: blue;\">New</span> TimeSpan(tiempo.Days, tiempo.Hours, tiempo.Minutes, tiempo.Seconds)\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-04-06T08:56:25.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

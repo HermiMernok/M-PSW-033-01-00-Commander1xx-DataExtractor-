@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "911442",
+    "ThreadId": "395266",
+    "Html": "\r\n<p>hi,&nbsp;</p>\r\n<p>i want to use the openstreetmaps offline...is there any possibility with GMap.Net in WinForms</p>\r\n<p>or is there anything else i can do?</p>\r\n<p>i have searched a lot but don't get some serious stuff...how to do that</p>\r\n<p>any help would be appriciated</p>\r\n<p>thanks in advance&nbsp;</p>\r\n",
+    "PostedDate": "2012-09-12T04:28:53.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911461",
+    "ThreadId": "395266",
+    "Html": "<p>run the demo, prefetch your area in the cache menu, use it ;}</p>",
+    "PostedDate": "2012-09-12T04:57:45.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911467",
+    "ThreadId": "395266",
+    "Html": "<p>what you say is correct.</p>\r\n<p>My applications requirement is to use maps offline without internet connection.</p>\r\n<p>but this cache will be only available on one machine and you have to have prefetch the area.</p>\r\n<p>Now what should i do if i want the same thing to get done when i transfer this application on the machine which don't have internet connection?</p>\r\n<p>is there anyway to set and get the cache of the folder sot that i can copy the images... and take it with my application to other machine?</p>",
+    "PostedDate": "2012-09-12T05:08:51.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911472",
+    "ThreadId": "395266",
+    "Html": "<p>just copy/paste cache folder</p>",
+    "PostedDate": "2012-09-12T05:18:08.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911483",
+    "ThreadId": "395266",
+    "Html": "<p>thanks for such a great answer.</p>\r\n<p>as i also&nbsp;have found the cache folder source.&nbsp;</p>\r\n<p>this folder is only 262MB.</p>\r\n<p>now this maybe not the cache of whole the country (e.g UK) on every zoom level. Am i right?</p>\r\n<p>do i have to manually zoom on every level so that i have every point on each zoom level?&nbsp;</p>\r\n<p>IS THERE ANY OTHER WAY TO DO THAT?</p>\r\n<p>because when i plug out my internet cable i don't see the map at every zoom level&nbsp;</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-09-12T05:39:50.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911527",
+    "ThreadId": "395266",
+    "Html": "\r\n<p>after setting the CacheLocation to <strong>C:\\test</strong></p>\r\n<p>Data.gmdb is still created in&nbsp;<strong>C:\\Users\\..\\AppData\\Local\\GMap.NET\\TileDBv5\\en</strong></p>\r\n<p>and it is also present in <strong>C:\\test</strong></p>\r\n<p>why is that so?</p>\r\n<p>and what is&nbsp;<strong>System.Data.SQLite.DLL</strong> inside&nbsp;<strong>DllCache\\SQLite_v74_NET4_x86\r\n</strong>while it is not present in<strong> C:\\test</strong></p>\r\n<p>And also the size of the Data.gmdb doesn't exceed more than <strong>262336 &nbsp;KB</strong> why?</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2012-09-12T06:34:55.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911539",
+    "ThreadId": "395266",
+    "Html": "<p>use latest hot build version</p>\r\n<p>p.s. again for caching: \"run the demo, <strong>prefetch your area in the cache menu</strong>, use it ;}\"</p>",
+    "PostedDate": "2012-09-12T06:55:09.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911558",
+    "ThreadId": "395266",
+    "Html": "<p>you mean use it as a <strong>Data.gmdb (</strong>i am sitting behind proxy server cann't see map using Demo<strong>)</strong></p>\r\n<p>and what about<strong>&nbsp;<strong>System.Data.SQLite.DLL&nbsp;</strong></strong>why is that not present<strong><strong> in C:\\test?</strong></strong></p>",
+    "PostedDate": "2012-09-12T07:12:27.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912086",
+    "ThreadId": "395266",
+    "Html": "\r\n<p>hi radioman,</p>\r\n<p>you need to understand my issue please.</p>\r\n<p>as i am sitting behind proxy so i cann't access the maps.</p>\r\n<p>now my question is ... why is my Data.gmdb is not getting larger in size when i zoom in-and-out on different point...?</p>\r\n<p><strong>is there any other way to do that?</strong></p>\r\n<p>thanks in advance.</p>\r\n",
+    "PostedDate": "2012-09-13T02:09:07.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912103",
+    "ThreadId": "395266",
+    "Html": "\r\n<p>as i am sitting behind proxy so i cann't access the maps.</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp; Use Proxy Setting -&gt; Watch Demo</p>\r\n<p>&nbsp;</p>\r\n<p>now my question is ... why is my Data.gmdb is not getting larger in size when i zoom in-and-out on different point...?</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; it does. (256MB was a bug in older version, in new Version Data.gmdb is smaller and grows with new tiles)</p>\r\n<p>&nbsp;</p>\r\n<p>and also please explain the <strong><strong>System.Data.SQLite.DLL</strong></strong> do i need that? what is that doing there?</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The map is stored in a sqlite database, for using it, you need this dll. is located in your applicationfolder of gmap</p>\r\n<p>bye EDE</p>\r\n",
+    "PostedDate": "2012-09-13T02:55:56.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912106",
+    "ThreadId": "395266",
+    "Html": "\r\n<p>--&gt;Use Proxy Setting -&gt; Watch Demo</p>\r\n<p>you mean in the IE change the proxy settings?</p>\r\n<p>--&gt;&nbsp;<span>&nbsp;it does. (256MB was a bug in older version, in new Version Data.gmdb is smaller and grows with new tiles)</span></p>\r\n<p><span>so i need to download the new version of Gmap.net ? as i think i have the uptodate version of Gmap.net</span></p>\r\n",
+    "PostedDate": "2012-09-13T03:02:28.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912118",
+    "ThreadId": "395266",
+    "Html": "<p>yes, check the hot build</p>",
+    "PostedDate": "2012-09-13T03:21:07.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912161",
+    "ThreadId": "395266",
+    "Html": "\r\n<p>thanks man</p>\r\n<p>i didn't see that link existed</p>\r\n<p>i was using the old ones</p>\r\n",
+    "PostedDate": "2012-09-13T05:23:38.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

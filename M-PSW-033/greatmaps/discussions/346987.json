@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "804244",
+    "ThreadId": "346987",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I have two markers that overlap, i.e. the first one is almost completely hidden by the second one that was added last.</p>\r\n<p>When I place the mouse pointer over the markers, I receive the OnMarkerEnter event for the second marker. When i click on the marker, the OnMarkerClick event refers to the first marker. How can I achieve that both the OnMarkerEnter and OnMarkerClick events\r\n refer to the same marker?&nbsp; &nbsp;</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-03-02T01:04:47.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "804258",
+    "ThreadId": "346987",
+    "Html": "<p>to be really sure save marker on enter event and compare it with click event</p>",
+    "PostedDate": "2012-03-02T01:42:38.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

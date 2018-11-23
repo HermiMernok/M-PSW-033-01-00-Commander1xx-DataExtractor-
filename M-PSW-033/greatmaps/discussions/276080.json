@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "684949",
+    "ThreadId": "276080",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>I'm very new to Gmap.Net and I'm wondering how (in VB.Net) one would move the marker within the map and return the new lat/long. &nbsp;</p>\r\n<p>Thanks very much,</p>\r\n<p>James</p>\r\n",
+    "PostedDate": "2011-10-16T15:02:35.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685037",
+    "ThreadId": "276080",
+    "Html": "<p>marker.<strong>Position</strong> = new PointLatLng(...</p>",
+    "PostedDate": "2011-10-16T23:46:47.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685241",
+    "ThreadId": "276080",
+    "Html": "<p>radioman,</p>\r\n<p>Thanks very much...but I think I misspoke--what I mean is how can I drag the marker, and capture it's new lat/long? &nbsp;It won't drag, and I couldn't find a draggable property on either the overlay or marker. &nbsp;I can drag the map, but the marker and overlay move with it.</p>\r\n<p>I have a google key and a bing key, and I'm setting the initial position by making a call to the respective service and setting the marker based on those return values, and that works excellent. &nbsp;But I'm in Windows Forms and most examples for what I need are javascript and I'm not sure how I could embed javascript into either the .Net standard web control or the Gmap control.</p>\r\n<p>I might be over thinking this but I had started down the road of moving the marker with code-behind based on mousemove events in the .Net code...but then the math to calculate how many pixels relate to how much of a change in the starting lat/long (with different zoom levels, screen resolutions, etc) seems a challenge.</p>\r\n<p>So I guess the bottom line is I just want to drag the marker, and (to reduce webservice calls) have the user click when he's done dragging and then at that marker position find what the new lat/long is.</p>\r\n<p>Thanks very much for your help,</p>\r\n<p>--James</p>",
+    "PostedDate": "2011-10-17T09:05:55.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685263",
+    "ThreadId": "276080",
+    "Html": "<p>i guess you need to forget javascript and look at my c# demos ;}</p>",
+    "PostedDate": "2011-10-17T09:51:36.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685305",
+    "ThreadId": "276080",
+    "Html": "<p>Hello JamesKang,</p>\r\n<p>did you implemented the MapControl in an ASP.NET website? Do you have an example for it?</p>\r\n<p>Greets</p>\r\n<p>RobbeEDE</p>",
+    "PostedDate": "2011-10-17T10:47:17.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685308",
+    "ThreadId": "276080",
+    "Html": "<p>it has nothing to do with web sites</p>",
+    "PostedDate": "2011-10-17T10:55:21.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685333",
+    "ThreadId": "276080",
+    "Html": "<p>radioman,</p>\r\n<p>If you would be so kind, can you point me to a link with some basic examples in c#?&nbsp; I'm used to translating C# to VB.Net and I'm just&nbsp;looking for a starting point on how to get the markers or overlays to drag and return coordinates.&nbsp;</p>\r\n<p>Thanks very much,</p>\r\n<p>James</p>",
+    "PostedDate": "2011-10-17T11:20:28.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685338",
+    "ThreadId": "276080",
+    "Html": "<p>http://greatmaps.codeplex.com/SourceControl/list/changesets</p>",
+    "PostedDate": "2011-10-17T11:30:50.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685502",
+    "ThreadId": "276080",
+    "Html": "<p>radioman,</p>\r\n<p>Thanks very much! &nbsp;I've got the shell of what I need up and running in VB. &nbsp;That is some excellent coding, it's a fantastic application.</p>\r\n<p>Thanks again,</p>\r\n<p>James</p>",
+    "PostedDate": "2011-10-17T18:02:04.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

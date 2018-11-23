@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "1048476",
+    "ThreadId": "444944",
+    "Html": "Hi,\r<br />\nWhen i want to drag the map component to the form show this error and fail,\r<br />\n&quot;Failed to Create Component 'GmapControl'. The error message follows: 'System.MissingMethodException:Method not found: 'System.String System.Data.SQLite.SQLiteConnection.get_SQLiteSourceId()'.\r<br />\nat GMap.Net.CacheProviders.SQLitePureImageCache.Ping()\r<br />\nat GMap.Net.GMaps.SQLitePing()\r<br />\nat GMap.Net.WindowsForms.GMapControl.cctor()'\r<br />\n&quot;.\r<br />\nI before added the Dlls to my refrence,and i try all of .Net Versions!, so what is wrong?\r<br />\n<br />\nThanks for your help.<br />\n",
+    "PostedDate": "2013-05-24T15:09:57.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1048481",
+    "ThreadId": "444944",
+    "Html": "And you can see error picture:\r<br />\n <img src=\"http://hamplus.ir/error.png\" alt=\"Image\" />\r<br />\n<br />\nlink:\r<br />\n<a href=\"http://hamplus.ir/error.png\" rel=\"nofollow\">TEXT</a><br />\n",
+    "PostedDate": "2013-05-24T15:25:05.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1048550",
+    "ThreadId": "444944",
+    "Html": "ignore the error<br />\n",
+    "PostedDate": "2013-05-24T23:17:49.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082085",
+    "ThreadId": "444944",
+    "Html": "I have the same problem!\r<br />\nWhat do you mean by ignoring it? If I click on the OK button, then it won't be added to my form. What should I do?<br />\n",
+    "PostedDate": "2013-08-19T04:09:46.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082116",
+    "ThreadId": "444944",
+    "Html": "it's buggy designer, you may add some panel, and the map control manualy<br />\n",
+    "PostedDate": "2013-08-19T04:58:39.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082142",
+    "ThreadId": "444944",
+    "Html": "I closed visual studio and opened it again and the problem was solved!<br />\nBut now I have another problem!<br />\n<br />\nWhat's wrong with this piece of code? <br />\n//*************************************************************<br />\n   private void Form1_Load(object sender, EventArgs e)<br />\n<pre><code>    {\n        // Initialize map:\n\n        gmap.MapProvider = GMap.NET.MapProviders.YahooMapProvider.Instance;\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n        gmap.Position = new PointLatLng(32.641218, 51.67576);\n    }</code></pre>\n\n//************************************************************<br />\nwhile gmap is my instance of GMapControl component.<br />\n<br />\nWhen I run the program, it gives this error:<br />\nA first chance exception of type 'System.TypeInitializationException' occurred in usdllofgmap.net.exe<br />\n<br />\nAdditional information: The type initializer for 'GMap.NET.WindowsForms.GMapControl' threw an exception.<br />\n<br />\nAnd it refers to this line in Designer.cs code:<br />\n this.gmap = new GMap.NET.WindowsForms.GMapControl();<br />\n<br />\nWould you please help me?<br />\n",
+    "PostedDate": "2013-08-19T06:03:08.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082147",
+    "ThreadId": "444944",
+    "Html": "can you check inner exception?<br />\n",
+    "PostedDate": "2013-08-19T06:09:26.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082148",
+    "ThreadId": "444944",
+    "Html": "How should I do this?<br />\n",
+    "PostedDate": "2013-08-19T06:10:38.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082152",
+    "ThreadId": "444944",
+    "Html": "I enabled first chance exceptions. Now it gives this error:\r<br />\nA first chance exception of type 'System.BadImageFormatException' occurred in GMap.NET.Core.dll\r<br />\n<br />\nAdditional information: Could not load file or assembly 'System.Data.SQLite, Version=1.0.84.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. An attempt was made to load a program with an incorrect format.\r<br />\n<br />\nwhat dose it mean? I've added System.Data,SQLite.dll into the project's references and add using System.Data.SQLite, expression to my code too. And I copy System.Data.SQLite.dll from the source code directory which I was worked it before without any problem.<br />\n",
+    "PostedDate": "2013-08-19T06:19:33.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082191",
+    "ThreadId": "444944",
+    "Html": "you don't need to do that anymore<br />\n",
+    "PostedDate": "2013-08-19T07:38:25.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082241",
+    "ThreadId": "444944",
+    "Html": "So what's the problem with my program?! \r<br />\nI can't solve it :(<br />\n",
+    "PostedDate": "2013-08-19T08:55:19.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083200",
+    "ThreadId": "444944",
+    "Html": "remove System.Data,SQLite.dll from the references<br />\n",
+    "PostedDate": "2013-08-21T10:03:39.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

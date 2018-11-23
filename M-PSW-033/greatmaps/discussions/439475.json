@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1027084",
+    "ThreadId": "439475",
+    "Html": "Hi, I have a method for searching for a location in the map.<br />\n<pre><code>public void searchLocation()\n{\n  string l = textBox_location.Text;\n  gMap.SetPositionByKeywords(l);\n  gMap.Zoom = 10;\n}</code></pre>\n\nI would also like to set the zoom level by using setZoomToFitRect(), but how can i get the rect or positions of the location i searched for?<br />\n",
+    "PostedDate": "2013-04-08T02:27:37.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027091",
+    "ThreadId": "439475",
+    "Html": "google geocoder returns:<br />\n<pre><code>                  //    &lt;ExtendedData&gt;\n                  //      &lt;LatLonBox north=&quot;54.8616279&quot; south=&quot;54.4663633&quot; east=&quot;25.4839269&quot; west=&quot;24.9688846&quot; /&gt;\n                  //    &lt;/ExtendedData&gt;</code></pre>\n\nbut current code doesn't use/parse it, you have to modify it, or make extended function which include this functionality<br />\n",
+    "PostedDate": "2013-04-08T02:52:31.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027115",
+    "ThreadId": "439475",
+    "Html": "Where can i get the geocoder?\r<br />\n<br />\nCan i use the following code?<br />\n<pre><code>GeocodingProvider a = GMap.NET.MapProviders.GoogleMapProvider.Instance as GeocodingProvider;</code></pre>\n\n",
+    "PostedDate": "2013-04-08T03:31:47.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027143",
+    "ThreadId": "439475",
+    "Html": "yes<br />\n",
+    "PostedDate": "2013-04-08T04:34:53.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027147",
+    "ThreadId": "439475",
+    "Html": "could you give an example on how to get data from the geocoder? Have tried many things and don't think i have quite understood how.<br />\n",
+    "PostedDate": "2013-04-08T04:40:11.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027881",
+    "ThreadId": "439475",
+    "Html": "I have found a solution. Thank you for your replies :-)<br />\n",
+    "PostedDate": "2013-04-09T07:35:58.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

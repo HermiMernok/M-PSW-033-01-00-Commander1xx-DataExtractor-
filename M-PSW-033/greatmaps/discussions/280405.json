@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "701775",
+    "ThreadId": "280405",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>Firstly thanks for that great piece of work...</p>\r\n<p>I upgraded to Version 1.6.0.0 and when I use GMapControl.CurrentViewArea.Left/Bottom/Right/Top I recieve very strange coordinate values. I think that the first used extent is now the reference for all extents afterwards.</p>\r\n<p>The GMapControl.CurrentViewArea.Left value is always -180&deg; when starting my application.</p>\r\n<p>I also tested this issue with your Presentation project... having the same results...</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">double</span> w = Math.Round(viaGMapControl.CurrentViewArea.Left, 3);\r\n<span style=\"color:blue\">double</span> s = Math.Round(viaGMapControl.CurrentViewArea.Bottom, 3);\r\n<span style=\"color:blue\">double</span> o = Math.Round(viaGMapControl.CurrentViewArea.Right, 3);\r\n<span style=\"color:blue\">double</span> n = Math.Round(viaGMapControl.CurrentViewArea.Top, 3);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Thanks for your help!!!</p>\r\n<p>Best regards</p>\r\n<p>Thomas</p>\r\n",
+    "PostedDate": "2011-11-22T06:40:45.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "701780",
+    "ThreadId": "280405",
+    "Html": "<p>did you tested it without seeing the map, before form loaded?</p>",
+    "PostedDate": "2011-11-22T06:48:28.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "701793",
+    "ThreadId": "280405",
+    "Html": "<p>I checked the value</p>\r\n<pre>viaGMapControl.CurrentViewArea.Left</pre>\r\n<p>in the constructor of the application<strong> before</strong> setting the current position with e.g.</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>viaGMapControl.SetCurrentPositionByKeywords(<span style=\"color: #a31515;\">\"Wien\"</span>);\r\n</pre>\r\n</div>\r\n</p>\r\n<p>and <strong>afterwards</strong>.</p>\r\n<p>It's twice the value -180&deg;.</p>",
+    "PostedDate": "2011-11-22T07:20:36.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "701899",
+    "ThreadId": "280405",
+    "Html": "<p>constructor doesn't count, check the third time after form is loaded ;}</p>",
+    "PostedDate": "2011-11-22T09:43:22.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "702805",
+    "ThreadId": "280405",
+    "Html": "<p>Also after loading the form: The value is still -180&deg; where it shouldn't be...</p>\r\n<p>I haven't a clue why...</p>\r\n<p>The\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>viaGMapControl.Position\r\n</pre>\r\n</div>\r\nvalue is correct.</p>",
+    "PostedDate": "2011-11-24T00:59:04.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "702873",
+    "ThreadId": "280405",
+    "Html": "<p>i've just fixed it, should be ok</p>\r\n<p>p.s. renamed from &nbsp;CurrentViewArea -&gt;&nbsp;ViewArea</p>",
+    "PostedDate": "2011-11-24T03:13:01.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "702874",
+    "ThreadId": "280405",
+    "Html": "<p>Muchos gratias!!!</p>",
+    "PostedDate": "2011-11-24T03:14:16.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114042",
+    "ThreadId": "280405",
+    "Html": "Hi Radioman and Nordberg,\r<br />\n<br />\nIf been busy with setting the zoom to have the maximum amount of (in)-zoom but still be able to display a complete route.\r<br />\n<br />\nThe 'ZoomAndCenterRoute'-instruction gives me not enough detail on the map ( too wide a zoom).\r<br />\n<br />\nNow i tried this:<br />\n<hr />\nwhile (myMap.CurrentViewArea.Contains(markerStart.Position) == true &amp;&amp; !myMap.CurrentViewArea.Contains(markerEnd.Position) == true)<br />\n<pre><code>        {\n            myMap.Zoom += 1;\n         }</code></pre>\n\n<hr />\nBut having same problem with version 1.6.0.0 as Nordberg had. What can i do?<br />\n",
+    "PostedDate": "2013-10-30T02:10:30.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "offset fixed",
+    "ClosedDate": "2010-02-16T10:26:52.057-08:00",
+    "CommentCount": 5,
+    "Custom": "",
+    "Description": "In the current implementation, using MouseWheelZoomType.MousePosition exhibits a different behaviour than that from Google Maps (with CenterPositionOnMouseWheel = false). For example, if you repeatedly zoom in then out in Google Maps, the map position will stay the same. Doing this in GMap.NET will cause the map to slowly move to another position.\n\nThis can be rectified by using the following code for OnMouseWheel for GMapControl (WPF):\n\nprotected override void OnMouseWheel(MouseWheelEventArgs e)\n      {\n          base.OnMouseWheel(e);\n\n          if (IsMouseDirectlyOver && !IsDragging)\n          {\n              if (MouseWheelZoomType == MouseWheelZoomType.MousePosition)\n              {\n                  System.Windows.Point p = e.GetPosition(this);\n                  if (e.Delta > 0)\n                  {\n                      int halfX = (int)ActualWidth / 2;\n                      int halfY = (int)ActualHeight / 2;\n                      Core.currentPosition = FromLocalToLatLng(((int)p.X - halfX) / 2 + halfX, ((int)p.Y - halfY) / 2 + halfY);\n                  }\n                  else if (e.Delta < 0)\n                  {\n                      Core.currentPosition = FromLocalToLatLng((int)ActualWidth - (int)p.X, (int)ActualHeight - (int)p.Y);\n                  }\n              }\n\n... with the rest of the method remaining the same. I use it with CenterPositionOnMouseWheel = false as this replicates the Google Maps scroll behaviour.\n\nIf a different behaviour was purposely intended for MousePosition, could the above behaviour above be added as another MouseWheelZoomType enum?\n\nThanks.",
+    "LastUpdatedDate": "2010-02-16T10:26:52.057-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-01-11T21:14:08.063-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Mouse Position Zoom Type",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15862
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "it still move to another position, do you test this code?",
+      "PostedDate": "2010-01-11T23:08:12.873-08:00",
+      "Id": 3143
+    },
+    {
+      "Message": "I have tested it. I have taken the latest source set (45309) and copied and pasted it in and it works with my application.\r\n\r\nThe only properties I've set on the GMapControl are:\r\nMinZoom = 2;\r\nMaxZoom = 15;\r\nZoom = 12;\r\nDragButton = MouseButton.Left;\r\nCenterPositionOnMouseWheel = false;\r\n\r\nAlso, you can do some optimisation to the code by only casting after the final calculation instead of casting each element.",
+      "PostedDate": "2010-01-12T16:36:42.247-08:00",
+      "Id": 3144
+    },
+    {
+      "Message": "i set CenterPositionOnMouseWheel = false, still wrong, if i set true, offset is even more visible",
+      "PostedDate": "2010-01-12T21:44:30.48-08:00",
+      "Id": 3145
+    },
+    {
+      "Message": "i am also getting a small offset when using the suggested fix..\r\n\r\nit does more closely resemble the google maps method (which i like better my self) but it still has the offset.",
+      "PostedDate": "2010-01-18T10:33:46.43-08:00",
+      "Id": 3146
+    },
+    {
+      "Message": "If you zoom in and out repeatedly by only one level, do you still get the offset? It should be a very small offset, probably 1px difference for each repetition.\r\n\r\nI think you'll always get an offset because of the resolution accuracy of the mouse cursor. But then again, the same thing happens with Google Maps.",
+      "PostedDate": "2010-01-18T14:51:35.427-08:00",
+      "Id": 3147
+    }
+  ]
+}

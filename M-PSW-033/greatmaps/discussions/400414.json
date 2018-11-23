@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "930877",
+    "ThreadId": "400414",
+    "Html": "\r\n<p>hi,</p>\r\n<p>When moving mouse on markers, if the markers are on the edge of the map then the tooltip is shown half inside the map and half outside the map bounds.</p>\r\n<p>How can i achieve the result by moving the tooltip to the other side of the map where there is more space to do that?</p>\r\n<p>i don't find anything which can help.</p>\r\n<p>&nbsp;</p>\r\n<p>thanks in advance</p>\r\n",
+    "PostedDate": "2012-10-23T01:00:02.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1169486",
+    "ThreadId": "400414",
+    "Html": "Hi,\r<br />\n<br />\nIs anybody knows a solution yet?\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-01-15T09:15:38.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1184451",
+    "ThreadId": "400414",
+    "Html": "I've implemented it in my program <a href=\"http://journeyplotter.ihostfull.com\" rel=\"nofollow\">Journey Plotter</a> by extending the GMapTooltip class.<br />\nPerhaps this works for you too.<br />\n<pre><code>public override void OnRender(Graphics g)\n{\n  System.Drawing.Size st = g.MeasureString(Marker.ToolTipText, Font).ToSize();\n  System.Drawing.Rectangle rect = new System.Drawing.Rectangle(Marker.ToolTipPosition.X, Marker.ToolTipPosition.Y - st.Height, st.Width + TextPadding.Width * 2, st.Height + TextPadding.Height);\n\n  // Only draw tooltip if it fits withing the viewport\n  if ((rect.Width &lt; g.VisibleClipBounds.Width) &amp;&amp; (rect.Height &lt; g.VisibleClipBounds.Height))\n  {\n    Point hotspot = new Point();\n\n    rect.Offset(Offset.X, Offset.Y);\n\n    if (rect.Right &lt;= g.VisibleClipBounds.Right)\n    {\n      // Tooltip fits within view port, use bottom-left corner as hotspot\n      hotspot.X = rect.X + (int) (Radius / 2);\n    }\n    else\n    {\n      // Shift tooltip left and use bottom-right corner as hotspot\n      rect.Offset(-2 * Offset.X - rect.Width, 0);\n      hotspot.X = rect.Right - (int) (Radius / 2);\n    }\n\n    if (rect.Top &lt; g.VisibleClipBounds.Top)\n    {\n      // Shift tooltip down and use top-right corner as hotspot\n      rect.Offset(0, 2 * rect.Height);\n      hotspot.Y = rect.Top + (int) (Radius / 2);\n    }\n    else\n    {\n      // Tooltip fits within view port, use top-left corner as hotspot\n      hotspot.Y = rect.Bottom - (int) (Radius / 2);\n    }\n\n    // Draw line from marker to tooltip hotspot\n    g.DrawLine(Stroke, Marker.ToolTipPosition.X, Marker.ToolTipPosition.Y, hotspot.X, hotspot.Y);\n    // Draw tooltip outline\n    DrawRoundRectangle(g, Stroke, rect.X, rect.Y, rect.Width, rect.Height, Radius);\n    // Draw tooltip text\n#if !PocketPC\n    if (Format.Alignment == StringAlignment.Near)\n    {\n      rect.Offset(TextPadding.Width, 0);\n    }\n    g.DrawString(Marker.ToolTipText, Font, Foreground, rect, Format);\n#else\n    g.DrawString(ToolTipText, ToolTipFont, TooltipForeground, rect, ToolTipFormat);\n#endif\n  }\n}\n</code></pre>\n\n",
+    "PostedDate": "2014-01-20T06:14:51.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1184663",
+    "ThreadId": "400414",
+    "Html": "Hi Lekiam,\r<br />\n<br />\nThanks for your reply.<br />\n\r<br />\nCan you please tell me where are you declaring the Radius and the DrawRoundRectangle function or I might have missed someting?\r<br />\nAlso the last line is grayed out in my code, is it need to be?       <br />\ng.DrawString(ToolTipText, ToolTipFont, TooltipForeground, rect, ToolTipFormat);\r<br />\n<br />\nDo you have any workraound for overlapping toolips?\r<br />\n<br />\nMany Thanks,\r<br />\nJeno<br />\n",
+    "PostedDate": "2014-01-20T08:04:05.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1185105",
+    "ThreadId": "400414",
+    "Html": "Sorry my mistake, in my previous post instead of extending I meant inheriting.\r<br />\nI only showed you the rendering of the tooltip, the rest I left to your imagination.\r<br />\n<br />\nYou could check the GMapRoundedToolTip source code, it's mainly based on that.\r<br />\n<br />\nThe grey line is because of a symbol condition isn't met.\r<br />\nYou would need to define the symbol PocketPC.\r<br />\nYou'll notice the line of code is incorrect though, but I left it as is since I don't use PocketPC.\r<br />\n<br />\nI've never looked at overlapping problems, so no solution for you there.<br />\n",
+    "PostedDate": "2014-01-20T10:48:07.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1186689",
+    "ThreadId": "400414",
+    "Html": "Thanks Lekiam,\r<br />\n<br />\nIt's works nicely. Good job!!!\r<br />\n<br />\nRegards,\r<br />\nJeno<br />\n",
+    "PostedDate": "2014-01-21T01:17:43.177-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311086",
+    "ThreadId": "400414",
+    "Html": "Works very nice! Thanks a lot!<br />\n",
+    "PostedDate": "2014-10-07T02:31:26.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

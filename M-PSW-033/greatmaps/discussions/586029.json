@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1362477",
+    "ThreadId": "586029",
+    "Html": "Hello,\r<br />\n<br />\nfirst... Really grat work. Thank you.\r<br />\nI found a little bug.\r<br />\nI use the Windowsforms control.<br />\n<ul>\n<li>draw a polygon</li>\n<li>drag the map while the mousepointer is over the polygon </li>\n<li>\nleave the polygon\r<br />\n=&gt; the pousepointer is wrong.\r<br />\nEasytofix:<br />\n</li>\n</ul>\nCreate a second before-cursor after &quot;Cursor cursorBefore = Cursors.Default;&quot;\r<br />\nCursor cursorBeforeDrag = Cursors.Default;\r<br />\nin the mouseMove and IsDragging use cursorBeforeDrag instead of cursorBefore.\r<br />\ncursorBeforeDrag = this.Cursor;\r<br />\nin the Mouseup the same...\r<br />\nthis.Cursor = cursorBeforeDrag;\r<br />\ncursorBeforeDrag = null;\r<br />\n<br />\nIt would be nice if it would be fixed\r<br />\n<br />\nRegards,\r<br />\nChristian<br />\n",
+    "PostedDate": "2015-03-11T06:55:59.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

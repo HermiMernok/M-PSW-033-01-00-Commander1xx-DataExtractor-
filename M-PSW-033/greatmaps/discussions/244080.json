@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "558463",
+    "ThreadId": "244080",
+    "Html": "\r\n<p>Hi</p>\r\n<p>would it be possible to make a custom marker that will take an image thats definable programmatically?</p>\r\n<p>for eg.</p>\r\n<p>dim ImageMarker as New CustomMarker(PointLatLng)</p>\r\n<p>Imagemarker.Image = &quot;someimage.jpg&quot;</p>\r\n",
+    "PostedDate": "2011-01-31T20:57:56.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558510",
+    "ThreadId": "244080",
+    "Html": "\r\n<p>yes, it's posible and easy, just do it ;}</p>\r\n",
+    "PostedDate": "2011-01-31T23:48:28.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558642",
+    "ThreadId": "244080",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>yes, it's posible and easy, just do it ;}</p>\r\n</blockquote>\r\n<p>Easy is defined by the person doing it ;)</p>\r\n<p>if you could point&nbsp; me in the right direction that would help</p>\r\n<p>ps id prefer in VB.NET if possible else ill have to convert</p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-01T05:37:51.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558682",
+    "ThreadId": "244080",
+    "Html": "\r\n<p>You could try something like this to get yourself started. &nbsp;Derive a class from&nbsp;GMap.NET.WindowsForms.GMapMarker and add the following:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Public</span> MarkerImage <span style=\"color:blue\">as</span> System.Drawing.Image\r\n\r\n<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">Sub</span> OnRender(<span style=\"color:blue\">ByVal</span> g <span style=\"color:blue\">As</span> System.Drawing.Graphics)\r\n    <span style=\"color:blue\">If</span> <span style=\"color:blue\">Me</span>.MarkerImage <span style=\"color:blue\">IsNot</span> <span style=\"color:blue\">Nothing</span> <span style=\"color:blue\">Then</span>\r\n        g.DrawImage(<span style=\"color:blue\">Me</span>.MarkerImage, <span style=\"color:blue\">Me</span>.LocalPosition)\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2011-02-01T06:46:31.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558842",
+    "ThreadId": "244080",
+    "Html": "\r\n<p>thanks matt</p>\r\n<p>got it working.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-01T10:56:50.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624826",
+    "ThreadId": "244080",
+    "Html": "<p>&nbsp;</p>\r\n<p><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">I can</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">change</span>&nbsp;<span class=\"hps atn\" title=\"Haz clic para obtener otras posibles traducciones\">\"</span><span title=\"Haz clic para obtener otras posibles traducciones\">IsMouseOver</span><span title=\"Haz clic para obtener otras posibles traducciones\">\"</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">to true</span><span title=\"Haz clic para obtener otras posibles traducciones\">?</span><span title=\"Haz clic para obtener otras posibles traducciones\">.</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">For</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">placing</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">the</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">cursor</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">over the</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">image</span><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">appears</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">ToolTip</span><span title=\"Haz clic para obtener otras posibles traducciones\">?</span></p>",
+    "PostedDate": "2011-06-08T09:40:58.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624846",
+    "ThreadId": "244080",
+    "Html": "<p>what? ;/</p>",
+    "PostedDate": "2011-06-08T10:21:09.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "625369",
+    "ThreadId": "244080",
+    "Html": "<p>Sorry.!</p>\r\n<p><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">The</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">property</span>&nbsp;<span class=\"hps atn\" title=\"Haz clic para obtener otras posibles traducciones\">\"</span><span title=\"Haz clic para obtener otras posibles traducciones\">IsMouseOver</span><span title=\"Haz clic para obtener otras posibles traducciones\">\"</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">is</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">read-only</span><span title=\"Haz clic para obtener otras posibles traducciones\">, so</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">I could not</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">do</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">that</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">by placing</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">the</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">mouse</span><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">on</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">the</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">image to show</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">the</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">tool</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">tip</span><span title=\"Haz clic para obtener otras posibles traducciones\">.</span></p>\r\n<p><span title=\"Haz clic para obtener otras posibles traducciones\"><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">As</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">I can</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">do</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">this</span><span title=\"Haz clic para obtener otras posibles traducciones\">?</span></span></p>\r\n<p><span title=\"Haz clic para obtener otras posibles traducciones\"><span title=\"Haz clic para obtener otras posibles traducciones\"><br /></span></span></p>\r\n<p><span style=\"color: #c0c0c0;\">In spanish:<br /></span><span style=\"color: #c0c0c0;\">La propiedad \"IsMouseOver\" es de solo lectura, asi que no he podido hacer que al ubicar el mouse sobre la imagen se muestre el tool tip.<br /></span><span style=\"color: #c0c0c0;\">Como puedo hacer esto?</span></p>",
+    "PostedDate": "2011-06-09T07:08:57.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "625371",
+    "ThreadId": "244080",
+    "Html": "<p>translation is really strange ;}</p>",
+    "PostedDate": "2011-06-09T07:10:41.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "625777",
+    "ThreadId": "244080",
+    "Html": "<p>I cant really understand your question. If you set your mouse over the marker, the property IsMouseOver changes to true, and the tooltip will be shown, if the property is\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>Marker.ToolTipMode = MarkerTooltipMode.OnMouseOver\r\n</pre>\r\n</div>\r\n</p>\r\n<p>If you want to move your mousecursor to the marker by code, you should try things like:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>Windows.Forms.Cursor.Position = <span style=\"color: blue;\">New</span> System.Drawing.Point(Marker.LocalPosition)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>After that tooltip will be show.</p>\r\n<p>Is this the answer for your question? ;)</p>",
+    "PostedDate": "2011-06-10T00:02:44.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "625995",
+    "ThreadId": "244080",
+    "Html": "<p><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">Yes sir</span><span title=\"Haz clic para obtener otras posibles traducciones\">,</span><br /><br /><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">About my English</span><span title=\"Haz clic para obtener otras posibles traducciones\">,</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">excuse me</span><span title=\"Haz clic para obtener otras posibles traducciones\">.</span><br /><br /><span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">You has</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">solved</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">my</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener otras posibles traducciones\">question</span><span title=\"Haz clic para obtener otras posibles traducciones\">.</span></p>\r\n<p><span title=\"Haz clic para obtener otras posibles traducciones\">:)</span></p>",
+    "PostedDate": "2011-06-10T07:19:00.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

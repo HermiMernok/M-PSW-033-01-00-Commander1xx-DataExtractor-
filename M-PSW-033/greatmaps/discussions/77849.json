@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "266253",
+    "ThreadId": "77849",
+    "Html": "<p>Hi @ all,</p>\r\n<p>I'm going to load maps from a WMS Server. I just displayed the Tiles, but in the edges they don't really fit. Here is the Code i used in the MakeImageURL Method:</p>\r\n<p>case MapType.GeoContent:<br> {<br> var p = new MercatorProjection();<br> var mapFrom = p.FromPixelToLatLng(p.FromTileXYToPixel(new Point(pos.X + 0, pos.Y + 1)), zoom);<br> var mapTo = p.FromPixelToLatLng(p.FromTileXYToPixel(new Point(pos.X + 1, pos.Y - 0)), zoom);<br><br> FormString format = s =&gt; ((double)s).ToString().Replace(&quot;,&quot;, &quot;.&quot;);<br><br> var arg0 = format(mapFrom.Lng);<br> var arg1 = format(mapFrom.Lat);<br><br> var arg2 = format(mapTo.Lng);<br> var arg3 = format(mapTo.Lat);<br><br> return string.Format(&quot;http://217.6.21.197/geotools/ws/ws_geobox_get.php?&amp;REQUEST=GetMap&amp;type=atkis&amp;FORMAT=image/jpg&amp;SRS=EPSG:4326&amp;SERVICE=WMS&amp;WIDTH=256&amp;HEIGHT=256&amp;dpi=96&amp;BBOX={0},{1},{2},{3}&quot;, arg0, arg1, arg2, arg3);<br> }</p>\r\n<p>(Sorry, code Snippet Tool didn't work)</p>\r\n<p>Does anyon have an idea, what i did wrong? i tried some other resolutions, too, but the tiles didn't fit, too.</p>\r\n<p>Greetings,</p>\r\n<p>Smuddy</p>\r\n<p>PS: The link doesn't work, because i deletes the accountinformations.</p>",
+    "PostedDate": "2009-12-11T07:05:19.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "266339",
+    "ThreadId": "77849",
+    "Html": "<p>hard to tell...</p>",
+    "PostedDate": "2009-12-11T10:00:03.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "266892",
+    "ThreadId": "77849",
+    "Html": "<p>Or another question:</p>\r\n<p>Is this the right way to include wms maps when they are in the Open GIS Standard?</p>",
+    "PostedDate": "2009-12-13T22:08:07.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267090",
+    "ThreadId": "77849",
+    "Html": "<p>i really do not know, if it work, perfect ;}</p>",
+    "PostedDate": "2009-12-14T08:36:35.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278398",
+    "ThreadId": "77849",
+    "Html": "<p>you must set the ratio of output image.for example in sharpmap you must set:</p>\r\n<p>map.PixelAspectRatio = (map.Size.Width / (double)map.Size.Height) / (BBox.Width / BBox.Height);</p>",
+    "PostedDate": "2010-01-18T00:44:11.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438935",
+    "ThreadId": "77849",
+    "Html": "<p>check&nbsp;<a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=211166\">http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=211166</a> runs perfectly ;}</p>",
+    "PostedDate": "2010-05-04T11:51:28.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

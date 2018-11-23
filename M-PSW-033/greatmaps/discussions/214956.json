@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "451618",
+    "ThreadId": "214956",
+    "Html": "<p>Hi!</p>\r\n<p>I'm starting to work with WPF, and one part is created a map. After a search I find that project and find it amazing.</p>\r\n<p>But the problem, is that they want to based the project in the MVVm model, &nbsp;&nbsp;and I'm having a lot of problems to integrate the existent GMap to it, because a lot of stuff works different</p>\r\n<p>Have anyone try to make a mvvm project with Gmap? Any recomendation where i can find a guide to make the adaptationt?</p>\r\n<p>Thanks in advance</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-04T01:25:35.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "451641",
+    "ThreadId": "214956",
+    "Html": "<p>..can you explain more what you expect?</p>",
+    "PostedDate": "2010-06-04T02:55:01.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "451679",
+    "ThreadId": "214956",
+    "Html": "<p>let me explain.</p>\r\n<p>I have download the examples, and in the wpf map example(demo.windowspresentation) you have a view called Mainwindow, with a part of xaml, and other part code, where is all the logic, connection and usage of the map</p>\r\n<p>But if you use the MVVM pattern , the code of the view cant be used, because it belongs to the view and view is supossed to show the data. You have to crete/use a new class (usually called ____viewmodel) where is the new one where all the logic belongs</p>\r\n<p>Usually in the MVVM pattern, you have simply indicate to the textbox of listbox, the origin of the datasource, and he make all the stuff that you need. But with the map is not so easy</p>\r\n<p>I create the new class, and i have to find a way to comunicate both classes, since any change that the use propose (like zoom) have to go to the new viewmodel class, execute the need process, and then return to the view, to show the result. &nbsp;</p>\r\n<p>And thats the part I'm working now, create a map object in the viewmodel, and allow the view to send request and receive the new propietes, so it can be redraw . I hope that someone else have maybe try it before,&nbsp;</p>\r\n<p>I hope I have express myself Correctly</p>",
+    "PostedDate": "2010-06-04T05:20:43.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "451734",
+    "ThreadId": "214956",
+    "Html": "<p>..but why to make life difficult? ;}</p>",
+    "PostedDate": "2010-06-04T07:16:25.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "540003",
+    "ThreadId": "214956",
+    "Html": "\r\n<p>alexqs, did you ever get this working using MVVM?</p>\r\n<p>Radioman, it does make life more difficult but seperates concerns, it can make it easier to change the UI without breaking it and gives the ability to unit&nbsp;test the View Models.</p>\r\n<p>I'm fairly sure it's accepted as the best way to develop WCF and silverlight applications.</p>\r\n",
+    "PostedDate": "2010-12-23T11:26:13.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543151",
+    "ThreadId": "214956",
+    "Html": "\r\n<p>sure, but someone need to implement it, maybe some day</p>\r\n",
+    "PostedDate": "2011-01-03T05:51:09.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

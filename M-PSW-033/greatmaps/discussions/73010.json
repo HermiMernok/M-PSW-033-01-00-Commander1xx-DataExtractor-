@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "249426",
+    "ThreadId": "73010",
+    "Html": "<p>Here is a screen shot of some mofications to the windows forms lib.</p>\r\n<p>http://img21.imageshack.us/img21/2191/mapview.png</p>\r\n<p>Google sytle tool tip and map grayscale mode.</p>\r\n<p>Why grayscal you may ask, well sometimes it is usefull to see all the overlays without the map color.</p>\r\n<p>I will post the patch when I am happy all is stable.</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-25T02:14:46.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "249446",
+    "ThreadId": "73010",
+    "Html": "<p>great! ;}</p>",
+    "PostedDate": "2009-10-25T05:07:03.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "254993",
+    "ThreadId": "73010",
+    "Html": "<p>Hi Azlan</p>\r\n<p>Is there a way that you can post your code for grayscale mode?</p>\r\n<p>Looking forward for oyur feedback.</p>\r\n<p>Best regards,</p>",
+    "PostedDate": "2009-11-09T03:55:45.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255004",
+    "ThreadId": "73010",
+    "Html": "<p>See my last post for optimzed version.</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-09T04:15:46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255271",
+    "ThreadId": "73010",
+    "Html": "<p>Hi Azlan</p>\r\n<p>Thank you for posting your code. I hope you didn't have to much work and I think the code is good as it is without additional need for optimization.</p>\r\n<p>Have a nice day and once again thank you and my thanks to radioman also for excellent control.</p>\r\n<p>Best regards.&nbsp;</p>",
+    "PostedDate": "2009-11-09T15:37:02.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255374",
+    "ThreadId": "73010",
+    "Html": "<div style=\"color:Black;background-color:White\">\r\n<pre><br>Here is an optimized version for the grayscale which speeds things up!!!!!.<br><br>Just add the new property and changes to DrawMapGDIplus in GMapControl.cs<br><br>Cheers<br><br>&nbsp;     <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">bool</span> _GrayScale = <span style=\"color:Blue\">false</span>;<br><br>      [Description(<span style=\"color:#A31515\">&quot;Gray Scale&quot;</span>), Category(<span style=\"color:#A31515\">&quot;Map Control&quot;</span>)]<br>      <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">bool</span> GrayScale<br>      {<br>          <span style=\"color:Blue\">get</span> { <span style=\"color:Blue\">return</span> _GrayScale; }<br>          <span style=\"color:Blue\">set</span> { _GrayScale = value; }<br>      }<br><br></pre>\r\n</div>\r\n<p>See my last post for main code.</p>",
+    "PostedDate": "2009-11-09T23:55:53.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255418",
+    "ThreadId": "73010",
+    "Html": "<p>Radioman,</p>\r\n<p>Please can you incorporate this greyscale code into the standard release.</p>\r\n<p>Thanks azlan, radioman</p>\r\n<p>Paul.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-10T02:01:50.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255481",
+    "ThreadId": "73010",
+    "Html": "<p>I've&nbsp;just tested it, and performance is quite bad, is there other option, maybe convert image when it's loaded?</p>",
+    "PostedDate": "2009-11-10T05:23:35.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255490",
+    "ThreadId": "73010",
+    "Html": "<p>how about create a cache of the grey scale tile when the option is first chosen to display the current map in greyscale, then look for these titles again when grey scale is selected ?</p>\r\n<p>is it any quicker to load from cache or do the conversion realtime again ?</p>",
+    "PostedDate": "2009-11-10T05:48:47.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255525",
+    "ThreadId": "73010",
+    "Html": "<div style=\"color:Black;background-color:White\">\r\n<pre>\r\nTry the code below, subjective testing there is not much difference when gray.<br><br>Cheers<br><br>\r\n     <span style=\"color:Blue\">void</span> DrawMapGDIplus(Graphics g)\r\n      {\r\n         ColorMatrix cm = <span style=\"color:Blue\">new</span> ColorMatrix(<span style=\"color:Blue\">new</span> <span style=\"color:Blue\">float</span>[][]\r\n              {      \r\n              <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">float</span>[] {0.213f, 0.213f, 0.213f, 0, 0},\r\n              <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">float</span>[] {0.715f, 0.715f, 0.715f, 0, 0},\r\n              <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">float</span>[] {0.072f, 0.072f, 0.072f, 0, 0},\r\n              <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">float</span>[] {0, 0, 0, 1, 0},\r\n              <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">float</span>[] {0, 0, 0, 0, 1}\r\n              });\r\n\r\n         ImageAttributes ImageAttribs = <span style=\"color:Blue\">new</span> ImageAttributes();\r\n         ImageAttribs.SetColorMatrix(cm);\r\n        \r\n         <span style=\"color:Blue\">for</span>(<span style=\"color:Blue\">int</span> i = -Core.sizeOfMapArea.Width; i &lt;= Core.sizeOfMapArea.Width; i++)\r\n         {\r\n            <span style=\"color:Blue\">for</span>(<span style=\"color:Blue\">int</span> j = -Core.sizeOfMapArea.Height; j &lt;= Core.sizeOfMapArea.Height; j++)\r\n            {\r\n               Core.tilePoint = Core.centerTileXYLocation;\r\n               Core.tilePoint.X += i;\r\n               Core.tilePoint.Y += j;\r\n               {\r\n                  Tile t = Core.Matrix[Core.tilePoint];\r\n                  <span style=\"color:Blue\">if</span>(t != <span style=\"color:Blue\">null</span>)\r\n                  {\r\n                     Core.tileRect.X = Core.tilePoint.X*Core.tileRect.Width;\r\n                     Core.tileRect.Y = Core.tilePoint.Y*Core.tileRect.Height;\r\n                     Core.tileRect.Offset(Core.renderOffset);\r\n\r\n                     <span style=\"color:Blue\">if</span>(Core.CurrentRegion.IntersectsWith(Core.tileRect))\r\n                     {\r\n                        <span style=\"color:Blue\">bool</span> found = <span style=\"color:Blue\">false</span>;\r\n\r\n                        <span style=\"color:Green\">// render tile</span>\r\n                        <span style=\"color:Blue\">lock</span>(t.Overlays)\r\n                        {\r\n                           <span style=\"color:Blue\">foreach</span>(WindowsFormsImage img <span style=\"color:Blue\">in</span> t.Overlays)\r\n                           {\r\n                              <span style=\"color:Blue\">if</span>(img != <span style=\"color:Blue\">null</span> &amp;&amp; img.Img != <span style=\"color:Blue\">null</span>)\r\n                              {\r\n                                 <span style=\"color:Blue\">if</span>(!found)\r\n                                    found = <span style=\"color:Blue\">true</span>;\r\n\r\n                                 <span style=\"color:Blue\">if</span> (_GrayScale == <span style=\"color:Blue\">true</span>)   \r\n                                 {\r\n                                     Drawing.Rectangle rect = <span style=\"color:Blue\">new</span> Drawing.Rectangle(Core.tileRect.X, Core.tileRect.Y, img.Img.Width, img.Img.Height);\r\n                                     g.DrawImage(img.Img, rect, 0, 0, Core.tileRect.Width, Core.tileRect.Height, GraphicsUnit.Pixel, ImageAttribs);\r\n                                 }\r\n                                 <span style=\"color:Blue\">else</span>\r\n                                 {\r\n                                     g.DrawImage(img.Img, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);\r\n                                 }\r\n\r\n                                 <span style=\"color:Blue\">if</span>(ShowTileGridLines)\r\n                                 {\r\n                                    g.DrawRectangle(_EmptyTileBorders, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);\r\n\r\n                                    <span style=\"color:Blue\">if</span>(Core.tilePoint == Core.centerTileXYLocation)\r\n                                    {\r\n                                       g.DrawString(<span style=\"color:#A31515\">&quot;CENTER TILE: &quot;</span> + Core.tilePoint.ToString(), MissingDataFont, Brushes.Red, <span style=\"color:Blue\">new</span> RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);\r\n                                    }\r\n                                    <span style=\"color:Blue\">else</span>\r\n                                    {\r\n                                       g.DrawString(<span style=\"color:#A31515\">&quot;TILE: &quot;</span> + Core.tilePoint.ToString(), MissingDataFont, Brushes.Red, <span style=\"color:Blue\">new</span> RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);\r\n                                    }\r\n                                 }\r\n                              }\r\n                           }\r\n                        }\r\n\r\n                        <span style=\"color:Green\">// add text if tile is missing</span>\r\n                        <span style=\"color:Blue\">if</span>(!found)\r\n                        {\r\n                           g.FillRectangle(_EmptytileBrush, <span style=\"color:Blue\">new</span> RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height));\r\n                           g.DrawString(_EmptyTileText, MissingDataFont, _EmptytileTextColor, <span style=\"color:Blue\">new</span> RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);\r\n\r\n                           <span style=\"color:Blue\">if</span>(ShowTileGridLines)\r\n                           {\r\n                              g.DrawString(<span style=\"color:#A31515\">&quot;TILE: &quot;</span> + Core.tilePoint.ToString(), MissingDataFont, Brushes.Red, <span style=\"color:Blue\">new</span> RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), BottomFormat);\r\n                           }\r\n\r\n                           g.DrawRectangle(_EmptyTileBorders, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);\r\n\r\n                           <span style=\"color:Green\">// raise error</span>\r\n                           <span style=\"color:Blue\">if</span>(OnEmptyTileError != <span style=\"color:Blue\">null</span>)\r\n                           {\r\n                              <span style=\"color:Blue\">if</span>(!RaiseEmptyTileError)\r\n                              {\r\n                                 RaiseEmptyTileError = <span style=\"color:Blue\">true</span>;\r\n                                 OnEmptyTileError(t.Zoom, t.Pos);\r\n                              }\r\n                           }\r\n                        }\r\n                     }\r\n                  }\r\n               }\r\n            }\r\n         }\r\n\r\n         ImageAttribs.Dispose();\r\n      }\r\n\r\n\r\n\r\n\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-10T07:25:20.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255531",
+    "ThreadId": "73010",
+    "Html": "<p>compare this with new version ;}</p>",
+    "PostedDate": "2009-11-10T07:50:21.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255547",
+    "ThreadId": "73010",
+    "Html": "<p>hmm, can't load the project in VS2008 , 'The tools version 4.0 is unrecognised'&nbsp;</p>\r\n<p>Is the project VS2010 only now ?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-10T08:14:32.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255550",
+    "ThreadId": "73010",
+    "Html": "<p>both, but when using vs2008 i just get waring message: <em>&quot;Project file contains ToolsVersion=&quot;4.0&quot;, which is not supported by this version of MSBuild. Treating the project as if it had ToolsVersion=&quot;3.5&quot;.&quot;</em></p>",
+    "PostedDate": "2009-11-10T08:19:29.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

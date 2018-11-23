@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1460126",
+    "ThreadId": "650322",
+    "Html": "Hi there! \r<br />\n<br />\nI have recently come across the GMaps.Net component and find it very useful for our application. One of the questions that was brought to me was, &quot;Can the map be a Satellite view?&quot; and I told them yes, I just had to switch my map provider to GoogleSatellite aps and that was it. Well, apparently that isn't it. My google satellite maps starts out OK, but when you try to zoom in/down to street level...my map never updates/refreshes the layout...so it just becomes a blurry mess!. Is there a way to fix this and if so how? I even tried bing maps and those worked absolutely perfectly when zooming down to the lowest level but the bing map was out dated by like 3 or so years. Is there something i'm missing? i have the most recent version 1.7, .NET 4.0. Please...any help would be greatly appreciated!\r<br />\n<br />\nThanks, \r<br />\nJosh<br />\n",
+    "PostedDate": "2016-01-21T12:29:37.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1478670",
+    "ThreadId": "650322",
+    "Html": "Don't know if you figured out a solution, but using the current version of gmap.net...\r<br />\nI use this code to switch back and forth from road view to satellite.<br />\n<pre><code>mapControl.MapProvider = GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance;\n</code></pre>\n\n",
+    "PostedDate": "2016-07-11T18:54:40.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

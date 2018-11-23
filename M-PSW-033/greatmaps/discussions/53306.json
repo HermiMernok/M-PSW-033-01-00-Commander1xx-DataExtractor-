@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "179345",
+    "ThreadId": "53306",
+    "Html": "I compiled Demo Winform and it build succeed but error occured when I start running program.<br>\r\nAt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>ret = Cache.Instance.GetImageFromCacheDB(type, pos, zoom, language);</strong><br>\r\n<br>\r\n<strong>Could not load file or assembly 'System.Data.SQLite, Version=1.0.60.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. An attempt was made to load a program with an incorrect format</strong><br>\r\n<br>\r\nI check referenced SQLlite already , no problem with reference file. <br>\r\nWhat happen ? need help<br>\r\n<br>\r\nThank you<br>\r\nMickey<br>\r\n",
+    "PostedDate": "2009-04-14T20:08:09.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "179408",
+    "ThreadId": "53306",
+    "Html": "make sure you set option to reference: 'copy local', otherwise you can manualy copy sqlite dll to your working application dir",
+    "PostedDate": "2009-04-14T23:49:34.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "179499",
+    "ThreadId": "53306",
+    "Html": "I already did that but it show same result. Compiling is done , running manually from DEBUG directory is fine but <strong>can not run it from Visual Studio</strong>. I am using VS2008<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-15T03:22:40.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "179523",
+    "ThreadId": "53306",
+    "Html": "ahh.. i think you forget to set working directory:<div><br><div> <img alt=\"\" src=\"http://jjvkug.blu.livefilestore.com/y1pyl6T2AhtW_g8ASlTbFf_M28nObC41MCfgSggqBws7RXNKkJumKKsBgmb9vrCLnAXHnlSuPH0kmJPwvhZzmHvaHLGWa3aadTr/working directory.jpg\"></div></div>",
+    "PostedDate": "2009-04-15T04:21:47.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "179868",
+    "ThreadId": "53306",
+    "Html": "I set it to ..\\gmap4dotnet-32924\\Trunk\\Build\\Debug\\&nbsp; but it still show same error. Any suggestion?<br>\r\n",
+    "PostedDate": "2009-04-15T17:01:29.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "180122",
+    "ThreadId": "53306",
+    "Html": "strange o.O",
+    "PostedDate": "2009-04-16T05:47:52.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "181209",
+    "ThreadId": "53306",
+    "Html": "it is posible you use 64bit system?",
+    "PostedDate": "2009-04-20T03:08:30.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238316",
+    "ThreadId": "53306",
+    "Html": "<p>I'm getting a similar error. I am just starting out with GMap and I'm building a WPF application, and I've copied some code from your demo application. I have also referenced all three dll's in the download, with version 1.3.8.4 (WindowsPresentation). But, I'm unable to build, with the following error:</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">Error<span style=\"white-space:pre\"> </span>1<span style=\"white-space:pre\"> </span>Unknown build error, 'Could not load file or assembly 'file:///C:\\Users\\Christian\\Documents\\Visual Studio 10\\Projects\\Breeze\\Libraries\\System.Data.SQLite.dll' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)' <span style=\"white-space:pre\"> </span>WindSim.Breeze.Gui</div>\r\n<p>\r\n<p>Error<span style=\"white-space:pre\"> </span>1<span style=\"white-space:pre\"> </span>Unknown build error, 'Could not load file or assembly '[Path removed]\\System.Data.SQLite.dll' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)' <span style=\"white-space:pre\"> </span>[Project name removed]</p>\r\n<p>I'm using Visual Studio 2010 Beta 1. Any ideas, anyone?</p>\r\n<div></div>\r\n</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-24T07:30:19.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238331",
+    "ThreadId": "53306",
+    "Html": "<p>set target to x86</p>",
+    "PostedDate": "2009-09-24T07:58:51.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238334",
+    "ThreadId": "53306",
+    "Html": "<p>I've done so - no difference... :-(</p>",
+    "PostedDate": "2009-09-24T08:00:58.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238342",
+    "ThreadId": "53306",
+    "Html": "<p>rebuild all</p>",
+    "PostedDate": "2009-09-24T08:11:19.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238355",
+    "ThreadId": "53306",
+    "Html": "<p>Been there, done that... MANY times :-(</p>",
+    "PostedDate": "2009-09-24T08:28:09.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238378",
+    "ThreadId": "53306",
+    "Html": "<p>have no idea ;} it works just perfect</p>",
+    "PostedDate": "2009-09-24T09:38:47.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238804",
+    "ThreadId": "53306",
+    "Html": "<p>I think the problem could have something to do with SQLite - which I've never worked with before. It seems&nbsp;System.Data.SQLite.dll requires the native library, but I can't see any documentation on how this should be made available. Could this be the problem? I've tried installing sqlite-dotnet2, with no luck. I've tried turning of cache, with no luck. I've tried removing the reference to System.Data.SQLite.dll, but then I get the same error as before, just regarding GMap.NET.WindowsPresentation.dll instead of System.Data.SQLite.dll. Does anyone know a way to find out exactly what is missing? The error message doesn't say much...</p>\r\n<p>Also - I don't really want to use SQLite - I'd much rather use SQL Compact, which my application already uses. I've seen that this now is supported, but I don't see any description anywhere of how to change this. Must I change the source code of the project and build a custom version, or can this be done with just the built dll? I'd much prefer to rely on the standard built version rather than have to build one myself... But if I have to, I have to...</p>\r\n<p>C.</p>",
+    "PostedDate": "2009-09-25T07:45:03.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238934",
+    "ThreadId": "53306",
+    "Html": "<p>does&nbsp;precompiled&nbsp;demos working on your&nbsp;machine?</p>",
+    "PostedDate": "2009-09-25T12:34:54.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239445",
+    "ThreadId": "53306",
+    "Html": "<p>Yes, Demo.WindowsPresentation.exe works just fine.&nbsp;</p>",
+    "PostedDate": "2009-09-28T02:15:18.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239469",
+    "ThreadId": "53306",
+    "Html": "<p>then your're missing something ;/</p>",
+    "PostedDate": "2009-09-28T03:38:16.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239476",
+    "ThreadId": "53306",
+    "Html": "<p>I gathered as much... but what?</p>\r\n<p>Also - is there a description somewhere to answer my earlier question, about changing the provider to SQL compact?</p>\r\n<p>&nbsp;</p>\r\n<p>C.</p>",
+    "PostedDate": "2009-09-28T04:02:03.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239479",
+    "ThreadId": "53306",
+    "Html": "<p>\r\n<p>36821&nbsp;</p>\r\n<p>by radioman <span style=\"white-space:pre\"> </span>Sep 18 at&nbsp;</p>\r\n<p>10:42 AM <span style=\"white-space:pre\"> </span>22<span style=\"white-space:pre\"> </span>- added MySQL and MsSQL'Ce providers</p>\r\n<p>- set Build Action to Compile on source files in GMap.NET.CacheProviders if you want include them in build</p>\r\n</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">36821&nbsp;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">by radioman <span style=\"white-space:pre\"> </span>Sep 18 at&nbsp;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">10:42 AM <span style=\"white-space:pre\"> </span>22<span style=\"white-space:pre\"> </span>- added MySQL and MsSQL'Ce providers</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">- set Build Action to Compile on source files in GMap.NET.CacheProviders if you want include them in build</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-28T04:12:31.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239483",
+    "ThreadId": "53306",
+    "Html": "<p>checked that?</p>\r\n<p><img src=\"http://czpxlw.blu.livefilestore.com/y1pAuPMgcCeoqE1gQ8O2j5tXXIMyZFYyoyITz-_CwNtNnni43lUQeW0sKFzikG4SCA0rSX2sZkDNSIn14YrNsdJQINEl2iuvznE/gmap target.png\" alt=\"\"></p>",
+    "PostedDate": "2009-09-28T04:27:12.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239504",
+    "ThreadId": "53306",
+    "Html": "<p>Yes, I have checked that.&nbsp;</p>\r\n<p>I have now downloaded the source code (latest), and it builds fine. I have even - just for fun - tried to build and run it with AnyCPU - and that works too! I thought it wasn't supposed to work?</p>\r\n<p>I've also included the CE provider when compiling, but I haven't found a logic way to use that provider and kick out SQLite... From what I see, the GMap class uses the Cache class heavily, which in turn uses SQLite-classes heavily. Just swapping the calls to Cache with MsSQLCePureImageCache gives a lot of errors, as Cache implements a lot of methods MsSQLCePureImageCache doesn't.</p>\r\n<p>Setting the ImageCache property to an instance of MsSQLCePureImageCache might actually use SQL CE as the provider, but it doesn't solve my problem of trying to get rid of SQLite. Is this even possible?</p>\r\n<p>C.</p>",
+    "PostedDate": "2009-09-28T05:57:17.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239545",
+    "ThreadId": "53306",
+    "Html": "<p>check latest commit &quot;_^</p>",
+    "PostedDate": "2009-09-28T08:02:04.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239606",
+    "ThreadId": "53306",
+    "Html": "<p>Yeay :-) It builds! No time to check that it actually works today, but I'll get to that tomorrow ;-) Thanks a bundle!</p>\r\n<p>All that code that is commented out if SQLiteEnabled is not defined, is not really important? I can get by just fine without it? :-)</p>\r\n<p>Thanks again!</p>\r\n<p>C.</p>",
+    "PostedDate": "2009-09-28T10:07:28.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239635",
+    "ThreadId": "53306",
+    "Html": "<p>welcome again! ;}</p>",
+    "PostedDate": "2009-09-28T11:07:18.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

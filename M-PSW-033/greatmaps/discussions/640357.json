@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1431566",
+    "ThreadId": "640357",
+    "Html": "Hello,\r<br />\n<br />\nI was able to add an image as a marker to my map following the Cloud.Demo code. The problem is when I want to change the image the new image is not redrawn until I zoom the map. I have tried to use:<br />\n<pre><code>newgmap.Invalidate()\nnewgmap.Refresh()\nnewgmap.Update()</code></pre>\n\nNone of these will actually redraw the image. The only way I can get the image to appear properly is to zoom. I've looked at the source code for zoom and there are internal force render functions which are not accessible. The problem with zoom is that if I wanted to change the image at a very fast pace (&gt; 1 times a second) it flickers the map. I do not want that effect. Is there a function that forces the image to redraw so that it will appear properly on the map?\r<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2015-06-23T09:01:12.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1431599",
+    "ThreadId": "640357",
+    "Html": "map.Refresh() is instant, map.Invalidate() is async<br />\n",
+    "PostedDate": "2015-06-23T12:07:14.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

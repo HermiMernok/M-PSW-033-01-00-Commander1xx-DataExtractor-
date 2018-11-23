@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "492979",
+    "ThreadId": "227076",
+    "Html": "<p>Hi</p>\r\n<p>How can I search for a city name or street name&nbsp;of a city ?</p>\r\n<p>Regards</p>",
+    "PostedDate": "2010-09-13T13:01:50.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492982",
+    "ThreadId": "227076",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre>GeoCoderStatusCode status = MainMap.SetCurrentPositionByKeywords(textBoxGeo.Text);\r\n<span style=\"color:blue\">if</span>(status != GeoCoderStatusCode.G_GEO_SUCCESS)\r\n{\r\n     MessageBox.Show(<span style=\"color:#a31515\">&quot;Google Maps Geocoder can't find: '&quot;</span> + textBoxGeo.Text  + <span style=\"color:#a31515\">&quot;', reason: &quot;</span> + status.ToString(), <span style=\"color:#a31515\">&quot;GMap.NET&quot;</span>, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);\r\n}</pre>\r\n</div>",
+    "PostedDate": "2010-09-13T13:07:47.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526884",
+    "ThreadId": "227076",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>How can I get the name of a city from coordinates. I have a set of point (lon/lat), and I'd like to know in which city they are.</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2010-11-25T03:05:44.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "527047",
+    "ThreadId": "227076",
+    "Html": "\r\n<p>map.Manager.<strong>GetPlacemarkFromGeocoder</strong>(map.Position);</p>\r\n",
+    "PostedDate": "2010-11-25T10:14:55.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912109",
+    "ThreadId": "227076",
+    "Html": "<p>Hello Radioman</p>\r\n<p>The answer here is how to get a PlaceMarkerName based on Position</p>\r\n<p>But ist it possible to search a street by name and get the positions ?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-09-13T03:03:53.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912120",
+    "ThreadId": "227076",
+    "Html": "<p>you search by whatever keywords you have ;} and pray google or some other provider returns something</p>",
+    "PostedDate": "2012-09-13T03:22:36.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912129",
+    "ThreadId": "227076",
+    "Html": "<p>Hello radioman</p>\r\n<p>Yes of course I can search whatever I need on Google</p>\r\n<p>But as long it is possible for you to provide the name, city, postcode based on position why do yo not provide a method to return a collection of name based on a few parameter as Postcode, cityname, streetname and the seachr mode : City or Street ?</p>\r\n<p>Or do you mean that it must be done by using Google api directly ?</p>",
+    "PostedDate": "2012-09-13T03:41:45.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912132",
+    "ThreadId": "227076",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>            List&lt;Placemark&gt; plc = <span style=\"color: blue;\">null</span>;\r\n            <span style=\"color: blue;\">var</span> st = GMapProviders.GoogleMap.GetPlacemarks(<span style=\"color: blue;\">new</span> PointLatLng(54.6961334816182, 25.2985095977782), <span style=\"color: blue;\">out</span> plc);\r\n            <span style=\"color: blue;\">if</span>(st == GeoCoderStatusCode.G_GEO_SUCCESS &amp;&amp; plc != <span style=\"color: blue;\">null</span>)\r\n            {\r\n               <span style=\"color: blue;\">foreach</span>(<span style=\"color: blue;\">var</span> pl <span style=\"color: blue;\">in</span> plc)\r\n               {\r\n                  <span style=\"color: blue;\">if</span>(!<span style=\"color: blue;\">string</span>.IsNullOrEmpty(pl.PostalCodeNumber))\r\n                  {\r\n                     Debug.WriteLine(<span style=\"color: #a31515;\">\"Accuracy: \"</span> + pl.Accuracy + <span style=\"color: #a31515;\">\", \"</span> + pl.Address + <span style=\"color: #a31515;\">\", PostalCodeNumber: \"</span> + pl.PostalCodeNumber);\r\n                  }\r\n               }\r\n            }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-09-13T03:51:21.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912136",
+    "ThreadId": "227076",
+    "Html": "<p>Thank you Radioman</p>\r\n<p>But I thing there is a little misunderstanding here !</p>\r\n<p>You are giving a method to get a list of name based on a location<br />What I need&nbsp; to do is to get a a route base on a name</p>\r\n<p>Let say I'm searching Avenue Montjoie, 1180 Uccle, Belgium</p>\r\n<p>This street can be of course be represented by an array of point (same as you request a routing result between two point)<br />What I would like to have is :</p>\r\n<p>1- A list of proposition (in case of ambiguity)<br />2- Select one in the list<br />3- Get the array of point for this one</p>\r\n<p>Do we have some way to do that in GMap ?</p>\r\n<p>Thanks for your help</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-09-13T04:05:18.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912137",
+    "ThreadId": "227076",
+    "Html": "<p>it has nothing to do with gmap ;}</p>",
+    "PostedDate": "2012-09-13T04:14:14.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912141",
+    "ThreadId": "227076",
+    "Html": "<p>Ok thanks</p>\r\n<p>But I do not understand why ?<br />You have routing method in GMap !<br />usualy a routing is made from two point ....<br />but those two point are usualy selected on two street, <br />so you usualy have to find the street to get the point</p>\r\n<p>Alternatively do you have an idea of some WebService I can use to do such&nbsp;search ?</p>",
+    "PostedDate": "2012-09-13T04:26:00.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912145",
+    "ThreadId": "227076",
+    "Html": "<p>if you know the start and the end positions you can get the route ;}</p>",
+    "PostedDate": "2012-09-13T04:32:24.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912155",
+    "ThreadId": "227076",
+    "Html": "<p>Sorry but probably my english is not so good and my explaination are bad</p>\r\n<p>&nbsp;</p>\r\n<p>Yes of course I can get the route with two point I know that and Gmap povide method to do that very good and I'm&nbsp;already using it<br />But I need to find those start and end position based on a name !</p>\r\n<p>I'm NOT searching how to use point I'm searching how to get point based on name !&nbsp; : A webservice to search street based on name in order to get the points of that street</p>\r\n<p>Maybe I've find one :</p>\r\n<p><a href=\"http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Address_EU/GeocodeServer\">http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Address_EU/GeocodeServer</a></p>\r\n<p>But it still sound strange for that you says that it have nothing to do with Gmap</p>",
+    "PostedDate": "2012-09-13T05:11:39.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "921709",
+    "ThreadId": "227076",
+    "Html": "<p>I think I know what he means, is there any way to use say, Googles Autocomplete, or auto correct that compares what you have searched on googles servers for correct terms. For example if I search a street, many streets may have the same name, is there a way to bring up the list of streets found matching that name</p>",
+    "PostedDate": "2012-10-04T00:40:17.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1088095",
+    "ThreadId": "227076",
+    "Html": "HI, i use a HttpWebRequest directly with google for a similar propose i think, like a &quot;google maps validation&quot; of your user input, and try to standar names before write info in database. \r<br />\n<br />\n private string ValidaDireccionGoogleApi(string Direccion, PuntosGeolocalizados Punto )<br />\n<pre><code>    {\n        string DireccionAConsultar = UriDeGoogleApis + Direccion + &quot;&amp;sensor=false&quot;;\n        // Creates an HttpWebRequest with the specified URL. \n        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(DireccionAConsultar);\n        HttpWebResponse response = (HttpWebResponse)request.GetResponse();\n\n        using (var streamReader = new StreamReader(response.GetResponseStream()))\n        {\n            Stream result = new MemoryStream(UnicodeEncoding.UTF8.GetBytes(streamReader.ReadToEnd()));\n            XmlTextReader reader = new XmlTextReader(result);\n            XmlDocument xd = new XmlDocument();\n            xd.Load(reader);\n\n            XmlNodeList lista = xd.GetElementsByTagName(&quot;address_component&quot;);\n            //PuntosGeolocalizados puntoPrueba = new PuntosGeolocalizados();\n            foreach (XmlElement nodo in lista)\n            {\n                int i = 0;\n                XmlNodeList nNombreLargo =\n                nodo.GetElementsByTagName(&quot;long_name&quot;);\n\n                XmlNodeList nTipo =\n                nodo.GetElementsByTagName(&quot;type&quot;);\n\n                switch (nTipo[i].InnerText)\n                {\n                    case &quot;route&quot;:\n                        Punto.Calle = nNombreLargo[i].InnerText;\n                        break;\n\n                    case &quot;street_number&quot;:\n                        Punto.Altura = nNombreLargo[i].InnerText;\n                        break;\n\n                    case &quot;locality&quot;:\n                        Punto.Localidad = nNombreLargo[i].InnerText;\n                        break;\n\n                    case &quot;administrative_area_level_2&quot;:\n                        Punto.Partido = nNombreLargo[i].InnerText;\n                        break;\n                    case &quot;administrative_area_level_1&quot;:\n                        Punto.Provincia = nNombreLargo[i].InnerText;\n                        break;\n                }\n\n                i++;\n\n            }\n            reader.Close();\n\n            return Punto.Calle + &quot; &quot; + Punto.Altura + &quot; &quot; + Punto.Localidad;\n\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2013-09-04T00:46:24.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

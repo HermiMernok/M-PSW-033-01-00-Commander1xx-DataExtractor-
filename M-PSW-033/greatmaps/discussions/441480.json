@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1035343",
+    "ThreadId": "441480",
+    "Html": "Hi\r<br />\n<br />\nI created a very simple Win form application:<br />\n<pre><code>       MainMap.MinZoom = 1;\n        MainMap.MaxZoom = 22;\n        MainMap.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;\n\n        MainMap.Zoom = 12;\n        MainMap.Position = new PointLatLng(-36.9, 174.7);\n</code></pre>\n\nThere is no more lines in my test application, only these five lines of code.\r<br />\n<br />\nI runs okay and shows the map happily. If I use the mouse wheel to zoom in/out the map many times, after I close the application, it got left in task manager, maybe 2 minutes, maybe 10 minutes, sometimes forever. I more I zoom the map, the longer it stuck in task manager. If I do not zoom the map at all, it disappears from task manager straightway after I close it.\r<br />\n<br />\nI tried on XP + SP3, Win7 and the application was compiled both with .Net 2.0, 3.5 framework, and makes no difference.\r<br />\n<br />\nThanks in advance for your help.\r<br />\n<br />\nRegards\r<br />\n<br />\nWei Guo<br />\n",
+    "PostedDate": "2013-04-24T14:42:47.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1035472",
+    "ThreadId": "441480",
+    "Html": "it's by design, loaded tiles are saved to the disk in the background even after you turn your app off\r<br />\n<br />\nif you want to discard loaded tiles, and load them again next time from server, use this on exit event:<br />\n<pre><code>map.Manager.CancelTileCaching();</code></pre>\n\n",
+    "PostedDate": "2013-04-24T23:51:59.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

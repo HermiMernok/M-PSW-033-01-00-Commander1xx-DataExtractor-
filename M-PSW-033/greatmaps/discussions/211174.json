@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "437659",
+    "ThreadId": "211174",
+    "Html": "In System.Windows.Forms.GMapControl\r\n\r\nline 300\r\n\r\nvoid GMap_OnMapDrag()\r\n      {\r\n         foreach(GMapOverlay o in Overlays)\r\n         {\r\n            if(o.IsVisibile)\r\n            {\r\n               foreach(GMapMarker obj in o.Markers)\r\n               {\r\n                  obj.Position = obj.Position;\r\n               }\r\n\r\n               foreach(GMapPolygon obj in o.Polygons)\r\n               {\r\n                  UpdatePolygonLocalPosition(obj);\r\n               }\r\n\r\n               foreach(GMapRoute obj in o.Routes)\r\n               {\r\n                  UpdateRouteLocalPosition(obj);\r\n               }\r\n            }\r\n         }\r\n      }\r\n\r\nthe line  obj.Position = obj.Position; \r\nseams to be a mistake",
+    "PostedDate": "2010-04-30T12:22:16.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437793",
+    "ThreadId": "211174",
+    "Html": "<p>assigning Position change nothing but updates local position, if you have a better idea, please share ;}</p>",
+    "PostedDate": "2010-05-01T02:32:43.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437848",
+    "ThreadId": "211174",
+    "Html": "<p>Maby it is just my eyes</p>\r\n<p>but</p>\r\n<p>obj.Position = obj.Position</p>\r\n<p>that doesn't do anything</p>\r\n<p>you are assigning the same property to itself</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-01T06:55:31.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437862",
+    "ThreadId": "211174",
+    "Html": "<p>does it look now better? ;}</p>",
+    "PostedDate": "2010-05-01T08:28:45.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

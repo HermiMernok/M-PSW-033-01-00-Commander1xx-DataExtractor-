@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "414582",
+    "ThreadId": "203942",
+    "Html": "<p>Just tested xda-tips for adding automatic screen rotation based on HTC Gsensor. Works great with GMap on HTC HD2:</p>\r\n<p>Change registry as follow:</p>\r\n<p>Under&nbsp; <span style=\"color:#0000ff\">HKEY_CURRENT_USER\\Software\\HTC\\HTCSENSOR\\GSensor\\ModuleName <br></span>Add new string value <span style=\"color:#0000ff\">GMap</span> with value <span style=\"color:#0000ff\">\\Program files\\gmap.net\\GMap.NET.exe</span></p>\r\n<p>Under&nbsp; <span style=\"color:#0000ff\">HKEY_CURRENT_USER\\Software\\HTC\\HTCSENSOR\\GSensor\\WhiteList <br></span>Add new string value <span style=\"color:#0000ff\">GMap</span> with <span style=\"color:#0000ff\">#NETCF_AGL_BASE_</span></p>\r\n<p><span style=\"color:#000000\">Turn unit off and on. The maps are now automatically rotated when unit is turned 90 deg anticlockwise :-)</span></p>",
+    "PostedDate": "2010-03-05T06:06:11.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "414624",
+    "ThreadId": "203942",
+    "Html": "<p>nice tip, works perfect! I'll add automatic function to do that in demo app</p>",
+    "PostedDate": "2010-03-05T07:46:35.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

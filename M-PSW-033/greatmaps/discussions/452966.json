@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1078821",
+    "ThreadId": "452966",
+    "Html": "Hi there,<br />\n<br />\nI'm working on an application in which I need to be able to set the GMarkerGoogleType on an existing marker. Can you add the following (or something similar) to the GMarkerGoogle class, please?<br />\n<pre><code>public void SetType(GMarkerGoogleType newType)\n      {\n          this.type = newType;\n          if (type != GMarkerGoogleType.none)\n          {\n              LoadBitmap();\n          }\n      }</code></pre>\n\n",
+    "PostedDate": "2013-08-09T11:00:27.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

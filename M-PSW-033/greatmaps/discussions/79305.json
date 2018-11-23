@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "271492",
+    "ThreadId": "79305",
+    "Html": "<p>1) No tiles are downloaded if the accessmode is set to ServerAndCache (Blue tiles show up saying that the image was not found)... it will only work if ServerOnly is used...</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>        GMaps.Instance.UseRouteCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.UsePlacemarkCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.Mode = AccessMode.ServerOnly\r\n\r\n        MainMap.MapType = MapType.BingHybrid\r\n        MainMap.MinZoom = 3\r\n        MainMap.MaxZoom = 19\r\n        MainMap.Zoom = MainMap.MinZoom\r\n        MainMap.MouseWheelZoomType = MouseWheelZoomType.MousePosition\r\n        MainMap.CurrentPosition = <span style=\"color:Blue\">New</span> PointLatLng(54.6961334816182, 25.2985095977783)\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>2) Whenever I try to save the ImageSource, i get a grey bar on the bottom of my exported image.</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>        <span style=\"color:Blue\">Dim</span> StoreImage <span style=\"color:Blue\">As</span> System.Windows.Media.ImageSource\r\n        <span style=\"color:Blue\">Dim</span> Encoder <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> PngBitmapEncoder\r\n        <span style=\"color:Blue\">Dim</span> st <span style=\"color:Blue\">As</span> System.IO.Stream = System.IO.File.OpenWrite(<span style=\"color:#A31515\">&quot;C:\\Test.png&quot;</span>)<br><br>\r\n        StoreImage = MainMap.ToImageSource()\r\n        Encoder.Frames.Add(BitmapFrame.Create(StoreImage))\r\n\r\n        Encoder.Save(st)\r\n        st.Close()\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>It works fine in the C# example provided with the source code.</p>\r\n<p>&nbsp;</p>\r\n<p>Everything else seems to be working fine.</p>\r\n<p>Any feedback would be great.</p>",
+    "PostedDate": "2009-12-29T10:37:00.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271693",
+    "ThreadId": "79305",
+    "Html": "<p>Fixed #2 somehow by rearranging windows.</p>\r\n<p>&nbsp;</p>\r\n<p>#1 still does not work in VB.net in WindowsPresentation.... it works fine in Windows Forms...</p>\r\n<p>Any help would be great!</p>",
+    "PostedDate": "2009-12-30T05:59:17.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271965",
+    "ThreadId": "79305",
+    "Html": "<p>Hello iifuzz,</p>\r\n<p>&nbsp;</p>\r\n<p>2) I have tried &quot;your&quot; code in VB/WPF and its fine. Tried it on several zoomlevels.</p>\r\n<p>What is the graybar saying???</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-31T06:13:53.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271968",
+    "ThreadId": "79305",
+    "Html": "<p>hi Heru,</p>\r\n<p>thanks for the reply...</p>\r\n<p>&nbsp;</p>\r\n<p>i think i found the cause... i just dont know how to fix it.</p>\r\n<p>&nbsp;</p>\r\n<p>this error is being spammed when i have ServerAndCache enabled..</p>\r\n<p>&nbsp;CLR:(C:\\Documents and Settings\\mterneus\\my documents\\visual studio 2010\\Projects\\Test\\Test\\bin\\Debug\\System.Data.SQLite.dll) ERR: Rejecting IJW module built against v2.0.50727 because it could be loaded into another runtime in this process.<br>First-chance exception at 0x7c812afb in Test.exe: Microsoft C++ exception: EEMessageException at memory location 0x04c2d70c..<br>First-chance exception at 0x7c812afb in Test.exe: Microsoft C++ exception: [rethrow] at memory location 0x00000000..<br>First-chance exception at 0x7c812afb in Test.exe: Microsoft C++ exception: [rethrow] at memory location 0x00000000..<br>First-chance exception at 0x7c812afb in Test.exe: Microsoft C++ exception: [rethrow] at memory location 0x00000000..</p>",
+    "PostedDate": "2009-12-31T06:17:26.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271970",
+    "ThreadId": "79305",
+    "Html": "<p>There is a fix here. :)</p>\r\n<p><a href=\"http://sqlite.phxsoftware.com/forums/t/2040.aspx\">http://sqlite.phxsoftware.com/forums/t/2040.aspx</a></p>",
+    "PostedDate": "2009-12-31T06:24:04.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

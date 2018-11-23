@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "732929",
+    "ThreadId": "287963",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Sorry for the elementary newbie question.</p>\r\n<p>I am attempting to build a wpf app using the gmap.net control. The app will consist of drawing a map with a vehicle icon and markers. When a timer expires (every 5 minutes or so), the app will read marker positions from a database pertaining to the vehicle.\r\n The custom markers will be represented by custom png images which may or may not have changed since the prior query to the database. Also in the timer event method, a new lat/long coordinate will be read via gps and it is desired that the advancement of the\r\n vehicle is displayed..</p>\r\n<p>I am concerned about best practices for using the gmap.net control in this scenario with respect to usability.</p>\r\n<p>1) Should the markers be deleted and redrawn after each timer tick?</p>\r\n<p>2) Is there a limit for the size of a marker?</p>\r\n<p>3) What would be the best way to show an advancement of the vehicle after each gps reading?</p>\r\n<p>Thank you in advance,</p>\r\n<p>Al Rosner</p>\r\n",
+    "PostedDate": "2012-01-30T17:11:25.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "733120",
+    "ThreadId": "287963",
+    "Html": "<p>check wpf demo, there is vehicle tracker demo</p>",
+    "PostedDate": "2012-01-31T02:54:34.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

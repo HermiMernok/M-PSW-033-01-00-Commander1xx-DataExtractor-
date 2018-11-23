@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1013564",
+    "ThreadId": "436224",
+    "Html": "hi,<br />\n<br />\nat first i would like to sai,wow great works,i realy like this.I realy liked to work with it.But i found some problem or bug didn't know how to call it...so the problem is if you work with 2 gmap controls at the same time,like you see on the picture ,if i zoom out with  muosewheel the marker on right side change the position.at this example its just a bit,you zoom more,the diference is bigger or the marker on left gmap control change the position to current muose position.<br />\n<br />\nThis happen just if i zoom with mousewheel only on left side &quot;gmapcontrol1&quot;, if i do  it on the right side &quot;gmapcontrol2&quot; it doesn't happen.<br />\n<br />\nI hope you understand me, what is the problem.<br />\n<br />\n<img src=\"http://www10.pic-upload.de/11.03.13/gcw62wyp77t.jpg\" alt=\"Image\" /><br />\n<br />\n<br />\nhere is my code very simply<br />\n<pre><code>internal readonly GMapOverlay objects = new GMapOverlay(&quot;objects&quot;);\n        internal readonly GMapOverlay objects2 = new GMapOverlay(&quot;objects2&quot;);\n        internal readonly PointLatLng markpos = new PointLatLng(54.6961334816182, 25.2985095977783);\n\n        GMapMarker currentMarker;\n\n        public Form1()\n        {\n          \n            InitializeComponent();\n            currentMarker = new GMarkerGoogle(markpos,GMarkerGoogleType.arrow);\n          \n            currentMarker.Position = markpos;\n            objects.Markers.Add(currentMarker);\n            objects2.Markers.Add(currentMarker);\n\n\n            gMapControl2.MapProvider = GMapProviders.OpenStreetMapQuest;\n            gMapControl2.Manager.Mode = GMap.NET.AccessMode.ServerAndCache;\n            gMapControl2.Position = markpos;\n            \n            \n            gMapControl1.MapProvider = GMapProviders.OpenStreetMapQuest;\n            gMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache;\n            gMapControl1.Position = markpos;\n        }\n\n      \n\n        private void button1_Click(object sender, EventArgs e)\n        {\n            gMapControl1.Overlays.Add(objects);\n\n            gMapControl2.Overlays.Add(objects2);\n        }\n\n        private void button2_Click(object sender, EventArgs e)\n        {\n            gMapControl1.Overlays.Clear();\n\n            gMapControl2.Overlays.Clear();\n            gMapControl1.Refresh();\n            gMapControl2.Refresh();\n        }   </code></pre>\n\n",
+    "PostedDate": "2013-03-11T14:59:36.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014748",
+    "ThreadId": "436224",
+    "Html": "hm, i'll check it later<br />\n",
+    "PostedDate": "2013-03-13T11:02:47.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "561421",
+    "ThreadId": "244836",
+    "Html": "\r\n<p>Hello Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>is there as possibilty to force a renderupdate on a specific Marker?</p>\r\n<p>I've added the property Bearing on a Marker, but the Marker chaged only if Position is changed and not if Beraingvalue is changed.</p>\r\n<p>I can force it with .isVisible = False , .isVisible = True</p>\r\n<p>Is there better option to do that?</p>\r\n<p>I've sometimes the same problem, if i add a new point to a route.</p>\r\n<p>Thanks</p>\r\n<p>RobbeEDE</p>\r\n",
+    "PostedDate": "2011-02-06T02:35:33.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "561467",
+    "ThreadId": "244836",
+    "Html": "\r\n<p>map.<strong>Invalidate</strong>();</p>\r\n",
+    "PostedDate": "2011-02-06T06:43:12.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

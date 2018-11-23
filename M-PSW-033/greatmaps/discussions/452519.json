@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1077099",
+    "ThreadId": "452519",
+    "Html": "Hello everybody,\r<br />\n<br />\nI'm working on a project where I want to use the gmap.net control to visualize GPS-data of a vehicle on a windows 7 tablet device. As during operation no internet connection will be available, I need to cache the map data somehow.\r<br />\nNow I'm wondering what would be the best solution. Is the sqlite database powerful enough to handle the image data of a whole (small) country like e.g. Belgium? I have tried to prefetch the tiles with the demo program, but it would last an eternity with the given speed to get into zoom level 19. Also I think that would be quite a bunch of data...\r<br />\nHas anybody  a solution for that?\r<br />\nAs an alternative  I think about installing a renderer (like mapnik) and a database with vector information and set this combination as a custom server for the gmap.net control. Has anybody done that before and can give me some advice?\r<br />\nThanks in advance!<br />\n",
+    "PostedDate": "2013-08-06T00:35:28.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1077111",
+    "ThreadId": "452519",
+    "Html": "...about caching small country, e.g. Lithuania, i have 4 different types of maps with levels 1-8(<a href=\"http://www.maps.lt/map/\" rel=\"nofollow\">maps.lt</a>) and 1-14(<a href=\"http://www.openstreetmap.org/\" rel=\"nofollow\">openstreetmap.org</a>)), and it's ~1GB.  It's about few hours of prefetching. And database is on my htc mobile sd card, works quite well.<br />\n<br />\nIt covers even small roads, but if you need higher zoom levels, there would be a lot more data, 10GB - 100GB... O.O ;}<br />\n<br />\nlocal <a href=\"http://en.wikipedia.org/wiki/GeoServer\" rel=\"nofollow\">geoserver</a> would solve that issue.<br />\n",
+    "PostedDate": "2013-08-06T00:55:49.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1077120",
+    "ThreadId": "452519",
+    "Html": "p.s. check <a href=\"http://switch2osm.org/serving-tiles/\" rel=\"nofollow\">http://switch2osm.org/serving-tiles/</a><br />\n",
+    "PostedDate": "2013-08-06T01:11:01.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1077356",
+    "ThreadId": "452519",
+    "Html": "Hey radioman,\r<br />\n<br />\nfirst thanks a lot for that great piece of code you delivered with greatmaps.net! And even more for the support you're giving here!\r<br />\nAfter reading through your links I think GeoServer is perfect for me! I'll try to add it as a custom server to greatmaps.net as it has done before, should work out fine!\r<br />\n<br />\nRegards<br />\n",
+    "PostedDate": "2013-08-06T10:59:03.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1143966",
+    "ThreadId": "452519",
+    "Html": "Hey rhopi,\r<br />\n<br />\nwere you able to have GeoServer and Gmap.net to work together locally and offline ? I'm trying to download  &quot;.osm&quot; maps from OpenStreetMap and use it locally. do you think it is possible to add .OSM to GeoServer and have it working with GMap.net ?   How was the performnace ? \r<br />\n<br />\nthank you <br />\n",
+    "PostedDate": "2013-12-30T10:35:14.607-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

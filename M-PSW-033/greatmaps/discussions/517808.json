@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1188070",
+    "ThreadId": "517808",
+    "Html": "Thanks a lot for GMap.NET, it saves me many hours of coding.\r<br />\nBut there is one thing I cannot find out how to achieve and that is printing (or saving as an image) of the selectedArea.\r<br />\nThe DrawToBitmap() saves the whole client area of the control. The properties of the selectedArea seem to provide Lat/Lon info, but I could not find a way to translate this into a workable format to just print  the selection. \r<br />\nIs there any info on this, or can anybody help me out?\r<br />\nThanks very much for any help!<br />\n",
+    "PostedDate": "2014-01-21T10:17:16.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1188096",
+    "ThreadId": "517808",
+    "Html": "check static image maker demo<br />\n",
+    "PostedDate": "2014-01-21T10:25:02.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1190597",
+    "ThreadId": "517808",
+    "Html": "Thank you radioman!\r<br />\nThe demo example is clear and helpful, but it deals with downloading the needed map tiles.\r<br />\nWhat I actually was looking for, was much more simple, a kind of screenshot, but using the selected area of the gmap control. Resolution is not important. If the selectedArea would expose a method DrawToBitmap(), that would be great!\r<br />\nThanks for any suggestions!<br />\n",
+    "PostedDate": "2014-01-22T05:15:49.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1195127",
+    "ThreadId": "517808",
+    "Html": "Hello Antonio<br />\n<pre><code>            Dim img As Image = Me.MainMap.ToImage\n            Dim _frm_screenshot As New frm_screenshot(img)\n            _frm_screenshot.Show()</code></pre>\n\nand in this form i do several things with the Image(Save, Resize, North Arrow, ...)\r<br />\npretty fast and easy\r<br />\n<br />\nstatic map is usefull for plotting an area on A0 or sth like that.\r<br />\nBye Ede<br />\n",
+    "PostedDate": "2014-01-24T01:32:44.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

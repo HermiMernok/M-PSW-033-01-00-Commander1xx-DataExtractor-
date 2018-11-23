@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1012841",
+    "ThreadId": "436024",
+    "Html": "Hi Radioman, \r<br />\n<br />\nis it possible to change the current position so that it can handle databinding. Ive tried to put in a dependency property in the custom map file but it break the map :)<br />\n<pre><code> public PointLatLng CurrentPosition\n        {\n            get\n            {\n                return (PointLatLng)GetValue(CurrentPositionProperty);\n            }\n            set\n            {\n                SetValue(CurrentPositionProperty, value);\n            }\n        }\n\n        public static readonly DependencyProperty CurrentPositionProperty =\n            DependencyProperty.Register(&quot;CurrentPosition&quot;, typeof(PointLatLng), typeof(Map), new UIPropertyMetadata(null, CurrentPositionChangedCallBack));\n\n        static void CurrentPositionChangedCallBack(DependencyObject d, DependencyPropertyChangedEventArgs e)\n        {\n            Map cp = (Map)d;\n            cp.CurrentPosition = (PointLatLng)e.NewValue;\n        }</code></pre>\n\n",
+    "PostedDate": "2013-03-09T15:15:10.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012896",
+    "ThreadId": "436024",
+    "Html": "'break' ?<br />\n",
+    "PostedDate": "2013-03-09T23:09:24.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012919",
+    "ThreadId": "436024",
+    "Html": "The error I get is &quot;Cannot create an instance of 'Map'&quot;\r<br />\n'The invocation of the constructor on type 'WpfGmap2012.MapControls.Map' that matches the specified binding constraints threw an exception.' Line number '66' and line position '38'.<br />\n",
+    "PostedDate": "2013-03-10T03:27:20.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

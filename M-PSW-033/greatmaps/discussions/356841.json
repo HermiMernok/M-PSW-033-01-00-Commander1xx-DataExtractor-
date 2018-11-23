@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "839890",
+    "ThreadId": "356841",
+    "Html": "\r\n<p>Hi there,</p>\r\n<p>Is there an easy way to do this?</p>\r\n<p>Thanks in advance.</p>\r\n",
+    "PostedDate": "2012-05-23T06:41:20.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839898",
+    "ThreadId": "356841",
+    "Html": "<p>wpf/forms?</p>",
+    "PostedDate": "2012-05-23T06:48:14.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839899",
+    "ThreadId": "356841",
+    "Html": "<p>Sorry, \"Forms\". (I thought it would be the same way)</p>",
+    "PostedDate": "2012-05-23T06:49:37.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839908",
+    "ThreadId": "356841",
+    "Html": "<p>marker.ToolTip.<strong>Stroke/Fill</strong></p>",
+    "PostedDate": "2012-05-23T07:09:11.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839948",
+    "ThreadId": "356841",
+    "Html": "<p>Ah, thanks. Had some issues, 'cause it seems that the markers has to be added to the map before you can change the behavior of the tooltip. Any way to use FromArgb(...)?</p>",
+    "PostedDate": "2012-05-23T08:04:04.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839954",
+    "ThreadId": "356841",
+    "Html": "<p>marker.ToolTip.Stroke.Color =&nbsp;Color.<strong>FromArgb</strong>(140, Color.MidnightBlue); //&nbsp;http://msdn.microsoft.com/en-us/library/system.drawing.pen.aspx</p>",
+    "PostedDate": "2012-05-23T08:26:34.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839956",
+    "ThreadId": "356841",
+    "Html": "\r\n<p>Ola radioman. Already tried that (Color.FromArgb(255, 64, 64, 64)), but I get the error that&nbsp; Value of type 'System.Drawing.Color' cannot be converted to 'System.Drawing.Brush'. Same goes for the &quot;Pens&quot; btw.</p>\r\n<p>- How do I change the text color btw. can't find any property.</p>\r\n",
+    "PostedDate": "2012-05-23T08:29:28.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839957",
+    "ThreadId": "356841",
+    "Html": "<p>marker.ToolTip.<strong>Foreground</strong></p>",
+    "PostedDate": "2012-05-23T08:32:44.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839963",
+    "ThreadId": "356841",
+    "Html": "<p>Thanks for the foreground, but the color.fromargb doesn't seem to work.</p>",
+    "PostedDate": "2012-05-23T08:40:17.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839978",
+    "ThreadId": "356841",
+    "Html": "<p>After some search in the MSDN I got an idea and I fixed it ;) Was a simple code-issue.</p>",
+    "PostedDate": "2012-05-23T09:08:59.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

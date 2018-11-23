@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1426020",
+    "ThreadId": "638129",
+    "Html": "I have a VFR raster chart (map image for aviation) --like this one. I want to overlay this image on Gmap (I have the coordinates for it). But when you zoom into this image, it should not stay the same size (like a marker). The image should zoom in too. How do I do it? It's kinda like creating a polygon at specific lat/lng and you can zoom in/out of the polygon. It should become part of the map. Let me know if there is confusion.  I am new to Gmap and this is urgent. Thanks<br />\n<br />\n<img src=\"https://yuq.me/users/29/474/k2P9N0UmWJ.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-05-18T08:31:42.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426030",
+    "ThreadId": "638129",
+    "Html": "check <a href=\"http://greatmaps.codeplex.com/SourceControl/latest#Testing/Demo.Clouds/MainForm.cs\" rel=\"nofollow\">http://greatmaps.codeplex.com/SourceControl/latest#Testing/Demo.Clouds/MainForm.cs</a>\r<br />\n<br />\n..but it won't work if your map projection isn't the same, then you would have to use mapCruncher tool and create custom map provider<br />\n",
+    "PostedDate": "2015-05-18T09:18:06.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-05-18T09:18:11.47-07:00"
+  },
+  {
+    "Id": "1426060",
+    "ThreadId": "638129",
+    "Html": "You were quick radioman, thanks. So these are the bounding coordinates for the image.<br />\n<br />\nBounding_Coordinates:<br />\nWest_Bounding_Coordinate: -80.107136<br />\nEast_Bounding_Coordinate: -59.729722<br />\nNorth_Bounding_Coordinate: 48.502223<br />\nSouth_Bounding_Coordinate: 38.660689<br />\n<br />\nHow do I set it in the code?  I only see two variables (gtl and gbr). gtl is for the upper left corner of the image but what about gbr? How do I figure that out for my image?<br />\n<br />\nI just tried setting the gtl and gbr but the size of the image comes too large. I mean the size of the image is already x-tra large but if the image is overlaid more towards the ground then it would be perfect. Right now the image size is about the size of the country (US) but should be the size of a state. Please help radioman. <br />\n<br />\nTried setting the lat/long for gtl. But I don't know what to set for gbr. <br />\n<br />\nOK I have figured out the bounding coordinates(lat/long). The upper left corner of the image is (48.502223,-80.107136), upper right(48.502223,-59.729722), bottom right(38.660689,-59.729722), bottom left(38.660689,-80.107136). So basically I need to bound the image inside these points. <br />\n",
+    "PostedDate": "2015-05-18T11:17:32.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426945",
+    "ThreadId": "638129",
+    "Html": "Ok I have figured this out. Now the problem is that because the images are so large and so many, the application freezes up when I start it. I guess  it's trying to load all of the images and they are large. Is there a way to fix it? Is it possible to load only a portion of the map?<br />\n",
+    "PostedDate": "2015-05-21T12:50:00.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426949",
+    "ThreadId": "638129",
+    "Html": "check mapCruncher, it can combine many large images into small tiles<br />\n",
+    "PostedDate": "2015-05-21T12:59:46.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427075",
+    "ThreadId": "638129",
+    "Html": "Do I need to create the mapcruncher or is there something out there? If there is, can I get the link?<br />\n",
+    "PostedDate": "2015-05-22T05:45:47.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427097",
+    "ThreadId": "638129",
+    "Html": "<a href=\"https://greatmaps.codeplex.com/SourceControl/latest#Tools/MapCruncher/MapCruncher.csproj\" rel=\"nofollow\">https://greatmaps.codeplex.com/SourceControl/latest#Tools/MapCruncher/MapCruncher.csproj</a><br />\n",
+    "PostedDate": "2015-05-22T07:03:01.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

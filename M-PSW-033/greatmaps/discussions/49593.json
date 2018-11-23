@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "165969",
+    "ThreadId": "49593",
+    "Html": "I have my markers displayed in real-time from vehcile tracker units. I'm updating the positions of the markers with long/lat , but what is the best<br>\r\nmethod of forcing the markers to be refreshed on the map, without calling a map.reloadmap (which i presume has the overhead of calculating and<br>\r\nfetching the tiles again) .&nbsp; It is possible for me to update the positions of all my markers then call a method to simply redraw them, ?<br>\r\nThanks<br>\r\n",
+    "PostedDate": "2009-03-09T00:54:51.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "165993",
+    "ThreadId": "49593",
+    "Html": "<br><div>..if you change marker position, just use, <span style=\"white-space:pre;font-family:'courier new';font-size:13px\"><span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> UpdateMarkerLocalPosition(MapObject marker), to update it's local position and Invalidate</span></div><div><br></div><div><span style=\"white-space:pre;font-family:'courier new';font-size:13px\">foreach(MapObject obj in map.Markers)</span><br></div><div><span style=\"white-space:pre;font-family:'courier new';font-size:13px\">{map.UpdateMarkerLocalPosition(obj);}<br></span></div><div><span style=\"white-space:pre;font-family:'courier new';font-size:13px\">map.Invalidate(); // or map.ZoomAndCenterMarkers(), it sets maximum zoom for all markers and sets center</span></div><div><span style=\"white-space:pre;font-family:'courier new';font-size:13px\"><br></span></div><div><span style=\"white-space:pre;font-family:'courier new';font-size:13px\">p.s. local positions is autoupdating too when you manualy draging the map or add/remove/insert item in Markers collection</span></div>",
+    "PostedDate": "2009-03-09T02:22:07.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166377",
+    "ThreadId": "49593",
+    "Html": "thats working perpect, thanks.&nbsp; Is the tooltip coding working in WinForms yet ? <br>\r\n",
+    "PostedDate": "2009-03-10T00:46:36.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166423",
+    "ThreadId": "49593",
+    "Html": "it will soon ;}",
+    "PostedDate": "2009-03-10T04:23:32.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "176734",
+    "ThreadId": "49593",
+    "Html": "Hi Radioman. Still waiting eagerly for the tooltip functionality for WinForms markers... any idea as to when you'll make this available?<br>\r\nCheers, and congratulations on an excellent project.<br>\r\n",
+    "PostedDate": "2009-04-07T11:37:24.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "176759",
+    "ThreadId": "49593",
+    "Html": "thx for remainder this ;} tomorrow it shall be done!",
+    "PostedDate": "2009-04-07T12:19:42.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "177280",
+    "ThreadId": "49593",
+    "Html": "Now it IS! You can even override DrawToolTip if you want custom tooltip ;}\r\n",
+    "PostedDate": "2009-04-08T11:11:11.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "177541",
+    "ThreadId": "49593",
+    "Html": "10000 thanks radioman, its working perfect.<br>\r\n<br>\r\nBut i have only the last question:<br>\r\n<br>\r\nWhen i placed two markers on exactly the same adress, the second tooltip of the markers are not really visible. <br>\r\nCan you give me some example code, which i can include in the windows.forms.dll ? <br>\r\n<br>\r\nFor example i have to guys which are living in one house , i only will see one marker. Thats ok. But i need two toolstrips NOT among each other popup when mouseOver. I need them next to each other to read both toolstrips.<br>\r\n<br>\r\nI hope you can give me a little solution :-)<br>\r\n<br>\r\nThanks in advance<br>\r\n<br>\r\nand much respect for your project.<br>\r\n<br>\r\nRonny<br>\r\n",
+    "PostedDate": "2009-04-09T04:08:52.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "177551",
+    "ThreadId": "49593",
+    "Html": "i'll think about that",
+    "PostedDate": "2009-04-09T04:42:37.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "181461",
+    "ThreadId": "49593",
+    "Html": "Hi Radioman. In the latest fix of the WinForms marker tooltips, I notice you have a GmapMarkerRect object in the startup project, without which the marker tooltips do not work. Is it possible to put this item into the DLL project?<br>\r\n<br>\r\nthanks<br>\r\nNcami\r\n",
+    "PostedDate": "2009-04-20T12:18:37.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "181583",
+    "ThreadId": "49593",
+    "Html": "<span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">GmapMarkerRect is just one of the marker, you can use others or creat your own, it's just for demo, actualy in it i create two markers in the same position, and to rect marker with tooltip</span>",
+    "PostedDate": "2009-04-20T21:31:48.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "184949",
+    "ThreadId": "49593",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\nI also have this problem. More than one marker on exact the same longlat. Only the last marker will give a tooltip.This is a workaround solution. Maybe you can save the last tooltip rectangle to put it beneath it, but now it is more a card look.<br>\r\n<br>\r\nprotected override void OnPaint(PaintEventArgs e)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .....<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (MarkersEnabled &amp;&amp; !(Form.ModifierKeys == Keys.Control))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (GMapMarker m in Markers)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (m.Visible &amp;&amp; region.Contains(m.LocalPosition.X, m.LocalPosition.Y))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.OnRender(e.Graphics);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Collections.Generic.List&lt;GMapNET.Point&gt; pointsAlreadyHinted = new System.Collections.Generic.List&lt;GMapNET.Point&gt;();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (GMapMarker m in Markers)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (m.Visible &amp;&amp; region.Contains(m.LocalPosition.X, m.LocalPosition.Y))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (m.IsMouseOver &amp;&amp; !string.IsNullOrEmpty(m.ToolTipText))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int howManyThisPoint = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (GMapNET.Point pnt in pointsAlreadyHinted)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((pnt.X == m.LocalPosition.X) &amp;&amp; (pnt.Y == m.LocalPosition.Y))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; howManyThisPoint++;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DrawToolTip(e.Graphics, m, m.LocalPosition.X + howManyThisPoint * 15, m.LocalPosition.Y + howManyThisPoint * 20);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pointsAlreadyHinted.Add(m.LocalPosition);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-29T06:09:07.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "185040",
+    "ThreadId": "49593",
+    "Html": "yes this is isue, but i have idea about spliting tooltips around, so they don't overlap each other, so just the question of time",
+    "PostedDate": "2009-04-29T08:48:06.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

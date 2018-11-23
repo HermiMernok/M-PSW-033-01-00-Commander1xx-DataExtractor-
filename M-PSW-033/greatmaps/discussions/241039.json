@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "546244",
+    "ThreadId": "241039",
+    "Html": "\r\n<p>1. is there any disadvantages using this as local cache server?</p>\r\n<p>2. which is the easiest way to configure this?</p>\r\n",
+    "PostedDate": "2011-01-09T08:55:07.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546279",
+    "ThreadId": "241039",
+    "Html": "\r\n<p>just remove&nbsp;<em>'SQLite'</em> string from compilation symbols in &nbsp;core project then it's automatically build using MSSqlCe, ..anyway in this way i can't promise you the best performance ;} but its ok</p>\r\n",
+    "PostedDate": "2011-01-09T10:57:33.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546296",
+    "ThreadId": "241039",
+    "Html": "\r\n<p>Sorry for being a newbie. Should I just remove the lines in the code &quot;if #SQLite&quot; and make sure that MsSQL code is being run or is there a general file or place where you control this?</p>\r\n",
+    "PostedDate": "2011-01-09T11:23:42.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546309",
+    "ThreadId": "241039",
+    "Html": "\r\n<p>compilation symbols in the project settings, build section</p>\r\n",
+    "PostedDate": "2011-01-09T11:48:06.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546310",
+    "ThreadId": "241039",
+    "Html": "\r\n<p>Ahh, sorry, thanks for the reply and a great project!</p>\r\n",
+    "PostedDate": "2011-01-09T11:52:49.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "570820",
+    "ThreadId": "241039",
+    "Html": "<p>Hello, I am having problems runing on x64. I remove the compilation symbols from the Demo.Winforms and from Gmap.NET.Core. It trues to load MsSQLCePureImageCache and there is an error on method PutImagaToCache&nbsp;about the second parameter Point, which I changed to GPoint and works fine. Then I get an error on Demo.WindowsForms.MainForm type or namespace name 'SQLLiteIpCache' coud not be found. It runs fine on x86. I am trying to run inside of an application compiled for any cpu. Any help? Thanks in advance and this project looks awesome!</p>\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">greatmaps-1b23a7b6543a</span></span></span></p>",
+    "PostedDate": "2011-02-23T07:36:21.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "570850",
+    "ThreadId": "241039",
+    "Html": "<p>Demo.WindowsForms uses sqlite, so it doesn't build if you disable it, just create fresh new app</p>",
+    "PostedDate": "2011-02-23T08:36:49.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571717",
+    "ThreadId": "241039",
+    "Html": "<p>Thanks, I got it to work. The performance though is very slow on \"Any CPU\" but as soon as I change the configuration to x86 it speeds up considerably!&nbsp;</p>",
+    "PostedDate": "2011-02-24T12:07:59.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571724",
+    "ThreadId": "241039",
+    "Html": "<p>hm, did tried x64 build?</p>",
+    "PostedDate": "2011-02-24T12:14:31.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571728",
+    "ThreadId": "241039",
+    "Html": "<p>Yes, on x64 is even worse. I am not sure why, but it is extremelly noticiable when you switch the configuration from x86 to either \"Any CPU\" or x64.</p>\r\n<p>Note: I removed the SQLLite from compilation symbols, x86 works great still, but the \"Any CPU\" or x64 does not render well, have missing images on the map.</p>",
+    "PostedDate": "2011-02-24T12:19:27.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571729",
+    "ThreadId": "241039",
+    "Html": "<p>i see ;/</p>",
+    "PostedDate": "2011-02-24T12:21:36.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571734",
+    "ThreadId": "241039",
+    "Html": "<p>Any suggestions?</p>",
+    "PostedDate": "2011-02-24T12:27:01.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571742",
+    "ThreadId": "241039",
+    "Html": "<p>hm,&nbsp;i've just discovered that FastReaderWriterLock on AnyCPU/x64 doesnt work well, need some workaround</p>",
+    "PostedDate": "2011-02-24T12:37:18.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571754",
+    "ThreadId": "241039",
+    "Html": "<p>Cool, I mean cool you found a bug. Anything I can do to workaround? Thanks radioman, this project is AWESOME!!!</p>",
+    "PostedDate": "2011-02-24T12:52:43.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571766",
+    "ThreadId": "241039",
+    "Html": "<p>well you can manually set bool VistaOrLater = false, then it will use old locking technique, strange google has no info about issue on x64 with SRWLocks ;/</p>",
+    "PostedDate": "2011-02-24T13:15:37.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571777",
+    "ThreadId": "241039",
+    "Html": "<p>Works great, thanks a bunch!</p>",
+    "PostedDate": "2011-02-24T13:39:45.19-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

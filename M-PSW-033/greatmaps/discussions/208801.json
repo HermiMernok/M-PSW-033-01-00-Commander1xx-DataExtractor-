@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "429140",
+    "ThreadId": "208801",
+    "Html": "<p>Hello, I'm using the WindowsForms dll on VB.NET 2008 Express.</p>\r\n<p>At least I was able to bring your great control to run, added markes and a route.</p>\r\n<p>I implemented drag and drop of markes by</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> map_MouseMove(<span style=\"color:Blue\">ByVal</span> sender <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Object</span>, <span style=\"color:Blue\">ByVal</span> e <span style=\"color:Blue\">As</span> System.Windows.Forms.MouseEventArgs) <span style=\"color:Blue\">Handles</span> map.MouseMove\r\n  <span style=\"color:Blue\">If</span> e.Button = Windows.Forms.MouseButtons.Left <span style=\"color:Blue\">Then</span>\r\n    <span style=\"color:Blue\">If</span> DragMarker <span style=\"color:Blue\">Then</span>\r\n      gmo.Markers.Item(DraggedMarker - 1).Position = map.FromLocalToLatLng(e.X, e.Y)\r\n      gmo.Routes.Item(0).Points(DraggedMarker - 1) = gmo.Markers.Item(DraggedMarker - 1).Position\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">If</span>\r\n  <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">If</span>\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n</pre>\r\n</div>\r\n<p>As you can see I also move the route point but the route line is not being updated like the marker. I tried map.refresh(), map.update() even map.reload() without success. Only if I drag the map with the right mouse button the route is being redrawed.</p>\r\n<p>Am I doing something wrong?</p>\r\n<p>P.S.: It was hard for me implemting the control because of the different kinds of code snippets in the discussion and how to's. So for me it's much harder (or impossible) if I would have to download or look into source codes or have to change such code by myself :-P</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-09T00:55:21.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429144",
+    "ThreadId": "208801",
+    "Html": "<p>why do you need to drag route?</p>",
+    "PostedDate": "2010-04-09T01:06:42.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429151",
+    "ThreadId": "208801",
+    "Html": "<p>I try to make an application for creating biking trips.</p>\r\n<p>I want to add waypoints (markers) and the route shall be visualized as lines between the waypoints.</p>\r\n<p>When a placement of an marker was not so exactly I want to modify the position of the waypoint by drag and drop (it's easy and possible so far). When I draw the waypoint it would be nice that also the lines between the waypoints is moving too.</p>\r\n<p>At the moment I am deleting the entire route and create it completely new after the drop of the marker (OnMouseUp event) with</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>gmo.Routes.Clear()\r\nroute = <span style=\"color:Blue\">New</span> List(Of NET.PointLatLng)\r\n\r\n<span style=\"color:Blue\">For</span> <span style=\"color:Blue\">Each</span> m <span style=\"color:Blue\">In</span> gmo.Markers\r\n  route.Add(m.Position)\r\n<span style=\"color:Blue\">Next</span>\r\n\r\n<span style=\"color:Blue\">Dim</span> r <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> Gmap.NET.WindowsForms.GMapRoute(route, <span style=\"color:#A31515\">&quot;test&quot;</span>)\r\ngmo.Routes.Add(r)\r\n\r\n</pre>\r\n</div>\r\nThanks for the VERY quick response :-)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-09T01:16:31.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429158",
+    "ThreadId": "208801",
+    "Html": "<p>i see, hm, well you need to call this then:\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\"></span><div style=\"color:Black;background-color:White\"><pre><span style=\"color:Blue\">foreach</span>(GMapOverlay o <span style=\"color:Blue\">in</span> Overlays)\r\n{\r\n     <span style=\"color:Blue\">if</span>(o.IsVisibile)\r\n     {\r\n               <span style=\"color:Blue\">foreach</span>(GMapRoute obj <span style=\"color:Blue\">in</span> o.Routes)\r\n               {\r\n                  UpdateRouteLocalPosition(obj);\r\n               }\r\n      }\r\n}\r\n\r\nmap.Invalidate(<span style=\"color:Blue\">false</span>);\r\n</pre>\r\n</div>\r\n<br>but <strong>UpdateRouteLocalPosition</strong> is internal, so you need to edit source a bit ;}<br></pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-04-09T01:48:42.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429172",
+    "ThreadId": "208801",
+    "Html": "<p><em>&gt;&gt; but UpdateRouteLocalPosition is internal, so you need to edit source a bit ;}</em></p>\r\n<p>I expected it - too bad :-/ ;-)</p>\r\n<p>by the way: is there a way to get the index of the marker where the mouse is over? Like</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> map_OnMarkerEnter(<span style=\"color:Blue\">ByVal</span> item <span style=\"color:Blue\">As</span> NET.WindowsForms.GMapMarker) <span style=\"color:Blue\">Handles</span> map.OnMarkerEnter\r\n  OnMarker = <span style=\"color:Blue\">True</span>\r\n  SelectedMarker = item.Index<br><span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n</pre>\r\n</div>\r\n<p>Then I could later use this info for other operations like</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>gmo.Markers(SelectedMarker).Tag = <span style=\"color:#A31515\">&quot;abc&quot;</span>\r\ngmo.Markers(SelectedMarker).ToolTipText = <span style=\"color:#A31515\">&quot;abc&quot;</span>\r\n<span style=\"color:Blue\">or</span>\r\ngmo.Routes.item(myRoute).Position(SelectedMarker) = ...\r\n\r\n</pre>\r\n</div>\r\n<p>I think other useres requested the possibility to drag route points already. This would be the best solution and then all this workaround with extra waypoints is no more used...</p>\r\n<p>And for the wish/ideas-list: It would be nice to have in a route not only the line but also a pin or dot or similar on the points. For example if you have a route which is nearly straight and there is one or more points on this nearly straight line, how can I see where the points are? I mention this because I aleady can import and export GPX files into my application which I am using on my mobile phone for routing/tracking ;-)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-09T02:16:32.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429190",
+    "ThreadId": "208801",
+    "Html": "<p>why not: <em>SelectedMarker = item ?&nbsp;</em>// if you have the object you can always find the index later</p>\r\n<p>anyway, all you need is just regeneration of route. Just ovveride UpdateRouteLocalPosition. Sure<em> it would</em> be nice, but how to implement it ;}</p>",
+    "PostedDate": "2010-04-09T03:18:50.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429219",
+    "ThreadId": "208801",
+    "Html": "<p>check the newest version, I've added some polygon interaction</p>",
+    "PostedDate": "2010-04-09T05:03:37.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450644",
+    "ThreadId": "208801",
+    "Html": "<p>Hello radioman,</p>\r\n<p>after a few weeks of abstinence I continue on my project.</p>\r\n<p>I've downloaded the newest version of the DLLs and also tried to use polygons instead of routes.</p>\r\n<p>On the first try it looks like that the polygons are used similar to polygons and the only difference is that the end is connected to the start and the area can be filled. That's -so far - not what I need ;-)</p>\r\n<p>The polygons have the same behaviour as when I change the Position of a  route point: The ploygons do not refresh/repaint when a polygon point is being changed. Only dragging the map with the mousebutton, (or zooming) causes that the route or polygon is being redrawed...</p>\r\n<p>I hoped there would be a new &quot;Refresh&quot;, &quot;Repaint&quot;or &quot;UpdateRouteLocalPosition&quot; function but unfortunately not.</p>\r\n<p>&nbsp;</p>\r\n<p>Am I doing something wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>P.S.: I've been teaching myself programming for much more than 10 years but unfortunately not C, C++, C# or Java... :-(</p>",
+    "PostedDate": "2010-06-02T08:17:36.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450648",
+    "ThreadId": "208801",
+    "Html": "<p>MainMap.<strong>UpdatePolygonLocalPosition</strong>(polygon); // check windows form demo</p>",
+    "PostedDate": "2010-06-02T08:22:43.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450766",
+    "ThreadId": "208801",
+    "Html": "<p>Great! :-))) Thanks!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-02T11:47:06.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

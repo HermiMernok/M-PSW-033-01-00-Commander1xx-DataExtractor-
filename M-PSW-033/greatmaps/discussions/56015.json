@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "189183",
+    "ThreadId": "56015",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>We had a discussion about visibility of layers (see http://gmap4dotnet.codeplex.com/Thread/View.aspx?ThreadId=54618).</p>\r\n<p>You implemented layers after that. Now I want to create transparant layers. What approach do you think is preferred?</p>\r\n<p>BTW: If you set IsVisible to false in the groundlayer, the tiles remain visible. Is this by design?</p>\r\n<p>Frank</p>",
+    "PostedDate": "2009-05-12T02:11:53.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189217",
+    "ThreadId": "56015",
+    "Html": "<p>layers are for markers only, the map is allways in the background, what exactly do you want to&nbsp;achieve ?</p>",
+    "PostedDate": "2009-05-12T04:26:30.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189229",
+    "ThreadId": "56015",
+    "Html": "<p>I want to create a map with all customer locations, its territory and volume information. Basically a combination of a territory map (http://en.wikipedia.org/wiki/Choropleth_map) and bars as markers (graduated symbols).</p>\r\n<p>With MapInfo I can decide what the underlaying map(s) is/are, but MapInfo is not very userfriendly to incorporate it in the application. Unfortunately the map suppliers GMap uses don't offer what labels/detail you want to see. In my test environment I used Google Terrain and painted the tiles (very) bright, which resulted in acceptable views. So if I can create a slider with brightness (or something that pushes the tiles further to the background) it would be ok.</p>",
+    "PostedDate": "2009-05-12T05:00:04.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189232",
+    "ThreadId": "56015",
+    "Html": "<p>&quot;<span style=\"color:#30332d\">pushes the tiles further to the background&quot; ?? o.O</span></p>",
+    "PostedDate": "2009-05-12T05:05:04.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

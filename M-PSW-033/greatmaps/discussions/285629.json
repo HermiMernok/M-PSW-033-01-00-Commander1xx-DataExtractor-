@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "723094",
+    "ThreadId": "285629",
+    "Html": "\r\n<p>There is not a built in event for mousedown on a marker.</p>\r\n<p>Therefore I want to use the map's mousedown event and check to see if the mouse happens to be over a marker.&nbsp; Is there a simple way to do this?</p>\r\n",
+    "PostedDate": "2012-01-10T06:17:38.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723098",
+    "ThreadId": "285629",
+    "Html": "<p>MainMap.<strong>OnMarkerEnter</strong><br /> MainMap.<strong>OnMarkerLeave</strong></p>\r\n<p>save/reset current marker in these events</p>",
+    "PostedDate": "2012-01-10T06:23:27.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723109",
+    "ThreadId": "285629",
+    "Html": "<p>I'm trying to move markers.&nbsp; Unless I use a rectangle marker as you do in your example, I cannot use the OnMarkerLeave event to set my currentMarker to null.&nbsp; If I do that, then the user cannot move the marker properly because as soon as the mouse moves off the marker, the marker is de-selected.</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_OnMarkerEnter(GMapMarker item)\r\n{\r\n    currentMarker = item;\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseUp(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    isDraggingMarker = <span style=\"color: blue;\">false</span>;\r\n    currentMarker = <span style=\"color: blue;\">null</span>;\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseDown(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left)\r\n    {\r\n        <span style=\"color: blue;\">if</span> (currentMarker != <span style=\"color: blue;\">null</span>)\r\n            isDraggingMarker = <span style=\"color: blue;\">true</span>;\r\n    }\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseMove(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left &amp;&amp; isDraggingMarker &amp;&amp; currentMarker != <span style=\"color: blue;\">null</span>)\r\n    {\r\n        currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);\r\n        MainMap.Refresh();\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>The above code works great when the user does what is intended: IE they mouse over a marker, mousedown on it and drag.&nbsp; The problem is that if they simply mouseover a marker and then click down somewhere else on the map, the marker moves because I am not catching that the marker is no longer the currentMarker.</p>\r\n<p>I really want to avoid doing what you did with the rectangular marker for moving markers.&nbsp; I have too many on the map and it gets congested quickly.</p>\r\n<p>Thoughts?</p>",
+    "PostedDate": "2012-01-10T06:32:58.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723110",
+    "ThreadId": "285629",
+    "Html": "<p>Maybe I could do what you do but make the rectangular marker borderless (totally transparent).&nbsp; I'd prefer to find a better solution though.</p>",
+    "PostedDate": "2012-01-10T06:35:52.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723119",
+    "ThreadId": "285629",
+    "Html": "<p>I'm assuming that in my MouseDown listener I need to sweep through all the markers of each overlay and check to see if the LocalArea property contains the mouse position.&nbsp; If so, then I can declare that I'm dragging a marker.</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseDown(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left)\r\n    {\r\n        <span style=\"color: blue;\">for</span> (<span style=\"color: blue;\">int</span> i = Overlays.Count - 1; i &gt;= 0; i--)\r\n        {\r\n            GMapOverlay o = Overlays[i];\r\n            <span style=\"color: blue;\">if</span> (o != <span style=\"color: blue;\">null</span> &amp;&amp; o.IsVisibile)\r\n                <span style=\"color: blue;\">foreach</span> (GMapMarker m <span style=\"color: blue;\">in</span> o.Markers)\r\n                    <span style=\"color: blue;\">if</span> (m.IsVisible &amp;&amp; m.IsHitTestVisible &amp;&amp; m.LocalArea.Contains(e.X, e.Y))\r\n                    {\r\n                        currentMarker = m;\r\n                        isDraggingMarker = <span style=\"color: blue;\">true</span>;\r\n                    }\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-01-10T06:44:01.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723128",
+    "ThreadId": "285629",
+    "Html": "<p>try this instead:</p>\r\n<p><em>private void MainMap_MouseDown(object sender, MouseEventArgs e)</em><br /><em>{</em><br /><em> if (e.Button == MouseButtons.Left)</em><br /><em> {</em><br /><em>&nbsp;if (currentMarker != null &amp;&amp; currentMarker.<strong>IsMouseOver</strong>)</em><br /><em>&nbsp;{</em><br /><em>&nbsp; isDraggingMarker = true;</em><br /><em>&nbsp; }</em><br /><em> }</em><br /><em>}</em></p>\r\n<p>then if you click down not in markers area it will not move</p>",
+    "PostedDate": "2012-01-10T06:54:03.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723132",
+    "ThreadId": "285629",
+    "Html": "<p>This worked great.&nbsp; For anyone interested, below is the final code I used.&nbsp; This allows the user to move markers without using a rectangular marker around it to capture the movement.&nbsp;</p>\r\n<p>In my example, I specify which overlays I want to check the markers for.&nbsp; i do this because I move moveable markers are some&nbsp;overlays and fixed markers on others.&nbsp; No need to check an overlay with nothing but fixed markers.</p>\r\n<p>Radioman: Any chance of you adding&nbsp;a built-in MarkerMouseDown event?</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseUp(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    isDraggingMarker = <span style=\"color: blue;\">false</span>;\r\n    currentMarker = <span style=\"color: blue;\">null</span>;\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseDown(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left)\r\n    {\r\n        GMapOverlay[] overlays = <span style=\"color: blue;\">new</span> GMapOverlay[] { polygons, top };\r\n        <span style=\"color: blue;\">for</span> (<span style=\"color: blue;\">int</span> i = overlays.Length - 1; i &gt;= 0; i--)\r\n        {\r\n            GMapOverlay o = overlays[i];\r\n            <span style=\"color: blue;\">if</span> (o != <span style=\"color: blue;\">null</span> &amp;&amp; o.IsVisibile)\r\n                <span style=\"color: blue;\">foreach</span> (GMapMarker m <span style=\"color: blue;\">in</span> o.Markers)\r\n                    <span style=\"color: blue;\">if</span> (m.IsVisible &amp;&amp; m.IsHitTestVisible &amp;&amp; m.LocalArea.Contains(e.X, e.Y))\r\n                    {\r\n                        currentMarker = m;\r\n                        isDraggingMarker = <span style=\"color: blue;\">true</span>;\r\n                        <span style=\"color: blue;\">return</span>;\r\n                    }\r\n        }\r\n    }\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseMove(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left &amp;&amp; isDraggingMarker &amp;&amp; currentMarker != <span style=\"color: blue;\">null</span>)\r\n    {\r\n        currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);\r\n        MainMap.Refresh();\r\n    }\r\n}\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-01-10T06:56:11.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723140",
+    "ThreadId": "285629",
+    "Html": "<p>Oh okay.&nbsp; Didn't know that property existed.&nbsp; I just tested it and it worked great.&nbsp; I just made one additional change in my OnMarkerEnter listener.&nbsp; I check to see if we are currently dragging a marker.&nbsp; This prevents the focus from switching from the marker you are currently dragging to the new marker you just passed over/behind.&nbsp;</p>\r\n<p>Thanks for all the help radioman.</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_OnMarkerEnter(GMapMarker item)\r\n{\r\n    <span style=\"color: blue;\">if</span> (!isDraggingMarker)\r\n        currentMarker = item;\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseUp(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    isDraggingMarker = <span style=\"color: blue;\">false</span>;\r\n    currentMarker = <span style=\"color: blue;\">null</span>;\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseDown(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left)\r\n        <span style=\"color: blue;\">if</span> (currentMarker != <span style=\"color: blue;\">null</span> &amp;&amp; currentMarker.IsMouseOver)\r\n            isDraggingMarker = <span style=\"color: blue;\">true</span>;\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_MouseMove(<span style=\"color: blue;\">object</span> sender, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (e.Button == MouseButtons.Left &amp;&amp; isDraggingMarker &amp;&amp; currentMarker != <span style=\"color: blue;\">null</span>)\r\n    {\r\n        currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);\r\n        MainMap.Refresh();\r\n    }\r\n}\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-01-10T07:05:48.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723141",
+    "ThreadId": "285629",
+    "Html": "<p>p.s. manually checking&nbsp;<em>m.LocalArea.Contains(e.X, e.Y)) </em>doesn't work correctly in the last changesets, you can check if overlay is correct in OnMarkerEnter event</p>",
+    "PostedDate": "2012-01-10T07:07:42.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723169",
+    "ThreadId": "285629",
+    "Html": "<p>Yep that is what I'm doing.&nbsp; I stripped my code before posting.&nbsp; Thanks for the heads up about LocalArea.Contains().</p>",
+    "PostedDate": "2012-01-10T07:52:51.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

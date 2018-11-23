@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "516623",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>Hi, </p>\r\n<div>I'm a very beginner with great maps in&nbsp;<a href=\"http://vb.net/\" target=\"_blank\">vb.net</a></div>\r\n<div>I'd like to zoom on the map by drawing a rectangle. Is there a specific function for that, or do I have a to deal with mousedown, mousedrag and mouseup?</div>\r\n<div>Thanks for the answer.</div>\r\n<span style=\"color:#888888\">\r\n<div>Johann</div>\r\n</span><span style=\"color:#888888\">&nbsp;</span>\r\n<p></p>\r\n",
+    "PostedDate": "2010-11-03T12:20:20.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516649",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>Hold down shift and drag your left mouse buton.</p>\r\n<p>Read this page: <a href=\"http://greatmaps.codeplex.com/documentation\">http://greatmaps.codeplex.com/documentation</a></p>\r\n<p>&nbsp;</p>\r\n<p>Mark</p>\r\n",
+    "PostedDate": "2010-11-03T13:15:40.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516712",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>Thanks for your answer,</p>\r\n<p>But I would like to use it without having to hold the shift button.&nbsp;</p>\r\n<p>In my application, I have differents pointing modes. When the user has to select something on the map, the left button will handle a selection.</p>\r\n<p>Otherwise, it will zoom by dragging, but without having to hold down the shit button.</p>\r\n<p>I'll try tomorow.</p>\r\n<p><span style=\"font-size:13.2px\">PS: Sorry for my english, I hope youcan &nbsp;understand me.</span></p>\r\n",
+    "PostedDate": "2010-11-03T14:54:53.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516728",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>;} just hold <em>shit</em> button</p>\r\n",
+    "PostedDate": "2010-11-03T15:06:12.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523309",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>Yes, ok for the shit (or shift ;) button), but I would like to do it without having&nbsp;to hold down the shift button, directly by dragging.</p>\r\n",
+    "PostedDate": "2010-11-17T08:24:56.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523318",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>make your own selector then ;}</p>\r\n",
+    "PostedDate": "2010-11-17T08:35:32.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523328",
+    "ThreadId": "233376",
+    "Html": "Thanks for your answer. That means I have to catch the mouseDown event, draw rectangle as the mouse drag (with mouseDragEvent) and zoom once the mouseUp is raised, or is there a simpler way?",
+    "PostedDate": "2010-11-17T08:46:31.15-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523332",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>you can delete the check which requires holding shift ;}</p>\r\n",
+    "PostedDate": "2010-11-17T08:50:03.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523334",
+    "ThreadId": "233376",
+    "Html": "How can I do that?",
+    "PostedDate": "2010-11-17T08:52:03.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523339",
+    "ThreadId": "233376",
+    "Html": "\r\n<p>find the place where it's done, and modify it</p>\r\n",
+    "PostedDate": "2010-11-17T09:03:31.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523342",
+    "ThreadId": "233376",
+    "Html": "Ok, so I have to change the source code of the lib. Thanks for your help",
+    "PostedDate": "2010-11-17T09:05:21.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

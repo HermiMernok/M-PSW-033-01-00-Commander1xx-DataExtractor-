@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "On mouse move evenhandler when we drag a item over\r\nother one we lost it and often the drag stop:\r\n\r\n\r\n\r\nIn the GMapControl.cs I add this boolean  \r\n\r\npublic bool markerAsClick = false;\r\n\r\nThe caller setup the flag \r\n\r\n      void MainMap_MouseMove(object sender, MouseEventArgs e)\r\n      {\r\n         if(e.Button == MouseButtons.Left && isMouseDown)\r\n         {\r\n            if(CurentRectMarker == null)\r\n            {\r\n               if(currentMarker.IsVisible)\r\n               {\r\n                  currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);\r\n               }\r\n            }\r\n            else // move rect marker\r\n            {\r\n                MainMap.markerAsClick = true;\r\n               PointLatLng pnew = MainMap.FromLocalToLatLng(e.X, e.Y);\r\n    \r\n                 . ..\r\n                      ......    \r\n               }\r\n\r\n            MainMap.Refresh(); // force instant invalidation\r\n         }\r\n      }\r\n\r\nprotected override void OnMouseMove(MouseEventArgs e)\r\n      {\r\n          if(!markerAsClick)\r\n            { \r\n              .........\r\n              .............. \r\n             }\r\n\r\n         base.OnMouseMove(e);\r\n      }\r\n\r\nfor me it's work fine \r\nbut probably you have a better place to do this",
+    "LastUpdatedDate": "2015-01-13T12:16:49.993-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-09-16T10:54:09.077-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Drag Item",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16078
+  },
+  "FileAttachments": [
+    {
+      "FileId": 729934,
+      "FileName": "Code CS.zip",
+      "DownloadUrl": ".\\729934"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "thanks i'll check it",
+      "PostedDate": "2015-01-13T12:16:49.993-08:00",
+      "Id": 170016
+    }
+  ]
+}

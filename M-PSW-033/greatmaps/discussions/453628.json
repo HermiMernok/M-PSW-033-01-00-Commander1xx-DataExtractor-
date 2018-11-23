@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1081431",
+    "ThreadId": "453628",
+    "Html": "I want to print different image of the map, but the image is blank because the tile doesn't have the time to load. <br />\n<pre><code>            GMapControl1.ZoomAndCenterRoute(m_route)\n            bigimg = GMapControl1.ToImage()\n\n            GMapControl1.ZoomAndCenterMarkers(&quot;OverlayOne&quot;)\n            GMapControl1.Zoom -= 4\n\n            aimg = GMapControl1.ToImage()\n\n            GMapControl1.ZoomAndCenterMarkers(&quot;OverlayTwo&quot;)\n            GMapControl1.Zoom -= 4\n            bimg = GMapControl1.ToImage()</code></pre>\n\nIs there any way to know if the tile is loaded without working with the event ?<br />\n<br />\nI would love to make this <br />\n<pre><code>GMapControl1.ZoomAndCenterMarkers(&quot;OverlayOne&quot;)\nGMapControl1.Zoom -= 4\nGMapControl1.WaitTilesToLoad\naimg = GMapControl1.ToImage()</code></pre>\n\n",
+    "PostedDate": "2013-08-16T10:42:42.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1081438",
+    "ThreadId": "453628",
+    "Html": "check the static image demo<br />\n",
+    "PostedDate": "2013-08-16T10:56:12.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1081459",
+    "ThreadId": "453628",
+    "Html": "OK, i find another solution but it's not really nice.<br />\n<br />\nI understand that it's more of a caching problem so here what i did  \n<br />\n<pre><code>            GMapControl1.ZoomAndCenterMarkers(&quot;OverlayOne&quot;)\n            GMapControl1.Zoom -= 2\n            For i As Integer = 0 To 20\n                GMapControl1.Position = GMapControl1.Position\n            Next\n\n\n            aimg = GMapControl1.ToImage()\n\n            GMapControl1.ZoomAndCenterMarkers(&quot;OverlayTwo&quot;)\n            GMapControl1.Zoom -= 2\n            For i As Integer = 0 To 20\n                GMapControl1.Position = GMapControl1.Position\n            Next\n\n            bimg = GMapControl1.ToImage()</code></pre>\n\nIt's seem that the loop let the BG do his caching job for a while so the picture is loaded.<br />\nI did try to make it proper work with TileCompleted event but it doesn't work<br />\nI guess this code will generate blank tile anyway if the computer is really really fast.<br />\n",
+    "PostedDate": "2013-08-16T11:46:34.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

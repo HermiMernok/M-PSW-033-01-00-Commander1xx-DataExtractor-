@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "934628",
+    "ThreadId": "401376",
+    "Html": "\r\n<p>Hello radioman,</p>\r\n<p>is it possible to give 2 Geopoints to a marker?</p>\r\n<p>&nbsp;I want to draw 2 Icons on the map, but they should work as one Marker. First Position is no problem, but the second position is far away...</p>\r\n<p>&nbsp;</p>\r\n<p>do you have some idea?</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Imports</span> GMap.NET\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> Test_Marker\r\n    <span style=\"color:blue\">Inherits</span> GMapMarker\r\n\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Property</span> Point2 <span style=\"color:blue\">As</span> PointLatLng\r\n\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>(<span style=\"color:blue\">ByVal</span> p1 <span style=\"color:blue\">As</span> PointLatLng, <span style=\"color:blue\">ByVal</span> p2 <span style=\"color:blue\">As</span> PointLatLng)\r\n        <span style=\"color:blue\">MyBase</span>.<span style=\"color:blue\">New</span>(p1)\r\n        Point2 = p2\r\n\r\n        Size = <span style=\"color:blue\">New</span> System.Drawing.Size(<span style=\"color:blue\">My</span>.Resources.Network_icon_32.Width, <span style=\"color:blue\">My</span>.Resources.Network_icon_32.Height)\r\n        Offset = <span style=\"color:blue\">New</span> Point(-<span style=\"color:blue\">My</span>.Resources.Network_icon_32.Width / 2, -<span style=\"color:blue\">My</span>.Resources.Network_icon_32.Height / 2)\r\n\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">Sub</span> OnRender(<span style=\"color:blue\">ByVal</span> g <span style=\"color:blue\">As</span> Graphics)\r\n\r\n        g.DrawImageUnscaled(<span style=\"color:blue\">My</span>.Resources.Network_icon_32, LocalPosition.X, LocalPosition.Y)\r\n        <span style=\"color:blue\">Dim</span> LocalPosition2 <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Point()\r\n        LocalPosition2.X = Form_Main.MainMap.MapProvider.Projection.FromLatLngToPixel(Point2, Form_Main.MainMap.Zoom).X\r\n        LocalPosition2.Y = Form_Main.MainMap.MapProvider.Projection.FromLatLngToPixel(Point2, Form_Main.MainMap.Zoom).Y\r\n\r\n        g.DrawImageUnscaled(<span style=\"color:blue\">My</span>.Resources.Network_icon_32, px.X, px.Y)\r\n\r\n\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>bye EDE</p>\r\n",
+    "PostedDate": "2012-10-31T02:27:30.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934686",
+    "ThreadId": "401376",
+    "Html": "\r\n<p>FromLatLngToPixel gives pixel position, but not really local position for rendering, ...anyway why do you need to render two markers in the same place, why not just add two markers?</p>\r\n",
+    "PostedDate": "2012-10-31T05:05:52.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936572",
+    "ThreadId": "401376",
+    "Html": "<p>ohh sorry for 2nd help-post, i thought there went sth wrong with adding this topic.</p>\r\n<p>My wish is to draw a line between this 2 points, if i use route, the form gets very slow. I need up to 10.000 routes. Until v1.5 i used this code and worked very well. with the new one, it is not possible any more.</p>",
+    "PostedDate": "2012-11-05T00:58:27.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936646",
+    "ThreadId": "401376",
+    "Html": "<p>why so many routes?</p>",
+    "PostedDate": "2012-11-05T04:10:54.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936669",
+    "ThreadId": "401376",
+    "Html": "<p>this are measurement points and i need lines to the center of the measurement...if i make only one route (center-p1-center-p2-center-p3...) is slower than many single lines...</p>",
+    "PostedDate": "2012-11-05T05:01:22.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936677",
+    "ThreadId": "401376",
+    "Html": "<p>o.O</p>",
+    "PostedDate": "2012-11-05T05:15:40.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

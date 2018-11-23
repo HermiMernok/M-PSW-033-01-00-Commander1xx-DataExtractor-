@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1480914",
+    "ThreadId": "657081",
+    "Html": "Can give me some advice's how i can make the same result in GMap.NET ? And how it effect is called ? I want that user can scroll map on left side or right side infinitely. What exactly i expected you can see on screenshot.\r<br />\n<img src=\"http://i.stack.imgur.com/SxHJb.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2016-08-12T00:17:11.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1480946",
+    "ThreadId": "657081",
+    "Html": "GMap.NET.WindowsForms &lt;DefineConstants&gt;TRACE;DEBUG;ContinuesMapNo&lt;/DefineConstants&gt;\r<br />\n<br />\nContinuesMapNo -&gt; <strong>ContinuesMap</strong>\r<br />\n<br />\n..i've done some testing on this, but i'm not sure if all works as expected<br />\n",
+    "PostedDate": "2016-08-12T06:28:44.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1480969",
+    "ThreadId": "657081",
+    "Html": "Thank You for reply, what that i do open GMap.NET.WindowsForms.csproj with text editod and change ContinuesMapNo to ContinuesMap, than compile GMap.NET.WindowsForms project and change 2 .dll that was in my project, but all that I saw it was blue cross with word debug. May be i do some step wrong ?<br />\n",
+    "PostedDate": "2016-08-12T08:49:50.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1481025",
+    "ThreadId": "657081",
+    "Html": "i refraze, it probably doesnt work ;/ <br />\n",
+    "PostedDate": "2016-08-12T17:14:41.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1481081",
+    "ThreadId": "657081",
+    "Html": "I want to try fix this issue, maybe you can point to me what variables and classes need to append to make this work ? What pieces of code i need to understand ?<br />\n",
+    "PostedDate": "2016-08-14T00:50:21.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1481103",
+    "ThreadId": "657081",
+    "Html": "you need to dig and experiment, check core.cs and gmapcontrol.cs for rendering<br />\n",
+    "PostedDate": "2016-08-14T07:47:52.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

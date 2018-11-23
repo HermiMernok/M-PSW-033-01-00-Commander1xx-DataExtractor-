@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "492792",
+    "ThreadId": "227028",
+    "Html": "<p>The Prefetch of OpenSeaMap stops and the Immediate Window says 404?</p>",
+    "PostedDate": "2010-09-13T07:21:13.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492817",
+    "ThreadId": "227028",
+    "Html": "<p>&nbsp;bool CacheTiles(ref MapType[] types, int zoom, Point p)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach(MapType type in types)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Exception ex;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PureImage img;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // tile number inversion(BottomLeft -&gt; TopLeft) for pergo maps<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(type == MapType.PergoTurkeyMap)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img = GMaps.Instance.GetImageFrom(type, new Point(p.X, maxOfTiles.Height - p.Y), zoom, out ex);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else // ok<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img = GMaps.Instance.GetImageFrom(type, p, zoom, out ex);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(img != null)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img.Dispose();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img = null;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // return false;&nbsp;&nbsp; &lt;&lt; I have delete this command, now the counter in TilePrefetcher runs more ahead if no image data found in seamark layer<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>",
+    "PostedDate": "2010-09-13T08:12:06.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492820",
+    "ThreadId": "227028",
+    "Html": "<p>yeah, but messagebox then says that all tiles was downloaded, which is not truth, so i'll fix it in another place</p>",
+    "PostedDate": "2010-09-13T08:21:05.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492833",
+    "ThreadId": "227028",
+    "Html": "<p>it's ready again! with 1 retry for each tile failed to download</p>",
+    "PostedDate": "2010-09-13T08:36:57.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492868",
+    "ThreadId": "227028",
+    "Html": "<p>this sound like great. If you like, i can experimenting and, if runs, implementing multitouch support to wpf (wich is more easy) and then in to winforms control.</p>",
+    "PostedDate": "2010-09-13T09:36:36.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492894",
+    "ThreadId": "227028",
+    "Html": "<p>sure, any support is welcome ;}</p>",
+    "PostedDate": "2010-09-13T10:20:23.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492903",
+    "ThreadId": "227028",
+    "Html": "<p>ok, i will see what i can do for your great project. give me a little bit more time. a weekend is needed :-)</p>",
+    "PostedDate": "2010-09-13T10:25:23.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492904",
+    "ThreadId": "227028",
+    "Html": "<p>i have whole lifetime, no rush ;}</p>",
+    "PostedDate": "2010-09-13T10:26:10.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

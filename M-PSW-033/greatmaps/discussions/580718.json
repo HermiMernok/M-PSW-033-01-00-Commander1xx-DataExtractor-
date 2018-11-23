@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1352335",
+    "ThreadId": "580718",
+    "Html": "How to Get the intersection Point(s) between a line segment with a given (Start, End) points  (P1, P2) as PointLatLng and the circle center (P3) with radius (R) in kilometers.\r<br />\n<br />\nThe solution should be one of three cases:\r<br />\n<br />\n1 - No intersection (No Solution).\r<br />\n2 - One intersection point.\r<br />\n3 - Two intersection points.\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-02-13T13:03:30.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1352362",
+    "ThreadId": "580718",
+    "Html": "hello;\r<br />\nThat's a math problem, you should relay on line and circle equations according to a reference (P3 for example), and then solve the problem.\r<br />\ndo not think about the map, make a model in a paper, and use geo coordinates in that they will be more accurate than pixel based coordinates.<br />\n",
+    "PostedDate": "2015-02-13T14:39:43.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1352468",
+    "ThreadId": "580718",
+    "Html": "Thanks Abinonos\r<br />\n<br />\nI already wrote this model and implement it, but the problem was i don't know the circle radius unit that used in the equations which is could be (meters, kilometers) and (degree, radians). \r<br />\n<br />\nIt get the intersection points too far from the real intersection points but with the same bearing, it means this shift error comes from a wrong circle radius distance unit.\r<br />\n<br />\nlike the following image\r<br />\n<br />\n<img src=\"http://s11.postimg.org/wpz7b2r1f/Line_Circle_Intersection.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-02-14T06:35:59.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353056",
+    "ThreadId": "580718",
+    "Html": "hello;\r<br />\nDid you consider a reference point ? <br />\n<ul>\n<li>Circle equation (x-a)² + (y-b)² = R² where a , b are coordinates of the circle center, if you take the center as a reference, then a=b=0.</li>\n<li>For units used it does not matter, since the intersection results are calculated as ammounts to be placed relaively from the center(reference), and if you provide R in pixels, then results are in pixels.</li>\n</ul>\n",
+    "PostedDate": "2015-02-16T05:32:09.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

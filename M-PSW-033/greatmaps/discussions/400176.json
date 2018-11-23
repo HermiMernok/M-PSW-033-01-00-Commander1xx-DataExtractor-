@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "929918",
+    "ThreadId": "400176",
+    "Html": "\r\n<p>I am trying to track down and issue with .gmdb files remaining open, after i have changed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CacheLocation elsewhere. Once i get into this state the file remains open apparently forever. So my process has two different Data.gmdb\r\n files in two locations both open.</p>\r\n<p>I am setting a temporary folder for CacheLocation, running TilePrefetcher, then reseting the CacheLocation elsewhere. The file in the temporary location remains locked.</p>\r\n<p>I noticed in much of your code, you have cn.close, but in this module it is missing. I am not sure if that matters as you tend to have using() statements.</p>\r\n<p>SQLitePureImageCache.PureImageCache.DeleteOlderThan</p>\r\n<p>Is there anything i can do when changing away from a CacheLocation to ensure the files at the old location are unlocked?</p>\r\n<p>Tried GMap.NET.CacheProviders.SQLitePureImageCache.Detach, so far not helping.</p>\r\n<p>I am using the latest GMap build Sep 7, 2012</p>\r\n",
+    "PostedDate": "2012-10-20T18:31:22.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929986",
+    "ThreadId": "400176",
+    "Html": "<p>what do you mean 'locked'?</p>",
+    "PostedDate": "2012-10-21T02:45:15.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929992",
+    "ThreadId": "400176",
+    "Html": "<p>That is i cannot move the file to another location, 'file is in use', also using 'process explorer' i can see both Data.gmdb files in the list of 'handles' in my application.</p>\r\n<p>I am going to try debugging at a lower level now and see if i can narrow down on what the issue is.</p>",
+    "PostedDate": "2012-10-21T02:53:05.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930000",
+    "ThreadId": "400176",
+    "Html": "<p>Yes i best look at this a bit more, i may have some old GMap.net code mixed in also - will review this first.</p>",
+    "PostedDate": "2012-10-21T03:24:42.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930002",
+    "ThreadId": "400176",
+    "Html": "\r\n<p>i think it can be pooled sqlite connections, probably need to clear before using new location..</p>\r\n<p>p.s try: SQLiteConnection.<strong>ClearAllPools</strong>(); // i've just added it, check if it helps</p>\r\n",
+    "PostedDate": "2012-10-21T03:32:15.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930009",
+    "ThreadId": "400176",
+    "Html": "<p>Great, i pulled your change and added it here.</p>\r\n<p>I does appear to have helped!</p>\r\n<p>I've got a bunch more work to do here before i can be fully sure but it is looking very good.</p>\r\n<p>About a year ago i extended TilePrefetcher but i want to re-merge my changes into your latest version so i can really test this out. My changes related to: allowing you to specify a minzoom/maxzoom - it then fetches tiles for all zoom levels in range. I believe i also took user interface code you had in a form, and converted it to a windows control to allow embedding within a form, with progress reporting.</p>\r\n<p>Thanks for your response - and for hitting the nail on the head ever so quickly.</p>",
+    "PostedDate": "2012-10-21T04:31:36.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930011",
+    "ThreadId": "400176",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2012-10-21T04:36:21.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "156899",
+    "ThreadId": "46899",
+    "Html": "This is my first post here, so first of all I must say to radioman thank you for all of your work on this.  It's a great project and very much needed.<br>\r\n<br>\r\nOk, here's the problem I'm having.  I am using the demo code and trying to add a route to my map.  The actual code I am using is as follows (vb.net):<br>\r\n<br>\r\n<p>Sub AddRoute() <br>\r\n    Dim myStart As New PointLatLng(myCurrentLat, myCurrentLong)<br>\r\n    Dim myEnd As New PointLatLng(37.62505, -122.42111) <br>\r\n    Dim route As List(Of PointLatLng) = GMaps.Instance.GetRouteBetweenPoints(myStart, myEnd, False, myGmap.Zoom) </p>\r\n<p>    If route IsNot Nothing Then <br>\r\n        Dim r As New Route(route, &quot;test&quot;) <br>\r\n        Dim m1 As New Marker(myStart) <br>\r\n        Dim m2 As New Marker(myEnd) <br>\r\n        myGmap.AddRoute(r)<br>\r\n        m1.Text = &quot;Start: &quot; &amp; myStart.ToString() <br>\r\n        m1.TooltipMode = MarkerTooltipMode.Always<br>\r\n        m2.Text = &quot;End: &quot; &amp; myEnd.ToString() <br>\r\n        m2.TooltipMode = MarkerTooltipMode.Always<br>\r\n        myGmap.AddMarker(m1)<br>\r\n        myGmap.AddMarker(m2)<br>\r\n    End If <br>\r\nEnd Sub <span style=\"font-size:10px;color:#0000ff\"> \r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p>However, no markers or route ever appears on the map.  I've tried reloading and a couple of other things, but so far no luck.  One thing that is interesting is that if I spit out the route object to see what it contains it is full of about 150 different coordinates.  So, it looks like the route is being calculated correctly but the route lines and markers are not being rendered on the map.<br>\r\n<br>\r\nCan anyone please provide some insight into what I am missing in order to make this work?    I am using build 31281.<br>\r\n<br>\r\nThank you, <br>\r\njoeberni </p>\r\n",
+    "PostedDate": "2009-02-11T22:38:44.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "156964",
+    "ThreadId": "46899",
+    "Html": "..well in Trunk version routes and markers are not drawed, i'm in progress of that",
+    "PostedDate": "2009-02-12T04:06:18.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157271",
+    "ThreadId": "46899",
+    "Html": "Thanks for the quick updates.  Is there another version besides trunk that has this implemented that I can play around with?\r\n",
+    "PostedDate": "2009-02-12T19:26:20.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157285",
+    "ThreadId": "46899",
+    "Html": "last release ;}",
+    "PostedDate": "2009-02-12T21:21:10.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157289",
+    "ThreadId": "46899",
+    "Html": "Sorry to be a pain, but in following the trunk examples (build 31346) still doesn't seem to have this implemented.\r\n",
+    "PostedDate": "2009-02-12T21:42:10.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157326",
+    "ThreadId": "46899",
+    "Html": "last <span style=\"font-weight:bold\">release</span>, it has nothing to do with sources ;}",
+    "PostedDate": "2009-02-13T00:59:35.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157334",
+    "ThreadId": "46899",
+    "Html": "Oh, I see.  Sorry for misunderstanding!<br>\r\nIs there any routing functionality that we can play with in our own code? :-)\r\n",
+    "PostedDate": "2009-02-13T01:15:40.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157352",
+    "ThreadId": "46899",
+    "Html": "in last release as i said ;}",
+    "PostedDate": "2009-02-13T02:12:43.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

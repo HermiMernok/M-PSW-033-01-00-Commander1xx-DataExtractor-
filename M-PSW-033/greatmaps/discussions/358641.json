@@ -1,0 +1,338 @@
+[
+  {
+    "Id": "845761",
+    "ThreadId": "358641",
+    "Html": "\r\n<p>I have an app which will not have access to the internet. Can GMapControl load a geolocated map file from the hard drive?</p>\r\n",
+    "PostedDate": "2012-06-06T14:56:53.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845790",
+    "ThreadId": "358641",
+    "Html": "<p>yes, cache is enabled by default</p>",
+    "PostedDate": "2012-06-06T16:31:47.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845795",
+    "ThreadId": "358641",
+    "Html": "<p>So, what mode do I want for the map control, server &amp; cache? And how dose this work, exactly. I have to load the map(s) up connected to the internet, then when disconnected from the internet, the maps will load? I have had trouble with this work 100%, not all of the tiles display and I get an error that the tile is not available.</p>\r\n<p>﻿﻿﻿﻿﻿﻿﻿</p>",
+    "PostedDate": "2012-06-06T16:53:44.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845956",
+    "ThreadId": "358641",
+    "Html": "<p>use tile prefetcher integrated in demos</p>",
+    "PostedDate": "2012-06-07T03:49:16.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846103",
+    "ThreadId": "358641",
+    "Html": "<p>I have not seen any demos on this site - can you tell me where I can see an exmaple of using tile prefetcher?</p>\r\n<p>Many Thanks.</p>",
+    "PostedDate": "2012-06-07T08:44:25.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846121",
+    "ThreadId": "358641",
+    "Html": "<p>DOWNLOAD AND SEE</p>",
+    "PostedDate": "2012-06-07T09:15:09.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846139",
+    "ThreadId": "358641",
+    "Html": "<p>OK, I found some code to prefetch:</p>\r\n<p><a href=\"http://greatmaps.codeplex.com/discussions/285159\">http://greatmaps.codeplex.com/discussions/285159</a></p>",
+    "PostedDate": "2012-06-07T09:43:39.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846147",
+    "ThreadId": "358641",
+    "Html": "<p>Radioman - It would be useful to have the project &amp; code for the demo. I looked at the GMap.NET.WindowsPresentation download, the executable is there and some XML files, but no solution file (.sln). Without the .sln its not possible to open the project in Visual Studio. Is that available?</p>\r\n<p>Thanks again.</p>",
+    "PostedDate": "2012-06-07T09:52:09.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846169",
+    "ThreadId": "358641",
+    "Html": "\r\n<div>\r\n<p><span lang=\"EN-US\" style=\"font-size:11.0pt; font-family:\">Maybe you should try to where the code is:</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:11.0pt; font-family:\"><a href=\"http://greatmaps.codeplex.com/SourceControl/list/changesets\">http://greatmaps.codeplex.com/SourceControl/list/changesets</a></span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:11.0pt; font-family:\">and there LATEST VERSION.</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:11.0pt; font-family:\">It’s all included samples and source of the Control!</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:11.0pt; font-family:\">This is where each project on CodePlex has its sources…..</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0cm 0cm 0cm\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> dgoulian [email removed]\r\n<br>\r\n<b>Sent:</b> Thursday, June 07, 2012 6:52 PM<br>\r\n<b>To:</b> m.moehle@mbd-team.de<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: dgoulian</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">Radioman - It would be useful to have the project & code for the demo. I looked at the GMap.NET.WindowsPresentation download, the executable is there and some XML files, but no solution file (.sln). Without the\r\n .sln its not possible to open the project in Visual Studio. Is that available?</span></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">Thanks again.</span></p>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-06-07T10:43:59.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "846172",
+    "ThreadId": "358641",
+    "Html": "\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Got it now, thanks.</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<p><b><span style=\"font-family:\">Rick Goulian</span></b><b><span style=\"font-family:\"><br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\">Software Engineer<br>\r\n<br>\r\n<b>STARA Technologies, Inc.</b></span></p>\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">www.staratechnologies.com<br>\r\n<br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Cell:480-225-1146</span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Office: 480-307-6732 x405<br>\r\nemail: </span><span style=\"font-size:11.0pt; font-family:\"><a href=\"mailto:Rick.goulian@staratechnologies.com\"><span style=\"font-size:10.0pt; font-family:\">Rick.goulian@staratechnologies.com</span></a></span><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"><img border=\"0\" width=\"161\" height=\"67\" id=\"Picture_x0020_1\" src=\"cid:image001.jpg@01CD449B.4325E8F0\" alt=\"Description: Description: Description: Description: STARAConnect_small\"></span><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p style=\"\"><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">CONFIDENTIALITY NOTICE:</span><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">This e-mail and any attachments contain information from STARA Technologies, Inc., and are intended solely for the use of the named recipient or recipients. This e-mail may contain privileged STARA communications\r\n or work product. Any dissemination of this e-mail by anyone other than intended recipient is strictly prohibited. If you are not a named recipient, you are prohibited from any further viewing of the e-mail or any attachments or from making any use of the e-mail\r\n or attachments. If you believe you have received this e-mail in error, notify the sender immediately and permanently delete the e-mail, any attachments, and all copies thereof from any drives or storage media and destroy any printouts of the e-mail or attachments.</span><span style=\"color:#1F497D\"></span></p>\r\n</div>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> MBDTeam [email removed]\r\n<br>\r\n<b>Sent:</b> Thursday, June 07, 2012 10:44 AM<br>\r\n<b>To:</b> Rick Goulian<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: MBDTeam</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<div>\r\n<p><span style=\"font-size:9.0pt; font-family:\">Maybe you should try to where the code is:</span></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\"><a href=\"http://greatmaps.codeplex.com/SourceControl/list/changesets\">http://greatmaps.codeplex.com/SourceControl/list/changesets</a></span></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">and there LATEST VERSION.</span></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">It’s all included samples and source of the Control!</span></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">This is where each project on CodePlex has its sources…..</span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:9.0pt; font-family:\">From:</span></b><span style=\"font-size:9.0pt; font-family:\"> dgoulian [email removed]\r\n<br>\r\n<b>Sent:</b> Thursday, June 07, 2012 6:52 PM<br>\r\n<b>To:</b> [email removed]<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: dgoulian</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">Radioman - It would be useful to have the project & code for the demo. I looked at the GMap.NET.WindowsPresentation download, the executable is there and some XML files, but no solution file (.sln). Without the\r\n .sln its not possible to open the project in Visual Studio. Is that available?</span></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">Thanks again.</span></p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-06-07T10:52:19.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847991",
+    "ThreadId": "358641",
+    "Html": "\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Hi radioman,</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">After working with GMAP.net for a couple of day I am quite impressed. Great work.</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Question: If I wanted to write my own map provider that allowed the user to attached their own static geotiff maps, is that possible? If so, is there sample code to me how to do it?</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Many thanks,</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<p><b><span style=\"font-family:\">Rick Goulian</span></b><b><span style=\"font-family:\"><br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\">Software Engineer<br>\r\n<br>\r\n<b>STARA Technologies, Inc.</b></span></p>\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">www.staratechnologies.com<br>\r\n<br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Cell:480-225-1146</span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Office: 480-307-6732 x405<br>\r\nemail: </span><span style=\"font-size:11.0pt; font-family:\"><a href=\"mailto:Rick.goulian@staratechnologies.com\"><span style=\"font-size:10.0pt; font-family:\">Rick.goulian@staratechnologies.com</span></a></span><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"><img border=\"0\" width=\"161\" height=\"67\" id=\"Picture_x0020_1\" src=\"cid:image001.jpg@01CD47F0.7BA61EE0\" alt=\"Description: Description: Description: Description: STARAConnect_small\"></span><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p style=\"\"><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">CONFIDENTIALITY NOTICE:</span><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">This e-mail and any attachments contain information from STARA Technologies, Inc., and are intended solely for the use of the named recipient or recipients. This e-mail may contain privileged STARA communications\r\n or work product. Any dissemination of this e-mail by anyone other than intended recipient is strictly prohibited. If you are not a named recipient, you are prohibited from any further viewing of the e-mail or any attachments or from making any use of the e-mail\r\n or attachments. If you believe you have received this e-mail in error, notify the sender immediately and permanently delete the e-mail, any attachments, and all copies thereof from any drives or storage media and destroy any printouts of the e-mail or attachments.</span><span style=\"color:#1F497D\"></span></p>\r\n</div>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> radioman [email removed]\r\n<br>\r\n<b>Sent:</b> Thursday, June 07, 2012 9:15 AM<br>\r\n<b>To:</b> Rick Goulian<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: radioman</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">DOWNLOAD AND SEE</span></p>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-06-12T08:05:05.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "848027",
+    "ThreadId": "358641",
+    "Html": "there is bunch of providers already, copy/paste and modify &gt; &gt; From: dgoulian &gt; &gt; Hi radioman, &gt; &gt; &gt;&gt; After working with GMAP.net for a couple of day I am quite impressed. &gt;&gt; Great work. &gt; &gt; &gt;&gt; Question: If I wanted to write my own map provider that allowed\r\n the &gt;&gt; user to attached their own static geotiff maps, is that possible? If &gt;&gt; so, is there sample code to me how to do it? &gt; &gt; &gt;&gt; Many thanks, &gt; &gt; &gt;&gt; Rick Goulian &gt; Software Engineer &gt; &gt; STARA Technologies, Inc. &gt; &gt; www.staratechnologies.com &gt; &gt; &gt;&gt; Cell:480-225-1146\r\n &gt; &gt; Office: 480-307-6732 x405 &gt; email: Rick.goulian@staratechnologies.com &gt; &gt; &gt;&gt; &gt; &gt; &gt;&gt; CONFIDENTIALITY NOTICE: &gt; &gt; This e-mail and any attachments contain information from STARA &gt; Technologies, Inc., and are intended solely for the use of the named &gt; recipient\r\n or recipients. This e-mail may contain privileged STARA &gt; communications or work product. Any &gt;dissemination of this e-mail by &gt; anyone other than intended recipient is strictly prohibited. If you are &gt; not a named recipient, you are prohibited from any further\r\n viewing of &gt; the e-mail or any attachments or from making any use of the e-mail or &gt; &gt;attachments. If you believe you have received this e-mail in error, &gt; notify the sender immediately and permanently delete the e-mail, any &gt; attachments, and all copies thereof\r\n from any drives or storage media and &gt; destroy any printouts of the e-&gt;mail or attachments. &gt; &gt; &gt;&gt; From: radioman [email removed] &gt; Sent: Thursday, June 07, 2012 9:15 AM &gt; To: Rick Goulian &gt; Subject: Re: Load a map from file? [greatmaps:358641] &gt; &gt; &gt; From:\r\n radioman &gt; &gt; DOWNLOAD AND SEE &gt; &gt; Read the full discussion online. &gt; &gt; To add a post to this discussion, reply to this email &gt; (greatmaps@discussions.codeplex.com) &gt; &gt; To start a new discussion for this project, email &gt; greatmaps@discussions.codeplex.com &gt;\r\n &gt; You are receiving this email because you subscribed to this discussion &gt; on CodePlex. You can unsubscribe or change your settings on codePlex.com. &gt; &gt; Please note: Images and attachments will be removed from emails. Any &gt; posts to this discussion will also\r\n be available online at codeplex.com there is bunch of providers already, copy/paste and modify<br>\r\n<blockquote style=\"margin:0 0 0.80ex; border-left:#0000FF 2px solid; padding-left:1ex\">\r\n<p>From: dgoulian</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Hi radioman,</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">After working with GMAP.net for a couple of day I am quite impressed. Great work.</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Question: If I wanted to write my own map provider that allowed the user to attached their own static geotiff maps, is that possible? If so, is there sample code to me how to do it?</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Many thanks,</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<p><b><span style=\"font-family:\">Rick Goulian</span></b><b><span style=\"font-family:\"><br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\">Software Engineer<br>\r\n<br>\r\n<b>STARA Technologies, Inc.</b></span></p>\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">www.staratechnologies.com<br>\r\n<br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Cell:480-225-1146</span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Office: 480-307-6732 x405<br>\r\nemail: </span><span style=\"font-size:11.0pt; font-family:\"><a href=\"mailto:Rick.goulian@staratechnologies.com\"><span style=\"font-size:10.0pt; font-family:\">Rick.goulian@staratechnologies.com</span></a></span><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"><img border=\"0\" width=\"161\" height=\"67\" id=\"Picture_x0020_1\" src=\"cid:image001.jpg@01CD47F0.7BA61EE0\" alt=\"Description: Description: Description: Description: STARAConnect_small\"></span><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"color:#1F497D\"></span></p>\r\n<p><span style=\"font-size:10.0pt; color:#1F497D\">CONFIDENTIALITY NOTICE:</span><span style=\"color:#1F497D\"></span></p>\r\n<p><span style=\"font-size:10.0pt; color:#1F497D\">This e-mail and any attachments contain information from STARA Technologies, Inc., and are intended solely for the use of the named recipient or recipients. This e-mail may contain privileged STARA communications\r\n or work product. Any dissemination of this e-mail by anyone other than intended recipient is strictly prohibited. If you are not a named recipient, you are prohibited from any further viewing of the e-mail or any attachments or from making any use of the e-mail\r\n or attachments. If you believe you have received this e-mail in error, notify the sender immediately and permanently delete the e-mail, any attachments, and all copies thereof from any drives or storage media and destroy any printouts of the e-mail or attachments.</span><span style=\"color:#1F497D\"></span></p>\r\n</div>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> radioman [email removed]\r\n<br>\r\n<b>Sent:</b> Thursday, June 07, 2012 9:15 AM<br>\r\n<b>To:</b> Rick Goulian<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: radioman</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">DOWNLOAD AND SEE</span></p>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2012-06-12T09:25:55.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849644",
+    "ThreadId": "358641",
+    "Html": "<p>Radioman - I am still trying to figure out how to load a map directly from a file instead of from internet. I see how to add a custom provider from looking at your demo source, but I see nothing that shows how to load the map from a file. All of your providers seem to be internet-based. Am I missing something?</p>",
+    "PostedDate": "2012-06-15T12:11:37.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849651",
+    "ThreadId": "358641",
+    "Html": "<p>just replace&nbsp;GetTileImageUsingHttp with&nbsp;File.<strong>ReadAllBytes</strong></p>",
+    "PostedDate": "2012-06-15T12:29:42.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849698",
+    "ThreadId": "358641",
+    "Html": "\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Hi Radioman – I added a new method to GMapProvider.cs for my provider to load a map from a file and I am now able to load a satellite image from disk, but it tiles the image repeatedly across the screen and runs\r\n very very slowly:</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:10.0pt; font-family:\"><span style=\"color:blue\">public</span>\r\n<span style=\"color:#2B91AF\">PureImage</span> GetTileImageFromFile(<span style=\"color:blue\">string</span> url)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:10.0pt; font-family:\">{</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:10.0pt; font-family:\"><span style=\"color:#2B91AF\">PureImage</span> ret =\r\n<span style=\"color:blue\">null</span>;</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:10.0pt; font-family:\">ret = TileImageProxy.FromArray(<span style=\"color:#2B91AF\">File</span>.ReadAllBytes(url));</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:10.0pt; font-family:\">ret.Data.Position = 0;</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">}</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Any idea what I’m missing?</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<p><b><span style=\"font-family:\">Rick Goulian</span></b><b><span style=\"font-family:\"><br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\">Software Engineer<br>\r\n<br>\r\n<b>STARA Technologies, Inc.</b></span></p>\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">www.staratechnologies.com<br>\r\n<br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Cell:480-225-1146</span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Office: 480-307-6732 x405<br>\r\nemail: </span><span style=\"font-size:11.0pt; font-family:\"><a href=\"mailto:Rick.goulian@staratechnologies.com\"><span style=\"font-size:10.0pt; font-family:\">Rick.goulian@staratechnologies.com</span></a></span><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"><img border=\"0\" width=\"161\" height=\"67\" id=\"Picture_x0020_1\" src=\"cid:image001.jpg@01CD4B05.94D7C220\" alt=\"Description: Description: Description: Description: STARAConnect_small\"></span><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p style=\"\"><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">CONFIDENTIALITY NOTICE:</span><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">This e-mail and any attachments contain information from STARA Technologies, Inc., and are intended solely for the use of the named recipient or recipients. This e-mail may contain privileged STARA communications\r\n or work product. Any dissemination of this e-mail by anyone other than intended recipient is strictly prohibited. If you are not a named recipient, you are prohibited from any further viewing of the e-mail or any attachments or from making any use of the e-mail\r\n or attachments. If you believe you have received this e-mail in error, notify the sender immediately and permanently delete the e-mail, any attachments, and all copies thereof from any drives or storage media and destroy any printouts of the e-mail or attachments.</span><span style=\"color:#1F497D\"></span></p>\r\n</div>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> radioman [email removed]\r\n<br>\r\n<b>Sent:</b> Friday, June 15, 2012 12:30 PM<br>\r\n<b>To:</b> Rick Goulian<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: radioman</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">just replace GetTileImageUsingHttp with File.<strong><span style=\"font-family:\">ReadAllBytes</span></strong></span></p>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-06-15T14:47:57.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849766",
+    "ThreadId": "358641",
+    "Html": "<p>slow disk?</p>",
+    "PostedDate": "2012-06-16T00:01:34.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "850476",
+    "ThreadId": "358641",
+    "Html": "<p>Perhaps I am going about this the wrong way. Maybe what I really want is to load my \"custom\" statellite imagery on top of an existing map provider map. Do you do this with an overlay?&nbsp;Are there any examples of how to do this in the demo code?</p>",
+    "PostedDate": "2012-06-18T11:25:58.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "850569",
+    "ThreadId": "358641",
+    "Html": "<p>I think I need something similar to what google maps provides: the ability to add an overlaywith bounds. Can GMap.Net do this?</p>\r\n<p>action: <code class=\"string\">'addGroundOverlay'</code><code class=\"plain\">, </code></p>\r\n<div class=\"line alt2\"><code class=\"number\">08.</code><span class=\"content\"><code class=\"spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><span class=\"block\" style=\"margin-left: 28px;\"><code class=\"plain\">url: </code><code class=\"string\">\"<a href=\"http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg\">http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg</a>\"</code><code class=\"plain\">, </code></span></span></div>\r\n<div class=\"line alt1\"><code class=\"number\">09.</code><span class=\"content\"><code class=\"spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><span class=\"block\" style=\"margin-left: 28px;\"><code class=\"plain\">bounds: [ </code></span></span></div>\r\n<div class=\"line alt2\"><code class=\"number\">10.</code><span class=\"content\"><code class=\"spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class=\"block\" style=\"margin-left: 56px;\"><code class=\"plain\">[40.765641, -74.139235], </code></span></span></div>\r\n<div class=\"line alt1\"><code class=\"number\">11.</code><span class=\"content\"><code class=\"spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><span class=\"block\" style=\"margin-left: 56px;\"><code class=\"plain\">[40.716216, -74.213393] </code></span></span></div>",
+    "PostedDate": "2012-06-18T13:54:12.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "851746",
+    "ThreadId": "358641",
+    "Html": "\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Hi Radioman – I am still struggling to get a single satellite image to display correctly using my custom map file provider. I think my issue boils down to this: when I read in the image off disk, how do I tell\r\n GMAP about its location, i.e. its coordinates in the world? I think GMAP does not know the coordinates, so it has no idea where to place this map and how to tile correctly.</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<p><b><span style=\"font-family:\">Rick Goulian</span></b><b><span style=\"font-family:\"><br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\">Software Engineer<br>\r\n<br>\r\n<b>STARA Technologies, Inc.</b></span></p>\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">www.staratechnologies.com<br>\r\n<br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Cell:480-225-1146</span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Office: 480-307-6732 x405<br>\r\nemail: </span><span style=\"font-size:11.0pt; font-family:\"><a href=\"mailto:Rick.goulian@staratechnologies.com\"><span style=\"font-size:10.0pt; font-family:\">Rick.goulian@staratechnologies.com</span></a></span><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"><img border=\"0\" width=\"161\" height=\"67\" id=\"Picture_x0020_1\" src=\"cid:image001.jpg@01CD4EE7.2F776C60\" alt=\"Description: Description: Description: Description: STARAConnect_small\"></span><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p style=\"\"><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">CONFIDENTIALITY NOTICE:</span><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">This e-mail and any attachments contain information from STARA Technologies, Inc., and are intended solely for the use of the named recipient or recipients. This e-mail may contain privileged STARA communications\r\n or work product. Any dissemination of this e-mail by anyone other than intended recipient is strictly prohibited. If you are not a named recipient, you are prohibited from any further viewing of the e-mail or any attachments or from making any use of the e-mail\r\n or attachments. If you believe you have received this e-mail in error, notify the sender immediately and permanently delete the e-mail, any attachments, and all copies thereof from any drives or storage media and destroy any printouts of the e-mail or attachments.</span><span style=\"color:#1F497D\"></span></p>\r\n</div>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> radioman [email removed]\r\n<br>\r\n<b>Sent:</b> Saturday, June 16, 2012 12:02 AM<br>\r\n<b>To:</b> Rick Goulian<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: radioman</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">slow disk?</span></p>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-06-20T13:19:15.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "852703",
+    "ThreadId": "358641",
+    "Html": "\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Hi Radioman – are there any examples of how to draw a reference scale on the map?</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<p><b><span style=\"font-family:\">Rick Goulian</span></b><b><span style=\"font-family:\"><br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\">Software Engineer<br>\r\n<br>\r\n<b>STARA Technologies, Inc.</b></span></p>\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">www.staratechnologies.com<br>\r\n<br>\r\n</span></b><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Cell:480-225-1146</span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\">Office: 480-307-6732 x405<br>\r\nemail: </span><span style=\"font-size:11.0pt; font-family:\"><a href=\"mailto:Rick.goulian@staratechnologies.com\"><span style=\"font-size:10.0pt; font-family:\">Rick.goulian@staratechnologies.com</span></a></span><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:10.0pt; font-family:\"><img border=\"0\" width=\"161\" height=\"67\" id=\"Picture_x0020_1\" src=\"cid:image001.jpg@01CD5068.5B6EC7A0\" alt=\"Description: Description: Description: Description: STARAConnect_small\"></span><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p style=\"\"><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">CONFIDENTIALITY NOTICE:</span><span style=\"color:#1F497D\"></span></p>\r\n<p style=\"\"><span style=\"font-size:10.0pt; color:#1F497D\">This e-mail and any attachments contain information from STARA Technologies, Inc., and are intended solely for the use of the named recipient or recipients. This e-mail may contain privileged STARA communications\r\n or work product. Any dissemination of this e-mail by anyone other than intended recipient is strictly prohibited. If you are not a named recipient, you are prohibited from any further viewing of the e-mail or any attachments or from making any use of the e-mail\r\n or attachments. If you believe you have received this e-mail in error, notify the sender immediately and permanently delete the e-mail, any attachments, and all copies thereof from any drives or storage media and destroy any printouts of the e-mail or attachments.</span><span style=\"color:#1F497D\"></span></p>\r\n</div>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> radioman [email removed]\r\n<br>\r\n<b>Sent:</b> Saturday, June 16, 2012 12:02 AM<br>\r\n<b>To:</b> Rick Goulian<br>\r\n<b>Subject:</b> Re: Load a map from file? [greatmaps:358641]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: radioman</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">slow disk?</span></p>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-06-22T11:16:21.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869792",
+    "ThreadId": "358641",
+    "Html": "<p>yes, it's in the source...</p>",
+    "PostedDate": "2012-07-16T09:05:54.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067367",
+    "ThreadId": "358641",
+    "Html": "Hi,\r<br />\n<br />\nI have the same issue.\r<br />\nI want to read jpg / jgw (tif / tfw) from my hard drive.\r<br />\nThe jpg is the image of the area.\r<br />\nThe jgw is the image text info :\r<br />\n[\r<br />\n5.36336807534598E-06          -&gt; x resolution per pixel\r<br />\n0\r<br />\n0\r<br />\n-4.46328934455817E-06         -&gt; y resolution per pixel\r<br />\n36.0554995723069                 -&gt; image top left point Lon in Geo WGS84\r<br />\n33.7120666921116                 -&gt; image top left point Lat in Geo WGS84\r<br />\n]\r<br />\nI can implement a query that will return the right file by wanted coordinate.\r<br />\nHow do i read the image as &quot;PureImage&quot; efficiently?\r<br />\nDoes your code reads files for each pixel or it takes the iamge for the area in the form window ?\r<br />\n<br />\nIf you will manage to add this option to your code - the Gmap.Net tool will be perfect !!!<br />\n",
+    "PostedDate": "2013-07-11T23:12:41.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067400",
+    "ThreadId": "358641",
+    "Html": "just make your custom map provider<br />\n",
+    "PostedDate": "2013-07-12T00:46:04.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067414",
+    "ThreadId": "358641",
+    "Html": "I understand that i need to create a custom map provider.\r<br />\nbut how do i load the jpg as a PureImage Class ?<br />\n",
+    "PostedDate": "2013-07-12T01:13:59.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067415",
+    "ThreadId": "358641",
+    "Html": "in provider use: TileImageProxy.FromArray(...<br />\n",
+    "PostedDate": "2013-07-12T01:24:11.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067431",
+    "ThreadId": "358641",
+    "Html": "ok.<br />\n<ol>\n<li>how do i convert a jpg into byte[] ?</li>\n<li>will the image go automaticly to cache ?</li>\n</ol>\n",
+    "PostedDate": "2013-07-12T02:20:01.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067438",
+    "ThreadId": "358641",
+    "Html": "File.ReadAllBytes, yes it will go to cache<br />\n",
+    "PostedDate": "2013-07-12T02:35:00.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067445",
+    "ThreadId": "358641",
+    "Html": "very good !!\r<br />\ni'll give it a try ...\r<br />\n<br />\nanother question :<br />\n<ol>\n<li>what is the sequence in creating my custom gmdb (Prefetch -&gt; export -&gt; move to my cache folder )?</li>\n<li>when i create a gmdb file, do i need to load the exact MapProvider (for example if i used BingMaps for creating gmdb, i need to choose MapProvider=BingMaps) ?</li>\n<li>you have done a great work !!!</li>\n</ol>\n",
+    "PostedDate": "2013-07-12T02:42:57.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067521",
+    "ThreadId": "358641",
+    "Html": "it's created automatically, you can prefetch your area if you want, then you can copy/paste the database<br />\n",
+    "PostedDate": "2013-07-12T07:02:45.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067538",
+    "ThreadId": "358641",
+    "Html": "thanks...<br />\n",
+    "PostedDate": "2013-07-12T07:41:44.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085410",
+    "ThreadId": "358641",
+    "Html": "hi elijaelt80,\r<br />\n<br />\ni've got a simular task: loading geocoded tiff-images (etrs89 / utm32) on the map. \r<br />\n<br />\ndid you implement that custom map provider and can you provide the code?\r<br />\n<br />\nhi radioman, \r<br />\n<br />\nwouldn't it be nice to have such a map provider, configurable on coordinate-system, tile-size..., generalized and embedded?<br />\n",
+    "PostedDate": "2013-08-27T07:34:11.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085426",
+    "ThreadId": "358641",
+    "Html": "you can try to use mapcruncher to convert tiles projection to mercator<br />\n",
+    "PostedDate": "2013-08-27T07:56:57.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1086947",
+    "ThreadId": "358641",
+    "Html": "Hi,\r<br />\n<br />\nI didn't finish implementing the custom map provider.\r<br />\n<br />\nCurrently my energy goes else where ...<br />\n",
+    "PostedDate": "2013-08-31T12:22:47.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099512",
+    "ThreadId": "358641",
+    "Html": "radioman,\r<br />\n<br />\nI am trying to build this &quot;Stand Alone&quot; MapProvider for my app.\r<br />\n<br />\nI have 2 &quot;LatLng&quot; Corners (Left Up, Right Down) of the my image (LatLng1 and LatLng2)..\r<br />\n<br />\nHow do i load the image as a tile with it geo data (so the ratio will fit Gmap.NET).\r<br />\n<br />\nThanks,<br />\n",
+    "PostedDate": "2013-09-25T23:58:42.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099681",
+    "ThreadId": "358641",
+    "Html": "you can try to use mapcruncher to convert image to tiles, projection is mercator<br />\n",
+    "PostedDate": "2013-09-26T07:30:25.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099966",
+    "ThreadId": "358641",
+    "Html": "Hi,\r<br />\n<br />\nI downloaded macruncher.\r<br />\nI see that they used Gmap.NET to build their app ( RESPECT !!!)\r<br />\nNow i understand the idea of the Tiles - each tile is 256 x 256 for all zoom levels. when &quot;x=0, y=0&quot; is the top left corner of the map.\r<br />\n<br />\nQuestions :<br />\n<ol>\n<li>How did they make the map to be continues in the East/West ?</li>\n<li>\nIs their a way to save a chunk of screen in my wanted size to a file ?<br />\n</li>\n</ol>\nThanks,<br />\n",
+    "PostedDate": "2013-09-27T00:08:58.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099969",
+    "ThreadId": "358641",
+    "Html": "macruncher don't use gmap.net, it's working but dead project, i've just added the sources to the tools directory\r<br />\n<br />\n..anyway it's used to generate the tiles from any map image using any projection, and then you can import them into gmap.net<br />\n",
+    "PostedDate": "2013-09-27T00:15:08.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099977",
+    "ThreadId": "358641",
+    "Html": "Hi,\r<br />\n<br />\nThe problem with Mapcruncher that it uses a map (Ortophoto) in reference that is limitted to +- 79 degrees in Lat.\r<br />\nI want to make my tiles based on Gmap.Net maps. \r<br />\nI create a graphic layer on top of your maps, i want to save the tiles with the new layer, and make the new data as an inferstructure for a MapProvider.\r<br />\n<br />\nNow i need a way to generate Tiles inside the Gmap.Net.\r<br />\nThe best way to do it is to have a function that automaticly creates tiles :\r<br />\npublic Bitmap renderTiles(int zoomLevel, int tileNum_X, int tileNum_Y)\r<br />\n{\r<br />\n  ... bla bla bla ....<br />\n<pre><code>return new Bitmap(...)   -&gt; 256 x 256</code></pre>\n\n}<br />\n",
+    "PostedDate": "2013-09-27T00:40:24.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099999",
+    "ThreadId": "358641",
+    "Html": "why you cant use mapcruncher, are you in the arctic? ;}<br />\n",
+    "PostedDate": "2013-09-27T01:38:00.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100024",
+    "ThreadId": "358641",
+    "Html": ":)\r<br />\nFor the scale of the map.\r<br />\nIf the lat points are not the same as the source, the map will be distorted...<br />\n",
+    "PostedDate": "2013-09-27T02:30:22.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100044",
+    "ThreadId": "358641",
+    "Html": "you can adjust points to a few meters<br />\n",
+    "PostedDate": "2013-09-27T02:57:38.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1106888",
+    "ThreadId": "358641",
+    "Html": "Hello radioman, is there a way to display maps in ecw format?!<br />\n",
+    "PostedDate": "2013-10-13T09:52:54.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

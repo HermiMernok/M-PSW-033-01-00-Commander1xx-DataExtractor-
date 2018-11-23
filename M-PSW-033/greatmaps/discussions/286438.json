@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "726503",
+    "ThreadId": "286438",
+    "Html": "\r\n<p>Env: winxp&#43;C#</p>\r\n<p>&nbsp;</p>\r\n<p>The rect marker class:</p>\r\n<p>&nbsp;</p>\r\n<pre>namespace Mapameu\r\n{\r\n    public class GMapMarkerRect : GMapMarker\r\n    {\r\n        public Pen Pen;\r\n\r\n        public GMapMarkerRect(PointLatLng p) : base(p)\r\n        {\r\n            Pen = new Pen(Brushes.Red, 5);\r\n\r\n            // do not forget set Size of the marker\r\n            // if so, you shall have no event on it ;}\r\n            Size = new Size(25, 25);\r\n        }\r\n\r\n        public override void OnRender(Graphics g)\r\n        {\r\n            g.DrawRectangle(Pen, new System.Drawing.Rectangle(LocalPosition.X - Size.Width / 2, LocalPosition.Y - Size.Height / 2, Size.Width, Size.Height));\r\n        }\r\n    }\r\n}</pre>\r\n<p>&nbsp;</p>\r\n<p>The image marker class:</p>\r\n<p>&nbsp;</p>\r\n<pre>namespace Mapameu\r\n{\r\n    public class GMapMarkerImg : GMapMarker\r\n    {\r\n        public System.Drawing.Image Image;\r\n\r\n        public GMapMarkerImg(PointLatLng p) : base(p)\r\n        {\r\n            Image = Image.FromFile(@&quot;C:\\LIXO\\Mapameu\\Mapameu\\bin\\Debug\\carro.jpg&quot;);\r\n        }\r\n\r\n        public override void OnRender(Graphics g)\r\n        {\r\n            g.DrawImage(Image, System.Convert.ToInt32(LocalPosition.X - Size.Width / 2), System.Convert.ToInt32(LocalPosition.Y - Size.Height / 2), Size.Width, Size.Height);\r\n        }\r\n    }\r\n}</pre>\r\n<p>&nbsp;</p>\r\n<p>On the form:</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<pre>private void gMapControl1_MouseDown(object sender, MouseEventArgs e)\r\n        {\r\n            //RCLICK \r\n            if (e.Button == MouseButtons.Right)\r\n            {\r\n               \r\n                GMapMarkerRect cM = new GMapMarkerRect(gMapControl1.FromLocalToLatLng(e.X &#43; 33, e.Y &#43; 33));\r\n                cM.ToolTipMode = MarkerTooltipMode.OnMouseOver;\r\n                cM.ToolTipText = &quot;Welcome to Here2&quot;;\r\n                top.Markers.Add(cM);\r\n\r\n\r\n                GMapMarkerImg cMi = new GMapMarkerImg(gMapControl1.FromLocalToLatLng(e.X &#43; 66, e.Y &#43; 66));\r\n                cMi.ToolTipMode = MarkerTooltipMode.OnMouseOver;\r\n                cMi.ToolTipText = &quot;Welcome to Here3&quot;;\r\n                top.Markers.Add(cMi);\r\n\r\n            }\r\n\r\n        }</pre>\r\n<p></p>\r\n<pre>GMapMarkerRect marker is shown but the GMapMarkerImg is never shown.</pre>\r\n<pre>Why?</pre>\r\n<pre>Thanks a lot</pre>\r\n<pre>Alan</pre>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-01-17T09:05:00.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726518",
+    "ThreadId": "286438",
+    "Html": "<p>Size!!</p>",
+    "PostedDate": "2012-01-17T09:20:02.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

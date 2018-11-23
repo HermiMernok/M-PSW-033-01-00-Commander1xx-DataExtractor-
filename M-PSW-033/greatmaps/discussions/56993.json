@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "192623",
+    "ThreadId": "56993",
+    "Html": "<p>My app loads a map and then creates ~100 GMapMarkers on an overlay and adds them to the map ...</p>\r\n<p>&nbsp;</p>\r\n<p>sales = New GMapOverlay(MainMap, &quot;sales&quot;)</p>\r\n<p>... Start loop</p>\r\n<p>PointLatLng = CType(GMaps.Instance.GetLatLngFromGeocoder(&quot;Somewhere in Australia ...&quot;), PointLatLng)</p>\r\n<p>Dim GMapMarker As New GMapMarkerGoogleGreen(PointLatLng)</p>\r\n<p>sales.Markers.Add(GMapMarker)</p>\r\n<p>... Loop</p>\r\n<p>MainMap.Overlays.Add(sales)</p>\r\n<p>MainMap.ReloadMap()</p>\r\n<p>&nbsp;</p>\r\n<p>The problem is that when I do the Overlays.Add only 2 or 3 markers show up. If I right click and drag the map a little, suddenly those 2 or 3 markers will disappear and the entire set of markers I've created appear on the map.</p>\r\n<p>I also have another button that then .Remove and .Adds a sets of overlays. Once you've moved a map once for an overlay, that overlay will show the correct results and continue, no matter how many times you add or remove it. However the other overlays will show wrongly until you click and drag the map for each of them.</p>\r\n<p>Does anyone know why this is happening?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-20T19:23:44.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192626",
+    "ThreadId": "56993",
+    "Html": "<p>I found the problem ... you must call .GotoCurrentPosition even if you do a RefreshMap. Why is a missing .GotoCurrentPosition always causing these problems?</p>",
+    "PostedDate": "2009-05-20T19:24:47.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192764",
+    "ThreadId": "56993",
+    "Html": "<p>noo need to reload map at all, just first time</p>",
+    "PostedDate": "2009-05-21T05:12:09.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1026855",
+    "ThreadId": "439422",
+    "Html": "Let say I have 200 markers with custom images on the Gmap. I click one of the marker to signal a 'status' change on this marker/position. I want to be able to just change image and tooltip on the clicked marker. \r<br />\n<br />\nI can catch the marker click but how to change marker image and tooltip..<br />\n",
+    "PostedDate": "2013-04-07T12:10:34.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1026987",
+    "ThreadId": "439422",
+    "Html": "customMarker.Image = images.MyImage;<br />\n",
+    "PostedDate": "2013-04-07T23:23:41.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027009",
+    "ThreadId": "439422",
+    "Html": "In the gmap_markerclick subroutine  I get the ITEM that I clicked on.  The marker is one of ~200 markers in the same layer.  I want to avoid to delete/redraw all 200 markers to reflect the status change my marker click imposes. <br />\n<br />\nHow can I loop trough the marker collection in a layer to find a particular item.tag and change custom image.<br />\n<br />\n<br />\nOn the item,  I cant find image property ?<br />\n",
+    "PostedDate": "2013-04-07T23:59:43.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027027",
+    "ThreadId": "439422",
+    "Html": "<pre><code>void MainMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)\n{\n  var customMarker = item as CustomMarker;\n  customMarker.Image = images.MyImage;\n}</code></pre>\n\n",
+    "PostedDate": "2013-04-08T00:26:11.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027258",
+    "ThreadId": "439422",
+    "Html": "Thank you Radioman !\r<br />\n<br />\nAnd for you who want to acomplish the same with VB here is my code.\r<br />\n<br />\nPrivate Sub GMap1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMap1.OnMarkerClick<br />\n<pre><code>            Dim customMarker = TryCast(item, GMapMarkerImage)\n            customMarker.markerimage = My.Resources.floodg\n            customMarker.tooltiptext = &quot;Rapporterad tömd&quot;\n\n            GMap1.Invalidate()\n</code></pre>\n\nEnd Sub\r<br />\n<br />\n<br />\nPublic Class GMapMarkerImage<br />\n<pre><code>Inherits GMap.NET.WindowsForms.GMapMarker\nPrivate img As Image\n\n''' &lt;summary&gt;\n''' The image to display as a marker.\n''' &lt;/summary&gt;\nPublic Property MarkerImage() As Image\n    Get\n        Return img\n    End Get\n    Set(ByVal value As Image)\n        img = value\n    End Set\nEnd Property\n\n\nPublic Sub New(ByVal p As PointLatLng, ByVal image As Image)\n    MyBase.New(p)\n    img = image\n    Size = img.Size\n    Offset = New System.Drawing.Point(-Size.Width / 2, -Size.Height / 2)\nEnd Sub\n\nPublic Overrides Sub OnRender(ByVal g As Graphics)\n    g.DrawImage(img, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height)\nEnd Sub</code></pre>\n\nEnd Class<br />\n",
+    "PostedDate": "2013-04-08T08:01:16.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1425322",
+    "ThreadId": "439422",
+    "Html": "Thank You hjojohan\r<br />\ngood help for me<br />\n",
+    "PostedDate": "2015-05-13T19:29:07.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1338089",
+    "ThreadId": "576553",
+    "Html": "Hi,\r<br />\nHow can i get points lat lng from route?\r<br />\nRoute consists of many straight lines. So I wnat to get points of each straight lines from route.\r<br />\n<br />\nin C# Form application\r<br />\nThank you.<br />\n",
+    "PostedDate": "2014-12-30T23:35:14.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338273",
+    "ThreadId": "576553",
+    "Html": "You can get the points like this. If you need a specifc one do an if statement for it in the loop.<br />\n<pre><code>    Dim pts As New List(Of PointLatLng)\n    For Each rt In _gmap.Overlays(0).Routes\n      pts.AddRange(rt.Points)\n    Next</code></pre>\n\n",
+    "PostedDate": "2014-12-31T22:33:29.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338651",
+    "ThreadId": "576553",
+    "Html": "Hi,\r<br />\nThanks for your help.\r<br />\nbest regards.<br />\n",
+    "PostedDate": "2015-01-02T15:24:57.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

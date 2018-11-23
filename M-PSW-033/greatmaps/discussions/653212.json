@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1468943",
+    "ThreadId": "653212",
+    "Html": "Hello,\r<br />\n<br />\nI am working on a navigation application on Windows Forms. \r<br />\n<br />\nSome custom polygons and markers retrieved from database are shown on the map but as their number is huge, i am trying to implement a mechanism to show only those objects that are contained by current view area. So, i need to refresh the objects when the current view area is changed. (And do a spatial query to retrieve those objects included in Current View Area bounds)\r<br />\n<br />\nHow can i determine if the view area is changed? \r<br />\n<br />\nI know that OnPositionChanged and OnMapDrag events are fired when the ViewArea changes but those events are fired multiple times during the drag. I need to determine when the ViewArea changed once and for all. It is ok if the user right clicks and drags several times, but if the user right clicks and drags the map once, i need to catch an event which fires only once, when the event finishes.\r<br />\n<br />\nI hope i made it clear :) Thanks.<br />\n",
+    "PostedDate": "2016-04-04T09:16:31.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1469546",
+    "ThreadId": "653212",
+    "Html": "Try creating your own ViewArea and call it when needed. This may help you get started:<br />\n<pre><code>PointLatLng w = gMapControl1.FromLocalToLatLng(gMapControl1.Width, gMapControl1.Height);</code></pre>\n\nI found your post because I was having problems with ViewArea. I posted the problem here:<br />\n<br />\n<a href=\"http://www.example.com\" rel=\"nofollow\">https://greatmaps.codeplex.com/discussions/653409</a><br />\n",
+    "PostedDate": "2016-04-09T05:19:00.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1497416",
+    "ThreadId": "653212",
+    "Html": "My problem is not about getting the Viewport polygon. \r<br />\n<br />\nWhat i want to do is to determine <strong>when</strong> to load the objects from the database after the viewport changes.  I found &quot;OnTileLoadComplete&quot; event and i am using it now but if there's better practice, i would like to know it ..\r<br />\n \r<br />\nThank you.<br />\n",
+    "PostedDate": "2017-07-18T01:24:07.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

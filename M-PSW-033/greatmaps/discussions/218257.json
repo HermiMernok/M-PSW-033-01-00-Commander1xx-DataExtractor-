@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "463119",
+    "ThreadId": "218257",
+    "Html": "<p>Hi</p>\r\n<p>How can I change tooltip type to ballon tooltip ?</p>\r\n<p>Regards ,</p>",
+    "PostedDate": "2010-07-03T12:32:20.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463120",
+    "ThreadId": "218257",
+    "Html": "<p>currentMarker.<strong>ToolTip</strong> = new <strong>GMapBaloonToolTip</strong>(currentMarker);<br> currentMarker.ToolTipText = &quot;hey ;}&quot;;</p>",
+    "PostedDate": "2010-07-03T12:36:33.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463121",
+    "ThreadId": "218257",
+    "Html": "<p>TX Alot</p>",
+    "PostedDate": "2010-07-03T12:38:49.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463125",
+    "ThreadId": "218257",
+    "Html": "<p>It seems that I found a problem.</p>\r\n<p>Load a ballontooltip on a googlemap . if you zoom more than a value it get an error in <strong>tilematrix.cs&nbsp;&nbsp;</strong>in this function <strong>GetTileWithNoLock&nbsp; </strong></p>\r\n<p>&nbsp;&nbsp; Levels[zoom].TryGetValue(p, out ret);</p>\r\n<p>ERROR MESSAGE:</p>\r\n<p><strong>Index was out of range. Must be non-negative and less than the size of the collection.</strong><br><strong>Parameter name: index</strong></p>",
+    "PostedDate": "2010-07-03T12:52:59.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463126",
+    "ThreadId": "218257",
+    "Html": "<p>there is no map with 22 levels of zoom ;}</p>\r\n<p>p.s. i've commented line just to increase performance: //if(zoom &lt; Levels.Count)</p>",
+    "PostedDate": "2010-07-03T13:01:14.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

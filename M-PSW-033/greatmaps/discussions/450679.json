@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1070792",
+    "ThreadId": "450679",
+    "Html": "Hi,\r<br />\ni cached the 2 map type which are google map and google hybrid\r<br />\nwhen i change the MapProvider to google map or google hybrid for the first time it takes so much time\r<br />\nfor example in application when i change the map it takes 1 minute to change the MapProvider to google hybrid\r<br />\nwhy it just takes time for the first time and is there any solution to solve this?\r<br />\nthanks<br />\n",
+    "PostedDate": "2013-07-20T06:26:17.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070800",
+    "ThreadId": "450679",
+    "Html": "use release build<br />\n",
+    "PostedDate": "2013-07-20T07:21:26.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070839",
+    "ThreadId": "450679",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nuse release build<br />\n</blockquote>\nI &quot;ALWAYS&quot; use release build<br />\nalso, i tested demo winform exe file<br />\nit takes times to change the mapprovider<br />\n",
+    "PostedDate": "2013-07-20T12:10:42.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070928",
+    "ThreadId": "450679",
+    "Html": "do you work offline?<br />\n",
+    "PostedDate": "2013-07-21T02:44:13.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070952",
+    "ThreadId": "450679",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\ndo you work offline?<br />\n</blockquote>\ni cached the maps  but i use the gmap this way\r<br />\n<br />\nif (!isInternetConnectionAvailable)\r<br />\n{<br />\n<pre><code>gMapControl1.Manager.Mode = AccessMode.CacheOnly;</code></pre>\n\n}\r<br />\nelse\r<br />\n{<br />\n<pre><code>gMapControl1.Manager.Mode = AccessMode.ServerAndCache;</code></pre>\n\n}\r<br />\n<br />\nand isInternetConnectionAvailable is always true because PC is connected to internet!<br />\n",
+    "PostedDate": "2013-07-21T05:01:13.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070958",
+    "ThreadId": "450679",
+    "Html": "try debug google provider and find out where is the problem<br />\n",
+    "PostedDate": "2013-07-21T05:33:05.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

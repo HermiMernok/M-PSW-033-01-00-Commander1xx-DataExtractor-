@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1348902",
+    "ThreadId": "579454",
+    "Html": "i trying to use 2 gMapControls in one Windows Form.\r<br />\n<br />\nI have two comboboxes (named: mapSelector1 and mapSelector2) for the mapprovider selection:<br />\n<pre><code>MapSelector1.ValueMember = &quot;Name&quot;;\nMapSelector1.DataSource = GMapProviders.List;\n\nMapSelector2.ValueMember = &quot;Name&quot;;\nMapSelector2.DataSource = GMapProviders.List;\n\nprivate void MapSelector1_DropDownClosed(object sender, EventArgs e)\n{\n            gMapControl1.MapProvider = (GMapProvider)MapSelector1.SelectedItem;\n            ...\n}\nprivate void MapSelector2_DropDownClosed(object sender, EventArgs e)\n{\n            gMapControl2.MapProvider = (GMapProvider)MapSelector2.SelectedItem;\n            ...\n}</code></pre>\n\nif the event of one combobo fired, both gMapControls load the map of the selected provider - why?\r<br />\ni will do this for compairing maps.<br />\n",
+    "PostedDate": "2015-02-04T04:36:56.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "51660",
+    "ThreadId": "15932",
+    "Html": "\r\nHas there been any thought to separating the interfaces into a different assembly?   GeoAPI interfaces are separated from the NTS implementation, for instance, and that makes it nice to use those interfaces for projects that want to be compatible with things like SharpMap, w/o using NTS.   We use some commercial projection objects that I would like to use with NTS and SharpMap.    I have class wrappers around them that implement the SharpMap.CoordinateSystems interfaces.  It would be nice to just reference those and not need the matching implementation.<br /><br />Are these interfaces close enough to Open GIS specs to consider including them into the GeoAPI interfaces project?<br /><br />Thanks!<br />",
+    "PostedDate": "2007-10-02T23:07:07.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "51664",
+    "ThreadId": "15932",
+    "Html": "<div class=\"quote\" style=\"border: dotted .1em #aaa; border-left: none; border-right: none; font-style: italic; margin: 1em 0em 2.5em 3em;padding: .2em;\"><br />Magnum4610 wrote:<br />Are these interfaces close enough to Open GIS specs to consider including them into the GeoAPI interfaces project?<br /><br /></div><br />A little explaination: GeoAPI.NET is not related to OpenGIS specs, but matches NetTopologySuite geometry model, that has significant differences from OpenGIS (as example, properties like area and length are directly in Geometry class and not in linestring-polygon and stuff...).<br />GeoAPI try simply to uniform a library to a well-known interface.<br />What about Proj.NET: i think that is no difficult to move all Proj.NET interfaces in the GeoAPI assembly, but we loose the Proj.NET independence... so maybe we could think carefully.<br />",
+    "PostedDate": "2007-10-03T00:12:15.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "51666",
+    "ThreadId": "15932",
+    "Html": "\r\nThe Proj.NET library has specifically been designed after the OpenGIS specs, so this is tightly following that design.<br />I haven't looked that thoroughly at GeoAPI.NET, but moving over to be based on another interface would be a huge breaking change, and I'm not sure we want to go there. At least I would have to research the GeoAPI more first, and if it is not closely following OGC specs (as D_Guidi hints at), I would go so far as saying 'No' of the bat. I mean, what's the point of having a standard interface that doesn't follow the standards?<br /><br />The main purpose of Proj.NET is basically point-based projection stuff, so apart from CS classes, projecting points has been made as simple as possible by just projecting double arrays and not relying on for instance the geometry model of SharpMap or NTS. The actual geometry projection logic is instead being used by the individual projects using Proj.NET that knows about geometry (Proj.NET doesn't have the concept of geometry, again to make it as abstract as possible).<br /><br />As D_Guidi mentions, it also adds another dependency, and what I think is great about Proj.NET is that it has been designed so that it can be used completely independent of anything else.<br /><br />If you really want to be implement interfaces, why not just implement the Proj.NET interfaces instead of the GeoAPI.NET interfaces? Also If GeoAPI really is OGC compliant, they should be the same, and most of the code changes can be done by just aliasing the namespaces.<br />",
+    "PostedDate": "2007-10-03T00:25:59.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "51671",
+    "ThreadId": "15932",
+    "Html": "\r\nOk... First... I was only asking if it was being considered.  If so, I vote in support of the split.<br /><br />Second.   When we started our search for a COM based GIS solution 8 years ago, we approached what was then Open GIS, and asked if anyone had implemented their Simple Feature Specification.   They pointed us to a company.   We committed to the spec, and in the last eight years have invested heavily in companies and components that honored the COM implementation of the spec.   We have even found companies that had very fast, specialized software for things like buffering, and have contracted with them to add support for the SF COM interfaces to their objects so that we could mix and match components to optimize our tasks.<br /><br />When we started our search for a .Net GIS solution as part of our overall .Net  migration strategy, we approach OGC again.   This was about a month ago.   We asked if there was a standard \".Net\" set of interfaces and namespace which we could point to as we looked for companies and or packages that were OGC compliant.   We wanted to commit to those interfaces, planning on mixing and matching components in the new world, too.   They said there was not an officially sanctioned interface, but that the GeoAPI stuff done in the java community appeared to have been accepted as the defactor standard.<br /><br />I have programmed against the Open GIS SF spec for many years now.  The GeoAPI .Net interfaces are MUCH closer to OGC compliant than Diego gives himself credit for.    Yeah... they moved some type specific properties like Area onto the base geometry, where they really don't apply, but those are extensions to the spec, rather than differences from the spec.    We've still got a lot of work to do with NTS and GeoAPI components before we've explored all parts of them, but in my opinion, they honor the OGC spec, and we have committed to the GeoAPI interfaces as the standard spatial feature interface that we will use throughout our system, and that we will insist any third-party vendor honor if they want us to use their components.<br /><br />I am not nearly so experienced with the OGC coordinate transfformation specs.   We wrapped a proprietary coordinate conversion system behind our own interfaces and have used that across the board for the last several years.   I'm very happy to hear that the Interfaces in Proj.Net are intended to be OGC compliant..   That's outstanding.   In my personal opinion, the fact that they are compliant is all the more reason to split them out into a different assembly, so that, like GeoAPI, any company that wanted to do their own coordinate systems implementation would be able to include support for the \"industry standard\" coordinate systems interfaces.<br /><br />IF a decision were made to split them out, it makes sense to me to add them into the GeoAPI namespace and assembly.   GeoAPI currently does not include any support for coordinate systems at all.   So I wasn't talking about any kind of a fundamental change to the Proj.Net solution.   The only code changes required would be including a reference to GeoAPI and adding the appropriate Using statement(s) in each .cs file.     But, yeah, you are right... it does mean that there is a dependency on another project... just as there is for NTS, too.<br /><br />This is a good discussion guys.   Thanks for participating..   <br />",
+    "PostedDate": "2007-10-03T01:51:53.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "51805",
+    "ThreadId": "15932",
+    "Html": "\r\nYou raise some good arguments, and I definitely think its worth considering, but I also think we should cover all the implications.<br />But first of all... GeoAPI.NET should support CS first... (they are welcome to grap the ones from Proj.NET and refactor them into the correct namespace - they are all designed by using the spec anyway)<br />",
+    "PostedDate": "2007-10-03T19:21:35.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "51832",
+    "ThreadId": "15932",
+    "Html": "\r\nOk.   I have posted on the GeoAPI site to ask if they are interested in supporting this.     Thanks!<br />",
+    "PostedDate": "2007-10-04T00:24:50.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "53665",
+    "ThreadId": "15932",
+    "Html": "\r\nSo...the GeoAPI.Net group is ok with absorbing the ProjNet interfaces, if this group thinks it is the thing to do.   This is my last push on the effort.   If you want to do it, we'll provide manpower for modifying the project or the test apps or refactoring the interfaces.<br /><br />And if the goal of ProjNet is to be an \"independent\" project, why is it in the SharpMap namespace?  :)  That clearly causes confusion for people that are just trying to get going with SharpMap.<br /><br />Thanks, gentlemen.<br />",
+    "PostedDate": "2007-10-17T03:36:13.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "54339",
+    "ThreadId": "15932",
+    "Html": "\r\ntask implemented<br />",
+    "PostedDate": "2007-10-22T05:56:18.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "54816",
+    "ThreadId": "15932",
+    "Html": "\r\nThank you.   Brian has modified NTS to use the new GeoAPI references.  Do you want that code, or are you going to do it yourself?    We'll be exercising these changes well over the next month.<br />",
+    "PostedDate": "2007-10-24T18:43:13.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "54854",
+    "ThreadId": "15932",
+    "Html": "\r\nI've read right now a question in the NTS google group: http://groups.google.it/group/nettopologysuite/browse_frm/thread/714b39a45446bda7?hl=it<br />I plan to modify code manually, but if Brian have already made the work, maybe i could try lo learn how to use svn patches :)<br />See googlegroup for the thread.<br />",
+    "PostedDate": "2007-10-25T00:10:20.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

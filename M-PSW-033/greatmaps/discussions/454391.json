@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "1084314",
+    "ThreadId": "454391",
+    "Html": "Hello all,<br />\n<br />\nI've been messing with this one all day and I just can't figure it out, so I come here for your help. Below is the code I am using to generate a marker and a route then make the route invisible, so that when I mouseover the marker, I can have the route appear and disappear when the mouse leaves the marker.<br />\n<pre><code>while (mysqlReader.Read())\n{</code></pre>\n\n<pre><code>// Generate Flown route\nforeach (string coordinate in FlightTrackerFlownRouteCoordinatesList)\n{\n    FlightTrackerFlownRouteList.Add(new PointLatLng(Convert.ToDouble(_coords[0]), Convert.ToDouble(_coords[1])));\n}\n    GMapRoute FlightTrackerFlownRoute = new GMapRoute(FlightTrackerFlownRouteList, &quot;flighttrackerflownroute&quot;);\n    FlightTrackerFlownRoute.Tag = mysqlReader.GetString(&quot;vblName&quot;);\n    Pen pen2 = new Pen(Color.Red);\n    pen2.Width = 1;\n    FlightTrackerFlownRoute.Stroke = pen2;\n    FlightTrackerFlownRouteOverlay.Routes.Add(FlightTrackerFlownRoute);\n    gmap.UpdateRouteLocalPosition(FlightTrackerFlownRoute);</code></pre>\n\n<pre><code>// Generate Aircraft Marker\n    GMarkerGoogle flightTrackerMarker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(_coordinates[0]), Convert.ToDouble(_coordinates[1])), new Bitmap(ImagesFolder + @&quot;\\\\gmaps\\\\marker2\\\\&quot; + mysqlReader.GetString(&quot;vblIconHeading&quot;) + @&quot;.png&quot;));\n    flightTrackerMarker.Tag = mysqlReader.GetString(&quot;vblName&quot;);\n    flightTrackerOverlay.Markers.Add(flightTrackerMarker);\n    flightTrackerMarker.Offset = new System.Drawing.Point(-16, -16);\n    flightTrackerMarker.ToolTip = new GMapRoundedToolTip(flightTrackerMarker);\n    flightTrackerMarker.ToolTipText = mysqlReader.GetString(&quot;vblName&quot;) + &quot;\\n\\r&quot; + mysqlReader.GetString(&quot;vblCarrier&quot;) + &quot; Flight &quot; + mysqlReader.GetString(&quot;vblFLightNumber&quot;) + &quot;\\n\\rStatus: &quot; + mysqlReader.GetString(&quot;vblPhase&quot;);\n    gmap.UpdateMarkerLocalPosition(flightTrackerMarker);\n}</code></pre>\n\n<pre><code>FlightTrackerFlownRouteOverlay.IsVisibile = false;</code></pre>\n\n<pre><code>        private void gmap_OnMarkerEnter(GMapMarker item)\n        {\n            FlightTrackerFlownRouteOverlay.IsVisibile = true;\n        }</code></pre>\n\nOk, the above code will generate the markers and routes for each marker and make the routes invisible. If there are say 10 markers on the map, as soon as I mouseover a marker, it will display the routes for ALL markers at once.<br />\n<br />\nHow can I display JUST the route for the marker I am mouseover in specific and not all of them at once? I think I have to use the item variable being passed to the event but I have no idea how to.<br />\n<br />\nAny help will be greatly appreciated!<br />\n",
+    "PostedDate": "2013-08-23T12:42:47.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084444",
+    "ThreadId": "454391",
+    "Html": "Set the route as Tag for the corrsponding marker, then get it in the gmap_OnMarkerEnter event and set its visibility. You don't need to change the visibility of the whole layer:<br />\n<pre><code>        private void gmap_OnMarkerEnter(GMapMarker item)\n        {\n            var route = (GMapRoute)item.Tag;\n            route.IsVisibile = true;\n        }</code></pre>\n\n",
+    "PostedDate": "2013-08-24T05:32:44.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084462",
+    "ThreadId": "454391",
+    "Html": "<strong>Xandolph wrote:</strong><br />\n<blockquote>\nSet the route as Tag for the corrsponding marker, then get it in the gmap_OnMarkerEnter event and set its visibility. You don't need to change the visibility of the whole layer:<br />\n<pre><code>        private void gmap_OnMarkerEnter(GMapMarker item)\n        {\n            var route = (GMapRoute)item.Tag;\n            route.IsVisibile = true;\n        }</code></pre>\n\n</blockquote>\nHello Xandolph!<br />\n<br />\nFirst of all, thanks a million for responding! I've spent the last 3 days trying to figure this one out but to no avail...<br />\n<br />\nOk, what exactly do you mean by set the route as tag for the corresponding marker? Can you give me an example please, using this info for the marker:<br />\n<pre><code>GMarkerGoogle flightTrackerMarker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(_coordinates[0]), Convert.ToDouble(_coordinates[1])), new Bitmap(ImagesFolder + @&quot;\\\\gmaps\\\\marker2\\\\&quot; + mysqlReader.GetString(&quot;vblIconHeading&quot;) + @&quot;.png&quot;));</code></pre>\n\nAnd this info for the route:<br />\n<pre><code>GMapRoute FlightTrackerFiledFlightplanRoute = new GMapRoute(FlightTrackerFiledFlightplanList, &quot;flighttrackerfiledflightplanroute&quot;);</code></pre>\n\nHow do I set the route as tag for the marker? I get the OnMarker event part, but this first one is making my head spin... :-( Thanks in advance, my friend.<br />\n<br />\nBTW, I am writing this in C# .net 4.0 with VS2012.<br />\n",
+    "PostedDate": "2013-08-24T08:04:47.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084466",
+    "ThreadId": "454391",
+    "Html": "Xandolph,\r<br />\n<br />\nI got it working thanks to you!!! THANKS!!!\r<br />\n<br />\nThis code did it:<br />\n<pre><code>flightTrackerMarker.Tag = FlightTrackerFiledFlightplanRoute;</code></pre>\n\nWhich brings me to another question... I have 2 routes that need to be displayed per marker.\r<br />\n<br />\nHow can I display both routes at once when the OnMarker event is triggered?\r<br />\n<br />\nThe name of the other route is: FlightTrackerFlownRoute\r<br />\n<br />\nI can see any way to assign 2 routes to the same marker because there is only 1 tag attribute.<br />\n",
+    "PostedDate": "2013-08-24T08:24:33.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084467",
+    "ThreadId": "454391",
+    "Html": "use custom marker, add as many fields as you like...<br />\n",
+    "PostedDate": "2013-08-24T08:29:22.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084479",
+    "ThreadId": "454391",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nuse custom marker, add as many fields as you like...<br />\n</blockquote>\nAfter digging around, I found this:<br />\n<pre><code>namespace GMap.NET.WindowsForms.Markers\n{\n   using System.Drawing;\n   using GMap.NET.WindowsForms;\n\n   public class GMapMarkerRect : GMapMarker\n   {\n      public Pen Pen;\n\n      public GMapMarkerRect(PointLatLng p)  : base(p)\n      {\n         Pen = new Pen(Brushes.Red, 5);\n\n         // do not forget set Size of the marker\n         // if so, you shall have no event on it ;}\n         Size = new Size(55, 55);\n      }\n\n      public override void OnRender(Graphics g)\n      {\n         g.DrawRectangle(Pen, new System.Drawing.Rectangle(LocalPosition.X - Size.Width / 2, LocalPosition.Y - Size.Height / 2, Size.Width, Size.Height));\n      }\n   }\n}</code></pre>\n\nApparently this creates a custom marker. How? I have no clue. :-/ Using my code from above, how do I invoke or use this custom marker code? Any examples will suffice, please. Thanks in advance.<br />\n",
+    "PostedDate": "2013-08-24T09:23:29.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084483",
+    "ThreadId": "454391",
+    "Html": "Ok, I added the code above to my code and I was able to create a custom marker in the shape of a red box. I guess this is the default setting.\r<br />\n<br />\nHow can I use a bitmap instead as I was doing before and even after I was able to create this custom marker, I still couldn't see any way to assign multiple tags to it, radioman.<br />\n",
+    "PostedDate": "2013-08-24T09:45:05.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084489",
+    "ThreadId": "454391",
+    "Html": "it's open source, just look around<br />\n",
+    "PostedDate": "2013-08-24T10:16:43.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084511",
+    "ThreadId": "454391",
+    "Html": "if you don't want to use a custom marker, just pass a list of routes as tag.<br />\n<pre><code>marker.Tag = new List&lt;GMapRoute&gt;() { route1, route2};\n</code></pre>\n\nin your on marker enter event cast the tag to List&lt;GMapRoute&gt; and set visibility for all routes in the list.<br />\n",
+    "PostedDate": "2013-08-24T12:37:30.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084534",
+    "ThreadId": "454391",
+    "Html": "<strong>Xandolph wrote:</strong><br />\n<blockquote>\nif you don't want to use a custom marker, just pass a list of routes as tag.<br />\n<pre><code>marker.Tag = new List&lt;GMapRoute&gt;() { route1, route2};\n</code></pre>\n\nin your on marker enter event cast the tag to List&lt;GMapRoute&gt; and set visibility for all routes in the list.<br />\n</blockquote>\nXandolph, you are a gentleman. Thanks for the time you took to really help me out. So refreshing to actually get help instead of being told to go look around.<br />\n",
+    "PostedDate": "2013-08-24T15:33:18.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084537",
+    "ThreadId": "454391",
+    "Html": "Xandolph , I ran the following code on my marker enter event handler but it did not work:<br />\n<pre><code>                List&lt;GMapRoute&gt; route = new List&lt;GMapRoute&gt;((GMapRoute)item.Tag);\n                route.IsVisible = true;</code></pre>\n\n",
+    "PostedDate": "2013-08-24T16:07:31.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084591",
+    "ThreadId": "454391",
+    "Html": "Use:<br />\n<pre><code>List&lt;GMapRoute&gt; routes = (List&lt;GMapRoute&gt;)item.Tag;\nforeach (var route in routes)\n{\n    route.IsVisible = true;\n}\n</code></pre>\n\n",
+    "PostedDate": "2013-08-25T00:38:04.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084889",
+    "ThreadId": "454391",
+    "Html": "Xandolph, perfect!! Thanks!<br />\n",
+    "PostedDate": "2013-08-26T05:30:07.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085067",
+    "ThreadId": "454391",
+    "Html": "Xandolph, I forgot to mention one thing! :-(\r<br />\n<br />\nThere are 2 markers also generated on route1. One marker on the first route point and one marker at the last route point. How do I also include these 2 markers so they can be toggled on/off with this?\r<br />\n<br />\nList&lt;GMapRoute&gt; routes = (List&lt;GMapRoute&gt;)item.Tag;\r<br />\nforeach (var route in routes)\r<br />\n{<br />\n<pre><code>route.IsVisible = true;</code></pre>\n\n}\r<br />\n<br />\nThanks man, sorry to keep bugging you...<br />\n",
+    "PostedDate": "2013-08-26T12:53:50.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085082",
+    "ThreadId": "454391",
+    "Html": "Well basically you can set anything as &quot;Tag&quot; of the marker, it is just an object. So one solution (if you use .NET Framework 4 or higher) is to pass a Tuple as Tag, so you have strongly typed access to the stuff you set as Tag:<br />\n<pre><code>marker.Tag = new Tuple&lt;GMapRoute, GMapRoute, GMapMarker, GMapMarker&gt;(route1, route2, marker1, marker2);</code></pre>\n\nthen cast it back  in your OnMarker_Enter event handler, and access your routes and markers (Item1 to Item4 of the Tuple)<br />\n<pre><code>            Tuple&lt;GMapRoute, GMapRoute, GMapMarker, GMapMarker&gt; myStuff = (Tuple&lt;GMapRoute, GMapRoute, GMapMarker, GMapMarker&gt;)item.Tag;\n            myStuff.Item1.IsVisible = true;\n            myStuff.Item2.IsVisible = true;\n            etc...</code></pre>\n\nOr, if you don't use .NET 4, just pass an object[] as Tag, but in this case you have to be very careful when casting back your objects!\r<br />\n<br />\nEven better would be to create a derived class (inherit from GMarkerGoogle, or whatever marker you use now) and add new public properties for all the stuff you need... <br />\n",
+    "PostedDate": "2013-08-26T13:38:30.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085101",
+    "ThreadId": "454391",
+    "Html": "Luckily I am using .NET 4, so the Tuple approach worked like a charm!! Xandolph, you have no idea how much I appreciate your help! Thank you so much!<br />\n",
+    "PostedDate": "2013-08-26T14:17:25.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

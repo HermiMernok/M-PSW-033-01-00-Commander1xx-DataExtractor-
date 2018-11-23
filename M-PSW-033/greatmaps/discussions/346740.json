@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "803248",
+    "ThreadId": "346740",
+    "Html": "\r\n<p>Hey :)</p>\r\n<p>Is there anyway i can put an image in tooltips ?</p>\r\n",
+    "PostedDate": "2012-02-29T09:51:29.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803252",
+    "ThreadId": "346740",
+    "Html": "<p>yes, make custom tooltip, render image, enjoy ;}</p>",
+    "PostedDate": "2012-02-29T09:57:58.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803369",
+    "ThreadId": "346740",
+    "Html": "<p>Thnx radioman , but can u plz put a small exemple ?</p>",
+    "PostedDate": "2012-02-29T12:46:09.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803588",
+    "ThreadId": "346740",
+    "Html": "<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">namespace</span> GMap.NET.WindowsForms.ToolTips\r\n{\r\n   <span style=\"color: blue;\">using</span> System.Drawing;\r\n   <span style=\"color: blue;\">using</span> System.Drawing.Drawing2D;\r\n   <span style=\"color: blue;\">using</span> System;\r\n   <span style=\"color: blue;\">using</span> System.Runtime.Serialization;\r\n\r\n<span style=\"color: blue;\">#if</span> !PocketPC\r\n   <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n   <span style=\"color: gray;\">///</span><span style=\"color: green;\"> GMap.NET marker</span>\r\n   <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n   [Serializable]\r\n   <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GMapBaloonToolTip : GMapToolTip, ISerializable\r\n   {\r\n      <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">float</span> Radius = 10f;\r\n\r\n      <span style=\"color: blue;\">public</span> GMapBaloonToolTip(GMapMarker marker)\r\n         : <span style=\"color: blue;\">base</span>(marker)\r\n      {\r\n         Stroke = <span style=\"color: blue;\">new</span> Pen(Color.FromArgb(140, Color.Navy));\r\n         Stroke.Width = 3;\r\n<span style=\"color: blue;\">#if</span> !PocketPC\r\n         <span style=\"color: blue;\">this</span>.Stroke.LineJoin = LineJoin.Round;\r\n         <span style=\"color: blue;\">this</span>.Stroke.StartCap = LineCap.RoundAnchor;\r\n<span style=\"color: blue;\">#endif</span>\r\n\r\n         Fill = Brushes.Yellow;\r\n      }\r\n\r\n      <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(Graphics g)\r\n      {\r\n         System.Drawing.Size st = g.MeasureString(Marker.ToolTipText, Font).ToSize();\r\n         System.Drawing.Rectangle rect = <span style=\"color: blue;\">new</span> System.Drawing.Rectangle(Marker.ToolTipPosition.X, Marker.ToolTipPosition.Y - st.Height, st.Width + TextPadding.Width, st.Height + TextPadding.Height);\r\n         rect.Offset(Offset.X, Offset.Y);\r\n\r\n         <span style=\"color: blue;\">using</span>(GraphicsPath objGP = <span style=\"color: blue;\">new</span> GraphicsPath())\r\n         {\r\n            objGP.AddLine(rect.X + 2 * Radius, rect.Y + rect.Height, rect.X + Radius, rect.Y + rect.Height + Radius);\r\n            objGP.AddLine(rect.X + Radius, rect.Y + rect.Height + Radius, rect.X + Radius, rect.Y + rect.Height);\r\n\r\n            objGP.AddArc(rect.X, rect.Y + rect.Height - (Radius * 2), Radius * 2, Radius * 2, 90, 90);\r\n            objGP.AddLine(rect.X, rect.Y + rect.Height - (Radius * 2), rect.X, rect.Y + Radius);\r\n            objGP.AddArc(rect.X, rect.Y, Radius * 2, Radius * 2, 180, 90);\r\n            objGP.AddLine(rect.X + Radius, rect.Y, rect.X + rect.Width - (Radius * 2), rect.Y);\r\n            objGP.AddArc(rect.X + rect.Width - (Radius * 2), rect.Y, Radius * 2, Radius * 2, 270, 90);\r\n            objGP.AddLine(rect.X + rect.Width, rect.Y + Radius, rect.X + rect.Width, rect.Y + rect.Height - (Radius * 2));\r\n            objGP.AddArc(rect.X + rect.Width - (Radius * 2), rect.Y + rect.Height - (Radius * 2), Radius * 2, Radius * 2, 0, 90); <span style=\"color: green;\">// Corner</span>\r\n\r\n            objGP.CloseFigure();\r\n\r\n            g.FillPath(Fill, objGP);\r\n            g.DrawPath(Stroke, objGP);\r\n         }\r\n\r\n<span style=\"color: blue;\">#if</span> !PocketPC\r\n         g.DrawString(Marker.ToolTipText, Font, Foreground, rect, Format);\r\n<span style=\"color: blue;\">#else</span>\r\n         g.DrawString(ToolTipText, ToolTipFont, TooltipForeground, rect, ToolTipFormat);\r\n<span style=\"color: blue;\">#endif</span>\r\n      }\r\n\r\n      <span style=\"color: blue;\">#region</span> ISerializable Members\r\n\r\n      <span style=\"color: blue;\">void</span> ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)\r\n      {\r\n         info.AddValue(<span style=\"color: #a31515;\">\"Radius\"</span>, <span style=\"color: blue;\">this</span>.Radius);\r\n\r\n         <span style=\"color: blue;\">base</span>.GetObjectData(info, context);\r\n      }\r\n\r\n      <span style=\"color: blue;\">protected</span> GMapBaloonToolTip(SerializationInfo info, StreamingContext context)\r\n         : <span style=\"color: blue;\">base</span>(info, context)\r\n      {\r\n         <span style=\"color: blue;\">this</span>.Radius = Extensions.GetStruct&lt;<span style=\"color: blue;\">float</span>&gt;(info, <span style=\"color: #a31515;\">\"Radius\"</span>, 10f);\r\n      }\r\n\r\n      <span style=\"color: blue;\">#endregion</span>\r\n   }\r\n<span style=\"color: blue;\">#endif</span>\r\n}\r\n\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-02-29T23:56:15.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-12-10T12:48:14.49-08:00"
+  },
+  {
+    "Id": "803751",
+    "ThreadId": "346740",
+    "Html": "<p>Done</p>\r\n<p>ty so much Radioman :)</p>",
+    "PostedDate": "2012-03-01T05:50:15.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126831",
+    "ThreadId": "346740",
+    "Html": "how to use this code? :/<br />\n",
+    "PostedDate": "2013-11-19T17:52:58.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1455485",
+    "ThreadId": "346740",
+    "Html": "I'm looking for this, how can we implement? . . another idea could be <a href=\"http://stackoverflow.com/questions/20256176/how-to-use-extract-identity-of-a-control-inside-an-activex-control\" rel=\"nofollow\">Link</a><br />\n",
+    "PostedDate": "2015-12-10T12:33:08.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1455488",
+    "ThreadId": "346740",
+    "Html": "nothing changed, make a class myclasss : GMapToolTip {}, implement OnRender, draw anything, done<br />\n",
+    "PostedDate": "2015-12-10T12:48:04.757-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1455520",
+    "ThreadId": "346740",
+    "Html": "hello again! thanks so much radioman this help me ;}<br />\n",
+    "PostedDate": "2015-12-10T18:27:25.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

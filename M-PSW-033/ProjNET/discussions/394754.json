@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "909596",
+    "ThreadId": "394754",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have to convert the Cassini-Soldner coordinate system to WGS84 or Gauss-Boaga.</p>\r\n<p>Here is my code:</p>\r\n<p>Geometry Transfrom(Geometry Geom)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>CoordinateSystemFactory cf = new CoordinateSystemFactory();&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>ICoordinateSystem from=cf.CreateFromWkt(&quot;PROJCS[\\&quot;DHDN / Soldner Berlin\\&quot;,GEOGCS[\\&quot;DHDN\\&quot;,DATUM[\\&quot;D_Deutsches_Hauptdreiecksnetz\\&quot;,SPHEROID[\\&quot;Bessel_1841\\&quot;,6377397.155,299.1528128]],PRIMEM[\\&quot;Greenwich\\&quot;,0],UNIT[\\&quot;Degree\\&quot;,0.017453292519943295]],PROJECTION[\\&quot;Cassini\\&quot;],PARAMETER[\\&quot;latitude_of_origin\\&quot;,52.41864827777778],PARAMETER[\\&quot;central_meridian\\&quot;,13.62720366666667],PARAMETER[\\&quot;false_easting\\&quot;,40000],PARAMETER[\\&quot;false_northing\\&quot;,10000],UNIT[\\&quot;Meter\\&quot;,1]]&quot;);&nbsp;</p>\r\n<p>ICoordinateTransformation t = new CoordinateTransformationFactory().CreateFromCoordinateSystems(from, GeographicCoordinateSystem.WGS84); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>\r\n<p>return GeometryTransform.TransformGeometry(Geom, t.MathTransform);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;}</p>\r\n<p>But I get this error: Cassini is not supported. How can I do?</p>\r\n",
+    "PostedDate": "2012-09-07T05:59:42.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910288",
+    "ThreadId": "394754",
+    "Html": "<p>cassini projection is not supported. you can try with&nbsp;http://dotspatial.codeplex.com/wikipage?title=DotSpatial.Projections</p>",
+    "PostedDate": "2012-09-09T23:54:16.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910357",
+    "ThreadId": "394754",
+    "Html": "<p>Ok thank you I solved my problem. Nice libraries!</p>",
+    "PostedDate": "2012-09-10T03:33:46.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

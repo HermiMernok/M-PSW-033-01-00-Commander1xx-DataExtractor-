@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "246493",
+    "ThreadId": "72210",
+    "Html": "<p>Hi All,</p>\r\n<p>seems that since today the geocoding through Google requires keys?!?</p>\r\n<p>I tried my application and also the newest FormsDemo with addresses in Europe and I'm getting constantly the result&nbsp; &quot;G_GEO_BAD_KEY&quot;...</p>\r\n<p>Yesterday the application worked fine.</p>\r\n<p>I also rolled back to a previous version without the language stuff changes, also does not work.</p>\r\n<p>Any ideas or workarounds ?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanx in advance</p>",
+    "PostedDate": "2009-10-16T05:14:20.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "246535",
+    "ThreadId": "72210",
+    "Html": "<p>i see, you can try this one&nbsp;<a href=\"http://geonamesdotorgdotnet.codeplex.com/\">http://geonamesdotorgdotnet.codeplex.com/</a></p>",
+    "PostedDate": "2009-10-16T07:07:02.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "247148",
+    "ThreadId": "72210",
+    "Html": "<p>I'm getting the exact same error. Been working fine but today I can't search for any locations</p>",
+    "PostedDate": "2009-10-18T21:53:54.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "247156",
+    "ThreadId": "72210",
+    "Html": "<p>google as allways changed their urls ;}</p>",
+    "PostedDate": "2009-10-18T22:40:25.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "247170",
+    "ThreadId": "72210",
+    "Html": "<p>Google geocoder now expects to see an API key otherwise error 610 is being returned.</p>\r\n<p>Get your API key and patch the geocoder URL constructor.</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-19T00:08:02.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "247198",
+    "ThreadId": "72210",
+    "Html": "<p>i see ;/</p>",
+    "PostedDate": "2009-10-19T01:14:13.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248120",
+    "ThreadId": "72210",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><strong>To use an API key add the following line to GMaps.cs</strong><br><br><br> <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">string</span> SetApiKey = <span style=\"color:Blue\">string</span>.Empty;\r\n<br><br><strong>Then change the following lines as shown here</strong>\r\n\r\n      <span style=\"color:Blue\">internal</span> <span style=\"color:Blue\">string</span> MakeGeocoderUrl(<span style=\"color:Blue\">string</span> keywords)<br>      {<br>         <span style=\"color:Blue\">string</span> key = keywords.Replace(<span style=\"color:#A31515\">' '</span>, <span style=\"color:#A31515\">'+'</span>);<br>         <span style=\"color:Blue\">return</span> <span style=\"color:Blue\">string</span>.Format(<span style=\"color:#A31515\">&quot;http://maps.google.com/maps/geo?q={0}&amp;output=csv&amp;sensor=false&amp;key={1}&quot;</span>, key, SetApiKey);<br>      }<br><br><br>      <span style=\"color:Blue\">internal</span> <span style=\"color:Blue\">string</span> MakeReverseGeocoderUrl(PointLatLng pt, <span style=\"color:Blue\">string</span> language)<br>      {<br>          <span style=\"color:Blue\">return</span> <span style=\"color:Blue\">string</span>.Format(<span style=\"color:#A31515\">&quot;http://maps.google.com/maps/geo?hl={0}&amp;ll={1},{2}&amp;output=csv&amp;sensor=false&amp;key={3}&quot;</span>, language, pt.Lat.ToString(CultureInfo.InvariantCulture), pt.Lng.ToString(CultureInfo.InvariantCulture), SetApiKey);<br>      }<br><br><strong>In your calling application add this line:</strong><br><br><div style=\"color:Black;background-color:White\"><pre><div style=\"color:Black;background-color:White\"><pre>GMaps.Instance.SetApiKey = <span style=\"color:#A31515\">&quot; Your Key Goes Here &quot;</span>\r\n<br><br>Cheers</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n<br></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-21T07:20:10.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248266",
+    "ThreadId": "72210",
+    "Html": "<p>done! ;}</p>",
+    "PostedDate": "2009-10-21T13:07:40.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "306681",
+    "ThreadId": "72210",
+    "Html": "<p>Geocoding does not work for me. It was ok couple weeks ago. Which domain should I use while generating the key? I've tried random domain but the result is the same. Thank you.</p>",
+    "PostedDate": "2010-02-20T09:58:21.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "306704",
+    "ThreadId": "72210",
+    "Html": "<p>your custom name, but google still can block you ;}</p>",
+    "PostedDate": "2010-02-20T10:01:41.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

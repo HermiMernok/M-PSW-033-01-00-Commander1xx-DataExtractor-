@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "463038",
+    "ThreadId": "218235",
+    "Html": "<p>I wrote an event handler for OnMarkerClick but it can't catch this event. It means that if i click on a marker it can't fire OnMarkerClick. What is the problem ?</p>\r\n<p>This is my event hander code</p>\r\n<p>\r\n<p><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">&lt;font size=&quot;2&quot; color=&quot;#0000ff&quot;&gt;\r\n<p>private</p>\r\n&lt;/font&gt;</span></span></span></span></span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">void</span></span><span style=\"font-size:x-small\"> MainMap_OnMarkerClick(</span><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">GMapMarker</span></span>\r\n<p><span style=\"font-size:x-small\"> item) </span></p>\r\n<p>{</p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;<span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">MessageBox</span></span><span style=\"font-size:x-small\">.Show(item.ToolTipText);</span></span></span></p>\r\n</p>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p>}</p>\r\n</span></p>",
+    "PostedDate": "2010-07-03T05:18:02.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463041",
+    "ThreadId": "218235",
+    "Html": "<p>set your marker <strong>Size</strong></p>",
+    "PostedDate": "2010-07-03T05:24:43.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463046",
+    "ThreadId": "218235",
+    "Html": "<p>size is a field that is return value. it dont permit to i change it</p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>&nbsp;&nbsp;GMapMarker Point = new GMapMarkerGoogleGreen(point_lat_lng);<br>&nbsp;<br>&nbsp;Point.Size.Height = 4;<br>&nbsp;Point.Size.Width = 4;</p>\r\n<span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span><span style=\"font-size:x-small\">\r\n<p>&nbsp;</p>\r\n</span></span></span></span></span></p>",
+    "PostedDate": "2010-07-03T05:44:05.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463047",
+    "ThreadId": "218235",
+    "Html": "<p>then whats the problem? and how do you suppose to hit 4 pixel area? ;}</p>",
+    "PostedDate": "2010-07-03T05:47:45.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463048",
+    "ThreadId": "218235",
+    "Html": "<p>I only want to handle click event of markers. I can set its height &amp; width to any value. But it don't permit to I do it.&nbsp;How can I set Size of marker ?</p>\r\n<p>I only want to handle marker click event.</p>\r\n<p>Regards ,</p>",
+    "PostedDate": "2010-07-03T05:51:11.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463050",
+    "ThreadId": "218235",
+    "Html": "<p>what do you mean?</p>",
+    "PostedDate": "2010-07-03T05:57:37.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463056",
+    "ThreadId": "218235",
+    "Html": "<p>I want to handle click event of markers. For example if a user click on a marker it shows a new windows form to describe this marker in detail. For this purpose I need to Catch click event on markers.</p>",
+    "PostedDate": "2010-07-03T06:10:09.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463057",
+    "ThreadId": "218235",
+    "Html": "<p>so is it working? all you need is just to subscribe the event: MainMap.<strong>OnMarkerClick</strong> += new MarkerClick(MainMap_OnMarkerClick);</p>",
+    "PostedDate": "2010-07-03T06:13:12.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463058",
+    "ThreadId": "218235",
+    "Html": "<p>this is my code.</p>\r\n<p>Keep in mind that I use windows-form map component.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>this.MainMap.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.MainMap_OnMarkerClick);&nbsp;</strong></p>\r\n<p>&nbsp;</p>\r\n<p><strong>private void MainMap_OnMarkerClick(GMapMarker item)</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox.Show(item.ToolTipText);</strong><br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</strong></p>",
+    "PostedDate": "2010-07-03T06:23:16.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463059",
+    "ThreadId": "218235",
+    "Html": "<p>This code dont work</p>",
+    "PostedDate": "2010-07-03T06:24:00.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463061",
+    "ThreadId": "218235",
+    "Html": "<p>your marker size is just to small, guess why this event in demos is working? ;}</p>",
+    "PostedDate": "2010-07-03T06:28:50.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463062",
+    "ThreadId": "218235",
+    "Html": "<p>I downloaded the last version of project. I update my project by last version of DLL files. It works fine now.</p>\r\n<p>TX for your quick reply</p>\r\n<p>&nbsp;</p>\r\n<p>Best Regards</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-03T06:36:08.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463063",
+    "ThreadId": "218235",
+    "Html": "<p>ok, hm.. what version did you used before?</p>",
+    "PostedDate": "2010-07-03T06:37:17.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463064",
+    "ThreadId": "218235",
+    "Html": "<p>this is the old file of greate map that I used&nbsp;&nbsp;<strong>greatmaps-66dd767bff00.zip<br></strong></p>",
+    "PostedDate": "2010-07-03T06:41:02.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463065",
+    "ThreadId": "218235",
+    "Html": "<p>mm, i see,&nbsp;2 months ago ;}</p>",
+    "PostedDate": "2010-07-03T06:46:50.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463078",
+    "ThreadId": "218235",
+    "Html": "<div>Hi</div>\r\n<div> </div>\r\n<div>this is the old version of greate map  <strong>greatmaps-66dd767bff00.zip<br></strong><br></div>\r\n<div>On Sat, Jul 3, 2010 at 6:07 PM, radioman <span dir=ltr>&lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt;</span> wrote:<br>\r\n<blockquote style=\"padding-left:1ex;margin:0px 0px 0px 0.8ex;border-left:#ccc 1px solid\">\r\n<div>\r\n<p>From: radioman</p>\r\n<div>\r\n<p>ok, hm.. what version did you used before?</p></div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=218235&ANCHOR#Post463063\">full discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:greatmaps@discussions.codeplex.com?subject=[greatmaps:218235]\">greatmaps@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:greatmaps@discussions.codeplex.com\">greatmaps@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can <a href=\"http://www.codeplex.com/site/discussions/thread/unsubscribe/218235\">unsubscribe</a> on CodePlex.com.</p>\r\n\r\n\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</p></div></div></div></blockquote></div><br><br clear=all><br>-- <br>Mohsen Niazi. <br>\r\n\r\nIsfahan, IRAN. <br>Mobile: (+98) 913 326 49 26<br>Office: (+98) 311 6247332<br><a href=\"http://www.peyvandco.com/\">www.peyvandco.com</a><br>",
+    "PostedDate": "2010-07-03T08:02:12.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

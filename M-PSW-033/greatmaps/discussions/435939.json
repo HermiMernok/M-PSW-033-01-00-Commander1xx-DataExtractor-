@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1012510",
+    "ThreadId": "435939",
+    "Html": "Hi all,\r<br />\n<br />\nDoes GMap provide way to get lat/lon from an address or provide a way to geocode?  If yes, could you please show me what (class) I should be looking for?\r<br />\n<br />\nThank you,<br />\n",
+    "PostedDate": "2013-03-08T11:42:03.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012518",
+    "ThreadId": "435939",
+    "Html": "check map providers, quite a few support it<br />\n",
+    "PostedDate": "2013-03-08T11:49:16.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012522",
+    "ThreadId": "435939",
+    "Html": "Hi radioman,\r<br />\n<br />\nThank you for your reply.  I am using GoogleMap and it does not seem to have a function where it geocode an address.  Could you please provide more insight? Thanks.<br />\n",
+    "PostedDate": "2013-03-08T11:54:57.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012525",
+    "ThreadId": "435939",
+    "Html": "<pre><code>GeoCoderStatusCode status;\nvar pp1 = GMapProviders.YahooMap.GetPoint(&quot;Lithuania,Vilnius&quot;, out status);</code></pre>\n\n",
+    "PostedDate": "2013-03-08T12:05:39.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012536",
+    "ThreadId": "435939",
+    "Html": "There is no function &quot;GetPoint&quot; for YahooMap.  Could you please double check?<br />\n",
+    "PostedDate": "2013-03-08T12:30:59.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012537",
+    "ThreadId": "435939",
+    "Html": "use latest version<br />\n",
+    "PostedDate": "2013-03-08T12:38:20.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012539",
+    "ThreadId": "435939",
+    "Html": "I am using 1.6.  R u suggesting I should get the Beta version?<br />\n",
+    "PostedDate": "2013-03-08T12:45:13.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "803877",
+    "ThreadId": "346895",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Hola, si me pudieran ayudar con esto les agradecer&iacute;a.</p>\r\n<p>Necesito hacer un pol&iacute;gono, mas especifico una l&iacute;nea que consistir&iacute;a en una seria de puntos&hellip; estoy tratando de hacerlo de la siguiente manera pero no me muestra la l&iacute;nea.</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">Dim</span> Puntos <span style=\"color:blue\">As</span> List(Of PointLatLng) = <span style=\"color:blue\">New</span> List(Of PointLatLng)()\r\n\r\n        Puntos.Add(<span style=\"color:blue\">New</span> PointLatLng(10.23170950954152, -75.5746722221375))\r\n\r\n        Puntos.Add(<span style=\"color:blue\">New</span> PointLatLng(6.24250282355256, -75.5753803253174))\r\n\r\n        <span style=\"color:blue\">Dim</span> Ruta <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapPolygon(Puntos, <span style=\"color:#a31515\">&quot;Nombre&quot;</span>)\r\n\r\n        Ruta.IsVisible = <span style=\"color:blue\">True</span>\r\n\r\n        GMapControl1.ZoomAndCenterRoute(Ruta)\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Muchas gracias.</p>\r\n",
+    "PostedDate": "2012-03-01T09:54:08.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803923",
+    "ThreadId": "346895",
+    "Html": "<p><em>\"Hey, if I could help with this would appreciate. I need to make a polygon, a line more specific would be a serious point ... I'm trying to do it this way but do not show me the line.\"</em></p>\r\n<p>&nbsp;add your polygon to some overlay, check demos source for examples...</p>",
+    "PostedDate": "2012-03-01T11:23:47.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

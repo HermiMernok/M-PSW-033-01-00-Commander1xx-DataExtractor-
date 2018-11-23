@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "909829",
+    "ThreadId": "394822",
+    "Html": "\r\n<p>Hi there everyone, i'm trying to get a marker id, how con i get it ? Not the overlay id but the marker id.</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-09-07T16:03:41.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909933",
+    "ThreadId": "394822",
+    "Html": "<p>if you don't assign any id by yourself, there is no id, you can use Tag property or add something else</p>\r\n<p>i like to use dictionary &lt;int, GMapMarker&gt; ..., therefore i can find marker fast by id</p>",
+    "PostedDate": "2012-09-08T03:37:47.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911563",
+    "ThreadId": "394822",
+    "Html": "<p>Thanks for your help I did something like that and worked fine :).</p>",
+    "PostedDate": "2012-09-12T07:16:36.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "920571",
+    "ThreadId": "394822",
+    "Html": "<p>Hi Radioman!,</p>\r\n<p><span style=\"white-space: pre;\"> </span>Do you Mean using a custom dictionary in our application or there is some built in mechanism inside the control? &nbsp;I saw the markers are stored in a collection and therefore couldn't be accessed by id, in fact In all samples you update markers by iterating through the whole collection. Is there a way to update an individual marker by using its id&nbsp;without iterating through the collection?.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>tks</p>\r\n<p>HN</p>",
+    "PostedDate": "2012-10-02T06:41:33.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "920586",
+    "ThreadId": "394822",
+    "Html": "<p>yes, use&nbsp;dictionary</p>",
+    "PostedDate": "2012-10-02T07:09:58.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "920589",
+    "ThreadId": "394822",
+    "Html": "<p>&nbsp;</p>\r\n<p><span>I get It, but Do you Mean using a custom dictionary in our application or there is some built in mechanism inside the GMaps.Net Control?</span></p>",
+    "PostedDate": "2012-10-02T07:11:33.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "920591",
+    "ThreadId": "394822",
+    "Html": "<p>I assume it's a custom one. &nbsp;And If I change attributes or location of the marker I just invalidate the map to refresh?&nbsp;</p>\r\n<p>Tks</p>\r\n<p>Regards</p>\r\n<p>HN</p>",
+    "PostedDate": "2012-10-02T07:13:19.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

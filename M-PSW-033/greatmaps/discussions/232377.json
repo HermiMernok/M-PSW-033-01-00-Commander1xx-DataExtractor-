@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "512785",
+    "ThreadId": "232377",
+    "Html": "\r\n<p>He estado mirando algunos ejemplos. Uno de ellos fue:</p>\r\n<p><a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=229282\">http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=229282</a></p>\r\n<p>Pero cuando creo la instancia del metodo&nbsp;<span style=\"font-family:Consolas,'Courier New',Courier,monospace; white-space:pre\">GetRouteBetweenPoints(start, end, false, (int)gMapMapa.Zoom);</span></p>\r\n<p><span style=\"font-family:Consolas,'Courier New',Courier,monospace\"><span style=\"white-space:pre\">me queda como Null. No se porque. esto provoca que no entre al IF. y no hace nada.</span></span></p>\r\n<p><span style=\"font-family:Consolas,'Courier New',Courier,monospace\"><span style=\"white-space:pre\">Ayuda por favor. es urgente.</span></span></p>\r\n",
+    "PostedDate": "2010-10-26T08:55:03.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512839",
+    "ThreadId": "232377",
+    "Html": "\r\n<p>tried some other points?</p>\r\n",
+    "PostedDate": "2010-10-26T10:26:19.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512873",
+    "ThreadId": "232377",
+    "Html": "\r\n<p>Vi un ejemplo. es asi:</p>\r\n<p>&nbsp;</p>\r\n<p>GMapOverlay routes = new GMapOverlay(gMapMapa, &quot;routes&quot;);<br>\r\n<br>\r\nList&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();<br>\r\n{<br>\r\npoints.Add(new PointLatLng(6.23170950954152, -75.5746722221375));<br>\r\npoints.Add(new PointLatLng(6.23838603236916, -75.5732560157776));<br>\r\npoints.Add(new PointLatLng(6.23964453673332, -75.5752944946289));<br>\r\npoints.Add(new PointLatLng(6.24250282355256, -75.5753803253174));<br>\r\npoints.Add(new PointLatLng(6.2462143070409, -75.5754017829895));<br>\r\npoints.Add(new PointLatLng(6.24821935039249, -75.5810236930847));<br>\r\n}<br>\r\n<br>\r\nGMapRoute r = new GMapRoute(points, &quot;My car route&quot;);<br>\r\nr.Stroke.Color = Color.Red;<br>\r\nr.Stroke.Width = 5;<br>\r\nroutes.Routes.Add(r);<br>\r\ngMapMapa.Overlays.Add(routes);</p>\r\n<p>&nbsp;</p>\r\n<p>Existe alguna manera de crear rutas haciendo que estas se trasen por las calles y no una linea totalmente recta?</p>\r\n",
+    "PostedDate": "2010-10-26T11:09:32.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512880",
+    "ThreadId": "232377",
+    "Html": "\r\n<p>English please ;}</p>\r\n",
+    "PostedDate": "2010-10-26T11:16:31.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512937",
+    "ThreadId": "232377",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>There is a way to create routes by which these are after the streets and not a perfectly straight line?</p>\r\n",
+    "PostedDate": "2010-10-26T12:45:38.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512941",
+    "ThreadId": "232377",
+    "Html": "\r\n<p>its&nbsp;GetRouteBetweenPoints</p>\r\n",
+    "PostedDate": "2010-10-26T12:51:19.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512949",
+    "ThreadId": "232377",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>check this out!</p>\r\n<p>Cuanto utilizo ese metodo asi:</p>\r\n<p>MapRoute Ruta = GMaps.Instance.GetRouteBetweenPoints(Start, End, false, (int)gMapMapa.Zoom);</p>\r\n<p>The Ruta variable is Null value.</p>\r\n<p>estoy utilizando c#</p>\r\n",
+    "PostedDate": "2010-10-26T13:01:24.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

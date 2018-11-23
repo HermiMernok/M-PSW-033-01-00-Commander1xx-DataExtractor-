@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "482716",
+    "ThreadId": "224237",
+    "Html": "<p>i would really like to see HeatMap Generation as new Feature in this fantastic library..</p>\r\n<p>Maybe based on:&nbsp; http://www.codeproject.com/KB/web-image/GHeat_Net.aspx</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-08-20T05:07:39.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482723",
+    "ThreadId": "224237",
+    "Html": "<p>check clouds demo and use this service to generate image: <a href=\"http://www.heatmapapi.com/SampleHMReturnImage.aspx?k=0&d=&x=0&b=1&w=400&h=300&lat1=38.7872749142083&lat2=38.46541758885631&lon1=-95.09765625&lon2=-94.54833984375  \">http://www.heatmapapi.com/SampleHMReturnImage.aspx?k=0&amp;d=&amp;x=0&amp;b=1&amp;w=400&amp;h=300&amp;lat1=38.7872749142083&amp;lat2=38.46541758885631&amp;lon1=-95.09765625&amp;lon2=-94.54833984375</a><br><br></p>",
+    "PostedDate": "2010-08-20T05:16:31.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054413",
+    "ThreadId": "224237",
+    "Html": "Hi,\r<br />\n<br />\nI am trying to add this lines to the GPoint and PointLatLng classes.<br />\n<pre><code>//First, add the following to GPoint and PointLatLng classes in GMap\n\nprivate decimal? weight;\nprivate object data;\n \npublic decimal? Weight { get { return weight; } set { weight = value; } }\npublic object Data { get { return data; } set { data = value; } }</code></pre>\n\nas sugestet in this page.\r<br />\n<a href=\"http://blog.ethereal-engineering.com/2013/01/heatmaps-using-gheat-and-gmap.html\" rel=\"nofollow\">http://blog.ethereal-engineering.com/2013/01/heatmaps-using-gheat-and-gmap.html</a>\r<br />\n<br />\nAny idea how I can add this, I get always an error compiling Gmap<br />\n",
+    "PostedDate": "2013-06-08T12:31:00.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054802",
+    "ThreadId": "224237",
+    "Html": "what error?<br />\n",
+    "PostedDate": "2013-06-10T04:48:49.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055215",
+    "ThreadId": "224237",
+    "Html": "I tried to add the following to GPoint and PointLatLng classes in GMap\r<br />\n<br />\nThis are the errors\r<br />\n<br />\nField 'GMap.NET.PointLatLng.weight' must be fully assigned before control is returned to the caller\r<br />\nField 'GMap.NET.PointLatLng.data' must be fully assigned before control is returned to the caller\r<br />\n<br />\nChanging to return this.weight; and return this.data;  gives me the same error.<br />\n<pre><code>\nprivate decimal? weight;\n        private object data;\n\n        public decimal? Weight\n        {\n            get\n            {\n                return this.weight;\n            }\n            set\n            {\n                weight = value;\n            }\n        }\n        public object Data \n        { \n            get \n            { \n                return this.data; \n            } \n            set \n            { \n                data = value; \n            } \n        }</code></pre>\n\n",
+    "PostedDate": "2013-06-11T00:00:37.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055236",
+    "ThreadId": "224237",
+    "Html": "you don't have to put these fields in pointlatlng class, make your own struct/class and add all fields you need: point, weight, data, etc...<br />\n",
+    "PostedDate": "2013-06-11T01:06:40.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055238",
+    "ThreadId": "224237",
+    "Html": "p.s. it's a misleading demo, actually you have to create new map provider and use this function to generate tiles:<br />\n<pre><code>Bitmap tempImage = gheat.GHeat.GetTile(Points, &quot;classic&quot;, (int)MapControl.Zoom, x, y);</code></pre>\n\n",
+    "PostedDate": "2013-06-11T01:10:37.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1069728",
+    "ThreadId": "224237",
+    "Html": "Hi there Radioman\r<br />\n<br />\nForgive me for resurrecting a very old thread. I am interested in this same approach but could not conclude what you were saying with your last two posts.\r<br />\n<br />\nWere you stating that overlay approach would not be the way to go and that one should use a new map provider to accomplish this task?\r<br />\n<br />\nIf so, how would one create a new map provider but still use the existing providers? Would one need to extend each existing provider to use a heat map with them?\r<br />\n<br />\nThanks so much for a great library!\r<br />\n<br />\nMike<br />\n",
+    "PostedDate": "2013-07-17T14:15:08.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

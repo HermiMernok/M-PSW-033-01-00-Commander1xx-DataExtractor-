@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I'm over a marker/polygon/route with my mouse and the state of the item is \"IsMouseOver\".\r\nThan i use the MouseWheel and zoom in/out, so that i leave the marker/polygon/route. But the marker/polygon/route is still in \"IsMouseOver\". You have the same problem in the demo using +/-key oder curor-key moving the map.\r\n\r\nI analysed a lot but i couldn't find the right place to fix it, because it difficult to find the points, where the map ist moving but not the mouse :-(\r\n\r\nMy very silly bugfix for the concret problem is:\r\n\r\n      protected override void OnMouseWheel(MouseEventArgs e)\r\n      {\r\n            /* ... */\r\n            OnMouseMove(e);\r\n            Refresh();\r\n      }\r\n\r\nbut it doesn't satisfy me...",
+    "LastUpdatedDate": "2013-01-23T08:54:52.723-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-01-21T08:27:40.35-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WinForms: Missing MouseOver-Update",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16058
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "does it work on your fork?",
+      "PostedDate": "2013-01-21T08:54:15.87-08:00",
+      "Id": 86764
+    },
+    {
+      "Message": "it is not in my fork, but it works with the current codebase.\nBut it's only a silly workaround :-(",
+      "PostedDate": "2013-01-23T08:54:52.723-08:00",
+      "Id": 86960
+    }
+  ]
+}

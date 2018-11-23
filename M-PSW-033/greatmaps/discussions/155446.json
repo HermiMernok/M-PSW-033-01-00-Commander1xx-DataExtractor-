@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "363038",
+    "ThreadId": "155446",
+    "Html": "<p>long time no see! :)</p>\r\n<p>i still developing mobile application. but gmap marker's background&nbsp;isn't transparent in WM.</p>\r\n<p>i was searching old discussions that problem. but i don't have a solutions.(maybe i couldn't found it)</p>\r\n<p>it still doesn't works in wm? (marker's background transparent)</p>\r\n<p>always thanks, radioman =}</p>",
+    "PostedDate": "2010-02-23T00:20:39.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363042",
+    "ThreadId": "155446",
+    "Html": "<p>it's out of my <em>'powers'</em> to make it transparent ;}</p>\r\n<p>check <a href=\"http://iphoneui.codeplex.com/\">http://iphoneui.codeplex.com/</a> i wonder if it's real transparency?</p>",
+    "PostedDate": "2010-02-23T00:26:59.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363053",
+    "ThreadId": "155446",
+    "Html": "<p><span id=\"result_box\"><span style=\"background-color:#fff\" title=\"이미지버튼의 BackgroundPaint에 부모의 배경을 가져다 직접 그려주는 방법 입니다\"><span id=\"result_box\"><span style=\"background-color:#fff\" title=\"이미지버튼의 BackgroundPaint에 부모의 배경을 가져다 직접 그려주는 방법은?\">The image of the button brings the background of the parent BackgroundPaint a way to paint yourself?</span></span></span></span></p>",
+    "PostedDate": "2010-02-23T01:02:30.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363059",
+    "ThreadId": "155446",
+    "Html": "<p>keep in mind that we do not have constant background ;}</p>",
+    "PostedDate": "2010-02-23T01:10:11.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363077",
+    "ThreadId": "155446",
+    "Html": "<p>a ha...!! i understand</p>\r\n<p>thanks radioman =]</p>",
+    "PostedDate": "2010-02-23T01:51:56.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363158",
+    "ThreadId": "155446",
+    "Html": "<p>In some cases you can acheive quite nice &nbsp;&quot;quasi-semi-transparent &quot; images on HD screens by making every second pixel transparent.&nbsp; :/</p>",
+    "PostedDate": "2010-02-23T06:23:02.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363490",
+    "ThreadId": "155446",
+    "Html": "<p>how can i get to the 'transparent Marker' every second?</p>",
+    "PostedDate": "2010-02-23T18:35:57.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363562",
+    "ThreadId": "155446",
+    "Html": "<p>Not '<em>every second'</em> as in time, but <em>'every second pixel</em>' as in&nbsp;'one off - one on -one off - ...' ;)<br>Simply set the pixels to background color in&nbsp;your image editor.</p>\r\n<p>May also do it in program, but it takes time. Something like:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre> <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span> TouchMapControl : GMapControl\r\n   {\r\n      List&lt;ITouchButton&gt; buttons = <span style=\"color:Blue\">new</span> List&lt;ITouchButton&gt;();\r\n<strong>      Bitmap _backMask;\r\n      System.Drawing.Imaging.ImageAttributes _att;\r\n</strong>      Image _backBuff = <span style=\"color:Blue\">null</span>;\r\n\r\n      <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">string</span> TopText { <span style=\"color:Blue\">get</span>; <span style=\"color:Blue\">set</span>; }\r\n\r\n      <span style=\"color:Blue\">public</span> TouchMapControl()\r\n         : <span style=\"color:Blue\">base</span>()\r\n      {\r\n         _att = <span style=\"color:Blue\">new</span> System.Drawing.Imaging.ImageAttributes();\r\n         _att.SetColorKey(Color.Magenta, Color.Magenta);\r\n\r\n         <span style=\"color:Blue\">#region</span> Make kvasi-transparent backround image for any top text</pre>\r\n<pre>         //test          <br>         _backMask = <span style=\"color:Blue\">new</span> Bitmap(134, 30); //X must be even\r\n         <span style=\"color:Blue\">bool</span> shift = <span style=\"color:Blue\">false</span>;\r\n         <span style=\"color:Blue\">for</span> (<span style=\"color:Blue\">int</span> y = 0; y &lt; _backMask.Height; y++)\r\n         {\r\n            <span style=\"color:Blue\">for</span> (<span style=\"color:Blue\">int</span> x = 0; x &lt; _backMask.Width; x++)\r\n            {\r\n               <span style=\"color:Blue\">if</span> (shift || x &gt; _backMask.Width - y) <span style=\"color:Green\">// slope end</span>\r\n<strong>                  _backMask.SetPixel(x, y, Color.Magenta);\r\n</strong>               <span style=\"color:Blue\">else</span>\r\n<strong>                  _backMask.SetPixel(x, y, Color.White);\r\n</strong>               shift = !shift;\r\n            }\r\n            shift = !shift;\r\n         }\r\n         <span style=\"color:Blue\">#endregion</span>\r\n      }\r\n\r\n      <span style=\"color:Blue\">protected</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnPaintEtc(Graphics g)\r\n      {\r\n         <span style=\"color:Blue\">base</span>.OnPaintEtc(g);\r\n\r\n         <span style=\"color:Blue\">if</span> (!<span style=\"color:Blue\">string</span>.IsNullOrEmpty(TopText))\r\n         {\r\n            g.DrawImage(_backMask, <span style=\"color:Blue\">new</span> Rectangle(0, 0, _backMask.Width, _backMask.Height), 0, 0, _backMask.Width, _backMask.Height, GraphicsUnit.Pixel, _att);\r\n            g.DrawString(TopText, <span style=\"color:Blue\">this</span>.Font, CopyrightBrush, 4, 0);\r\n         }\r\n\r\n         <span style=\"color:Blue\">foreach</span> (ITouchButton butt <span style=\"color:Blue\">in</span> buttons)\r\n            butt.Draw(g);\r\n      }\r\n</pre>\r\n</div>\r\n<p>The result can be seen on upper left corner of : <a href=\"http://home.online.no/~sthexeb/TurKart/ScreenShot5.Png\">http://home.online.no/~sthexeb/TurKart/ScreenShot5.Png</a></p>",
+    "PostedDate": "2010-02-24T00:48:04.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363644",
+    "ThreadId": "155446",
+    "Html": "<p>thanks i'll analysis your source :)</p>\r\n<p>by any chance, do you know covering the MainForm (used GMap control) to call the anotherform??</p>",
+    "PostedDate": "2010-02-24T05:19:55.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

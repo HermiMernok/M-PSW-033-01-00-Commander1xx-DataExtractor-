@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "?",
+    "ClosedDate": "2013-10-02T02:38:46.197-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I used OpenLayer in javaScript and this works.\r\n\r\nGMap.net need to do the same but with the demo MapBenderWMSProvider I am  not able.\r\n\r\nCould you help?\r\n\r\nBest Regards. Thank you.\r\n\r\n\r\nGMAP.net\r\n---------------\r\n\r\nGMap.NET.MapProviders.MapBenderWMSProvider Obj = new MapBenderWMSProvider();\r\nGMap.NET.GPoint pt = new GMap.NET.GPoint(45,55);\r\nthis.gMapControl.MapProvider = Obj ;\r\n\r\n\r\nOPneLayer JAVASCRIPT\r\n---------------\r\n\r\nvar MERCATOR_PROYECTION = 'EPSG:900913';  // nuestros datos están en esta proyección    \r\n// opciones del mapa\r\nvar MAP_OPTIONS =\r\n{\r\nmaxExtent:          GLOBAL_EXTENT,                                                                \r\nmaxResolution:      156543.0339,                                                                  \r\nnumZoomLevels:      20,                                                                          \r\nunits:              'm',                                                                          \r\nprojection:         new OpenLayers.Projection( MERCATOR_PROYECTION),\r\ndisplayProjection:  new OpenLayers.Projection( 'EPSG:4326')                                       \r\n};\r\n\r\n// CAPAS TMS\r\nvar API_BASE_URL = 'http://b5m.gipuzkoa.net/api/1.0/es/';\r\nvar layer_maps2010 = new OpenLayers.Layer.TMS('Gipuzkoa map2010',API_BASE_URL + 'osgeo/tms/tileset/',{layername:'map2010',type:'png',proyection:MERCATOR_PROYECTION,displayOutsideMaxExtent:false,isBaseLayer:true});            \r\n// MAPA\r\nvar map = new OpenLayers.Map( 'example-map',MAP_OPTIONS);    \r\n// Capas TMS \r\nmap.addLayer(layer_maps2010); ",
+    "LastUpdatedDate": "2013-10-02T02:38:46.197-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-10-02T01:54:29.41-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WMS ",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16083
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

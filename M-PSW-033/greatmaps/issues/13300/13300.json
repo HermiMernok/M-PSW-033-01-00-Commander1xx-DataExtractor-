@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 6,
+    "Custom": "",
+    "Description": "Should be rendered like that.",
+    "LastUpdatedDate": "2016-08-24T00:37:23.88-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-05-21T07:43:57.507-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Continues maps",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 11,
+    "Id": 13300
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106836,
+      "FileName": "gmap-continues.png",
+      "DownloadUrl": ".\\106836"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Actually I disable the user from zooming That much out :) it makes the whole code much simpler. But then again I deal with country boundary limited data (RF software). ",
+      "PostedDate": "2011-06-28T12:01:38.677-07:00",
+      "Id": 38483
+    },
+    {
+      "Message": "Guys, any plans to fix this issue?",
+      "PostedDate": "2012-01-17T04:04:24.137-08:00",
+      "Id": 52812
+    },
+    {
+      "Message": "plan is to implement it, because it doesn't work ;} and nobody want to do it",
+      "PostedDate": "2012-01-17T04:34:49.81-08:00",
+      "Id": 52813
+    },
+    {
+      "Message": "Hi Radioman, I'm trying to implement the continues Maps.\nI managed to get the tiles if you pan map on the left or right.\nBut I didn't find where you set the position of the tile in the screen.\nCould you explain me, how you did that?\nFor example, when you pan the map to the left, I return tiles 0,0 - 0,1 - 0,2 ... etc and 32,0 - 32,1 - 32,2 \nbut the position of the tile 32,0 on the screen is always stayed on the right.\nI need to set the position on the left of the 0,0 tile.\nWhere did you compute this position?\nThanks for answering.\nBest regards.\n",
+      "PostedDate": "2012-12-06T00:57:21.987-08:00",
+      "Id": 83668
+    },
+    {
+      "Message": "Up.\nI tried to snoop the project to localized the property which allows to place a tile.\nBut snoop can't be executed on your project.\nI found the PosPixel property of a tile which isn't the location of the tile on the screen, but the position of the tile in the map.\nFor example 0,1 => PosPixel = 0, 256.\nSo, can you help me? >hat is the property which is setted to place correctly the tile on the screen?\nI'll still work on this issue but without your help, I can't progress on it.\nThanks for answering.\nBest regards.\n\n",
+      "PostedDate": "2012-12-07T07:51:22.643-08:00",
+      "Id": 83777
+    },
+    {
+      "Message": "PosPixel is tile position in tile matrix at some level, position on screen depends on offset of viewpoint coordinates and mouse scrolling...",
+      "PostedDate": "2013-01-03T13:28:34.563-08:00",
+      "Id": 85318
+    }
+  ]
+}

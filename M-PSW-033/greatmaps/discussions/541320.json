@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1230761",
+    "ThreadId": "541320",
+    "Html": "Hello, i work on a project witch use gmap.net\r<br />\nI have a lot of problem and i need som help please\r<br />\n<br />\nI want to save image for my map on click, i follow the demo but i stil have problems \r<br />\n<br />\nit say to me the my gMap dont have ToImageSource as a methode, il dowload the last version for map\r<br />\n<br />\nprivate void btnImg_Click(object sender, EventArgs e)<br />\n<pre><code>    {\n        try\n        {\n            ImageSource img = gMap.();\n            PngBitmapEncoder en = new PngBitmapEncoder();\n            en.Frames.Add(BitmapFrame.Create(img as BitmapSource));\n\n            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();\n            dlg.FileName = &quot;GMap.NET Image&quot;; // Default file name\n            dlg.DefaultExt = &quot;.png&quot;; // Default file extension\n            dlg.Filter = &quot;Image (.png)|*.png&quot;; // Filter files by extension\n            dlg.AddExtension = true;\n            dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);\n\n            // Show save file dialog box\n            bool? result = dlg.ShowDialog();\n\n            // Process save file dialog box results\n            if (result == true)\n            {\n                // Save document\n                string filename = dlg.FileName;\n\n                using (System.IO.Stream st = System.IO.File.OpenWrite(filename))\n                {\n                    en.Save(st);\n                }\n            }\n        }\n        catch (Exception ex)\n        {\n            MessageBox.Show(ex.Message);\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2014-04-05T11:41:29.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

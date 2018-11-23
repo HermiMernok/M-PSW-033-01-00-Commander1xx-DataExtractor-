@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "530060",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>System.Data.SqlClient.SqlException (0x80131904): Access violation &quot;PK_GMapNETcache&quot; of PRIMARY KEY.</p>\r\n<p>Cannot insert repited key in object &quot;dbo.GMapNETcache&quot;. Executing current instruction is break.</p>\r\n<p>in System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection) &nbsp;</p>\r\n<p>in System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)</p>\r\n<p>in System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()</p>\r\n<p>in System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)</p>\r\n<p>in System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)&nbsp;&nbsp;</p>\r\n<p>in System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)&nbsp;&nbsp;</p>\r\n<p>in System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)&nbsp;&nbsp;</p>\r\n<p>in System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)&nbsp;&nbsp;</p>\r\n<p>in System.Data.SqlClient.SqlCommand.ExecuteNonQuery()&nbsp;</p>\r\n<p>in GMap.NET.CacheProviders.MsSQLPureImageCache.PutImageToCache(MemoryStream tile, MapType type, Point pos, Int32 zoom)</p>\r\n<p>in GMap\\GMap.NET.Core\\GMap.NET.CacheProviders\\MsSQLPureImageCache.cs: line 186</p>\r\n",
+    "PostedDate": "2010-12-02T06:38:31.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530083",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>do you use it as&nbsp;<strong>ImageCacheSecond</strong>?</p>\r\n",
+    "PostedDate": "2010-12-02T07:14:34.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530093",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>No as&nbsp;MainMap.Manager.ImageCacheLocal</p>\r\n",
+    "PostedDate": "2010-12-02T07:31:36.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530099",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>it's not recommended to have server cache as primary, i even do not test this way, use it as second cache and all works just fine</p>\r\n",
+    "PostedDate": "2010-12-02T07:40:03.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530161",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>Ок.</p>\r\n<p>But what the role of second cache in this case? Is there are first cache steel use a SQLite?</p>\r\n",
+    "PostedDate": "2010-12-02T09:10:01.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530197",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>CacheSecond improve time to get tiles if you deploy your app in LAN for few users, so the first user gets tiles from global servers and immediately caches them locally and in sql server, so the second user gets tiles from server located in LAN instead of\r\n some global server far away. And there is no point of changing default cache for local tiles, performance of sqlite is the best</p>\r\n",
+    "PostedDate": "2010-12-02T10:22:47.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530223",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>I undertstood that second cache must improove perfomance and low down internet trafic from the LAN. But the second, third and other users in the LAN - have First cache and a Second cache. All of them use the same get tile strategy with GMap. How GMap.NET\r\n undastand that need get tiles from Second cache or First cache? How properly to config GMap in LAN with many users and one SQL Server?</p>\r\n<p>P.S. You are right, i have task - deploy same LAN application to many users, and task is to use one SQL server located in the local LAN, and any user have ability to save tiles in second cache.</p>\r\n<p>(Sorry for may me stupid quistions).</p>\r\n",
+    "PostedDate": "2010-12-02T11:03:01.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530244",
+    "ThreadId": "236865",
+    "Html": "\r\n<p>you see, all code logic is already done for you, if you <span style=\"text-decoration:underline\">\r\nassign ImageCacheSecond to you lan server</span>, then it is the second place after local hdd to look for tiles, if your server has no tiles, then user(first user) connects directly to global servers and puts tile to&nbsp;<em>your</em>&nbsp;server, so the other\r\n users from that moment gets tile fast from lan server. I implemented that logic because once i too was developing the same style of app for intranet users.</p>\r\n<p>to be precise there are 5 levels of caching:</p>\r\n<ol>\r\n<li>decompressed raw bitmap tiles, in memory </li><li>compressed tiles in their native format, in memory </li><li>local sqlite/ce databse on your hdd </li><li>[optional] second cache in LAN, mysql/mssql </li><li>global servers, google/big/etc... </li></ol>\r\n<p>...and when component requests tile, it looks for it from the top to bottom and fills all levels that it passes</p>\r\n<p>p.s. 5 level is read-only ;}</p>\r\n",
+    "PostedDate": "2010-12-02T11:29:14.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

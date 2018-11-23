@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "524515",
+    "ThreadId": "235370",
+    "Html": "\r\n<p>how come when placing a route and the start point isnt on the road,&nbsp; it throws off the route completely and sends you off going thru the middle of forrests, grass, thru roads, lakes, etc completely ignoring the correct path?</p>\r\n<p>&nbsp;</p>\r\n<p>when both the start and end point are on a road, it works fine..</p>\r\n<p>If it couldnt detect a route properly, it should at least pop up with an error instead of sending you off somewhere crazy.</p>\r\n",
+    "PostedDate": "2010-11-19T13:00:01.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "524516",
+    "ThreadId": "235370",
+    "Html": "\r\n<p>actually what it looks like it did was did a route based on the nearest road it found but it plots it based on the location of the start point..... how can you adjust the route path so it starts drawing based on where the route was found?</p>\r\n",
+    "PostedDate": "2010-11-19T13:00:57.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "524518",
+    "ThreadId": "235370",
+    "Html": "\r\n<p>fixed by changing this line</p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"></p>\r\n<p>&nbsp;</p>\r\n</span><span style=\"color:#2b91af; font-size:x-small\"><span style=\"color:#2b91af; font-size:x-small\">GMapMarker</span></span><span style=\"font-size:x-small\"> mRoute =\r\n</span><span style=\"color:#0000ff; font-size:x-small\"><span style=\"color:#0000ff; font-size:x-small\">new</span></span><span style=\"font-size:x-small\">\r\n</span><span style=\"color:#2b91af; font-size:x-small\"><span style=\"color:#2b91af; font-size:x-small\">GMapMarker</span></span><span style=\"font-size:x-small\">(start);</span></span>\r\n<p></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"></p>\r\n<p>&nbsp;to</p>\r\n</span><span style=\"color:#2b91af; font-size:x-small\"><span style=\"color:#2b91af; font-size:x-small\">GMapMarker</span></span><span style=\"font-size:x-small\"> mRoute =\r\n</span><span style=\"color:#0000ff; font-size:x-small\"><span style=\"color:#0000ff; font-size:x-small\">new</span></span><span style=\"font-size:x-small\">\r\n</span><span style=\"color:#2b91af; font-size:x-small\"><span style=\"color:#2b91af; font-size:x-small\">GMapMarker</span></span><span style=\"font-size:x-small\">(route.Points.First());</span></span><span style=\"font-size:x-small\">\r\n</span>\r\n<p></p>\r\n",
+    "PostedDate": "2010-11-19T13:04:12.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "524539",
+    "ThreadId": "235370",
+    "Html": "\r\n<p>roger ;}</p>\r\n",
+    "PostedDate": "2010-11-19T13:36:09.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1127652",
+    "ThreadId": "470768",
+    "Html": "Hello everyone,\r<br />\n<br />\nI have a problem I do not know how to fix it.\r<br />\nHere's part of my code\r<br />\n protected override void OnMouseMove ( System.Windows.Forms.MouseEventArgs e )\r<br />\n        {\r<br />\n            base.OnMouseMove ( e ) ;\r<br />\n            PointLatLng p = gMapControl1.FromLocalToLatLng ( eX , eY ) ;\r<br />\n            label1.Text = Convert.ToString ( p ) ;\r<br />\n        }\r<br />\nWhen you hover mouse over the map does not change coordinates , but when I move mouse over winform have change coordinates .\r<br />\n<br />\ncan you help me\r<br />\nthanks in advance<br />\n",
+    "PostedDate": "2013-11-21T10:53:24.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1127820",
+    "ThreadId": "470768",
+    "Html": "Sorry for the stupid questions\r<br />\nI solved the problem.<br />\n",
+    "PostedDate": "2013-11-22T01:21:07.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

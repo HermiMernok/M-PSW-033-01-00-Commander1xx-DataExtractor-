@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "911132",
+    "ThreadId": "395182",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I am using the WPF version of GMaps.NET and I have a question concerning the positioning of Polygon markers.</p>\r\n<p>I am using the polygon to represent the FOV of a camera. I have tiepoints for the FOV in LatLng, and I am adding them to the GMapMarker.Polygon collection. However the points are not being displayed in the correct position.</p>\r\n<p>To my surprise, I found that when I set the position of the marker itself, e.g. the GMapMarker.Position property, it moves the polygon around on the map.</p>\r\n<p>1. My assumption now is that I have to compute the center of the FOV and find its LatLng location to position the polygon correctly, is this correct?&nbsp;</p>\r\n<p>2. Why do I enter the tiepoints in LatLng if they are not displayed at the LatLng coords I give it?</p>\r\n<p>3. Is there a better way to do this?</p>\r\n<p>thanks a lot&nbsp;</p>\r\n",
+    "PostedDate": "2012-09-11T12:56:06.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911142",
+    "ThreadId": "395182",
+    "Html": "<p>gpolygon is just a marker with a first point as polygon start point</p>",
+    "PostedDate": "2012-09-11T13:04:06.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911173",
+    "ThreadId": "395182",
+    "Html": "<p>Thanks for the quick reply</p>\r\n<p>&nbsp;</p>\r\n<p>Unfortunatly I don't really understand your answer. Do you mean that the position of the polygon determines the location of the first point in the collection?</p>",
+    "PostedDate": "2012-09-11T13:46:35.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911176",
+    "ThreadId": "395182",
+    "Html": "<p>not determines, but it's a reference point</p>",
+    "PostedDate": "2012-09-11T13:52:44.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911213",
+    "ThreadId": "395182",
+    "Html": "<p>Sorry man not enough detail, maybe it is my fault. I need to position the following polygon correctly, here is my code.&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: green;\"><span style=\"white-space: pre;\">\t</span>    //convert the LLH Tie points of the camera to overlay coordinates</span>\r\n            List&lt;PointLatLng&gt; TiePtsLLH = _CurrentCam.LLHTiePts();\r\n            \r\n            gmMap.Markers.Clear();\r\n\r\n            PointLatLng cen = (PointLatLng)_CurrentCam.Site.EnuOrigin;\r\n\r\n            <span style=\"color: green;\">//update the fov polygon</span>\r\n            GMapMarker polyMark = <span style=\"color: blue;\">new</span> GMapMarker(cen);\r\n            <span style=\"color: blue;\">for</span> (<span style=\"color: blue;\">int</span> i=0; i&lt;4; i++)\r\n            {\r\n                polyMark.Polygon.Add(TiePtsLLH[i]);\r\n            }\r\n\r\n            polyMark.RegeneratePolygonShape(gmMap);\r\n            (polyMark.Shape <span style=\"color: blue;\">as</span> DrawPath).Stroke = Brushes.Maroon;\r\n            (polyMark.Shape <span style=\"color: blue;\">as</span> DrawPath).Fill = Brushes.Transparent;\r\n            (polyMark.Shape <span style=\"color: blue;\">as</span> DrawPath).StrokeThickness = 2;\r\n\r\n            gmMap.Markers.Add(polyMark);\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>What I want is for the LLH points I am adding in the loop to be the actual displayed locations of the corners in the polygon, can you advise me on how to do this?</p>\r\n<p>Right now I am using the origin of our local ENU coordinate system as this \"reference\" location, but this is not giving me correct locations.</p>\r\n<p>&nbsp;</p>\r\n<p>Also note that\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">using</span> DrawPath = System.Windows.Shapes.Path\r\n</pre>\r\n</div>\r\n</p>\r\n<p>appears at the top of the file to distinguish it from System.IO.Path</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot, and if you need more detail to help me please ask</p>",
+    "PostedDate": "2012-09-11T15:09:18.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911409",
+    "ThreadId": "395182",
+    "Html": "<p>can you paint the picture? ..the code itself doesn't help much ;}</p>",
+    "PostedDate": "2012-09-12T03:11:35.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911455",
+    "ThreadId": "395182",
+    "Html": "<p>Not sure if that was a serious question, I guess I could post a screenshot, will this codeplex thing even let me do that? Anyway couldn't you just explain the math behind its positioning with detail? All the code says is that I have four LLH points that are the four corners of a quad. How can I make those four corners display at the correct geo locations?&nbsp;</p>",
+    "PostedDate": "2012-09-12T04:50:22.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911462",
+    "ThreadId": "395182",
+    "Html": "<p>hit the html button, insert the picture, 'talking mathematics' doesn't work..</p>",
+    "PostedDate": "2012-09-12T04:59:17.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "912153",
+    "ThreadId": "395182",
+    "Html": "<p>In case anyone else needs to solve a similar problem, set the geo location of the marker to be the same as the geo location of the first point and things will line up, like this:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: green;\">//update the fov polygon</span>\r\nGMapMarker polyMark = <span style=\"color: blue;\">new</span> GMapMarker(TiePtsLLH[0]);\r\n<span style=\"color: blue;\">for</span> (<span style=\"color: blue;\">int</span> i=0; i&lt;4; i++)\r\n{\r\n    polyMark.Polygon.Add(TiePtsLLH[i]);\r\n}\r\n</pre>\r\n</div>\r\n</p>\r\n<p>In other words, the position of the marker <strong>does</strong> determine the geo location of the first point on the polygon</p>",
+    "PostedDate": "2012-09-13T05:04:24.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "433255",
+    "ThreadId": "209936",
+    "Html": "<p>Hey, in my application I am building walking paths and I would like to be able to color code the routes to differentiate between handicapped accessible routes and non accessible routes. I don't think there's a way currently to have two different route colors. Is there?</p>",
+    "PostedDate": "2010-04-20T10:12:41.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433285",
+    "ThreadId": "209936",
+    "Html": "<p>each route has it's own color, what exactly do you want to do?</p>",
+    "PostedDate": "2010-04-20T11:16:17.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434378",
+    "ThreadId": "209936",
+    "Html": "<p>I'm making a collection of nodes and edges to form a campus map. The edges are represented by routes and all end up being blue. I want to be able to change the color to something else, like red, if it isn't handicapped accessible. Here's my code:<br>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>            <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt; mapedges.Rows.Count; i++) <span style=\"color:green\">//show edges</span>\r\n            {\r\n                DataRow firstdata;\r\n                DataRow seconddata;\r\n                GMapMarker edges;\r\n                <span style=\"color:blue\">if</span> ((mapedges.Rows[i][<span style=\"color:#a31515\">&quot;firstnode&quot;</span>].ToString() != <span style=\"color:blue\">null</span>) &amp;&amp; (mapedges.Rows[i][<span style=\"color:#a31515\">&quot;secondnode&quot;</span>].ToString() != <span style=\"color:blue\">null</span>))\r\n                {\r\n\r\n                    firstdata = mapnodes.Select(<span style=\"color:#a31515\">&quot;id = &quot;</span> + (mapedges.Rows[i][<span style=\"color:#a31515\">&quot;firstnode&quot;</span>].ToString()))[0];\r\n                    seconddata = mapnodes.Select(<span style=\"color:#a31515\">&quot;id = &quot;</span> + (mapedges.Rows[i][<span style=\"color:#a31515\">&quot;secondnode&quot;</span>].ToString()))[0];\r\n                    List&lt;PointLatLng&gt; route = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n                    route.Add(<span style=\"color:blue\">new</span> PointLatLng((<span style=\"color:blue\">double</span>)firstdata[<span style=\"color:#a31515\">&quot;latitude&quot;</span>], (<span style=\"color:blue\">double</span>)firstdata[<span style=\"color:#a31515\">&quot;Longitude&quot;</span>]));\r\n                    route.Add(<span style=\"color:blue\">new</span> PointLatLng((<span style=\"color:blue\">double</span>)seconddata[<span style=\"color:#a31515\">&quot;Latitude&quot;</span>],(<span style=\"color:blue\">double</span>)seconddata[<span style=\"color:#a31515\">&quot;Longitude&quot;</span>]));\r\n                    edges = <span style=\"color:blue\">new</span> GMapMarker(<span style=\"color:blue\">new</span> PointLatLng((<span style=\"color:blue\">double</span>)firstdata[<span style=\"color:#a31515\">&quot;latitude&quot;</span>], (<span style=\"color:blue\">double</span>)firstdata[<span style=\"color:#a31515\">&quot;Longitude&quot;</span>]));\r\n                    edges.Route.AddRange(route);\r\n                    edges.RegenerateRouteShape(gmap);\r\n                    edges.ZIndex = -(<span style=\"color:blue\">int</span>)mapedges.Rows[i][<span style=\"color:#a31515\">&quot;id&quot;</span>];\r\n                    gmap.Markers.Add(edges);\r\n\r\n                }\r\n            }\r\n<br>How can I make it so some routes are blue and some are a different color, like red?</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-04-22T15:38:18.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434379",
+    "ThreadId": "209936",
+    "Html": "<pre>if I'm correct, you'll need to use it like this:<br><br>edges.RegenerateRouteShape(gmap);<br></pre>\r\n<p>(route.Shape as System.Windows.Shapes.Path).Stroke = Brushes.Green;</p>\r\n<pre>edges.ZIndex = -(<span style=\"color:blue\">int</span>)mapedges.Rows[i][<span style=\"color:#a31515\">&quot;id&quot;</span>];<br></pre>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-22T15:44:07.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434390",
+    "ThreadId": "209936",
+    "Html": "<p>Thank you so much! That works perfectly for what I need!</p>",
+    "PostedDate": "2010-04-22T16:22:28.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434443",
+    "ThreadId": "209936",
+    "Html": "<p>:)</p>",
+    "PostedDate": "2010-04-22T20:41:46.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

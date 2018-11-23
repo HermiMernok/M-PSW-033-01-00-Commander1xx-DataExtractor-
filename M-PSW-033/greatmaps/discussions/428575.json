@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "983275",
+    "ThreadId": "428575",
+    "Html": "\r\n<p>hi</p>\r\n<p>I'm updating marker positions every 5 seconds.</p>\r\n<p>sometimes the following error occurs and the map component turn into a white component with a red cross sign.</p>\r\n<p>why this happens?</p>\r\n<p>Collection was modified; enumeration operation may not execute. At&nbsp;&nbsp;&nbsp; at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)<br>\r\n&nbsp;&nbsp; at System.Collections.Generic.List`1.Enumerator.MoveNextRare()<br>\r\n&nbsp;&nbsp; at System.Collections.Generic.List`1.Enumerator.MoveNext()<br>\r\n&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapOverlay.OnRender(Graphics g)<br>\r\n&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnPaintOverlays(Graphics g)<br>\r\n&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.Control.WmPaint(Message& m)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.Control.WndProc(Message& m)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.ScrollableControl.WndProc(Message& m)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.UserControl.WndProc(Message& m)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)<br>\r\n&nbsp;&nbsp; at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2013-01-04T22:16:20.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983688",
+    "ThreadId": "428575",
+    "Html": "\r\n<p>do you update the position from another thread?</p>\r\n",
+    "PostedDate": "2013-01-07T03:32:40.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983884",
+    "ThreadId": "428575",
+    "Html": "\r\n<p>How do you update the position?&nbsp; Are you by chance removing or adding new markers in a thread other than the GUI thread?&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-07T13:46:00.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "995955",
+    "ThreadId": "428575",
+    "Html": "i was updating in a thread\r<br />\nnow I'm updating it in a timer with interval of 30000\r<br />\nbut some times the problem is happening\r<br />\ni will clear all markers first\r<br />\nthen add all of new positions into marker collection\r<br />\nhow should i update this ?\r<br />\nplease help me with code\r<br />\ncause I'm fetching positions from a database on other PC via network and need to prevent my application from hanging.\r<br />\nthanks<br />\n",
+    "PostedDate": "2013-02-03T23:51:42.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "996022",
+    "ThreadId": "428575",
+    "Html": "there are 3 real time demos handling thousand of markers, never hangs, just check the source<br />\n",
+    "PostedDate": "2013-02-04T03:21:25.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997744",
+    "ThreadId": "428575",
+    "Html": "is there any way to use a lock or something like that and update the markers in another thread?\r<br />\ni don't want my form to be hanged\r<br />\nplease<br />\n",
+    "PostedDate": "2013-02-07T00:11:58.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997782",
+    "ThreadId": "428575",
+    "Html": "update takes just a few milliseconds, use backgroundworker<br />\n",
+    "PostedDate": "2013-02-07T01:28:49.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997791",
+    "ThreadId": "428575",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nupdate takes just a few milliseconds, use backgroundworker<br />\n</blockquote>\ni used background worker but nothing good happens\r<br />\nwould you please give me a sample code for updating it?<br />\n",
+    "PostedDate": "2013-02-07T01:51:01.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997797",
+    "ThreadId": "428575",
+    "Html": "<a href=\"http://greatmaps.codeplex.com/SourceControl/BrowseLatest\" rel=\"nofollow\">http://greatmaps.codeplex.com/SourceControl/BrowseLatest</a><br />\n",
+    "PostedDate": "2013-02-07T01:58:51.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997802",
+    "ThreadId": "428575",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\n<a href=\"http://greatmaps.codeplex.com/SourceControl/BrowseLatest\" rel=\"nofollow\">http://greatmaps.codeplex.com/SourceControl/BrowseLatest</a><br />\n</blockquote>\ni mean using a background worker.\r<br />\nhave u ever tried that with GMAP.NET?<br />\n",
+    "PostedDate": "2013-02-07T02:10:35.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997826",
+    "ThreadId": "428575",
+    "Html": "i think thats counts as yes ;}<br />\n<pre><code> #region -- demo workers --\n            // flight demo\n            {\n               flightWorker.DoWork += new DoWorkEventHandler(flight_DoWork);\n               flightWorker.ProgressChanged += new ProgressChangedEventHandler(flight_ProgressChanged);\n               flightWorker.WorkerSupportsCancellation = true;\n               flightWorker.WorkerReportsProgress = true;\n            }\n\n            // vehicle demo\n            {\n               transportWorker.DoWork += new DoWorkEventHandler(transport_DoWork);\n               transportWorker.ProgressChanged += new ProgressChangedEventHandler(transport_ProgressChanged);\n               transportWorker.WorkerSupportsCancellation = true;\n               transportWorker.WorkerReportsProgress = true;\n            }\n\n            // Connections\n            {\n               connectionsWorker.DoWork += new DoWorkEventHandler(connectionsWorker_DoWork);\n               connectionsWorker.ProgressChanged += new ProgressChangedEventHandler(connectionsWorker_ProgressChanged);\n               connectionsWorker.WorkerSupportsCancellation = true;\n               connectionsWorker.WorkerReportsProgress = true;\n\n               ipInfoSearchWorker.DoWork += new DoWorkEventHandler(ipInfoSearchWorker_DoWork);\n               ipInfoSearchWorker.WorkerSupportsCancellation = true;\n\n               iptracerWorker.DoWork += new DoWorkEventHandler(iptracerWorker_DoWork);\n               iptracerWorker.WorkerSupportsCancellation = true;</code></pre>\n\n",
+    "PostedDate": "2013-02-07T02:58:33.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

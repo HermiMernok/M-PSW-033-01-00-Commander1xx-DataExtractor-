@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1429644",
+    "ThreadId": "639686",
+    "Html": "Hi<br />\n<br />\nI've managed to display a cloud image on the map using code in the demo application.<br />\n(<a href=\"http://www.meteox.com/images.aspx?jaar=2015&amp;maand=07&amp;dag=20&amp;uur=09&amp;minuut=45&amp;c=&amp;type=expbld\" rel=\"nofollow\">http://www.meteox.com/images.aspx?jaar=2015&maand=07&dag=20&uur=09&minuut=45&c=&type=expbld</a>)<br />\n<br />\nThe boarders of the image are on the correct position. But the part between the boarders isn’t on the correct coordinates. I think that the picture isn’t displayed with the projection of the map.<br />\n<br />\nThe clouds are originally displayed on a Google Map with a GroundOverlay object.<br />\n<a href=\"https://developers.google.com/maps/documentation/javascript/groundoverlays\" rel=\"nofollow\">https://developers.google.com/maps/documentation/javascript/groundoverlays</a><br />\n<blockquote>\nThe constructor for a GroundOverlay specifies a URL of an image and the LatLngBounds of the image as parameters.<br />\nThe image will be rendered on the map, constrained to the given bounds, and <strong>conformed using the map's projection</strong>.<br />\n</blockquote>\nIs it possible to display an image with GMap.NET which is rendered using the map’s projection?<br />\n<br />\nThanks,<br />\nMartin<br />\n",
+    "PostedDate": "2015-06-08T23:46:59.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435100",
+    "ThreadId": "639686",
+    "Html": "Hi,\r<br />\n<br />\nis there any solution for this case?\r<br />\n<br />\nThanks,\r<br />\nMartin<br />\n",
+    "PostedDate": "2015-07-20T06:43:23.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435708",
+    "ThreadId": "639686",
+    "Html": "Use Demo.Clouds example. It helps. \r<br />\n<br />\nBasically<br />\n<pre><code> PointLatLng gtl = new PointLatLng(49.6049, -108.8620);\n  PointLatLng gbr = new PointLatLng(27.5238, -68.7547);</code></pre>\n\nwhere gtl is upperleft corner and gbr is bottom right corner\r<br />\n<br />\nAs far as the projection, it should be very close.<br />\n",
+    "PostedDate": "2015-07-23T08:12:20.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

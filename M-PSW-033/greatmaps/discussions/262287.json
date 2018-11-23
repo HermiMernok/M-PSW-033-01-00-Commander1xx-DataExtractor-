@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "630980",
+    "ThreadId": "262287",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have used this component for over 1 year now, and have just upgraded my systems to VS 2010 / .NET 4.</p>\r\n<p>The system will run within VS but when i build and install on client machine i get the singleton error.</p>\r\n<p>I have the settings in the app.config as requried, but i noticed in the MESSAGES window the following :</p>\r\n<p>&nbsp;</p>\r\n<p>Could not find schema information for the element 'supportedRuntime'</p>\r\n<p>Could not find schema information for the attribute 'version'</p>\r\n<p>Could not find schema information for the attribute 'useLegacyV2RuntimeActivationPolicy'</p>\r\n<p>Could not find schema information for the attribute 'sku'</p>\r\n<p>&nbsp;</p>\r\n<p>Is this preventing the details from the app.config to be built and then causing the error on the clients machine?</p>\r\n<p>I have not come across these warnings before ?</p>\r\n<p>Can anyone please provide some help.</p>\r\n<p>Thanks in advance.</p>\r\n<p>Paul</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-06-22T01:21:33.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630994",
+    "ThreadId": "262287",
+    "Html": "<p>Fixed by problem, &nbsp;the &nbsp;APPLICATION.EXE.CONFIG file that was created didn't contain the contents of the APP.CONFIG</p>\r\n<p>so i put the details in there and its working ok now.</p>",
+    "PostedDate": "2011-06-22T01:57:53.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631000",
+    "ThreadId": "262287",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2011-06-22T02:23:45.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

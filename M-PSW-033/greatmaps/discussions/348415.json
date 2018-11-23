@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "809628",
+    "ThreadId": "348415",
+    "Html": "<p>Hello,</p>\n<p>When I am using the local database, it sometimes gets corrupted (almost never, but sometimes).</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>SQLite error (1): near <span style=\"color: #a31515;\">\"s\"</span>: syntax error \nor\nSQLite error (11): database disk image <span style=\"color: blue;\">is</span> malformed. <span style=\"color: blue;\">for</span> example.\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>I would like to do an action (like just delete the existing database and start over with a new one), but i don't know how i should do this.<br /> (use some event or a try catch somewere?)</p>\n<p>&nbsp;thank you.</p>",
+    "PostedDate": "2012-03-13T07:22:07.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809658",
+    "ThreadId": "348415",
+    "Html": "<p>well just go to cache location and delete it ;}</p>",
+    "PostedDate": "2012-03-13T08:06:57.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810106",
+    "ThreadId": "348415",
+    "Html": "<p>Thank you for your fast reply.</p>\n<p>Isn't there any way I can do it at run-time by writing a try catch or is there an event?<br /> I'll give an example of what i mean:</p>\n<div style=\"color: black; background-color: white;\">\n<pre>MainMap.cache.onCacheIsCorrupted += <span style=\"color: blue;\">new</span> EventHandler(deleteCache);\n\n<span style=\"color: blue;\">void</span> deleteCache(sender, e)\n{\n<span style=\"color: green;\">// 'delete' MainMap.cacheLocation </span>\n}\n\n\nthank you</pre>\n</div>\n&nbsp;",
+    "PostedDate": "2012-03-14T02:30:35.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810190",
+    "ThreadId": "348415",
+    "Html": "<p>i can add automatic cache rebuild on corruption, but it never happened to me, are you hitting 'stop' while debugging? ;}</p>",
+    "PostedDate": "2012-03-14T06:06:09.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810719",
+    "ThreadId": "348415",
+    "Html": "<p>That might have happened once in a while.<br />But i would really like the certainty that my program can solve this issue on itself.<br />I know it sounds awful but at the place where our program is going to be used, the computers are not turned off properly and the program might be running.&nbsp;<br />I think that's the same (or worse) as to stop debugging? :)</p>\r\n<p>&nbsp;Thanks</p>",
+    "PostedDate": "2012-03-15T02:42:23.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810784",
+    "ThreadId": "348415",
+    "Html": "<p>will be fixed</p>",
+    "PostedDate": "2012-03-15T04:44:44.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812427",
+    "ThreadId": "348415",
+    "Html": "<p>Thanks a lot!<br />No pressure, but when will it be done?</p>",
+    "PostedDate": "2012-03-19T04:37:30.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812431",
+    "ThreadId": "348415",
+    "Html": "<p>when the quantum field builds enough motivation particles in my brain ;}</p>",
+    "PostedDate": "2012-03-19T04:43:54.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821884",
+    "ThreadId": "348415",
+    "Html": "<p>Hi radioman,</p>\r\n<p>Did you already find time to implement some kind of solution for my problem in one of the new builds, i didn't find any release notes so i'm not sure.<br /><br />Thx anyway! :)&nbsp;</p>",
+    "PostedDate": "2012-04-10T02:45:57.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821907",
+    "ThreadId": "348415",
+    "Html": "<p>antimatter reactor is loading ;}</p>",
+    "PostedDate": "2012-04-10T03:39:48.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839378",
+    "ThreadId": "348415",
+    "Html": "<p>Hi!</p>\r\n<p>How is the reactor doing?</p>",
+    "PostedDate": "2012-05-22T06:19:26.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "904105",
+    "ThreadId": "348415",
+    "Html": "<p>do you still get the error with the new sqlite version?</p>",
+    "PostedDate": "2012-08-26T02:25:28.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

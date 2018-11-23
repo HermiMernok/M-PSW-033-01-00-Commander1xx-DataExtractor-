@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "648692",
+    "ThreadId": "266825",
+    "Html": "\r\n<p>I came across, in one of the threads, that I need to place the following folders x64 and x86 with their respective &#65279;&#65279;&#65279;&#65279;&#65279;System.Data.SQLite.dll(s). I am also under the impression that with a custom db provider, the flow is local cache &gt; custom db provider\r\n &gt; then global server (if no data is found)...am I correct? The reason I am asking this is that, I have the folders (x64 and x86) in my app's working directory and I also have enabled a custom db provider, which I confirm is working becuase I can see new\r\n rows added as I navigate the map, however, where is the SQLite data stored?...do I even need that if I am using a custom db&nbsp;provider?</p>\r\n",
+    "PostedDate": "2011-07-27T17:59:45.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "648787",
+    "ThreadId": "266825",
+    "Html": "<p>old version need to have these folders, and it's in C:\\Users\\xxxxxxx\\AppData\\Local\\GMap.NET, but you don't need to care about it, it's part of the caching system, you can get rid of it if you really want, but thats like getting rid of tires from your  car ;} it will run but not that fast anymore</p>",
+    "PostedDate": "2011-07-28T01:10:40.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649056",
+    "ThreadId": "266825",
+    "Html": "<p>If I remove those folders, would it use my custom db provider (SQL Server) instead? I want to make use of the caching architecture.</p>\r\n<p>On a separate note: I do now see the cache data in ﻿my AppData folder. If I deploy my app via ClickOnce, I assume it will create this folder on the user's local machine, that is, if I include the x86 and x64 folders...am I correct?</p>",
+    "PostedDate": "2011-07-28T09:35:45.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649100",
+    "ThreadId": "266825",
+    "Html": "<p>yes, and set ImageCacheSecond, so you have fast local cache and slower one in your sql server</p>",
+    "PostedDate": "2011-07-28T11:25:45.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

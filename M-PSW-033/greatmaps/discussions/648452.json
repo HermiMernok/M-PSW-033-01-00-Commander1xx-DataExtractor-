@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1454924",
+    "ThreadId": "648452",
+    "Html": "Hi,\r<br />\nI'm using GMap quite a while and now I want to implement an event on my polygons and routes, but my GMapControl doesn't have a propertie with onPolygonEnter or onRouteEnter.\r<br />\n<br />\nSo my question is how can I enable those events?\r<br />\n<br />\nI'm using GMap version 1.7 with Visual Studio 2013<br />\n",
+    "PostedDate": "2015-12-07T05:08:08.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1462379",
+    "ThreadId": "648452",
+    "Html": "Hi, \r<br />\n<br />\nLooking at the code, it seems that in order for the OnPolygonEnter / Leave events to work your polygon needs to be visible (IsVisible) and have its IsHitTestVisible=True\r<br />\n<br />\nI'm not sure if it's considered a bug, but try to change IsHitTestVisible in your relevant GMapPolygon to True.\r<br />\n<br />\nNitay<br />\n",
+    "PostedDate": "2016-02-08T05:02:12.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

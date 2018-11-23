@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "285765",
+    "ThreadId": "83144",
+    "Html": "<p>Hey!</p>\r\n<p>I noticed that the Events OnMarkerEnter and OnMarkerLeave in the Windows.Forms Version of your control didn't fire in my test scenario. So I started to investigate and saw that the LocalArea Property of the GMapMarker class had always a width and a height value of 0. So the Contains Method in your GMapControl.OnMouseOver methode always returned false. In order to fix this, i added this line to the GMapsMarker class.:</p>\r\n<p>area.Size = Resources.marker.Size;</p>\r\n<p>in the LocalPosition Property:</p>\r\n<p>Rectangle area;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Point LocalPosition<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return area.Location;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; internal set<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; area.Location = value;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OnPropertyChanged(&quot;LocalPosition&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; area.Size = Resources.marker.Size;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(Overlay != null)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Overlay.Control.Core_OnNeedInvalidation();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>Also in the LocalArea property I adjusted a line from</p>\r\n<p>ret.Offset(-Size.Width/2, -Size.Height/2);</p>\r\n<p>to</p>\r\n<p>ret.Offset(-Size.Width/2, -Size.Height);</p>\r\n<p>Now the events are fireing and the mouse pointer gets a nice hand when i move over a marker on the map.</p>\r\n<p>best regards, florian</p>",
+    "PostedDate": "2010-02-04T05:32:30.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "285864",
+    "ThreadId": "83144",
+    "Html": "<p>well setting marker size is developers choice, custom marker can be any size</p>",
+    "PostedDate": "2010-02-04T09:55:14.393-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "286273",
+    "ThreadId": "83144",
+    "Html": "<p>that's true. i modified the inheriting classes instead.</p>",
+    "PostedDate": "2010-02-05T07:56:25.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

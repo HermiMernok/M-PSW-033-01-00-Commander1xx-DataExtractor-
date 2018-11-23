@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "268963",
+    "ThreadId": "78567",
+    "Html": "<p>Hi guys,</p>\r\n<p>I am using&nbsp;<span style=\"font-size:x-small\">WindowsForms in vb.net, is it possible to fire off an event when a user clicks on a marker?</span></p>\r\n<p><span style=\"font-size:x-small\">I made a custom marker with the following code...</span></p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:Blue\">Imports</span> System.Drawing\r\n<span style=\"color:Blue\">Namespace</span> GMap.NET.WindowsForms.Markers\r\n    <span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Class</span> GMapMarkerRect\r\n        <span style=\"color:Blue\">Inherits</span> GMapMarker\r\n        <span style=\"color:Blue\">Public</span> Pen <span style=\"color:Blue\">As</span> Pen\r\n        <span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Sub</span> <span style=\"color:Blue\">New</span>(<span style=\"color:Blue\">ByVal</span> p <span style=\"color:Blue\">As</span> Global.GMap.NET.PointLatLng)\r\n            <span style=\"color:Blue\">MyBase</span>.<span style=\"color:Blue\">New</span>(p)\r\n            Pen = <span style=\"color:Blue\">New</span> Pen(Brushes.Red, 5)\r\n            Size = <span style=\"color:Blue\">New</span> Size(55, 55)\r\n        <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n\r\n        <span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Overrides</span> <span style=\"color:Blue\">Sub</span> OnRender(<span style=\"color:Blue\">ByVal</span> g <span style=\"color:Blue\">As</span> System.Drawing.Graphics)\r\n            <span style=\"color:Blue\">If</span> IsMouseOver = <span style=\"color:Blue\">True</span> <span style=\"color:Blue\">Then</span>\r\n                g.DrawRectangle(Pens.Blue, <span style=\"color:Blue\">New</span> System.Drawing.Rectangle(LocalPosition.X - Size.Width / 2, LocalPosition.Y - Size.Height / 2, Size.Width, Size.Height))\r\n            <span style=\"color:Blue\">Else</span>\r\n                g.DrawRectangle(Pens.Red, <span style=\"color:Blue\">New</span> System.Drawing.Rectangle(LocalPosition.X - Size.Width / 2, LocalPosition.Y - Size.Height / 2, Size.Width, Size.Height))\r\n            <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">If</span>\r\n        <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Namespace</span>\r\n</pre>\r\n<pre>any help would be great...</pre>\r\n</div>",
+    "PostedDate": "2009-12-18T08:36:20.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269042",
+    "ThreadId": "78567",
+    "Html": "<p>it should work&nbsp;already</p>",
+    "PostedDate": "2009-12-18T11:43:09.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271203",
+    "ThreadId": "78567",
+    "Html": "<p>How so, i have nowhere to specify the event.</p>",
+    "PostedDate": "2009-12-28T10:26:14.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271996",
+    "ThreadId": "78567",
+    "Html": "<p>MainMap.OnMouseClick += ...</p>",
+    "PostedDate": "2009-12-31T08:22:52.607-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279088",
+    "ThreadId": "78567",
+    "Html": "<p>Hi Radioman and all!</p>\r\n<p>For the past couple of days I've been&nbsp;doing a test integration of&nbsp;GMaps.net into a&nbsp;Windows mobile 6&nbsp;application written in VB.net.&nbsp;</p>\r\n<p>I too am also stuck trying to get marker click events to occur.&nbsp; I've made sure all markers have a .size value set but the events aren't occuring.</p>\r\n<p>I don't entirely&nbsp;understand what you mean by &quot;MainMap.OnMouseClick +=&quot; ?&nbsp;</p>\r\n<p>Here's&nbsp;a working bare-bones copy of my&nbsp;code:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Class</span> Form1\r\n\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">WithEvents</span> gm <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> GMapControl\r\n    <span style=\"color:Blue\">Private</span> gmo <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> GMap.NET.WindowsForms.GMapOverlay(gm, <span style=\"color:#A31515\">&quot;pins&quot;</span>)\r\n\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> gm_OnMarkerClick(<span style=\"color:Blue\">ByVal</span> item <span style=\"color:Blue\">As</span> GMap.NET.WindowsForms.GMapMarker) <span style=\"color:Blue\">Handles</span> gm.OnMarkerClick\r\n        <span style=\"color:Green\">' This event never happens...</span>\r\n        MsgBox(item.ToolTipText)\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> Form1_Load(<span style=\"color:Blue\">ByVal</span> sender <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Object</span>, <span style=\"color:Blue\">ByVal</span> e <span style=\"color:Blue\">As</span> System.EventArgs) <span style=\"color:Blue\">Handles</span> <span style=\"color:Blue\">MyBase</span>.Load\r\n        <span style=\"color:Blue\">Dim</span> iMenuHeight <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Integer</span> = 26\r\n\r\n        gm.Parent = <span style=\"color:Blue\">Me</span>\r\n        gm.Top = 0\r\n        gm.Width = Screen.PrimaryScreen.WorkingArea.Width\r\n        gm.Height = Screen.PrimaryScreen.WorkingArea.Height - iMenuHeight\r\n        gm.MapType = GMap.NET.MapType.GoogleMap\r\n        gm.CurrentPosition = <span style=\"color:Blue\">New</span> GMap.NET.PointLatLng(52.059457, 1.155624)\r\n        gm.MinZoom = 5\r\n        gm.MaxZoom = 19\r\n        gm.Zoom = 8\r\n        gm.MarkersEnabled = <span style=\"color:Blue\">True</span>\r\n        gm.Visible = <span style=\"color:Blue\">True</span>\r\n\r\n        LoadMarkers()\r\n        gm.ZoomAndCenterMarkers(<span style=\"color:#A31515\">&quot;pins&quot;</span>)\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n\r\n\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> MenuItem1_Click(<span style=\"color:Blue\">ByVal</span> sender <span style=\"color:Blue\">As</span> System.Object, <span style=\"color:Blue\">ByVal</span> e <span style=\"color:Blue\">As</span> System.EventArgs) <span style=\"color:Blue\">Handles</span> MenuItem1.Click\r\n        gm.Dispose()\r\n        gm = <span style=\"color:Blue\">Nothing</span>\r\n\r\n        Application.<span style=\"color:Blue\">Exit</span>()\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> LoadMarkers()\r\n        <span style=\"color:Blue\">Dim</span> p <span style=\"color:Blue\">As</span> GMap.NET.PointLatLng\r\n        <span style=\"color:Blue\">Dim</span> m <span style=\"color:Blue\">As</span> GMap.NET.WindowsForms.GMapMarker\r\n\r\n        <span style=\"color:Green\">' Test marker</span>\r\n        p = <span style=\"color:Blue\">New</span> GMap.NET.PointLatLng(52.059457, 1.155624)\r\n        m = <span style=\"color:Blue\">New</span> GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(p)\r\n        m.Visible = <span style=\"color:Blue\">True</span>\r\n        m.Size = <span style=\"color:Blue\">New</span> System.Drawing.Size(100, 100)\r\n        m.ToolTipText = <span style=\"color:#A31515\">&quot;A marker&quot;</span>\r\n        m.TooltipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Never\r\n        gmo.Markers.Add(m)\r\n\r\n        gm.Overlays.Add(gmo)\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n</pre>\r\n<pre>Any help would be greatly appreciated.</pre>\r\n<pre>Cheers</pre>\r\n<pre>Simon.</pre>\r\n</div>",
+    "PostedDate": "2010-01-19T10:21:27.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279095",
+    "ThreadId": "78567",
+    "Html": "<p>i mean MainMap.OnMarkerClick += new MarkerClick(MainMap_OnMarkerClick);</p>\r\n<p>..but that for mobile is disabled, be&nbsp;welcome&nbsp;to enable it ;}</p>",
+    "PostedDate": "2010-01-19T10:33:23.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279128",
+    "ThreadId": "78567",
+    "Html": "<p>Thanks for the quick reply: That explains it then!&nbsp;</p>\r\n<p>I also tried the following when the Click event fires:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">For</span> <span style=\"color:Blue\">Each</span> m <span style=\"color:Blue\">As</span> GMap.NET.WindowsForms.GMapMarker <span style=\"color:Blue\">In</span> gmo.Markers\r\n            <span style=\"color:Blue\">If</span> m.IsMouseOver = <span style=\"color:Blue\">True</span> <span style=\"color:Blue\">Then</span>\r\n                MsgBox(<span style=\"color:#A31515\">&quot;MouseOver &quot;</span> &amp; m.ToolTipText)\r\n            <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">If</span>\r\n        <span style=\"color:Blue\">Next</span></pre>\r\n<pre>&nbsp;</pre>\r\n<pre>But this doesn't seem to work either?  Am I doing something wrong?</pre>\r\n</div>",
+    "PostedDate": "2010-01-19T11:25:51.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279150",
+    "ThreadId": "78567",
+    "Html": "<p>Maybe related to this &quot;problem&quot;(?):&nbsp; When I tap on the map I'm always returned the same&nbsp;'CurrentPosition' details&nbsp; i.e.:&nbsp;</p>\r\n<p>MsgBox(gm.CurrentPosition.Lat &amp; <span style=\"font-size:x-small;color:#a31515\"><span style=\"font-size:x-small;color:#a31515\">&quot;,&quot;</span></span><span style=\"font-size:x-small\"> &amp; gm.CurrentPosition.Lng)</span></p>\r\n<p>(I'm always returned a the same value!)</p>\r\n<p>Simon.</p>",
+    "PostedDate": "2010-01-19T12:27:18.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "803766",
+    "ThreadId": "346870",
+    "Html": "\r\n<p>I have a marker which follows a certain route of GPS-points. The markers rotates depending on the route (like a gps).&nbsp;</p>\r\n<p>The problem is that the picture of the marker goes &quot;off route&quot; most of the time. This wasn't the matter when the marker was stable( didn't rotate).</p>\r\n<p>http://img856.imageshack.us/img856/7245/prtscrrotatedmarker.png -&gt; in the picture, the yellow arrow is supposed to be on top of the red &quot;stop&quot;-sign.</p>\r\n<p>Any one got a clue how to solve this?</p>\r\n<p>Thanks in advance</p>\r\n<p>Gilles</p>\r\n",
+    "PostedDate": "2012-03-01T06:26:20.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803771",
+    "ThreadId": "346870",
+    "Html": "<p>check&nbsp;CircleVisual.cs in&nbsp;Demo.WindowsPresentation, i guess you are not setting rotation center correctly</p>",
+    "PostedDate": "2012-03-01T06:34:55.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

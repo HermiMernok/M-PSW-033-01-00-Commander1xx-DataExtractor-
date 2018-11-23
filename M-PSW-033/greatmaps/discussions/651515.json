@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1463746",
+    "ThreadId": "651515",
+    "Html": "This is the code I am trying to use to rotate the text for a custom marker. The text some fine with no TranslateTransform or Rotate method calls. I have tried several different values in the TranslateTransform method, but none draw the text on the screen. Any ideas? Thanks<br />\n<pre><code> Public Overloads Overrides Sub OnRender(ByVal g As Graphics)\n      MyBase.OnRender(g)\n      Dim rect As New Rectangle(_gmap.FromLatLngToLocal(_pll).X, _gmap.FromLatLngToLocal(_pll).Y, 4, 4)\n      g.TranslateTransform(0, 0)\n      'rotate text\n      g.RotateTransform(-45, MatrixOrder.Prepend)\n      g.FillEllipse(New SolidBrush(Color.FromArgb(90, 255, 255, 0)), rect)\n      g.DrawEllipse(Pens.Black, rect)\n      g.DrawString(caption, New Font(&quot;Consolas&quot;, 6), Brushes.Black, New Point(rect.Right, rect.Top - 4))\n      'return rotation back to original\n      g.RotateTransform(45, MatrixOrder.Prepend)\n    End Sub</code></pre>\n\n",
+    "PostedDate": "2016-02-19T11:50:45.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1463750",
+    "ThreadId": "651515",
+    "Html": "I seem to find the answers after I post a question. Here is the solution if it helps others. Seems a GraphicsPath is much simpler to use here.<br />\n<pre><code>Using gPath As New GraphicsPath\n        gPath.AddString(caption, New Font(&quot;Consolas&quot;, 8).FontFamily, FontStyle.Regular, 8, New Point(rect.X, rect.Y), New StringFormat)\n        Dim mx As New Matrix\n        mx.RotateAt(-45, New Point(rect.X, rect.Y))\n        gPath.Transform(mx)\n        g.FillPath(Brushes.Black, gPath)\nEnd Using</code></pre>\n\n",
+    "PostedDate": "2016-02-19T12:11:18.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-02-19T12:11:49.15-08:00"
+  }
+]

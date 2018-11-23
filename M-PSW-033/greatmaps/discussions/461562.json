@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1105148",
+    "ThreadId": "461562",
+    "Html": "As stated in <a href=\"https://greatmaps.codeplex.com/discussions/457156\" rel=\"nofollow\">https://greatmaps.codeplex.com/discussions/457156</a> I was using version 1.6, and upgraded to the lastest beta (a3237323fb63) which resolved an issue with SetCurrentPositionByKeywords. \r<br />\nWith the upgrade appeared a problem with the color of the routes. \r<br />\nI have the following code runing inside a &quot;for/each&quot; which displays each route in a diferent color<br />\n<pre><code>                Dim p As GMap.NET.WindowsForms.GMapRoute\n                p = New GMap.NET.WindowsForms.GMapRoute(directions.Route, &quot;Camino&quot;)\n                p.Stroke.Color = colores(j Mod 10)\n                RutaNueva.Routes.Add(p)\n                p.Stroke.DashCap = Drawing.Drawing2D.DashCap.Triangle\n                p.Stroke.EndCap = Drawing.Drawing2D.LineCap.ArrowAnchor</code></pre>\n\nthis section was doing fine in 1.6, but with this version, it draws all the routes the same color (the last color in the loop). \r<br />\nI´m doing something wrong, or is it some change in the new build that is affecting it? \r<br />\n<br />\nThanks a lot<br />\n",
+    "PostedDate": "2013-10-08T12:35:04.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1105336",
+    "ThreadId": "461562",
+    "Html": "latest version by default share the same default instance of the stroke/etc, if you want custom color: p.<strong>Stroke = new</strong> ...<br />\n",
+    "PostedDate": "2013-10-09T00:23:00.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1105558",
+    "ThreadId": "461562",
+    "Html": "Radioman, it works!!! thanks again for your excelente work!<br />\n",
+    "PostedDate": "2013-10-09T09:01:57.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

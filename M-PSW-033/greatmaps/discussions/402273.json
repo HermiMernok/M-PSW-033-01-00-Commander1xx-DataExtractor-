@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "937991",
+    "ThreadId": "402273",
+    "Html": "\r\n<p>Hey there</p>\r\n<p>First of all thanks for sharing such an execellent tool. I find it very useful so far.</p>\r\n<p>I have a problem though... When add a GMap control to my windows for everything goes smoothly, but when I run/debug the application the control suddenly goes beyond the size I have set for it and fill the complete windows form. I must clearly be doing something\r\n wrong but what ? It's seems that if I set MaximumSize to the same as Size the control get's it's real size back, but it's at the location I've specified in the control, but at 0,0 !?&nbsp;</p>\r\n<p>I'm using the latest build of GMap.</p>\r\n<p>Any hints...</p>\r\n",
+    "PostedDate": "2012-11-07T08:03:43.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "937995",
+    "ThreadId": "402273",
+    "Html": "<p>if you set&nbsp;Map.Dock = System.Windows.Forms.DockStyle.Fill; // then it fills all the form</p>",
+    "PostedDate": "2012-11-07T08:14:04.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "938105",
+    "ThreadId": "402273",
+    "Html": "<p>Ahh.. Thanks radioman. This certainly did the magic :)</p>",
+    "PostedDate": "2012-11-07T11:05:32.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

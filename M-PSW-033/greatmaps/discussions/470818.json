@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1127854",
+    "ThreadId": "470818",
+    "Html": "Hi Radioman,\r<br />\n<br />\nI have noticed that a couple of resources aren't being disposed in the GMapControl class. These are the MissingDataFont and CopyrightBrush objects (the CopyrightBrush is only relevant to the PocketPC). I have been running the control with dispose statements added for these resource for a few days now without any apparent problems.\r<br />\n<br />\nI have been looking at resources because I have been having problems with an application running on Windows Mobile 6.5 using the .Net CF 3.5 (not resolved by the new dispose lines). The application has been fine for the last 18 months, but since adding a new form using the GMapControl class the program hangs after the form has closed and another (different) form loaded. The hang occurs at &quot;mscorlib.dll!System.PInvoke.EE.GC_WaitForPendingFinalizers&quot; called after closing a SQLCE connection. The program hang seems random; I haven't been able to establish a set pattern yet, except that more often the hang is caused by a lot of panning and zooming.\r<br />\n<br />\nThe code extract below shows how I try to clean up when the form hosting the GMapControl control is disposed:- <br />\n' Cancel the map tile caching loop.\r<br />\n' Not necessary because map.Dispose\r<br />\n' calls CancelTileCaching.\r<br />\n' map.Manager.CancelTileCaching()\r<br />\nmap.Manager.MemoryCache.Clear()\r<br />\n' Dispose of the map control.\r<br />\nmap.Dispose()\r<br />\n<br />\nThe calling form also disposes of the form hosting the GMapControl with the following lines:-\r<br />\n' Show the form modally.\r<br />\nfrmViewMap.ShowDialog()\r<br />\nfrmViewMap.Dispose()\r<br />\nfrmViewMap = Nothing\r<br />\n<br />\nRunning through debug I notice that the MemoryCacheSize (capacity set to 1MB) starts at zero when the form is first loaded, but on subsequent reloads the MemoryCacheSize doesn't revert to back to zero again, but remembers the size when the form was last loaded. Is this expected behaviour? I thought that the map.Dispose call would clear all trace of the GMapControl from memory, so that on subsequent reload the MemoryCacheSize would start at zero again.\r<br />\n<br />\nI have also added lines to force garbage collection following after the GMapControl is disposed:-\r<br />\n' Force a garbage collection before leaving this form.\r<br />\n' GC.GetTotalMemory(False)\r<br />\nGC.Collect()\r<br />\nGC.WaitForPendingFinalizers()\r<br />\nGC.Collect()\r<br />\n' This call reports gradual increase each time between 2k -6k bytes.\r<br />\n' GC.GetTotalMemory(True)\r<br />\n<br />\nThese lines seem to have fixed the program hangs on mscorlib.dll!System.PInvoke.EE.GC_WaitForPendingFinalizers but I'm not sure why these lines should be necessary. I have also noticed that number of bytes reported by repeated calls to GC.GetTotalMemory after the hosting form is reloaded increases by anywhere from around 2,000 to 6,000 bytes each time (the second call). As an example, after closing and re-opening the form nine times the number of bytes reported by the second GC.GetTotalMemory call rose consistently from 1383948 bytes to 1465288 bytes. It's almost as if a resource somewhere wasn't being garbage collected properly (hence the reason for looking at the disposal of resources).\r<br />\n<br />\nI have looked through the GMap source code, and nothing else obvious leaps out at me. Any light that you can shed on what might be causing the problem would be appreciated. The problem occurs in both &quot;Server and Cache&quot; and &quot;Cache Only&quot; access modes, though our users will only be able to use &quot;Cache Only&quot;.\r<br />\n<br />\nI would also just like to echo the comments of others. What an incredible piece of functionality! I have been working with the GMapControl on desktop applications for over a year now. It is very flexible and easy to use and allows us to add very professional mapping functionality to our programs very quickly. Thank you for all of your hard work!\r<br />\n<br />\nRegards\r<br />\n<br />\nSteve Graham\r<br />\nJSG Partnership<br />\n",
+    "PostedDate": "2013-11-22T03:17:01.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1128146",
+    "ThreadId": "470818",
+    "Html": "hey, \r<br />\n<br />\nGMaps.Instance.CancelTileCaching(); is called only in debug build, in release you have to manually call it to stop caching immediately\r<br />\n<br />\n..and about memoryCacheSize, it's missing reset to 0, check KiberTileCache.__Clear__() // i'll fix it later<br />\n",
+    "PostedDate": "2013-11-23T02:36:07.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1128159",
+    "ThreadId": "470818",
+    "Html": "Hi Radioman,\r<br />\n<br />\nThat's good to know. The debug output showed duplicate calls to CancelTileCaching but I missed the fact that in release mode it would only get called once. I'll reinstate the original call.\r<br />\n<br />\nThanks also for the fix to the memoryCacheSize.\r<br />\n<br />\nRegards,\r<br />\n<br />\nSteve G<br />\n",
+    "PostedDate": "2013-11-23T03:50:47.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

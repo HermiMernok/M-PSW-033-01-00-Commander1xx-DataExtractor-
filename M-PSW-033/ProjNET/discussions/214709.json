@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "450547",
+    "ThreadId": "214709",
+    "Html": "<p>Hi,</p>\r\n<p>How do I convert GeocentricCoordinateSystem to GeographicCoordinateSystem?</p>\r\n<p><span style=\"text-decoration:underline\">I do the following: </span></p>\r\n<p><span style=\"color:#0000ff\">ICoordinateSystem wgs84geog = GeographicCoordinateSystem.WGS84;</span></p>\r\n<p><span style=\"color:#0000ff\">ICoordinateSystem wgs84geoc = GeocentricCoordinateSystem.WGS84; </span></p>\r\n<p><span style=\"color:#008000\">//transform creation </span></p>\r\n<p><span style=\"color:#0000ff\">CoordinateTransformationFactory ctfac = new CoordinateTransformationFactory(); </span></p>\r\n<p><span style=\"color:#0000ff\">ICoordinateTransformation transGeoc2Geog = ctfac.CreateFromCoordinateSystems(wgs84geoc, wgs84geog); </span></p>\r\n<p><span style=\"color:#0000ff\">double[] wgsCoords = _transGeoc2Geog .MathTransform.Transform(new double[] { geoCLocationX, geoCLocationY }); </span></p>\r\n<p><span style=\"color:#ff0000\">The problem is that the Y coordinate in the result (wgsCoords) is always 0. </span></p>\r\n<p>What are the parameters required for the MathTransform.Transform mothod in this transformation?</p>\r\n<p>Thanks, Eran.</p>",
+    "PostedDate": "2010-06-02T05:40:50.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

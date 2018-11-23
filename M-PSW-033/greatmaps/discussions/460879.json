@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1102588",
+    "ThreadId": "460879",
+    "Html": "Hello.\r<br />\n<br />\nI am creating an app involving the Gmap.NET. map control. \r<br />\n<br />\nWhen I try to load many markers based on lat/long using loop, the control throws the &quot;MILERR_WIN32ERROR (Exception from HRESULT: 0x88980003) COMException&quot;. Any help is highly appreciated.<br />\n",
+    "PostedDate": "2013-10-02T00:36:27.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102616",
+    "ThreadId": "460879",
+    "Html": "how do you load them?<br />\n",
+    "PostedDate": "2013-10-02T00:56:55.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102634",
+    "ThreadId": "460879",
+    "Html": "When I try to load markers more than 1500. The control throws error.<br />\n<br />\nI am trying to load them by assigning values to the properties of an instance of GmapMarker :<br />\n<pre><code> GMapMarker currentMarker;\n                    \nfor(i=0;i&lt;dt.Rows.Count;i++)\n{\n         double lat = Convert.ToDouble(dt.Rows[i][&quot;LAT&quot;]);\n         double lng = Convert.ToDouble(dt.Rows[i][&quot;Long&quot;]);\n         currentMarker.Shape = new Markers.GreenMarke(this, currentMarker, dt.Rows[i][&quot;ADDRESS&quot;].ToString());\n         currentMarker.Offset = new System.Windows.Point(-15, -15);\n         currentMarker.ZIndex = int.MaxValue;\n         MainMap.Markers.Add(currentMarker);\n}\n</code></pre>\n\n",
+    "PostedDate": "2013-10-02T01:40:00.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102654",
+    "ThreadId": "460879",
+    "Html": "put currentMarker in the loop<br />\n",
+    "PostedDate": "2013-10-02T02:37:30.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102663",
+    "ThreadId": "460879",
+    "Html": "Sorry it is as follows :<br />\n<br />\n [Edited]  :<br />\n<pre><code>for(i=0;i&lt;dt.Rows.Count;i++)\n{\n         GMapMarker currentMarker;\n         double lat = Convert.ToDouble(dt.Rows[i][&quot;LAT&quot;]);\n         double lng = Convert.ToDouble(dt.Rows[i][&quot;Long&quot;]);\n         currentMarker.Shape = new Markers.GreenMarke(this, currentMarker, dt.Rows[i][&quot;ADDRESS&quot;].ToString());\n         currentMarker.Offset = new System.Windows.Point(-15, -15);\n         currentMarker.ZIndex = int.MaxValue;\n         MainMap.Markers.Add(currentMarker);\n}</code></pre>\n\nYet throws exception.<br />\n",
+    "PostedDate": "2013-10-02T03:09:29.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102726",
+    "ThreadId": "460879",
+    "Html": "check your green marker..<br />\n",
+    "PostedDate": "2013-10-02T06:07:49.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102730",
+    "ThreadId": "460879",
+    "Html": "There is no issue with Green Marker, I have many other like red, Blue, etc.\r<br />\n<br />\nAfter the count of i value crosses over some 1500 the control throws the Exception. I am using this control in WPF app.\r<br />\n<br />\nSome times it loads without any errors, but some times when tried to reload the markers throws this exception.\r<br />\n<br />\nRegards.<br />\n",
+    "PostedDate": "2013-10-02T06:14:21.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102734",
+    "ThreadId": "460879",
+    "Html": "try use:\r<br />\n<br />\nusing(Dispatcher.DisableProcessing())\r<br />\n{\r<br />\n  ...\r<br />\n ...\r<br />\n ...\r<br />\n}<br />\n",
+    "PostedDate": "2013-10-02T06:36:06.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102756",
+    "ThreadId": "460879",
+    "Html": "Thanks for all your replies......\r<br />\n<br />\nStill no luck........ facing the same problem.....<br />\n",
+    "PostedDate": "2013-10-02T07:16:40.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102784",
+    "ThreadId": "460879",
+    "Html": "in demo project, i've set counter in void timer_Tick(object sender, EventArgs e), up to 2000, and everything works fine, and quite responsive, and the system has only integrated video card, though it's with cpu i5-347, 3.2GHz, 8GB, can you check how much memory demo process consumes?\r<br />\n<br />\n<img src=\"http://img833.imageshack.us/img833/7522/ytcu.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2013-10-02T08:20:41.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

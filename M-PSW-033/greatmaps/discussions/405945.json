@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "952821",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>Hello, I have a run a thread but lock GmapControl</p>\r\n<p>&nbsp;</p>\r\n<pre id=\"code-result\">Public delegate void RPTDelegate();\r\nRPTDelegate puntRPT = new RPTDelegate(RPT);\r\nprivate void RPT()\r\n{\r\n\tif (this.InvokeRequired) {\r\n\t\tthis.Invoke(puntRPT);\r\n\r\n\t} else {\r\n\t\twhile (true) {\r\n\t\t\tGMapOverlay ov = lstOverlay.Find(new Predicate&lt;GMapOverlay&gt;((GMapOverlay obj) =&gt; { return obj.Id == &quot;TRAM&quot;; }));\r\n\t\t\tDataTable Tbl = new DataTable();\r\n\t\t\tDataSet ds = new DataSet();\r\n\t\t\ttry {\r\n\t\t\t\tds.ReadXml(&quot;xml.xml&quot;);\r\n\t\t\t\tTbl = ds.Tables[0];\r\n\t\t\t\tfor (int i = 0; i &lt;= Tbl.Rows.Count - 1; i&#43;&#43;) {\r\n\t\t\t\t\tforeach (object ele_loopVariable in ov.Markers) {\r\n\t\t\t\t\t\tele = ele_loopVariable;\r\n\t\t\t\t\t\tif (Tbl.Rows[i][&quot;VEICOLO&quot;].ToString() == ele.ToolTipText) {\r\n\t\t\t\t\t\t\tele.Position = new PointLatLng(Fn.cnDouble(Tbl.Rows[i][&quot;LAT&quot;].ToString().Replace(&quot;.&quot;, &quot;,&quot;)), Fn.cnDouble(Tbl.Rows[i][&quot;LON&quot;].ToString().Replace(&quot;.&quot;, &quot;,&quot;)));\r\n\t\t\t\t\t\t\tGMapControl1.Refresh();\r\n\t\t\t\t\t\t\tbreak; \r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\r\n\t\t\t} catch (Exception ex) {\r\n\t\t\t}\r\n\t\t\tSystem.Threading.Thread.Sleep(1800);\r\n\t\t}\r\n\t}\r\n\r\n}</pre>\r\n",
+    "PostedDate": "2012-12-07T03:13:19.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952824",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>without thread, it works, but as overlays are many in the form begins to freeze</p>\r\n",
+    "PostedDate": "2012-12-07T03:17:37.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952842",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>don't call&nbsp;GMapControl1.Refresh();</p>\r\n",
+    "PostedDate": "2012-12-07T03:55:46.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952854",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>still don't work,&nbsp;also any button don't work</p>\r\n",
+    "PostedDate": "2012-12-07T04:12:30.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952876",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>there are 3 real time demos integrated, works perfectly, handles thousand of markers, check the code...</p>\r\n",
+    "PostedDate": "2012-12-07T04:58:45.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952932",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>I need to change the properties of a marker every 5 seconds, what can I do in order not to block the mask? I've tried using a timer but does not work as it should</p>\r\n",
+    "PostedDate": "2012-12-07T06:35:57.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952944",
+    "ThreadId": "405945",
+    "Html": "\r\n<ul>\r\n<li>1 refresh per batch update </li></ul>\r\n<p>Map.<strong>HoldInvalidation</strong> = true;<br>\r\n{<br>\r\n&nbsp; for(;;)<br>\r\n&nbsp; {<br>\r\n&nbsp; &nbsp; m1.Position = new ...<br>\r\n&nbsp; &nbsp; m2.Position = new ..<br>\r\n&nbsp; }<br>\r\n}<br>\r\nMainMap.<strong>Refresh</strong>();<br>\r\n<br>\r\n..for me <em>backgroundWorker</em>&nbsp;works just fine, both wpf/forms. Get the data in&nbsp;<em>DoWork</em> and call&nbsp;<em>ReportProgress</em> to update the visual objects</p>\r\n",
+    "PostedDate": "2012-12-07T06:48:15.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-06-04T15:38:33.073-07:00"
+  },
+  {
+    "Id": "953796",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>hi, I've never used ReportProgress in BackgroundWorker you give me an example?</p>\r\n",
+    "PostedDate": "2012-12-10T02:01:08.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953802",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>I associate a new location at the marker every 3000 ms, and it makes me lock the form.I get the positions through xml and I get the new positions at different times, so call the BackgroundWorker often by a timer.But all this does not make me navigate around\r\n the map</p>\r\n",
+    "PostedDate": "2012-12-10T02:11:27.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953805",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>check the demos code... it's nothing hard or advanced, just usual backgroundworker and some simple logic...</p>\r\n",
+    "PostedDate": "2012-12-10T02:22:02.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953834",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>I use this method</p>\r\n<p><span>Map.</span><strong>HoldInvalidation</strong><span>&nbsp;= true;</span><br>\r\n<span>{</span><br>\r\n<span>&nbsp; for(;;)</span><br>\r\n<span>&nbsp; {</span><br>\r\n<span>&nbsp; &nbsp; m1.Position = new ...</span><br>\r\n<span>&nbsp; &nbsp; m2.Position = new ..</span><br>\r\n<span>&nbsp; }</span><br>\r\n<span>}</span><br>\r\n<span>MainMap.</span><strong>Refresh</strong><span>();</span></p>\r\n<p>&nbsp;</p>\r\n<p><span>but&nbsp;for some time visualize the duplication</span></p>\r\n",
+    "PostedDate": "2012-12-10T03:08:01.703-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953872",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>?</p>\r\n",
+    "PostedDate": "2012-12-10T04:38:50.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953905",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>http://s12.postimage.org/5d8qnz4sd/Immagine.png</p>\r\n",
+    "PostedDate": "2012-12-10T05:30:27.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953910",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>Well you are doing something wrong ;/</p>\r\n<p><img src=\"http://s12.postimage.org/5d8qnz4sd/Immagine.png\" alt=\"\"></p>\r\n",
+    "PostedDate": "2012-12-10T05:37:16.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953918",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>I HAVE FOLLOWING YOUR SPECIFIC:</p>\r\n<p>This is the code my BackgroundWorker:</p>\r\n<p>GMapControl1.HoldInvalidation = True</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; For Each linea In lstLinee</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ds.ReadXml(&quot;http://www.anm.it/srv_web/srvInfoANM.aspx?pos=&quot; & linea.LINEA)&nbsp;</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Tbl = ds.Tables(0)</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim dv As New DataView(Tbl)</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; For Each ele In linea.lstLinee</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Try</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; dv.RowFilter = &quot;VEICOLO =&quot; & Dichiarazioni.DB.fKeyStrW(ele.ToolTipText)</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Dim tblInt As DataTable = dv.ToTable</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; If tblInt.Rows.Count &gt; 0 Then</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ele.Position = New PointLatLng(Fn.cnDouble(tblInt.Rows(0)(&quot;LAT&quot;).ToString.Replace(&quot;.&quot;, &quot;,&quot;)), Fn.cnDouble(tblInt.Rows(0)(&quot;LON&quot;).ToString.Replace(&quot;.&quot;, &quot;,&quot;)))</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; End If</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Catch ex As Exception</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Debug.WriteLine(ex.Message)</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; End Try</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Next</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Next</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; GMapControl1.Refresh()</p>\r\n<p>&nbsp;</p>\r\n<p>THIS HAPPENS WHEN ZOOM EFFECT OR I click on the MAP</p>\r\n",
+    "PostedDate": "2012-12-10T05:49:26.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953967",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>it's wrong, you do data reading and map update on the same thread, check the source man...</p>\r\n",
+    "PostedDate": "2012-12-10T06:54:07.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "954016",
+    "ThreadId": "405945",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>here is only reading new data, markers are created in gmaploadù</p>\r\n<p>do not get me wrong</p>\r\n",
+    "PostedDate": "2012-12-10T07:49:41.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

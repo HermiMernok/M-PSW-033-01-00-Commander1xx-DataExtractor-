@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "274513",
+    "ThreadId": "80110",
+    "Html": "<p>Hello,</p>\r\n<p>I have successfully added a group of markers in a test application I am creating.&nbsp; I was able to do that using the following code:</p>\r\n<p>For Each row As DataRow In _MapData.Rows<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lat = row.Item(&quot;LocLatitude&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lon = row.Item(&quot;LocLongitude&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LocID = row.Item(&quot;LocID&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; point = New PointLatLng(lat, lon)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m = New GMapMarkerGoogleGreen(point)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm = New MyCustomMarker(point)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mborders = New GMapMarkerRect(point)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p = GMaps.Instance.GetPlacemarkFromGeocoder(point)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'objects.TooltipFont = New Font(&quot;Arial&quot;, 5, FontStyle.Bold)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If p.Address.Contains(&quot;Vandergrift&quot;) Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm.MarkerImage = New Bitmap(&quot;C:\\Users\\Jacob\\Downloads\\Pushpin Images\\197MaroonExplosionSign.bmp&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm.ToolTipText = p.Address<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm.TooltipMode = MarkerTooltipMode.OnMouseOver<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cm.Size = New System.Drawing.Size(10, 10)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects.Markers.Add(cm)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.ToolTipText = p.Address<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.Tag = LocID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.Size = New System.Drawing.Size(10, 10)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects.Markers.Add(m)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects.Markers.Add(mborders)</p>\r\n<p>Next row</p>\r\n<p>&nbsp;</p>\r\n<p>I added these markers based on entries in a database and therefore will never know the exact number of markers that will be displayed.&nbsp; After displaying them I was hoping to access a marker's properties by using the click_event and displaying its information.&nbsp; However, I have had trouble doing this.&nbsp; I thought that I could use the declared overlay and access the complete list of markers, but I haven't been able to do that.&nbsp; For example, something like the following: objects.Markers.CurrentMarker.Tag.&nbsp; Any help would be much appreciated!&nbsp; Thanks!</p>",
+    "PostedDate": "2010-01-07T13:29:19.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274517",
+    "ThreadId": "80110",
+    "Html": "<p>yes each marker has Tag property, you can use it, or just custom yourClass : GMapMarker. I&nbsp;recommend&nbsp;create&nbsp;class for db table, and after reading data from db save it to list for&nbsp;further&nbsp;needs.</p>",
+    "PostedDate": "2010-01-07T13:35:52.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274519",
+    "ThreadId": "80110",
+    "Html": "<p>Ok, thanks. Just for clarity...When you say list, do you mean something like a stack or an array?&nbsp; Is there no collection to access?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-07T13:44:39.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274622",
+    "ThreadId": "80110",
+    "Html": "<p>when i said list, i mean it, the list ;}</p>",
+    "PostedDate": "2010-01-07T21:38:47.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

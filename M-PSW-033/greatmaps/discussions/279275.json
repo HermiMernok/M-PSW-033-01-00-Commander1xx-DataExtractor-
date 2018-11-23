@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "697548",
+    "ThreadId": "279275",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I am new to gmap.net and programming in general. I was wondering how can i read several longitude and Latitude from a MS SQL Database and add it to markers in my control map? I have my map already setup with my basic setups. I just want someone to point\r\n me in there right track with a&nbsp;similar&nbsp;code or etc.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n",
+    "PostedDate": "2011-11-13T06:38:44.703-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697549",
+    "ThreadId": "279275",
+    "Html": "<p>http://msdn.microsoft.com/en-us/library/bb425822.aspx</p>",
+    "PostedDate": "2011-11-13T06:42:11.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697550",
+    "ThreadId": "279275",
+    "Html": "<p>I know how to get my SQL table into a dataset&nbsp;in vb.net but then i dont know how to go 1 by 1 adding each marker and reading from the dataset</p>",
+    "PostedDate": "2011-11-13T06:46:34.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697553",
+    "ThreadId": "279275",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2011-11-13T06:54:20.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697554",
+    "ThreadId": "279275",
+    "Html": "<p>Can someone show a sample code!</p>",
+    "PostedDate": "2011-11-13T07:04:18.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698240",
+    "ThreadId": "279275",
+    "Html": "<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\"><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">foreach</span>(<span style=\"color: blue;\">var</span> gpsPoint <span style=\"color: blue;\">in</span> dataset.GPSTable)\r\n{\r\n     PointLatLng point = <span style=\"color: blue;\">new</span> PointLatLng(gpsPoint.Lat, gpsPoint.Long);\r\n     GMapMarkerGoogleRed marker = <span style=\"color: blue;\">new</span> GMapMarkerGoogleRed(point); \r\n     yourOverlay.Markers.Add(marker);\r\n\r\n}\r\n</pre>\r\n</div>\r\n</span></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-11-14T23:14:37.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "699308",
+    "ThreadId": "279275",
+    "Html": "<p>Perfect that's what i was looking for.</p>\r\n<p>Thanks! xandolph</p>",
+    "PostedDate": "2011-11-16T18:56:27.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

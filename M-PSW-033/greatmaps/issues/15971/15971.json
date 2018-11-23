@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "seems ok now",
+    "ClosedDate": "2011-09-20T11:21:35.367-07:00",
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "Please set the required max 2 simultaneous connection limit (from your current 50) and use a non-faked distinct User-Agent when connecting to OpenStreetMap.org\r\n\r\nOpenStreetMap has a tile usage policy: http://wiki.openstreetmap.org/wiki/Tile_usage_policy\r\n\r\nWe run a friendly tile usage policy by you are abusing the situation. ",
+    "LastUpdatedDate": "2011-09-20T11:21:35.367-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-03-17T02:35:18.45-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Set Connection Limit and use own User-Agent when connecting to OpenStreetMap",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 15971
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "you should be aware, that our local caching eliminate such problem",
+      "PostedDate": "2010-06-07T11:32:12.603-07:00",
+      "Id": 12856
+    },
+    {
+      "Message": "how it's now, should be <= 5",
+      "PostedDate": "2010-07-23T10:49:15.56-07:00",
+      "Id": 14676
+    }
+  ]
+}

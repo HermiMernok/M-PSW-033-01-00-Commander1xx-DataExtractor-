@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "474139",
+    "ThreadId": "221821",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I might be raising this issue again which has been posted earlier. Even though i have code which you have mentioned</p>\r\n<p>&nbsp;</p>\r\n<pre><span style=\"color:blue\">void</span> Markers_CollectionChanged(<span style=\"color:blue\">object</span> sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)<br>      {<br>          <span style=\"color:blue\">if</span> (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)<br>          {<br>              <span style=\"color:blue\">foreach</span> (GMapMarker marker <span style=\"color:blue\">in</span> e.NewItems)<br>                  marker.ForceUpdateLocalPosition(<span style=\"color:blue\">this</span>);<br>          }<br>      }<br><br>The markers added to the MapControl does not show until i perform some operations in Map UI. I am getting the markers from Web service. Any help please.<br><br>Regards,<br>G.Balaji<br></pre>",
+    "PostedDate": "2010-07-29T02:50:06.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474671",
+    "ThreadId": "221821",
+    "Html": "<p>do you use latest version? That code is changed a bit...</p>",
+    "PostedDate": "2010-07-30T03:18:04.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475283",
+    "ThreadId": "221821",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I am using the latest version anyhow i will cross check with the source and check the issue.</p>\r\n<p>Thanks a lot.</p>\r\n<p>Regards,</p>\r\n<p>G.Balaji</p>",
+    "PostedDate": "2010-08-01T21:19:33.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1070091",
+    "ThreadId": "450494",
+    "Html": "Hello,\r<br />\n<br />\nI am updating the map with Backroundworker.\r<br />\n<br />\nGot that error\r<br />\n<br />\n   bei System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)\r<br />\n   bei System.Collections.Generic.List<code>1.Enumerator.MoveNextRare()\r<br />   bei System.Collections.Generic.List</code>1.Enumerator.MoveNext()\r<br />\n   bei GMap.NET.WindowsForms.GMapControl.OnPaintOverlays(Graphics g)\r<br />\n   bei GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\r<br />\n   bei System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\r<br />\n   bei System.Windows.Forms.Control.WmPaint(Message&amp; m)\r<br />\n   bei System.Windows.Forms.Control.WndProc(Message&amp; m)\r<br />\n   bei System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)\r<br />\n   bei System.Windows.Forms.UserControl.WndProc(Message&amp; m)\r<br />\n   bei System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)\r<br />\n   bei System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)\r<br />\n   bei System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r<br />\n   bei System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG&amp; msg)\r<br />\n   bei System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)\r<br />\n   bei System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)\r<br />\n   bei System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)\r<br />\n   bei System.Windows.Forms.Application.RunDialog(Form form)\r<br />\n   bei System.Windows.Forms.Form.ShowDialog(IWin32Window owner)\r<br />\n   bei System.Windows.Forms.Form.ShowDialog()\r<br />\n   bei iBusClient.MapControl.BarButtonItem1_ItemClick(Object sender, ItemClickEventArgs e) in C:\\Source\\iBusClient\\iBusClient\\Controlls\\MapControl\\MapControl.vb:Zeile 91.\r<br />\n   bei DevExpress.XtraBars.BarItem.OnClick(BarItemLink link)\r<br />\n   bei DevExpress.XtraBars.BarBaseButtonItem.OnClick(BarItemLink link)\r<br />\n   bei DevExpress.XtraBars.BarButtonItem.OnClick(BarItemLink link)\r<br />\n   bei DevExpress.XtraBars.BarItemLink.OnLinkClick()\r<br />\n   bei DevExpress.XtraBars.BarButtonItemLink.OnLinkClick()\r<br />\n   bei DevExpress.XtraBars.BarItemLink.OnLinkAction(BarLinkAction action, Object actionArgs)\r<br />\n   bei DevExpress.XtraBars.BarButtonItemLink.OnLinkAction(BarLinkAction action, Object actionArgs)\r<br />\n   bei DevExpress.XtraBars.BarItemLink.OnLinkActionCore(BarLinkAction action, Object actionArgs)\r<br />\n   bei DevExpress.XtraBars.ViewInfo.BarSelectionInfo.ClickLink(BarItemLink link)\r<br />\n   bei DevExpress.XtraBars.ViewInfo.BarSelectionInfo.UnPressLink(BarItemLink link)\r<br />\n   bei DevExpress.XtraBars.Controls.CustomLinksControl.OnMouseUp(MouseEventArgs e)\r<br />\n   bei System.Windows.Forms.Control.WmMouseUp(Message&amp; m, MouseButtons button, Int32 clicks)\r<br />\n   bei System.Windows.Forms.Control.WndProc(Message&amp; m)\r<br />\n   bei DevExpress.XtraBars.Controls.CustomControl.WndProc(Message&amp; msg)\r<br />\n   bei System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)\r<br />\n   bei System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)\r<br />\n   bei System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r<br />\n   bei System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG&amp; msg)\r<br />\n   bei System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)\r<br />\n   bei System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)\r<br />\n   bei System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)\r<br />\n   bei System.Windows.Forms.Application.Run(ApplicationContext context)\r<br />\n   bei Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()\r<br />\n   bei Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()\r<br />\n   bei Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)\r<br />\n<br />\nWhat to do?\r<br />\n<br />\nBest Regards\r<br />\n<br />\nGerhard<br />\n",
+    "PostedDate": "2013-07-18T08:57:27.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070317",
+    "ThreadId": "450494",
+    "Html": "check demo source<br />\n",
+    "PostedDate": "2013-07-18T23:21:06.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070345",
+    "ThreadId": "450494",
+    "Html": "I think it's multi thread thing.\r<br />\nOne thread wants to change overlays and on thread wants to read it.\r<br />\nI think it depends on the actions at a specific time.\r<br />\n<br />\nIs there a way to stop gmap.net working, while the application changes\r<br />\noverlays?\r<br />\n<br />\nBest Regards\r<br />\n<br />\nGerhard<br />\n",
+    "PostedDate": "2013-07-19T00:24:20.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070360",
+    "ThreadId": "450494",
+    "Html": "use ui thread for ui operations<br />\n",
+    "PostedDate": "2013-07-19T00:52:47.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070390",
+    "ThreadId": "450494",
+    "Html": "I think the ui thread (gmap.net) reads a data structure (overlays) to update the view.\r<br />\nAt the same moment the working thread changes that data structure.\r<br />\n<br />\nThe same error occurs if you make a for each loop over a data structure\r<br />\nand you changes the data structure with in the loop.\r<br />\n<br />\nOne solution is to stop ui thread working. Is there a way to stop gmap.net while updateing?\r<br />\n<br />\nBest Regards\r<br />\n<br />\nGerhard<br />\n",
+    "PostedDate": "2013-07-19T02:15:45.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070393",
+    "ThreadId": "450494",
+    "Html": "the solution is: <strong>use ui thread for ui operations</strong><br />\n",
+    "PostedDate": "2013-07-19T02:20:01.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070396",
+    "ThreadId": "450494",
+    "Html": "Is changing overlays and Gmaproutes a ui operation for gmap.net?\r<br />\n<br />\nBest regards\r<br />\n<br />\nGerhard<br />\n",
+    "PostedDate": "2013-07-19T02:28:20.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070403",
+    "ThreadId": "450494",
+    "Html": "almost everything relating map is ui operation<br />\n",
+    "PostedDate": "2013-07-19T02:52:42.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070417",
+    "ThreadId": "450494",
+    "Html": "If I don't add GMapRoutes and Overlays in the Background process, there is no error.\r<br />\n<br />\nBut how can the background process communicate with the ui process to tell it\r<br />\nto add GMapRoutes and Overlays?\r<br />\n<br />\nBest Regards\r<br />\n<br />\nGerhard<br />\n",
+    "PostedDate": "2013-07-19T04:07:06.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070422",
+    "ThreadId": "450494",
+    "Html": "I got the solution:\r<br />\n<br />\nPrivate Sub AddOverlay(ByVal overlay As GMapOverlay)<br />\n<pre><code>    if _gMapControl.InvokeRequired Then\n        _gMapControl.Invoke(New Action(Of GMapOverlay)(AddressOf AddOverlay), overlay)\n    Else\n        _gMapControl.Overlays.Add(overlay)\n    End If</code></pre>\n\nEnd Sub\r<br />\n<br />\nTo use the standard ui invoke pattern works.\r<br />\n<br />\nBest regards\r<br />\n<br />\nGerhard<br />\n",
+    "PostedDate": "2013-07-19T04:24:08.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

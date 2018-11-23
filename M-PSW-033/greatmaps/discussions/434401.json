@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1006265",
+    "ThreadId": "434401",
+    "Html": "HI, i'm making a litle GIS software wit this grate app!! \r<br />\nI need at this moment to make an &quot;address validation&quot; to save this address in my local database, validated with some provider, like googlemaps in example.\r<br />\nWe are using this function<br />\nPointLatLng? pos = GMapProviders.GoogleMap.GetPoint(Domicilio, out status);\r<br />\nthen pass in &quot;Domicilio&quot; var an unvalidated address, like &quot;guido spano 2600, villa luzuriaga&quot; and if stattus is ok, give me the point of &quot;Guido y Spano 2599, Villa Luzuriaga, Buenos Aires Province, Argentina&quot;\r<br />\nI need to get this value when i write this, from the same GetPoint function, because if i make an marker and get the address of this marker, generally is diferent from i wrote (the other street intersection when are corners)\r<br />\nsomebody make an validator, or autocomplete?? i think that i can use some of this!!\r<br />\nI hope can express my problem! thanks and sorry for my english!!\r<br />\n<br />\nPD: is like this, another example, if y send \r<br />\n<a href=\"http://maps.googleapis.com/maps/api/geocode/json?address=marcon+2600,+villa+luzuriaga+Argentina&amp;sensor=false\" rel=\"nofollow\">http://maps.googleapis.com/maps/api/geocode/json?address=marcon+2600,+villa+luzuriaga+Argentina&sensor=false</a>\r<br />\n<br />\nreturn to me in formatted_address \r<br />\n&quot;Monseñor José Francisco Marcon 2600, San Justo, Buenos Aires Province, Argentina&quot;,\r<br />\nThanks again!!<br />\n",
+    "PostedDate": "2013-02-25T05:33:53.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

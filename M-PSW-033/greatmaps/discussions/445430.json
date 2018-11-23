@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1050524",
+    "ThreadId": "445430",
+    "Html": "Hi,\r<br />\n<br />\nI try to use the MVVM version of this great tool.\r<br />\n<br />\nBut I have a few problems. First of all, my markers are not visible.\r<br />\n<br />\nHere is the XAML code:<br />\n<pre><code>&lt;WindowsPresentation:GMapControl Name=&quot;MainMap&quot;\n                MaxZoom=&quot;17&quot; \n                MinZoom=&quot;1&quot; \n                Zoom=&quot;{Binding Zoom}&quot;\n                Position=&quot;{Binding Position}&quot;\n                ItemsSource=&quot;{Binding Path=Markers, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}&quot; \n/&gt;</code></pre>\n\nAnd my ViewModel Code<br />\n<pre><code>    public ObservableCollection&lt;GMapMarker&gt; Markers\n            {\n                get\n                {\n                    return _markers;\n                }\n\n                set\n                {\n                    if (_markers == value)\n                    {\n                        return;\n                    }\n\n                    _markers = value;\n                    RaisePropertyChanged(&quot;Markers&quot;);\n                }\n            } </code></pre>\n\nand <br />\n<pre><code>        Zoom = 15;\n        Position = new GMap.NET.PointLatLng(48, 2);\n    Markers = new ObservableCollection&lt;GMapMarker&gt;();\n    Markers.Add(new GMapMarker(new GMap.NET.PointLatLng(48, 2)));</code></pre>\n\nthe position is well changed, but not markers are visible.\r<br />\n<br />\nMy other problem is that the zoom change works fine, but only if I don't use the tag EnableMouseWheelZooming=&quot;True&quot;.\r<br />\n<br />\nWhy?\r<br />\n<br />\nThanks a lot for the answers....<br />\n",
+    "PostedDate": "2013-05-30T02:40:40.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051183",
+    "ThreadId": "445430",
+    "Html": "you have to assign some UIElement to marker.Shape<br />\n",
+    "PostedDate": "2013-05-31T05:38:00.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055941",
+    "ThreadId": "445430",
+    "Html": "Hi,\r<br />\n<br />\nOk, now I have created a custom marker factory:<br />\n<pre><code>public static GMapMarker Get(WaterObject wo)\n        {\n            GMapMarker m = new GMapMarker(new PointLatLng(((PointGeo)wo.PositionGeo).YLat.Value, ((PointGeo)wo.PositionGeo).XLon.Value));\n            //m.Offset = new System.Windows.Point(-15, -15);\n            //m.ZIndex = int.MaxValue;\n\n            //string[] all = System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceNames();\n\n\n            // On récupère le nom de l'icone, en fonction du champs Desc Modsim, l'icone portant le champs Desc comme nom de fichier\n            Stream stream = (System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceStream(&quot;OMR_Client.Resources.Icones.7.png&quot;));\n            PngBitmapDecoder decoder = new PngBitmapDecoder(stream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);\n            BitmapSource bitmapSource = decoder.Frames[0];\n\n            // Draw the Image\n            Image myImage = new Image();\n            myImage.Source = bitmapSource;\n            //myImage.Stretch = Stretch.None;\n            //myImage.Margin = new Thickness(20);\n\n            m.Shape = myImage;\n\n            return m;</code></pre>\n\nand then, in my view model, is add the marker in the binded property:<br />\n<pre><code>Markers.Add(MarkerFactory.Get(wo));</code></pre>\n\nThe problem is that nothing is displayed until i change the zoom, and when I change it, I can only see a label on the map showing &quot;Gmap.net.windowsPresentation.GmapMarker&quot;...<br />\n",
+    "PostedDate": "2013-06-12T09:32:51.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056200",
+    "ThreadId": "445430",
+    "Html": "var bitmapDecoder = new PngBitmapDecoder(stream, BitmapCreateOptions.IgnoreColorProfile, <strong>BitmapCacheOption.OnLoad</strong>);<br />\n",
+    "PostedDate": "2013-06-13T00:08:43.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056208",
+    "ThreadId": "445430",
+    "Html": "Hi, \r<br />\n<br />\nIt's not working better...\r<br />\n<br />\nAnd I've tried to import the CustomMarkerRed class in my project, and the result is the same...<br />\n",
+    "PostedDate": "2013-06-13T00:16:27.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056211",
+    "ThreadId": "445430",
+    "Html": "you are doing something wrong...<br />\n",
+    "PostedDate": "2013-06-13T00:17:41.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056380",
+    "ThreadId": "445430",
+    "Html": "So, now, I tried to use the &quot;normal&quot; version, not the fork.\r<br />\n<br />\nMy xaml code is like that<br />\n<pre><code>     &lt;WindowsPresentation:GMapControl Name=&quot;MainMap&quot;\n                MaxZoom=&quot;17&quot; \n                MinZoom=&quot;1&quot;/&gt;</code></pre>\n\nAnd on the code behing:<br />\n<pre><code>GMapMarker gm = new GMapMarker(new PointLatLng(((PointGeo)wo.PositionGeo).YLat.Value, ((PointGeo)wo.PositionGeo).XLon.Value));\n                    gm.Shape = new CustomMarkerRed(MainMap, gm, &quot;test&quot;);\n                    gm.Offset = new System.Windows.Point(-15, -15);\n                    gm.ZIndex = int.MaxValue;\n\nMainMap.Items.Add(gm);</code></pre>\n\nbut now, I have an execution error:\r<br />\nOperation is not valid while ItemsSource is in use. Access and modify elements with ItemsControl.ItemsSource instead.<br />\n",
+    "PostedDate": "2013-06-13T06:42:20.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056385",
+    "ThreadId": "445430",
+    "Html": "Ok, it's seems to work if I use MainMap.Markers.Add(gm);<br />\n",
+    "PostedDate": "2013-06-13T06:47:34.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

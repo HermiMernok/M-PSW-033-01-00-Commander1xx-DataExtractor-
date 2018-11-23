@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "626785",
+    "ThreadId": "261151",
+    "Html": "\r\n<p>Hello Radioman,</p>\r\n<p>actually i add a filled polygon like this:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">Dim</span> myRoute <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapRoute(polygonPoints, <span style=\"color:#a31515\">&quot;myRoute&quot;</span>)\r\n\r\n        <span style=\"color:blue\">Dim</span> myTestPolygon <span style=\"color:blue\">As</span> GMapOverlay\r\n\r\n        myTestPolygon = <span style=\"color:blue\">New</span> GMapOverlay(Form_Main.MainMap, <span style=\"color:#a31515\">&quot;Test&quot;</span>)\r\n        myTestPolygon.Routes.Add(myRoute)\r\n        myTestPolygon.IsFillRouteAsPolygon = <span style=\"color:blue\">True</span>\r\n        myTestPolygon.StrokeLine = <span style=\"color:blue\">New</span> Pen(Color.FromArgb(255, myColor), 2)\r\n        myTestPolygon.FillBrush = <span style=\"color:blue\">New</span> SolidBrush(Color.FromArgb(100, myColor))\r\n\r\n        Form_Main.MainMap.Overlays.Add(myTestPolygon)\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>But i think this is not the best way. Would it be possible to create a custom route class?</p>\r\n<p>So you can add polygons on layers and i think the handling is easier?</p>\r\n<p>Thanks for discussion.</p>\r\n<p>RobbeEDE</p>\r\n",
+    "PostedDate": "2011-06-13T01:41:37.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626791",
+    "ThreadId": "261151",
+    "Html": "<p>just use&nbsp;myTestPolygon.<strong>Polygons</strong>.Add(...</p>\r\n<p>p.s. yes you can customize every class: overlay, marker, route, etc</p>",
+    "PostedDate": "2011-06-13T01:54:27.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627367",
+    "ThreadId": "261151",
+    "Html": "<p>I can not :)</p>\r\n<p>My wish is to create a own CustomPolygon or CustomRoute class. (Well i just want a filled polygon, with some additional properties like ID, Name, sth..)</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Imports</span> System.Collections.Generic\r\n<span style=\"color: blue;\">Imports</span> System.Text\r\n<span style=\"color: blue;\">Imports</span> System.Drawing\r\n<span style=\"color: blue;\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color: blue;\">Imports</span> GMap.NET\r\n\r\n<span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Class</span> CustomPolygon\r\n    <span style=\"color: blue;\">Inherits</span> GMapPolygon\r\n    <span style=\"color: blue;\">Public</span> Pen <span style=\"color: blue;\">As</span> Pen\r\n    <span style=\"color: blue;\">Public</span> FillBrush <span style=\"color: blue;\">As</span> Brush\r\n    <span style=\"color: blue;\">Public</span> ID <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span>\r\n    <span style=\"color: blue;\">Public</span> Type <span style=\"color: blue;\">as</span> <span style=\"color: blue;\">String</span>\r\n    <span style=\"color: blue;\">Public</span> isFilled <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Boolean</span>\r\n\r\n    <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Sub</span> <span style=\"color: blue;\">New</span>(<span style=\"color: blue;\">ByVal</span> points <span style=\"color: blue;\">As</span> List(Of PointLatLng), <span style=\"color: blue;\">ByVal</span> name <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>)\r\n        <span style=\"color: blue;\">MyBase</span>.<span style=\"color: blue;\">New</span>(points, name)\r\n\r\n        Pen = <span style=\"color: blue;\">New</span> Pen(Brushes.Red, 5)\r\n       \r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Class</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>To add Polygon:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">Dim</span> myCustomPolygon <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> CustomPolygon(polygonPoints, <span style=\"color: #a31515;\">\"blubb\"</span>)\r\n        myCustomPolygon.Pen = <span style=\"color: blue;\">New</span> Pen(Color.FromArgb(255, myColor), myView.PolygonStrokeThickness)\r\n        myCustomPolygon.FillBrush = <span style=\"color: blue;\">New</span> SolidBrush(Color.FromArgb(100, myColor))\r\n        Form_Main.Layer_My_Polygons.Polygons.Add(myCustomPolygon)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>If i just use this, the Polygon is painted, but with the colors of your Polygon. I have no possibilty to override id on painting. Could you help me? pls^^</p>",
+    "PostedDate": "2011-06-14T01:50:42.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627387",
+    "ThreadId": "261151",
+    "Html": "<p>just override render function</p>",
+    "PostedDate": "2011-06-14T02:44:28.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627426",
+    "ThreadId": "261151",
+    "Html": "<p>The method OnRender does not exists.</p>",
+    "PostedDate": "2011-06-14T04:06:43.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627444",
+    "ThreadId": "261151",
+    "Html": "<p>check&nbsp;GMapOverlay class</p>",
+    "PostedDate": "2011-06-14T05:04:37.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

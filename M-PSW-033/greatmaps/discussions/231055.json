@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "507853",
+    "ThreadId": "231055",
+    "Html": "<p>Hi. In the WinForm version of GMap, I draw a rectangle:</p>\r\n<p><span style=\"color:blue\">Public</span>&nbsp;<span style=\"color:blue\">Overrides</span>&nbsp;<span style=\"color:blue\">Sub</span>&nbsp;OnRender(<span style=\"color:blue\">ByVal</span>&nbsp;g&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">Graphics</span>)<br>&nbsp;&nbsp;&nbsp; Dim width As Integer = 100<br>&nbsp;&nbsp;&nbsp; Dim&nbsp;height As Integer = 100<br>&nbsp;&nbsp;&nbsp; Dim pen&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">New</span>&nbsp;<span style=\"color:#2b91af\">Pen</span>(<span style=\"color:#2b91af\">Brushes</span>.Black)<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; g.DrawRectangle(pen,&nbsp;LocalPosition.X,&nbsp;LocalPosition.Y,&nbsp;width,&nbsp;height)<br><span style=\"color:blue\">End</span>&nbsp;<span style=\"color:blue\">Sub</span></p>\r\n<p><span style=\"color:blue\">But when zooming in.out it remains the same size. How do I make it scale together with zoom level? (i.e. shrink as I zoom out and enlarge as I zoom in)</span></p>\r\n<p><span style=\"color:blue\">Thanks</span></p>",
+    "PostedDate": "2010-10-15T08:57:59.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507863",
+    "ThreadId": "231055",
+    "Html": "<p>use geographic coordinates, check Demo.Clouds</p>",
+    "PostedDate": "2010-10-15T09:09:51.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "508688",
+    "ThreadId": "231055",
+    "Html": "<p>Hi Radioman. Thanks for the reply. I looked at Demo.Clouds but couldnt find anything helpful? I'm probably missing something. I did find this code though:</p>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\"><p><span style=\"color:blue\">Public</span>&nbsp;<span style=\"color:blue\">Overrides</span>&nbsp;<span style=\"color:blue\">Sub</span>&nbsp;OnRender(<span style=\"color:blue\">ByVal</span>&nbsp;g&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">Graphics</span>)<br>&nbsp;&nbsp;&nbsp; Dim width As Integer = 100<br>&nbsp;&nbsp;&nbsp; Dim&nbsp;height As Integer = 100<br>&nbsp;&nbsp;&nbsp; Dim pen&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">New</span>&nbsp;<span style=\"color:#2b91af\">Pen</span>(<span style=\"color:#2b91af\">Brushes</span>.Black)<br>&nbsp;&nbsp;&nbsp; </p><pre style=\"font-family:consolas\"><span style=\"color:blue\">   Dim</span>&nbsp;scaledWidth&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">Single</span>&nbsp;=&nbsp;Width&nbsp;/&nbsp;GMap.Projection.GetGroundResolution(GMap.Zoom,&nbsp;Position.Lat)<br><span style=\"color:blue\">   Dim</span>&nbsp;scaledHeight&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">Single</span>&nbsp;=&nbsp;Height&nbsp;/&nbsp;GMap.Projection.GetGroundResolution(GMap.Zoom,&nbsp;Position.Lat)</pre>\r\n<p>&nbsp;&nbsp;&nbsp; g.DrawRectangle(pen,&nbsp;LocalPosition.X,&nbsp;LocalPosition.Y,&nbsp;scaledWidth,&nbsp;scaledHeight)<br><span style=\"color:blue\">End</span>&nbsp;<span style=\"color:blue\">Sub</span></p>\r\n<p><span style=\"color:blue\"><span style=\"color:blue\">&nbsp;</span></span></p>\r\n<p><span style=\"color:blue\"><span style=\"color:blue\"><span style=\"color:blue\">Which looks like is getting me nearer to finding the solution. However, it's not working properly.</span></span></span></p>\r\n<p><span style=\"color:blue\"><span style=\"color:blue\"><span style=\"color:blue\">Although the rectangle scales according to the zoom level, it's not scaling correctly.</span></span></span></p>\r\n<p><span style=\"color:blue\"><span style=\"color:blue\"><span style=\"color:blue\">By looking at that code do you perhaps see where I might be going wrong?</span></span></span></p>\r\n<p><span style=\"color:blue\"><span style=\"color:blue\"><span style=\"color:blue\"><span style=\"color:blue\">Thanks for all your support Radioman. It is much appreciated.</span></span></span></span></p>\r\n</span></pre>",
+    "PostedDate": "2010-10-18T01:43:46.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "508713",
+    "ThreadId": "231055",
+    "Html": "<p>in clouds demo check the function&nbsp;void mapControl_<strong>OnMapZoomChanged</strong>(), thats ll you need to do</p>",
+    "PostedDate": "2010-10-18T02:55:19.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "508737",
+    "ThreadId": "231055",
+    "Html": "<p>Thanks Radioman - got it! I can now draw rectangles like this:</p>\r\n<p><span style=\"color:blue\">Public</span>&nbsp;<span style=\"color:blue\">Overrides</span>&nbsp;<span style=\"color:blue\">Sub</span>&nbsp;OnRender(<span style=\"color:blue\">ByVal</span>&nbsp;g&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">Graphics</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">Dim</span>&nbsp;pntTopLeft&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">New</span>&nbsp;Drawing.<span style=\"color:#2b91af\">Point</span>(GMap.FromLatLngToLocal(TopLeftPnt).X,&nbsp;GMap.FromLatLngToLocal(TopLeftPnt).Y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">Dim</span>&nbsp;pntBottomRight&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:blue\">New</span>&nbsp;Drawing.<span style=\"color:#2b91af\">Point</span>(GMap.FromLatLngToLocal(BottomRightPnt).X,&nbsp;GMap.FromLatLngToLocal(BottomRightPnt).Y)<br><span style=\"color:blue\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim</span>&nbsp;Width As Integer = pntBottomRight.X&nbsp;-&nbsp;pntTopLeft.X<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim&nbsp;Height As Integer = pntTopLeft.Y&nbsp;-&nbsp;pntBottomRight.Y<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.FillRectangle(gFillBrush,&nbsp;LocalPosition.X,&nbsp;LocalPosition.Y,&nbsp;Width,&nbsp;Height)<br><span style=\"color:blue\">End</span>&nbsp;<span style=\"color:blue\">Sub</span></p>\r\n<p><span style=\"color:blue\">This works perfectly, except for one curious behaviour. After drawing the rectangle, if I pan the map to the point where the rectangle starts dissapearing<br>off the sides of the map, (after about 20% of the left&nbsp;or top edge of the rectangle has moved off the map), the entire rectangle dissapears!</span></p>\r\n<p><span style=\"color:blue\">Don't&nbsp;know&nbsp;if I'm expressing myself correctly? What I mean is if a start panning the map, the rectangle I drew obviously moves with the map - and that is fine.<br>But as soon as the rectangle&nbsp;moves&nbsp;past the edge of the GMap border, (well after about 20% of the rectangle has moved past the edge), the entire rectangle <br>suddenly dissapears!</span></p>\r\n<p><span style=\"color:blue\">This only happens&nbsp;when either the top or the left edges move past the map borders.</span></p>\r\n<p><span style=\"color:blue\">What I've noticed is that when the rectangle dissapears, it is because the </span><span style=\"color:blue\">OnRender event stops firing.<br>So in summary, the OnRender event stops triggering when the top-left corner of the rectangle is outside the map bounds. Any ideas?</span></p>",
+    "PostedDate": "2010-10-18T04:25:43.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "508756",
+    "ThreadId": "231055",
+    "Html": "<p>i see you didn't check clouds demo, anyway set for marker&nbsp;<strong>DisableRegionCheck</strong> = true;</p>",
+    "PostedDate": "2010-10-18T04:55:40.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "508921",
+    "ThreadId": "231055",
+    "Html": "<p>Thanks radioman, that did the trick. For the record, I did check out the clouds demo, but I guess I missed the <strong>DisableRegionCheck</strong> thing. Again thanks for your help.</p>",
+    "PostedDate": "2010-10-18T11:42:11.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "508947",
+    "ThreadId": "231055",
+    "Html": "<p>roger ;}</p>",
+    "PostedDate": "2010-10-18T12:32:25.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525748",
+    "ThreadId": "231055",
+    "Html": "\r\n<p>Morning Radioman,</p>\r\n<p>I can't seem to find the clouds demo.. Is it removed from the source code, or have I just gone blind? :-)</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-23T02:06:09.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526003",
+    "ThreadId": "231055",
+    "Html": "\r\n<p>open solution, expand the testing group, and thats it ;} it's there</p>\r\n",
+    "PostedDate": "2010-11-23T10:55:57.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

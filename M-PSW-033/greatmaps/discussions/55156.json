@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "186188",
+    "ThreadId": "55156",
+    "Html": "<br>\r\nJust a brief snippet to help out.<br>\r\n<br>\r\n// MainForm<br>\r\nthis.MouseWheel += new System.Windows.Forms.MouseEventHandler(MainForm_MouseWheel);<br>\r\n<br>\r\nvoid MainForm_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)<br>\r\n    {<br>\r\n        if (e.Delta &gt; 0)<br>\r\n        {<br>\r\n            if (trackBar1.Value != trackBar1.Maximum)<br>\r\n                trackBar1.Value++;<br>\r\n        }<br>\r\n        else if (e.Delta &lt; 0)<br>\r\n        {<br>\r\n            if (trackBar1.Value &gt; trackBar1.Minimum)<br>\r\n                trackBar1.Value--;<br>\r\n        }<br>\r\n    }\r\n",
+    "PostedDate": "2009-05-02T16:12:53.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "186255",
+    "ThreadId": "55156",
+    "Html": "done! thx",
+    "PostedDate": "2009-05-03T05:04:47.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189175",
+    "ThreadId": "55156",
+    "Html": "<p>Maybe something to implement in the core? And using a new property UseWheelMouse?</p>\r\n<p>But I think this code is incomplete. In the trackbar ValueChanged I added the following two lines:</p>\r\n<p>// Position the center at the cursor<br>RectLatLng area = MainMap.CurrentViewArea;<br>MainMap.CurrentPosition = new PointLatLng(area.Lat - area.HeightLat / 2, area.Lng + area.WidthLng / 2);</p>\r\n<p>I like to implement ghchinoy suggestion, but want to change the CurrentPosition based on the mouse position. So you zoom in on the area the cursor points at. This is the same as clicking first and then zoom.</p>\r\n<p>In the core I see the following code, but can't use it outside:</p>\r\n<p>SetCurrentPositionOnly(e.X - Core.renderOffset.X, e.Y - Core.renderOffset.Y);</p>\r\n<p>Is there a method that gets the LatLong from screen coordinates?</p>\r\n<p>Frank</p>",
+    "PostedDate": "2009-05-12T01:44:34.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189216",
+    "ThreadId": "55156",
+    "Html": "<p>yes, i use that&nbsp;technique in my own project too, just simply in&nbsp;<span style=\"font-weight:bold\">OnMouseMove</span>&nbsp;event use function&nbsp;<span style=\"font-weight:bold\">public PointLatLng FromLocalToLatLng(int x, int y) <span style=\"font-weight:normal\">and set position by&nbsp;</span>public void SetCurrentPositionOnly(PointLatLng point) <span style=\"font-weight:normal\">so when you zoom center position will be where mouse was before, additionaly i move mouse pointer to the center of the control(btw it needs native invoke stuff)</span><br><br></span></p>",
+    "PostedDate": "2009-05-12T04:24:53.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189238",
+    "ThreadId": "55156",
+    "Html": "<p>Ok, thanks. That works.</p>\r\n<p>I think it is best to do this only at zooming in.</p>\r\n<p>Maybe something to implement in the core? And using a new property UseWheelMouse?</p>",
+    "PostedDate": "2009-05-12T05:15:27.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189263",
+    "ThreadId": "55156",
+    "Html": "<p><span style=\"border-collapse:collapse;font-family:arial\">something? ;}</span></p>",
+    "PostedDate": "2009-05-12T06:00:53.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189266",
+    "ThreadId": "55156",
+    "Html": "<p>I don't get these smilies. Is there a translation list?</p>\r\n<p>What I mean here: is it possible to implement a published property called UseWheelMouse in the core DLL? If it is true, the core will handle the zoom as described above.</p>",
+    "PostedDate": "2009-05-12T06:12:00.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189271",
+    "ThreadId": "55156",
+    "Html": "<p>hm...</p>",
+    "PostedDate": "2009-05-12T06:18:53.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189293",
+    "ThreadId": "55156",
+    "Html": "<p>done!</p>",
+    "PostedDate": "2009-05-12T07:04:34.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

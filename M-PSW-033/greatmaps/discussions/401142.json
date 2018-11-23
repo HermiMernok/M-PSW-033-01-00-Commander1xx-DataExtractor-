@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "933882",
+    "ThreadId": "401142",
+    "Html": "\r\n<p>Is it possible to add a new map source to&nbsp;GMapProviders when using the binary download of the libraries, or will I have to start from source?</p>\r\n<p>I was able to add my own class for a new map source, and it mostly works. Unfortunately if a Gmap control (Winforms) has the SetCurrentPositionByKeywords() method performed on it, I get an exception. Is it necessary for my new map source to be part of GMapProviders\r\n for SetCurrentPositionbyKeywords() to work?</p>\r\n",
+    "PostedDate": "2012-10-29T09:43:14.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933885",
+    "ThreadId": "401142",
+    "Html": "<p>what exception?</p>",
+    "PostedDate": "2012-10-29T09:54:20.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933887",
+    "ThreadId": "401142",
+    "Html": "<p>My bad, I forgot to specify that. Here &nbsp;you go:</p>\r\n<p>\"The type initializer for 'GMap.NET.MapProviders.GMapProviders' threw an exception.\"</p>",
+    "PostedDate": "2012-10-29T09:55:57.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933895",
+    "ThreadId": "401142",
+    "Html": "<p>and what is exception message?</p>",
+    "PostedDate": "2012-10-29T10:18:43.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933911",
+    "ThreadId": "401142",
+    "Html": "<p><span>\"The type initializer for 'GMap.NET.MapProviders.GMapProviders' threw an exception.\"</span> is the most detailed exception message that I can get. I'm running from the binary version of v1.6 (stable release).&nbsp;</p>\r\n<p>It is an exception of type \"System.TypeInitializationException\".</p>\r\n<p>What would be the best way to download the source version of v1.6?</p>",
+    "PostedDate": "2012-10-29T10:59:28.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933918",
+    "ThreadId": "401142",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">try</span>\r\n{\r\n map.SetCurrentPositionByKeywords(<span style=\"color: #a31515;\">\"usa\"</span>);\r\n}\r\n<span style=\"color: blue;\">catch</span>(Exception ex)\r\n{\r\n  MessageBox.Show(ex.Message);\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-10-29T11:11:04.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933922",
+    "ThreadId": "401142",
+    "Html": "<p>Agreed, that is the method I was using to find the message. The results are message box that shows the following text:</p>\r\n<p><span>\"The type&nbsp;initializer&nbsp;for 'GMap.NET.MapProviders.GMapProviders' threw an exception.\"</span></p>\r\n<p><span>Looking further, it looks like I'll need to add my new source to GmapProviders. If I initialize to my map source (not in GmapProvders) I encounter an exception upon attempting to change map types.</span></p>\r\n<p>Otherwise, is it possible to set a Control.MapProvider property to something other than an element in the GmapProviders enum?</p>\r\n<p>Thank you for your time.</p>",
+    "PostedDate": "2012-10-29T11:18:53.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933924",
+    "ThreadId": "401142",
+    "Html": "<p>?</p>\r\n<p><span style=\"color: blue;\">try</span><br /> {  <br />map.SetCurrentPositionByKeywords(<span style=\"color: #a31515;\">\"usa\"</span>);<br /> } <span style=\"color: blue;\"><br />catch</span>(Exception ex) <br />{   <br />MessageBox.Show(ex.<strong>InnerException</strong>.Message);<br /> }</p>",
+    "PostedDate": "2012-10-29T11:24:13.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933928",
+    "ThreadId": "401142",
+    "Html": "<p>InnerException is null.</p>",
+    "PostedDate": "2012-10-29T11:30:04.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933939",
+    "ThreadId": "401142",
+    "Html": "<p>It looks like rev \"dbfffa5b4adc\" is the 1.6 release. I'll try using that source code.</p>",
+    "PostedDate": "2012-10-29T11:45:27.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935759",
+    "ThreadId": "401142",
+    "Html": "<p>Good news; since I was using the source version of 1.6, I was able to get actual useful exception messages. This issue is resolved.</p>",
+    "PostedDate": "2012-11-02T08:42:55.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "524424",
+    "ThreadId": "235342",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>This is project details</p>\r\n<p>.Creating&nbsp; own WebService (using Visual Studio C#.NET) that accepts the Name of a Scottish mountain as input and returns the Location, Height and Weather information for that mountain.</p>\r\n<p><span lang=\"EN-GB\" style=\"font-size:11pt\">Create a Windows Application (using Visual Studio C#.NET) that relies on the WebService -and\r\n</span>displays the Mountains on a map of Scotland along with information about height and weather.</p>\r\n<p>&nbsp;</p>\r\n<p>i have an xml file that has all the information about all mountains but i have&nbsp; the location details in Grid reference (NGR) and not latitude and longitude.</p>\r\n<p>so i have to convert the <span style=\"color:#888888\">&nbsp;</span>grid references to Latitude and Longitude and display the marker at that location on the screen(on windows application)</p>\r\n<p>can some one please suggest me which map application(<strong>GMAP dll)</strong> to use and how can i convert the grid references to Latitude and Longitude and pass it to the gmap dll)</p>\r\n",
+    "PostedDate": "2010-11-19T09:32:21.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "524425",
+    "ThreadId": "235342",
+    "Html": "\r\n<p>ITS urgent so please replay ASAP</p>\r\n<p>&nbsp;</p>\r\n<p>thanks.</p>\r\n",
+    "PostedDate": "2010-11-19T09:33:08.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "524434",
+    "ThreadId": "235342",
+    "Html": "\r\n<p>use GMap.NET\\References\\Etc\\DotSpatial.Projections.dll&nbsp;for coordinate conversation -&gt;&nbsp;<a href=\"http://dotspatial.codeplex.com/wikipage?title=UseKnownCoordinateSystems&referringTitle=DotSpatial.Projections\" target=\"_blank\">http://dotspatial.codeplex.com/wikipage?title=UseKnownCoordinateSystems&amp;referringTitle=DotSpatial.Projections</a></p>\r\n",
+    "PostedDate": "2010-11-19T09:52:21.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

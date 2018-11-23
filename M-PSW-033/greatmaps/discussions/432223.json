@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "997429",
+    "ThreadId": "432223",
+    "Html": "I can't find any post where this is addressed so...\r<br />\n<br />\nI am using gmap exclusively offline.  I found that for Bing and Google there doesn't seem to be a way to force the MapProvider to NOT look for the dns name.\r<br />\n<br />\nOnInitialize() will try to connect to the URL unless init == true or TryCorrectVersion == false.\r<br />\n<br />\nI have made TryCorrectVersion Public Static so that when I load my map, I simply turn TryCorrectVersion = false and the URL is not attempted.\r<br />\n<br />\nI wouldn't be surprised if there is a better, legitimate way to do this that I'm unaware of.\r<br />\n<br />\nThanks,\r<br />\n<br />\nFernando<br />\n",
+    "PostedDate": "2013-02-06T10:21:59.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997439",
+    "ThreadId": "432223",
+    "Html": "just set <strong>TryCorrectVersion</strong> before map.MapProvider = xxx<br />\n",
+    "PostedDate": "2013-02-06T10:34:47.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997443",
+    "ThreadId": "432223",
+    "Html": "Right, that's what I do, however, I had to hack the source to promote TryCorrectVersion from public to public static.\r<br />\n<br />\nI did this for the 2 classes I use: BingHybridMapProvider and GoogleHybridMapProvider.<br />\n",
+    "PostedDate": "2013-02-06T10:37:26.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997460",
+    "ThreadId": "432223",
+    "Html": "no need to make them static<br />\n",
+    "PostedDate": "2013-02-06T11:00:18.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997478",
+    "ThreadId": "432223",
+    "Html": "When I load the xml file for a cached map, it has the provider.  I use:\r<br />\n<br />\nGMapProvider provider = GMapProvider.TryGetProvider(xmlParams.ProviderGUID);\r<br />\n<br />\nGMapProvider base class does not have TryCorrectVersion.\r<br />\n<br />\nSo in order to set that public member value, I have to check the underlying type of GMapProvider, then set the value.  THEN I can assign it to map.MapProvider.\r<br />\n<br />\nIdeally, TryCorrectVersion would be a static member in GMapProvider.  But since I don't see that it is used anywhere but in Bing and Google, I don't think that's better.  Having it only in Bing and Google means that you have to IF (or Switch) the provider.  Having it static means it's set and done once.\r<br />\n<br />\nYes, you are right, I can do what you said.  However I believe this method is cleaner.<br />\n\r<br />\nAnyway, thanks for your help.<br />\n",
+    "PostedDate": "2013-02-06T11:42:21.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997480",
+    "ThreadId": "432223",
+    "Html": "What I also noticed is the map.Manager.Mode = AccessMode.CacheOnly should really turn off all attempts to contact the internet.  Cache Only means (to me) &quot;use the cache, only.&quot;\r<br />\n<br />\nthanks again.<br />\n",
+    "PostedDate": "2013-02-06T11:44:34.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997481",
+    "ThreadId": "432223",
+    "Html": "GMapProviders.GoogleMap.TryCorrectVersion = false; // &lt;==<br />\n",
+    "PostedDate": "2013-02-06T11:48:37.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "742812",
+    "ThreadId": "295426",
+    "Html": "\r\n<p>Hi there !</p>\r\n<p>I successfully integrated GMap.NET in my Forms application, but no am stuck at one point:</p>\r\n<p>I use GMAP to display where a particular dataset was recorded.</p>\r\n<p>The issue:</p>\r\n<p>GMap is blocking the GUI-thread while fetching the map data from the provider. Since I not only display the map but lots of other data aswell that makes the whole app &quot;stumble&quot;.</p>\r\n<p>Is there a way to generate the MAP-image without adding the control to the GUI (then I could put the map-generation in a seperate thread)?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n<p>&nbsp;</p>\r\n<p>Carsten</p>\r\n",
+    "PostedDate": "2012-02-06T02:59:58.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "743030",
+    "ThreadId": "295426",
+    "Html": "<p>check&nbsp;<strong>BigMapMaker</strong>&nbsp;test project, it generates map in console application</p>",
+    "PostedDate": "2012-02-06T05:37:48.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

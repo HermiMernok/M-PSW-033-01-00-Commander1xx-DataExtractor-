@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1105422",
+    "ThreadId": "461614",
+    "Html": "Hello Everybody,\r<br />\n<br />\nI have a little problem with ZoomAndCenterMarkers Method. I have 3 markers for example. And when i call this method, the map does not zoom on this markers. <br />\n<pre><code>gmap.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance;\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n\n            GMapOverlay markersOverlay = new GMapOverlay(gmap, &quot;markers&quot;);\n            \n            foreach (EntitySubject es in subjectsToDraw)\n            {\n                GMapMarkerGoogleGreen marker = new GMapMarkerGoogleGreen(new PointLatLng(double.Parse(es.Latitude), double.Parse(es.Longitude)));\n                marker.ToolTipText = es.Nazev;\n                markersOverlay.Markers.Add(marker);\n            }\n\n            gmap.Overlays.Add(markersOverlay);\n            gmap.ZoomAndCenterMarkers(&quot;markers&quot;);\n            //if (H.SelectedRecordIDs() !=  null)\n            //    gmap.Zoom = 7;\n            gmap.Refresh();</code></pre>\n\nThanks<br />\n",
+    "PostedDate": "2013-10-09T05:20:16.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1319378",
+    "ThreadId": "571382",
+    "Html": "Im creating a windows forms app. I've added the functionality that when a user double clicks on the map, it centers and zooms in at the double click location. This works fine. \r<br />\n<br />\nMy issue is when the user double taps the screen(Microsoft Surface Pro 2). Everything gets called the same way as the double click, but when I try to assign the myMap.Zoom a new value, myMap.Zoom doesnt get changed to the new value.. \r<br />\n<br />\nAt the point in the program where the value is changing, there shouldn't be any difference between a mouse click and a tap. It just doesnt work when the tap triggers the event to begin with.<br />\n<pre><code>    Private Sub myMap_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles myMap.MouseDoubleClick\n\n        mousePoint = myMap.FromLocalToLatLng(e.X, e.Y)\n\n        If tbarZoom.Value &lt; tbarZoom.Maximum Then\n            If currentMapMarker.IsVisible Then\n\n                If myMap.Zoom &lt; myMap.MaxZoom Then\n                    myMap.Position = mousePoint\n                    currentMapMarker.Position = myMap.Position\n                    tbarZoom.Value += 1\n                Else\n                    myMap.Position = mousePoint\n                    currentMapMarker.Position = myMap.Position\n                End If\n\n            End If\n\n        Else\n            myMap.Position = mousePoint\n            currentMapMarker.Position = myMap.Position\n        End If\n\n    End Sub</code></pre>\n\n<pre><code>    Private Sub tbarZoom_ValueChanged(sender As Object, e As EventArgs) Handles tbarZoom.ValueChanged\n                myMap.Zoom = tbarZoom.Value\n    End Sub</code></pre>\n\nI'm assigning  myMap.Zoom the value of a trackbar.\r<br />\n \r<br />\nThis works when a mouse calls the double click event, doesnt work when touch screen calls double click event.\r<br />\n<br />\nAny ideas?<br />\n",
+    "PostedDate": "2014-11-05T07:47:51.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

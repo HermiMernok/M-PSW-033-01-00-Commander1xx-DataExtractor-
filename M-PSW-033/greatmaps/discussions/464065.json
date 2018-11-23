@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1113662",
+    "ThreadId": "464065",
+    "Html": "Is there a way to tweak the map colors?\r<br />\nWe would like to change the OpenStreetMap / OpenSeaMap colors to a different color schema in the same way as it can be done on <a href=\"http://maps.cloudmade.com/#\" rel=\"nofollow\">http://maps.cloudmade.com/#</a>\r<br />\n<br />\nAny ideas and help would be highly appreciated!<br />\n",
+    "PostedDate": "2013-10-29T07:16:02.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113664",
+    "ThreadId": "464065",
+    "Html": "use cloudmade provider<br />\n",
+    "PostedDate": "2013-10-29T07:19:28.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113675",
+    "ThreadId": "464065",
+    "Html": "We would prefer to use OpenSeaMap directly and tweak the colors with gmap! I tried CloudMadeMapProvider but it came back as &quot;Forbidden&quot;.\r<br />\nDoes the map from the map provider come as a bitmap or as objects?\r<br />\nIf it comes as objects it would be nice to have an XML file or similar that can be tweaked to change the color of the map before it is presented by gmap!\r<br />\nI.e first time the map is loaded it creates an XML file that contains the default colors. With this as a template we could create more XML files with color tweaks that can be switched to in runtime!<br />\n",
+    "PostedDate": "2013-10-29T07:41:01.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113677",
+    "ThreadId": "464065",
+    "Html": "cloudmade isn't free anymore, pay and you'll get their colorful tiles...<br />\n",
+    "PostedDate": "2013-10-29T07:47:11.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114074",
+    "ThreadId": "464065",
+    "Html": "Well, I prefer to stay on free maps...<br />\nI poked around in the code and found the ApplyColorMatrix function in the GMapImage class. <br />\nIs this the place to apply a Night color schema? I.e. a change of color to color with the ImageAttributes.<br />\n<br />\nSuggested solution:<br />\nNew property &quot;Night Color&quot; flag for custom coloring that make an ApplyColorMatrix (flag to be set in real-time)<br />\nNew properties for a &quot;Night Colors&quot; that is used for the matrix that is applied when the &quot;Night Flag&quot; is active <br />\n<br />\nCustom colors will be read into an: ColorMap what defines old and new color.<br />\n<br />\nPlease note we can make and test the solution. If it is accepted we put it into the repository, if not we keep it as our own fix.<br />\n<br />\nPlease let us know what you think!<br />\n",
+    "PostedDate": "2013-10-30T04:13:54.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114154",
+    "ThreadId": "464065",
+    "Html": "there is property: map.<strong>GrayScaleMode</strong><br />\n",
+    "PostedDate": "2013-10-30T07:14:49.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114187",
+    "ThreadId": "464065",
+    "Html": "OK, that works as we wants, less the night scale. We will do a fix based on this solution and let you know when it is working! \r<br />\nThen you can decide if it goes to the baseline.\r<br />\nThanks!\r<br />\nTomas<br />\n",
+    "PostedDate": "2013-10-30T08:14:11.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1123363",
+    "ThreadId": "464065",
+    "Html": "Hi RadioMan,\r<br />\n<br />\nNow we have done a solution that works for us. We added a new CustomScale matrix that can be switched On/Off in the same way as GrayScale and Inverse.\r<br />\nThe CustomScale is set via a new function SetCustomScale that takes a color matrix as input.\r<br />\n<br />\nPlease see below for changes.\r<br />\nPlease let us know what you think. It would be great if we could put this into the baseline.\r<br />\n<br />\nCheers,\r<br />\nTomas\r<br />\n<br />\n<br />\nIn ColorMatrixs.cs we added:\r<br />\n<br />\npublic static ColorMatrix CustomScale = new ColorMatrix(new float[][]<br />\n<pre><code>  {\n    new float[] {1, 0, 0, 0, 0},\n    new float[] {0, 1, 0, 0, 0},\n    new float[] {0, 0, 1, 0, 0},\n    new float[] {0, 0, 0, 1, 0},\n    new float[] {0, 0, 0, 0, 1}\n  });\n\n</code></pre>\n\nin GMapControl.cs we added (after NegativeMode):\r<br />\n<br />\nprivate bool _CustomScale = false; //Added custom mode<br />\n<pre><code>  [Category(&quot;GMap.NET&quot;)]\n  public bool CustomScaleMode \n  {\n      get\n      {\n          return _CustomScale;\n      }\n      set\n      {\n          _CustomScale = value;\n          ColorMatrix = (value == true ? ColorMatrixs.CustomScale : null);\n      }\n  }\n\n  public void setCustomScale(ColorMatrix m) //Added function to set color matrix for custom scale.\n  {\n      ColorMatrixs.CustomScale = m;\n  }</code></pre>\n\n",
+    "PostedDate": "2013-11-14T02:15:03.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

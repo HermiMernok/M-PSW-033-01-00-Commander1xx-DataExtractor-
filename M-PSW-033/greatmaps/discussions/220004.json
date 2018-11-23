@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "469410",
+    "ThreadId": "220004",
+    "Html": "<p>Hi radioman,</p>\r\n<p>using your WPF demo i've found that clearing the list of GMapMarker won't release the memory occupied by these markers.</p>\r\n<p>How can we release this memory?</p>",
+    "PostedDate": "2010-07-20T00:18:23.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469415",
+    "ThreadId": "220004",
+    "Html": "<p>don't release, reuse objects</p>",
+    "PostedDate": "2010-07-20T00:25:07.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469428",
+    "ThreadId": "220004",
+    "Html": "<p>I've tested the application and i saw this behavior:</p>\r\n<p>i add some markers and they use some memory, then i use the clear all button and i see that some memory is released but not all (i think it'is because of the reus you are talking)</p>\r\n<p>i add some markers again and they use memory again but the memory used by the application is more than before then with the clear button some meory i released .</p>\r\n<p>after doing this sometimes i saw that the memory used the application was every time higher.</p>\r\n<p>just to let you understand better at the start of the testing the application was using 37 MB after the testing it was using 200 MB without showing markers.</p>\r\n<p>so how can i release the memory or how can i do a efficient reuse of these objects?</p>",
+    "PostedDate": "2010-07-20T00:45:03.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469444",
+    "ThreadId": "220004",
+    "Html": "<p>just reuse them ;}</p>",
+    "PostedDate": "2010-07-20T01:08:15.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470117",
+    "ThreadId": "220004",
+    "Html": "<p>i've tried to create a reuse of the image used in the marker's xaml but it gives me some problems</p>\r\n<p>i'll post the code, this code is triggered by an event on a button, reads the number of markers the application has to show form a textbox and creates the markers</p>\r\n<p><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private void Click_marker(object sender, RoutedEventArgs e)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int Label_marker = int.Parse(Text_marker.Text, CultureInfo.InvariantCulture);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RectLatLng Area = MainMap.CurrentViewArea;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double AreaLeft = Area.Left;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double AreaBottom = Area.Bottom;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Random randlat = new Random();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PointLatLng point;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double lat = randlat.NextDouble();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double lng;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Image img = new Image();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img.Source = new BitmapImage(new Uri(&quot;C:/RouteEventSosta.png&quot;));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img.Name = &quot;icon&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img.VerticalAlignment = System.Windows.VerticalAlignment.Center;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int n = 0; n &lt; Label_marker; n++)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lat = randlat.NextDouble();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lat = lat * Area.HeightLat;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lat = lat + AreaBottom;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lng = randlat.NextDouble();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lng = lng * Area.WidthLng;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lng = lng + AreaLeft;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; point = new PointLatLng(lat, lng);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapMarker m = new GMapMarker(point);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UserControl elem = new EventSosta();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elem.Content = img;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.Shape = elem;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.Offset = new System.Windows.Point(0, 0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.ZIndex = int.MaxValue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Markers.Add(m);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>the&nbsp;exception is on&nbsp;&nbsp;elem.Content = img&nbsp; and it says that the element i'm working on has already a logical parent</p>\r\n<p>what do you think about this code?&nbsp;&nbsp; any idea to resolve the problem?</p>\r\n<div id=\"_mcePaste\" style=\"width:1px;height:1px;overflow:hidden;top:0px;left:-10000px\">﻿</div>",
+    "PostedDate": "2010-07-21T01:33:05.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470190",
+    "ThreadId": "220004",
+    "Html": "<p>..well to load the same image for each marker doesn't saves memory, try keep things simple, define image in user control and use it as the shape</p>",
+    "PostedDate": "2010-07-21T02:58:00.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470210",
+    "ThreadId": "220004",
+    "Html": "<p>actually creating 10000 markers i saw that putting the definition of image in the usercontrol and using it as the shape, the 10000 markers use 120-130 MB, without the image they use 90-95 MB so i use the 25% of the memory less, so using only an image for all the usercontrol and not an image for each usercontrol saves memory.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-21T03:29:10.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470220",
+    "ThreadId": "220004",
+    "Html": "Hi to all,\r\n\r\nI've a similar problem: I place about 5000/6000 custom marker, and when I clear them the memory is not released (with a little image, 19x18 pxl, the memory allocated is about 70Mb). Radioman, what do you mean when you say &quot;reuse&quot;? Something about to create some GMapMarker, to mantain the reference to them in a vector and to flag them if are not yet used? And if I need a GMapMarker I've to search for the non-flagged GMapMarker?\r\n\r\nIf I need to deallocate that memory (in my system 70Mb is a large amount), is a way to do it?\r\n\r\nI've created a simple user control with an image in it, and then I assign a new istance of user control in a new istance of GMapMarker. Where is the largest memory amount? In the image, user control or GMapMarker?\r\n\r\nThanks for your work!\r\n\r\nCosimo.",
+    "PostedDate": "2010-07-21T03:46:15.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470514",
+    "ThreadId": "220004",
+    "Html": "<p>..well in wpf, you can't actually 'release' memory, so you create as minimum as possible of visuals and keep reusing them.</p>",
+    "PostedDate": "2010-07-21T11:05:02.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

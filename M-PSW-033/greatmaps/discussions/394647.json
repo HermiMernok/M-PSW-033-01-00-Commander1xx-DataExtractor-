@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "909174",
+    "ThreadId": "394647",
+    "Html": "\r\n<p>when i use&nbsp;GMapMarkerCross the following method is not executed....</p>\r\n<p></p>\r\n<pre>OnMarkerClick(GMapMarker item, MouseEventArgs e)</pre>\r\n<p></p>\r\n<p>am i missing something...?</p>\r\n<p>using&nbsp;GMapMarkerGoogleRed it works fine.</p>\r\n<p>&nbsp;</p>\r\n<p>thanks in advance</p>\r\n",
+    "PostedDate": "2012-09-06T07:39:21.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909215",
+    "ThreadId": "394647",
+    "Html": "<p>set marker.<strong>IsHitTestVisible</strong> = true;</p>",
+    "PostedDate": "2012-09-06T08:43:19.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909485",
+    "ThreadId": "394647",
+    "Html": "<p>this didn't work... anything else?</p>",
+    "PostedDate": "2012-09-07T00:39:03.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909542",
+    "ThreadId": "394647",
+    "Html": "<p>maybe it's old version, i don't remember</p>",
+    "PostedDate": "2012-09-07T03:46:36.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909556",
+    "ThreadId": "394647",
+    "Html": "<p>old version? of GMap.net or you mean something else?</p>",
+    "PostedDate": "2012-09-07T04:05:21.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909560",
+    "ThreadId": "394647",
+    "Html": "<p>there is no&nbsp;GMapMarkerCross in current version</p>",
+    "PostedDate": "2012-09-07T04:22:10.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909572",
+    "ThreadId": "394647",
+    "Html": "<p>so this means i shouldn't use&nbsp;<span>GMapMarkerCross &nbsp;in this version?</span></p>",
+    "PostedDate": "2012-09-07T04:44:27.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909583",
+    "ThreadId": "394647",
+    "Html": "<p>probably</p>",
+    "PostedDate": "2012-09-07T05:18:48.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909588",
+    "ThreadId": "394647",
+    "Html": "<p>is it possible to create custom marker which is able to accept HitTest?</p>\r\n<p>where can i find the docs for that (a link would be nice).</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-09-07T05:35:46.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "CoordinateSystemWktReader fails in Silverlight when trying to parse WKT to a coordinate system.  It seems to be related to the fact that in Silverlight, you must using Unicode encoding, which is 2 bytes per character instead of 1.\n \nThe following code throws an exception:\n \nstring charlotteCSWKT = \"PROJCS[\\\"NAD83 / North Carolina (ftUS)\\\",GEOGCS[\\\"NAD83\\\",DATUM[\\\"North_American_Datum_1983\\\",SPHEROID[\\\"GRS 1980\\\",6378137,298.257222101,AUTHORITY[\\\"EPSG\\\",\\\"7019\\\"]],AUTHORITY[\\\"EPSG\\\",\\\"6269\\\"]],PRIMEM[\\\"Greenwich\\\",0,AUTHORITY[\\\"EPSG\\\",\\\"8901\\\"]],UNIT[\\\"degree\\\",0.01745329251994328,AUTHORITY[\\\"EPSG\\\",\\\"9122\\\"]],AUTHORITY[\\\"EPSG\\\",\\\"4269\\\"]],PROJECTION[\\\"Lambert_Conformal_Conic_2SP\\\"],PARAMETER[\\\"standard_parallel_1\\\",36.16666666666666],PARAMETER[\\\"standard_parallel_2\\\",34.33333333333334],PARAMETER[\\\"latitude_of_origin\\\",33.75],PARAMETER[\\\"central_meridian\\\",-79],PARAMETER[\\\"false_easting\\\",2000000],PARAMETER[\\\"false_northing\\\",0],UNIT[\\\"US survey foot\\\",0.3048006096012192,AUTHORITY[\\\"EPSG\\\",\\\"9003\\\"]],AUTHORITY[\\\"EPSG\\\",\\\"2264\\\"]]\";\nICoordinateSystem charlotteCS = (ICoordinateSystem)CoordinateSystemWktReader.Parse(charlotteCSWKT);\n \nThe following update to StreamTokenizer seems to fix the problem.  Replace\n \nascii = AE.GetChars(ba);\n \nWith:\nif (AE.GetByteCount(\"a\") == 2)\n{\n    // handle unicode appropriately\n    ascii = AE.GetChars(new byte[2] { ba[0], 0 });\n}\nelse\n{\n    ascii = AE.GetChars(ba);\n}",
+    "LastUpdatedDate": "2013-02-21T16:06:07.947-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2009-10-19T16:42:40.64-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CoordinateSystemWktReader fails in Silverlight",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 14482
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

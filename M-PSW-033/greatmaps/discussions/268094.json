@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "654021",
+    "ThreadId": "268094",
+    "Html": "\r\n<p>hi!</p>\r\n<p>(I'm using the example to continue my project.)</p>\r\n<p>I'm creating a tracking system and I have a class to create and control each user. I'm sending the GMapOverlay as reference to the constructor of the class, but when I try to add a marker in class it throws an exception.</p>\r\n<p>Can anyone help me please!&nbsp;</p>\r\n<p>tks ;)</p>\r\n",
+    "PostedDate": "2011-08-07T05:47:04.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "654028",
+    "ThreadId": "268094",
+    "Html": "<p>lets use telepathy and find out ;} ..damn can't see any exceptions, try to help yourself by pasting some useful info</p>",
+    "PostedDate": "2011-08-07T06:18:03.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "654037",
+    "ThreadId": "268094",
+    "Html": "<p>lol sorry... :P</p>\r\n<p>********In main form I have********</p>\r\n<p>&nbsp;</p>\r\n<p>GMapOverlay objects;</p>\r\n<p>....</p>\r\n<p>TerminalClient user = new TerminalClient(TcpListener.AcceptTcpClient(), objects);</p>\r\n<p>**************In the class I have*****************</p>\r\n<p>&nbsp; &nbsp; class TerminalClient&nbsp; &nbsp; { &nbsp; &nbsp; &nbsp;&nbsp;</p>\r\n<p>&nbsp; &nbsp; public static Hashtable AllClients = new Hashtable();</p>\r\n<p>&nbsp; &nbsp; private TcpClient _client;</p>\r\n<p>&nbsp; &nbsp; private string _clientIP;</p>\r\n<p>&nbsp; &nbsp; private string _clientID;</p>\r\n<p>&nbsp; &nbsp; GMapMarker _marker;</p>\r\n<p>&nbsp; &nbsp; GMapOverlay _mapObjects;<br />&nbsp; &nbsp; private string partialStr;<br />&nbsp; &nbsp; private byte[] data;<br />&nbsp; &nbsp; public TerminalClient(TcpClient client, GMapOverlay mapObjects)&nbsp; &nbsp; &nbsp; &nbsp; {&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;_mapObjects = mapObjects;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _client = client;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;_clientIP = client.Client.RemoteEndPoint.ToString();<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AllClients.Add(_clientIP, this);<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;data = new byte[_client.ReceiveBufferSize];&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; client.GetStream().BeginRead(data, 0,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.Convert.ToInt32(_client.ReceiveBufferSize), ReceiveMessage, null); &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>}</p>\r\n<p>and the this method in TerminalClass:</p>\r\n<p>&nbsp;public void ReceiveMessage(IAsyncResult ar)&nbsp; &nbsp; &nbsp; &nbsp; {</p>\r\n<p>.....</p>\r\n<p>_marker = new GMapMarkerGoogleGreen(new PointLatLng(37.12869663086, -8.7073064722));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>_mapObjects.Markers.Add(_marker);</p>\r\n<p>this is where it throws the&nbsp;exception.</p>",
+    "PostedDate": "2011-08-07T06:31:16.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "654039",
+    "ThreadId": "268094",
+    "Html": "<p>nice progress ;] now what's the exception?</p>",
+    "PostedDate": "2011-08-07T06:39:07.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "654041",
+    "ThreadId": "268094",
+    "Html": "<p>A first chance exception of type 'System.InvalidOperationException' occurred in System.Windows.Forms.dllStep into: Stepping over non-user code 'System.Exception.ToString'System.InvalidOperationException: A opera&ccedil;&atilde;o entre threads n&atilde;o &eacute; v&aacute;lida: controlo 'textBoxMarkersCounter' acedido a partir de um thread diferente do thread onde foi criado.&nbsp; &nbsp;em System.Windows.Forms.Control.get_Handle()&nbsp; &nbsp;em System.Windows.Forms.Control.set_WindowText(String value)&nbsp; &nbsp;em System.Windows.Forms.TextBoxBase.set_WindowText(String value)&nbsp; &nbsp;em System.Windows.Forms.Control.set_Text(String value)&nbsp; &nbsp;em System.Windows.Forms.TextBoxBase.set_Text(String value)&nbsp; &nbsp;em System.Windows.Forms.TextBox.set_Text(String value)&nbsp; &nbsp;em IST.Tracking.MainForm.Markers_CollectionChanged(Object sender, NotifyCollectionChangedEventArgs e) em C:\\Users\\Nelson\\Documents\\Visual Studio 2008\\Projects\\IST.Tracking\\IST.Tracking\\Forms\\MainForm.cs:line 447&nbsp; &nbsp;em GMap.NET.ObjectModel.NotifyCollectionChangedEventHandler.Invoke(Object sender, NotifyCollectionChangedEventArgs e)&nbsp; &nbsp;em GMap.NET.ObjectModel.ObservableCollectionThreadSafe`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e) em C:\\Users\\Nelson\\Documents\\Visual Studio 2008\\Projects\\IST.Tracking\\GMap.NET.WindowsForms\\GMap.NET.ObjectModel\\ObservableCollectionThreadSafe.cs:line 43&nbsp; &nbsp;em GMap.NET.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedAction action, Object item, Int32 index) em C:\\Users\\Nelson\\Documents\\Visual Studio 2008\\Projects\\IST.Tracking\\GMap.NET.WindowsForms\\GMap.NET.ObjectModel\\ObservableCollection.cs:line 463&nbsp; &nbsp;em GMap.NET.ObjectModel.ObservableCollection`1.InsertItem(Int32 index, T item) em C:\\Users\\Nelson\\Documents\\Visual Studio 2008\\Projects\\IST.Tracking\\GMap.NET.WindowsForms\\GMap.NET.ObjectModel\\ObservableCollection.cs:line 432&nbsp; &nbsp;em System.Collections.ObjectModel.Collection`1.Add(T item)&nbsp; &nbsp;em IST.Tracking.TerminalClient.ReceiveMessage(IAsyncResult ar) em C:\\Users\\Nelson\\Documents\\Visual Studio 2008\\Projects\\IST.Tracking\\IST.Tracking\\Source\\TerminalClient.cs:line 110Step into: Stepping over non-user code 'System.Exception.ToString'</p>\r\n<p>&nbsp;</p>\r\n<p>Is it because the class is created in a&nbsp;separated thread? what should I do?&nbsp;</p>",
+    "PostedDate": "2011-08-07T06:46:30.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "654080",
+    "ThreadId": "268094",
+    "Html": "<p>do not update markers in non-user thread, use backgroundWarker or invoke</p>",
+    "PostedDate": "2011-08-07T08:30:12.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

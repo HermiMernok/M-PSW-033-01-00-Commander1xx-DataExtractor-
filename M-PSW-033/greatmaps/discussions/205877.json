@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "420876",
+    "ThreadId": "205877",
+    "Html": "<p>Just been playing with GMap... looks pretty cool.</p>\r\n<p>There seems to be one huge oversight though....there are no DependencyProperties on the GMapControl.</p>\r\n<p>I would expect properties like Zoom, MinZoom, MaxZoom and <strong>especially CurrentPosition</strong> to be defined as DPs so that we can animate them and set them in Blend.</p>\r\n<p>Without them its much harder to do a nice pan/zoom animation... which should be very easy.</p>",
+    "PostedDate": "2010-03-20T21:28:10.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "420949",
+    "ThreadId": "205877",
+    "Html": "<p>i know, originally its windows forms adapted for wpf, but i started new wpf version, you can find it in solution subfolder testing. The hard part is that wpf has no multiscaleimage support ;/ And easiness comes from a lot of job ;}</p>",
+    "PostedDate": "2010-03-21T08:04:18.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "460996",
+    "ThreadId": "205877",
+    "Html": "<p><strong>Zoom</strong> and <strong>MapType</strong> now are&nbsp;DependencyProperties, and you can use function <strong>Offset</strong>(int x, int y)&nbsp;to pan map programmicaly</p>",
+    "PostedDate": "2010-06-28T23:58:48.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

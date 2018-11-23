@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1075640",
+    "ThreadId": "452121",
+    "Html": "Hey,<br />\n<br />\nI am trying to call SetZoomToFitRect() with the top left corner Lat/Lng in degrees and calculated width and height, but the resulting map zoom is very different from what it visually should be. CurrentViewArea also returns significantly different area coordinates (which perhaps look more true to what GMap displays), than the ones I'm passing to SetZoomToFitRect().<br />\n<br />\nHow do I tell GMap.NET to show exactly region I need, so it would be zoomed and centered just right?<br />\n<br />\nAlso, how do I disable GMap to zoom in/out with a mouse wheel? I have my own zoom functionality implemented already, so need to skip this.<br />\n<br />\nThanks a lot!<br />\nDmitry<br />\n",
+    "PostedDate": "2013-08-01T09:26:52.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075855",
+    "ThreadId": "452121",
+    "Html": "map.SelectedArea = ...<br />\n",
+    "PostedDate": "2013-08-01T23:26:43.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075985",
+    "ThreadId": "452121",
+    "Html": "Thanks, radioman. Used that and here is what I have:<br />\n<br />\nMy software changes the scale, I take the TopLeft (42.4408439372803, -71.0172247313498) and BottomRight(42.4280659657428, -70.9800735791377) and assign that to the map.SelectedArea. Invalidate, just in case. And right after that get the map.CurrentViewArea. It equals: <br />\nTop\t42.437108773045196<br />\nLeft\t-71.00639820098877<br />\nBottom\t42.4317875980103<br />\nRight\t-70.990927219390869<br />\n<br />\nThe scale on the screen is visually very different from what I set to map.SelectedArea - I should see a mile or two of the earth, and I see a large part of the country and the ocean. What might be the reason? I need to sync the zoom/scale right, and I don't seem to understand how. Please help.<br />\n<br />\nThank you!<br />\n",
+    "PostedDate": "2013-08-02T06:19:53.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1076008",
+    "ThreadId": "452121",
+    "Html": "with SelectedArea you get blue line area, and thats it<br />\n",
+    "PostedDate": "2013-08-02T07:12:07.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1076011",
+    "ThreadId": "452121",
+    "Html": "I am sorry - I don't need a blue line, I really need to know how to kindly ask GMap to display the rectangular map area with TopLeft (42.4408439372803, -71.0172247313498) and BottomRight(42.4280659657428, -70.9800735791377) - the way so this rectangle fits the window, not gets lost in countless fields, states and countries, I see much, much more of the map, than what I ask GMap to show me. Is there a way to show an exact rectangle, so it fits the window, please? Please?\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2013-08-02T07:19:02.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1076014",
+    "ThreadId": "452121",
+    "Html": "SetZoomToFitRect sets the nearest level of zoom to contain your area, you can't get 'exact fit'<br />\n",
+    "PostedDate": "2013-08-02T07:23:00.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

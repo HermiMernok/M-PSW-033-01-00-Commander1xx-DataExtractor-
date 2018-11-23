@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1131460",
+    "ThreadId": "471835",
+    "Html": "Hi, radioman\r<br />\nI have imported osm file to postgresql database, can i use it and load the data from gmap.net?\r<br />\nI have been tried to set PostgreSQLPureImageCache object to mapcontrol.manager.secondarycache and than run my app, but it has not been worked to display map. Could you give me some code how to do that, please?\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-12-03T15:43:57.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131622",
+    "ThreadId": "471835",
+    "Html": "cache provider is just for tiles, if you want load data, you have to manually do selects and add stuff to map<br />\n",
+    "PostedDate": "2013-12-04T02:49:06.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

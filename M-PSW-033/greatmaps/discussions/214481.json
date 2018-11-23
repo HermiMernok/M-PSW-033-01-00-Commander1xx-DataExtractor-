@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "449675",
+    "ThreadId": "214481",
+    "Html": "<p><span style=\"color:#30332d;font-size:9.5pt\" lang=EN-US>Hi Radioman</span></p>\r\n<p><span style=\"color:#30332d;font-size:9.5pt\" lang=EN-US>I need something like the &bdquo;Get Static&ldquo; functionality in your Forms example. But I don&rsquo;t have a Map-Control on an Form, because I want to use the image in a &quot;Paper-Report&quot; as an image. I just have the coordinates and the zoom level. What can I use instead of &quot;</span><span style=\"font-size:9.5pt\" lang=EN-US>area = Main.MainMap.GetRectOfAllRoutes(<span style=\"color:blue\">null</span>);&quot; or &quot;area = Main.MainMap.SelectedArea;&quot; to get the area? Do you have any suggestions?</span></p>\r\n<p><span style=\"font-size:9.5pt\" lang=EN-US>&nbsp;</span><span style=\"font-size:9.5pt\" lang=EN-US>Thanks in advance</span></p>\r\n<p><span style=\"font-size:9.5pt\" lang=EN-US>&nbsp;</span><span style=\"font-size:9.5pt\" lang=EN-US>Andreas</span></p>",
+    "PostedDate": "2010-05-31T10:50:41.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449680",
+    "ThreadId": "214481",
+    "Html": "<p>GMaps.Instance.<strong>GetLatLngFromGeocoder</strong></p>",
+    "PostedDate": "2010-05-31T11:04:33.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449689",
+    "ThreadId": "214481",
+    "Html": "<p>Hi Radioman</p>\r\n<p>Thanks for your quick response.</p>\r\n<p>But I&rsquo;ve some problems interpreting it. I&rsquo;ve coordinates and a zoom level but no possibility to place the Map-Control because I&rsquo;dont have a form. I need a image-file with the picture the Map-Control would display. <br>GetLatLngFromGeocoder gives me a PointLatLng back but i need RectLatLng for the given coordinates and a zoom level. Is there a Method for that?</p>\r\n<p>Thanks</p>\r\n<p>Andreas</p>",
+    "PostedDate": "2010-05-31T11:42:38.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449692",
+    "ThreadId": "214481",
+    "Html": "<p>set width and height ;]</p>",
+    "PostedDate": "2010-05-31T11:50:34.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

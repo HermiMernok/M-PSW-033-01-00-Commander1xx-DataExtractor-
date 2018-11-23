@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "659754",
+    "ThreadId": "269506",
+    "Html": "\r\n<p><span id=\"result_box\" lang=\"en\"><span>Sometimes</span> <span>exported</span>\r\n<span>successfully</span><span>, sometimes (</span><span>often)</span> <span>the file is created</span>\r\n<span>(</span><span>128K</span><span>), but</span> <span>no</span> <span>content</span><span>.</span>\r\n<span>Next</span> <span>quote</span> <span>trace</span></span></p>\r\n<p>&nbsp;</p>\r\n<p>Bad:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>Response: http://c.tah.openstreetmap.org/Tiles/tile/17/87892/41357.png\r\nEnqueueCacheTask: 1414515047 at zoom 17, pos: {X=87892,Y=41357}, CacheType:Both\r\nResponse: http://a.tah.openstreetmap.org/Tiles/tile/17/87892/41356.png\r\nEnqueueCacheTask: 1414515047 at zoom 17, pos: {X=87892,Y=41356}, CacheType:Both\r\nResponse: http://c.tah.openstreetmap.org/Tiles/tile/17/87891/41356.png\r\nEnqueueCacheTask: 1414515047 at zoom 17, pos: {X=87891,Y=41356}, CacheType:Both\r\nResponse: http://b.tah.openstreetmap.org/Tiles/tile/17/87891/41357.png\r\nEnqueueCacheTask: 1414515047 at zoom 17, pos: {X=87891,Y=41357}, CacheType:Both\r\nCacheEngine: storing tile 1414515047 at zoom 2, pos: {X=2,Y=1}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 3, pos: {X=5,Y=2}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 4, pos: {X=10,Y=5}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 5, pos: {X=21,Y=10}, CacheType:Both...\r\n<strong>FreePageSpace in cache: 255,71875MB | 8183 pages</strong>\r\nCacheEngine: storing tile 1414515047 at zoom 6, pos: {X=42,Y=20}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 7, pos: {X=85,Y=40}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 8, pos: {X=171,Y=80}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 9, pos: {X=343,Y=161}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 10, pos: {X=686,Y=323}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 11, pos: {X=1373,Y=646}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 12, pos: {X=2746,Y=1292}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 13, pos: {X=5493,Y=2584}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 14, pos: {X=10986,Y=5169}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 15, pos: {X=21972,Y=10339}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 15, pos: {X=21973,Y=10339}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 16, pos: {X=43946,Y=20678}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 16, pos: {X=43945,Y=20678}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87892,Y=41357}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87892,Y=41356}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87891,Y=41356}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87891,Y=41357}, CacheType:Both...\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Good:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>Response: http://b.tah.openstreetmap.org/Tiles/tile/17/87892/41355.png\r\nEnqueueCacheTask: 1414515047 at zoom 17, pos: {X=87892,Y=41355}, CacheType:Both\r\nResponse: http://c.tah.openstreetmap.org/Tiles/tile/17/87892/41354.png\r\nEnqueueCacheTask: 1414515047 at zoom 17, pos: {X=87892,Y=41354}, CacheType:Both\r\nResponse: http://a.tah.openstreetmap.org/Tiles/tile/17/87891/41355.png\r\nEnqueueCacheTask: 1414515047 at zoom 17, pos: {X=87891,Y=41355}, CacheType:Both\r\nCacheEngine: storing tile 1414515047 at zoom 2, pos: {X=2,Y=1}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 3, pos: {X=5,Y=2}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 4, pos: {X=10,Y=5}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 5, pos: {X=21,Y=10}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 6, pos: {X=42,Y=20}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 7, pos: {X=85,Y=40}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 8, pos: {X=171,Y=80}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 9, pos: {X=343,Y=161}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 10, pos: {X=686,Y=323}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 11, pos: {X=1373,Y=646}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 12, pos: {X=2746,Y=1292}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 13, pos: {X=5493,Y=2584}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 14, pos: {X=10986,Y=5169}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 15, pos: {X=21973,Y=10338}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 15, pos: {X=21972,Y=10338}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 16, pos: {X=43945,Y=20677}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 16, pos: {X=43946,Y=20677}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87891,Y=41354}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87892,Y=41355}, CacheType:Both...\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87892,Y=41354}, CacheType:Both...\r\n<strong>FreePageSpace in cache: 254,96875MB | 8159 pages</strong>\r\nCacheEngine: storing tile 1414515047 at zoom 17, pos: {X=87891,Y=41355}, CacheType:Both...\r\nCacheEngine: stop<br><br><span id=\"result_box\" lang=\"en\"><span>There is a</span> <span>relationship</span> <span>with</span> <span>&quot;FreePageSpace in cache ...&quot;</span></span><br><br></pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-08-17T20:56:36.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659812",
+    "ThreadId": "269506",
+    "Html": "<p>what do you mean 'bad'?</p>",
+    "PostedDate": "2011-08-17T23:49:07.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659817",
+    "ThreadId": "269506",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">I apologize</span> <span class=\"hps\">if I did not</span> <span class=\"hps\">put it</span> <span class=\"hps\">correctly</span><span>.</span> <span class=\"hps\">I mean</span><span>, the export of</span> <span class=\"hps\">works</span> <span class=\"hps\">often</span> <span class=\"hps\">incorrect,</span> <span class=\"hps\">but</span> <span class=\"hps\">sometimes works</span><span>.</span></span></p>",
+    "PostedDate": "2011-08-18T00:01:45.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659820",
+    "ThreadId": "269506",
+    "Html": "<p>cache export or just caching?</p>",
+    "PostedDate": "2011-08-18T00:08:45.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659821",
+    "ThreadId": "269506",
+    "Html": "<p>Cache export, I used this:</p>\r\n<p>GMaps.Instance.ExportToGMDB(path)</p>",
+    "PostedDate": "2011-08-18T00:11:32.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "660869",
+    "ThreadId": "269506",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">The problem is,</span> <span class=\"hps\">it</span> <span class=\"hps\">can be solved</span><span>?</span></span></p>",
+    "PostedDate": "2011-08-19T19:28:42.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668365",
+    "ThreadId": "269506",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">The question</span> <span class=\"hps\">is relevant</span><span>!</span></span></p>",
+    "PostedDate": "2011-09-06T18:48:32.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668431",
+    "ThreadId": "269506",
+    "Html": "<p>no need to complain if you can't fix it</p>",
+    "PostedDate": "2011-09-06T23:38:51.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668536",
+    "ThreadId": "269506",
+    "Html": "<p>I'm not complaining, I point out an error if it is not a bug, please provide it.</p>",
+    "PostedDate": "2011-09-07T04:18:23.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668569",
+    "ThreadId": "269506",
+    "Html": "<p>one time report is enough ;} repeating doesn't help much, and i don't have much time, any help is welcome</p>",
+    "PostedDate": "2011-09-07T05:27:41.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668582",
+    "ThreadId": "269506",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Thanks for your reply</span><span>,</span> <span class=\"hps\">I understood.</span> <span class=\"hps\">I'm afraid</span> <span class=\"hps\">if I try to</span> <span class=\"hps\">find the cause of</span> <span class=\"hps\">this problem</span><span>, I have</span> <span class=\"hps\">long</span> <span class=\"hps\">studied</span> <span class=\"hps\">the code if</span> <span class=\"hps\">it</span> <span class=\"hps\">will have to</span> <span class=\"hps\">do</span> <span class=\"hps\">and</span> <span class=\"hps\">I will decide</span> <span class=\"hps\">the issue</span><span>, I will</span> <span class=\"hps\">point out</span> <span class=\"hps\">that here.</span></span></p>",
+    "PostedDate": "2011-09-07T06:08:00.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

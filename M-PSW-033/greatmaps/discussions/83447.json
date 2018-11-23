@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "286927",
+    "ThreadId": "83447",
+    "Html": "<p>You can include this class in your own assembly:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">namespace</span> GMap.NET.WindowsForms.Markers\r\n{\r\n   <span style=\"color:Blue\">using</span> System.Drawing;\r\n   <span style=\"color:Blue\">using</span> System.Collections.Generic;\r\n\r\n   <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span> GMapMarkerPolygon : GMapMarker\r\n   {\r\n      <span style=\"color:Blue\">public</span> Pen Pen;\r\n\r\n      <span style=\"color:Blue\">public</span> List&lt;PointLatLng&gt; GeoPoints;\r\n      <span style=\"color:Blue\">private</span> List&lt;Point&gt; _localPoints;\r\n\r\n      <span style=\"color:Blue\">public</span> GMapMarkerPolygon(PointLatLng p,List&lt;PointLatLng&gt; points)\r\n          : <span style=\"color:Blue\">base</span>(p)\r\n      {\r\n         Pen = <span style=\"color:Blue\">new</span> Pen(Brushes.Blue, 3);\r\n         \r\n          GeoPoints = points;\r\n          \r\n      }\r\n\r\n      <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnRender(Graphics g)\r\n      {\r\n          _localPoints = <span style=\"color:Blue\">new</span> List&lt;Point&gt;();\r\n          <span style=\"color:Blue\">foreach</span> (<span style=\"color:Blue\">var</span> item <span style=\"color:Blue\">in</span> GeoPoints)\r\n          {\r\n              Position = item;\r\n              _localPoints.Add(LocalPosition);\r\n          }\r\n\r\n          g.DrawPolygon(Pen, _localPoints.ToArray());\r\n      }\r\n   }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-07T18:21:58.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "287007",
+    "ThreadId": "83447",
+    "Html": "<p>great! thanks for sharing ;}</p>",
+    "PostedDate": "2010-02-08T00:10:55.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

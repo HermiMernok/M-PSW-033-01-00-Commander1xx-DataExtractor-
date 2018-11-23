@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1453834",
+    "ThreadId": "648074",
+    "Html": "IsMouseOverMarker property detects clicking on marker just fine, but when trying to use IsMouseOverPolygon property of GMap Control to detect if user clicked on polygon line - it doesn't seem to be working.\r<br />\n<br />\nNote: PolygonEnabled property of GMap control is set to True.\r<br />\n<br />\nThe OnPolygonClick event doesn't even fire:<br />\n<pre><code>private void gMap_OnPolygonClick(GMapPolygon item, MouseEventArgs e) {\n        double pLat = item.From.Value.Lat;\n}</code></pre>\n\nMap Click event does fire, but the 'IsMouseOverPolygon` never gets True value:<br />\n<pre><code>private void gMap_Click(object sender, EventArgs e) {\n   if (gMap.IsMouseOverMarker) {\n       MessageBox.Show(&quot;Clicked on marker and it works!&quot;);\n   }\n\n   if (gMap.IsMouseOverPolygon) {\n       MessageBox.Show(&quot;clicked on line - never works&quot;);\n   } \n}</code></pre>\n\nI wonder if there is something wrong in a way I'm adding polygons or is it because in my case it's just lines:<br />\n<pre><code>GMapOverlay polyOverlay  = new GMapOverlay(&quot;polygons&quot;);\ngMap.Overlays.Add(polyOverlay);\nList&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();\npoints.Add(start);\npoints.Add(end);\npolygon = new GMapPolygon(points, &quot;mypolygon&quot;);\npolygon.Stroke = new Pen(Color.Blue, 5);\npolyOverlay.Polygons.Add(polygon);</code></pre>\n\nSo, the question is: how should I go about detecting mouse click on those lines?<br />\n",
+    "PostedDate": "2015-11-26T07:36:15.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1454019",
+    "ThreadId": "648074",
+    "Html": "-<br />\n",
+    "PostedDate": "2015-11-30T07:13:44.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1454127",
+    "ThreadId": "648074",
+    "Html": "Any insight anyone? Is it a bug?<br />\n",
+    "PostedDate": "2015-12-01T06:18:20.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1454160",
+    "ThreadId": "648074",
+    "Html": "by default polygon.<strong>IsHitTestVisible</strong> = false;<br />\n",
+    "PostedDate": "2015-12-01T12:12:56.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-12-01T12:13:00.603-08:00"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1320704",
+    "ThreadId": "571729",
+    "Html": "Hello\r<br />\n<br />\nI'm making a polygon editor on the map\r<br />\nIn edit mode I want to allow to move some point using the Mousemove event and left mouse button\r<br />\nBut for that I need to disable the normal draging mode using the same event and button\r<br />\n<br />\nIt is done automaticaly when the Point is a GmapMarker\r<br />\nHow can I programatically disable draging in some condition without using a GmapMarker ?\r<br />\n<br />\nThanks for any help<br />\n",
+    "PostedDate": "2014-11-10T14:23:16.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1322632",
+    "ThreadId": "571729",
+    "Html": "Hello\r<br />\n<br />\nI solve it by setting the Dragbutton property to none while I need to handle my own move<br />\n",
+    "PostedDate": "2014-11-15T15:16:38.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "Id": "805511",
+    "ThreadId": "347343",
+    "Html": "<p>This function is still not working, am i right?</p>",
+    "PostedDate": "2012-03-05T05:58:54.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805519",
+    "ThreadId": "347343",
+    "Html": "<p>it works in last release</p>",
+    "PostedDate": "2012-03-05T06:09:17.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805820",
+    "ThreadId": "347343",
+    "Html": "<p>i don't think so. I tried to do rotate with google marker and it's not work. Lines about bearing in class GMarkerGoogle.cs are also commented.</p>",
+    "PostedDate": "2012-03-05T14:04:29.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806266",
+    "ThreadId": "347343",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">I would really</span> <span class=\"hps\">like to use rotation, so please for reply radioman</span></span></p>",
+    "PostedDate": "2012-03-06T08:14:04.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806273",
+    "ThreadId": "347343",
+    "Html": "<p>use latest release</p>",
+    "PostedDate": "2012-03-06T08:25:34.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806321",
+    "ThreadId": "347343",
+    "Html": "<p><span id=\"TitleLabel\" class=\"CodePlexPageHeader\">Hot Build </span>(0750e7861198) ??</p>",
+    "PostedDate": "2012-03-06T09:41:03.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806340",
+    "ThreadId": "347343",
+    "Html": "<p>http://greatmaps.codeplex.com/releases/view/20235</p>",
+    "PostedDate": "2012-03-06T10:06:43.21-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806664",
+    "ThreadId": "347343",
+    "Html": "<p>the rotation has been work but this bearing for all of marker. how to make only 1 marker rotate??</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-03-06T22:23:11.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807426",
+    "ThreadId": "347343",
+    "Html": "<p>tnx radioman,</p>\r\n<p>i see that rotation works using Point and FillPolygon, but is possible to rotate custom marker (image)?</p>",
+    "PostedDate": "2012-03-08T06:01:23.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807819",
+    "ThreadId": "347343",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>nemonemo wrote:</strong><br />\r\n<p>tnx radioman,</p>\r\n<p>i see that rotation works using Point and FillPolygon, but is possible to rotate custom marker (image)?</p>\r\n</blockquote>\r\n<p>its possible with custom marker. I have try it.</p>",
+    "PostedDate": "2012-03-08T16:47:10.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808042",
+    "ThreadId": "347343",
+    "Html": "<p>hi xaberius</p>\r\n<p>i try to rotate my marker, but it's not work correctly...</p>\r\n<p>my class of marker:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GMapMarkerImage : GMapMarker\r\n    {\r\n        <span style=\"color: blue;\">public</span> System.Drawing.Image image;\r\n        <span style=\"color: blue;\">float</span> bearing;\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">float</span> Bearing\r\n        {\r\n            <span style=\"color: blue;\">set</span> { bearing = value; }\r\n            <span style=\"color: blue;\">get</span> { <span style=\"color: blue;\">return</span> bearing; }\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> GMapMarkerImage(PointLatLng p)\r\n            : <span style=\"color: blue;\">base</span>(p)\r\n        {\r\n            image = System.Windows.Forms.Properties.Resources.truck;\r\n            Size = <span style=\"color: blue;\">new</span> System.Drawing.Size(image.Width, image.Height);\r\n            Offset = <span style=\"color: blue;\">new</span> Point(-image.Width / 2, -image.Height / 2);\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(Graphics g)\r\n        {\r\n            g.RotateTransform(<span style=\"color: blue;\">this</span>.Bearing - Overlay.Control.Bearing);\r\n            g.DrawImage(image, LocalPosition.X , LocalPosition.Y, Size.Width, Size.Height);\r\n            g.ResetTransform();\r\n        }\r\n}\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>Can you tell me, what i done wrong ??</p>",
+    "PostedDate": "2012-03-09T04:37:41.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808051",
+    "ThreadId": "347343",
+    "Html": "<p>check the source of demos...</p>",
+    "PostedDate": "2012-03-09T05:05:56.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808222",
+    "ThreadId": "347343",
+    "Html": "<p>In source i noticed only rotation of polygons and not rotation of image :/</p>",
+    "PostedDate": "2012-03-09T11:07:06.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808233",
+    "ThreadId": "347343",
+    "Html": "<p>man, there is no difference...</p>",
+    "PostedDate": "2012-03-09T11:34:17.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808266",
+    "ThreadId": "347343",
+    "Html": "<p>so if is no difference, why is not works if i replace only that line <strong>g.FillPolygon(Brushes.Lime, Arrow);</strong></p>\r\n<p>with this <strong>g.DrawImage(Resources.truck, LocalPosition.X, LocalPosition.Y);</strong></p>",
+    "PostedDate": "2012-03-09T13:09:52.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808427",
+    "ThreadId": "347343",
+    "Html": "<p>video of detail the problem, after custom marker set to bearing=90...</p>\r\n<p><a href=\"http://vimeo.com/38264748\">video</a></p>",
+    "PostedDate": "2012-03-10T02:00:01.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808437",
+    "ThreadId": "347343",
+    "Html": "<p>what exactly version do you use and your code?</p>",
+    "PostedDate": "2012-03-10T03:15:45.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808439",
+    "ThreadId": "347343",
+    "Html": "<p>I use this version <a href=\"http://greatmaps.codeplex.com/releases/view/20235\"> greatmaps-dbfffa5b4adc</a></p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">namespace</span> GMap.NET.WindowsForms.Markers\n{\n    <span style=\"color: blue;\">using</span> System.Drawing;\n\n<span style=\"color: blue;\">#if</span> !PocketPC\n    <span style=\"color: blue;\">using</span> System.Windows.Forms.Properties;\n<span style=\"color: blue;\">#else</span>\n   <span style=\"color: blue;\">using</span> GMap.NET.WindowsMobile.Properties;\n<span style=\"color: blue;\">#endif</span>\n\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GMapMarkerGoogleGreen : GMapMarker\n    {\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">float</span>? Bearing;\n\n        <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">readonly</span> System.Drawing.Size SizeSt = <span style=\"color: blue;\">new</span> System.Drawing.Size(Resources.truck.Width, Resources.truck.Height);\n\n        <span style=\"color: blue;\">public</span> GMapMarkerGoogleGreen(PointLatLng p)\n            : <span style=\"color: blue;\">base</span>(p)\n        {\n            Size = SizeSt;\n            Offset = <span style=\"color: blue;\">new</span> Point(-10, -34);\n        }\n\n        <span style=\"color: green;\">//static readonly Point[] Arrow = new Point[] { new Point(-7, 7), new Point(0, -22), new Point(7, 7), new Point(0, 2) };</span>\n\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(Graphics g)\n        {\n<span style=\"color: blue;\">#if</span> !PocketPC\n            <span style=\"color: blue;\">if</span> (!Bearing.HasValue)\n            {\n                g.DrawImageUnscaled(Resources.shadow50, LocalPosition.X, LocalPosition.Y);\n            }\n            g.TranslateTransform(ToolTipPosition.X, ToolTipPosition.Y);\n\n            <span style=\"color: blue;\">if</span> (Bearing.HasValue)\n            {\n                g.RotateTransform(Bearing.Value - Overlay.Control.Bearing);\n                <strong>g.DrawImage(Resources.truck, LocalPosition.X, LocalPosition.Y);</strong>\n            }\n\n            g.ResetTransform();\n\n            <span style=\"color: blue;\">if</span> (!Bearing.HasValue)\n            {\n                g.DrawImageUnscaled(Resources.bigMarkerGreen, LocalPosition.X, LocalPosition.Y);\n            }\n<span style=\"color: blue;\">#else</span>\n            DrawImageUnscaled(g, Resources.shadow50, LocalPosition.X, LocalPosition.Y);\n            DrawImageUnscaled(g, Resources.marker, LocalPosition.X, LocalPosition.Y);\n<span style=\"color: blue;\">#endif</span>\n        }\n    }\n}\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>-------------</p>\n<p><em>creating marker....</em></p>\n<p><em><br /> </em></p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>PointLatLng pos = <span style=\"color: blue;\">new</span> PointLatLng(46.533151895492, 15.6565582752228);\n\nGMapMarkerGoogleGreen marker = <span style=\"color: blue;\">new</span> GMapMarkerGoogleGreen(pos);\nmarker.ToolTipMode = MarkerTooltipMode.OnMouseOver;\nmarker.Bearing = bearing;\nmarkers.Markers.Add(marker);\n</pre>\n</div>",
+    "PostedDate": "2012-03-10T03:37:30.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808454",
+    "ThreadId": "347343",
+    "Html": "<p>try edit this line to:</p>\r\n<p>g.DrawImage(Resources.truck, LocalPosition.X, LocalPosition.Y);&nbsp;<strong>=&gt;</strong>&nbsp; g.DrawImage(Resources.truck, <strong>0, 0</strong>);</p>",
+    "PostedDate": "2012-03-10T04:57:16.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808457",
+    "ThreadId": "347343",
+    "Html": "<p>p.s. the idea of object rotation is to g.Translate to it's global rotation point and render at it's local rotation point</p>",
+    "PostedDate": "2012-03-10T05:05:04.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808585",
+    "ThreadId": "347343",
+    "Html": "<p>works, tnx ;)</p>",
+    "PostedDate": "2012-03-10T13:03:58.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "826943",
+    "ThreadId": "347343",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">What should I</span> <span class=\"hps\">do to</span> <span class=\"hps\">the latest</span> <span class=\"hps\">version of the code</span> <span class=\"hps\">has earned</span> <span class=\"hps\">bearing?</span></span></p>\r\n<p>http://greatmaps.codeplex.com/SourceControl/changeset/changes/2c56ffb53626</p>\r\n<p>&nbsp;</p>\r\n<p>I uncommented body set \"Bearing\" properties, but worked is not correct.</p>",
+    "PostedDate": "2012-04-21T19:19:16.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "826996",
+    "ThreadId": "347343",
+    "Html": "<p>there is is no easy fix</p>",
+    "PostedDate": "2012-04-22T02:31:00.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827018",
+    "ThreadId": "347343",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>there is is no easy fix</p>\r\n</blockquote>\r\n<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">I want to try</span> <span class=\"hps\">to do it.</span><br /><br /> <span class=\"hps\">If not hard</span><span>, about</span> <span class=\"hps\">what the problem is</span><span>?</span><br /><br /> <span class=\"hps\">When I</span> <span class=\"hps\">code</span> <span class=\"hps\">in a property</span> <span class=\"hps\">uncommented</span> <span class=\"hps\">Bearing,</span> <span class=\"hps\">the card</span> <span class=\"hps\">does not</span> <span class=\"hps\">start</span> <span class=\"hps\">to rotate</span> <span class=\"hps\">relative to</span> <span class=\"hps\">the marker</span> <span class=\"hps\">center of the screen</span><span>, and</span> <span class=\"hps\">with respect to</span> <span class=\"hps\">the lower right</span> <span class=\"hps\">corner of the</span> <span class=\"hps\">map</span> <span class=\"hps\">visible</span><span>, which</span> <span class=\"hps\">becomes the center</span><span>.</span></span></p>",
+    "PostedDate": "2012-04-22T05:38:56.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827031",
+    "ThreadId": "347343",
+    "Html": "<p>well the problem is that rotation calculation is wrong, and you need somehow to make it correct..</p>",
+    "PostedDate": "2012-04-22T07:02:15.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827156",
+    "ThreadId": "347343",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Made</span> <span class=\"hps\">to</span> <span class=\"hps\">map</span> <span class=\"hps\">rotates</span><span>.</span> <span class=\"hps\">But</span> <span class=\"hps\">now we have to</span> <span class=\"hps\">make a turn</span> <span class=\"hps\">marker</span><span>.</span> <span class=\"hps\">Further,</span> <span class=\"hps\">the modified</span> <span class=\"hps\">code.</span></span></p>\r\n<p><span lang=\"en\"><span class=\"hps\">GMapControl.cs in </span></span>GMap.NET.WindowsPresentation</p>\r\n<p><span lang=\"en\"><span class=\"hps\">\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(DrawingContext drawingContext)\r\n      {\r\n        <span style=\"color: blue;\">if</span>(!Core.IsStarted)\r\n            <span style=\"color: blue;\">return</span>;\r\n\r\n        drawingContext.DrawRectangle(EmptyMapBackground, <span style=\"color: blue;\">null</span>, <span style=\"color: blue;\">new</span> Rect(RenderSize));\r\n\r\n        <span style=\"color: blue;\">if</span> (IsRotated)\r\n            drawingContext.PushTransform(rotationMatrix);\r\n\r\n        <span style=\"color: blue;\">if</span> (MapScaleTransform != <span style=\"color: blue;\">null</span>)\r\n        {\r\n            drawingContext.PushTransform(MapScaleTransform);\r\n            drawingContext.PushTransform(MapTranslateTransform);\r\n            {\r\n                DrawMap(drawingContext);\r\n\r\n                <span style=\"color: blue;\">#if</span> DEBUG\r\n                drawingContext.DrawLine(VirtualCenterCrossPen, <span style=\"color: blue;\">new</span> Point(-20, 0), <span style=\"color: blue;\">new</span> Point(20, 0));\r\n                drawingContext.DrawLine(VirtualCenterCrossPen, <span style=\"color: blue;\">new</span> Point(0, -20), <span style=\"color: blue;\">new</span> Point(0, 20));\r\n                <span style=\"color: blue;\">#endif</span>\r\n            }\r\n            drawingContext.Pop();\r\n            drawingContext.Pop();\r\n        }\r\n        <span style=\"color: blue;\">else</span>\r\n        {\r\n            drawingContext.PushTransform(MapTranslateTransform);\r\n            {\r\n                DrawMap(drawingContext);\r\n                <span style=\"color: blue;\">#if</span> DEBUG\r\n                drawingContext.DrawLine(VirtualCenterCrossPen, <span style=\"color: blue;\">new</span> Point(-20, 0), <span style=\"color: blue;\">new</span> Point(20, 0));\r\n                drawingContext.DrawLine(VirtualCenterCrossPen, <span style=\"color: blue;\">new</span> Point(0, -20), <span style=\"color: blue;\">new</span> Point(0, 20));\r\n                <span style=\"color: blue;\">#endif</span>\r\n            }\r\n            drawingContext.Pop();\r\n        }\r\n\r\n        <span style=\"color: blue;\">if</span> (IsRotated)\r\n        drawingContext.Pop();\r\n        \r\n        <span style=\"color: green;\">// selection</span>\r\n        <span style=\"color: blue;\">if</span>(!SelectedArea.IsEmpty)\r\n        {\r\n            GPoint p1 = FromLatLngToLocal(SelectedArea.LocationTopLeft);\r\n            GPoint p2 = FromLatLngToLocal(SelectedArea.LocationRightBottom);\r\n\r\n            <span style=\"color: blue;\">long</span> x1 = p1.X;\r\n            <span style=\"color: blue;\">long</span> y1 = p1.Y;\r\n            <span style=\"color: blue;\">long</span> x2 = p2.X;\r\n            <span style=\"color: blue;\">long</span> y2 = p2.Y;\r\n\r\n            <span style=\"color: blue;\">if</span>(SelectionUseCircle)\r\n            {\r\n                drawingContext.DrawEllipse(SelectedAreaFill, SelectionPen, <span style=\"color: blue;\">new</span> System.Windows.Point(x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2), (x2 - x1) / 2, (y2 - y1) / 2);\r\n            }\r\n            <span style=\"color: blue;\">else</span>\r\n            {\r\n                drawingContext.DrawRoundedRectangle(SelectedAreaFill, SelectionPen, <span style=\"color: blue;\">new</span> Rect(x1, y1, x2 - x1, y2 - y1), 5, 5);\r\n            }\r\n        }\r\n\r\n        <span style=\"color: blue;\">if</span>(ShowCenter)\r\n        {\r\n            drawingContext.DrawLine(CenterCrossPen, <span style=\"color: blue;\">new</span> System.Windows.Point((ActualWidth / 2) - 5, ActualHeight / 2), <span style=\"color: blue;\">new</span> System.Windows.Point((ActualWidth / 2) + 5, ActualHeight / 2));\r\n            drawingContext.DrawLine(CenterCrossPen, <span style=\"color: blue;\">new</span> System.Windows.Point(ActualWidth / 2, (ActualHeight / 2) - 5), <span style=\"color: blue;\">new</span> System.Windows.Point(ActualWidth / 2, (ActualHeight / 2) + 5));\r\n        }\r\n\r\n        <span style=\"color: blue;\">#region</span> -- copyright --\r\n\r\n        <span style=\"color: blue;\">if</span>(Copyright != <span style=\"color: blue;\">null</span>)\r\n        {\r\n            drawingContext.DrawText(Copyright, <span style=\"color: blue;\">new</span> System.Windows.Point(5, ActualHeight - Copyright.Height - 5));\r\n        }\r\n\r\n        <span style=\"color: blue;\">#endregion</span>\r\n\r\n        <span style=\"color: blue;\">base</span>.OnRender(drawingContext);\r\n      }\r\n</pre>\r\n</div>\r\n</span></span></p>\r\n<p>&nbsp;</p>\r\n<p><span lang=\"en\"><span class=\"hps\">\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">float</span> Bearing\r\n      {\r\n         <span style=\"color: blue;\">get</span>\r\n         {\r\n            <span style=\"color: blue;\">return</span> Core.bearing;\r\n         }\r\n         <span style=\"color: blue;\">set</span>\r\n         {\r\n             <span style=\"color: blue;\">if</span> (Core.bearing != value)\r\n             {\r\n                 <span style=\"color: blue;\">bool</span> resize = Core.bearing == 0;\r\n                 Core.bearing = value;\r\n\r\n                 UpdateRotationMatrix();\r\n\r\n                 <span style=\"color: blue;\">if</span> (value != 0 &amp;&amp; value % 360 != 0)\r\n                 {\r\n                     Core.IsRotated = <span style=\"color: blue;\">true</span>;\r\n\r\n                     <span style=\"color: green;\">//if (Core.tileRectBearing.Size == Core.tileRect.Size)</span>\r\n                     <span style=\"color: green;\">//{</span>\r\n                     <span style=\"color: green;\">//    Core.tileRectBearing = Core.tileRect;</span>\r\n                     <span style=\"color: green;\">//    Core.tileRectBearing.Inflate(1, 1);</span>\r\n                     <span style=\"color: green;\">//}</span>\r\n                 }\r\n                 <span style=\"color: blue;\">else</span>\r\n                 {\r\n                     Core.IsRotated = <span style=\"color: blue;\">false</span>;\r\n                     Core.tileRectBearing = Core.tileRect;\r\n                 }\r\n\r\n             <span style=\"color: green;\">//    if (resize)</span>\r\n             <span style=\"color: green;\">//    {</span>\r\n             <span style=\"color: green;\">//        Core.OnMapSizeChanged((int)ActualWidth, (int)ActualHeight);</span>\r\n             <span style=\"color: green;\">//    }</span>\r\n\r\n                 <span style=\"color: green;\">//Core_OnMapZoomChanged();</span>\r\n\r\n                 InvalidateVisual();\r\n             }\r\n         }\r\n      }\r\n</pre>\r\n</div>\r\n<br /></span></span></p>",
+    "PostedDate": "2012-04-22T20:58:59.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1341906",
+    "ThreadId": "347343",
+    "Html": "bearing should be ok now<br />\n",
+    "PostedDate": "2015-01-14T11:48:04.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-14T11:48:15.79-08:00"
+  },
+  {
+    "Id": "1342033",
+    "ThreadId": "347343",
+    "Html": "Congratulations!...<br />\n",
+    "PostedDate": "2015-01-14T19:17:01.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342209",
+    "ThreadId": "347343",
+    "Html": "p.s. marker rotation demo [left menu, Live-&gt;FlightRadar] and <strong>GMarkerArrow.cs</strong><br />\n",
+    "PostedDate": "2015-01-15T08:06:33.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1431504",
+    "ThreadId": "347343",
+    "Html": "Hi,\r<br />\nSorry to reopen this thread....but iam new to this GMap....can anyone answer me......I tried the radioman code....but null exception at overlay.control.bearing is coming. how to overcome that....\r<br />\nthanks in advance...<br />\n",
+    "PostedDate": "2015-06-23T04:00:20.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

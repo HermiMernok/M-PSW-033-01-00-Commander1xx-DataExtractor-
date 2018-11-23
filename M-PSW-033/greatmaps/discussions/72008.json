@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "245747",
+    "ThreadId": "72008",
+    "Html": "<p>I'm trying to convert this line to VB:</p>\r\n<p>&nbsp;&nbsp;&nbsp; GMapMarkerRect mBorders = new GMapMarkerRect(currentMarker.Position);</p>\r\n<p>I can't find the GMapMarkerRect object/type - where might it be?</p>",
+    "PostedDate": "2009-10-14T13:58:55.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245750",
+    "ThreadId": "72008",
+    "Html": "<p>Demo.WindowsForms\\CustomMarkers\\GMapMarkerRect.cs</p>",
+    "PostedDate": "2009-10-14T14:08:18.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245759",
+    "ThreadId": "72008",
+    "Html": "<p>Thanks... turns out that isn't what I was after any way.&nbsp; I'm just trying to add a marker to the map.</p>\r\n<p>In Add_Click I do seem to be adding objects as I can drill down and see them in the IDE, but nothing is showing on the map.</p>\r\n<p>What am I missing?</p>\r\n<p>I'd like to be able to add simple points like the demo which adds a default Google placemark icon and allows me to reposition it with the mouse until I double click. I guess I'm looking in the wrong place in the demo code.</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>\r\n    <span style=\"color:Blue\">Dim</span> objects <span style=\"color:Blue\">As</span> GMapOverlay\r\n\r\nForm_Load()\r\n        objects = <span style=\"color:Blue\">New</span> GMapOverlay(map, <span style=\"color:#A31515\">&quot;MarkersLayer&quot;</span>)\r\n\r\n<span style=\"color:Blue\">Sub</span> Add_Click()\r\n        <span style=\"color:Blue\">Dim</span> m <span style=\"color:Blue\">As</span> GMapMarker = <span style=\"color:Blue\">New</span> GMapMarkerGoogleGreen(map.CurrentPosition)\r\n        m.Size = <span style=\"color:Blue\">New</span> Drawing.Size(100, 100)\r\n        m.ToolTipText = <span style=\"color:#A31515\">&quot;hello world&quot;</span>\r\n        m.TooltipMode = MarkerTooltipMode.Always\r\n        objects.Markers.Add(m)\r\n\r\n</pre>\r\n</div>",
+    "PostedDate": "2009-10-14T14:29:02.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245768",
+    "ThreadId": "72008",
+    "Html": "<p>map.Overlays.Add(objects);</p>",
+    "PostedDate": "2009-10-14T14:42:32.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

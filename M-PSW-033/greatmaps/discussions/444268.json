@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1045945",
+    "ThreadId": "444268",
+    "Html": "Hi,<br />\n<ol>\n<li>Is this the &quot;right/best&quot; way?</li>\n<li>\nHow can the text be placed along the route line?<br />\n</li>\n</ol>\nThanks,\r<br />\nsuperware<br />\n<pre><code>public class MapRuler\n{\n    private GMapControl _map;\n    private GMapMarker[] _anchors;\n    private GMapMarker _route;\n    private GMapMarker _text;\n    private GMapMarker _currentAnchor;\n    private PointLatLng _fixedAnchorPosition;\n\n    public MapRuler(GMapControl map, PointLatLng p, int zindex)\n    {\n        _anchors = new GMapMarker[2];\n        _route = new GMapMarker(p);\n        for (int i = 0; i &lt; 2; i++)\n        {\n            Ellipse ellipse = new Ellipse()\n            {\n                Width = 16,\n                Height = 16,\n                Fill = Brushes.Red,\n                Stroke = Brushes.White,\n                StrokeThickness = 3,\n                Tag = i,\n            };\n            ellipse.MouseDown += new MouseButtonEventHandler(Anchor_MouseDown);\n            ellipse.MouseUp += new MouseButtonEventHandler(Anchor_MouseUp);\n            GMapMarker anchor = new GMapMarker(p)\n            {\n                Offset = new Point(-8, -8),\n                Shape = ellipse,\n                ZIndex = zindex,\n            };\n            _anchors[i] = anchor;\n            _route.Route.Add(p);\n            map.Markers.Add(anchor);\n            zindex++;\n        }\n        _route.RegenerateRouteShape(map);\n        map.Markers.Add(_route);\n        _text = new GMapMarker(p);\n        TextBlock textBlock = new TextBlock();\n        textBlock.Text = &quot;test&quot;;\n        _text.Shape = textBlock;\n        map.Markers.Add(_text);\n        map.MouseMove += new MouseEventHandler(Map_MouseMove);\n        _map = map;\n    }\n\n    private void Anchor_MouseDown(object sender, MouseButtonEventArgs e)\n    {\n        int index = (int)((Ellipse)sender).Tag;\n        _currentAnchor = _anchors[index];\n        _fixedAnchorPosition = _anchors[index == 0 ? 1 : 0].Position;\n    }\n    private void Anchor_MouseUp(object sender, MouseButtonEventArgs e)\n    {\n        _currentAnchor = null;\n    }\n    private void Map_MouseMove(object sender, MouseEventArgs e)\n    {\n        if (_currentAnchor != null)\n        {\n            Point point = e.GetPosition(_map);\n            PointLatLng pointLatLng = _map.FromLocalToLatLng((int)point.X, (int)point.Y);\n            _currentAnchor.Position = pointLatLng;\n            _route.Position = pointLatLng;\n            _route.Route[0] = pointLatLng;\n            _route.Route[1] = _fixedAnchorPosition;\n            _route.RegenerateRouteShape(_map);\n            double distance = _map.MapProvider.Projection.GetDistance(pointLatLng, _fixedAnchorPosition);\n            ((TextBlock)_text.Shape).Text = distance.ToString();\n            e.Handled = true;\n        }\n    }\n\n    public void Clear()\n    {\n        foreach (GMapMarker anchor in _anchors)\n        {\n            _map.Markers.Remove(anchor);\n            anchor.Clear();\n        }\n        _map.Markers.Remove(_route);\n        _route.Clear();\n        _map.Markers.Remove(_text);\n        _text.Clear();\n    }\n}</code></pre>\n\n",
+    "PostedDate": "2013-05-20T03:55:54.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045967",
+    "ThreadId": "444268",
+    "Html": "if it works right, it's good enough ;}<br />\n",
+    "PostedDate": "2013-05-20T05:17:10.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045979",
+    "ThreadId": "444268",
+    "Html": "Performance is also important, but I guess you already know that :)\r<br />\nAny thoughts regarding the TextBlock position parallel to the route line?\r<br />\nIt might be a good idea to include this in your WPF demo.<br />\n",
+    "PostedDate": "2013-05-20T05:45:42.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

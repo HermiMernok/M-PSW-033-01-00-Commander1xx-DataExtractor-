@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "998316",
+    "ThreadId": "432430",
+    "Html": "Hi there,\r<br />\n<br />\nI can get Latitude and Longitude of the point where mouse clicks like:<br />\n<pre><code>private void gm1_MouseDoubleClick(object sender, MouseEventArgs e)\n        {\n            if (e.Button == System.Windows.Forms.MouseButtons.Left)\n            {\n                double lat = gm1.FromLocalToLatLng(e.X, e.Y).Lat;\n                double lng = gm1.FromLocalToLatLng(e.X, e.Y).Lng;\n            }\n        }</code></pre>\n\nI want to get the location information of that point i.e Country, City etc.\r<br />\nIs there a way to get those?\r<br />\n<br />\nThanx for the help in advance !<br />\n",
+    "PostedDate": "2013-02-07T21:28:31.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998456",
+    "ThreadId": "432430",
+    "Html": "use google/etc provider functions<br />\n",
+    "PostedDate": "2013-02-08T03:57:17.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "999404",
+    "ThreadId": "432430",
+    "Html": "Hi radioman,\r<br />\n<br />\nDear the problem is i am quite new to GMap.Net, so if you provide me a detailed answer it would be very helpful. As i did not understand what you said above :)\r<br />\n Thanx<br />\n",
+    "PostedDate": "2013-02-10T21:35:53.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

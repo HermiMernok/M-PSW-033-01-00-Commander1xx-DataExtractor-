@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "597280",
+    "ThreadId": "253917",
+    "Html": "\r\n<p>Actually, all &quot;local&quot; coordinates are the WinForm integers.</p>\r\n<p>WPF use the <em>System.Windows.Point</em> witch X and Y are double, not integers like System.Drawing.Point WinForm used.</p>\r\n<p>There is a need for function such:<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Windows.Point p = e.GetPosition(MainMap);<br>\r\n<br>\r\ninstead of<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentMarker.Position = MainMap.FromLocalToLatLng((int)p.X, (int)p.Y);<br>\r\none of the following:<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FromLocalToLatLng(<strong>System.Windows.Point</strong> point)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FromLocalToLatLng(<strong>double</strong> x,\r\n<strong>double </strong>y)<br>\r\n<br>\r\nas well as<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>System.Windows.Point\r\n</strong>FromLatLngToLocal(PointLatLng point)</p>\r\n",
+    "PostedDate": "2011-04-14T09:02:00.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "597392",
+    "ThreadId": "253917",
+    "Html": "<p>maybe</p>",
+    "PostedDate": "2011-04-14T11:59:33.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

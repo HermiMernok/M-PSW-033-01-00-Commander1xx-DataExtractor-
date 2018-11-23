@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "520932",
+    "ThreadId": "234405",
+    "Html": "\r\n<p>I think somebody already raised the issue that the map is not continuous, that is, you can drag it or zoom out in a way that you can see blank spaces around the map or on one or several of its side/s. I tried to address this issue not by creating continuos\r\n map (I am not fit for this humanuous task) but by trying to limit zoom out. Well, I failed... If anybody has any idea how to acieve it? I do have this in my form that host GMapControl:</p>\r\n<pre style=\"color:black; background-color:white\"><pre>        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> MapZoomMinusBtn_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            m_PrevZoom = MainMap.Zoom;\r\n            m_tPrevOp = tMAPOP.tZoom;\r\n\r\n            MainMap.Zoom -= 1;\r\n            System.Windows.Forms.Application.DoEvents();\r\n            MapZoomSlider.Refresh();\r\n        }\r\n\r\n</pre>\r\n</pre>\r\n<pre>which is an event handler of a &quot;minus&quot; (zoom out) button. It seems like the most appropriate place to restrict zoom out before I decrease the value by 1. When I keep zooming out the map shrinks in a way that its left edge separates from the left edge </pre>\r\n<pre>of the frame... I am not sure if this is the map becomes smaller than the hosting GMapControl or GMapControl becomes smaller that hosting pane (BTW the pane has dock=Full and so does GMapControl, so I suspect that it is a drwaing of the map within the </pre>\r\n<pre>control shrinks to be smaller than the control itself...). So before I decrease zoom value I need somehow to calculate if the next zoom will create a gap and bail from the event handler if it does. Alternatively, I need to move the map so its topleft corner</pre>\r\n<pre>will align with topleft corner of the GMapControl or (or my form which is equivalent in this case). Any ideas?</pre>\r\n",
+    "PostedDate": "2010-11-11T23:28:43.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

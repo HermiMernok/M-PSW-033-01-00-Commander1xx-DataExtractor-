@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "995190",
+    "ThreadId": "431677",
+    "Html": "Hello\r<br />\n<br />\nI am discovering your assembly... looks great !\r<br />\n<br />\nIn my app, the PC will be mainly offline ....\r<br />\n<br />\nWhat is the default location of the cache file ? what's the name ? xxxxx.gmdb ? sqlite file ?\r<br />\n<br />\nBest regards<br />\n",
+    "PostedDate": "2013-02-01T06:22:35.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "995214",
+    "ThreadId": "431677",
+    "Html": "Ok .... I have found the default location and name of the cache file : &quot;data.gmdb&quot;\r<br />\n<br />\nIt has two tables quite easy to understand :<br />\n<ul>\n<li>Tiles : id/x/y/zoom/type/cachetime</li>\n<li>\nTilesData : id/tile<br />\n</li>\n</ul>\nMy concern is about the &quot;type&quot; field ..... it is an unsigned integer field. I would like to know the conversion table between the map providers and &quot;type&quot; field -&gt; where can I find that information ?\r<br />\n<br />\nWhat I would to do is to create my own cache files, with my own tiles, and display them using gmaps.\r<br />\n<br />\nI have detected that : &quot;OpenStreetMaps&quot; = 1497893838, but for example : ??? = 1492776782 (that was already in the cache .... )\r<br />\n<br />\nPlus, how can I tell to gmaps to use specific cache files with names different frome &quot;data.gmbd&quot; ?<br />\n",
+    "PostedDate": "2013-02-01T06:58:40.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "995526",
+    "ThreadId": "431677",
+    "Html": "GMapProviders.OpenStreetMap.<strong>DbId</strong>, you can use that to manually delete unwanted types in database\r<br />\n<br />\np.s. you can use many cache files, every other database will be in read-only mode<br />\n",
+    "PostedDate": "2013-02-02T03:56:51.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

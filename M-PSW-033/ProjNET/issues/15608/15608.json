@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi there,\n \nThis project is very useful to transform/reproject data between the new geometry/geography datatypes in SQL Server 2008 using SQLCLR - thankyou all who have been involved so far. However, there are two simple changes that could make it even simpler to use:\n \n1.) Currently, the WKT used by SQL Server 2008 describes the properties of the reference ellipsoid using the ELLIPSOID keyword rather than the SPHEROID keyword expected by Proj.NET.\ne.g.\nGEOGCS[\"Greek\", DATUM[\"Greek\", ELLIPSOID[\"Bessel 1841\", 6377397.155, 299.1528128]], PRIMEM[\"Greenwich\", 0], UNIT[\"Degree\", 0.0174532925199433]] \n \n If ELLIPSOID could be added as a synonym for SPHEROID (I think it needs to go as an additional case condition in the switch statement in the Parse() method), then it would be possilbe to read in WKT values direct from the sys.spatial_reference_systems table of SQL Server rather than having to do a string replace as currently.\n \n2.) Secondly, would it be possible to decorate the Proj.NET assembly with the AllowPartiallyTrustedCallersAttribute attribute so that the methods could be referenced by partially-trusted callers in SQLCLR, rather than having to strongly-name all calling assemblies (or catalogue them as UNSAFE in SQL Server, which is not ideal either...)",
+    "LastUpdatedDate": "2013-02-21T16:06:07.73-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2009-12-24T14:01:30.917-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Make Proj.NET more SQL Server-friendly",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 15608
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

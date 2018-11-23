@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "662913",
+    "ThreadId": "270279",
+    "Html": "\r\n<p>Hello,&nbsp;I am facinated by this project and tried the last 3 days to implement a map in my project.</p>\r\n<p>Unfortunately the best result I got was a single tile of a map which was slided to the upper left corner and every time I drag the tile back to the middle it plops back to the upper left corner if it&nbsp;come to close to the&nbsp;lower left corner.</p>\r\n<p>I am totally helpless with this, maybe someone also&nbsp;had this problem (and a solution for this)???</p>\r\n<p>I'm using VB.NET (VS 2010), Framework 4, x86 and he following code, maybe I missed something??</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> Start()\r\n        MainMap.Dock = DockStyle.Fill\r\n        MainMap.Position = <span style=\"color:blue\">New</span> PointLatLng(54, 25)\r\n        MainMap.MapProvider = GMapProviders.BingMap\r\n        MainMap.Manager.Mode = AccessMode.ServerOnly\r\n        MainMap.MinZoom = 2\r\n        MainMap.MaxZoom = 15\r\n        MainMap.Zoom = 10\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2011-08-24T13:53:49.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "663403",
+    "ThreadId": "270279",
+    "Html": "<p>Resize map once, then it works.</p>",
+    "PostedDate": "2011-08-25T12:06:44.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665400",
+    "ThreadId": "270279",
+    "Html": "<p>this issue is fixed in the latest version in source</p>",
+    "PostedDate": "2011-08-30T10:18:51.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665759",
+    "ThreadId": "270279",
+    "Html": "<p>This problem is still present in version <a id=\"ChangeSetLink0\" style=\"font-weight: bold;\" title=\"View change set 87ad3f0d78b3\" href=\"../SourceControl/changeset/changes/87ad3f0d78b3\" target=\"_blank\">87ad3f0d78b3</a>, which latest version do you mean?</p>\r\n<p>Btw, thanks a lot for all your great work :-)</p>",
+    "PostedDate": "2011-08-31T06:47:50.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665866",
+    "ThreadId": "270279",
+    "Html": "<p>i have form with docked map control, no manual resize is needed</p>",
+    "PostedDate": "2011-08-31T10:38:13.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

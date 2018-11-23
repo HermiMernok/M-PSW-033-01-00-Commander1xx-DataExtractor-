@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1209094",
+    "ThreadId": "532195",
+    "Html": "I'm using 1.7.0 build. My Windows Form application overall working just fine. The only problem I noticed is that very often, from app launch to launch, when I zoom in the map using mouse scroll, tiles will remain to certain zoom level and further zooming will not change anything - neither text, nor the map. \r<br />\n<br />\nThis happens on Google sat(+Hybrid) maps, haven't tried others. Zoom level is set 2...25. ServerAndCache. To solve issue I have to restart application, then if I'm lucky I will have all tiles loaded until the last zoom level. I don't see any strange messages in the log.\r<br />\n<br />\nI've also tried to set ServerOnly, but then satellite images are not loaded at all, only some sort of roads, but very terribly. It looks like tiles are again not loaded here even worse.\r<br />\n<br />\nMy internet connection is close to perfection, so please don't blame it :)<br />\n",
+    "PostedDate": "2014-02-16T11:29:43.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1209287",
+    "ThreadId": "532195",
+    "Html": "try manually call MainMap.ReloadMap(); instead of restarting, if it doesn't help, probably tiles are really missing on the servers\r<br />\n<br />\ncan you share the location?<br />\n",
+    "PostedDate": "2014-02-17T01:09:27.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1209291",
+    "ThreadId": "532195",
+    "Html": "I've tried different locations with same result, so I think it's not related to it. But here you go, one of them: 40.1776027371828, 44.5127579569817\r<br />\n<br />\nTiles are not missing because sometimes I can see them perfectly in same locations, but sometimes looks like framework was not able to download them and stuck on whatever resolution tile it had.\r<br />\n<br />\nAfter I wrote my question, I've downloaded the latest cutting edge version of your repository and build it. Guess what? so far so good... knock the wood :)\r<br />\nMy best guess was that there was a fix related to downloading tiles from server. The version I was using was really 1 year old.\r<br />\nI'll update this thread in case I see the same problem.\r<br />\n<br />\nthanks for the library, it's priceless!\r<br />\nCheers.<br />\n",
+    "PostedDate": "2014-02-17T01:22:26.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-02-19T10:04:29.523-08:00"
+  },
+  {
+    "Id": "1348693",
+    "ThreadId": "532195",
+    "Html": "Hi,<br />\n<br />\nI have the same problem right now.  Sometimes the map won't show on application start. I have to zoom in and out a few times until the tiles are loaded correctly. But when I drag the map with the right mouse button (especially in higher zoom levels), some of the map tiles aren't loaded and so only the half map is shown.<br />\n<br />\nI use this build:<br />\n<a href=\"http://greatmaps.codeplex.com/releases/view/73162\" rel=\"nofollow\">http://greatmaps.codeplex.com/releases/view/73162</a><br />\n<br />\nAll tiles are available on the server.<br />\nMinZoom: 1<br />\nMaxZoom: 4<br />\nZoom: 1 (on application start)<br />\n",
+    "PostedDate": "2015-02-03T10:57:07.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1348721",
+    "ThreadId": "532195",
+    "Html": "UPDATE:<br />\n<br />\nOk ... seems like my custom map projection is the problem :)<br />\n",
+    "PostedDate": "2015-02-03T11:52:26.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

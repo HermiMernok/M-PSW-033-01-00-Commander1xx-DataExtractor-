@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "works just fine:\n\nMainMap.MapProvider = GMapProviders.GoogleMap;\nMainMap.MinZoom = 1;\nMainMap.MaxZoom = 17;\nMainMap.BoundsOfMap = new RectLatLng(48.8068634610852, 16.19384765625, 6.83349609375, 3.20819777126454);\n\nprivate void MainForm_Load(object sender, EventArgs e)\n{\n         if(MainMap.BoundsOfMap.HasValue)\n         {\n            MainMap.SetZoomToFitRect(MainMap.BoundsOfMap.Value);\n            MainMap.SelectedArea = MainMap.BoundsOfMap.Value;\n         }\n}",
+    "ClosedDate": "2011-07-10T05:23:05.31-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi GMap Guys,\r\nFirst I'd like to thank you for the great library! I have an issue which seems to be a bug to me, but feel free to correct me if I'm wrong and misunderstood an intentional behavior.\r\n\r\nI have a scenario when I want to lock the user into a map area, for example I don't want to allow the user to drag the map outside a country's boundaries. I've set the BoundsOfMap property. Although the value of CanDrag property remains true, dragging is impossible. When I try to drag the map (inside the boundaries) the debug trace shows me that the IsDragging state changes to 'true' but nothing happens.\r\n\r\nCould you please help in this matter?\r\nAny help would be appreciated.\r\n\r\nBest, kkb",
+    "LastUpdatedDate": "2011-07-10T05:23:05.31-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-07-10T02:15:04.62-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "BoundOfMap disables dragging",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16011
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "are you sure you set correct value?",
+      "PostedDate": "2011-07-10T03:20:14.58-07:00",
+      "Id": 39162
+    },
+    {
+      "Message": "I think I am. This is the only code which affects the map:\n\n            innerMap.MapProvider = GMapProviders.GoogleMap;\n            innerMap.DragButton = MouseButton.Left;\n            innerMap.SetCurrentPositionByKeywords(\"Hungary\");\n            innerMap.MinZoom = MinZoom;\n            innerMap.MaxZoom = MaxZoom;\n            innerMap.BoundsOfMap = new RectLatLng(45.74833, 16.11181, 6.78299, 2.82785);\n",
+      "PostedDate": "2011-07-10T04:10:01.74-07:00",
+      "Id": 39163
+    }
+  ]
+}

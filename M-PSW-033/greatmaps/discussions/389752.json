@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "893749",
+    "ThreadId": "389752",
+    "Html": "\r\n<p>Hi!</p>\r\n<p><br>\r\nI have a polygon and I'm trying to verify if all vertex are inside the visible area.</p>\r\n<p>I have a custom class...</p>\r\n<p style=\"padding-left:30px\">Public Class PolygonText &nbsp;<br>\r\n&nbsp; &nbsp; &nbsp; &nbsp;Inherits GMapPolygon</p>\r\n<p>...and I'm overriding the OnRedraw method. There, I iterate the LocalPoints collection and check for every point. But the problem is that Point.X and Point.Y does not match the client area (i think). For example, if I move the map making a vertex be at the\r\n left of the visible area, the Point.X (of the localpoints collection) should be a negative number but it isn't (none of the points has negative coordinates). I'm even doing a:</p>\r\n<p style=\"padding-left:30px\">Me.Overlay.Control.UpdatePolygonLocalPosition(Me)</p>\r\n<p>...before I check the points, but that's no solution.</p>\r\n<p>&nbsp;</p>\r\n<p>Any ideas?<br>\r\n<br>\r\nRegards!&nbsp;</p>\r\n",
+    "PostedDate": "2012-07-31T09:09:51.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893826",
+    "ThreadId": "389752",
+    "Html": "<p>complicated, can't point the 'right' way</p>",
+    "PostedDate": "2012-07-31T11:12:40.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893957",
+    "ThreadId": "389752",
+    "Html": "<p>Let me try to understand... you use fixed (lat and lon) for the points of the poligon before drawing it, or at least can you transform the original x,y points of your polygon to coordinates with GMapControl1.FromLocalToLatLng(x_of_the_polygon_point, y_of_the_poligon_point)?.</p>\r\n<p>If youy could do this, then you can probably evaluate if the points will be inside the 'new' visible area before drawing it.</p>\r\n<p>&nbsp;</p>\r\n<p>If i can help, you're wellcome.</p>\r\n<p>&nbsp;</p>\r\n<p>Yeyo</p>",
+    "PostedDate": "2012-07-31T17:03:14.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893967",
+    "ThreadId": "389752",
+    "Html": "<p>Hi radioman, hi yeyo,</p>\r\n<p>&nbsp;</p>\r\n<p>thank you for your answers.</p>\r\n<p>&nbsp;</p>\r\n<p>Sorry radioman but i didn't get your tip. The only right property (if that what it was) i've found is the map control right property, and i don't get how it would help me. I've donde some more tests; I've noticed that the coordinates of the LocalPoints collection of the polygon only updates when I zoom in or out, not when I move the map (I'm using&nbsp;6ccafda5ce5d build). I don't know if this is an issue or it is supposed to work that way.</p>\r\n<p>Yeyo, I have no problem transforming the coordinates to/from screen to latlon. But in that case the issue would be to know the latlon coordinates of the visible area (if there is a way) because, since I'm evaluating the coordinates as I move the map, I'd rather not to convert screen-to-latlon (or viceversa) every time the polygon's OnRender is fired. So, as I have the polygon's LocalPoints collection (client coordinates?) I thought I could use them to compare against 0,0 and widht, height (top,left and bottom, right) without doing any maybe-resource-expensive-if-made-on-every-OnRedraw coordinate transormation.</p>\r\n<p>Nevertheless, your suggestion made me think what if check LocalPoints collection coordinates against transformed Point collection coordinates and I've realized that, when moving the map, transformed Point collection coordinates works OK while LocalPoints coordinates aren't updated. I will use your suggestion as a workaround, thank you.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards!</p>",
+    "PostedDate": "2012-07-31T18:30:40.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

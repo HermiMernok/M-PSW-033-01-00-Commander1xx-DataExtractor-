@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "652958",
+    "ThreadId": "267880",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>I've created a fork which contains the selectable map tool support I was talking about in another thread.&nbsp; I uploaded the changes a few minutes ago, including a demo application which shows how the tool classes work.&nbsp; See the text file GMapNETKnightlie.txt\r\n for details.</p>\r\n<p>The fork is based on the current unstable build, but the code is easy to extract and incorporate into an older release.</p>\r\n<p>Post any questions here.&nbsp; Thanks,</p>\r\n<p>J.</p>\r\n",
+    "PostedDate": "2011-08-05T03:56:42.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "653260",
+    "ThreadId": "267880",
+    "Html": "<p>hey, nice idea, ...after quick look, you can speed up point dragging by using mapper.Refresh() instead of Invalidate()</p>",
+    "PostedDate": "2011-08-05T09:57:23.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "653836",
+    "ThreadId": "267880",
+    "Html": "<p>Thanks, I wasn't aware of that.</p>",
+    "PostedDate": "2011-08-06T12:35:00.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732563",
+    "ThreadId": "267880",
+    "Html": "<p>Knightlie,</p>\r\n<p>I've just download the fork of your code but it won't compile as it says the references for the GMap.NET.Core and&nbsp;GMap.NET.WindowsForms are missing. I've can't find either of those files in your fork. I've tried to point it to the standard version but on compiling it says that the Interfaces is missing (I presume as the version of the 2 DLLs I'm using dosen't have the code you added - any suggestions?</p>\r\n<p>Thanks</p>\r\n<p>Charlotte.</p>",
+    "PostedDate": "2012-01-30T03:24:53.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

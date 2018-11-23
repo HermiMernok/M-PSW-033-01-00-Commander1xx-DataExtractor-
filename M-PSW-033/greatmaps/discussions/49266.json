@@ -1,0 +1,218 @@
+[
+  {
+    "Id": "164727",
+    "ThreadId": "49266",
+    "Html": "Hello, <br>\r\nat frist i need to say, THANK YOU for this great stuff.<br>\r\n<br>\r\nHow is it possible to set markers without having the LatLNG ? <br>\r\nis it possible to convert by MainMap.SetCurrentPositionByKeywords ?<br>\r\nIf so , could you please post a little snippet of Code ?<br>\r\n<br>\r\nI tried this Marker m1 = new Marker(start, MarkerType.Medium, MarkerColor.Green); and it works great.<br>\r\nBut i dont have the right PointLatLng for every marker . Only postal code and street !!!<br>\r\n<br>\r\nHope to get a answer from you.<br>\r\n<br>\r\nregards<br>\r\n<br>\r\nronny<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-05T02:41:53.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164779",
+    "ThreadId": "49266",
+    "Html": "<span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">Gmaps.Instance.GetLatLngFromGeocoder(&quot;Europe&quot;);</span>",
+    "PostedDate": "2009-03-05T05:12:44.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164791",
+    "ThreadId": "49266",
+    "Html": "Yes,<br>\r\n<br>\r\ni have done this before, but i dont know how to implement this in the following code:<br>\r\n<br>\r\nthis do not work !!<br>\r\n<br>\r\nPointLatLng start = new PointLatLng(<strong>MainMap.GetLatLngFromGeocoder(txt_geosuch.Text)</strong>);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Marker m1 = new Marker(start, MarkerType.Medium, MarkerColor.Green);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.Text = &quot;Start: &quot; + start.ToString();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.TooltipMode = MarkerTooltipMode.OnMouseOver;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.AddMarker(m1); <br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-05T05:27:52.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164793",
+    "ThreadId": "49266",
+    "Html": "<span style=\"font-family:'segoe ui';font-size:13px;color:rgb(48, 51, 45)\"><span style=\"font-weight:bold\">GMaps.Instance</span>.GetLatLngFromGeocoder</span>",
+    "PostedDate": "2009-03-05T05:28:36.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164803",
+    "ThreadId": "49266",
+    "Html": "sorry , but this did not work for me .<br>\r\n<br>\r\nI dont have a GMaps.Instance...... !!<br>\r\nMy project called gmap --&gt; but also i did not find the class GetLatLng .<br>\r\n<br>\r\nWith MainMap i cann access the GetLatLng <br>\r\n<br>\r\nI hope you can help me again ;-)<br>\r\n",
+    "PostedDate": "2009-03-05T05:37:26.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164807",
+    "ThreadId": "49266",
+    "Html": "use <span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\"><span style=\"font-weight:bold\">GMaps.Instance</span>.GetLatLngFromGeocoder ;} or don't, as you wish</span>",
+    "PostedDate": "2009-03-05T05:45:08.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164808",
+    "ThreadId": "49266",
+    "Html": "ok,<br>\r\n<br>\r\nbut anywhere this kind of code still not working for me:<br>\r\n<br>\r\nPointLatLng start = new PointLatLng(<strong>MainMap.GetLatLngFromGeocoder(txt_geosuch.Text)</strong>);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Marker m1 = new Marker(start, MarkerType.Medium, MarkerColor.Green);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.Text = &quot;Start: &quot; + start.ToString();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.TooltipMode = MarkerTooltipMode.OnMouseOver;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.AddMarker(m1);<br>\r\ni get an error because of the constructor.<br>\r\n<br>\r\nCan you please poste a little snippet which will work for me and please without : GMaps.Instance :-) (its not in my project, sorry and i dont know how to add it!) <br>\r\n<br>\r\nFYI - i did not work with the windows . Presentation - i work with the windows.Forms.Trunk.Demo -<br>\r\nAnd i can add a marker with the lat/lng but not with the code above. !<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-05T05:49:52.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164858",
+    "ThreadId": "49266",
+    "Html": "<span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\"><div>..i dont' get you, ist that so hard ;}</div><div><br></div>PointLatLng start = new PointLatLng(<strong><span style=\"font-family:'segoe ui';font-weight:normal\"><span style=\"font-weight:bold\">GMaps.Instance</span>.GetLatLngFromGeocoder</span>(txt_geosuch.Text)</strong>);<br>                Marker m1 = new Marker(start, MarkerType.Medium, MarkerColor.Green);<br>                m1.Text = &quot;Start: &quot; + start.ToString();<br>                m1.TooltipMode = MarkerTooltipMode.OnMouseOver;<br>                MainMap.AddMarker(m1);</span>",
+    "PostedDate": "2009-03-05T07:46:25.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164867",
+    "ThreadId": "49266",
+    "Html": "i am so sorry but i think you dont read all of my post :-)<br>\r\n<br>\r\nGMaps.Instance is only for Windows.presentation project, right?<br>\r\nI am working with the windows.FORM project called GmapApp :-)<br>\r\n<br>\r\nSo i dont have a GMaps.Instace ..... I hope you know what i mean.<br>\r\n<br>\r\nThats the reason :-)<br>\r\n<br>\r\nAnd my code above with MainMap. &nbsp; &nbsp;&nbsp;\r\nstill not work because there comes a error with the constructor. Please\r\nbe so kind to test it in your GmapApp project .... for me its not\r\nworking :-(<br>\r\n<br>\r\nHope to get a solution for my problem , and sorry for the trouble with me .-)\r\n",
+    "PostedDate": "2009-03-05T08:01:05.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164869",
+    "ThreadId": "49266",
+    "Html": "why so hard your mind to just test the code ;D",
+    "PostedDate": "2009-03-05T08:03:55.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164877",
+    "ThreadId": "49266",
+    "Html": "radioman my friend, <br>\r\n<br>\r\ni already tested the code in the project GMapAPP for Windows Forms ! But it still not work !!!!!<br>\r\nFehler&nbsp;&nbsp; &nbsp;1&nbsp;&nbsp; &nbsp;Der Name &quot;GMaps&quot; ist im aktuellen Kontext nicht vorhanden.&nbsp;&nbsp; &nbsp;C:\\Dokumente und Einstellungen\\******************\\Eigene Dateien\\Visual Studio 2008\\Projects\\Gmap\\Gmap\\Form1.cs&nbsp;&nbsp; &nbsp;126&nbsp;&nbsp; &nbsp;55&nbsp;&nbsp; &nbsp;Gmap<br>\r\nMy project dont can find GMaps !!!!!<br>\r\n<br>\r\nI hope you understand now.<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-05T08:11:18.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164879",
+    "ThreadId": "49266",
+    "Html": "finnaly some clarity ;} ..do you use Trunk version, or just old?",
+    "PostedDate": "2009-03-05T08:13:01.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164884",
+    "ThreadId": "49266",
+    "Html": "uuuuh :-) yeah<br>\r\ni guess i use the Trunk Demo.Windows.Forms <br>\r\n",
+    "PostedDate": "2009-03-05T08:18:53.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164886",
+    "ThreadId": "49266",
+    "Html": "hm.. do you add GMap.NET.Core.dll reference?",
+    "PostedDate": "2009-03-05T08:20:53.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164887",
+    "ThreadId": "49266",
+    "Html": "no, i only added the GMap.Net - should i add it ?<br>\r\n",
+    "PostedDate": "2009-03-05T08:25:22.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164890",
+    "ThreadId": "49266",
+    "Html": "..i think you use old version in trunk folder, because newest is in subfolder called Trunk, and in win forms version markers are not visible, but GMaps.Instance and it's function work ok. .Old version has old google version numbers, its out of date of using, ..and i still messing in wpf version ;/",
+    "PostedDate": "2009-03-05T08:28:58.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164901",
+    "ThreadId": "49266",
+    "Html": "ok,<br>\r\n<br>\r\ni tried this:<br>\r\n<br>\r\ngmapnet\\Trunk\\Demo.WindowsForms<br>\r\n<br>\r\nand created a button with following code:<br>\r\n<br>\r\nprivate void button12_Click(object sender, EventArgs e)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PointLatLng start = <strong>new PointLatLng(GMaps.Instance.GetLatLngFromGeocoder(&quot;Bremen&quot;));</strong> //cunstructor ERROR <br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Marker m2 = new Marker(start, <strong>MarkerType</strong>.Medium, <strong>MarkerColor</strong>.Green); // not known in context<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m2.Text = &quot;Start: &quot; + start.ToString();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m2.TooltipMode = MarkerTooltipMode.OnMouseOver;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.AddMarker(m2);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.ReloadMap();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n<br>\r\nBut i get a error also.<br>\r\nFehler&nbsp;&nbsp; &nbsp;1&nbsp;&nbsp; &nbsp;&quot;GMapNET.PointLatLng&quot; enthält keinen Konstruktor, der 1-Argumente akzeptiert.&nbsp;&nbsp; &nbsp;C:\\Dokumente und Einstellungen\\****\\Desktop\\gmapnet\\Trunk\\Demo.WindowsForms\\Forms\\MainForm.cs&nbsp;&nbsp; &nbsp;359&nbsp;&nbsp; &nbsp;31&nbsp;&nbsp; &nbsp;Demo.WindowsForms<br>\r\nFehler&nbsp;&nbsp; &nbsp;2&nbsp;&nbsp; &nbsp;Der Name &quot;MarkerType&quot; ist im aktuellen Kontext nicht vorhanden.&nbsp;&nbsp; &nbsp;C:\\Dokumente und Einstellungen\\****\\Desktop\\gmapnet\\Trunk\\Demo.WindowsForms\\Forms\\MainForm.cs&nbsp;&nbsp; &nbsp;360&nbsp;&nbsp; &nbsp;57&nbsp;&nbsp; &nbsp;Demo.WindowsForms<br>\r\nFehler&nbsp;&nbsp; &nbsp;3&nbsp;&nbsp; &nbsp;Der Name &quot;MarkerColor&quot; ist im aktuellen Kontext nicht vorhanden.&nbsp;&nbsp; &nbsp;C:\\Dokumente und Einstellungen\\****\\Desktop\\gmapnet\\Trunk\\Demo.WindowsForms\\Forms\\MainForm.cs&nbsp;&nbsp; &nbsp;360&nbsp;&nbsp; &nbsp;76&nbsp;&nbsp; &nbsp;Demo.WindowsForms<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n\r\n",
+    "PostedDate": "2009-03-05T08:43:44.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164904",
+    "ThreadId": "49266",
+    "Html": "nop its <span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">gmapnet\\Trunk\\Trunk\\Demo.WindowsForms</span>",
+    "PostedDate": "2009-03-05T08:47:33.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "164909",
+    "ThreadId": "49266",
+    "Html": "exactly try this: gmap4dotnet-31939\\Trunk\\Solution\\GMap.NET.sln",
+    "PostedDate": "2009-03-05T08:50:07.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "165112",
+    "ThreadId": "49266",
+    "Html": "So we can't use markers in the WinForms version?\r\n",
+    "PostedDate": "2009-03-05T16:32:28.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "165205",
+    "ThreadId": "49266",
+    "Html": "yup ;}",
+    "PostedDate": "2009-03-05T22:12:26.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "165213",
+    "ThreadId": "49266",
+    "Html": "häää ?<br>\r\ni am really confused about your statements radioman.<br>\r\nI use the Win.Forms Demo and i CAN add markers with lat/lng .Why you are saying that we cant use markers in Win.Forms ??????????<br>\r\nThe only problem is only that we cant add markers with <strong>GetLatLngFromGeocoder</strong> .<br>\r\nIs there are no solution for it ?<br>\r\nHope to hear from you good news ;-)<br>\r\n",
+    "PostedDate": "2009-03-05T22:57:21.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "165233",
+    "ThreadId": "49266",
+    "Html": "you can do some things in release version, you cant do some things in trunk version, until next release confusion is our friend ;}",
+    "PostedDate": "2009-03-06T00:34:58.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166389",
+    "ThreadId": "49266",
+    "Html": "Hi Radioman :-)<br>\r\n<br>\r\nafter updating the markers ( thank you) for Windows.Forms i used the Demo.Windows.Forms with this kind of Code:<br>\r\nGMapMarker m = new GMapMarkerGoogleGreen(GMaps.Instance.GetLatLngFromGeocoder(&quot;Hamburg&quot;));<br>\r\n<br>\r\ni am still using this project.: gmap\\Trunk\\Demo.WindowsForms<br>\r\nWhy this is dont working ?<br>\r\nMade i a mistake ?<br>\r\nHope to hear from you soon.<br>\r\nRonny<br>\r\n",
+    "PostedDate": "2009-03-10T01:56:42.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166430",
+    "ThreadId": "49266",
+    "Html": "<div>// add my city location for demo</div><div>PointLatLng? pos = GMaps.Instance.GetLatLngFromGeocoder(&quot;Lithuania, Vilnius&quot;);</div><div>if(pos != null)</div><div>{</div><div>    GMapMarker myCity = new GMapMarkerGoogleGreen(pos.Value);</div><div>    MainMap.Markers.Add(myCity);</div><div>}</div>",
+    "PostedDate": "2009-03-10T04:58:39.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166449",
+    "ThreadId": "49266",
+    "Html": "Hi radioman -<br>\r\n<br>\r\n100000 thanks for this great working :-) THANK YOU<br>\r\n<br>\r\nanother: when you will implement the tooltip Coding for the markers for the win.Forms ?<br>\r\nIt would help me so much.<br>\r\n<br>\r\nThanks and regards<br>\r\n<br>\r\nronny<br>\r\n",
+    "PostedDate": "2009-03-10T08:04:44.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166477",
+    "ThreadId": "49266",
+    "Html": "...soon, just need some copy/paste from old code ;}",
+    "PostedDate": "2009-03-10T09:05:12.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

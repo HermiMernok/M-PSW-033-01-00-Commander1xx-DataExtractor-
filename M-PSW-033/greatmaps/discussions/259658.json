@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "620832",
+    "ThreadId": "259658",
+    "Html": "\r\n<p>I am working on a WindowsForms application. I want to be able to draw a marker on the map that updates on GPS data updating the location of the marker on the map, at the same time I would like to (hopefully) draw a line showing the route that it took. In\r\n addition, I would like this marker to rotate depending on heading information such that if the vehicle is moving with a southeast heading, the arrow-like marker will be pointing to the bottom right of the map. Could someone help me as to how to accomplish\r\n that? I read some dicsussions about the map rotating, but I don't want the map to rotate, rather I want the marker to rotate and the map to remain static. Any help would be appreciated.</p>\r\n",
+    "PostedDate": "2011-05-31T08:03:29.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "620923",
+    "ThreadId": "259658",
+    "Html": "<p>so whats the problem?</p>",
+    "PostedDate": "2011-05-31T10:47:16.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "620936",
+    "ThreadId": "259658",
+    "Html": "<p>It's not a problem; rather I am trying to figure out what the best way to rotate the marker is. I saw that Marker had a Bearing variable, but I can't seem to access it by &nbsp; marker.Bearing = &nbsp;and I was wondering if that could be used for what I am trying to do, and if not, to find out what the best way was to accomplish that.</p>\r\n<p>Also, I was wondering what the best way to do a path is. Should I simply create a new route and add points when I get a new GPS position?</p>",
+    "PostedDate": "2011-05-31T11:13:06.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "620938",
+    "ThreadId": "259658",
+    "Html": "<p>well, you have to experiment</p>",
+    "PostedDate": "2011-05-31T11:20:53.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "621354",
+    "ThreadId": "259658",
+    "Html": "<div style=\"color: black; background-color: white;\">\r\n<pre>This is exactly what I do. Here is the code of my marker. Bearing property is define inside the marker class. Bearing is expressed in degrees (0.0 - 359.9 deg) . Good luck</pre>\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> FocusedCoordMarker : GMapMarker\r\n    {\r\n\r\n        <span style=\"color: blue;\">public</span> FocusedCoordMarker(PointLatLng pos)\r\n            :<span style=\"color: blue;\">base</span>(pos)\r\n        {\r\n            Size = Properties.Resources.CurrentCoordMarker2.Size; <span style=\"color: green;\">// image resource</span>\r\n            Offset = <span style=\"color: blue;\">new</span> Point(-16, -16); <span style=\"color: green;\">// image is 32 x 32, offset to center of arrow image</span>\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">double</span> Bearing { <span style=\"color: blue;\">get</span>; <span style=\"color: blue;\">set</span>; } <span style=\"color: green;\">// define bearing property in the marker class</span>\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(System.Drawing.Graphics g)\r\n        {\r\n            g.RotateTransform(Convert.ToSingle(Bearing));\r\n            g.TranslateTransform(LocalPosition.X+Size.Width/2, LocalPosition.Y+Size.Height/2,System.Drawing.Drawing2D.MatrixOrder.Append);\r\n                \r\n            g.DrawImage(Properties.Resources.CurrentCoordMarker2, -Size.Width/2, -Size.Height/2, Size.Width, Size.Height);\r\n            g.ResetTransform();\r\n            \r\n        }\r\n    }\r\n<span style=\"font-family: Consolas; color: #e0e0e0;\"></span></pre>\r\n</div>",
+    "PostedDate": "2011-06-01T06:10:47.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

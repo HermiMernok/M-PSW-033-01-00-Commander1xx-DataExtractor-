@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1100111",
+    "ThreadId": "459462",
+    "Html": "I've got a c# program where I am adding markers to a map, and putting their location on a datagridview table.  I've got it set up so that if you mouse over the marker, the marker changes color and the datagridview row is highlighted.  This works perfectly.  What I want is to go the other way - mouse over the datagridview row and highlight the marker.\r<br />\n<br />\nThe way I am picking the marker is I am going through a foreach loop for all of the markers and looking for where the coordinates match, then selecting that marker.  It appears to work, in that I am selecting the correct marker, but it is not changing to color of the marker.  I am using a custom marker called a MyMarker.  Am I not passing my Highlight method the right instance of the marker?  I'm lost!\r<br />\n<br />\nBelow is some of the code.<br />\n<pre><code>        public class MarkerSet_  //Develop the marker system class\n        {\n            public int MarkerIndex = -1;  //The row number of the datagridview table\n            public MyMarker marker;\n        }\n        public MarkerSet_  MarkerSet = new MarkerSet_ ();\n\n        void MainMap_OnMarkerEnter(GMapMarker item)\n        {   ///This works great, and highlights both the marker and the datagridview row\n                MarkerSet.MarkerIndex = MarkerIndex(item); \n//MarkerIndex(index) finds the row number in the datagridview table - works fine\n\n                MarkerSet.marker = item as MyMarker;  //make this the current marker\n                HighlightMarker(MarkerSet.marker);  //Highlight the current marker\n        }\n\n        private void DataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)\n        {\n            int index = e.RowIndex;\n            MarkerSet.MarkerIndex = index;\n            MarkerSet.marker = FindMarker(index);\n//FindMarker is a method that identifies the marker to corresponds to the index, shown below\n            HighlightMarker(MarkerSet.marker);\n        }\n\n        public void HighlightMarker(GMapMarker item)\n        {  //This works if called from OnMarkerEnter\n            MyMarker rc = item as MyMarker;\n            Pen tmpPen = new Pen(Brushes.Red, 5);\n            rc.Pen = tmpPen;\n            item = rc;\n            DataGridView1.Rows[MarkerSet.MarkerIndex].DefaultCellStyle.BackColor = Color.White;\n        }\n\n        MyMarker FindMarker(int index)\n        {\n//round to 6 digits\n            double Lat = Convert.ToDouble(dt.Rows[index][0]);  //items from the datagridview\n            double Lng = Convert.ToDouble(dt.Rows[index][1]);\n            PointLatLng p = new PointLatLng(Lat, Lng);\n\n            foreach (GMapMarker mark in BaseMap.Overlays[0].Markers)\n            {\n                double markLat = Math.Round(mark.Position.Lat, 6);\n                double markLng = Math.Round(mark.Position.Lng, 6);\n                if (Math.Round(p.Lat, 6) == markLat &amp;&amp; Math.Round(p.Lng, 6) == markLng)\n                    return mark as MyMarker; //This does return the correct marker\n\n        }\n</code></pre>\n\n",
+    "PostedDate": "2013-09-27T06:50:38.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100143",
+    "ThreadId": "459462",
+    "Html": "search by coordinates is a bit strange... anyway try call map.Invalidate(); after you are done<br />\n",
+    "PostedDate": "2013-09-27T07:58:05.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100145",
+    "ThreadId": "459462",
+    "Html": "Thanks for the quick response!  That solved it.  What is a better way to find the marker index?  I tried item.tag, but it came back null?  I'm really just starting out with this, but it is super cool!<br />\n",
+    "PostedDate": "2013-09-27T08:02:34.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

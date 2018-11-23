@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "439521",
+    "ThreadId": "211707",
+    "Html": "<p>Hi</p>\r\n<p>I've implemented my own OSM tile server as we don't expect to have internet access when we want to use our application.</p>\r\n<p>How can i point the control at the local OSM tile server rather than the internet one?</p>\r\n<p>Thanks</p>\r\n<p>Ben</p>",
+    "PostedDate": "2010-05-05T15:05:24.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439655",
+    "ThreadId": "211707",
+    "Html": "<ul>\r\n<li>Create new map type in <em>GMap.NET.Core\\GMap.NET\\<strong>MapType.cs</strong></em></li>\r\n<li>Handle url generation in <em>GMap.NET.Core\\GMap.NET\\<strong>GMaps.cs</strong></em> at&nbsp;MakeImageUrl by creating new case with your new map type(<em>http://{0}.tile.mylocalserver.org/{1}/{2}/{3}.png</em>)</li>\r\n<li>Engage! ;}</li>\r\n</ul>\r\n<p>p.s. while testing i recommend to set temporally MainMap.Manager.Mode = AccessMode.<strong>ServerOnly</strong>, to keep your local cache clean if you made mistake somewhere</p>",
+    "PostedDate": "2010-05-05T22:20:20.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

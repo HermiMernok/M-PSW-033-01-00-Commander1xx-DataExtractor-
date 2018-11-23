@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1474755",
+    "ThreadId": "655105",
+    "Html": "Right now, I am able to place a marker. However, I'd like to move it too. The only way for me to see the change is by closing and opening the dialog.<br />\n<pre><code>Private Sub gmapCMS_Add()\n    gmapCtrl.UpdateMarkerLocalPosition(mrk)\nEnd Sub\n\nPrivate Sub Location_Load(sender As Object, e As EventArgs) Handles MyBase.Load\n    Dim longlat As PointLatLng = New PointLatLng(Latitude, Longitude)\n    gmapCtrl.Position = longlat\n    mrk = New Markers.GMarkerGoogle(longlat, Markers.GMarkerGoogleType.green)\n    gmOverlay.Markers.Add(mrk)\n    gmapCtrl.Overlays.Add(gmOverlay)\nEnd Sub\n</code></pre>\n\n",
+    "PostedDate": "2016-05-31T11:08:19.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1474758",
+    "ThreadId": "655105",
+    "Html": "Never mind, figured it out. Not sure why it wasn't working before. For clarification, I'm looking to move an existing marker. In my case, I only have one marker at a time. So keeping track of which I'm moving isn't an issue.<br />\n<pre><code>Private Sub gmapCMS_Add()\n    gmOverlay.Markers.Remove(mrk)\n    mrk = New Markers.GMarkerGoogle(gmapCtrl.Position, Markers.GMarkerGoogleType.green)\n    gmOverlay.Markers.Add(mrk)\nEnd Sub</code></pre>\n\n",
+    "PostedDate": "2016-05-31T11:20:51.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-05-31T11:20:54.533-07:00"
+  }
+]

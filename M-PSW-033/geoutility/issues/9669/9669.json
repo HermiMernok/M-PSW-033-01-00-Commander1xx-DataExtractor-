@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "There seems to be a problem when converting UTM coordinates in the N band. \n36N 565236 527266 converted to MGRS and then back to UTM results as 36N 565236 507266\n\nThe same issue occurs for other UTM zones in the N band.\n\nThe library is very useful, I hope you can fix this.",
+    "LastUpdatedDate": "2013-10-12T19:30:37.397-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "geoutility",
+    "ReportedDate": "2012-10-08T05:31:07.23-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MGRS to UTM conversion error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 9669
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3511,
+      "FileName": "GeoUtility.Tests.zip",
+      "DownloadUrl": ".\\3511"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Please send a sample for converting UTM to MGRS  or LatLon to MGRS.\r\n\r\nI need very urgent.\r\n\r\nPlease help.\r\n\r\nThanks in advance",
+      "PostedDate": "2013-10-12T08:57:11.067-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-10-12T19:30:31.913-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Attached is a test project that tests the examples on the home page.\nThere is also a test for this error and a test that creates a spreadsheet that illustrates the errors in conversion.\nThe basic flow of the test is\nGeographic geo = new Geographic(lon, lat);\nMGRS mgrs = (MGRS)geo;\nGeographic result = (Geographic)mgrs;\ndouble distance = DistanceBetweenPointsInMeters(geo, result);\nif (distance > 1.0)\n{\n// Failed\n}\n",
+      "PostedDate": "2013-10-12T19:30:37.397-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

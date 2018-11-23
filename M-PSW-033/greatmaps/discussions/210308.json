@@ -1,0 +1,306 @@
+[
+  {
+    "Id": "434612",
+    "ThreadId": "210308",
+    "Html": "<p>Hi, the &quot;caching&quot; seem to work well, but when I use serverandcache mode, if I loose my internet connection, the object doesn't use the cache, it put &quot;empty&quot; tile.</p>\r\n<p>&nbsp;</p>\r\n<p>At the same time, it is possible for be able to &quot;drag&quot; the map even if we don't have a title?</p>",
+    "PostedDate": "2010-04-23T06:52:57.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434912",
+    "ThreadId": "210308",
+    "Html": "<p>not in wpf version</p>",
+    "PostedDate": "2010-04-24T04:38:39.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434975",
+    "ThreadId": "210308",
+    "Html": "<p>you mean we can't drag the map in wpf or in wpf is not using the cache when I loose internet connection?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T10:24:54.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434976",
+    "ThreadId": "210308",
+    "Html": "<p>serverandcache == look in cache return if found, else look in servers. And it doesn't matter which version ;}</p>",
+    "PostedDate": "2010-04-24T10:28:15.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434977",
+    "ThreadId": "210308",
+    "Html": "<p>hmm, okay, I'll debug because when I disconnect my internet cable and if I &quot;move&quot; the map I don't have any tile appearing.</p>\r\n<p>&nbsp;</p>\r\n<p>for the &quot;caching&quot; I just need to set the serverandcache mode, correct?</p>",
+    "PostedDate": "2010-04-24T10:30:03.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434978",
+    "ThreadId": "210308",
+    "Html": "<p>it's default option, works just perfectly</p>",
+    "PostedDate": "2010-04-24T10:37:00.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434991",
+    "ThreadId": "210308",
+    "Html": "<p>hmm not for me, maybe I don't have the last version, I just realise the HG repositoty is not updated with your source code. the last update on it it's 2 weeks old. Are you updating the HG frequency, or it's better to re-download the full code each time?</p>\r\n<p>&nbsp;</p>\r\n<p>edit:</p>\r\n<p>Forget that, I just delete en re-clone the repository and working fine now</p>",
+    "PostedDate": "2010-04-24T11:45:40.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434992",
+    "ThreadId": "210308",
+    "Html": "<p>perfect!</p>",
+    "PostedDate": "2010-04-24T11:51:52.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434995",
+    "ThreadId": "210308",
+    "Html": "<p>Okay, just found my &quot;Error&quot;, you're right it use cache and never go on the server if it have it... but if we are not connected and I try to move on the map, it will try to connect to the server, so there it waiting for the server, if I go back where I have the map, it's working, but if I repeat that 5-6 time, it's not working anymore, I presume you have a max number of queue and when that happen, even if it's on the cache, it will wait ...</p>\r\n<p>&nbsp;</p>\r\n<p>here is my immediate windows:</p>\r\n<p>\r\n<pre>Starting GetResponse: {X=74751,Y=41653}\r\nStarting GetResponse: {X=74751,Y=41652}\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:08.3780000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:08.7320000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:09.6740000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:09.7370000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.0570000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.1530000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.6260000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.6810000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:11.0410000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:11.0980000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:11.8730000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:12.2250000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:12.3290000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:12.6730000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.0330000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.3850000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.4570000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.7930000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.8180000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.8570000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.2020000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.2410000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.2740000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.6010000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.9450000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:15.0340000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:16.0970000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:16.2090000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:16.9130000\r\nOnTileLoadStart: 35 tiles to load at zoom 16, time: 15:14:17.3610000\r\nOnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:22.1930000\r\n<br>[Waiting Here]<br><br>A first chance exception of type 'System.Net.WebException' occurred in System.dll\r\nA first chance exception of type 'System.Net.WebException' occurred in System.dll\r\nA first chance exception of type 'System.Net.WebException' occurred in System.dll\r\nA first chance exception of type 'System.Net.WebException' occurred in System.dll\r\nA first chance exception of type 'System.Net.WebException' occurred in System.dll\r\nGetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118\r\n   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)\r\n   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)\r\n   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)\r\n   --- End of inner exception stack trace ---\r\n   at System.Net.HttpWebRequest.GetResponse()\r\n   at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214\r\nGetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118\r\n   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)\r\n   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)\r\n   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)\r\n   --- End of inner exception stack trace ---\r\n   at System.Net.HttpWebRequest.GetResponse()\r\n   at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214\r\nGetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118\r\n   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)\r\n   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)\r\n   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)\r\n   --- End of inner exception stack trace ---\r\n   at System.Net.HttpWebRequest.GetResponse()\r\n   at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214\r\nGetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118\r\n   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)\r\n   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)\r\n   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)\r\n   --- End of inner exception stack trace ---\r\n   at System.Net.HttpWebRequest.GetResponse()\r\n   at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214\r\nGetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118\r\n   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)\r\n   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)\r\n   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)\r\n   --- End of inner exception stack trace ---\r\n   at System.Net.HttpWebRequest.GetResponse()\r\n   at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214\r\nProcessLoadTask: 17 - {X=74751,Y=41653} -&gt; empty tile, retry 0\r\nProcessLoadTask: 17 - {X=74751,Y=41651} -&gt; empty tile, retry 0\r\nProcessLoadTask: 17 - {X=74751,Y=41654} -&gt; empty tile, retry 0\r\nProcessLoadTask: 17 - {X=74751,Y=41655} -&gt; empty tile, retry 0\r\nProcessLoadTask: 17 - {X=74751,Y=41652} -&gt; empty tile, retry 0\r\nStarting GetResponse: {X=74751,Y=41651}\r\nStarting GetResponse: {X=74751,Y=41654}\r\nStarting GetResponse: {X=74751,Y=41655}\r\nStarting GetResponse: {X=74751,Y=41653}\r\nStarting GetResponse: {X=74751,Y=41652}</pre>\r\n</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow:hidden\">OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:08.3780000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:08.7320000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:09.6740000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:09.7370000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.0570000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.1530000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.6260000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:10.6810000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:11.0410000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:11.0980000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:11.8730000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:12.2250000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:12.3290000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:12.6730000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.0330000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.3850000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.4570000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.7930000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.8180000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:13.8570000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.2020000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.2410000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.2740000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.6010000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:14.9450000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:15.0340000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:16.0970000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:16.2090000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:16.9130000<br>OnTileLoadStart: 35 tiles to load at zoom 16, time: 15:14:17.3610000<br>OnTileLoadStart: 35 tiles to load at zoom 17, time: 15:14:22.1930000<br>A first chance exception of type 'System.Net.WebException' occurred in System.dll<br>A first chance exception of type 'System.Net.WebException' occurred in System.dll<br>A first chance exception of type 'System.Net.WebException' occurred in System.dll<br>A first chance exception of type 'System.Net.WebException' occurred in System.dll<br>A first chance exception of type 'System.Net.WebException' occurred in System.dll<br>GetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)<br>&nbsp;&nbsp; at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)<br>&nbsp;&nbsp; --- End of inner exception stack trace ---<br>&nbsp;&nbsp; at System.Net.HttpWebRequest.GetResponse()<br>&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214<br>GetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)<br>&nbsp;&nbsp; at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)<br>&nbsp;&nbsp; --- End of inner exception stack trace ---<br>&nbsp;&nbsp; at System.Net.HttpWebRequest.GetResponse()<br>&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214<br>GetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)<br>&nbsp;&nbsp; at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)<br>&nbsp;&nbsp; --- End of inner exception stack trace ---<br>&nbsp;&nbsp; at System.Net.HttpWebRequest.GetResponse()<br>&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214<br>GetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)<br>&nbsp;&nbsp; at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)<br>&nbsp;&nbsp; --- End of inner exception stack trace ---<br>&nbsp;&nbsp; at System.Net.HttpWebRequest.GetResponse()<br>&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214<br>GetImageFrom: System.Net.WebException: Unable to connect to the remote server ---&gt; System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 67.18.252.221:8118<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)<br>&nbsp;&nbsp; at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)<br>&nbsp;&nbsp; at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket&amp; socket, IPAddress&amp; address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception&amp; exception)<br>&nbsp;&nbsp; --- End of inner exception stack trace ---<br>&nbsp;&nbsp; at System.Net.HttpWebRequest.GetResponse()<br>&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom) in C:\\Dev\\CodePlex\\greatmaps\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 2214<br>ProcessLoadTask: 17 - {X=74751,Y=41653} -&gt; empty tile, retry 0<br>ProcessLoadTask: 17 - {X=74751,Y=41651} -&gt; empty tile, retry 0<br>ProcessLoadTask: 17 - {X=74751,Y=41654} -&gt; empty tile, retry 0<br>ProcessLoadTask: 17 - {X=74751,Y=41655} -&gt; empty tile, retry 0<br>ProcessLoadTask: 17 - {X=74751,Y=41652} -&gt; empty tile, retry 0<br>Starting GetResponse: {X=74751,Y=41651}<br>Starting GetResponse: {X=74751,Y=41654}<br>Starting GetResponse: {X=74751,Y=41655}<br>Starting GetResponse: {X=74751,Y=41653}<br>Starting GetResponse: {X=74751,Y=41652}</div>",
+    "PostedDate": "2010-04-24T12:20:11.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434997",
+    "ThreadId": "210308",
+    "Html": "<p>loading is limited by 5 tiles in one moment, so if do not have them, and server is not reachable, you have nothing ;]</p>",
+    "PostedDate": "2010-04-24T12:26:01.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435000",
+    "ThreadId": "210308",
+    "Html": "<p>yeah, I understand that point :) but since i'm using a usb data edge card, I loose the connection to internet some time.. and right now the problem I have is I have empty tile after some time... and the reason is when I don't have the internet connection the application hang.</p>\r\n<p>&nbsp;</p>\r\n<p>So I have 5 connection trying to &quot;download&quot; new map because I don't have them, fine. But if I come back when I have the map in cache, it will not load them, because the application we'll wait for the 5 connection finish first... so it take 1-2 min for the timeout, and I don't have any map on screen even if I have those. (maybe it will be a great idea to check if I have the title into memory map?)</p>\r\n<p>&nbsp;</p>\r\n<p>and after some time, even if I have the internet connection back, it &quot;loading&quot; for ever. I need to stop the &quot;demo&quot; and play it again for make it work again.</p>\r\n<p>&nbsp;</p>\r\n<p>maybe a solution will be, if we have 5 and more &quot;waiting&quot; connection, maybe make another connection, but only for checking cache?</p>\r\n<p>Sorry for bad english, i'm french :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T12:44:54.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435002",
+    "ThreadId": "210308",
+    "Html": "<p>you can decrease time-out value, to 10s or so, and also there is retry included, you can set it to 0 ;}</p>\r\n<p><em>MainMap.Manager.<strong>Timeout</strong> = 5 * 1000; // 5s</em><br><em> MainMap.Manager.<strong>RetryLoadTile</strong> = 0; // disable retry</em></p>",
+    "PostedDate": "2010-04-24T12:54:40.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435003",
+    "ThreadId": "210308",
+    "Html": "<p>yeah, just saw that, I didn't finish to check the code, but I think when the &quot;task&quot; cannot load the map, even with a retryload of 0 it will not remove the task, so if I go back later, to try to load the same &quot;tile&quot; even if I have a good internet connection now, it will not try to reload it because we still have this &quot;zombie&quot; task. so theif(!tileLoadQueue.Contains(task)) into the UpdateBound will be &quot;true&quot; ...</p>",
+    "PostedDate": "2010-04-24T12:58:20.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435004",
+    "ThreadId": "210308",
+    "Html": "<p>each task do:&nbsp;task = tileLoadQueue.Dequeue();</p>\r\n<p>so of you hit refresh it starts loading the same tiles again</p>",
+    "PostedDate": "2010-04-24T13:04:02.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435005",
+    "ThreadId": "210308",
+    "Html": "<p>..and it works pretty good even on my mobile</p>",
+    "PostedDate": "2010-04-24T13:04:43.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435009",
+    "ThreadId": "210308",
+    "Html": "<p>yeah, it was a guest, I'll go over the code and see why, but I uncomment the line Debug.WriteLine(&quot;TileLoadQueue: &quot; + tileLoadQueue.Count);</p>\r\n<p>and when that happen the tileLoadQueue.Count stay near 131 and even if internet is back, it stay at 131. My new &quot;thinking&quot; (because you just put my old in garbage :) ) it's when we got an error from the web it doesn't go through a new tileLoadQueue, maybe something &quot;block&quot; it... you can easly reproduce that by disable your internet connection... each time I do it it doing that...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T13:08:53.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435010",
+    "ThreadId": "210308",
+    "Html": "<p>oh, maybe I should start another discution for that, but maybe it will be a good idea to replace all the debug.print by an event? in my case, so I'll be able to put the &quot;Result&quot; into a visible textbox (or whatever) for remote debuging ?</p>",
+    "PostedDate": "2010-04-24T13:11:05.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435013",
+    "ThreadId": "210308",
+    "Html": "<p>debug prints are just for debug, in release build they are removed</p>",
+    "PostedDate": "2010-04-24T13:18:58.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435014",
+    "ThreadId": "210308",
+    "Html": "<p>you can check for Internet connection on application startup and if there is none, set mode to <strong>CacheOnly</strong></p>\r\n<p><strong>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">try</span>\r\n{\r\n  System.Net.IPHostEntry e = System.Net.Dns.GetHostByName(<span style=\"color:#a31515\">&quot;www.google.com&quot;</span>);\r\n}\r\n<span style=\"color:blue\">catch</span> <span style=\"color:green\">// host not reachable. </span>\r\n{\r\n  MainMap.Manager.Mode = AccessMode.CacheOnly;\r\n}</pre>\r\n</div>\r\n</strong></p>",
+    "PostedDate": "2010-04-24T13:23:09.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435019",
+    "ThreadId": "210308",
+    "Html": "<p>sure, but the problem is not that, it's when I loose internet, and that can happen during a middle of a query, so that will not work... let me try to find a solution to the code and I'll post it here :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T13:50:57.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435020",
+    "ThreadId": "210308",
+    "Html": "<p>go ahead! ;}</p>",
+    "PostedDate": "2010-04-24T13:54:06.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435028",
+    "ThreadId": "210308",
+    "Html": "<p>okay, I think I found the problem.</p>\r\n<p>&nbsp;</p>\r\n<p>when we &quot;load&quot; a map, in my case, it load 35 tile, so it will launch 35 time the function with:&nbsp;</p>\r\n<p>if(loaderLimit.WaitOne(GMaps.Instance.Timeout, false))</p>\r\n<p>but, since the server doesn't response in time, all other thread who are waiting, timeout, without removing a &quot;Task&quot;, so that why I still have those task without any thread to do it. And since this task is there it will never try to &quot;reload&quot; it because of the if(!tileLoadQueue.Contains(task))</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T14:36:43.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435030",
+    "ThreadId": "210308",
+    "Html": "<p>solution?</p>",
+    "PostedDate": "2010-04-24T14:40:59.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435031",
+    "ThreadId": "210308",
+    "Html": "<p>Hmm, one easy solutino will be to remove the &quot;timeout&quot; or put a really really long timeout... but i'm not sure if it's okay.. since the application can start many many many thread...</p>\r\n<p>&nbsp;</p>\r\n<p>or maybe another approach. since i'm not a very good programmor :) maybe it stupid, but, why not start 5 thread at start, trying to &quot;Execute&quot; queue from Task ?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T14:44:02.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435038",
+    "ThreadId": "210308",
+    "Html": "<p>and maybe solution is to get good Internet connection or precache the map ;}</p>",
+    "PostedDate": "2010-04-24T15:13:04.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435040",
+    "ThreadId": "210308",
+    "Html": "<p>since it's outdoor application I don't have the control of the internet :)</p>\r\n<p>and even with precache the map... it can do the same thing...</p>\r\n<p>at the end, with the current code, if something happen in the middle of this function and take more of 30 sec, you'll have this issue.. not only from the internet connection.. it can be a really slow hard disk reading (for the sqlite by exemple)... and because of that, all the application stop working</p>\r\n<p>&nbsp;</p>\r\n<p>I replace the if(loaderLimit.WaitOne(GMaps.Instance.Timeout, false))</p>\r\n<p>by</p>\r\n<p>if(loaderLimit.WaitOne()) and it's working well now...</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T15:17:23.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435043",
+    "ThreadId": "210308",
+    "Html": "<p>Hmm, i'm looking at the code right now, I presume you put the maximum of 5 thread at the same time, for don't send 50 web query at the same time at google or openstreetmap? if yes, why not put theloaderLimit before the line</p>\r\n<p>using(HttpWebResponse response = request.GetResponse() as HttpWebResponse)</p>\r\n<p>in GetImageFrom, so if we have the image in cache, it will load the 50 images at the same time.. and you'll not &quot;overload&quot; theirs website</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T15:24:25.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435046",
+    "ThreadId": "210308",
+    "Html": "<p>slow hdd ;}</p>\r\n<p>..anyway good point, needs few tests to make it work</p>",
+    "PostedDate": "2010-04-24T15:30:37.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435048",
+    "ThreadId": "210308",
+    "Html": "<p><span id=\"result_box\"><span style=\"background-color:#ffffff\" title=\"ne rie pas\">do not laugh, but my incar computer have a really slow hhd :)</span></span></p>\r\n<p>&nbsp;</p>\r\n<p><span><span style=\"background-color:#ffffff\" title=\"ne rie pas\">I move all the loaderLimit into the </span></span>GetImageFrom, add a thread.sleep into the catch of the webresult</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><div style=\"color:black;background-color:white\"><pre>                  <span style=\"color:green\">//if (loaderLimit.WaitOne(GMaps.Instance.Timeout, false))</span>\r\n                  <span style=\"color:blue\">if</span> (loaderLimit.WaitOne())\r\n                  {\r\n\r\n                      Debug.WriteLine(<span style=\"color:#a31515\">&quot;Starting GetResponse: &quot;</span> + pos);\r\n\r\n                      <span style=\"color:blue\">using</span>(HttpWebResponse response = request.GetResponse() <span style=\"color:blue\">as</span> HttpWebResponse)\r\n\r\n                       ...\r\n\r\n                  }\r\n                  loaderLimit.Release();\r\n               }\r\n            }\r\n         }\r\n         <span style=\"color:blue\">catch</span>(Exception ex)\r\n         {\r\n            ret = <span style=\"color:blue\">null</span>;\r\n            Debug.WriteLine(<span style=\"color:#a31515\">&quot;GetImageFrom: &quot;</span> + ex.ToString());\r\n            Thread.Sleep(1111);\r\n         }\r\n</pre>\r\n</div>\r\n<br></pre>\r\n</div>\r\n</p>\r\n<p>and I remove the thread.sleep from the ProcessLoadTask, since it's done before now</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>\r\n                              Debug.WriteLine(<span style=\"color:#a31515\">&quot;ProcessLoadTask: &quot;</span> + task + <span style=\"color:#a31515\">&quot; -&gt; empty tile, retry &quot;</span> + retry);\r\n                              {\r\n                                  <span style=\"color:green\">//Thread.Sleep(1111);</span>\r\n                              }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>running very good now, and very fast, I'm suggesting the change :)</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T15:37:05.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435050",
+    "ThreadId": "210308",
+    "Html": "<p>hm... what if you put that before limiter?</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">void</span> ProcessLoadTask(<span style=\"color:blue\">object</span> obj)\r\n      {\r\n         <span style=\"color:blue\">bool</span> last = <span style=\"color:blue\">false</span>;\r\n\r\n         LoadTask? task = <span style=\"color:blue\">null</span>;\r\n\r\n         <span style=\"color:blue\">lock</span>(tileLoadQueue)\r\n         {\r\n            <span style=\"color:blue\">if</span>(tileLoadQueue.Count &gt; 0)\r\n            {\r\n               task = tileLoadQueue.Dequeue();\r\n               {\r\n                  last = tileLoadQueue.Count == 0;\r\n                  <span style=\"color:green\">//Debug.WriteLine(&quot;TileLoadQueue: &quot; + tileLoadQueue.Count);</span>\r\n               }\r\n            }\r\n         }\r\n\r\n         <span style=\"color:blue\">if</span>(loaderLimit.WaitOne(GMaps.Instance.Timeout, <span style=\"color:blue\">false</span>))\r\n         {\r\n            <span style=\"color:blue\">if</span>(task.HasValue)\r\n            { .....\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T15:42:27.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435051",
+    "ThreadId": "210308",
+    "Html": "<p>hmm good point :)</p>\r\n<p>&nbsp;</p>\r\n<p>that will work too, you still have the &quot;sleep&quot; slowing down a little, but at least it's fixing my problem :)</p>",
+    "PostedDate": "2010-04-24T15:47:10.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435053",
+    "ThreadId": "210308",
+    "Html": "<p>...maybe this do? If you set retry to zero it doesn't sleep:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span>(GMaps.Instance.RetryLoadTile &gt; 0)\r\n{\r\n   Debug.WriteLine(<span style=\"color:#a31515\">&quot;ProcessLoadTask: &quot;</span> + task + <span style=\"color:#a31515\">&quot; -&gt; empty tile, retry &quot;</span> + retry);\r\n   {\r\n      Thread.Sleep(1111);\r\n   }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T15:56:03.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435054",
+    "ThreadId": "210308",
+    "Html": "<p>yup, that will work, I was removing it because I suppose you was sleeping for lets the webservice &quot;answering&quot;, in the code I suggest, it was sleeping only with it was using the web... because I don't think you need to sleep if you receive a null from local database?</p>",
+    "PostedDate": "2010-04-24T15:58:57.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435058",
+    "ThreadId": "210308",
+    "Html": "<p>you see, if you get null from local database, then automatically you get tile from second level cache and if still nothing you finally use web, and if you still get zero, engine retries the same process again, and that is why i use some sleep before retry. So you can't really know from where you get the data ;}</p>",
+    "PostedDate": "2010-04-24T16:07:17.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435059",
+    "ThreadId": "210308",
+    "Html": "<p>oh, okay, I understand, since i'm not using the second cache, I didn't see this code :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-24T16:09:50.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435063",
+    "ThreadId": "210308",
+    "Html": "<p>actually i've missed to tell about memory cache in the first place ;} anyway changes are already committed</p>",
+    "PostedDate": "2010-04-24T16:26:06.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435065",
+    "ThreadId": "210308",
+    "Html": "<p>nice :)</p>\r\n<p>&nbsp;</p>\r\n<p>thank you</p>",
+    "PostedDate": "2010-04-24T16:27:00.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435068",
+    "ThreadId": "210308",
+    "Html": "<p>thanks <em>You</em> ;}</p>",
+    "PostedDate": "2010-04-24T16:41:13.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

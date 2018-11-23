@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "449510",
+    "ThreadId": "214436",
+    "Html": "<p>Hi radioman!</p>\r\n<p>First off all, thanks for this fantastic work!</p>\r\n<p>I have some troubles with the OnMarkerClick event.</p>\r\n<p>I like to show a ContextMenu on a right mouseclick. Unfortunatly you don't pass the MouseEventArguments in the OnMarkerClick event. Is there a nice way to do that?</p>\r\n<p>&nbsp;</p>\r\n<p>The only thing i can do is to declare a own OnMarkerClick event, and hide your implementation, but i can't get the Core.IsDragging, cause it's declared  as internal.</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnMouseClick(MouseEventArgs e)\r\n{\r\n\t<span style=\"color:blue\">if</span> (e.Button != MouseButtons.Left)\r\n\t{\r\n\t\t<span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = Overlays.Count - 1; i &gt;= 0; i--)\r\n\t\t{\r\n\t\t\tGMapOverlay o = Overlays[i];\r\n\t\t\t<span style=\"color:blue\">if</span> (o != <span style=\"color:blue\">null</span> &amp;&amp; o.IsVisibile)\r\n\t\t\t{\r\n\t\t\t\t<span style=\"color:blue\">foreach</span> (GMapMarker m <span style=\"color:blue\">in</span> o.Markers)\r\n\t\t\t\t{\r\n\t\t\t\t\t<span style=\"color:blue\">if</span> (m.Visible)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t<span style=\"color:blue\">if</span> (m.LocalArea.Contains(e.X, e.Y))\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t<span style=\"color:blue\">if</span> (MarkerClickWithArguments != <span style=\"color:blue\">null</span>)\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tMarkerClickWithArguments(m, e);\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">break</span>;\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t<span style=\"color:blue\">base</span>.OnMouseClick(e);\r\n}\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>Greetz from Austria,</p>\r\n<p>Manuel</p>",
+    "PostedDate": "2010-05-31T02:17:46.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449518",
+    "ThreadId": "214436",
+    "Html": "<p>hey!</p>\r\n<p>..why do you need mouse arguments?</p>",
+    "PostedDate": "2010-05-31T03:01:25.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449537",
+    "ThreadId": "214436",
+    "Html": "<p>Hey!</p>\r\n<p>I'd like to show different context menus for different types of custom markers.</p>\r\n<p>My actual solution works, but i'm scared to miss the Core.IsDragging in my overridden OnMouseClick event.</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> MapControl_OnMarkerClick(GMapMarker item)\r\n{\r\n    <span style=\"color:blue\">if</span> (item <span style=\"color:blue\">is</span> GMapMarkerSV)\r\n        Controller.selectSVMarker((item <span style=\"color:blue\">as</span> GMapMarkerSV).sv);\r\n    <span style=\"color:blue\">if</span> (item <span style=\"color:blue\">is</span> GMapMarkerSF)\r\n        Controller.selectSFMarker((item <span style=\"color:blue\">as</span> GMapMarkerSF).sf);\r\n    <span style=\"color:blue\">if</span> (item <span style=\"color:blue\">is</span> GMapMarkerZugewieseneKundentermine)\r\n        Controller.selectZugewieseneKundentermineMarker((item <span style=\"color:blue\">as</span> GMapMarkerZugewieseneKundentermine).sf);\r\n}\r\n\r\n<span style=\"color:blue\">void</span> MapControl_MarkerClickWithArguments(GMapMarker item, MouseEventArgs e)\r\n{\r\n    <span style=\"color:blue\">if</span> (e.Button == MouseButtons.Right)\r\n    {\r\n        ToolTipGridControl.Hide();\r\n        <span style=\"color:blue\">if</span> (item <span style=\"color:blue\">is</span> GMapMarkerSV)\r\n            Controller.showContextMenuSVMarker((item <span style=\"color:blue\">as</span> GMapMarkerSV).sv, MousePosition);\r\n        <span style=\"color:blue\">if</span> (item <span style=\"color:blue\">is</span> GMapMarkerSF)\r\n            Controller.showContextMenuSFMarker((item <span style=\"color:blue\">as</span> GMapMarkerSF).sf, MousePosition);\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-05-31T03:58:34.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449539",
+    "ThreadId": "214436",
+    "Html": "<p>forgot the imporant thing.</p>\r\n<p>i've got over 70k of markers, so creating a new context menu for each of the markers isn't not really fast... (was my first solution)</p>",
+    "PostedDate": "2010-05-31T04:02:48.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449549",
+    "ThreadId": "214436",
+    "Html": "<p>70k o.O and how it's performance?</p>",
+    "PostedDate": "2010-05-31T04:20:09.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449593",
+    "ThreadId": "214436",
+    "Html": "<p>it's not that bad :) But they are static (not moving, like in your transport-demo).</p>\r\n<p>I'm using a own Caching-Provider for Asa11 (Sybase). Only a bit laggy if i'm zoomed out fully :D, but thats not the default case.</p>\r\n<p>Do you think you can pass the MouseEventArgs by default? Or is my solution ok (Core.IsDragging doesn't seem to be needet in this case?)?</p>",
+    "PostedDate": "2010-05-31T06:29:54.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449645",
+    "ThreadId": "214436",
+    "Html": "<p>Aye, i'll include it in the next update ;}</p>",
+    "PostedDate": "2010-05-31T08:23:07.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449858",
+    "ThreadId": "214436",
+    "Html": "<p>Great!</p>\r\n<p>I'm thinking about a own codeplex project to provide a range of custom markers, helpers and other stuff... :)</p>",
+    "PostedDate": "2010-06-01T00:33:30.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

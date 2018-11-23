@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi radioman,\r\nI've just created a ruler that it's updated on mousemove events. \r\nThe ruler it's just a line with a rectangle at one end displaying the distance. \r\n\r\nThe problem is that the ruler is always drawn with a certain offset from the mouse position.\r\nThe position is obtained by the MouseEventArgs variable of the MouseMove event which is then stored like a PointLatLng through FromLocalToLatLng function.\r\n\r\nRight now I've solved this issue by making the Core.renderoffset variable public so I can use it like you've done for the GMapRoute class.\r\n\r\n\r\n```\r\n      public void UpdateRouteLocalPosition(GMapRoute route)\r\n      {\r\n         route.LocalPoints.Clear();\r\n\r\n         foreach(GMap.NET.PointLatLng pg in route.Points)\r\n         {\r\n            GPoint p = FromLatLngToLocal(pg);\r\n\r\n#if !PocketPC\r\n            if(!MobileMode)\r\n            {\r\n               p.OffsetNegative(Core.renderOffset);\r\n            }\r\n...\r\n```\r\n\r\nThis is my class:\r\n```\r\n\t\tpublic ref class Ruler\r\n\t\t\t: GMap::NET::WindowsForms::GMapRoute\r\n\t\t{\r\n\t\tprivate:\r\n\t\t\tPointLatLng m_Point;\r\n\r\n\t\tpublic:\r\n\t\t\tRuler(String^ id) : GMapRoute(id){}\r\n\r\n\r\n\t\t\t// Call on mouseclick\r\n\t\t\tvoid AddPoint(PointLatLng Point)\r\n\t\t\t{\r\n\t\t\t\tm_Point = Point;\r\n\t\t\t\tPoints->Add(Point);\r\n\t\t\t\tOverlay->Control->UpdateRouteLocalPosition(this);\r\n\t\t\t}\r\n\r\n\r\n\t\t\t// Call on mousemove\r\n\t\t\tvoid MoveLastPoint(PointLatLng Point)\r\n\t\t\t{\r\n\t\t\t\tm_Point = Point;\r\n\t\t\t}\r\n\r\n\r\n\r\n\t\t\tvirtual void OnRender(Graphics^ g) override\r\n\t\t\t{\r\n\t\t\t\t\r\n\t\t\t\tGPoint gp = Overlay->Control->FromLatLngToLocal(m_Point);\r\n\r\n\t\t\t\t// Added to correct the position\t\t\t\t\r\n\t\t\t\tgp.OffsetNegative(Overlay->Control->RenderOffSet);\r\n\t\t\t\tPoint to(gp.X, gp.Y);\r\n\t\t\t\t\r\n\t\t\t\tif(To.HasValue)\r\n\t\t\t\t{\r\n\t\t\t\t\tgp = Overlay->Control->FromLatLngToLocal(To.Value);\r\n\r\n\t\t\t\t\t// Added to correct the position\r\n\t\t\t\t\tgp.OffsetNegative(Overlay->Control->RenderOffSet);\r\n\t\t\t\t}\r\n\t\t\t\telse \r\n\t\t\t\t\treturn;\r\n\r\n\t\t\t\t__super::OnRender(g);\r\n\t\t\t\t\r\n\t\t\t\t...\r\n\t\t\t}\r\n```\r\n\r\nI'd like to know if there's any other way to do this, especially without modifying the GMap.NET.WindowsForms.dll library.\r\n\r\nThanks for this fantastic project.\r\n\r\nRegards,\r\n\r\nLeonardo\r\n",
+    "LastUpdatedDate": "2015-08-05T06:56:35.92-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-08-05T06:56:35.92-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "RenderOffset",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16126
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

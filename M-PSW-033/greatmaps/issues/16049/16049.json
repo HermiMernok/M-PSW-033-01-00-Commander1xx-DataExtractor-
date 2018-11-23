@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed, thanks",
+    "ClosedDate": "2013-05-14T01:46:38.593-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "Hi there,\r\n\r\nWhenever a computer hasn't restarted for a long time (let's say longer than 14 days) you are not able the drag the map anymore.\r\n\r\nWe already investigated this issue and found that this is caused by an error in class GMap.NET.WindowsPresentation.GMapControl in the method OnMouseMove.\r\n\r\n\r\nThere is this piece of code\r\n\r\n         if(e.Timestamp - onMouseUpTimestamp < 55)\r\n         {\r\n            Debug.WriteLine(\"OnMouseMove skipped: \" + (e.Timestamp - onMouseUpTimestamp) + \"ms\");\r\n            return;\r\n         }\r\n\r\nThis code does not take into account that e.timestamp can be negative. When a computer has been running for a long time without restarting the e.timestamp value rolls over to a negative value instead of having an expected value of positive.\r\n\r\n\r\nCan this be solved?",
+    "LastUpdatedDate": "2013-05-14T01:46:38.593-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-09-28T04:44:25.46-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Dragging map not possible when computer has not restarted for a long time",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16049
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "..this code was added to workaround buggy wpf events, well now we hit second level bug again ;} ..any idea how to increase 'online' time for testing?",
+      "PostedDate": "2012-09-28T05:19:26.09-07:00",
+      "Id": 77992
+    },
+    {
+      "Message": "Well we tested the map without these 3 lines of code and it worked flawlessly for us\n\nAlternatively you could check against the absolute value:\n\nif(Math.Abs(Math.Abs(e.Timestamp) - Math.Abs(onMouseUpTimestamp)) < 55)\n{\nDebug.WriteLine(\"OnMouseMove skipped: \" + (e.Timestamp - onMouseUpTimestamp) + \"ms\");\nreturn;\n}\n\nthat should also do the trick",
+      "PostedDate": "2012-10-01T00:03:05.773-07:00",
+      "Id": 78149
+    },
+    {
+      "Message": "Hi what's the status of this issue?\nIf you like I can create a patch file for it so you can include it into your code.\n\nThis is basically something we need for our application. If it's not integrated we will need to create a copy of your sources and start implementing our own fixes.\n\nI rather want to avoid that because that means that we are doing some fixes that other people cannot take advantage of.\n\nIs it therefore possible that we fix this bug and that we supply you with a patch file that resolve this issue ?\nOr perhaps even better that we can directly commit it your source code repository?\n\n\n\n\n\n",
+      "PostedDate": "2013-01-18T04:26:36.62-08:00",
+      "Id": 86467
+    },
+    {
+      "Message": "you can make a fork, i know using Math.Abs(Math.Abs(Math.Abs(Math.Abs(Math.Abs(Math.Abs( sort of 'fixed' the issue, but that is called on ever pixel mouse move, isn't there a more optimized way?",
+      "PostedDate": "2013-01-18T05:02:01.803-08:00",
+      "Id": 86469
+    }
+  ]
+}

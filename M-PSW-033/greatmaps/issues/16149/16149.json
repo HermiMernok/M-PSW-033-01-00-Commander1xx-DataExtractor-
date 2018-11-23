@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When using GMap.NET with a system proxy, it does not work out of the box. The proxy need to be configured this way:\r\n\r\nGMapProvider.WebProxy = WebRequest.GetSystemWebProxy();\r\nGMapProvider.WebProxy.Credentials = CredentialCache.DefaultNetworkCredentials;\r\n\r\nTypical C# classes like WebClient and WebRequest automatically set the proxy settings based on the system settings with no additional code required. Wether you use a proxy or not, these lines will fill the correct information. If should be the default settings for GMap too instead of a forced \"EmptyProxy\" class.",
+    "LastUpdatedDate": "2016-08-02T10:28:07.68-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-08-02T10:28:07.68-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Proxy Settings not automatically set",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16149
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

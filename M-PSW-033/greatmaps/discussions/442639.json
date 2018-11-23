@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1039726",
+    "ThreadId": "442639",
+    "Html": "Hi,\r<br />\n<br />\nI want to draw a rectangle for zoom specific area of visible map. Just like below link.\r<br />\n<br />\n<br />\n<a href=\"http://googlemapsapi.blogspot.in/2007/06/dragzoomcontrol-v10-easier-zooming_06.html\" rel=\"nofollow\">http://googlemapsapi.blogspot.in/2007/06/dragzoomcontrol-v10-easier-zooming_06.html</a>\r<br />\n<br />\nPlease Help.<br />\n",
+    "PostedDate": "2013-05-06T00:05:09.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039734",
+    "ThreadId": "442639",
+    "Html": "hold SHIFT and mark the area<br />\n",
+    "PostedDate": "2013-05-06T00:22:12.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039737",
+    "ThreadId": "442639",
+    "Html": "Not working.\r<br />\n<br />\nHere is my code :<br />\n<pre><code>    Bitmap RED_IMG;\n    Bitmap YELLOW_IMG;\n    Bitmap BLUE_IMG;\n    Bitmap DGREEN_IMG;\n    Bitmap LGREEN_IMG;\n    Bitmap BLACK_IMG;\n    Bitmap IMG_TO_DISPLAY;\n\n    GMapControl gmapcontrol = null;\n    GMapOverlay sitesOverlay = null;\n    GMapOverlay badPatchOverlay = null;\n    GMapOverlay cellsRXLevOverlay = null;\n    GMapOverlay cellsIBCOverlay = null;\n\n    DataSet DS_ALL = new DataSet();\n\n    int MAX_ZOOM = 20;\n    int MIN_ZOOM = 10;\n    int BAD_COUNT = 5;\n\n</code></pre>\n\nprivate void InitializeGMap()<br />\n<pre><code>    {\n        gmapcontrol = new GMapControl();\n        gmapcontrol.DragButton = MouseButtons.Left;\n        pnlMap.Controls.Add(gmapcontrol);\n        gmapcontrol.MapProvider = GoogleMapProvider.Instance;\n\n        gmapcontrol.Cursor = Cursors.Hand;\n        gmapcontrol.MinZoom = MIN_ZOOM;\n        gmapcontrol.MaxZoom = MAX_ZOOM;\n        gmapcontrol.Zoom = 15;\n        gmapcontrol.Width = pnlMap.Width;\n        gmapcontrol.Height = pnlMap.Height;\n        gmapcontrol.CanDragMap = true;\n        gmapcontrol.Manager.Mode = AccessMode.ServerOnly;\n\n\n    }\n</code></pre>\n\nprivate void btnZoomIn_Click(object sender, EventArgs e)<br />\n<pre><code>    {\n        try\n        {\n            if (gmapcontrol.Zoom &gt;= MAX_ZOOM)\n                return;\n            gmapcontrol.Zoom += 1;\n        }\n        catch\n        {\n        }\n    }\n\n    private void btnZoomOut_Click(object sender, EventArgs e)\n    {\n        try\n        {\n            if (gmapcontrol.Zoom &lt;= MIN_ZOOM)\n                return;\n            gmapcontrol.Zoom -= 1;\n        }\n        catch\n        {\n        }\n    }\n\n</code></pre>\n\n",
+    "PostedDate": "2013-05-06T00:27:52.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039740",
+    "ThreadId": "442639",
+    "Html": "use right mouse button<br />\n",
+    "PostedDate": "2013-05-06T00:31:07.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039745",
+    "ThreadId": "442639",
+    "Html": "@radioman: using  Shift + Right Mouse Click achieve that functionality, but I want to implement that on Button Click just like above example show that.\r<br />\n<br />\nPlease help.<br />\n",
+    "PostedDate": "2013-05-06T00:37:02.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039746",
+    "ThreadId": "442639",
+    "Html": "so whats the problem?<br />\n",
+    "PostedDate": "2013-05-06T00:39:06.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039752",
+    "ThreadId": "442639",
+    "Html": "I am new to C# and this component. \r<br />\nI want to implement that functionality Just like that First User click on a button and then select desire area of visible map.<br />\n",
+    "PostedDate": "2013-05-06T00:53:29.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039796",
+    "ThreadId": "442639",
+    "Html": "use custom rendering: override void <strong>OnPaintOverlays</strong><br />\n",
+    "PostedDate": "2013-05-06T03:06:06.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

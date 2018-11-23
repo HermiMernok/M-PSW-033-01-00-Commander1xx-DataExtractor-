@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1493991",
+    "ThreadId": "661901",
+    "Html": "Hi,<br />\n<br />\nin my WPF application I have a map on a Tab:<br />\n<br />\n<img src=\"https://s18.postimg.org/ujug1mxqx/Map.png\" alt=\"Image\" /><br />\n<br />\nWhen I move to the other tab and back to the map, all markers disappear and, if I add a new one it is not displayed.<br />\nThe code where I handle the makers is:<br />\n<pre><code>    private void Vm_OnNewMarkerChanged(GMap.NET.WindowsPresentation.GMapMarker Marker)\n    {\n      var idx = MainMap.Markers.IndexOf(Marker);\n\n      if (idx &gt;= 0)\n        MainMap.Markers[idx] = Marker;\n      else\n        MainMap.Markers.Add(Marker);\n    }</code></pre>\n\nMainMap is:<br />\n<pre><code>  class Map : GMapControl\n  {\n  }</code></pre>\n\nand in the Window.xaml:<br />\n<pre><code>&lt;local:Map x:Name=&quot;MainMap&quot; Grid.Column=&quot;1&quot; Zoom=&quot;13&quot; MaxZoom=&quot;24&quot; MinZoom=&quot;1&quot; /&gt;</code></pre>\n\n<pre><code>public MainWindow(MainVM viewModel)\n{\n  try\n  {\n    _ViewModel = viewModel;\n    _ViewModel.OnNewMarkerChanged += Vm_OnNewMarkerChanged;\n\n    DataContext = _ViewModel;\n\n    InitializeComponent();\n\n    GMaps.Instance.UseRouteCache = true;\n    GMaps.Instance.UseGeocoderCache = true;\n    GMaps.Instance.Mode = AccessMode.ServerAndCache;\n\n    MainMap.MapProvider = GMapProviders.OpenStreetMap;\n    MainMap.CacheLocation = System.AppDomain.CurrentDomain.BaseDirectory;\n    MainMap.ShowTileGridLines = false;\n    MainMap.Manager.Mode = AccessMode.ServerAndCache;\n    MainMap.DragButton = System.Windows.Input.MouseButton.Left;\n\n    MainMap.MouseMove += new System.Windows.Input.MouseEventHandler(MainMap_MouseMove);\n    MainMap.OnMapZoomChanged += MainMap_OnMapZoomChanged;\n  }\n  \n}</code></pre>\n\nI have to handle the map refresh in some particular way?<br />\n",
+    "PostedDate": "2017-03-13T08:31:35.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1493998",
+    "ThreadId": "661901",
+    "Html": "Solved.\r<br />\nThe problem was in my code: on unloading the marker the icon was destroyed and no more recreated.\r<br />\n<br />\nSorry for the junk question. :)<br />\n",
+    "PostedDate": "2017-03-13T10:21:28.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2017-03-13T10:21:32.16-07:00"
+  }
+]

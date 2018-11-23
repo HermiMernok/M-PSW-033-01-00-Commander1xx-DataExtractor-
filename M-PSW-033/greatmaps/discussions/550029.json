@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1260953",
+    "ThreadId": "550029",
+    "Html": "Hi guys<br />\nI'm building WindowsForms app that uses gmap.net to generate heatmap. Now I need to get static image of part of the map. I was trying to use code from Demo.WindowsForms. I included &quot;StaticImage&quot; form in my project to check if it's working correctly (I was going to rewrite it later to suit my needs) with rest of the app, and it doesn't work at all. There are no errors, but in line 127 of StaticImage.cs:<br />\n<pre><code>tile = GMaps.Instance.GetImageFrom(tp, p, info.Zoom, out ex) as GMapImage;</code></pre>\n\nthe tile is always null, doesn't matter what settings are. I've checked it on OSM ang GoogleMaps on different zoom levels, and it just return null. Any idea how to fix it?<br />\nMy heatmap (class based on GMapOverlay with overrided methods) work perfectly, the overlay is generated as it should. There are also all additonal elements like scale, coordinates of corners etc.. The only thing that is missing is the actual map.<br />\n<br />\nI'm using 1.6 version, the Demo project uses 1.7 - but that function does exist in 1.6, so it shouldn't be problem. Any idea what the problem might be? Or how to generate static map with 1.6 version?<br />\n<br />\nThanks in advance!<br />\n<h1>Edit</h1>\nI've tried to switch to 1.7, and I have different problem... Overlay is out-of-sync with map.<br />\nCheck out those three images - I've drawn rectangle on specific position, and I was just draging map around (there's small city &quot;Andrespol&quot; and all maps - you see that the coordinates of rectangle changes, but it shouldn't!)<br />\n<img src=\"http://wstaw.org/m/2014/07/01/1.png\" alt=\"Image\" /><br />\n<img src=\"http://wstaw.org/m/2014/07/01/2.png\" alt=\"Image\" /><br />\n<img src=\"http://wstaw.org/m/2014/07/01/3.png\" alt=\"Image\" /><br />\n<br />\nCode that I used to generate that rectangle<br />\n<pre><code>class GMapTestOverlay : GMapOverlay\n(...)\n\npublic override void OnRender(Graphics g){\nPointLatLng testp = new PointLatLng(51.75932, 19.45555);\nlong x1 = this.control.FromLatLngToLocal(testp).X;\nlong y1 = this.control.FromLatLngToLocal(testp).Y;\ng.DrawRectangle(new Pen(Brushes.Red), x1, y1, 50, 50);\n}</code></pre>\n\nThose coordinates are few km from place where the rectangle is being draw. Whole overlay is completely out-of-sync. And it was working perfectly fine when I was using 1.6 version. Any idea what's happening?<br />\n",
+    "PostedDate": "2014-06-29T15:06:01.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1262082",
+    "ThreadId": "550029",
+    "Html": "new version has specific 'feature' using virtual points to overcome rendering system limits... it's not completely correct..<br />\n",
+    "PostedDate": "2014-07-02T11:24:24.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1262944",
+    "ThreadId": "550029",
+    "Html": "OK, it's working. After radioman response (thanks for hint) I used 1.6 version again, and I used code for StaticImage form from 1.6 release (I don't know why i haven't done that earlier... it took few minutes, everything is in repository...). And... voila! Everything works.\r<br />\nI'm going to try to migrate to 1.7 later, but for now I've got what I needed. Thanks!\r<br />\nGMap.NET is great btw :) Good job guys!<br />\n",
+    "PostedDate": "2014-07-05T12:07:15.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

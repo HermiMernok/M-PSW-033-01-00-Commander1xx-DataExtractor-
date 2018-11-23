@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "835349",
+    "ThreadId": "355520",
+    "Html": "\r\n<p>Hi, I'm working with a system that has since lost most of its developers and remains at a code-freeze (until further funding can be found). However, I need to insert some custom &quot;maps&quot; (replacing a building with its floor plans).</p>\r\n<p>I've been given .jpg images and some .pdf's containing images (which I'll probably extract as .jpg anyways). I also know the lat/long of the building. The related folder is titled &quot;TileDBv5&quot;. I do not know if this corresponds to the GMap's version or some\r\n other versioning.</p>\r\n<p>How could I go about extracting certain prefetched/cached maps (so I can overlay the floor plans) and reinsert the image? I do not need to import &quot;new&quot; only &quot;edited&quot; images so all the database fields should remain the same. Is there a tool that would allow\r\n me to export cached images and update the images in a .gmdb?</p>\r\n<p>Thanks in advance for any help anyone can provide!</p>\r\n",
+    "PostedDate": "2012-05-11T16:40:10.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "835396",
+    "ThreadId": "355520",
+    "Html": "<p>never heard of such tool, you have to somehow edit each tile separately, which would be a pain<br /><br />Anyway you solution is to add your building on top using overlay, check <em>Demo.Clouds</em> project</p>",
+    "PostedDate": "2012-05-11T22:35:56.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

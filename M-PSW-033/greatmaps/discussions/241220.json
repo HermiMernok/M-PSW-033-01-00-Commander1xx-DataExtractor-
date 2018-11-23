@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "547027",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>GMap.NET is having trouble loading Terrain?</p>\r\n<p>This happens to me in Demo.WindowsForms.exe and Demo.WindowsPresentation.exe on two different computers (same LAN).</p>\r\n<p>Anybody else?</p>\r\n",
+    "PostedDate": "2011-01-10T17:04:42.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547156",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>is automatic version detection working?</p>\r\n",
+    "PostedDate": "2011-01-11T00:53:26.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547405",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>hello radioman,</p>\r\n<p>How do I tell if automatic version detection is working?&nbsp;I opened the Gmap.NET project and searched but nothing seems relevant.&nbsp;I see this:&nbsp;<a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=65221\">http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=65221</a>&nbsp;but\r\n still have no idea.</p>\r\n<p>All the other maps are loading okay, only Google Terrain is having problems. Google Terrain working okay for you then? I can load the terrain map (<a href=\"http://websentinel.net/\">http://websentinel.net/</a>) in my browser, so I know Google is not blocking\r\n me.</p>\r\n",
+    "PostedDate": "2011-01-11T10:02:20.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547414",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>run in debug mode, and watch the output, and yes for me it's working as usual ;}</p>\r\n",
+    "PostedDate": "2011-01-11T10:14:37.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547429",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>where is all start log?</p>\r\n",
+    "PostedDate": "2011-01-11T10:40:27.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547509",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>still can't see the start of the log ;/</p>\r\n",
+    "PostedDate": "2011-01-11T12:03:56.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547518",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>Google Map seems good, but Satellite is also having problems</p>\r\n",
+    "PostedDate": "2011-01-11T12:12:53.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547530",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>turn on any demo, and copy first 20 lines from output ;] don''t waste codeplex storage with garbage</p>\r\n",
+    "PostedDate": "2011-01-11T12:33:22.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547532",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>you should find these lines if it's ok:</p>\r\n<p>TryCorrectGoogleVersions, VersionGoogleMap: m@142<br>\r\nTryCorrectGoogleVersions, VersionGoogleLabels: h@142<br>\r\nTryCorrectGoogleVersions, VersionGoogleSatellite: 76<br>\r\nTryCorrectGoogleVersions, VersionGoogleTerrain: t@126,r@142</p>\r\n",
+    "PostedDate": "2011-01-11T12:36:03.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547542",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>Debugging&nbsp;TryCorrectGoogleVersions()</p>\r\n<p>html.LastIndexOf(&quot;apiCallback([&quot;); is returning -1;</p>\r\n<p>large html returned on line line, trying to make sense of it, starts with</p>\r\n<p>&nbsp;</p>\r\n<p>&lt;!DOCTYPE html&gt;&lt;html xmlns:v=\\&quot;urn:schemas-microsoft-com:vml\\&quot; class=\\&quot;\\&quot;&gt;&lt;head&gt; &lt;meta content=\\&quot;text/html;charset=UTF-8\\&quot; http-equiv=\\&quot;content-type\\&quot;/&gt;&nbsp;&lt;meta http-equiv=\\&quot;X-UA-Compatible\\&quot; content=\\&quot;IE=EmulateIE7\\&quot;/&gt;&nbsp;&lt;meta\r\n content=\\&quot;Find local businesses, view maps and get driving directions in Google Maps\\&quot; name=\\&quot;description\\&quot;/&gt; &nbsp; &lt;noscript&gt;&nbsp;&lt;meta content=\\&quot;0; URL=/m?oi=nojs\\&quot; http-equiv=\\&quot;refresh\\&quot;/&gt;&nbsp;&lt;/noscript&gt;&nbsp;&lt;title&gt;Google\r\n Maps&lt;/title&gt;</p>\r\n",
+    "PostedDate": "2011-01-11T12:54:19.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547550",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>you use old version, current version uses&nbsp;RegularExpressions to get correct ids</p>\r\n",
+    "PostedDate": "2011-01-11T13:02:51.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547552",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>Also found this in &quot;html&quot; variable of method&nbsp;TryCorrectGoogleVersions():&nbsp;</p>\r\n<p>window.GLoad = function(apiCallback) {apiCallback(0,0,0,0,0,0,0,0,0,0 ,jslinker ,0 );} ;var appOptions = [[\\&quot;http://mt0.google.com/vt/lyrs=m@142\\\\x26hl=en\\\\x26\\&quot;,\\&quot;http://mt1.google.com/vt/lyrs=m@142\\\\x26hl=en\\\\x26\\&quot;],[\\&quot;http://khm0.google.com/kh/v=76\\\\x26\\&quot;,\\&quot;http://khm1.google.com/kh/v=76\\\\x26\\&quot;],[\\&quot;http://mt0.google.com/vt/lyrs=h@142\\\\x26hl=en\\\\x26\\&quot;,\\&quot;http://mt1.google.com/vt/lyrs=h@142\\\\x26hl=en\\\\x26\\&quot;],[\\&quot;http://mt0.google.com/vt/lyrs=t@126,r@142\\\\x26hl=en\\\\x26\\&quot;,\\&quot;http://mt1.google.com/vt/lyrs=t@126,r@142\\\\x26hl=en\\\\x26\\&quot;],[\\&quot;http://khmdb0.google.com/kh?v=34\\\\x26\\&quot;,</p>\r\n",
+    "PostedDate": "2011-01-11T13:03:25.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547553",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>old version of Gmap.NET?&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-11T13:03:56.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547556",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>http://greatmaps.codeplex.com/SourceControl/BrowseLatest</p>\r\n",
+    "PostedDate": "2011-01-11T13:09:28.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547573",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>Working once again, thanks radioman.&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-11T13:29:32.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547575",
+    "ThreadId": "241220",
+    "Html": "\r\n<p>;}</p>\r\n",
+    "PostedDate": "2011-01-11T13:31:59.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

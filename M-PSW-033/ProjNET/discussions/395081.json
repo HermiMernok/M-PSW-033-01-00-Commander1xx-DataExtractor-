@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "910816",
+    "ThreadId": "395081",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>We're using Proj.Net with NetTopologySuite. Since this version doesn't depend on GeoAPI, they weren't compatible.</p>\r\n<p>I forked the source code onto GitHub at&nbsp;<a href=\"https://github.com/fivepmtechnology/ProjNET\">https://github.com/fivepmtechnology/ProjNET</a>, changed the code to depend on GeoAPI, and published a new NuGet package with an ID of Proj.NET instead of\r\n ProjNET.</p>\r\n<p>Hope this is helpful for someone.</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2012-09-11T03:51:32.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910858",
+    "ThreadId": "395081",
+    "Html": "\r\n<p>Thanks a lot for your effort.</p>\r\n<p>If you have plans to maintain this fork, I can publish the github link on the main page.</p>\r\n<p>Let me know.</p>\r\n",
+    "PostedDate": "2012-09-11T05:34:37.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910861",
+    "ThreadId": "395081",
+    "Html": "<p>A side note: since there are two nuget packages (https://nuget.org/packages/ProjNet&nbsp;and&nbsp;https://nuget.org/packages/Proj.NET),&nbsp;can you edit your nuget page and explain better that your nuget is from a fork and what are the differences? So the nuget users can understand better what package use.</p>",
+    "PostedDate": "2012-09-11T05:37:57.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910862",
+    "ThreadId": "395081",
+    "Html": "Sure; is there a reason to keep the original though? They're identical<br>\r\nother than the new one has the GeoAPI dep, which makes it more<br>\r\nflexible.<br>\r\n<br>\r\nOn Tue, Sep 11, 2012 at 8:38 AM, [email removed] wrote:<br>\r\n&gt; From: D_Guidi<br>\r\n&gt;<br>\r\n&gt; A side note: since there are two nuget packages<br>\r\n&gt; (https://nuget.org/packages/ProjNet and<br>\r\n&gt; https://nuget.org/packages/Proj.NET), can you edit your nuget page and<br>\r\n&gt; explain better that your nuget is from a fork and what are the differences?<br>\r\n&gt; So the nuget users can understand better what package use.<br>\r\n&gt;<br>\r\n&gt; Read the full discussion online.<br>\r\n&gt;<br>\r\n&gt; To add a post to this discussion, reply to this email<br>\r\n&gt; ([email removed])<br>\r\n&gt;<br>\r\n&gt; To start a new discussion for this project, email<br>\r\n&gt; [email removed]<br>\r\n&gt;<br>\r\n&gt; You are receiving this email because you subscribed to this discussion on<br>\r\n&gt; CodePlex. You can unsubscribe on CodePlex.com.<br>\r\n&gt;<br>\r\n&gt; Please note: Images and attachments will be removed from emails. Any posts<br>\r\n&gt; to this discussion will also be available online at CodePlex.com",
+    "PostedDate": "2012-09-11T05:39:49.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "910874",
+    "ThreadId": "395081",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>bytenik wrote:</strong><br /> Sure; is there a reason to keep the original though? They're identical<br /> other than the new one has the GeoAPI dep, which makes it more<br /> flexible.<br /></blockquote>\r\n<p>yes, the fact that the original doesn't have any dependency :)</p>",
+    "PostedDate": "2012-09-11T05:51:26.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915870",
+    "ThreadId": "395081",
+    "Html": "<p>please update nuget page at&nbsp;https://nuget.org/packages/Proj.NET</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-09-21T12:28:31.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

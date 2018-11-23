@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi. I recently update a WPF application which was using an older version of GMap.Net to the latest version on NuGet 1.7.1.\r\n\r\nSince the update, I am getting some errors. It looks like GMapMarker.Route and GMapMarker.RegenerateRouteShape do not exist anymore? Is there an alternate implementation that I should be using now?\r\n\r\nMy code is as follows:\r\n```\r\nGMapMarker routeMarker = new GMapMarker();\r\nrouteMarker.Route.AddRange((IEnumerable<PointLatLng>)mapRoute.Points);\r\nrouteMarker.RegenerateRouteShape(gMapControl1);\r\n```\r\n\r\nIt complains on the bottom two lines....\r\n\r\nThe errors are:\r\n\r\n_'GMapMarker' does not contain a definition for 'Route' and no extension method 'Route' accepting a first argument of type 'GMapMarker' could be found (are you missing a using directive or an assembly reference?)_\r\n\r\n_'GMapMarker' does not contain a definition for 'RegenerateRouteShape' and no extension method 'RegenerateRouteShape' accepting a first argument of type 'GMapMarker' could be found (are you missing a using directive or an assembly reference?)_",
+    "LastUpdatedDate": "2016-05-10T04:04:32.267-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-05-10T04:03:04.11-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Changes in latest version of GMap.Net (WPF)",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16142
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "839744",
+    "ThreadId": "356798",
+    "Html": "\r\n<p>I am trying to use the gMap.net in my application, but is slow when form is loading, below is my code:</p>\r\n<p>&nbsp;</p>\r\n<p>// Load map <br>\r\n&nbsp;gMapLocation.Position = new PointLatLng(3.111666, 101.581285);<br>\r\ngMapLocation.MapProvider = GMapProviders.BingHybridMap;<br>\r\ngMapLocation.MinZoom = 12;<br>\r\ngMapLocation.MaxZoom = 17;<br>\r\ngMapLocation.Zoom = 15;<br>\r\ngMapLocation.Manager.Mode = AccessMode.ServerOnly;<br>\r\n<br>\r\n// Add marker on the map<br>\r\nGMapOverlay marker = new GMapOverlay(gMapLocation, &quot;marker&quot;);<br>\r\nmarker.Markers.Add(new GMapMarkerGoogleRed(new PointLatLng(3.111666, 101.581285)));<br>\r\ngMapLocation.Overlays.Add(marker);</p>\r\n<p>&nbsp;</p>\r\n<p>When I use Google Map as the MapProvider the performance is worst. How to solve the problem? Thank you.</p>\r\n",
+    "PostedDate": "2012-05-22T23:08:47.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839766",
+    "ThreadId": "356798",
+    "Html": "<p>remove&nbsp;gMapLocation.Manager.Mode = AccessMode.ServerOnly;</p>",
+    "PostedDate": "2012-05-23T00:32:55.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839784",
+    "ThreadId": "356798",
+    "Html": "<p>Thank you radioman.</p>\r\n<p>Any reason to remove the line. I have tested, it feels faster. I need to test it for few rounds.</p>",
+    "PostedDate": "2012-05-23T01:13:37.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839821",
+    "ThreadId": "356798",
+    "Html": "<p>possible slowness:</p>\r\n<ul>\r\n<li>first load, prepares cache, few&nbsp;milliseconds</li>\r\n<li>first load each day for google/bing, checks if version numbers updated, takes few milliseconds</li>\r\n<li>ServerOnly mode has to always relay on servers</li>\r\n<li>debug build is slow too</li>\r\n</ul>",
+    "PostedDate": "2012-05-23T03:05:08.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

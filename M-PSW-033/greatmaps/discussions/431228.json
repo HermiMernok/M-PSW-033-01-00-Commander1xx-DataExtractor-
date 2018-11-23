@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "993510",
+    "ThreadId": "431228",
+    "Html": "\r\n<p>Hello together,</p>\r\n<p>i need some help with the prefetch feature. I am using nearly the same code as in the demo sources and getting the tiles is working without a problem. I know that getting the tiles and saving them is done async. But in the demo sources I can't see how to\r\n know, that saving for all tiles is done. So if I use the export possibility directly after the prefetch, i can still see that there are I/O Operations in the tile cache, so i think there are not all tiles in my exported gmdb-file.</p>\r\n<p>Does anybody have an idea how to i can check if all tiles are saved before i call the export function ?</p>\r\n<p>Many thanks and greets</p>\r\n<p>Hans</p>\r\n",
+    "PostedDate": "2013-01-29T02:05:10.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993536",
+    "ThreadId": "431228",
+    "Html": "\r\n<p>check the source, on the prefetch form it writes how much left tiles for saving, i use:\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>MainMap.Manager.OnTileCacheComplete += <span style=\"color:blue\">new</span> TileCacheComplete(OnTileCacheComplete);\r\nMainMap.Manager.OnTileCacheStart += <span style=\"color:blue\">new</span> TileCacheStart(OnTileCacheStart);\r\nMainMap.Manager.OnTileCacheProgress += <span style=\"color:blue\">new</span> TileCacheProgress(OnTileCacheProgress);\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2013-01-29T03:18:11.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993610",
+    "ThreadId": "431228",
+    "Html": "\r\n<p>Thank you very much for your reply.</p>\r\n<p>I took a look into the FilePrefetcher form. Does this mean, everything should already be fine if I'am using the TilePrefetcher form just like in the demos application ? I am now using the newest version of you great Framework and things seems to be better\r\n now. I just want to be sure not do forget something and to have all wished tiles in my gmdb-File.</p>\r\n",
+    "PostedDate": "2013-01-29T05:29:55.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993613",
+    "ThreadId": "431228",
+    "Html": "\r\n<p>if you see&nbsp;&quot;<em>all tiles saved</em>&quot; it's done</p>\r\n",
+    "PostedDate": "2013-01-29T05:36:48.177-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

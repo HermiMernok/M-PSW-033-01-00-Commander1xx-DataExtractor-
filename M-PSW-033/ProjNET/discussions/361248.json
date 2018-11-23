@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "854858",
+    "ThreadId": "361248",
+    "Html": "\r\n<p><span style=\"color:black; font-size:10pt\">I'm slightly concerned about the accuracy transforming from one coordinate system to another. The results are fairly close, but not accurate enough,&nbsp;and are wondering if this is the right library to use in production.</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Let's assume for example I want to transform coordinates from WGS 84 (SRID 4326 -\r\n<a href=\"http://spatialreference.org/ref/epsg/4326/\">http://spatialreference.org/ref/epsg/4326/</a>) to GDA94 / MGA zone 50 (SRID 28350 -\r\n<a href=\"http://spatialreference.org/ref/epsg/28350/\">http://spatialreference.org/ref/epsg/28350/</a>):</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Given the following coordinates (-30, 136) as latitude and longitude for WGS 84, after transforming to GDA94 / MGA zone 50, it get:</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">2349331.13330103 6524251.64080134</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Now let's verify against different sources:</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">1) Redfearn's formulas:</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">2349315.03514871 6524249.9019923</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">2) PostGIS:</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">SELECT ST_AsText(ST_Transform('SRID=4326;POINT(136 -30)'::geometry,28350))</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">2349315.05731837 6524249.91789138</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">3) GeoCalc</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">2349315.0351 6524249.9017</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">As you can see, all the other sources come within decimal precision (at least 2nd), where proj.net is out by about 15 units.</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Please note that the default WKT for the above spatial reference systems have been used as indicated by\r\n<a href=\"http://spatialreference.org/ref/epsg/4326/\">http://spatialreference.org</a>.</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Is this the closest / best that proj.net can do, or is their additional parameters we should supply in the WKT, such as minor axis for example?</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">This is very important for us to make a call and decide if we should proj.net for our transformations, as the data is survey related and precision is of the utmost importance.</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Any feedback and guidance would be appreciated. (Alastair Aitchison?)</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Andries</span></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-06-28T02:42:35.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985489",
+    "ThreadId": "361248",
+    "Html": "\r\n<p>I have the exact same issue.&nbsp; WGS84_UTM(18,N) to WGS84:</p>\r\n<p>Input: 307821.867 4219306.387</p>\r\n<p>Proj.Net output: -77.191748384445773 38.100463291796331</p>\r\n<p>&nbsp;</p>\r\n<p>The correct answer according to a bunch of different websites and spatialite</p>\r\n<p>spatialite&gt; select astext(st_transform(MakePoint(307821.867, 4219306.387, 32618), 4326));</p>\r\n<p>POINT(-77.191769 38.101147)</p>\r\n<p>&nbsp;</p>\r\n<p>This is causing meters worth of inaccuracy.</p>\r\n<p>Jeremy</p>\r\n",
+    "PostedDate": "2013-01-11T07:58:46.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1193124",
+    "ThreadId": "361248",
+    "Html": "POINT (2349315.05730234 6524249.91779831) using DotSpatial.Projections,  ProjectionInfo.FromEpsgCode(28350);<br />\nPOINT (2349315.05731837 6524249.91789138) using also DotSpatial.Projections, only  KnownCoordinateSystems.Projected.NationalGridsAustralia.GDA1994MGAZone50;<br />\n",
+    "PostedDate": "2014-01-23T05:18:22.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

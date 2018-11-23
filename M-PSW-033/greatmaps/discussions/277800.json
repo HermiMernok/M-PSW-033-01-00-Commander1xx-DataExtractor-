@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "691764",
+    "ThreadId": "277800",
+    "Html": "\r\n<p>Is there existing functionality to find all markers within x distance of a point? &nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your help</p>\r\n<p>&nbsp;</p>\r\n<p>Rich in NY</p>\r\n",
+    "PostedDate": "2011-10-31T11:37:37.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692028",
+    "ThreadId": "277800",
+    "Html": "<p>you could do a loop to check each of the markers distance from you starting point using</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>MainMap.MapProvider.Projection.GetDistance(<em>currentpoint</em>.Position,<em>currentMarker</em>.Position);\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-11-01T03:33:32.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692120",
+    "ThreadId": "277800",
+    "Html": "<p>Rock on that worked wonderfully.&nbsp; Thank you very much</p>\r\n<p>This project rules.</p>\r\n<p>&nbsp;</p>\r\n<p>Rich in NY</p>",
+    "PostedDate": "2011-11-01T06:46:26.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710881",
+    "ThreadId": "277800",
+    "Html": "<p>What is MainMap ?</p>",
+    "PostedDate": "2011-12-12T05:27:57.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710885",
+    "ThreadId": "277800",
+    "Html": "<p>the instance of GMapControl</p>",
+    "PostedDate": "2011-12-12T05:42:01.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,11 @@
+<div class="wikidoc"><h3>Projecting points from one coordinate system to another</h3>Performing a transformation from one coordinate system to another requires you to create two coordinate systems: A &#39;<i>from</i>&#39; and a &#39;<i>to</i>&#39; coordinate system. See <a href="https://projnet.codeplex.com/wikipage?title=FAQ&referringTitle=CreateProjection">the FAQ</a> on how to create a coordinate system.<br /><br />First create a CoordinateTransformationFactory:<br /><pre>
+CoordinateTransformationFactory ctfac = new CoordinateTransformationFactory();
+</pre><br />Then create the transformation instance:<br /><pre>
+ICoordinateTransformation trans = ctfac.CreateFromCoordinateSystems(fromCS, toCS);
+</pre><br />All transformations are done on double arrays, where the first value is primary axis (X/East/Latitude) and the second the secondary (Y/North/Longitude). You can provide an optional third value (Z/Height), which can change if a datum transformation occurs* during the transform.<br />Example:<br /><pre>
+double[] fromPoint = new double[] { 120, -3 };
+double[] toPoint = trans.MathTransform.Transform(fromPoint);
+</pre><br />If you want to transform back again, create an inversed transformation:<br /><pre>
+IMathTransform inversedTransform = trans.MathTransform.Inverse();
+double[] point = inversedTransform.Transform(toPoint);
+</pre><br /><br />*Note that no datum transformation is applied if the coordinate systems doesn&#39;t have a ToWGS84 parameter defined.</div><div class="ClearBoth"></div>

@@ -1,0 +1,362 @@
+[
+  {
+    "Id": "831084",
+    "ThreadId": "354236",
+    "Html": "<p>Hi,</p>\n<p>How do I count all overlays with the name (for example): overlay_one.</p>\n<pre><span style=\"color: blue;\">'</span> removed, code not correct</pre>\n<p>As you can see I'm adding multiple overlay_one 's to the map. How do I count all of them? I don't want all the overlays (mymap.overlays.count) as I do now, but only to count the \"overlay_one\".</p>\n<p>&nbsp;</p>\n<p>Thanks in advance.</p>",
+    "PostedDate": "2012-05-02T06:16:49.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831119",
+    "ThreadId": "354236",
+    "Html": "<p>?</p>",
+    "PostedDate": "2012-05-02T07:19:41.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831462",
+    "ThreadId": "354236",
+    "Html": "<p>Okay... another try:</p>\r\n<p>Each time I click a button I'm adding a overlay/marker to the map. The overlay needs to have a unique name. like \"Marker10\". When I add a route that also need to have a unique name like \"Route1\". I want them to have a unique name so I can remove them by name instead of all of them at once. In the example above I'm incrementing.</p>\r\n<p>- route1<br /> - route2<br /> - route3<br /> - route4<br /> - route5</p>\r\n<p>- location1<br /> - location2<br /> - location3<br /> - location4<br /> - location5</p>\r\n<p>I hope I made it a bit more clear.</p>",
+    "PostedDate": "2012-05-02T23:36:31.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831470",
+    "ThreadId": "354236",
+    "Html": "<p>so whats the problem, assign unique name, and remove by it</p>",
+    "PostedDate": "2012-05-02T23:58:03.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831472",
+    "ThreadId": "354236",
+    "Html": "<p>The problem is that I don't know how to get the overlays which have \"location\" in the name/id. That way I can also remove all the \"locations\" (only) in one time. In the example in the OP I search all overlays, but that is not the correct way. I only need to count the \"locations\" or the \"routes\". How?</p>",
+    "PostedDate": "2012-05-03T00:00:26.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831478",
+    "ThreadId": "354236",
+    "Html": "<p>assign unique name/tag for route/marker ;} there are no miracles in this matter</p>",
+    "PostedDate": "2012-05-03T00:07:37.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831492",
+    "ThreadId": "354236",
+    "Html": "<p>As you can see I'm already assigning unique names or am I missing something?</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>The problem is that I don't know HOW to count the \"mplace_overlay\" before I increment the number. It is also possible that I'm using the wrong approach.</p>",
+    "PostedDate": "2012-05-03T00:56:30.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831509",
+    "ThreadId": "354236",
+    "Html": "<p>Hello radjesh,</p>\r\n<p>you can add multiple markers, routes and polygons in one overlay. Do you really need so much overlays?</p>\r\n<p>After adding a marker, just invoke this.mymap.invoke() to refresh rendering.</p>\r\n<p>To count them: this.myoverlay.markers.count(), this.myoverlay.routes.count(), this.myoverlay.polygons.count().</p>\r\n<p>is this the answer for your question?</p>\r\n<p>bye EDE</p>",
+    "PostedDate": "2012-05-03T01:36:06.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831512",
+    "ThreadId": "354236",
+    "Html": "<p>why do create separate overlay for each marker?</p>\n<p>p.s. map.Invalidate(); // lazy-async refresh, map.Refresh(); for instant refresh</p>",
+    "PostedDate": "2012-05-03T01:40:52.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831513",
+    "ThreadId": "354236",
+    "Html": "<p>Hi EDE, so it seems that I'm taking the wrong approach here. Let me give it a try and I'll let you know. Thanks for bringing this up to me ;)</p>",
+    "PostedDate": "2012-05-03T01:40:59.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831713",
+    "ThreadId": "354236",
+    "Html": "<p>Getting closer. Thanks for the tips.</p>\n<p>Now I have only one overlay with a marker.</p>\n<p>As example the tag of the marker = \"test1\"</p>\n<div style=\"color: black; background-color: white;\"></div>\n<p>Which property do I need to use to remove (besides remove) the marker where the tag is \"test1\"?</p>",
+    "PostedDate": "2012-05-03T09:19:32.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831717",
+    "ThreadId": "354236",
+    "Html": "<p>well if you set marker.<strong>Tag</strong>, then the basic logic dictates to use the same marker.<strong>Tag</strong> for comparation ;}</p>",
+    "PostedDate": "2012-05-03T09:30:27.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831732",
+    "ThreadId": "354236",
+    "Html": "<p>??? I believe in my example you see that I don't know how to compare the tag. I already know that I need to lookup the marker.tag, but how.</p>",
+    "PostedDate": "2012-05-03T09:46:25.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831736",
+    "ThreadId": "354236",
+    "Html": "<p>wait..... an idea came up...</p>",
+    "PostedDate": "2012-05-03T09:50:03.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831741",
+    "ThreadId": "354236",
+    "Html": "<p>I believe I'm almost there:</p>\n<div style=\"color: black; background-color: white;\"></div>\n<p>I can hide it though... :lol:&nbsp; Okay.... how to remove it?</p>",
+    "PostedDate": "2012-05-03T09:54:59.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831783",
+    "ThreadId": "354236",
+    "Html": "<p>mytestoverlay.Markers.<strong>Remove</strong></p>",
+    "PostedDate": "2012-05-03T10:41:03.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831790",
+    "ThreadId": "354236",
+    "Html": "<p>Hmmmm....</p>\n<div style=\"color: black; background-color: white;\">\n<pre>\n\nCollection was modified; enumeration operation may <span style=\"color: blue;\">not</span> execute.\n</pre>\n</div>",
+    "PostedDate": "2012-05-03T10:57:14.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831795",
+    "ThreadId": "354236",
+    "Html": "<p>var m = mytestoverlay.Markers.FirstOrDefault(p =&gt; (p.Tag as string) == \"test1\");<br />if(m != null)<br />{<br />&nbsp; &nbsp;mytestoverlay.Markers.Remove(m);<br />}</p>",
+    "PostedDate": "2012-05-03T11:07:40.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831807",
+    "ThreadId": "354236",
+    "Html": "<p>Nothing is happening. Also debugged. This is my full code:</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">'</span> removed, code not correct\n</pre>\n</div>",
+    "PostedDate": "2012-05-03T11:23:01.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831821",
+    "ThreadId": "354236",
+    "Html": "<p>try:</p>\r\n<p>TryCast(p.Tag, String).<strong>Equals</strong>(\"test1\")</p>",
+    "PostedDate": "2012-05-03T11:51:54.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831830",
+    "ThreadId": "354236",
+    "Html": "<p>Function(p) TryCast(p.Tag, String).Equals(\"1\"))</p>\r\n<p>Object reference not set to an instance of an object.</p>\r\n<p>p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {GMap.NET.WindowsForms.Markers.GMarkerGoogle}&nbsp;&nbsp;&nbsp; GMap.NET.WindowsForms.GMapMarker<br /> p.Tag&nbsp;&nbsp;&nbsp; 1 {Integer}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Object</p>",
+    "PostedDate": "2012-05-03T12:12:56.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831833",
+    "ThreadId": "354236",
+    "Html": "<p>i don't code in vb, sorry ;}</p>",
+    "PostedDate": "2012-05-03T12:15:13.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831838",
+    "ThreadId": "354236",
+    "Html": "<p>No problem, but I can convert the c# to vb. Does the code work in C#? Seems it isn't that easy to remove a marker from the map.</p>",
+    "PostedDate": "2012-05-03T12:19:10.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831844",
+    "ThreadId": "354236",
+    "Html": "<p>;} check the demos, the vehicle or tcp/ip live visualization, works like charm, perfectly</p>",
+    "PostedDate": "2012-05-03T12:33:02.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831853",
+    "ThreadId": "354236",
+    "Html": "<p>Don't have C# m8. ;)</p>\r\n<p>But if your code works in C# it should also in VB, but it doesn't. I've used 4 different converters and they all give the same result.</p>",
+    "PostedDate": "2012-05-03T12:49:38.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831857",
+    "ThreadId": "354236",
+    "Html": "<p>debug, man ;}</p>",
+    "PostedDate": "2012-05-03T12:54:47.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831867",
+    "ThreadId": "354236",
+    "Html": "<p>Hahahaha, c'mon. Already told you that debugging gives me no result. I always try my best before asking.</p>",
+    "PostedDate": "2012-05-03T13:08:25.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831873",
+    "ThreadId": "354236",
+    "Html": "<p>it's not gmap issue, just plain coding/debuging</p>",
+    "PostedDate": "2012-05-03T13:21:27.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831876",
+    "ThreadId": "354236",
+    "Html": "<p>Yeah, I figured. ;) I'm asking this on another forum if someone has experience with this. Will let you know.</p>",
+    "PostedDate": "2012-05-03T13:27:28.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831893",
+    "ThreadId": "354236",
+    "Html": "<p>Forgot to mention that m returns \"nothing\"</p>\r\n<p>I've looked in the source code, but can't find where you applied this. Can you kick me to the proper .cs file (and perhaps linenumber) so I can have a closer looksee?</p>",
+    "PostedDate": "2012-05-03T14:02:47.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832085",
+    "ThreadId": "354236",
+    "Html": "<p>try this if you have some markers with unassigned tag, it won't throw exception:</p>\r\n<p><em>var m = mytestoverlay.Markers.FirstOrDefault(p =&gt; <strong>p != null</strong> &amp;&amp; (p.Tag as string) == \"test1\");</em><br /><em> if(m != null)</em><br /><em> {</em><br /><em> mytestoverlay.Markers.Remove(m);</em><br /><em> }&nbsp;</em></p>",
+    "PostedDate": "2012-05-04T02:40:46.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832101",
+    "ThreadId": "354236",
+    "Html": "<p>All the markers are getting a tag, so there aren't unassigned tags. I'm counting the markers and adding it to the tag:</p>\n<p><em> </em></p>\n<div style=\"color: black; background-color: white;\"><em>\n<pre>mytestmarker.Tag = mytestoverlay.Markers.<span style=\"color: blue;\">Count</span> + 1\nmytestmarker.ToolTipText = mPlace_marker.Tag.ToString<br /><br /></pre>\n</em></div>\n<p><em> </em></p>\n<p><em> </em></p>\n<div style=\"color: black; background-color: white;\"><em>\n<pre> <span style=\"color: blue;\">Dim</span> m <span style=\"color: blue;\">As</span> GMapMarker = mark_overlay.Markers.FirstOrDefault(<span style=\"color: blue;\">Function</span>(p) p <span style=\"color: blue;\">IsNot</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">AndAlso</span> TryCast(p.Tag, <span style=\"color: blue;\">String</span>) = <span style=\"color: #a31515;\">\"1\"</span>)\n<span style=\"color: blue;\">If</span> m <span style=\"color: blue;\">IsNot</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">Then</span>\n   mytestoverlay.Markers.Remove(m) \n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span> \n</pre>\n</em></div>\n<p><em> </em></p>\n<p>&nbsp;</p>\n<p><em>&nbsp;</em>Tested your code as you can see in code 2, but nothing happens. Debugged it:</p>\n<p>Tag&nbsp; |&nbsp; Nothing&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Object<br /> m&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; Nothing&nbsp;&nbsp;&nbsp; | &nbsp; GMap.NET.WindowsForms.GMapMarker</p>\n<p>The weird thing is that the code makes absolutely sense, but nothing happens... Let me make another project and uplload it so you can see what I'm doing exactly.</p>",
+    "PostedDate": "2012-05-04T03:13:16.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832104",
+    "ThreadId": "354236",
+    "Html": "<p>maybe there are no markers in your overlay ;}</p>",
+    "PostedDate": "2012-05-04T03:34:56.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832108",
+    "ThreadId": "354236",
+    "Html": "<p>Hahahaha. If it were that simple ;)&nbsp; Added a messagebox to count the markers on the layer &gt; result = 1</p>",
+    "PostedDate": "2012-05-04T03:41:30.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832122",
+    "ThreadId": "354236",
+    "Html": "<p>There seems to be issues with my application. :cry:</p>\r\n<p>The code works perfectly. Will investigate. Thanks for all the help and patience.</p>",
+    "PostedDate": "2012-05-04T04:11:41.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832130",
+    "ThreadId": "354236",
+    "Html": "<p>The tag of the marker needs to be a string ;) One small detail... Damn!!!</p>",
+    "PostedDate": "2012-05-04T04:29:09.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832167",
+    "ThreadId": "354236",
+    "Html": "<p>not necessary, you can use numbers, but then in search function, use number too ;}</p>",
+    "PostedDate": "2012-05-04T05:49:04.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832170",
+    "ThreadId": "354236",
+    "Html": "<p>Hmmmm. Then I still don;t understand why it didn't work. But h&eacute;, I'm saved ;)</p>",
+    "PostedDate": "2012-05-04T05:50:50.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832176",
+    "ThreadId": "354236",
+    "Html": "<p>var m = mytestoverlay.Markers.FirstOrDefault(p =&gt; p != null &amp;&amp; (int)p.Tag == 1);<br />if(m != null)<br />{<br />mytestoverlay.Markers.Remove(m);<br />}</p>",
+    "PostedDate": "2012-05-04T06:04:46.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832183",
+    "ThreadId": "354236",
+    "Html": "<p>Works great m8. ;}</p>",
+    "PostedDate": "2012-05-04T06:17:48.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832185",
+    "ThreadId": "354236",
+    "Html": "<p>eureka ;}</p>",
+    "PostedDate": "2012-05-04T06:22:37.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843073",
+    "ThreadId": "354236",
+    "Html": "\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"></span></span></span><span style=\"font-family:Consolas; font-size:x-small\"></p>\r\n<p>&nbsp;</p>\r\n</span><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">&nbsp;</span></span>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-05-31T05:44:18.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843074",
+    "ThreadId": "354236",
+    "Html": "\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"></span></span></span></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-05-31T05:44:21.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843082",
+    "ThreadId": "354236",
+    "Html": "<p>Hi all - I am also working in vb.net and trying to ascertain how I can identify the id of a specific marker that I want to delete</p>\r\n<p>When I make the marker, I give it a mymarker.tag of \"mymarkertag\"</p>\r\n<p>I also set mymarker.tooltiptext = mymarker.tag and the display suggests that the tag has been allocated as I would expect.</p>\r\n<p>Using a derivation of radioman's last post, I try to find the id of the marker whose tag is \"mymarkertag\" but the result is that I provoke the message that indicates that no such marker was found. I have referenced some of the source code but because it's c# I'm struggling so any pointers would be massively appreciated.</p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; markerindex = rco.Markers.FirstOrDefault(Function(p) p IsNot Nothing AndAlso (p.Tag = \"mymarkertag\"))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(\"The marker whose tag is mymarkertag is index \" &amp; markerindex)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catch ex As Exception<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(\"Failed to identify a marker with a tag of mtmarkertag\")<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Try<br /></span></span><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><font face=\"Consolas\" size=\"2\">\r\n<p>&nbsp;</p>\r\n</font></span></span>\r\n<div><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"></span></span></div>\r\n&nbsp;</span></span></span></p>\r\n</span></span></span>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;</span></span></p>\r\n</p>",
+    "PostedDate": "2012-05-31T06:02:40.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843123",
+    "ThreadId": "354236",
+    "Html": "<p>Cancel that - whilst it may not be the most elegant, I just looped round all of the markers until I encountered one with the tag I was interested in</p>",
+    "PostedDate": "2012-05-31T07:25:16.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

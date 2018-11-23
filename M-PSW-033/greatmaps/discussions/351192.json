@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "819904",
+    "ThreadId": "351192",
+    "Html": "\r\n<p>Hi, here I found a problem while adding a marker to the map without clicking the map.</p>\r\n<p>when I'm trying to add a marker with lat and lng (for example, I load marker points from a file), it always add the marker to the edge of the map. How can I solve this?</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> AddMarker(<span style=\"color:blue\">double</span> lat,<span style=\"color:blue\">double</span> lng)\r\n{\r\n          GMapMarker m = <span style=\"color:blue\">new</span> GMarkerGoogle(<span style=\"color:blue\">new</span> PointLatLng(lat, lng<span style=\"background-color:white\">),GMarkerGoogleType.blue_small);\r\n</span><span style=\"background-color:white\">          GMapMarkerRect mBorders = </span><span style=\"color:blue\">new</span><span style=\"background-color:white\"> GMapMarkerRect(m.Position);\r\n</span><span style=\"background-color:white\">          mBorders.ToolTip = </span><span style=\"color:blue\">new</span><span style=\"background-color:white\"> GMapToolTip(mBorders);\r\n</span><span style=\"background-color:white\">          objects.Markers.Add(m);\r\n</span><span style=\"background-color:white\">          objects.Markers.Add(mBorders);\r\n</span><span style=\"background-color:white\">          MainMap.Position = m.Position;\r\n</span><span style=\"background-color:white\">}\r\n\r\n\r\n</span></pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-04-04T09:16:11.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819934",
+    "ThreadId": "351192",
+    "Html": "<p>works fine to me</p>",
+    "PostedDate": "2012-04-04T09:56:53.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819988",
+    "ThreadId": "351192",
+    "Html": "<p><strong><span style=\"color: #ff0000;\">OK, just ignor it... I have passed lat for lng and lng for lat...</span></strong></p>",
+    "PostedDate": "2012-04-04T11:20:25.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

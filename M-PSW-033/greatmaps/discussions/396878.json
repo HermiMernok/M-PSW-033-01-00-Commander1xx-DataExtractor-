@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "917415",
+    "ThreadId": "396878",
+    "Html": "\r\n<p>Im using the maps in an application and I'm having a bit of trouble with the Application completely locking up while moving around with the tiles.</p>\r\n<p>I looked at the WPF Example and Several discussions but I can't get this working</p>\r\n<p>Im using</p>\r\n<p>&nbsp;</p>\r\n<pre>    Private Sub Map_OnTileLoadComplete(ByVal elapsedmiliseconds As Long) Handles Map.OnTileLoadComplete\n\n        Dim m As Forms.MethodInvoker = AddressOf HidePleaseWait\n\n        Map.Dispatcher.BeginInvoke(DispatcherPriority.Loaded, m)\n\n    End Sub\n\n    Private Sub Map_OnTileLoadStart() Handles Map.OnTileLoadStart\n        Dim m As Forms.MethodInvoker = AddressOf ShowPleaseWait\n\n        Map.Dispatcher.BeginInvoke(DispatcherPriority.Loaded, m)\n\n    End Sub\n\n    Public Sub ShowPleaseWait()\n        Me.mapsProgress.Visibility = Windows.Visibility.Visible\n    End Sub\n\n    Public Sub HidePleaseWait()\n        Me.mapsProgress.Visibility = Windows.Visibility.Hidden\n    End Sub</pre>\r\n<p>&nbsp;</p>\r\n<p>But It still seems to lock up my application. Im using VB and its difficult to translate the C# code but the above should work. Are there any hints to what I can do to make this work?</p>\r\n<p>Is there anything else that needs to be set so this doesn't happen?</p>\r\n<p>I tried loading the same bits of maps under the WPF demo and they work perfect.</p>\r\n<p>PS Ive also tried swapping out Me.Dispatcher and Maps.Dispatcher to no avail</p>\r\n",
+    "PostedDate": "2012-09-25T11:44:38.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917424",
+    "ThreadId": "396878",
+    "Html": "\r\n<p>try set&nbsp;lowest DispatcherPriority</p>\r\n<p>p.s. i used try/catch block, don't remember why, but you can try it too ;}</p>\r\n",
+    "PostedDate": "2012-09-25T11:59:58.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917431",
+    "ThreadId": "396878",
+    "Html": "<p>I gave that a shot, It didn't help too much. I tried Background. It was a bit better but still not as good as the WPF Demo</p>\r\n<p>Anything else I can do?</p>",
+    "PostedDate": "2012-09-25T12:19:48.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917438",
+    "ThreadId": "396878",
+    "Html": "<p>add&nbsp;&nbsp;try/catch block</p>",
+    "PostedDate": "2012-09-25T12:28:22.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917443",
+    "ThreadId": "396878",
+    "Html": "<p>The catch block didnt do much, there weren't errors without it before</p>",
+    "PostedDate": "2012-09-25T12:38:10.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917464",
+    "ThreadId": "396878",
+    "Html": "<p>hm, thats strange, and the demo works fine using identical code, can you zip your test project and share it somewhere? ;/</p>",
+    "PostedDate": "2012-09-25T13:13:42.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

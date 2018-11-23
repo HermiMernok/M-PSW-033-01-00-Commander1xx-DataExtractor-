@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1478704",
+    "ThreadId": "656306",
+    "Html": "I note that support of the openstreetmap / mapquest tiles has expired.<br />\nCould someone let me know what's the best option to have this active again?<br />\nHow do I add a licence key?<br />\n",
+    "PostedDate": "2016-07-12T07:23:16.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1478735",
+    "ThreadId": "656306",
+    "Html": "thanks for reporting, i'll check it later...<br />\n",
+    "PostedDate": "2016-07-12T14:05:34.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1479590",
+    "ThreadId": "656306",
+    "Html": "You need to sign up for their free account which allows 15000 transactions per month. The URL format is described at <a href=\"http://www.mapquestapi.com/staticmap/\" rel=\"nofollow\">http://www.mapquestapi.com/staticmap/</a>. An example would be;\r<br />\n<br />\n<a href=\"http://www.mapquestapi.com/staticmap/v4/getmap?key=YOUR_KEY_HERE&amp;center=40.0447,-76.4132&amp;zoom=14&amp;size=256,256&amp;type=hyb&amp;imagetype=png\" rel=\"nofollow\">http://www.mapquestapi.com/staticmap/v4/getmap?key=YOUR_KEY_HERE&center=40.0447,-76.4132&zoom=14&size=256,256&type=hyb&imagetype=png</a>\r<br />\n<br />\nThe main issue I see with the service is there is a clause in their TOS which indicates that MapQuest Data cannot be cached. That is kind of confusing because what part of the data is MapQuest's, what part is OpenStreetMap's, what part is MapBox's and what part is DigitalGlobe's? So can we legally cache map tiles or not.<br />\n",
+    "PostedDate": "2016-07-22T08:08:44.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

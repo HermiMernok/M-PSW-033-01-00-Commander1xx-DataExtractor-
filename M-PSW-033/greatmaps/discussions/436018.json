@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1012811",
+    "ThreadId": "436018",
+    "Html": "Hello, \r<br />\nis there a method to find closest point on route by lat, lon ?\r<br />\n<br />\nBest regards,\r<br />\n<br />\nGreat product !<br />\n",
+    "PostedDate": "2013-03-09T12:43:22.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012916",
+    "ThreadId": "436018",
+    "Html": "Hi!\r<br />\n<br />\nHere you go: (You need to reference WindowsBase for the System.Windows.Vector class):<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Returns the point that lies on the polyline and is closest to a given point.\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;points&quot;&gt;A List of Vectors/Points that define the polyline&lt;/param&gt;\n        /// &lt;param name=&quot;pos&quot;&gt;The given point&lt;/param&gt;\n        /// &lt;returns&gt;Closest point that is on the polyline.&lt;/returns&gt;\n        public static PointLatLng GetClosestPointOnPolyline(List&lt;PointLatLng&gt; points, PointLatLng pos)\n        {\n            SortedDictionary&lt;double, Vector&gt; distances = new SortedDictionary&lt;double, Vector&gt;();\n            Vector v0 = new Vector(pos.Lng, pos.Lat);\n            for (int i = 0; i &lt; points.Count - 1; i++)\n            {\n                double dist;\n                Vector v1 = new Vector(points[i].Lng, points[i].Lat);\n                Vector v2 = new Vector(points[i + 1].Lng, points[i + 1].Lat);\n                var point = Utils.GetClosestPointOnLinesegment(v1, v2, v0, out dist);\n                if (!distances.ContainsKey(dist))\n                    distances.Add(dist, point);\n            }\n            return new PointLatLng(distances.First().Value.Y, distances.First().Value.X);\n        }\n\n        /// &lt;summary&gt;\n        /// Returns the closest Point ON a line segment defined by Points A and B to a given point P, and gets the distance to this point\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;A&quot;&gt;The Startpoint of the linesegment&lt;/param&gt;\n        /// &lt;param name=&quot;B&quot;&gt;The Endpoint of the linesegment&lt;/param&gt;\n        /// &lt;param name=&quot;P&quot;&gt;The given point.&lt;/param&gt;\n        /// &lt;param name=&quot;distance&quot;&gt;The distance from the line segment to P&lt;/param&gt;\n        /// &lt;returns&gt;Vector (Point) that lies on the linesegement and is closest to P.&lt;/returns&gt;\n        public static Vector GetClosestPointOnLinesegment(Vector A, Vector B, Vector P, out double distance)\n        {\n            if (A == B)\n            {\n                distance = GMap.NET.MapProviders.GMapProviders.EmptyProvider.Projection.GetDistance(new GMap.NET.PointLatLng(P.Y, P.X), new GMap.NET.PointLatLng(A.Y, A.X));\n                return A;\n            }\n            Vector AP = P - A;\n            Vector AB = B - A;\n            double ab2 = AB.LengthSquared;\n            double ap_ab = Vector.Multiply(AP, AB);\n            double t = ap_ab / ab2;\n\n            if (t &lt; 0.0f)\n                t = 0.0f;\n            else if (t &gt; 1.0f)\n                t = 1.0f;\n            Vector closestPoint = A + AB * t;\n            \n            distance = GMap.NET.MapProviders.GMapProviders.EmptyProvider.Projection.GetDistance(new GMap.NET.PointLatLng(P.Y, P.X), new GMap.NET.PointLatLng(closestPoint.Y, closestPoint.X));\n            return closestPoint;\n        }</code></pre>\n\n",
+    "PostedDate": "2013-03-10T01:46:59.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012921",
+    "ThreadId": "436018",
+    "Html": "Hello Xandolph,\r<br />\nthank you for fast reply.\r<br />\nUnfortunately, I am using GMap in LabView, so I cannot implement new methods through C#, \r<br />\nI would have to go with wrapper and this only gives overhead.\r<br />\nif there is none, I will implement my own in LabView.\r<br />\n<br />\nAgain, Great product !!<br />\n",
+    "PostedDate": "2013-03-10T03:45:09.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "934738",
+    "ThreadId": "401419",
+    "Html": "\r\n<p>Hello ,</p>\r\n<p>I would like to draw the marker to follow a route line (the one used by the pen in the Stroke).</p>\r\n<p>I have 2 gps points for this route.</p>\r\n<p>I try with : GMapProviders.GoogleMap.GetRoute without luck, since it seem to follow a logic.</p>\r\n<p>Seem no way to have points in a straight <span>line&nbsp;</span> between 2 points as long as I know.</p>\r\n<p>Anyone?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-10-31T06:33:43.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934755",
+    "ThreadId": "401419",
+    "Html": "<p>just add these two point and you'll get the straight line</p>",
+    "PostedDate": "2012-10-31T06:59:56.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934758",
+    "ThreadId": "401419",
+    "Html": "<p>This will not give me the points between them right?. I want to make something like a vehicule moving on the route. I pretty sure someone already try that.</p>",
+    "PostedDate": "2012-10-31T07:09:22.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934763",
+    "ThreadId": "401419",
+    "Html": "<p>well usually vehicles move on the roads, unless it's a plain</p>",
+    "PostedDate": "2012-10-31T07:15:11.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934774",
+    "ThreadId": "401419",
+    "Html": "<p>It's a train project for the company I work for, Im trying to find something to have all gps point between 2 points, or convert the pen line coord points to long,latt .</p>",
+    "PostedDate": "2012-10-31T07:25:26.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934779",
+    "ThreadId": "401419",
+    "Html": "<p>is it's gps points, why do you need more points in between?</p>",
+    "PostedDate": "2012-10-31T07:30:36.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934783",
+    "ThreadId": "401419",
+    "Html": "<p>It's only for visual demonstration , I&nbsp; want to make the train move between the location following the route.</p>",
+    "PostedDate": "2012-10-31T07:38:40.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934788",
+    "ThreadId": "401419",
+    "Html": "<p>check&nbsp;<a href=\"http://www.movable-type.co.uk/scripts/latlong.html\" target=\"_blank\">http://www.movable-type.co.uk/scripts/latlong.html</a></p>\r\n<p>you can use these formulas</p>",
+    "PostedDate": "2012-10-31T07:43:47.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "934805",
+    "ThreadId": "401419",
+    "Html": "<p>Thanks I think this one will do the job<strong> : Destination point given distance and bearing from start point </strong></p>\r\n<p><strong><br /></strong></p>",
+    "PostedDate": "2012-10-31T08:05:58.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

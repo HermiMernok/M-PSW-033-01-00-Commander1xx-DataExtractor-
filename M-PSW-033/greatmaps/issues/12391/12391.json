@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "i think i fixed it: changed from \"int len = encoded.Length-1;\" to \"int len = encoded.Length;\" in GMaps.GetRouteBetweenPointsUrl",
+    "ClosedDate": "2009-04-29T22:18:46.71-07:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "end of route diffs from originals from google, posible bug in data decoding...",
+    "LastUpdatedDate": "2009-04-29T22:18:46.71-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-01-17T13:55:21.133-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "route end bug",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 12391
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106833,
+      "FileName": "route end bug.PNG",
+      "DownloadUrl": ".\\106833"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I tested adding the passed in endpoints to the returned list.  The route path is then correct.  I suppose one could argue that when you say BETWEEN you mean not inlclusive of endpoints.  It is also true that passing back the start/end points as the zeroth and nth items in the list is redundant data although this makes contstructing an actual route a tiny bit more painful.\r\n//mA and mB are 2 markers:\r\nList\r\n pts = MainMap.GetRouteBetweenPoints(mA.Position, mB.Position, false);\r\nif (pts != null && pts.Count > 1)\r\n{\r\n  pts.Insert(0, mA.Position);\r\n  pts.Add(mB.Position);\r\n}\r\nMainMap.AddRoute(new Route(pts, \"RouteWithEndpoints\"));\r\n",
+      "PostedDate": "2009-02-23T16:41:50.773-08:00",
+      "Id": 3098
+    },
+    {
+      "Message": "..not exactly, because last coordinate from geocoder is still sometimes wrong ;/",
+      "PostedDate": "2009-03-08T10:35:45.91-07:00",
+      "Id": 3099
+    },
+    {
+      "Message": "i think i fixed it: changed from \"int len = encoded.Length-1;\" to \"int len = encoded.Length;\" in GMaps.GetRouteBetweenPointsUrl",
+      "PostedDate": "2009-04-29T22:17:55.23-07:00",
+      "Id": 3100
+    }
+  ]
+}

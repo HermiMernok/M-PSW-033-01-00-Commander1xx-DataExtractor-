@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "700465",
+    "ThreadId": "280069",
+    "Html": "\r\n<p>hi!</p>\r\n<p>i have two vehicles. they are sending their positions to a database.</p>\r\n<p>i want to draw the route on the map to a certain point from the current position of each vehicle</p>\r\n<p>until now i have only managed one route drawing</p>\r\n<p>i can see that routes has two routes in it, but i dont know how to get them on the screen</p>\r\n<p>here's the code for the map</p>\r\n<p>&nbsp;</p>\r\n<p>For z = 0 To deviceid.Length - 1<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = GMapProviders.OpenStreetMap.GetRouteBetweenPoints(New PointLatLng((lat), (lng)), (New PointLatLng(CDbl(latitude(z)), CDbl(longitude(z)))), False, False, 5)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item = New GMapRoute(x.Points, &quot;test&quot;)<br>\r\n<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Not x Is Nothing Then<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routes.Routes.Add(item)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl1.ZoomAndCenterRoute(item)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl1.Overlays.Add(routes)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next</p>\r\n<p>&nbsp;</p>\r\n<p>could someone point me to the right direction please?</p>\r\n<p>&nbsp;</p>\r\n<p>thank you</p>\r\n",
+    "PostedDate": "2011-11-18T15:30:51.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700472",
+    "ThreadId": "280069",
+    "Html": "<p>got it - almost</p>\r\n<p>just realized why it's called object oriented programming ;)</p>\r\n<p>For z = 0 To deviceid.Length - 1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = GMapProviders.OpenStreetMap.GetRouteBetweenPoints(New PointLatLng((lat), (lng)), (New PointLatLng(CDbl(latitude(z)), CDbl(longitude(z)))), False, False, 5)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routes = New GMapOverlay(GMapControl1, \"routes\" &amp; deviceid(z))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item = New GMapRoute(x.Points, \"test\" &amp; deviceid(z))<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Not x Is Nothing Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routes.Routes.Add(item)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'GMapControl1.ZoomAndCenterRoute(item)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl1.Overlays.Add(routes)<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next</p>\r\n<p>&nbsp;</p>\r\n<p>now i only need to \"auto\" zoom</p>\r\n<p>&nbsp;</p>\r\n<p>regards</p>",
+    "PostedDate": "2011-11-18T16:16:31.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

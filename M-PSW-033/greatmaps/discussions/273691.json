@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "676117",
+    "ThreadId": "273691",
+    "Html": "\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:#000000\">I write a </span>MarkerRed like the CustomMarkerRed&nbsp;in Demo.WindowsPresentation.CustomMarkers.</pre>\r\n<pre>And this MarkerRed's height is 100, width is 66.</pre>\r\n<pre><br></pre>\r\n<pre>There is a red dot in control MarkerRed.</pre>\r\n<pre>It's position is 15 to the left and 40 to the top.</pre>\r\n<pre><br></pre>\r\n<pre>There is a green dot in control MarkerRed.</pre>\r\n<pre>It's position is 50 to the right and 0 to the bottom.</pre>\r\n<pre><br></pre>\r\n<pre>When I place this mark on the map at place x lat 50 and lng 50 with green dot on x.</pre>\r\n<pre><br></pre>\r\n<pre><strong>How can I place this mark on x with red dot on x?</strong></pre>\r\n<pre><br></pre>\r\n<pre>Thx.</pre>\r\n<pre>^_^</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-09-24T00:53:25.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676135",
+    "ThreadId": "273691",
+    "Html": "<p>void CustomMarkerDemo_SizeChanged(object sender, SizeChangedEventArgs e)<br /> {<br />&nbsp; &nbsp;Marker.<strong>Offset</strong> = new Point(-e.NewSize.Width/2, -e.NewSize.Height);<br /> }</p>",
+    "PostedDate": "2011-09-24T03:03:02.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676477",
+    "ThreadId": "273691",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>void CustomMarkerDemo_SizeChanged(object sender, SizeChangedEventArgs e)<br /> {<br /> &nbsp; &nbsp;Marker.<strong>Offset</strong> = new Point(-e.NewSize.Width/2, -e.NewSize.Height);<br /> }</p>\r\n</blockquote>\r\n<p>Thank you very much.</p>\r\n<p>radioman</p>\r\n<p>^_^</p>",
+    "PostedDate": "2011-09-25T17:59:09.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

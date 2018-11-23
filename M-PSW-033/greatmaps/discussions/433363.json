@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1002182",
+    "ThreadId": "433363",
+    "Html": "Srs,\r<br />\n<br />\nI need in my application that the polygons have 100% of transparency, is this possible / how? \r<br />\ni took a look in class GMapPolygon but didn´t find anything\r<br />\n<br />\nthanks\r<br />\n<br />\nmarcelo<br />\n",
+    "PostedDate": "2013-02-16T06:04:33.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1002224",
+    "ThreadId": "433363",
+    "Html": "plg.<strong>Fill</strong>.xxx = ...<br />\n",
+    "PostedDate": "2013-02-16T09:44:26.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003332",
+    "ThreadId": "433363",
+    "Html": "Dear radioman\r<br />\n<br />\nthank you, your answer work great (again)\r<br />\n<br />\nfor future reference/ others that have same needs, i used:<br />\n<pre><code>                // below creates other Fill / pen for use \n                Brush Fill_Polygon = new SolidBrush(Color.FromArgb(0, Color.White));\n                Pen Stroke_Polygon = new Pen (Color.FromArgb(155, Color.MidnightBlue), 2);\n\n                //....... some code to create polygon\n\n                     //  make use of fill / pen that i want\n                    polygon1.Fill = Fill_Polygon;\n                    polygon1.Stroke = Stroke_Polygon;</code></pre>\n\nregards,\r<br />\n<br />\nmarcelo<br />\n",
+    "PostedDate": "2013-02-19T02:46:11.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

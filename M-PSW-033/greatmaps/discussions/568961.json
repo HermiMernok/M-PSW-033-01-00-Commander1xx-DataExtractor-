@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1310234",
+    "ThreadId": "568961",
+    "Html": "Hi,\r<br />\nPlease let me know how to make a map legend.  I'm working in Windows Forms. When I render a marker onto a map, it moves with mapdrag/zoom.  But when I override OnPainOverlays, I have a System.Drawing.Graphics object and cannot get to the markers, that are GMarkerGoogleType objects.  How do I stick a static marker in a corner of my map?  Or maybe I'm not approaching the whole issue correctly? \r<br />\n<br />\nAny help is greatly appreciated.  I just cannot visualize my solution.  Anyone, please guide me in plain English, I don't necessarily need code but it would be nice.\r<br />\n<br />\nThank you,<br />\n",
+    "PostedDate": "2014-10-03T07:41:42.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1310245",
+    "ThreadId": "568961",
+    "Html": "Some code, would prolly help<br />\n",
+    "PostedDate": "2014-10-03T08:02:40.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1310267",
+    "ThreadId": "568961",
+    "Html": "I can think of a fix with overriding OnPainOverlays function, but how do I convert GMarkerGoogleType object to bitmap?  Is there such aside from creating JPGs myself with gimp or something??<br />\n",
+    "PostedDate": "2014-10-03T08:55:26.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311818",
+    "ThreadId": "568961",
+    "Html": "You can put anything you like on the map as a static item. For example I put a logo image on the map in the bottom right hand corner as follows.<br />\n<br />\nBut following code in map form paint event.<br />\n<pre><code>Private Sub MainMap_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MainMap.Paint\n\n    SysGraphics.DrawLogo(e, gMapLogoImage, New Drawing.Rectangle(MainMap.Width - 120, MainMap.Height - 70, LogoSize.Width, LogoSize.Height))\n\nEnd Sub</code></pre>\n\nI have a class for various function such as drawing the image, text etc however the code can just go in the paint event.<br />\n<pre><code>Public Class SysGraphics\n\n    Public Shared Sub DrawLogo(ByVal e As System.Windows.Forms.PaintEventArgs, image As Image, rect As Drawing.Rectangle)\n\n        Try\n            e.Graphics.DrawImage(image, rect.Width, rect.Height)\n\n        Catch ex As Exception\n        End Try\n\n    End Sub\n\nEnd Class</code></pre>\n\nCheers.<br />\n",
+    "PostedDate": "2014-10-09T04:10:09.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311895",
+    "ThreadId": "568961",
+    "Html": "Yes, this is how I made it happen with mark images that I used out of resources in Visual Studio.  However, I was trying to make this happen with using the actual Marker Type objects, GMarkerGoogleType objects.  I didn't want to get those gifs myself, I hoped that I somehow could get them out of a map.  But anyway, I didn't know how to convert those type objects into images, and then acquire those with the Paint event. <br />\n",
+    "PostedDate": "2014-10-09T08:34:30.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "196745",
+    "ThreadId": "58178",
+    "Html": "<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>It would be nice to be able to get the driving time from a route.</p>\r\n<p>Thanks a lot.</p>\r\n<p>&nbsp;</p>\r\n<p>Nicolas Pernoud.</p>",
+    "PostedDate": "2009-06-02T02:09:47.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196774",
+    "ThreadId": "58178",
+    "Html": "<p>check now first marker of route tooltip text in demos</p>",
+    "PostedDate": "2009-06-02T04:25:30.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197138",
+    "ThreadId": "58178",
+    "Html": "<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>That's neat. How can I get it to a string or double ?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>&nbsp;</p>\r\n<p>Nicolas Pernoud.</p>",
+    "PostedDate": "2009-06-03T00:51:48.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197140",
+    "ThreadId": "58178",
+    "Html": "<p>it's string allready, but in html, somehow need to convert to normal string... ;/</p>",
+    "PostedDate": "2009-06-03T00:54:06.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197160",
+    "ThreadId": "58178",
+    "Html": "<p>It is manageable to get the time from the html string, yet, it would be nice to be able to get it as a propertie : as Distance.</p>",
+    "PostedDate": "2009-06-03T02:04:06.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197165",
+    "ThreadId": "58178",
+    "Html": "<p>Actually, the nicer would be to get a double or interger (number of seconds !?) so that we can do math upon it !</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot, and congratulations for you tremendous work !</p>",
+    "PostedDate": "2009-06-03T02:16:00.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197167",
+    "ThreadId": "58178",
+    "Html": "<p>can you help me this time? ;}</p>",
+    "PostedDate": "2009-06-03T02:19:02.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197176",
+    "ThreadId": "58178",
+    "Html": "<p>that should do ; at least for french and english languages...</p>\r\n<p>&nbsp;</p>\r\n<p>private static int ConvertHTMLDistanceToInt(string aller)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string temps;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temps = aller.Split('/')[1];<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int hourEndPosition = temps.IndexOf(&quot;h&quot;, 0) - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int minutesEndPosition = temps.IndexOf(&quot;min&quot;, 0) - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int secondsEndPosition = temps.IndexOf(&quot;sec&quot;, 0) - 1;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int hourStartPosition = hourEndPosition - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (hourStartPosition &gt; 1 &amp;&amp; temps.Substring(hourStartPosition, 1) != &quot; &quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hourStartPosition--;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int minutesStartPosition = minutesEndPosition - 1;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (minutesStartPosition &gt; 1 &amp;&amp; temps.Substring(minutesStartPosition, 1) != &quot; &quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minutesStartPosition--;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int secondsStartPosition = secondsEndPosition - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (secondsStartPosition &gt; 1 &amp;&amp; temps.Substring(secondsStartPosition, 1) != &quot; &quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; secondsStartPosition--;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int seconds = 0;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (hourStartPosition &gt; 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; seconds += int.Parse(temps.Substring(hourStartPosition, hourEndPosition - hourStartPosition)) * 3600;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (minutesStartPosition &gt; 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; seconds += int.Parse(temps.Substring(minutesStartPosition, minutesEndPosition - minutesStartPosition)) * 60;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (secondsStartPosition &gt; 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; seconds += int.Parse(temps.Substring(secondsStartPosition, secondsEndPosition - secondsStartPosition));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return seconds;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>",
+    "PostedDate": "2009-06-03T03:08:16.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

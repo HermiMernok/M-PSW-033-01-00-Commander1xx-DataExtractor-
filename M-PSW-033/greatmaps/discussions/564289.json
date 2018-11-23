@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1296921",
+    "ThreadId": "564289",
+    "Html": "Hi,\r<br />\nI am using GMap.Net in my project. I need to a function that received latitude and longitude, then return information of point, such as country name, location name, state name, regional name and etc.\r<br />\n<br />\nCan I get the state name and regional name? How?\r<br />\n<br />\nAnd I used this code, but It does not work and always plc=null :<br />\n<pre><code>List&lt;Placemark&gt; plc = null;\nvar st = GMapProviders.GoogleMap.GetPlacemarks(new PointLatLng(myLatitude, myLongitude), out plc);\nif(st == GeoCoderStatusCode.G_GEO_SUCCESS &amp;&amp; plc != null)\n{\n    foreach(var pl in plc)\n    {\n      if(!string.IsNullOrEmpty(pl.PostalCodeNumber))\n      {\n        Debug.WriteLine(&quot;Accuracy: &quot; + pl.Accuracy + &quot;, &quot; + pl.Address + &quot;, PostalCodeNumber: &quot; + pl.PostalCodeNumber);\n      }\n    }\n}</code></pre>\n\nRegards...<br />\n",
+    "PostedDate": "2014-08-30T19:54:00.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1297061",
+    "ThreadId": "564289",
+    "Html": "I don't know if GMap has a native way to do this but I use Google GeoCoder web service to get specifics.  You can do up to 2500 per day from the same IP address. No sign up or key necessary (like mapquest, etc.)<br />\n<pre><code>    Dim strLocation As String = &quot;Google Geocoded Address: &quot;\n    Dim Str As System.IO.Stream\n    Dim srRead As System.IO.StreamReader\n        Try\n            ' make a Web request\n            Dim req As System.Net.WebRequest = System.Net.WebRequest.Create(&quot;http://maps.googleapis.com/maps/api/geocode/xml?latlng=&quot; + Latitude + &quot;,&quot; + Longitude + &quot;&amp;sensor=false&quot;)\n            Dim resp As System.Net.WebResponse = req.GetResponse\n            Str = resp.GetResponseStream\n            srRead = New System.IO.StreamReader(Str)\n            strLocation = srRead.ReadToEnd.ToString\n            strLocation = strLocation.Substring(strLocation.IndexOf(&quot;&lt;formatted_address&gt;&quot;) + 19, strLocation.IndexOf(&quot;&lt;/formatted_address&gt;&quot;) - strLocation.IndexOf(&quot;&lt;formatted_address&gt;&quot;) - 19)\n        Catch ex As Exception\n            strLocation = &quot;Unable to reverse geocode: &quot; + Latitude + &quot;,&quot; + Longitude + &quot;   &quot; + Now()\n        Finally\n            '  Close Stream and StreamReader when done               \n            srRead.Close()\n            Str.Close()\n        End Try</code></pre>\n\n",
+    "PostedDate": "2014-08-31T07:43:56.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1298933",
+    "ThreadId": "564289",
+    "Html": "Thank you, But I want to use this information without connecting to the internet. \r<br />\nI use offline mode of GMap.\r<br />\nCan I get this information from GMap? How?<br />\n",
+    "PostedDate": "2014-09-04T02:41:29.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

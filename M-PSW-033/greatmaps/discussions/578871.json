@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1346987",
+    "ThreadId": "578871",
+    "Html": "Gmaps has been an awesome find, but I recently had a requirements change and I can't figure out how to get it working. Before I would load Map providers from a combo box and then manually set it with a button like the code below.   Now I need to save the Map provider in a configuration text file and  then automatically load it from the file and  set the Map Provider.  I've been trying to load the provider from the file into a string and then convert it with CTYPE to GMapProvider and Just can't get it to work.    Any suggestions or a point in the right direction would preserve the rest of my hair from being yanked out!\r<br />\n<br />\nold code....\r<br />\nMapProviderComboBox.ValueMember = &quot;Name&quot;\r<br />\nMapProviderComboBox.DataSource = GMapProviders.List\r<br />\nGMapControl1.MapProvider =  MapProviderComboBox.SelectedItem <br />\n",
+    "PostedDate": "2015-01-28T21:22:03.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1347478",
+    "ThreadId": "578871",
+    "Html": "Hello visegrad,\r<br />\n<br />\none way is to cast this obejct with a foreach loop:<br />\n<pre><code>        For Each _mp As GMapProvider In GMapProviders.List\n            If _mp.Name = &quot;OpenStreetmap&quot; Then\n                MapProviderComboBox.selecteditem = _mp\n            End If\n        Next</code></pre>\n\nBetter is to save your configfile as XML with xml serialization(see msdn)\r<br />\nSo you have much more possibilities and you and it is better code.\r<br />\n<br />\nthis would be my solution.\r<br />\n<br />\nbye ede<br />\n",
+    "PostedDate": "2015-01-30T03:29:10.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1347679",
+    "ThreadId": "578871",
+    "Html": "thank you, you saved me from pulling all my hair out!   I'm not sure why i didn't think of that , but when there's a lot of things going on I guess I  make things harder than they need to be.     Thanks for the advice on the XML, I actually just converted the text version to XML earlier in the week and added some  map options to it and that's when I got stumped.<br />\n",
+    "PostedDate": "2015-01-30T19:42:33.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

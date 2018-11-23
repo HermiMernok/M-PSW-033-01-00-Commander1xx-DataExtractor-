@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "Radioman:\r\n\r\nThis is a wonderful project and I'm most appreciative of your work. The newer versions are very fast and stable, and all the supported maps are a great addition. Thanks for all your hard work.\r\n\r\nI'm wondering if you are interested in adding an additional map type? I'm not 100% sure it is the correct type or format, but if I could get a map type that shows watersheds like this purports to do, it would be really great. The link is:\r\n\r\nhttp://www.arcgis.com/home/item.html?id=e82f41cba54f478dac7736a5e0d38f95\r\n\r\nI downloaded the code and could probably try it myself, but thought you might be willing to take a quick look at the resource to see if you think it is compatible.\r\n\r\nThanks much,\r\n\r\nChris Wilson",
+    "LastUpdatedDate": "2011-07-01T14:44:18.093-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-11-17T18:28:47.33-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Request for additional map type - ArcGIS Hydro_Base_Map",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15991
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "tile info: http://hydro_bm.esri.com/ArcGIS/rest/services/Hydro/Hydro_Base_Map/MapServer",
+      "PostedDate": "2010-11-17T22:19:51.327-08:00",
+      "Id": 18717
+    },
+    {
+      "Message": "Yeah, I had seen that web page, but when I click on the start tile/end tile links, a server error is returned. Do you think that means that it won't work with GMap.Net?",
+      "PostedDate": "2010-11-18T06:17:08.973-08:00",
+      "Id": 18727
+    },
+    {
+      "Message": "i can easily trace real tiles using Fiddler",
+      "PostedDate": "2010-11-18T12:20:14.503-08:00",
+      "Id": 18749
+    },
+    {
+      "Message": "Are you interested in adding support for this type or should I try to modify source myself? Btw, I noticed that some existing map types return error tiles (at least in u.s.) Its a moving target for sure.\n\nYou think it would be feasible to allow user to specify \"custom\" map type and then supply url, or is adding new map type too complex to be configurable at runtime?\n\nThanks for your time.\n\nChris ",
+      "PostedDate": "2010-11-18T18:37:34.767-08:00",
+      "Id": 18781
+    },
+    {
+      "Message": "i'm interested, but have no priority to work on this, so you can try it yourself",
+      "PostedDate": "2010-11-18T22:14:35.447-08:00",
+      "Id": 18785
+    },
+    {
+      "Message": "current version allows easy map provider integration, you might try it",
+      "PostedDate": "2011-07-01T14:44:18.093-07:00",
+      "Id": 38712
+    }
+  ]
+}

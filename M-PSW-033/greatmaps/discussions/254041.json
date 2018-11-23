@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "597853",
+    "ThreadId": "254041",
+    "Html": "\r\n<p>Microsoft used to name events like actions, and corresponding virtual helper functions prefixed with 'On'</p>\r\n<p>by ex:<br>\r\n<br>\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">event</span> MouseEventHandler <strong>MouseClick</strong>;\r\n\r\n<span style=\"color:blue\">protected</span> <span style=\"color:blue\">virtual</span> <span style=\"color:blue\">void</span> <strong>On<em>MouseClick</em></strong>(MouseEventArgs e)\r\n{\r\n    <span style=\"color:blue\">if</span> (<span style=\"color:blue\">this</span>.MouseClick != <span style=\"color:blue\">null</span>)\r\n    {\r\n        <span style=\"color:blue\">this</span>.MouseClick(<span style=\"color:blue\">this</span>, e);\r\n    }\r\n}\r\n<br></pre>\r\n</div>\r\n<p>as we can see, there is no OnSomethingHappened events...</p>\r\n<p>The overriding of <strong>On<em>SomethingHappened</em></strong> functions is used to manage the\r\n<em><strong>SomethingHappened </strong></em>event in the inherited classes...</p>\r\n<p>This &quot;norm&quot; is not always respected in the current code, creating some confusions...</p>\r\n",
+    "PostedDate": "2011-04-15T04:52:41.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

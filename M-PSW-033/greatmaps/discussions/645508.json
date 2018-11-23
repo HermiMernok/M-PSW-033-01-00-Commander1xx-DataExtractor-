@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1446059",
+    "ThreadId": "645508",
+    "Html": "Thank you very much for providing this map functionality, I like it very much.\r<br />\n<br />\nAre there a way to add a very short &quot;Title&quot; to a marker, basically just a short number, t be shown directly over or inside the marker.\r<br />\n<br />\nToday I'm using a tooltip for this with the MarkerTooltipMode set to Always, but it is not a particular pretty solution.\r<br />\n<br />\nThanks in advance<br />\n",
+    "PostedDate": "2015-09-26T22:50:07.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1446066",
+    "ThreadId": "645508",
+    "Html": "you can make custom marker or custom tooltip<br />\n",
+    "PostedDate": "2015-09-27T02:32:49.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-09-27T02:33:14.58-07:00"
+  },
+  {
+    "Id": "1446133",
+    "ThreadId": "645508",
+    "Html": "hello,\r<br />\n<br />\ncould be a solution:\r<br />\nThis is a cross with your text.<br />\n<pre><code>\npublic class GMapMarker_Text : GMapMarker\n{\n\n    private Pen Pen = new Pen(Brushes.Blue, 3);\n    private Brush FillBrush;\n\n    private int drawingSize;\n    private string _Name;\n    //\n    private string _yourText;\n\n\n    private PointLatLng _p;\n    public string Name {\n        get { return _Name; }\n    }\n\n\n\n\n    public GMapMarker_Text(PointLatLng p, string Name, string yourText) : base(p)\n    {\n\n        _p = p;\n        _Name = Name;\n        _yourText = yourText;\n\n        Size = new System.Drawing.Size(5, 5);\n        Offset = new System.Drawing.Point(0, 0);\n\n    }\n\n    public override void OnRender(Graphics g)\n    {\n        drawingSize = 10;\n\n        Position = _p;\n\n        System.Drawing.Point p1 = new System.Drawing.Point(LocalPosition.X, LocalPosition.Y);\n        p1.Offset(0, -drawingSize);\n        System.Drawing.Point p2 = new System.Drawing.Point(LocalPosition.X, LocalPosition.Y);\n        p2.Offset(0, drawingSize);\n\n        System.Drawing.Point p3 = new System.Drawing.Point(LocalPosition.X, LocalPosition.Y);\n        p3.Offset(-drawingSize, 0);\n        System.Drawing.Point p4 = new System.Drawing.Point(LocalPosition.X, LocalPosition.Y);\n        p4.Offset(drawingSize, 0);\n\n        g.DrawLine(Pen, p1.X, p1.Y, p2.X, p2.Y);\n        g.DrawLine(Pen, p3.X, p3.Y, p4.X, p4.Y);\n\n\n        Font drawFont = new Font(&quot;Arial&quot;, 10);\n        Pen OutlinePen = new Pen(Color.FromArgb(255, Color.Magenta), 2);\n\n        g.DrawString(_yourText.ToString() + &quot; km/h&quot;, drawFont, OutlinePen.Brush, LocalPosition.X + 4, LocalPosition.Y);\n\n    }\n\n}\n</code></pre>\n\n",
+    "PostedDate": "2015-09-27T23:06:15.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1446468",
+    "ThreadId": "645508",
+    "Html": "Thank you very much, I used RobbeEDE example of overloading the marker.\r<br />\n<br />\nI also managed to change the cross to an elipse, and add the text inside the elipse, so now it looks really great.\r<br />\n<br />\nI only have one problem left, which I can't solve on my own, since I'm pretty new to overloading, delegates etc.\r<br />\n<br />\nNormally I use an eventHandler for handling the marker click event like below:\r<br />\nprivate void gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)\r<br />\n{\r<br />\n....\r<br />\n}\r<br />\n<br />\nBut on my overloaded class called GMapMarker_Text I have added a property called MyTag, and I would like to get that back when clicking on a marker.\r<br />\nSo therefore I changed my OnMarkerClick eventHandler to the following:\r<br />\n<br />\nprivate void gmap_OnMarkerClick(GMapMarker_Text item, MouseEventArgs e)\r<br />\n<br />\nThen I get the following error message:\r<br />\n&quot;No overload for 'gmap_OnMarkerClick' matches delegate 'GMap.NET.WindowsForms.MarkerClick'&quot;\r<br />\n<br />\nHow do I overload this eventhandler or delegate or whatever it is?\r<br />\n<br />\n<br />\nHere is my overloaded GMapMarker class:<br />\n<pre><code>public class GMapMarker_Text : GMapMarker\n{\n    private Pen Pen = new Pen(Brushes.Blue, 3);\n    private Brush FillBrush = new SolidBrush(Color.Blue);\n    private int circleHeight;\n    private int circleWidth;\n    private string _MyTag;\n    private string _markerTitle;\n    private PointLatLng _p;\n    public string MyTag\n    {\n        get { return _MyTag; }\n    }\n\n\n    public GMapMarker_Text(PointLatLng p, string MyTag, string markerTitle) : base(p) //Constructor\n    {\n        _p = p;\n        _MyTag = MyTag;\n        _markerTitle = markerTitle;\n        Size = new System.Drawing.Size(5, 5);\n        Offset = new System.Drawing.Point(0, 0);\n    }\n\n    public override void OnRender(Graphics g)\n    {\n        circleHeight = 24;\n        circleWidth = 24;\n        g.FillEllipse(FillBrush, LocalPosition.X - circleWidth / 2, LocalPosition.Y - circleHeight / 2, circleWidth, circleHeight);\n\n        Font drawFont = new Font(&quot;Arial&quot;, 11);\n        Pen OutlinePen = new Pen(Color.FromArgb(255, Color.White), 5);\n        g.DrawString(_markerTitle, drawFont, OutlinePen.Brush, LocalPosition.X - 6, LocalPosition.Y - 8);\n    }        \n}</code></pre>\n\n",
+    "PostedDate": "2015-09-29T23:39:38.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1446705",
+    "ThreadId": "645508",
+    "Html": "<pre><code>private void gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e) \n{ \n  var myMarker = item as GMapMarker_Text;\n  // ...\n} </code></pre>\n\n",
+    "PostedDate": "2015-10-01T07:51:45.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-10-01T09:22:39.39-07:00"
+  },
+  {
+    "Id": "1446724",
+    "ThreadId": "645508",
+    "Html": "Thanks a lot, now it works like a charm<br />\n",
+    "PostedDate": "2015-10-01T09:23:31.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447374",
+    "ThreadId": "645508",
+    "Html": "Thanks for the idea. Can you please help on how to incorporate this class to me form. Sorry, newbie here :D<br />\n",
+    "PostedDate": "2015-10-06T20:58:31.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1472808",
+    "ThreadId": "645508",
+    "Html": "Hi I like this mapping .\r<br />\n \r<br />\nI just need your help,to get the latitude and longitude of a marker in a button click and save the multiple markers latitude and longitude in a text file.\r<br />\n<br />\n private void button1_Click(object sender, EventArgs e)<br />\n<pre><code>    {</code></pre>\n\nmarker1 (lat,long);\r<br />\nmarker2 (lat,long)......\r<br />\n<br />\nsave (lat,long) in a \r<br />\ntext file\r<br />\n}<br />\n",
+    "PostedDate": "2016-05-08T22:04:08.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

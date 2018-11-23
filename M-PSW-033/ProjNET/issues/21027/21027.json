@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In the CoordinateSystemWktReader, the ReadProjection method does not include support for the optional authority parameter specified in the wkt standard, and will fail with an exception if such as parameter is provided. It should include a check for it.",
+    "LastUpdatedDate": "2013-02-21T16:06:06.723-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2011-06-25T15:31:15.277-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Incorrect parsing of wkt projection system",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 21027
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "had same problem. This is my fix:\r\n\r\nprivate static IProjection ReadProjection(WktStreamTokenizer tokenizer)\r\n\t\t{\r\n\t\t\t//tokenizer.NextToken();// PROJECTION\r\n\t\t\ttokenizer.ReadToken(\"PROJECTION\");\r\n\t\t\ttokenizer.ReadToken(\"[\");//[\r\n\t\t\tstring projectionName = tokenizer.ReadDoubleQuotedWord();\r\n            tokenizer.NextToken();\r\n\r\n\t\t\tstring authority = String.Empty;\r\n\t\t\tlong authorityCode = -1;\r\n\r\n            /* below section altered to allow an authority to be read within the projection token. \r\n             * This seems to be valid in WKT as per http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html\r\n             */\r\n            if (tokenizer.GetStringValue() == \",\") //Read authority\r\n            {\r\n                tokenizer.ReadAuthority(ref authority, ref authorityCode);\r\n                tokenizer.ReadToken(\"]\");//]\r\n            }\r\n\r\n            tokenizer.ReadToken(\",\"); //,\r\n\t\t\ttokenizer.ReadToken(\"PARAMETER\");\r\n\t\t\tList<ProjectionParameter> paramList = new List<ProjectionParameter>();\r\n\t\t\twhile (tokenizer.GetStringValue() == \"PARAMETER\")\r\n\t\t\t{\r\n\t\t\t\ttokenizer.ReadToken(\"[\");\r\n\t\t\t\tstring paramName = tokenizer.ReadDoubleQuotedWord();\r\n\t\t\t\ttokenizer.ReadToken(\",\");\r\n\t\t\t\ttokenizer.NextToken();\r\n\t\t\t\tdouble paramValue = tokenizer.GetNumericValue();\r\n\t\t\t\ttokenizer.ReadToken(\"]\");\r\n\t\t\t\ttokenizer.ReadToken(\",\");\r\n\t\t\t\tparamList.Add(new ProjectionParameter(paramName, paramValue));\r\n\t\t\t\ttokenizer.NextToken();\r\n\t\t\t}\r\n\t\t\tIProjection projection = new Projection(projectionName, paramList, projectionName, authority, authorityCode, String.Empty, String.Empty, string.Empty);\r\n\t\t\treturn projection;\r\n\t\t}",
+      "PostedDate": "2012-02-08T17:33:55.633-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:06.723-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

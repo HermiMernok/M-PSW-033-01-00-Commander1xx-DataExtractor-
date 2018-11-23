@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "952237",
+    "ThreadId": "405806",
+    "Html": "\r\n<p>YES , I have tried to convert the <a id=\"file_1_1_0\" href=\"http://greatmaps.codeplex.com/SourceControl/changeset/view/7d8fb064dcc7#Demo.WindowsForms%2fCustomMarkers%2fGMapMarkerCircle.cs\">\r\nGMapMarkerCircle.cs</a>&nbsp;code found in the demo source with this &nbsp;c# to VB&nbsp;converter&nbsp;http://converter.telerik.com/&nbsp;</p>\r\n<p>-I still cant draw circles, I am looking for a complete picece of VB code that shows how to draw a circle at lat/lng with X m radius that works with zoom.&nbsp;</p>\r\n<p>- Anyone out there that can help out ?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-06T05:05:30.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952251",
+    "ThreadId": "405806",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I am using this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Imports</span> System.Drawing\r\n<span style=\"color:blue\">Imports</span> System.Drawing.Drawing2D\r\n<span style=\"color:blue\">Imports</span> GMap.NET\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms\r\n\r\n<span style=\"color:blue\">Namespace</span> Map\r\n\r\n\r\n\t<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> GMapMarkerCircle\r\n\t\t<span style=\"color:blue\">Inherits</span> GMapMarker\r\n\t\t<span style=\"color:blue\">Private</span> m_Radius <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span>\r\n\t\t<span style=\"color:green\">'In Meters</span>\r\n\t\t<span style=\"color:blue\">Public</span> m_OutlinePen <span style=\"color:blue\">As</span> Pen\r\n\t\t<span style=\"color:blue\">Public</span> m_FillBrush <span style=\"color:blue\">As</span> Brush\r\n\t\t<span style=\"color:blue\">Public</span> m_Fill <span style=\"color:blue\">As</span> <span style=\"color:blue\">Boolean</span>\r\n\r\n\t\t<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>(p <span style=\"color:blue\">As</span> PointLatLng, Radius <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span>, OutlinePen <span style=\"color:blue\">As</span> Pen, FillBrush <span style=\"color:blue\">As</span> Brush, Fill  <span style=\"color:blue\">As</span> <span style=\"color:blue\">Boolean</span>)\r\n\t\t\t<span style=\"color:blue\">MyBase</span>.<span style=\"color:blue\">New</span>(p)\r\n\t\t\tm_OutlinePen = OutlinePen\r\n\t\t\tm_FillBrush = FillBrush\r\n\t\t\tm_Radius = Radius\r\n\t\t\tm_Fill = Fill\r\n\t\t<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n\t\t<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">Sub</span> OnRender(g <span style=\"color:blue\">As</span> Graphics)\r\n\t\t\tg.SmoothingMode = SmoothingMode.AntiAlias\r\n\r\n\t\t\t<span style=\"color:blue\">Dim</span> R <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span> = <span style=\"color:blue\">CInt</span>((m_Radius) / Overlay.Control.MapProvider.Projection.GetGroundResolution(Overlay.Control.Zoom, Position.Lat)) * 2\r\n\r\n\t\t\t<span style=\"color:blue\">If</span> m_Fill = <span style=\"color:blue\">True</span> <span style=\"color:blue\">Then</span>\r\n\t\t\t\tg.FillEllipse(m_FillBrush, <span style=\"color:blue\">New</span> System.Drawing.Rectangle(LocalPosition.X - R \\ 2, LocalPosition.Y - R \\ 2, R, R))\r\n\t\t\t<span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n\t\t\tg.DrawEllipse(m_OutlinePen, <span style=\"color:blue\">New</span> System.Drawing.Rectangle(LocalPosition.X - R \\ 2, LocalPosition.Y - R \\ 2, R, R))\r\n\t\t<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\t<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Namespace</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>And then:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> CircleMarker <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapMarkerCircle(<span style=\"color:blue\">New</span> GMap.NET.PointLatLng(Latitude, Longitude), Distance, <span style=\"color:blue\">New</span> Pen(PenColor, 4), Brushes.Transparent, <span style=\"color:blue\">True</span>)\r\n<span style=\"color:blue\">Dim</span> Overlay <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapOverlay(<span style=\"color:#a31515\">&quot;Circle&quot;</span>)\r\nOverlay.Markers.Add(CircleMarker)<br><br>And then add the Overlay to the Map!<br></pre>\r\n</div>\r\n<p></p>\r\n<p>Michael</p>\r\n",
+    "PostedDate": "2012-12-06T05:40:13.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952302",
+    "ThreadId": "405806",
+    "Html": "\r\n<p>Thank you MBDTeam&nbsp;</p>\r\n<p>It almost work's, it fails here look at the image ion the link below.</p>\r\n<p>http://www.freebords.se/circle.jpg&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-06T07:10:45.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952479",
+    "ThreadId": "405806",
+    "Html": "\r\n<p>You did not follow my advise. You ar trying to add the Circle to the Overlay. The circle is no overlay! Its a marker. SO:</p>\r\n<p>Create a New Overlay or use an existing, add the marker(circle) to the overlay</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Dim</span> Overlay <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapOverlay(<span style=\"color:#a31515\">&quot;Circle&quot;</span>)\r\nOverlay.Markers.Add(CircleMarker)\r\n<br>and then you can add this overlay to the Maps overlay collection.<br><br>Michael</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-12-06T12:04:36.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952506",
+    "ThreadId": "405806",
+    "Html": "\r\n<p>Well.. &nbsp;&quot;overlay is not accessible beqause of friend&quot; is the major problem, look at the image URL in above post.. &nbsp;I have the latest DLL, maybe their is a difference there ??</p>\r\n",
+    "PostedDate": "2012-12-06T13:01:15.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952514",
+    "ThreadId": "405806",
+    "Html": "\r\n<p>You can add Overlays in the constructor of the form of your control which hosts the GMap Control! Simply add an Overlay &quot;Circles&quot; to your GMap Control in the Constructor of the form and use it later, if you want to add a circle.</p>\r\n",
+    "PostedDate": "2012-12-06T13:21:13.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

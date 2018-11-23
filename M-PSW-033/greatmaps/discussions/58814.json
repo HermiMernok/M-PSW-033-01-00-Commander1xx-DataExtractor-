@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "199215",
+    "ThreadId": "58814",
+    "Html": "<p>Any ideas why I can not get the click event to fire? Compiles fine, no runtime errors. Also, the mouseover tooltips are not working either. Maybe the issue is related?</p>\r\n<p>{</p>\r\n<p>gMapControl1.OnMarkerClick += new MarkerClick(gMapControl1_OnMarkerClick);</p>\r\n<p>}</p>\r\n<p>void gMapControl1_OnMarkerClick(GMapMarker item)<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Diagnostics.Debug.WriteLine(&quot;Clicked:&quot; + item.ToString());<br><br>&nbsp;}</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you.</p>",
+    "PostedDate": "2009-06-08T13:08:06.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199217",
+    "ThreadId": "58814",
+    "Html": "<p>set your marker area size</p>",
+    "PostedDate": "2009-06-08T13:10:13.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199218",
+    "ThreadId": "58814",
+    "Html": "<p>Thanks for the quick response. I just figured it out and came back to post. Thank you very much!!!</p>",
+    "PostedDate": "2009-06-08T13:11:03.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199219",
+    "ThreadId": "58814",
+    "Html": "<p>welcome ;}</p>",
+    "PostedDate": "2009-06-08T13:11:36.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252725",
+    "ThreadId": "58814",
+    "Html": "<p>i have the same problem, but how can i set the marker area size? please write a code-example...</p>\r\n<p>&nbsp;</p>\r\n<p>thx</p>",
+    "PostedDate": "2009-11-03T02:36:08.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252789",
+    "ThreadId": "58814",
+    "Html": "<p><a href=\"http://greatmaps.codeplex.com/wikipage?title=custom marker\">http://greatmaps.codeplex.com/wikipage?title=custom%20marker</a></p>",
+    "PostedDate": "2009-11-03T05:15:12.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

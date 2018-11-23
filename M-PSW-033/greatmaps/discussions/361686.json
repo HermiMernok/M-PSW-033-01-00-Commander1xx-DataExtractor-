@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "856352",
+    "ThreadId": "361686",
+    "Html": "\r\n<p>Please, i want to build one application with markers and layers, for internal use.</p>\r\n<p>All is ok&nbsp;with direct connection to&nbsp;internet, but don't work via proxy. Is possible tor receive maps from provider via proxy with AD authorize? Need manual proxy settings?</p>\r\n<p>TNX,</p>\r\n<p>&nbsp;</p>\r\n<p>Cris</p>\r\n",
+    "PostedDate": "2012-07-02T07:21:44.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856656",
+    "ThreadId": "361686",
+    "Html": "<p>solved !!!</p>\r\n<p>&nbsp;</p>\r\n<p>GMapProvider.<strong>WebProxy</strong> = new WebProxy(\"10.2.0.100\", 8080);<br />GMapProvider.<strong>WebProxy</strong>.Credentials = system.net.creditialcache.defaultnetworkcreditials;</p>",
+    "PostedDate": "2012-07-03T00:01:09.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "496333",
+    "ThreadId": "227949",
+    "Html": "<pre style=\"font-family:consolas\"><span style=\"color:blue\">I am drawing a couple of rectangles on the WinForm version of the GMap.NET control as such:</span></pre>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\">&nbsp;</span>&nbsp;</pre>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\">Public</span>&nbsp;<span style=\"color:blue\">Overrides</span>&nbsp;<span style=\"color:blue\">Sub</span>&nbsp;OnRender(<span style=\"color:blue\">ByVal</span>&nbsp;g&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">Graphics</span>)<br>\tg.FillRectangle(FillBrush,&nbsp;<span style=\"color:blue\">New</span>&nbsp;System.Drawing.<span style=\"color:#2b91af\">Rectangle</span>(LocalPosition.X,&nbsp;LocalPosition.Y,&nbsp;scaledWidth,&nbsp;scaledHeight))</pre>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\">End</span>&nbsp;<span style=\"color:blue\">Sub</span></pre>\r\n<pre style=\"font-family:consolas\">&nbsp;</pre>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\">I then draw an image marker as such:</span></pre>\r\n<pre style=\"font-family:consolas\"></pre>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\"><span style=\"color:blue\">Public</span>&nbsp;<span style=\"color:blue\">Overrides</span>&nbsp;<span style=\"color:blue\">Sub</span>&nbsp;OnRender(<span style=\"color:blue\">ByVal</span>&nbsp;g&nbsp;<span style=\"color:blue\">As</span>&nbsp;<span style=\"color:#2b91af\">Graphics</span>)<br>\tg.DrawImageUnscaled(Image,&nbsp;LocalPosition.X&nbsp;-&nbsp;Image.Width&nbsp;/&nbsp;2,&nbsp;LocalPosition.Y&nbsp;-&nbsp;Image.Height&nbsp;/&nbsp;2,&nbsp;Image.Width,&nbsp;Image.Height)<br><span style=\"color:blue\">End</span>&nbsp;<span style=\"color:blue\">Sub</span></span><span style=\"color:blue\"><span style=\"color:blue\"></span>&nbsp;</span></pre>\r\n<pre style=\"font-family:consolas\"></pre>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\">The problem is that the image is appearing underneath the rectangle (even though the rectangle was drawn first). Is there a way to make the image appear on top of the rectangle?</span></pre>\r\n<pre style=\"font-family:consolas\"></pre>\r\n<pre style=\"font-family:consolas\"><span style=\"color:blue\">Thanks</span></pre>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-20T23:26:09.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "496337",
+    "ThreadId": "227949",
+    "Html": "<p>you can add image marker in different layer which is added last, so it would be rendered last</p>",
+    "PostedDate": "2010-09-20T23:32:56.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "496341",
+    "ThreadId": "227949",
+    "Html": "<p>Of course! Hehe, thanks radioman. Worked perfectly ;)</p>",
+    "PostedDate": "2010-09-20T23:41:26.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

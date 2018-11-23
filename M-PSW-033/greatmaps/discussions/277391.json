@@ -1,0 +1,170 @@
+[
+  {
+    "Id": "690164",
+    "ThreadId": "277391",
+    "Html": "\r\n<p>I have problem with Position property in GMapControl. I can't set binding to this property because it is not DependencyProperty. Why it's not DependencyProperty?</p>\r\n",
+    "PostedDate": "2011-10-27T03:22:05.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "690196",
+    "ThreadId": "277391",
+    "Html": "<p>make it so ;}</p>",
+    "PostedDate": "2011-10-27T04:32:21.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "690997",
+    "ThreadId": "277391",
+    "Html": "<p>We are working on a friendly WPF/XAML GMapControl on the fork&nbsp;<a href=\"http://greatmaps.codeplex.com/SourceControl/network/Forks/rog1039/WPFMVVM\">WPFMVVM</a>. Check it out</p>",
+    "PostedDate": "2011-10-28T15:07:27.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691596",
+    "ThreadId": "277391",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>make it so ;}</p>\r\n</blockquote>\r\n<p>Im afraid to crash something. :(&nbsp;</p>",
+    "PostedDate": "2011-10-31T05:42:50.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691598",
+    "ThreadId": "277391",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>JLuisEstrada wrote:</strong><br />\r\n<p>We are working on a friendly WPF/XAML GMapControl on the fork&nbsp;<a href=\"http://greatmaps.codeplex.com/SourceControl/network/Forks/rog1039/WPFMVVM\">WPFMVVM</a>. Check it out</p>\r\n</blockquote>\r\n<p>Position still not DependencyProperty.</p>",
+    "PostedDate": "2011-10-31T05:43:40.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691658",
+    "ThreadId": "277391",
+    "Html": "<p>Working on it</p>",
+    "PostedDate": "2011-10-31T07:51:56.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691677",
+    "ThreadId": "277391",
+    "Html": "<p>Still working on a few changes, but if you got some urgency in the implementation, remove the property Position on your GMapControl and replace it with this</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n        <span style=\"color: gray;\">///</span><span style=\"color: green;\"> current coordinates of the map center</span>\r\n        <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n        [Category(<span style=\"color: #a31515;\">\"GMap.NET\"</span>)]\r\n        <span style=\"color: blue;\">public</span> PointLatLng Position\r\n        {\r\n            <span style=\"color: blue;\">get</span> { <span style=\"color: blue;\">return</span> (PointLatLng)GetValue(PositionProperty); }\r\n            <span style=\"color: blue;\">set</span> { SetValue(PositionProperty, value); }\r\n        }\r\n\r\n        <span style=\"color: green;\">// Using a DependencyProperty as the backing store for Position.  This enables animation, styling, binding, etc...</span>\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">readonly</span> DependencyProperty PositionProperty =\r\n            DependencyProperty.Register(<span style=\"color: #a31515;\">\"Position\"</span>, <span style=\"color: blue;\">typeof</span>(PointLatLng), <span style=\"color: blue;\">typeof</span>(GMapControl), <span style=\"color: blue;\">new</span> UIPropertyMetadata(PointLatLng.Zero,<span style=\"color: blue;\">new</span> PropertyChangedCallback(OnPositionChanged)));\r\n\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">void</span> OnPositionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)\r\n        {\r\n            GMapControl map = (GMapControl)d;\r\n            <span style=\"color: blue;\">if</span> (map != <span style=\"color: blue;\">null</span>)\r\n            {\r\n                map.Core.CurrentPosition = (PointLatLng)e.NewValue;\r\n                map.UpdateMarkersOffset();\r\n            }\r\n        }\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>That should do the trick.</p>",
+    "PostedDate": "2011-10-31T08:47:21.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691739",
+    "ThreadId": "277391",
+    "Html": "<p>Uploaded the code here&nbsp;http://greatmaps.codeplex.com/SourceControl/network/Forks/rog1039/WPFMVVM/changeset/changes/9937f502800a</p>\r\n<p>Also, added a sample window in the WPF Demo</p>\r\n<p>&nbsp;</p>\r\n<p>cheers</p>",
+    "PostedDate": "2011-10-31T10:52:07.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692031",
+    "ThreadId": "277391",
+    "Html": "<p>Thanks a lot! It works fine.</p>",
+    "PostedDate": "2011-11-01T03:39:39.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692681",
+    "ThreadId": "277391",
+    "Html": "<p>I am also changed Markers field of GMapControl.</p>\r\n<p>From this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">readonly</span> ObservableCollection&lt;GMapMarker&gt; Markers = <span style=\"color: blue;\">new</span> ObservableCollection&lt;GMapMarker&gt;();</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>To this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> ObservableCollection&lt;GMapMarker&gt; Markers</pre>\r\n<pre>{</pre>\r\n<pre><span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>get</span> { <span style=\"color: blue;\">return</span> (ObservableCollection&lt;GMapMarker&gt;)GetValue(MarkersProperty); }&nbsp;</pre>\r\n<pre><span style=\"white-space: pre;\">\t</span><span style=\"color: blue;\">set</span> { SetValue(MarkersProperty, value); }&nbsp;</pre>\r\n<pre>}\r\n\r\n<span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">readonly</span> DependencyProperty MarkersProperty = DependencyProperty.Register(<span style=\"color: #a31515;\">\"Markers\"</span>, <span style=\"color: blue;\">typeof</span>(ObservableCollection&lt;GMapMarker&gt;), <span style=\"color: blue;\">typeof</span>(GMapControl));\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>Not tested yet.</p>",
+    "PostedDate": "2011-11-02T05:20:26.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692713",
+    "ThreadId": "277391",
+    "Html": "<p>Markers binding doesn't work.</p>\n<p>I write in XAML something like that:</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>Markers=\"{Binding Path=Markers, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}\"\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>In my ViewModel class i have this property:</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">public</span> ObservableCollection&lt;GMapMarker&gt; Markers { <span style=\"color: blue;\">get</span>; <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">set</span>; }\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>When i add markers using Markers.Add(marker) in ViewModel it doesn't actually update the map.</p>\n<p>Any solutions?</p>",
+    "PostedDate": "2011-11-02T06:26:06.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692729",
+    "ThreadId": "277391",
+    "Html": "<p>Also it doesn't works in code. I tried to add &nbsp;marker&nbsp;directly on map:</p>\n<div style=\"color: black; background-color: white;\">\n<pre>Map.Markers.Add(marker);</pre>\n</div>\n<p>Not works!</p>\n<p>But if i change back from DependencyProperty to simple field, the same code works fine.</p>\n<p>Whats the trick? :(</p>",
+    "PostedDate": "2011-11-02T06:43:57.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692733",
+    "ThreadId": "277391",
+    "Html": "<p>because by default, map.<strong>ItemSource</strong> is set to Markers field</p>",
+    "PostedDate": "2011-11-02T06:47:19.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692743",
+    "ThreadId": "277391",
+    "Html": "<p>Is it possible to make Markers dependency property?</p>",
+    "PostedDate": "2011-11-02T07:06:03.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692748",
+    "ThreadId": "277391",
+    "Html": "<p>just set ItemSource to your dependency collection</p>",
+    "PostedDate": "2011-11-02T07:11:33.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692773",
+    "ThreadId": "277391",
+    "Html": "\r\n<div>\r\n<div>One of the changes I did first was to change the ItemsSource reference to Items reference, and managed to copy the Markers to Items, so, you can add markes with Items (in xaml), ItemsSource (through binding) or code with markers (which i dont recommend\r\n on wpf because breaks the MVVM phylosophy)</div>\r\n<div><br>\r\n</div>\r\n<div>Check out our fork</div>\r\n<br>\r\nSent from my iPhone.\r\n<div>Excuse the typos</div>\r\n</div>\r\n<div><br>\r\nOn 02/11/2011, at 08:11, &quot;radioman&quot;&lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt; wrote:<br>\r\n<br>\r\n</div>\r\n<div></div>\r\n<blockquote type=\"cite\">\r\n<div>\r\n<p>From: radioman</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>just set ItemSource to your dependency collection</p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-11-02T07:54:07.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "693090",
+    "ThreadId": "277391",
+    "Html": "<p>So i found solution. I rollback all changes to Markers in GmapControl and just set binding to ItemsSource property in XAML to my Markers collection (in ViewModel). It works. Thank you guys.</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">gmap</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">GMapControl</span> <span style=\"color: red;\">MaxZoom</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">17</span><span style=\"color: black;\">\"</span> <span style=\"color: red;\">MinZoom</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">1\"&nbsp;</span></pre>\r\n<pre><span style=\"color: blue;\">MapProvider=\"{Binding MapProvider}\" Zoom=\"{Binding Zoom}\" Position=\"{Binding Position}\"&nbsp;</span></pre>\r\n<pre><span style=\"color: blue;\">ItemsSource=\"{Binding Path=Markers, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">/&gt;</span>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-11-02T22:50:33.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698949",
+    "ThreadId": "277391",
+    "Html": "<p><strong>JLuisEstrada</strong>, I found bug with Position dependency property. When i drag map Position should change, but it is not. I set breakpoint in method&nbsp;OnPositionChanged. It raise only when i set Position manually in my code, but not when i just drag the map. Any ideas how to fix it?</p>",
+    "PostedDate": "2011-11-16T06:03:43.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698953",
+    "ThreadId": "277391",
+    "Html": "<p>try OnMapDrag</p>",
+    "PostedDate": "2011-11-16T06:11:11.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "699040",
+    "ThreadId": "277391",
+    "Html": "<p>I noticed that at least in the WPF control, the Markers collections seems out of place. It breaks with phylosophy of WPF (because I suppose, Markers property comes from the winforms control). So, my suggestion is to remove it and start promoting use the ItemsSource property for binding and the Items property for internal iterations</p>",
+    "PostedDate": "2011-11-16T08:30:14.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "699343",
+    "ThreadId": "277391",
+    "Html": "<p><strong>radioman</strong></p>\r\n<p>I try to handle this event and OnCurrentPositionChanged event also by using EventToCommand (MVVM Light Toolkit). Binding works fine, but these events never raised.</p>\r\n<p>Here is my XAML for GMapControl:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">i</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">Interaction.Triggers</span><span style=\"color: blue;\">&gt;</span>\r\n<span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>&lt;</span><span style=\"color: #a31515;\">i</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">EventTrigger</span> <span style=\"color: red;\">EventName</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">OnMapDrag</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">&gt;</span>\r\n\t\t<span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">cmd</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">EventToCommand</span> <span style=\"color: red;\">Command</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">{Binding MapDragCommand}</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">/&gt;</span>\r\n<span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>&lt;/</span><span style=\"color: #a31515;\">i</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">EventTrigger</span><span style=\"color: blue;\">&gt;</span>\r\n<span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>&lt;</span><span style=\"color: #a31515;\">i</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">EventTrigger</span> <span style=\"color: red;\">EventName</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">OnCurrentPositionChanged</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">&gt;</span>\r\n\t<span style=\"white-space: pre;\">\t</span><span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">cmd</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">EventToCommand</span> <span style=\"color: red;\">Command</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">{Binding CurrentPositionChangedCommand}</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">/&gt;</span>\r\n<span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>&lt;/</span><span style=\"color: #a31515;\">i</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">EventTrigger</span><span style=\"color: blue;\">&gt;</span>\r\n<span style=\"color: blue;\">&lt;/</span><span style=\"color: #a31515;\">i</span><span style=\"color: blue;\">:</span><span style=\"color: #a31515;\">Interaction.Triggers</span><span style=\"color: blue;\">&gt;</span></pre>\r\n</div>\r\n<p>Here is my code in ViewModel:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">protected</span> DelegateCommand CommandMapDrag;\r\n\r\n<span style=\"color: blue;\">public</span> ICommand MapDragCommand\r\n{\r\n<span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>get</span> { <span style=\"color: blue;\">return</span> CommandMapDrag ?? (CommandMapDrag = <span style=\"color: blue;\">new</span> DelegateCommand(DragMap)); }\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> DragMap()\r\n{\r\n<span style=\"white-space: pre;\">\t</span>OnPropertyChanged(<span style=\"color: #a31515;\">\"Position\"</span>);\r\n}\r\n\r\n<span style=\"color: blue;\">protected</span> DelegateCommand CommandCurrrentPositionChanged;\r\n\r\n<span style=\"color: blue;\">public</span> ICommand CurrentPositionChangedCommand\r\n{\r\n<span style=\"color: blue;\"><span style=\"white-space: pre;\">\t</span>get</span> { <span style=\"color: blue;\">return</span> CommandCurrrentPositionChanged ?? (CommandCurrrentPositionChanged = <span style=\"color: blue;\">new</span> DelegateCommand(CurrentPositionChanged)); }\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> CurrentPositionChanged()\r\n{\r\n\tOnPropertyChanged(<span style=\"color: #a31515;\">\"Position\"</span>);\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-11-16T22:22:08.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1457744",
+    "ThreadId": "649517",
+    "Html": "I have some text boxes on a panel just above a GMapControl.\r<br />\n<br />\nIf I click on a textbox to enter some data and move the mouse pointer out of the way and it ends up over the map, the map steals the focus and I am not able to enter data in the textbox.\r<br />\n<br />\nAny idea how to stop this?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2016-01-02T07:36:46.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1457757",
+    "ThreadId": "649517",
+    "Html": "map.DisableFocusOnMouseEnter = true;<br />\n",
+    "PostedDate": "2016-01-02T12:22:18.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-01-02T12:54:24.997-08:00"
+  },
+  {
+    "Id": "1457760",
+    "ThreadId": "649517",
+    "Html": "Thank you very much - That worked<br />\n",
+    "PostedDate": "2016-01-02T12:51:23.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

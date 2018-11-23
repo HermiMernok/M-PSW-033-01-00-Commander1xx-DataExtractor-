@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "462130",
+    "ThreadId": "217999",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>I drew a route near New york and i entered the Paris in the Geo Text box the map navigated the location but the drawn route did not disappear.</p>\r\n<p>I want to clear the drawn route when the Route does not fall in to the location area of&nbsp; latitude and longitude. But should remain in Zoom functionality and appear when i again navigate back with the Geo to the same area.</p>\r\n<p>Help me please.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>Balaji</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-01T04:41:22.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462132",
+    "ThreadId": "217999",
+    "Html": "<p>you can remove route anytime just like add ;}</p>",
+    "PostedDate": "2010-07-01T04:44:46.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462137",
+    "ThreadId": "217999",
+    "Html": "<p>Thanks for your very very very fast reply.</p>\r\n<p>you are correct. I can remove the route. But as per my functionality if i come back to the New york again my route must be visible. Consider the following scenario and we can check this even with the demo application</p>\r\n<p>1. Draw a route between points near New York.</p>\r\n<p>2. Navigate to for ex Paris using geocode where you can see the route will be shown. ( I want to clear here)</p>\r\n<p>3. Navigate to some other places. (It must not show here)</p>\r\n<p>4. After 'n' places i am giving New York or some area near my route. Route must be visible.</p>\r\n<p>have i missed anything in concept of GMap.NET</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>Balaji</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-01T05:00:56.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462164",
+    "ThreadId": "217999",
+    "Html": "<p>i'm still wondering what exactly do you want to achieve ;/</p>",
+    "PostedDate": "2010-07-01T05:58:53.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462499",
+    "ThreadId": "217999",
+    "Html": "<p>I think my words has been very misleading.&nbsp; Very sorry for that Radioman .</p>\r\n<p>Let me put this question in another way from the demo(WPF)</p>\r\n<p>1.Draw a route between by selecting two points near New York.</p>\r\n<p>2. Now using geo Textbox navigate to Paris where we can see our route is visible</p>\r\n<p>3. Pan the Map.(the route disappears)</p>\r\n<p>4. Now again using geo navigate back to New York(the route is not visible)</p>\r\n<p>5. Pan the Map(the route appears)</p>\r\n<p>How to make the route disappear with out pan and reappear with out pan?</p>\r\n<p>Regards,</p>\r\n<p>Balaji</p>",
+    "PostedDate": "2010-07-01T23:48:01.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462613",
+    "ThreadId": "217999",
+    "Html": "<p>yes, that was a bug, fixed now, thanks</p>",
+    "PostedDate": "2010-07-02T05:48:48.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

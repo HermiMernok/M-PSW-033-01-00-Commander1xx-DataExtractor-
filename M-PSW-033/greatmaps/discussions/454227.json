@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1083694",
+    "ThreadId": "454227",
+    "Html": "Hi,<br />\n<br />\nIs there a way to hide the selected area?<br />\n<br />\nexample: <br />\n<pre><code>mGmapControl.OnSelectionChange += new SelectionChange(mGmapControl_OnSelectionRelease);\n\nprivate void mGmapControl_OnSelectionRelease(RectLatLng Selection, bool ZoomToFit)\n        {\n           \n           mGmapControl.SetZoomToFitRect(Selection);\n           mGmapControl.ReloadMap();\n                                 \n        }</code></pre>\n\nThe rectangle is still visible after the selection.<br />\n",
+    "PostedDate": "2013-08-22T08:35:33.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083735",
+    "ThreadId": "454227",
+    "Html": "map.SelectedArea = Empty<br />\n",
+    "PostedDate": "2013-08-22T09:48:55.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083992",
+    "ThreadId": "454227",
+    "Html": "Thank you!<br />\n",
+    "PostedDate": "2013-08-23T00:10:01.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

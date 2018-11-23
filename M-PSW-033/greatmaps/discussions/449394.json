@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1065960",
+    "ThreadId": "449394",
+    "Html": "Hi, \r<br />\ni made a new wms gmap provider with mercator projection. The url format is <br />\n<pre><code>static readonly string UrlFormat = &quot;http://localhost/geowebcache/service/wms?LAYERS=01&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;FORMAT=image/jpeg&amp;SRS=EPSG:3857&amp;BBOX={0},{1},{2},{3}&amp;WIDTH={4}&amp;HEIGHT={5}&quot; </code></pre>\n\nMy problems is the BBOX returned by MakeTileImageUrl method is Lat/Long. I need it in Mercator projection. What is the simplest to convert BBOX from LatLong to Mercator? I'm using exactly the same code as MapBenderWMSProvider but it look like the method work for LatLong (EPSG 4326) only. Thank you in advance<br />\n",
+    "PostedDate": "2013-07-09T00:28:55.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1065986",
+    "ThreadId": "449394",
+    "Html": "I found a very simple method from <a href=\"http://jackofalltradesdeveloper.blogspot.com/2012/03/how-to-project-point-from-geography-to.html\" rel=\"nofollow\">here</a>. Though i hope gmapnet have a build in method because web mercator is the most popular projection used for visualize map on the web.<br />\n",
+    "PostedDate": "2013-07-09T01:54:45.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "591349",
+    "ThreadId": "252436",
+    "Html": "\r\n<p>Hi Radioman!</p>\r\n<p>I got a strange problem: I use different forms in my Windows Forms project, each one has a GMapControl on it. I start my program with a MainForm that has NO GMapControls on it, the other forms are called from this main form and shown using form.ShowDialog()</p>\r\n<p>Now when I FIRST open a form (does not matter which one) my debug Output Window shows a System.IO.FileNotFoundException for GMap.NET.Core.XmlSerializers , the details are here (In German, but it should be clear):</p>\r\n<p>Die Datei oder Assembly &quot;GMap.NET.Core.XmlSerializers, Version=1.5.3.3, Culture=neutral, PublicKeyToken=b85b9027b614afef&quot; oder eine Abh&auml;ngigkeit davon wurde nicht gefunden. Das System kann die angegebene Datei nicht finden.</p>\r\n<p>When I close my form again, i have to wait for 5-to7 seconds before my main form reacts again.</p>\r\n<p>But the strange thing is, this happens only ONCE! After the first error, I can open all forms without the error, and when I close them again, the MainForm reacts instantly.</p>\r\n<p>Please help, I don't know how to get rid of this error!</p>\r\n<p>Thanks a lot!</p>\r\n<p>Xandolph</p>\r\n",
+    "PostedDate": "2011-04-04T08:12:45.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "591410",
+    "ThreadId": "252436",
+    "Html": "<p>o.O</p>",
+    "PostedDate": "2011-04-04T09:47:59.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595146",
+    "ThreadId": "252436",
+    "Html": "<p>Hi Radioman!</p>\n<p>I think I found what causes the problem:</p>\n<p>It's the Dispose method of the GMapControl.</p>\n<p>Please take a look at this code in my form Closed Event:</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: green;\">//Test:</span>\nDateTime start = DateTime.Now;\nmapControl.Dispose();\nmapControl = <span style=\"color: blue;\">null</span>;\nDateTime end = DateTime.Now;\nTimeSpan diff = end - start;\nSystem.Diagnostics.Debug.WriteLine(<span style=\"color: #a31515;\">\"Time to Dispose MapControl: \"</span> + diff);\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>When I <strong>FIRST</strong> open and close the form, this results in the following output:</p>\n<p>Time to Dispose MapControl: 00:00:06.1620000<br /> The thread 'GMap.NET CacheEngine' (0x1190) has exited with code 0 (0x0).</p>\n<p>After that I get this output, and don't have to wait at all:</p>\n<p>The thread 'GMap.NET CacheEngine' (0x5d4) has exited with code 0 (0x0).<br /> Time to Dispose MapControl: 00:00:00</p>\n<p>Do you have any idea, why the disposal takes over 6 seconds, the first time?</p>\n<p>Thanks a lot!</p>\n<p>&nbsp;</p>\n<p>Edit:</p>\n<p>I don't think the System.IO.FileNotFoundException I mentioned in my first post, has anything to do with this problem.</p>",
+    "PostedDate": "2011-04-11T01:18:03.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595159",
+    "ThreadId": "252436",
+    "Html": "<p>on app start/end control sends ping to codeplex, buf if you create/destroy controls, this happens only on first one</p>",
+    "PostedDate": "2011-04-11T01:33:19.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595291",
+    "ThreadId": "252436",
+    "Html": "<p>Is there a way, I can speedt this up or bypass the ping?</p>",
+    "PostedDate": "2011-04-11T06:54:21.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595321",
+    "ThreadId": "252436",
+    "Html": "<p>well you can disable it</p>",
+    "PostedDate": "2011-04-11T07:24:51.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595324",
+    "ThreadId": "252436",
+    "Html": "<p>Where would I disable it?</p>",
+    "PostedDate": "2011-04-11T07:25:42.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595342",
+    "ThreadId": "252436",
+    "Html": "<p>set&nbsp;in Core.cs</p>\r\n<p>internal static volatile bool AnalyticsStartDone = <strong>true</strong>;<br />internal static volatile bool AnalyticsStopDone =&nbsp;<strong>true</strong>;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-04-11T07:41:22.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

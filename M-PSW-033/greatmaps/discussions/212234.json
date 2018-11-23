@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "441374",
+    "ThreadId": "212234",
+    "Html": "<p>Hi - great control, save me an enormous amount of work and my project looks great</p>\r\n<p>I recently downloaded the latest release (Form control), and there appears to be a change (maybe!)</p>\r\n<p>I need to use the OnTileLoadComplete so that I can save the map as a bitmap - this worked fine, and through a bit of guess work used the parameter loaderID=3 which signified the (last?) level of the map had loaded - all was good</p>\r\n<p>Now, the loaderID variable no longer appears valid, and whenever the OnTileLoadComplete is run (and say changes the value of a label), it comes up with a CrossThread error</p>\r\n<p>&nbsp;</p>\r\n<p>any ideas?</p>",
+    "PostedDate": "2010-05-11T02:08:57.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "441388",
+    "ThreadId": "212234",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:green\">      // loader end loading tiles</span>\r\n      <span style=\"color:blue\">void</span> MainMap_OnTileLoadComplete()\r\n      {\r\n         MethodInvoker m = <span style=\"color:blue\">delegate</span>()\r\n         {\r\n            progressBar1.Visible = <span style=\"color:blue\">false</span>;\r\n            toolStripStatusLabelLoading.Visible = <span style=\"color:blue\">false</span>;\r\n\r\n            toolStripStatusLabelMemoryCache.Text = <span style=\"color:blue\">string</span>.Format(<span style=\"color:#a31515\">&quot;MemoryCache: {0:0.00}MB of {1:0.00}MB&quot;</span>, MainMap.Manager.MemoryCacheSize, MainMap.Manager.MemoryCacheCapacity);\r\n         };\r\n         <span style=\"color:blue\">try</span>\r\n         {\r\n            BeginInvoke(m);\r\n         }\r\n         <span style=\"color:blue\">catch</span>\r\n         {\r\n         }\r\n      }</pre>\r\n</div>",
+    "PostedDate": "2010-05-11T02:38:27.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "441391",
+    "ThreadId": "212234",
+    "Html": "<p>Hi - thanks for the superfast response</p>\r\n<p>I failed to tell you I was using VB, which is an oversite - my apologies for that</p>\r\n<p>&nbsp;</p>\r\n<p>however using my (very) limited C&gt;VB skills, I cannot get what you suggest to work - can you supply suitable code in VB.net, thanks</p>",
+    "PostedDate": "2010-05-11T02:54:44.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "441606",
+    "ThreadId": "212234",
+    "Html": "<p>&nbsp;in .net language doesn't matter ;}﻿</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> MainMap_OnTileLoadComplete()\r\n    <span style=\"color:blue\">Dim</span> method <span style=\"color:blue\">As</span> MethodInvoker = <span style=\"color:blue\">Function</span> \r\n        <span style=\"color:blue\">Me</span>.progressBar1.Visible = <span style=\"color:blue\">False</span>\r\n        <span style=\"color:blue\">Me</span>.toolStripStatusLabelLoading.Visible = <span style=\"color:blue\">False</span>\r\n        <span style=\"color:blue\">Me</span>.toolStripStatusLabelMemoryCache.Text = <span style=\"color:blue\">String</span>.Format(<span style=\"color:#a31515\">&quot;MemoryCache: {0:0.00}MB of {1:0.00}MB&quot;</span>, <span style=\"color:blue\">Me</span>.MainMap.Manager.MemoryCacheSize, <span style=\"color:blue\">Me</span>.MainMap.Manager.MemoryCacheCapacity)\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Function</span>\r\n    <span style=\"color:blue\">Try</span> \r\n        <span style=\"color:blue\">MyBase</span>.BeginInvoke(method)\r\n    <span style=\"color:blue\">Catch</span> obj1 <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Try</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span><span style=\"color:blue\"><br></span></pre>\r\n</div>",
+    "PostedDate": "2010-05-11T10:24:41.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447276",
+    "ThreadId": "212234",
+    "Html": "<p>Cheers - just the job - excellent work as always</p>",
+    "PostedDate": "2010-05-25T12:43:43.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

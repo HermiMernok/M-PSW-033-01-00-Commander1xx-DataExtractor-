@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "585490",
+    "ThreadId": "250963",
+    "Html": "\r\n<p>Hi</p>\r\n<p>In my project i want to read images from gmdb databases but give me this error :</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>The type initializer <span style=\"color:blue\">for</span> <span style=\"color:#a31515\">'SingletonCreator'</span> threw an exception.\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>I export database from demo version but when read from that this error occurs.</p>\r\n<p>My code is here :</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre> GMap.NET.CacheProviders.MsSQLPureImageCache ch = <span style=\"color:blue\">new</span> GMap.NET.CacheProviders.MsSQLPureImageCache();\r\n                ch.ConnectionString = <span style=\"color:blue\">string</span>.Format(<span style=\"color:#a31515\">&quot;Data Source={0}\\\\Data.GMDB;Version=3;&quot;</span>, Application.StartupPath);\r\n                MainMap.Manager.ImageCacheSecond = ch;\r\nMainMap.Position = <span style=\"color:blue\">new</span> PointLatLng(35.6991287, 51.3384247);\r\n                MainMap.MapType = MapType.GoogleSatellite;\r\n                MainMap.MaxZoom = 17;\r\n                MainMap.MinZoom = 1;\r\n                MainMap.Zoom = 10;\r\n\r\n                MainMap.OnMapZoomChanged &#43;= <span style=\"color:blue\">new</span> MapZoomChanged(MainMap_OnMapZoomChanged);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for helping me.</p>\r\n",
+    "PostedDate": "2011-03-23T22:51:00.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585521",
+    "ThreadId": "250963",
+    "Html": "<p>MsSQL is server based database, you need to look at map.<strong>CacheLocation</strong> instead</p>",
+    "PostedDate": "2011-03-24T00:24:26.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585542",
+    "ThreadId": "250963",
+    "Html": "<p>&nbsp;</p>\r\n<p>Thanks radioman.</p>\r\n<pre><strong>&nbsp;</strong><pre>only <strong>MsSQLPureImageCache </strong>instead&nbsp;<strong>MySQLPureImageCache&nbsp;</strong>is&nbsp;in&nbsp;<strong>GMap.NET.CacheProviders</strong>&nbsp;.</pre>\r\n<pre>why&nbsp;MySQLPureImageCache not in GMap.NET.CacheProviders?</pre>\r\n</pre>\r\n<p>I want to use Sqlite for Maps tiles and give me that error again with map.<strong>CacheLocation</strong>.</p>\r\n<p>thanks.</p>",
+    "PostedDate": "2011-03-24T01:40:45.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585544",
+    "ThreadId": "250963",
+    "Html": "<p>just set&nbsp;map.<strong>CacheLocation</strong> and remove everything else, sqlite is by default</p>",
+    "PostedDate": "2011-03-24T01:43:44.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585546",
+    "ThreadId": "250963",
+    "Html": "<p>Can you see this image ?</p>\r\n<p><a href=\"http://20uploads.com/images/1390/farvardin/cf215d57731.jpg\" target=\"_blank\">http://20uploads.com/images/1390/farvardin/cf215d57731.jpg</a></p>\r\n<p>thanks radioman for helping me.</p>",
+    "PostedDate": "2011-03-24T01:49:58.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585548",
+    "ThreadId": "250963",
+    "Html": "<p>did you add sqlite dll to your app and set target to x86?</p>",
+    "PostedDate": "2011-03-24T02:01:49.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585551",
+    "ThreadId": "250963",
+    "Html": "<p>Yes.</p>\r\n<p>I do this from&nbsp;Documentation&nbsp;and set target to x86 from project properties and&nbsp;Download sqlite dll 64 bit from dlls in codeplex.</p>",
+    "PostedDate": "2011-03-24T02:08:12.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585553",
+    "ThreadId": "250963",
+    "Html": "<p>can you debug it, or just paste debug output?</p>",
+    "PostedDate": "2011-03-24T02:14:50.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585555",
+    "ThreadId": "250963",
+    "Html": "<p>i can load maps from servers but when use from database and cache gives me that error.</p>",
+    "PostedDate": "2011-03-24T02:17:30.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585558",
+    "ThreadId": "250963",
+    "Html": "<p>an you post your debug output?</p>",
+    "PostedDate": "2011-03-24T02:22:19.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585572",
+    "ThreadId": "250963",
+    "Html": "<p>can you see the project ? thanks.</p>\r\n<p><a href=\"http://20uploads.com/files/1390/farvardin/ab38d16ba61.rar\" target=\"_blank\">http://20uploads.com/files/1390/farvardin/ab38d16ba61.rar</a></p>",
+    "PostedDate": "2011-03-24T02:56:24.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585748",
+    "ThreadId": "250963",
+    "Html": "<p>corrupted archive, can't extract ;/</p>",
+    "PostedDate": "2011-03-24T07:41:34.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585839",
+    "ThreadId": "250963",
+    "Html": "<p>can you try this link ?</p>\r\n<p><a href=\"http://www.4shared.com/file/5TyNnsEB/IslamAtlas2.html \" target=\"_blank\">http://www.4shared.com/file/5TyNnsEB/IslamAtlas2.html</a></p>",
+    "PostedDate": "2011-03-24T09:48:59.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585859",
+    "ThreadId": "250963",
+    "Html": "<p>check&nbsp;Documentation tab again, you need to include specific config when using .net4</p>",
+    "PostedDate": "2011-03-24T10:21:40.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "585899",
+    "ThreadId": "250963",
+    "Html": "<p>I change app.config to&nbsp;</p>\r\n<pre><span>&lt;?</span><span>xml</span> <span>version</span><span>=</span><span>\"</span><span>1.0</span><span>\"</span><span>?&gt;</span>\r\n<span>&lt;</span><span>configuration</span><span>&gt;</span>\r\n   <span>&lt;</span><span>startup</span> <span>useLegacyV2RuntimeActivationPolicy</span><span>=</span><span>\"</span><span>true</span><span>\"</span><span>&gt;</span>\r\n      <span>&lt;</span><span>supportedRuntime</span> <span>version</span><span>=</span><span>\"</span><span>v4.0</span><span>\"</span> <span>sku</span><span>=</span><span>\"</span><span>.NETFramework,Version=v4.0</span><span>\"</span><span>/&gt;</span>\r\n   <span>&lt;/</span><span>startup</span><span>&gt;</span>\r\n<span>&lt;/</span><span>configuration</span><span>&gt;</span></pre>\r\n<pre><span>but that error occurs again</span></pre>",
+    "PostedDate": "2011-03-24T11:12:39.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586063",
+    "ThreadId": "250963",
+    "Html": "<p>try this:</p>\r\n<p>MainMap.Manager.Mode = AccessMode.ServerAndCache;<br /> MainMap.CacheLocation = Application.StartupPath + Path.DirectorySeparatorChar;</p>\r\n<p>works fine</p>",
+    "PostedDate": "2011-03-24T14:44:27.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "586066",
+    "ThreadId": "250963",
+    "Html": "<p>Thanks.</p>\r\n<p>Working Fine.</p>",
+    "PostedDate": "2011-03-24T14:54:10.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

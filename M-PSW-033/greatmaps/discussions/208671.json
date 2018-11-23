@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "428681",
+    "ThreadId": "208671",
+    "Html": "<p>Hello,</p>\r\n<p>First of all, thank you for&nbsp;the great component. I have a small problem. Tilecache is not working when using .NET framework version 4. There is no map displayed when using ServerAndCache cachemode. When using cachemode ServerOnly everything is working fine. I am using Windows Forms version in Windows XP enviroment. Reason for why I want to use .NET Framework version 4 is Entity Framework.</p>\r\n<p>I have also tried your Windows Forms&nbsp;demo it does the same thing. So when you compile core and windows forms dll's to .NET framework 4 and build demo also targeted to version 4 only markers and blank map is displayed. When I use&nbsp; the same demo with Framework 3.5 everything is working fine.</p>\r\n<p>Regards, Teemu</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-08T01:36:52.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428793",
+    "ThreadId": "208671",
+    "Html": "<p>just set target x86 ;}</p>",
+    "PostedDate": "2010-04-08T06:55:16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428935",
+    "ThreadId": "208671",
+    "Html": "<p>I took latest sources from the version control and there target is already set to x86 but still it does not work. And as I said, it works perfectly with .NET 3.5, so if target is wrong it should not work either?</p>",
+    "PostedDate": "2010-04-08T10:58:23.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428942",
+    "ThreadId": "208671",
+    "Html": "<p>i'm just tested it, and the thing is that SQLite is builded using&nbsp;v2.0.50727, if you want to use it in .net4 you must rebuild it using new runtime, but .net4 is beta, so i doubt if there is official support from sqlite provider.</p>",
+    "PostedDate": "2010-04-08T11:12:42.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429544",
+    "ThreadId": "208671",
+    "Html": "<p>check documentation, i've just found solution</p>",
+    "PostedDate": "2010-04-10T06:39:47.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430330",
+    "ThreadId": "208671",
+    "Html": "<p>Thank you very much.&nbsp;&nbsp;</p>",
+    "PostedDate": "2010-04-13T00:12:43.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

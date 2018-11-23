@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1100141",
+    "ThreadId": "459472",
+    "Html": "Hi radioman,\r<br />\nI'm looking for a way to save tiles in folders using GMap.NET\r<br />\ndo you have any idea?<br />\n",
+    "PostedDate": "2013-09-27T07:56:50.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100144",
+    "ThreadId": "459472",
+    "Html": "it's not efficient, and will kill your disk, but if you still want that you can make custom cache provider and use it<br />\n",
+    "PostedDate": "2013-09-27T07:59:59.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1101028",
+    "ThreadId": "459472",
+    "Html": "so how can I use SQL Server to store images?\r<br />\nActually I wanna know how to use your API to get an imagery map file. if I do this so I can figure out the way storing them in DB.<br />\n",
+    "PostedDate": "2013-09-30T12:18:22.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1101209",
+    "ThreadId": "459472",
+    "Html": "there is cache provider for sql server already, if you just want to combine tiles for bigger map, check demo function 'Get Static'<br />\n",
+    "PostedDate": "2013-10-01T00:46:17.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1101422",
+    "ThreadId": "459472",
+    "Html": "thanks radioman.\r<br />\nBTW why didn't you use Tile image field in Tiles table instead of creating separate TilesData table?<br />\n",
+    "PostedDate": "2013-10-01T11:43:51.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1102590",
+    "ThreadId": "459472",
+    "Html": "sqlite does better data layout in the file, less fragmentation, etc\r<br />\n<br />\n<em>&quot;Best design -- keep the blob in a separate, dedicated table, and join to that table only when the blob is to be retrieved. That way, sqlite doesn't have to plow through useless pages to find stuff that would fit in a single page but doesn't because of the intervening blob.&quot;</em>\r<br />\n<br />\n<em>&quot;If your data includes BLOBs, consider storing each BLOB in a separate table&quot;</em><br />\n",
+    "PostedDate": "2013-10-02T00:44:12.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1107033",
+    "ThreadId": "459472",
+    "Html": "Hello libertad,\r<br />\n<br />\nyes its not better to save in sqlite, but i also needed those export.\r<br />\n<br />\nFirst get a tilelist of Tiles in selected Area (note should be not a huge area, u can use the savecode also for whole sqlite DB)<br />\n<pre><code>                Dim list As New List(Of GPoint)\n                Dim TileList As List(Of KeyValuePair(Of GPoint, Integer)) = New List(Of KeyValuePair(Of GPoint, Integer))\n\n                List = Form_Main.MainMap.MapProvider.Projection.GetAreaTileList(Form_Main.MainMap.SelectedArea, Form_Main.MainMap.Zoom, 0)\n\n                For i As Integer = Form_Main.MainMap.Zoom To 17\n                    List = Form_Main.MainMap.MapProvider.Projection.GetAreaTileList(Form_Main.MainMap.SelectedArea, i, 0)\n                    For Each gp As GPoint In List\n                        TileList.Add(New KeyValuePair(Of GPoint, Integer)(gp, i))\n                    Next\n                Next</code></pre>\n\nAfter that, save it to disk, i put in a backgroundworker (For selected Area)<br />\n<pre><code>       Dim imgdata As Byte()\n\n        If ConnectionState.Open = 1 Then\n\n            Dim i As Integer = 0\n            Dim k As Integer = 0\n\n\n            ' Loop over pairs.\n            For Each pair As KeyValuePair(Of GPoint, Integer) In Me.TileListe\n                ' Get key.\n                Dim key As GPoint = pair.Key\n                ' Get value.\n                Dim z As Integer = pair.Value\n                ' X,Y,Zoom, Type, \n                mySQLiteCommand.CommandText = &quot;SELECT Tile FROM Tiles INNER JOIN TilesData ON Tiles.id = TilesData.id Where Tiles.Type = &quot; &amp; Me.DB_ID &amp; &quot; AND X = &quot; &amp; key.X &amp; &quot; AND Y = &quot; &amp; key.Y &amp; &quot; AND Zoom = &quot; &amp; z\n                imgdata = DirectCast(mySQLiteCommand.ExecuteScalar(), Byte())\n\n                If Not IsNothing(imgdata) Then\n                    If Not Directory.Exists(String.Format(Path, SavePath, z, key.X)) Then\n                        Directory.CreateDirectory(String.Format(Path, SavePath, z, key.X))\n                    End If\n\n                    Dim FileName As String = String.Format(UrlFormat, SavePath, z, key.X, key.Y)\n                    File.WriteAllBytes(FileName, imgdata)\n                End If\n\n                i = i + 1\n                k = k + 1\n\n                If i &gt;= 1000 Then\n                    i = 0\n\n                    Dim percentComplete As Integer = (k / Me.TileListe.Count) * 100\n\n                    bw_TilesWrite.ReportProgress(percentComplete)\n                End If\n\n            Next\n\n        End If</code></pre>\n\nfor whole area\r<br />\n<br />\n1st get tiles<br />\n<pre><code>        If ConnectionState.Open = 1 Then\n            mySQLiteCommand.CommandText = &quot;SELECT X,Y,Zoom, Type, Tile FROM Tiles INNER JOIN TilesData ON Tiles.id = TilesData.id Where Tiles.Type = &quot; &amp; Me.DB_ID.ToString\n\n           Using rd As DbDataReader = mySQLiteCommand.ExecuteReader(System.Data.CommandBehavior.SequentialAccess)\n\n                dt.Load(rd)\n\n            End Using\n        End If</code></pre>\n\n2nd Save <br />\n<pre><code>    Shared ReadOnly Path As String = &quot;{0}\\{1}\\{2}&quot;\n    Shared ReadOnly UrlFormat As String = &quot;{0}\\{1}\\{2}\\{3}.png&quot;</code></pre>\n\n<pre><code>        For Each row As DataRow In dt.Rows\n\n                imgdata = DirectCast(row.Item(&quot;Tile&quot;), Byte())\n\n                Dim FileName As String = String.Format(UrlFormat, SavePath, row.Item(&quot;Zoom&quot;), row.Item(&quot;X&quot;), row.Item(&quot;Y&quot;))\n                File.WriteAllBytes(FileName, imgdata)\n\n                i = i + 1\n                k = k + 1               \n       Next</code></pre>\n\nhope that helps\r<br />\n RobbeEDE<br />\n",
+    "PostedDate": "2013-10-14T01:16:30.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

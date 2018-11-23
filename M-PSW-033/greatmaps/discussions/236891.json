@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "530158",
+    "ThreadId": "236891",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I write a service program to&nbsp;give data of gps &amp; find its street&nbsp;name from its points (Use of GetPlacemarkFromGeocoder function) &amp; save them to database. It dont use any&nbsp;visual component &amp; it is a service program.</p>\r\n<p>I use this code<span style=\"font-size:x-small\"><font size=\"2\"> </p>\r\n<p><strong>googlemap.net.<span style=\"color:#2b91af; font-size:x-small\"><span style=\"color:#2b91af; font-size:x-small\">GMaps</span></span><span style=\"font-size:x-small\"> mymap_by_address =\r\n</span><span style=\"color:#0000ff; font-size:x-small\"><span style=\"color:#0000ff; font-size:x-small\">new</span></span><span style=\"font-size:x-small\"> googlemap.net.</span><span style=\"color:#2b91af; font-size:x-small\"><span style=\"color:#2b91af; font-size:x-small\">GMaps</span></span><span style=\"font-size:x-small\">();</span></strong></p>\r\n</font></span>\r\n<p></p>\r\n<div id=\"x__mcePaste\" style=\"width:1px; height:1px; overflow:hidden; top:0px; left:-10000px\">\r\n<strong>&#65279;</strong></div>\r\n<p><strong>&nbsp;&nbsp;Placemark position = mymap_by_address.GetPlacemarkFromGeocoder(point_lat_lng_converted);</strong></p>\r\n<p>&#65279;But it gives this error</p>\r\n<p><span style=\"text-decoration:underline\"><span style=\"color:#000080\">&#65279;You have tried to create a new singleton class where you should have instanced it. Replace your &quot;new class()&quot; with &quot;class.Instance&quot;</span></span></p>\r\n<p><span style=\"text-decoration:underline\"><span style=\"color:#000080\">How can I get the placemarker from geocode in programs like my program.</span></span></p>\r\n<p><span style=\"text-decoration:underline\"><span style=\"color:#000080\"><strong>&#65279;</strong></span></span></p>\r\n",
+    "PostedDate": "2010-12-02T09:04:55.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530194",
+    "ThreadId": "236891",
+    "Html": "\r\n<p>try&nbsp;GMaps.<strong>Instance</strong> instead ;}</p>\r\n",
+    "PostedDate": "2010-12-02T10:17:20.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1428037",
+    "ThreadId": "638934",
+    "Html": "I am trying to create a circle polygon by dragging the mouse at a certain point. I have it close, but I am slightly off with the radius math. Does anyone know how I should be calculating it? The cirPolyFirstPll is the center and I drag any direction from there.\r<br />\n<br />\nMouseMove event:\r<br />\n<br />\n radius = (_gmap.FromLocalToLatLng(e.X, e.Y).Lat - cirPolyFirstPll.Lat) * 2 \r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-05-29T09:11:27.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

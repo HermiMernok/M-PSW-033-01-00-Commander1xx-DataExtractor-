@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "682505",
+    "ThreadId": "275431",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>I am trying to do the following bud does not achieve to make it work:</p>\r\n<p>In fine, I need the BingHybrid tiles in a cache only.</p>\r\n<p>What I do:</p>\r\n<p>open DemoWindowsForm</p>\r\n<p>delete cache v5 &nbsp;(directly on the cache folder, your &quot;clear all&quot; button says &quot;access to System.data.SQlite.DLL refused&quot;)</p>\r\n<p>select the relevant area (alt key)</p>\r\n<p>use &quot;prefetch&quot; fuction</p>\r\n<p>once finished, use &quot;Export&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>Now I close DemoWindowsForm and delete cache v5</p>\r\n<p>Open&nbsp;DemoWindowsForm again</p>\r\n<p>select &quot;Cache Only&quot;</p>\r\n<p>use &quot;Import&quot; function to import the earlier file</p>\r\n<p>.. I have an exception &quot;No data in local tile cache...&quot; in all zoom levels</p>\r\n<p>&nbsp;</p>\r\n<p>Can you help?</p>\r\n",
+    "PostedDate": "2011-10-11T04:00:30.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682507",
+    "ThreadId": "275431",
+    "Html": "<p>just copy all data base file, import/export is slow</p>",
+    "PostedDate": "2011-10-11T04:10:10.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682510",
+    "ThreadId": "275431",
+    "Html": "<p>thanks, just tried and it does not work either...</p>\r\n<p>I noticed that if I select cache only after prefetch, I cannot zoom in the prefetched areas. Is there perhaps a limitation with Bing?</p>",
+    "PostedDate": "2011-10-11T04:12:25.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682512",
+    "ThreadId": "275431",
+    "Html": "<p>it <strong>works</strong>, there is no limitations</p>",
+    "PostedDate": "2011-10-11T04:18:00.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682520",
+    "ThreadId": "275431",
+    "Html": "<p>I just tried again with your last built version and don't have any better result.</p>\r\n<p>What I did:</p>\r\n<p>&nbsp;</p>\r\n<p>delete cache v5 &nbsp;(directly on the cache folder)</p>\r\n<p>open DemoWindowsForm</p>\r\n<p>select the relevant area (alt key) i.e. whole world in zoom 1-4 (not too big to wait)&nbsp;</p>\r\n<p>use \"prefetch\" function</p>\r\n<p>once finished, exit</p>\r\n<p>copy data.gmdb</p>\r\n<p>delete cache v5 again</p>\r\n<p>open DemoWindowsForm</p>\r\n<p>select \"Cache Only\"</p>\r\n<p>use \"Import\" function to import data.gmdb</p>\r\n<p>... sorry to see it does not work</p>\r\n<p>:-(</p>\r\n<p>did you do exactly that and it works on your computer?</p>\r\n<p>is there maybe a problem with my computer?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2011-10-11T04:26:01.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682524",
+    "ThreadId": "275431",
+    "Html": "<p>I tried again with an older version (10 may 2011) that uses v3 tiles and it works exactly as expected.</p>\r\n<p>would there be a problem with v5 cache?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2011-10-11T04:32:15.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682526",
+    "ThreadId": "275431",
+    "Html": "<p>just don't use import</p>",
+    "PostedDate": "2011-10-11T04:35:48.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682528",
+    "ThreadId": "275431",
+    "Html": "<p>that's fine but the import function is very useful if you want to \"add\" two gmdb files in the cache.</p>\r\n<p>do you plan to make it work again in a near future?</p>\r\n<p>if not, can you give me some hints to work on it...</p>\r\n<p>thanks</p>",
+    "PostedDate": "2011-10-11T04:42:13.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682532",
+    "ThreadId": "275431",
+    "Html": "<p>i've just tested import function, forks perfectly as usual, i don't know what are you doing there ;}</p>\n<p>p.s. v5 isn't compatable with older databases, if you badly need use old database you need change old maptype numbers[MapType.cs] to new, based on provider.<strong>DbId</strong></p>\n<p>BingMap = 444, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt;&nbsp;883999068<br />BingMap_New = 455, &nbsp; -&gt; 2144088369<br />BingSatellite = 555, &nbsp; &nbsp; -&gt; 783085212&nbsp;<br /> <strong>BingHybrid = 666, &nbsp; &nbsp; &nbsp; -&gt; 1949545009</strong></p>\n<p>sql:</p>\n<p><em>update tiles</em><br /><em>set type = 1949545009</em><br /><em>where type = 666&nbsp;</em></p>",
+    "PostedDate": "2011-10-11T04:56:10.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

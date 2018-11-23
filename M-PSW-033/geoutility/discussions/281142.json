@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "704625",
+    "ThreadId": "281142",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I have converted from UTM 33V to WGS84 many times. Works great :) But, now I need to convert from WGS84 to UTM 33V. &nbsp;Default for the UTM class is however 32V.&nbsp;</p>\r\n<p>So how to make this code convert to 33V? Changing the Zone and Band after the casting do not force a recalculation of the coordinates.</p>\r\n<p>Geographic geo = new Geographic( (double)k.posLongitude, (double)k.posLatitude);<br>\r\nUTM nutm = (UTM)geo;<br>\r\nnutm.Zone = 33; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>\r\nnutm.Band = &quot;V&quot;;<br>\r\nk.posXkoordinat = nutm.East.ToString(); <br>\r\nk.posYkoordinat = nutm.North.ToString();</p>\r\n<p>-Leif Aksel</p>\r\n",
+    "PostedDate": "2011-11-29T01:12:42.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,442 @@
+[
+  {
+    "Id": "516925",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Hi&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=228619\">http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=228619</a></p>\r\n<p>&nbsp;</p>\r\n<p>This is the windows mobile project , it working flawless in windows ce too, but i cant able design a mobile screen. its triggering error while moving to design page.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>then is that possible to enable audio for gps setting ? i mean while setting source &amp; destination it should tel us the path.[left and right and ]</p>\r\n<p>&nbsp;</p>\r\n<p>and is that possible to work without online with the help of cache? [to see the map]</p>\r\n<p>&nbsp;</p>\r\n<p>please let me know..its urgent requirment for me? &nbsp;Please ?</p>\r\n",
+    "PostedDate": "2010-11-04T02:34:40.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516937",
+    "ThreadId": "233446",
+    "Html": "\r\n<ul>\r\n<li>you can disable design error by building GMap.NET.WindowsMobile with compilation symbol\r\n<strong>DESIGN</strong>, any other ideas? P.s. don't forget to remove it after you end design\r\n</li><li>yes, you can use cache to work off-line, basically you can copy your cache from desktop app to your sd card\r\n</li><li>mobile can play sounds, so maybe it's possible ;} </li></ul>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-04T02:51:44.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516941",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>could you guide me regarding that cache process. because thats the process i need to do. i need to save those cache in some disk..</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>any articles? where i can find that cache?</p>\r\n",
+    "PostedDate": "2010-11-04T02:58:30.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516959",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>C:\\Users\\<em>user</em>\\AppData\\Local\\GMap.NET\\TileDBv3\\en</p>\r\n<p>Both demos has integrated prefetcher, select area, click prefetch, wait ;}</p>\r\n",
+    "PostedDate": "2010-11-04T03:37:24.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516982",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>hi am using server 2008 Os.here am a administrator. i cannot find the path which u posted here Sir.</p>\r\n<p>&nbsp;</p>\r\n<p>so please give me a suggestion to find out the path of the cache file ..</p>\r\n<p>&nbsp;</p>\r\n<p>r how can i change the file path of cache .. i have screwed alot . but i cannot do so..</p>\r\n<p>&nbsp;</p>\r\n<p>please provide me a solution?</p>\r\n",
+    "PostedDate": "2010-11-04T04:45:01.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516990",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>C:\\Users\\<strong>Administrator</strong>\\AppData\\Local\\GMap.NET\\TileDBv3\\en\\</p>\r\n",
+    "PostedDate": "2010-11-04T05:05:12.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516995",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>actually am deploying into windows CE device .. i mean in another computer..</p>\r\n<p>&nbsp;</p>\r\n<p>thats the problem.. because there is no such kind of folder located in administrator App_Data</p>\r\n<p>&nbsp;</p>\r\n<p>whats the solution for this?</p>\r\n",
+    "PostedDate": "2010-11-04T05:14:28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516998",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Administrator == user name, i don't know your user names ;}</p>\r\n",
+    "PostedDate": "2010-11-04T05:21:50.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517013",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>ya i have found out buddy :)</p>\r\n<p>&nbsp;</p>\r\n<p>if i need to change the path of cache location in the sense.. where i need to change the code ?</p>\r\n<p>&nbsp;</p>\r\n<p>please give some suggestion Sir.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-04T05:41:55.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517023",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>map.<strong>CacheLocation</strong>&nbsp;= &quot;C:\\GMapCache\\&quot;;</p>\r\n",
+    "PostedDate": "2010-11-04T06:03:33.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517030",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Hi</p>\r\n<p>&nbsp;</p>\r\n<p>i cannot find this path in windows mobile ..</p>\r\n<p>where that code ll be?</p>\r\n<p>&nbsp;</p>\r\n<p>could you give me a file name?</p>\r\n",
+    "PostedDate": "2010-11-04T06:14:28.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517033",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>on mobile its your SD card:</p>\r\n<p>string sd = Native.GetRemovableStorageDirectory();<br>\r\nif(!string.IsNullOrEmpty(sd))<br>\r\n{<br>\r\n&nbsp; &nbsp;CacheLocation = sd &#43; Path.DirectorySeparatorChar &#43; &quot;GMap.NET&quot; &#43; Path.DirectorySeparatorChar;<br>\r\n&nbsp;}</p>\r\n",
+    "PostedDate": "2010-11-04T06:19:08.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518554",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>In windows mobile , where we specify the path to save the cache file, could you give me the filename in that project ?</p>\r\n<p>&nbsp;</p>\r\n<p>please, its urgent ?</p>\r\n",
+    "PostedDate": "2010-11-07T22:33:04.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518557",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>i have trouble while running windows mobile , i cannot create cache file in local,</p>\r\n<p>&nbsp;</p>\r\n<p>but while running windows form its automatcally creating the cache file.</p>\r\n<p>&nbsp;</p>\r\n<p>where the error will be?</p>\r\n",
+    "PostedDate": "2010-11-07T22:46:50.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518564",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>the same in mobile, it's created automatically</p>\r\n",
+    "PostedDate": "2010-11-07T23:11:24.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518567",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>actually i cannot load the map in emulator Sir.</p>\r\n<p>but while deploying in windows CE device its working perfectly,</p>\r\n<p>my doubt , if sdk emulator works , it might create cache file.? is it so?</p>\r\n",
+    "PostedDate": "2010-11-07T23:20:38.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518568",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>it should, maybe your emulator just don't have internet connection? Try browse google.com</p>\r\n<p>cache in emulator: System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) &#43; Path.DirectorySeparatorChar &#43; &quot;GMap.NET&quot; &#43; Path.DirectorySeparatorChar;</p>\r\n",
+    "PostedDate": "2010-11-07T23:27:45.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518569",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Please,</p>\r\n<p>&nbsp;</p>\r\n<p>could you give me the file name, for changing the file path to save cache file?</p>\r\n<p>&nbsp;</p>\r\n<p>please ?</p>\r\n",
+    "PostedDate": "2010-11-07T23:33:26.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518571",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>radioman!</p>\r\n<p>&nbsp;</p>\r\n<p>got it.</p>\r\n<p>i found the folder which is creating in ce device.</p>\r\n<p>&nbsp;</p>\r\n<p>but mobile cache file is not creating .</p>\r\n<p>what problem it might be?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-07T23:42:31.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518574",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>by default cache should be in&nbsp;&quot;\\\\Application Data\\\\GMap.NET\\\\&quot;</p>\r\n",
+    "PostedDate": "2010-11-07T23:43:45.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518578",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>nope!</p>\r\n<p>&nbsp;</p>\r\n<p>its creating folders perfectly,</p>\r\n<p>i mean Application Data\\GMap.NET\\TileDBv3\\en\\?</p>\r\n<p>&nbsp;</p>\r\n<p>in CE device this path is creating automatically while running mobile project? but there is no file like Data.gmdb Sir.</p>\r\n<p>&nbsp;</p>\r\n<p>please sort&nbsp; out my issue?</p>\r\n",
+    "PostedDate": "2010-11-07T23:52:09.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518580",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>if db is failed to create you should see exception message(&quot;CreateEmptyDB: .....&quot;) in debug output window</p>\r\n",
+    "PostedDate": "2010-11-07T23:54:13.607-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518581",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>anyway, you can try copy there your prepared database, from&nbsp;C:\\Users\\user\\AppData\\Local\\GMap.NET\\TileDBv3\\en in windows</p>\r\n",
+    "PostedDate": "2010-11-07T23:58:47.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518587",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>this is the error am getting while running mobile application?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>CreateEmptyDB: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CreateEmptyDB(String file)<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache..ctor()<br>\r\n&nbsp;&nbsp; at System.Reflection.RuntimeConstructorInfo.InternalInvoke(RuntimeConstructorInfo rtci, BindingFlags invokeAttr, Binder binder, Object parameters, CultureInfo culture, Boolean A first chance exception of type 'System.MissingMethodException' occurred\r\n in System.Data.SQLite.dll<br>\r\nGetImageFromCache: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, Point pos, Int32 zoom)<br>\r\n&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom, Exception&amp; result)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Core.ProcessLoadTask()<br>\r\n&nbsp;&nbsp; at OpenNETCF.Threading.Thread2.ShimProc()</p>\r\n",
+    "PostedDate": "2010-11-08T00:12:42.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518592",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>that's it, add to your project&nbsp;SQLite.Interop.066.DLL as content, and set&nbsp;<strong>Copy to Output Directory: Copy always</strong></p>\r\n",
+    "PostedDate": "2010-11-08T00:16:12.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518595",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>tis is the error?</p>\r\n<p>&nbsp;</p>\r\n<p>A first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nadd GMap.NET TileLoader: 0 to GThreadPool<br>\r\nadd GMap.NET TileLoader: 1 to GThreadPool<br>\r\nOnTileLoadStart - at zoom 2, time: 18:46:08.2710000<br>\r\n0 - Fill empty TileMatrix: 2 - {X=43,Y=30}<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in System.Data.SQLite.dll<br>\r\nCreateEmptyDB: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CreateEmptyDB(String file)<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache..ctor()<br>\r\n&nbsp;&nbsp; at System.Reflection.RuntimeConstructorInfo.InternalInvoke(RuntimeConstructorInfo rtci, BindingFlags invokeAttr, Binder binder, Object parameters, CultureInfo culture, Boolean A first chance exception of type 'System.MissingMethodException' occurred\r\n in System.Data.SQLite.dll<br>\r\nGetImageFromCache: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, Point pos, Int32 zoom)<br>\r\n&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom, Exception&amp; result)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Core.ProcessLoadTask()<br>\r\n&nbsp;&nbsp; at OpenNETCF.Threading.Thread2.ShimProc()</p>\r\n",
+    "PostedDate": "2010-11-08T00:19:26.21-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518597",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Sorry,</p>\r\n<p>&nbsp;</p>\r\n<p>where i can find that file?</p>\r\n",
+    "PostedDate": "2010-11-08T00:21:02.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518599",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>GMap.NET\\References\\<strong>CompactFramework</strong>\\</p>\r\n",
+    "PostedDate": "2010-11-08T00:22:48.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518600",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>same error ..after adding that file in a project?</p>\r\n<p>&nbsp;</p>\r\n<p>A first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nadd GMap.NET TileLoader: 0 to GThreadPool<br>\r\nadd GMap.NET TileLoader: 1 to GThreadPool<br>\r\nOnTileLoadStart - at zoom 2, time: 18:58:11.2940000<br>\r\n0 - Fill empty TileMatrix: 2 - {X=41,Y=29}<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in System.Data.SQLite.dll<br>\r\nCreateEmptyDB: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CreateEmptyDB(String file)<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache..ctor()<br>\r\n&nbsp;&nbsp; at System.Reflection.RuntimeConstructorInfo.InternalInvoke(RuntimeConstructorInfo rtci, BindingFlags invokeAttr, Binder binder, Object parameters, CultureInfo culture, Boolean A first chance exception of type 'System.MissingMethodException' occurred\r\n in System.Data.SQLite.dll<br>\r\nGetImageFromCache: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, Point pos, Int32 zoom)<br>\r\n&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom, Exception&amp; result)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Core.ProcessLoadTask()<br>\r\n&nbsp;&nbsp; at OpenNETCF.Threading.Thread2.ShimProc()<br>\r\n<br>\r\nStarting GetResponse: {X=41,Y=29}<br>\r\nThe thread 0x8550002 has exited with code 0 (0x0).<br>\r\nThe thread 0x9cd0002 has exited with code 0 (0x0).<br>\r\nThe thread 0x8550002 has exited with code 0 (0x0).<br>\r\nGetResponse OK: {X=41,Y=29}<br>\r\nStarting GetResponseStream: {X=41,Y=29}<br>\r\nGetResponseStream OK: {X=41,Y=29}<br>\r\nEnqueueCacheTask: {X=41,Y=29}<br>\r\n'GMap.NET.exe' (Managed): Loaded 'System.SR.dll'<br>\r\n0 - Fill empty TileMatrix: 2 - {X=43,Y=28}<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in System.Data.SQLite.dll<br>\r\nGetImageFromCache: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, Point pos, Int32 zoom)<br>\r\n&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom, Exception&amp; result)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Core.ProcessLoadTask()<br>\r\n&nbsp;&nbsp; at OpenNETCF.Threading.Thread2.ShimProc()</p>\r\n",
+    "PostedDate": "2010-11-08T00:25:41.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518604",
+    "ThreadId": "233446",
+    "Html": "\r\n<ol>\r\n<li>set Copy to Output Directory: <strong>Copy always</strong> </li><li>rebuild </li><li>deploy </li><li>run </li></ol>\r\n",
+    "PostedDate": "2010-11-08T00:37:13.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518605",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>ya,</p>\r\n<p>&nbsp;</p>\r\n<p>i have done that too, though its showing me a same error radioman.</p>\r\n<p>&nbsp;</p>\r\n<p>what it might be?</p>\r\n<p>&nbsp;</p>\r\n<p>actually i copied that dll file into windows mobile folder, and set those rules to it.</p>\r\n<p>but same error?</p>\r\n",
+    "PostedDate": "2010-11-08T00:41:15.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518612",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>there should be both, System.Data.SQLite.dll and&nbsp;SQLite.Interop.066.DLL</p>\r\n",
+    "PostedDate": "2010-11-08T00:49:08.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518621",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>i have added those dll into windows mobile folder only, whether i need to add into reference?</p>\r\n<p>&nbsp;</p>\r\n<p>but while adding interop dll into reference it showing me an error? so i just added in to folder and set those rules to it..</p>\r\n<p>&nbsp;</p>\r\n<p>is that correct?</p>\r\n",
+    "PostedDate": "2010-11-08T01:01:12.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518626",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>sorry Sir,</p>\r\n<p>&nbsp;</p>\r\n<p>still its giving me a same error, i have added two files too,</p>\r\n<p>&nbsp;</p>\r\n<p>but same error? what the solution will be? please sort out my issue sir?</p>\r\n<p>&nbsp;</p>\r\n<p>A first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nadd GMap.NET TileLoader: 0 to GThreadPool<br>\r\nadd GMap.NET TileLoader: 1 to GThreadPool<br>\r\nOnTileLoadStart - at zoom 2, time: 19:40:39.3930000<br>\r\n0 - Fill empty TileMatrix: 2 - {X=41,Y=28}<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in System.Data.SQLite.dll<br>\r\nCreateEmptyDB: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CreateEmptyDB(String file)<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache..ctor()<br>\r\n&nbsp;&nbsp; at System.Reflection.RuntimeConstructorInfo.InternalInvoke(RuntimeConstructorInfo rtci, BindingFlags invokeAttr, Binder binder, Object parameters, CultureInfo culture, Boolean A first chance exception of type 'System.MissingMethodException' occurred\r\n in System.Data.SQLite.dll<br>\r\nGetImageFromCache: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, Point pos, Int32 zoom)<br>\r\n&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom, Exception&amp; result)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Core.ProcessLoadTask()<br>\r\n&nbsp;&nbsp; at OpenNETCF.Threading.Thread2.ShimProc()</p>\r\n",
+    "PostedDate": "2010-11-08T01:06:59.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518631",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>open explorer in emulator and go to program files/gmap.net, do you really see these two files there?</p>\r\n",
+    "PostedDate": "2010-11-08T01:15:46.133-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518634",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>ya that two files also&nbsp; there Sir.</p>\r\n",
+    "PostedDate": "2010-11-08T01:21:28.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518639",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>hm.. what is your version of visual studio and what emulator do you use?</p>\r\n",
+    "PostedDate": "2010-11-08T01:36:33.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518640",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>actually am using visual studio 2008, deployin in windows ce r3 x86 emulator . is that possible?</p>\r\n",
+    "PostedDate": "2010-11-08T01:40:27.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518656",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>in window ce i dont have sql . whether it ll trigger any prob?</p>\r\n",
+    "PostedDate": "2010-11-08T02:19:35.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "518719",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>one more shot, you can try to remove SQLite from compilation symbols for GMap.NET.Core to use MsSqlCe database</p>\r\n",
+    "PostedDate": "2010-11-08T05:29:22.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520380",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Hello Sir !</p>\r\n<p>&nbsp;</p>\r\n<p>Still am getting the same error while creating cache in other device?</p>\r\n<p>&nbsp;</p>\r\n<p>its creating folder normally but it cannot able to create the Data.gmdb file in a folder?</p>\r\n<p>&nbsp;</p>\r\n<p>what will be the solution for this Error?</p>\r\n<p>please let me know Sir?</p>\r\n<p>&nbsp;</p>\r\n<p>Error :</p>\r\n<p>&nbsp;</p>\r\n<p>'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\mscorlib.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\backup\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c\\demo.windowsmobile\\bin\\debug\\GMap.NET.exe', Symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Windows.Forms.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Drawing.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\backup\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c\\demo.windowsmobile\\bin\\debug\\GMap.NET.WindowsMobile.dll', Symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\backup\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c\\demo.windowsmobile\\bin\\debug\\OpenNETCF.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\backup\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c\\demo.windowsmobile\\System.Data.SQLite.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Data.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\Microsoft.WindowsCE.Forms.dll'<br>\r\n'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Xml.dll'<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nadd GMap.NET TileLoader: 0 to GThreadPool<br>\r\nadd GMap.NET TileLoader: 1 to GThreadPool<br>\r\nOnTileLoadStart - at zoom 2, time: 00:18:01.5910000<br>\r\n0 - Fill empty TileMatrix: 2 - {X=43,Y=29}<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in GMap.NET.WindowsMobile.dll<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in System.Data.SQLite.dll<br>\r\nCreateEmptyDB: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CreateEmptyDB(String file)<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache.set_CacheLocation(String value)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Cache..ctor()<br>\r\n&nbsp;&nbsp; at System.Reflection.RuntimeConstructorInfo.InternalInvoke(RuntimeConstructorInfo rtci, BindingFlags invokeAttr, Binder binder, Object parameters, CultureInfo culture, Boolean A first chance exception of type 'System.MissingMethodException' occurred\r\n in System.Data.SQLite.dll<br>\r\nGetImageFromCache: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, Point pos, Int32 zoom)<br>\r\n&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom, Exception&amp; result)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Core.ProcessLoadTask()<br>\r\n&nbsp;&nbsp; at OpenNETCF.Threading.Thread2.ShimProc()<br>\r\n<br>\r\nStarting GetResponse: {X=43,Y=29}<br>\r\nThe thread 0x845001a has exited with code 0 (0x0).<br>\r\nThe thread 0x96b001e has exited with code 0 (0x0).<br>\r\nThe thread 0x845001a has exited with code 0 (0x0).<br>\r\nGetResponse OK: {X=43,Y=29}<br>\r\nStarting GetResponseStream: {X=43,Y=29}<br>\r\nGetResponseStream OK: {X=43,Y=29}<br>\r\nEnqueueCacheTask: {X=43,Y=29}<br>\r\n'GMap.NET.exe' (Managed): Loaded 'System.SR.dll'<br>\r\n0 - Fill empty TileMatrix: 2 - {X=42,Y=30}<br>\r\nA first chance exception of type 'System.MissingMethodException' occurred in System.Data.SQLite.dll<br>\r\nGetImageFromCache: System.MissingMethodException: Can't find PInvoke DLL 'SQLite.Interop.066.DLL'.<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLite3.Open(String strFilename, SQLiteOpenFlagsEnum flags, Int32 maxPoolSize, Boolean usePool)<br>\r\n&nbsp;&nbsp; at System.Data.SQLite.SQLiteConnection.Open()<br>\r\n&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, Point pos, Int32 zoom)<br>\r\n&nbsp;&nbsp; at GMap.NET.GMaps.GetImageFrom(MapType type, Point pos, Int32 zoom, Exception&amp; result)<br>\r\n&nbsp;&nbsp; at GMap.NET.Internals.Core.ProcessLoadTask()<br>\r\n&nbsp;&nbsp; at OpenNETCF.Threading.Thread2.ShimProc()</p>\r\n",
+    "PostedDate": "2010-11-10T23:22:10.19-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520390",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>i've no idea, it works just fine in mobile 6.5</p>\r\n",
+    "PostedDate": "2010-11-10T23:51:51.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520393",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>and where i can find mssqlCe database ?</p>\r\n",
+    "PostedDate": "2010-11-10T23:59:14.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520395",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>just remove SQLite from compilation symbols in&nbsp;GMap.NET.WindowsMobile project</p>\r\n",
+    "PostedDate": "2010-11-11T00:05:58.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520420",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>its giving me a error if i remove that sqlite from the project .</p>\r\n<p>&nbsp;</p>\r\n<p>any other option Sir?</p>\r\n",
+    "PostedDate": "2010-11-11T01:24:34.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520463",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>what error?</p>\r\n",
+    "PostedDate": "2010-11-11T02:48:13.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520466",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Same error which i got previously Sir?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-11T02:53:43.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520467",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>first of all am not able to display the maps in emulator? its saying that no net connection. but i have net connection properly?</p>\r\n<p>&nbsp;</p>\r\n<p>error:</p>\r\n<p>&nbsp;</p>\r\n<p>could not establish the connection to network?</p>\r\n",
+    "PostedDate": "2010-11-11T02:56:34.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520481",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>to have internet connection on emulator you need to cradle it on tool menu</p>\r\n",
+    "PostedDate": "2010-11-11T03:34:37.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520492",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>ya i found a problem in my CE?</p>\r\n<p>&nbsp;</p>\r\n<p>found through breakpoint, while getting cn.open, then it directly moves to exception.</p>\r\n<p>what i need to open a connection?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>is this string is correct to connect a CE device?</p>\r\n<p>&nbsp;</p>\r\n<p>&quot;Data Source=\\&quot;{0}\\&quot;;FailIfMissing=False;Page Size=32768;Pooling=True&quot;&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>if not so? please give me a string to connect to the Ce device Sir?</p>\r\n",
+    "PostedDate": "2010-11-11T04:09:20.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520522",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>what exactly are you CE device, and what emulator? Sqlite provider does not find dll somehow ;/ you can try to put it in system folder</p>\r\n",
+    "PostedDate": "2010-11-11T04:52:58.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520529",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>Now am deploying mobile application in CE device only,</p>\r\n<p>but its triggers error on connection.open, it cannot able to connect to the sql in CE device i think?</p>\r\n<p>&nbsp;</p>\r\n<p>how to sort out this issue?</p>\r\n",
+    "PostedDate": "2010-11-11T05:07:58.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520535",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>so whats the device, whats the OS exactly?</p>\r\n",
+    "PostedDate": "2010-11-11T05:34:14.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522574",
+    "ThreadId": "233446",
+    "Html": "\r\n<p>.</p>\r\n",
+    "PostedDate": "2010-11-16T01:50:57.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "591586",
+    "ThreadId": "233446",
+    "Html": "<p>Hi maanikmca. Did you verify&nbsp;the references for Gmap.Net.WindowsMobile ?&nbsp; I got the same kind of problem ... but compiled a debug version of my project &nbsp;with a release gmap.net.</p>\r\n<p>I've no more problems&nbsp; now (both debug versions)</p>",
+    "PostedDate": "2011-04-04T13:31:04.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

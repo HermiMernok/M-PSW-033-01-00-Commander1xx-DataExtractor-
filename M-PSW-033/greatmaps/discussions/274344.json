@@ -1,0 +1,234 @@
+[
+  {
+    "Id": "678531",
+    "ThreadId": "274344",
+    "Html": "\r\n<p>when i debug,and want to show map.tha map is not displayed.But the route i drawed shows well.</p>\r\n<p><img src=\"http://farm7.static.flickr.com/6134/6197485460_d6d74fdcdd.jpg\" alt=\"\"></p>\r\n<p>&nbsp;</p>\r\n<p>Debug:</p>\r\n<p>FreePageSpace in cache: 3.9375MB | 126 pages</p>\r\n<p>TryCorrectGoogleVersions failed: System.Net.Sockets.SocketException:Existing connection was remote host forcibly closed.</p>\r\n<pre>using System;\r\nusing System.Linq;\r\nusing System.Collections.Generic;\r\nusing System.ComponentModel;\r\nusing System.Data;\r\nusing System.Drawing;\r\nusing System.Text;\r\nusing System.Windows.Forms;\r\nusing GMap.NET.WindowsForms;\r\nusing GMap.NET;\r\nusing GMap.NET.MapProviders;\r\nusing GMap.NET.WindowsForms.Markers;\r\nusing Model;\r\n\r\nnamespace DeviceRunn\r\n{\r\n    public partial class map : Form\r\n    {\r\n        public GMapControl MainMap;\r\n        string startSta;\r\n        BusInfo lineBus;\r\n        PointLatLng start;\r\n        PointLatLng end;\r\n\r\n        // layers\r\n        GMapOverlay top;\r\n        internal GMapOverlay objects;\r\n        internal GMapOverlay routes;\r\n\r\n        public map()\r\n        {\r\n            InitializeComponent();\r\n        }\r\n\r\n\r\n        public map(BusInfo _lineBus,string _startSta)\r\n        {\r\n            InitializeComponent();\r\n            lineBus = _lineBus;\r\n            startSta = _startSta;\r\n        }\r\n\r\n        #region System\r\n        private void MainMapInitialization()\r\n        {\r\n            this.MainMap = new GMapControl();\r\n            this.Controls.Add(this.MainMap);\r\n\r\n            this.MainMap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)\r\n                        | System.Windows.Forms.AnchorStyles.Left)\r\n                        | System.Windows.Forms.AnchorStyles.Right)));\r\n            this.MainMap.CanDragMap = true;\r\n            this.MainMap.Dock = System.Windows.Forms.DockStyle.Fill;\r\n            this.MainMap.Location = new System.Drawing.Point(0, 0);\r\n            this.MainMap.MarkersEnabled = true;\r\n            this.MainMap.MapProvider = GMapProviders.GoogleChinaMap;\r\n            this.MainMap.MaxZoom = 15;\r\n            this.MainMap.MinZoom = 0;\r\n            this.MainMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;\r\n            this.MainMap.Name = &quot;MainMap&quot;;\r\n            this.MainMap.PolygonsEnabled = true;\r\n            this.MainMap.RetryLoadTile = 0;\r\n            this.MainMap.RoutesEnabled = true;\r\n            this.MainMap.ShowTileGridLines = false;\r\n            this.MainMap.Size = new System.Drawing.Size(240, 268);\r\n            this.MainMap.TabIndex = 8;\r\n            this.MainMap.Zoom = 13;\r\n            trackBar1.Value = (int)this.MainMap.Zoom;\r\n</pre>\r\n<pre>            // add custom layers  \r\n            {\r\n                routes = new GMapOverlay(MainMap, &quot;routes&quot;);\r\n                MainMap.Overlays.Add(routes);\r\n\r\n                objects = new GMapOverlay(MainMap, &quot;objects&quot;);\r\n                MainMap.Overlays.Add(objects);\r\n\r\n                top = new GMapOverlay(MainMap, &quot;top&quot;);\r\n                MainMap.Overlays.Add(top);\r\n            }\r\n        }\r\n        #endregion\r\n\r\n        private void map_Load(object sender, EventArgs e)\r\n        {\r\n            this.SuspendLayout();\r\n            MainMapInitialization();\r\n            drawRoute(lineBus, startSta);\r\n            this.ResumeLayout(false);\r\n        }\r\n\r\n        </pre>\r\n<pre>        private void drawRoute(BusInfo _lineBus, string _startSta)\r\n        {\r\n            BusInfo line = _lineBus;\r\n            List points = new List();\r\n            int length = line.body[0].staList.Length;\r\n            start = new PointLatLng(lineBus.body[0].staList[0].latitude, lineBus.body[0].staList[0].longitude);\r\n            end = new PointLatLng(lineBus.body[0].staList[length - 1].latitude, lineBus.body[0].staList[length - 1].longitude);\r\n\r\n            for (int i = length-1; i &gt;= 0; i--)\r\n            {\r\n                points.Add(new PointLatLng(line.body[0].staList[i].latitude, line.body[0].staList[i].longitude));\r\n                if (_startSta.Equals(line.body[0].staList[i].name))\r\n                {\r\n                    MainMap.Position = new PointLatLng(line.body[0].staList[i].latitude, line.body[0].staList[i].longitude);\r\n                    GMapMarkerTransparentGoogleGreen goo = new GMapMarkerTransparentGoogleGreen(MainMap.Position);\r\n                    goo.ToolTipMode = MarkerTooltipMode.Always;\r\n                    goo.ToolTipText = &quot;我的位置&quot;;\r\n                    objects.Markers.Add(goo);\r\n                }\r\n                else \r\n                {\r\n                    PointLatLng pos = new PointLatLng(line.body[0].staList[i].latitude,line.body[0].staList[i].longitude);\r\n                    GMapMarkerGoogleRed goo = new GMapMarkerGoogleRed(pos);\r\n                    goo.ToolTipMode = MarkerTooltipMode.Always;\r\n                    objects.Markers.Add(goo);\r\n                }\r\n            }\r\n\r\n             \r\n            for (int i = 0; i &lt; length - 1; i&#43;&#43;)\r\n            {\r\n                RoutingProvider rp = MainMap.MapProvider as RoutingProvider;\r\n                if (rp == null)\r\n                {\r\n                    rp = GMapProviders.GoogleChinaMap; // use google if provider does not implement routing\r\n                }\r\n\r\n                MapRoute route = rp.GetRouteBetweenPoints(points[i], points[i&#43;1], false, false, (int)MainMap.Zoom);\r\n                if (route != null)\r\n                {\r\n                    // add route\r\n                    GMapRoute r = new GMapRoute(route.Points, route.Name);\r\n                    routes.Routes.Add(r);\r\n                    //MainMap.ZoomAndCenterRoute(r);\r\n                }\r\n            }\r\n        }\r\n\r\n        private void pictureBox1_Click(object sender, EventArgs e)\r\n        {\r\n            this.Close();\r\n        }\r\n    }\r\n}</pre>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-09-30T01:17:50.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678533",
+    "ThreadId": "274344",
+    "Html": "<p>no Internet connection, i guess you forget to craddle emulator</p>",
+    "PostedDate": "2011-09-30T01:24:02.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678544",
+    "ThreadId": "274344",
+    "Html": "<p><img src=\"http://farm7.static.flickr.com/6180/6197538194_f075c77c87_m.jpg\" alt=\"\" /></p>\r\n<p>Look.Internet's connecting.- -...Alway can't load map.</p>\r\n<p>if no internet connection,how can i draw the route?</p>",
+    "PostedDate": "2011-09-30T01:56:18.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678545",
+    "ThreadId": "274344",
+    "Html": "<p>try other provider</p>",
+    "PostedDate": "2011-09-30T02:03:26.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678547",
+    "ThreadId": "274344",
+    "Html": "<p>is some code missing?.could you help me check the code ?. if i create a new project ,and only add this code,it can works well.</p>\r\n<p>but if i add this code to my Bus project as a part, it only draws the route ... so tragical..</p>",
+    "PostedDate": "2011-09-30T02:05:19.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678549",
+    "ThreadId": "274344",
+    "Html": "<p>the same is the other provider..i really dont know why...</p>",
+    "PostedDate": "2011-09-30T02:13:40.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678550",
+    "ThreadId": "274344",
+    "Html": "<p>the same is the other provider..i really dont know why...</p>",
+    "PostedDate": "2011-09-30T02:14:03.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678553",
+    "ThreadId": "274344",
+    "Html": "<p>MapType: None -&gt; LithuaniaMap<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />ZoomPropertyChanged: 0 -&gt; 13<br />&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;c:\\users\\administrat\\desktop\\greatmaps_485c6512fdc4\\demo.windowsmobile\\bin\\debug\\System.Data.SQLite.dll&rdquo;<br />&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Data.dll&rdquo;<br />FreePageSpace in cache: 3.9375MB | 126 pages<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapOpen: 1<br />Invalidate delta: 33000ms</p>\r\n<p>stop at \"Invalidate delta: 33000ms\"</p>",
+    "PostedDate": "2011-09-30T02:15:44.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678557",
+    "ThreadId": "274344",
+    "Html": "<p>don't use load event, put all&nbsp;initializations in forms constructor</p>",
+    "PostedDate": "2011-09-30T02:23:45.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678559",
+    "ThreadId": "274344",
+    "Html": "<p>MapType: None -&gt; YahooMap<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />ZoomPropertyChanged: 0 -&gt; 13<br />&ldquo;DeviceRunn.exe&rdquo;: &ldquo;c:\\users\\administrat\\desktop\\greatmaps_485c6512fdc4\\demo.windowsmobile\\bin\\debug\\System.Data.SQLite.dll&rdquo;<br />&ldquo;DeviceRunn.exe&rdquo;: &ldquo;C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Data.dll&rdquo;<br />FreePageSpace in cache: 3.9375MB | 126 pages<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapOpen: 1<br />add TileLoader: 0 to GThreadPool<br />add TileLoader: 1 to GThreadPool<br />OnTileLoadStart - at zoom 13, time: 18:23:22<br /><span style=\"color: #ff0000;\">Invalidate delta: 35000ms</span></p>\r\n<p><span style=\"color: #ff0000;\">Stop at \"Invalidate delta: 33000ms\" too.</span></p>",
+    "PostedDate": "2011-09-30T02:24:47.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678561",
+    "ThreadId": "274344",
+    "Html": "<p>i have deleted&nbsp;load event, and put all&nbsp;initializations in forms constructor. but it's same. only draw route. and pause at \"<span style=\"color: #ff0000;\">Invalidate delta: 42000ms\".</span></p>\r\n<p><span style=\"color: #ff0000;\">Debug:</span></p>\r\n<p>MapType: None -&gt; YahooMap<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />ZoomPropertyChanged: 0 -&gt; 13<br />&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;c:\\users\\administrat\\desktop\\greatmaps_485c6512fdc4\\demo.windowsmobile\\bin\\debug\\System.Data.SQLite.dll&rdquo;<br />&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Data.dll&rdquo;<br />FreePageSpace in cache: 3.9375MB | 126 pages<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapOpen: 1<br />add TileLoader: 0 to GThreadPool<br />add TileLoader: 1 to GThreadPool<br />OnTileLoadStart - at zoom 13, time: 18:29:14<br /><span style=\"color: #ff0000;\">Invalidate delta: 42000ms</span></p>\r\n<p><span style=\"color: #ff0000;\">&nbsp;</span></p>\r\n<pre>     public map(BusInfo _lineBus,string _startSta)\r\n        {\r\n            InitializeComponent();\r\n            lineBus = _lineBus;\r\n            startSta = _startSta;\r\n            this.SuspendLayout();\r\n            MainMapInitialization();\r\n            drawRoute(lineBus, startSta);\r\n            this.ResumeLayout(false);\r\n        }</pre>",
+    "PostedDate": "2011-09-30T02:32:48.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678563",
+    "ThreadId": "274344",
+    "Html": "<p>show me all log, i don't see any tile load events</p>",
+    "PostedDate": "2011-09-30T02:35:17.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678570",
+    "ThreadId": "274344",
+    "Html": "<p>&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;c:\\users\\administrat\\desktop\\greatmaps_485c6512fdc4\\demo.windowsmobile\\bin\\debug\\GMap.NET.WindowsMobile.dll&rdquo;，Loaded。<br />&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;c:\\users\\administrat\\desktop\\greatmaps_485c6512fdc4\\demo.windowsmobile\\bin\\debug\\OpenNETCF.dll&rdquo;<br />A first chance exception of type 'System.UriFormatException' occurred in System.dll</p>\r\n<p>The thread 0x36f60dd6 has exited with code 0 (0x0).</p>\r\n<p>The thread 0x23997d7e has exited with code 0 (0x0).<br />A first chance exception of type 'System.UriFormatException' occurred in System.dll</p>\r\n<p>The thread 0x23997d7e has exited with code 0 (0x0).</p>\r\n<p>The thread 0x2385df4a has exited with code 0 (0x0).</p>\r\n<p>&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Xml.dll&rdquo;<br />MapType: None -&gt; YahooMap<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />ZoomPropertyChanged: 0 -&gt; 13<br />&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;c:\\users\\administrat\\desktop\\greatmaps_485c6512fdc4\\demo.windowsmobile\\bin\\debug\\System.Data.SQLite.dll&rdquo;<br />&ldquo;DeviceRunn.exe&rdquo;: Loaded&ldquo;C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v3.5\\Debugger\\BCL\\System.Data.dll&rdquo;<br />FreePageSpace in cache: 3.9375MB | 126 pages<br />The thread 0xb6abcf56 has exited with code 0 (0x0).</p>\r\n<p>OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapSizeChanged, w: 240, h: 268, size: {Width=1, Height=1}<br />OnMapOpen: 1<br />add TileLoader: 0 to GThreadPool<br />add TileLoader: 1 to GThreadPool<br />OnTileLoadStart - at zoom 13, time: 18:39:25<br />Invalidate delta: 33000ms</p>",
+    "PostedDate": "2011-09-30T02:51:23.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678571",
+    "ThreadId": "274344",
+    "Html": "<pre><span style=\"color: #ff0000;\">pause at:   Invalidate delta: 33000ms</span></pre>",
+    "PostedDate": "2011-09-30T02:54:17.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678598",
+    "ThreadId": "274344",
+    "Html": "<p>does my demo work? i guess, yes, so whats the problem ;}</p>",
+    "PostedDate": "2011-09-30T04:22:15.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678944",
+    "ThreadId": "274344",
+    "Html": "<p>:(...very sad...dont know how to solve it...can u help me&nbsp;find some solution...</p>",
+    "PostedDate": "2011-10-01T05:38:38.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678946",
+    "ThreadId": "274344",
+    "Html": "<p>Insufficient memory? or ....? i dont know..</p>",
+    "PostedDate": "2011-10-01T06:03:02.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678951",
+    "ThreadId": "274344",
+    "Html": "<p>does my demo work?</p>",
+    "PostedDate": "2011-10-01T07:25:38.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678952",
+    "ThreadId": "274344",
+    "Html": "<p>yes.perfectly work</p>",
+    "PostedDate": "2011-10-01T07:49:24.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678955",
+    "ThreadId": "274344",
+    "Html": "<p>so whats the difference?</p>",
+    "PostedDate": "2011-10-01T08:04:09.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678958",
+    "ThreadId": "274344",
+    "Html": "<p>Ok.I have solved this problem.But i have another problem.</p>\n<p>If i pack my project \"Cab\",and then install the cab in the emulator,and run it.The map only draw the route,and map is blue and saying \" Exception：cant find file\"\\Storage Card\\GMap.NET\\TileDBv5\\en\\Data.gmdb\" \".</p>\n<p>But perfectly work when i directly debug my project .</p>",
+    "PostedDate": "2011-10-01T08:28:53.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678960",
+    "ThreadId": "274344",
+    "Html": "<p><img src=\"http://farm7.static.flickr.com/6153/6200764888_a0cfd45161.jpg\" alt=\"\" /></p>\n<p>The map</p>\n<p><img src=\"http://farm7.static.flickr.com/6145/6200764890_77299f4940.jpg\" alt=\"\" /></p>",
+    "PostedDate": "2011-10-01T08:37:33.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678961",
+    "ThreadId": "274344",
+    "Html": "<p>there is no&nbsp;Storage Card in emulator ;}</p>",
+    "PostedDate": "2011-10-01T08:46:48.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678962",
+    "ThreadId": "274344",
+    "Html": "<p>how to solve it ? radioman...Help...SOS...</p>",
+    "PostedDate": "2011-10-01T08:54:24.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679048",
+    "ThreadId": "274344",
+    "Html": "<p>just use real device</p>",
+    "PostedDate": "2011-10-02T01:08:17.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679059",
+    "ThreadId": "274344",
+    "Html": "<p>u mean just use the windows mobile cellphone?..really?...the real mobile has Storage card?</p>",
+    "PostedDate": "2011-10-02T03:24:28.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679060",
+    "ThreadId": "274344",
+    "Html": "<p>is it only thing i need to do&nbsp;that install the cab in real windows mobile?&nbsp;</p>",
+    "PostedDate": "2011-10-02T03:27:37.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679085",
+    "ThreadId": "274344",
+    "Html": "<p>don't forget to add SQLite.Interop.074.dll as content, maybe that was your issue</p>",
+    "PostedDate": "2011-10-02T07:02:13.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679091",
+    "ThreadId": "274344",
+    "Html": "<p>ok..very thx.</p>",
+    "PostedDate": "2011-10-02T07:30:28.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

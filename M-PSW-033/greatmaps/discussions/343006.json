@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "797163",
+    "ThreadId": "343006",
+    "Html": "\r\n<p>I have made a utility to prefetch map tiles. The downloaded tiles are then copied over to a mobile device. The download process will obviously take some time, but unfortunately the wait for the downloaded tiles to be flushed to the database cache can sometimes\r\n be even longer :(..</p>\r\n<p>I see that the CacheEngine is working on a low priority thread, which obviously makes a lot of sense under normal circumstances.</p>\r\n<p>Do you have a suggestion of how I can improve the performance of the Cacheengine, or any another approach to improve the performance for my scenario?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-02-23T01:15:08.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797182",
+    "ThreadId": "343006",
+    "Html": "<p>fixed, check&nbsp;GMaps.<strong>BoostCacheEngine</strong> if you do not use integrated tile prefetcher</p>",
+    "PostedDate": "2012-02-23T01:47:50.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797202",
+    "ThreadId": "343006",
+    "Html": "<p>Oooah... That is excellent&nbsp;:)...</p>\r\n<p>I will try it out and let you know..</p>",
+    "PostedDate": "2012-02-23T02:07:13.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015233",
+    "ThreadId": "343006",
+    "Html": "Could we add a wrapper around this field?  The volatile <strong>BoostCacheEngine</strong> field is not directly accessible when using VB.NET.  Something like below, or even a public property with getter/setter.<br />\n<pre><code>      /// &lt;summary&gt;\n      /// enables/disables delay between saving tiles into database/cache\n      /// &lt;/summary&gt;\n       public void SetBoostCacheEngine(bool boost)\n      {\n          this.BoostCacheEngine = boost;\n      }</code></pre>\n\nI can make a fork if that helps.<br />\n",
+    "PostedDate": "2013-03-14T06:19:58.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015380",
+    "ThreadId": "343006",
+    "Html": "\r\n<div>\r\n<div style=\"font-size:11pt; font-family:Calibri,sans-serif\">Hi,<br>\r\nAway on conference until Monday, so I have to get back to you when I'm back. If that is to long to wait, do what you think is necessary as long as general behavior is retained.<br>\r\nCheers,<br>\r\nHavard</div>\r\n</div>\r\n<div dir=\"ltr\">\r\n<hr>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">From:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\"><a href=\"mailto:notifications@codeplex.com\">mattgerg</a></span><br>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">Sent:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\">‎14/‎03/‎2013 14:20</span><br>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">To:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\"><a href=\"mailto:havard@ordinatus.net\">havard@ordinatus.net</a></span><br>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">Subject:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\">Re: Flush to cache db performance after prefetch [greatmaps:343006]</span><br>\r\n<br>\r\n</div>\r\n<p>From: mattgerg</p>\r\n<div id=\"ThreadNotificationPostBody\">Could we add a wrapper around this field? The volatile\r\n<strong>BoostCacheEngine</strong> field is not directly accessible when using VB.NET. Something like below, or even a public property with getter/setter.<br>\r\n<pre><code>      /// &lt;summary&gt;\r\n      /// enables/disables delay between saving tiles into database/cache\r\n      /// &lt;/summary&gt;\r\n       public void SetBoostCacheEngine(bool boost)\r\n      {\r\n          this.BoostCacheEngine = boost;\r\n      }</code></pre>\r\nI can make a fork if that helps.<br>\r\n</div>\r\n",
+    "PostedDate": "2013-03-14T09:22:10.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015381",
+    "ThreadId": "343006",
+    "Html": "No hurry; I have already adjusted the code from the latest changeset on my end, so I am in good shape for now.  It would be nice to have this into the main branch so that I do not have to make one-off builds in the future solely for this feature. <br />\n<br />\nThe general behavior is retained.  The volatile field is simply not accessible from VB.NET, so a wrapper of some sort is required.<br />\n<br />\nI have no problem making a fork if that is easiest for you.  But since the change is small, I thought you might like to handle it at your convenience and in whatever manner you feel is best.<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2013-03-14T09:23:58.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1034521",
+    "ThreadId": "343006",
+    "Html": "I think this is probably a more elegant implementation:<br />\n<pre><code>      volatile private bool _BoostCacheEngine = false;\n      /// &lt;summary&gt;\n      /// disables delay between saving tiles into database/cache\n      /// &lt;/summary&gt;\n       public bool BoostCacheEngine\n       {\n           get\n           {\n               return _BoostCacheEngine;\n           }\n           set\n           {\n               _BoostCacheEngine = value;\n           }\n       }</code></pre>\n\nShould I make a fork so this can be added to the codebase?\r<br />\n<br />\nThanks for all of effort on this project!<br />\n",
+    "PostedDate": "2013-04-23T06:29:05.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1034556",
+    "ThreadId": "343006",
+    "Html": "done, thanks<br />\n",
+    "PostedDate": "2013-04-23T07:18:00.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1034568",
+    "ThreadId": "343006",
+    "Html": "You da man! Thanks!<br />\n",
+    "PostedDate": "2013-04-23T07:28:43.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

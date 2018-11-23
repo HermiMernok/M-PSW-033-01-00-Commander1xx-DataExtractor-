@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1223088",
+    "ThreadId": "539110",
+    "Html": "Hi,\r<br />\n<br />\nI am working on a small project where the user should be able to draw lines (routes) onto the map with the mouse. The drawing part itselfe works fine. However, I tried to programm, that after clicking onto the starting point, a line is drawn from the starting point to the current position of the mouse pointer. If the mouse pointer is moved, the line should follow.\r<br />\nI came up with the following (working) code: (This is just a part of it. LineStart for example is handled by a diffrent function (mouse click))<br />\n<pre><code>        private void Map_MouseMove(object sender, MouseEventArgs e)\n        {\n            if (DrawLineSelected == true)\n            {\n                if (lastdrawnline != null)\n                {\n                    linedrawingOverlay.Routes.Remove(lastdrawnline);\n                }\n                if (LineStarted == true)\n                {\n                    GMapRoute r2 = new GMapRoute(&quot;&quot;);\n                    LineEnd2 = Map.FromLocalToLatLng(e.X, e.Y);\n                    r2.Points.Add(LineStart);\n                    r2.Points.Add(LineEnd2);\n                    Color LineColor = Color.Red;\n                    switch (CBLineColor.Text)\n                    {\n                        case &quot;Red&quot;:\n                            LineColor = Color.Red;\n                            break;\n\n                        case &quot;Blue&quot;:\n                            LineColor = Color.Blue;\n                            break;\n\n                        case &quot;Green&quot;:\n                            LineColor = Color.Green;\n                            break;\n\n                        case &quot;Gray&quot;:\n                            LineColor = Color.Gray;\n                            break;\n\n                        case &quot;Black&quot;:\n                            LineColor = Color.Black;\n                            break;\n\n                        case &quot;Orange&quot;:\n                            LineColor = Color.Orange;\n                            break;\n\n                        case &quot;Yellow&quot;:\n                            LineColor = Color.Yellow;\n                            break;\n                    }\n                    Pen pen2 = new Pen(LineColor, Convert.ToInt16(CBLineSize.Text));\n                    r2.Stroke = pen2;\n                    linedrawingOverlay.Routes.Add(r2);\n                    lastdrawnline = r2;\n                }\n            }\n        }</code></pre>\n\nThis code works, but it is slow. When you move the mouse arround on the map, you can see that the line is following it, however, it has maybe 0.5 - 1 second of delay. So it will follow some distance behind the mouse pointer if it is moved fast.\r<br />\nThis is just a comsetical issue, however it would be nice if somebody knows a way to improve the speed at which this code runs!\r<br />\n<br />\nThanks in advance,\r<br />\n<br />\nJohn<br />\n",
+    "PostedDate": "2014-03-15T08:43:51.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1224804",
+    "ThreadId": "539110",
+    "Html": "override function OnPaintOverlays<br />\n",
+    "PostedDate": "2014-03-20T06:51:34.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1224826",
+    "ThreadId": "539110",
+    "Html": "Sorry to ask but I am a bit lost. What exactly should I do with the OnPaintOverlays?\r<br />\n<br />\nThanks,\r<br />\n<br />\nJohn<br />\n",
+    "PostedDate": "2014-03-20T07:30:41.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1224835",
+    "ThreadId": "539110",
+    "Html": "render your stuff<br />\n",
+    "PostedDate": "2014-03-20T07:50:51.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

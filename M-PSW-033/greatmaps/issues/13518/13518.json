@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-04-20T05:47:01.73-07:00",
+    "CommentCount": 8,
+    "Custom": "",
+    "Description": "p.s. without using http://ditu.google.cn/maps/vp?spn=0.002382,0.002747&z=19&mapclient=jsapi&vp=29.869192,121.55724",
+    "LastUpdatedDate": "2010-04-20T05:47:01.73-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-06-21T08:30:24.28-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "need fix google map offset in china",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 13518
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106838,
+      "FileName": "china maps offset.png",
+      "DownloadUrl": ".\\106838"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "啥意思？ 我也在宁波！",
+      "PostedDate": "2009-12-23T18:59:05.603-08:00",
+      "Id": 3117
+    },
+    {
+      "Message": "啥意思？ 我也在宁波！",
+      "PostedDate": "2009-12-23T18:59:10.35-08:00",
+      "Id": 3118
+    },
+    {
+      "Message": "please do not spam here, use english ;}",
+      "PostedDate": "2009-12-23T21:26:51.177-08:00",
+      "Id": 3119
+    },
+    {
+      "Message": "The picture in Attachments shown is  the city where I am living now.  :)",
+      "PostedDate": "2009-12-23T21:58:04.407-08:00",
+      "Id": 3120
+    },
+    {
+      "Message": "mm ;}",
+      "PostedDate": "2009-12-23T23:10:37.17-08:00",
+      "Id": 3121
+    },
+    {
+      "Message": "The china google map is not match with gps, the location has same offset, need to fix.\nBut the google satellite is right.",
+      "PostedDate": "2010-02-24T19:48:09.04-08:00",
+      "Id": 5385
+    },
+    {
+      "Message": "any real ideas?",
+      "PostedDate": "2010-02-26T10:22:28.467-08:00",
+      "Id": 5398
+    },
+    {
+      "Message": "Try alter the file GMaps.cs with   public string VersionGoogleSatelliteChina = \"58\";  to   public string VersionGoogleSatelliteChina =\"s@59\";       and  in the case GoogleSatelliteChina    set  string server = \"khm\";\n                        string request = \"kh\";   and return string.Format(\"http://{0}{1}.google.cn/{2}/v={3}&x={4}{5}&y={6}&z={7}&s={8}\", server, GetServerNum(pos, 4), request, VersionGoogleSatelliteChina, pos.X, sec1, pos.Y, zoom, sec2);\n as\nstring server = \"mt\"; ;\n                        string request = \"vt\";\n                        return string.Format(\"http://{0}{1}.google.cn/{2}/lyrs={3}&gl=cn&x={4}{5}&y={6}&z={7}&s={8}\", server, GetServerNum(pos, 4), request, VersionGoogleSatelliteChina, pos.X, sec1, pos.Y, zoom, sec2);\n          This would be work.\n",
+      "PostedDate": "2010-04-19T23:46:25.957-07:00",
+      "Id": 11947
+    }
+  ]
+}

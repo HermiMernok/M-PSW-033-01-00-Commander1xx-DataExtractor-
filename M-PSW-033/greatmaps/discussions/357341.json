@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "841501",
+    "ThreadId": "357341",
+    "Html": "\r\n<p>Here is my onRender:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(System.Drawing.Graphics g)\r\n        {\r\n            <span style=\"color:blue\">double</span> circleDiam = wp.m_radius/gmc.MapProvider.Projection.GetGroundResolution((<span style=\"color:blue\">int</span>)Math.Round(gmc.Zoom,0),wp.Position.Lat);\r\n            \r\n            <span style=\"color:blue\">this</span>.Offset = <span style=\"color:blue\">new</span> Point((<span style=\"color:blue\">int</span>)(-1 * (circleDiam / 2.0)), (<span style=\"color:blue\">int</span>)(-1 * (circleDiam / 2.0)));\r\n            <span style=\"color:blue\">this</span>.Size = <span style=\"color:blue\">new</span> System.Drawing.Size((<span style=\"color:blue\">int</span>)circleDiam, (<span style=\"color:blue\">int</span>)circleDiam);\r\n            Pen p = <span style=\"color:blue\">new</span> Pen(Color.Red, 2);\r\n            Rectangle r = <span style=\"color:blue\">new</span> Rectangle(LocalPosition.X, LocalPosition.Y, (<span style=\"color:blue\">int</span>)circleDiam, (<span style=\"color:blue\">int</span>)circleDiam);\r\n\r\n            g.DrawEllipse(p, r);\r\n            SolidBrush sb = <span style=\"color:blue\">new</span> SolidBrush(Color.White);\r\n            GraphicsPath gp = <span style=\"color:blue\">new</span> GraphicsPath();\r\n            p = <span style=\"color:blue\">new</span> Pen(Color.Black, 2);\r\n            Font drawFont = <span style=\"color:blue\">new</span> Font(<span style=\"color:#a31515\">&quot;Arial&quot;</span>, 24);\r\n            gp.AddString(num.ToString(), drawFont.FontFamily, (<span style=\"color:blue\">int</span>)FontStyle.Bold, 20, LocalPosition, StringFormat.GenericDefault);\r\n            g.DrawPath(p, gp);\r\n            g.FillPath(Brushes.White, gp);\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>My issue is that when I add the marker, it shows up with the corner of it at the position. however when I move the map the marker appears to accept the offset. and move to the correct location.</p>\r\n<p>Any ideas on what I am doing wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you for this great control.</p>\r\n",
+    "PostedDate": "2012-05-27T20:19:03.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "841532",
+    "ThreadId": "357341",
+    "Html": "<p>that definitely will overload the memory</p>\r\n<p>and you set the size/offset in render function, thats why</p>",
+    "PostedDate": "2012-05-28T00:58:07.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "841535",
+    "ThreadId": "357341",
+    "Html": "\r\n<p>Thank you for the quick response.</p>\r\n<p>Where do you propose I set the size and offset?</p>\r\n<p>GMap.onZoomChange event comes to mind, however it doesn't seem very elegant</p>\r\n",
+    "PostedDate": "2012-05-28T01:10:54.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

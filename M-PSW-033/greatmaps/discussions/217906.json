@@ -1,0 +1,202 @@
+[
+  {
+    "Id": "461831",
+    "ThreadId": "217906",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>Great work on this project!&nbsp; I am having a small problem trying to create a setup project.&nbsp; If I just a new setup project and add the Primary output from Demo.WindowsPresentation I always generate an the following error:&nbsp;</p>\r\n<p>&quot;Error&nbsp;1&nbsp;An error occurred while validating.&nbsp; HRESULT = '80004005'&nbsp;C:\\Scratch\\greatmaps_e68f33250c31\\Setup1\\Setup1.vdproj&nbsp;Setup1&quot;</p>\r\n<p>Any help would be appreciated!</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Mark</p>",
+    "PostedDate": "2010-06-30T14:13:00.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461835",
+    "ThreadId": "217906",
+    "Html": "<p>strange, what target do you use?</p>",
+    "PostedDate": "2010-06-30T14:18:39.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461903",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>Yeah, its pretty strange!  I've been trying \r\nto resolve this for over a day <img style=\"position:static;margin:0px;float:none\" title=\"Sad smile emoticon\" alt=\"Sad smile emoticon\"> .</div>\r\n<div> </div>\r\n<div>I've been using x86.  I think I have all of \r\nthe relevant projects set in the configuration manager set to x86.  Does \r\nthis work for you right with no problems?</div>\r\n<div> </div>\r\n<div>Thanks,</div>\r\n<div>Mark </div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Wednesday, June 30, 2010 3:18 PM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>strange, what target do you use?</p></div>\r\n",
+    "PostedDate": "2010-06-30T16:22:31.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462001",
+    "ThreadId": "217906",
+    "Html": "<p>only the application(*.exe) needs to be x86 if you use sqlite, other projects can be any</p>",
+    "PostedDate": "2010-06-30T22:30:34.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462144",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>I'm only doing x86 because of another project I'm \r\nincluding.  If I just use the zip file without modifications (and on \r\nanother machine) I still get the same results.</div>\r\n<div> </div>\r\n<div>Thanks,</div>\r\n<div>Mark</div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> <a title=\"mailto:notifications@codeplex.com&#10;CTRL + Click to follow link\" href=\"mailto:notifications@codeplex.com\">radioman</a> </div>\r\n<div><b>Sent:</b> Wednesday, June 30, 2010 11:30 PM</div>\r\n<div><b>To:</b> <a title=\"mailto:mfalberts@hotmail.com&#10;CTRL + Click to follow link\" href=\"mailto:mfalberts@hotmail.com\">mfalberts@hotmail.com</a> </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>only the application(*.exe) needs to be x86 if you use sqlite, other projects \r\ncan be any</p></div>\r\n",
+    "PostedDate": "2010-07-01T05:14:11.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462161",
+    "ThreadId": "217906",
+    "Html": "<p>what do you mean ' zip file'?</p>",
+    "PostedDate": "2010-07-01T05:57:19.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462169",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>The download from Codeplex &quot;greatmaps-e68f33250c31.zip&quot;</div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 6:57 AM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>what do you mean ' zip file'?</p></div>\r\n",
+    "PostedDate": "2010-07-01T06:27:21.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462200",
+    "ThreadId": "217906",
+    "Html": "<p>do you talk about setup included in demo solution? it's for mobile, but actually i've never used it ;}</p>",
+    "PostedDate": "2010-07-01T07:52:33.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462264",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>No, I created a new setup program - other \r\nprojects/setup.  I added the WPF demo/primary output.  Using VS2008 - \r\nthat is what generated the error.  </div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 8:52 AM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>do you talk about setup included in demo solution? it's for mobile, but \r\nactually i've never used it ;}</p></div>\r\n",
+    "PostedDate": "2010-07-01T10:07:42.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462275",
+    "ThreadId": "217906",
+    "Html": "<p>well to be sure, i've created setup project included active Demo.WindowsPresentation, works as usual, good ;} try some test console project and make setup for it, maybe visual studio struggling somehow ;}</p>",
+    "PostedDate": "2010-07-01T10:29:51.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462278",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>Ok, thanks.  I've tried it on two machines \r\nwith the same results.  Crazy.  I've created a lot of setup projects \r\nbefore and have several active setup projects going now with no problems so I'm \r\nkind of stuck.  Damn.  Well thanks for your time anyhow. </div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 11:30 AM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>well to be sure, i've created setup project included active \r\nDemo.WindowsPresentation, works as usual, good ;} try some test console project \r\nand make setup for it, maybe visual studio struggling somehow ;}</p></div>\r\n",
+    "PostedDate": "2010-07-01T10:43:01.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462282",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>So you know here is exactly what I'm \r\ndoing:</div>\r\n<div> </div>\r\n<div>1) Unzip greatmaps-e68f33250c31.zip</div>\r\n<div>2) Add new Setup project (Setup1)</div>\r\n<div>3) Added primary output for \r\nDemo.WindowsPresentation.  Interesting thing at this point is that NO \r\ndependencies show up.</div>\r\n<div><img style=\"position:static;margin:10px 0px 0px;display:inline-block;float:none\" border=0 width=405 height=281></div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div>4) After attempting to build I get \r\nthis:</div>\r\n<div><img style=\"position:static;margin:10px 0px 0px;display:inline-block;float:none\" border=0 width=1488 height=896><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> <a title=\"mailto:notifications@codeplex.com&#10;CTRL + Click to follow link\" href=\"mailto:notifications@codeplex.com\">radioman</a> </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 11:30 AM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>well to be sure, i've created setup project included active \r\nDemo.WindowsPresentation, works as usual, good ;} try some test console project \r\nand make setup for it, maybe visual studio struggling somehow ;}</p></div>\r\n",
+    "PostedDate": "2010-07-01T11:03:35.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462284",
+    "ThreadId": "217906",
+    "Html": "<p>can't see any images, please fix ;/</p>",
+    "PostedDate": "2010-07-01T11:08:19.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462298",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>Sorry, I'll try an attachment instead (just one \r\nscreen shot shows both the error and the fact there is no dependencies). \r\n</div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 12:08 PM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>can't see any images, please fix ;/</p></div>\r\n",
+    "PostedDate": "2010-07-01T11:46:11.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462316",
+    "ThreadId": "217906",
+    "Html": "<p>still no view, only audio ;}</p>",
+    "PostedDate": "2010-07-01T12:10:26.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462320",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>Ugh!  I'm sending it again - can you receive \r\nattachments at this address?  </div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 1:10 PM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>still no view, only audio ;}</p></div>\r\n",
+    "PostedDate": "2010-07-01T12:19:12.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462333",
+    "ThreadId": "217906",
+    "Html": "<p>your replays goes to forum, there is no attachments there, just post directly ;}</p>",
+    "PostedDate": "2010-07-01T12:38:43.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462338",
+    "ThreadId": "217906",
+    "Html": "<p>I don't see how to insert images.... :(</p>",
+    "PostedDate": "2010-07-01T12:51:27.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462351",
+    "ThreadId": "217906",
+    "Html": "<p>click html edit, add tag <em>&lt;img src=&quot;http://myserver.com/image.png&quot; width=&quot;800&quot; /&gt;</em></p>",
+    "PostedDate": "2010-07-01T13:36:22.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462361",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>bummer. I don't have an accessible web site. \r\n</div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 2:36 PM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>click html edit, add tag <em><img src=\"&lt;a href=\">http://myserver.com/image.png</a>&quot; \r\nwidth=&quot;800&quot; /&gt;</em></p></div>\r\n",
+    "PostedDate": "2010-07-01T14:05:32.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462368",
+    "ThreadId": "217906",
+    "Html": "<p><a href=\"http://imageshack.us/\">http://imageshack.us/</a></p>",
+    "PostedDate": "2010-07-01T14:16:55.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462370",
+    "ThreadId": "217906",
+    "Html": "<p><img src=\"http://img155.imageshack.us/img155/6852/capturehq.jpg\" alt=\"\" width=800></p>\r\n<p>&nbsp;</p>\r\n<p><em><a href=\"http://img155.imageshack.us/img155/6852/capturehq.jpg\">http://img155.imageshack.us/img155/6852/capturehq.jpg</a></em></p>",
+    "PostedDate": "2010-07-01T14:21:01.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462374",
+    "ThreadId": "217906",
+    "Html": "<p>one project doesn't build, unload testing projects</p>",
+    "PostedDate": "2010-07-01T14:26:19.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462379",
+    "ThreadId": "217906",
+    "Html": "\r\n<div>I removed all testing project, all windows forms \r\nproject and just left Demo.Windows.Presentation, GMap.Net.Core, and \r\nGMap.NetWindowsPresentation.  I cleaned, rebuilt and ran with no \r\nproblems.</div>\r\n<div> </div>\r\n<div>I deleted the setup project, added a new one and \r\nhad the same results:</div>\r\n<div> </div>\r\n<div>Error 1 An error occurred while \r\nvalidating.  HRESULT = \r\n'80004005' C:\\Scratch\\greatmaps-e68f33250c31\\greatmaps_e68f33250c31\\Setup2\\Setup2.vdproj Setup2<br></div>\r\n<div>I'm running VS2008  (9.307291.1 SP) on all \r\nof my machines - all having the same problem.. could this be the \r\nissue?</div>\r\n<div> </div>\r\n<div style=\"font:10pt Tahoma\">\r\n<div><br></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"font-color:black\"><b>From:</b> <a title=\"mailto:notifications@codeplex.com&#10;CTRL + Click to follow link\" href=\"mailto:notifications@codeplex.com\">radioman</a> </div>\r\n<div><b>Sent:</b> Thursday, July 01, 2010 3:26 PM</div>\r\n<div><b>To:</b> <a title=\"mailto:mfalberts@hotmail.com&#10;CTRL + Click to follow link\" href=\"mailto:mfalberts@hotmail.com\">mfalberts@hotmail.com</a> </div>\r\n<div><b>Subject:</b> Re: Setup Project [greatmaps:217906]</div></div></div>\r\n<div><br></div>\r\n\r\n\r\n<p>From: radioman</p>\r\n<div id=ThreadNotificationPostBody>\r\n<p>one project doesn't build, unload testing projects</p></div>\r\n",
+    "PostedDate": "2010-07-01T14:38:22.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462385",
+    "ThreadId": "217906",
+    "Html": "<p>hm.. strange</p>",
+    "PostedDate": "2010-07-01T14:57:08.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

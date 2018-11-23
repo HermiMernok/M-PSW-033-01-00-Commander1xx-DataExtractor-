@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "\r\nFollowing code:\r\n\r\nPointLatLng start1 = new PointLatLng(51.61055, 8.34348);\r\nPointLatLng end1 = new PointLatLng(51.5042742, 5.4458191);\r\nMapRoute route1 = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(start1, end1, false, false, 15);\r\n\r\nwill return 'Null' in route1.....\r\n\r\nIt worked perfectly until a little while ago..\r\n\r\nSomebody knows how to solve this?",
+    "LastUpdatedDate": "2015-07-22T08:40:24.32-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-07-10T01:40:52.65-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GetRoute returning 'Null'",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 4,
+    "Id": 16123
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Same exact problem for me today :-( I checked also with older versions of GMap.NET and the problem remains. My guess is that Google changed something.\nRouting still works with Bing maps for instance.",
+      "PostedDate": "2015-07-10T09:04:00.407-07:00",
+      "Id": 187094
+    },
+    {
+      "Message": "yes, google removed the service http://greatmaps.codeplex.com/discussions/547972#post1433853",
+      "PostedDate": "2015-07-10T10:18:53.417-07:00",
+      "Id": 187097
+    },
+    {
+      "Message": "Thanks radioman for the information, that's soooo Google to remove services :-\\ ",
+      "PostedDate": "2015-07-10T11:12:54.06-07:00",
+      "Id": 187098
+    },
+    {
+      "Message": "My work-around for now, which is working for me:\n\nGDirections ss;\nvar xx = GMapProviders.GoogleMap.GetDirections(out ss, start, end, false, false, false, false, false);\nGMapRoute r = new GMapRoute(ss.Route, \"My route\");\n\n\n\n....and case closed for me (for now)...",
+      "PostedDate": "2015-07-13T00:57:30.42-07:00",
+      "Id": 187144
+    },
+    {
+      "Message": "... and you made my day :-) Great workaround, that solved my issue too. Thanks!",
+      "PostedDate": "2015-07-13T02:05:07.883-07:00",
+      "Id": 187150
+    },
+    {
+      "Message": "Great! Thank you!",
+      "PostedDate": "2015-07-15T05:54:25.35-07:00",
+      "Id": 187264
+    }
+  ]
+}

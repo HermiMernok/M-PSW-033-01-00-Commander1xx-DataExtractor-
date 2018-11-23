@@ -1,0 +1,202 @@
+[
+  {
+    "Id": "1005897",
+    "ThreadId": "434305",
+    "Html": "Hi,\r<br />\n<br />\nI un-commented out some code that appeared to use the Bearing.\r<br />\nIt sort of worked, but rotated the canvas and markers in a way I can't understand.\r<br />\nSo I have hope that it could work, but don't have the brains to get it working.\r<br />\n<br />\nQ: Has anyone been able to rotate markers?\r<br />\n<br />\nThis is my last attempt at reaching out to see if anyone has done this.\r<br />\nOtherwise I will be creating:\r<br />\nResource/yellow_360.png\r<br />\nResource/yellow_90.png\r<br />\netc\r<br />\n<br />\nThanks for any leads.\r<br />\n-cellurl<br />\n",
+    "PostedDate": "2013-02-24T07:06:28.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006526",
+    "ThreadId": "434305",
+    "Html": "You have to create a matrix for the Graphix on the OnRender method\r<br />\nThen RotateAt the matrix\r<br />\n<br />\nSomething like this<br />\n<pre><code>public override void OnRender(Graphics g)\n{\n  Point p0 = LocalPosition;\n\n  Matrix mx = new Matrix();\n  mx.RotateAt(45, new PointF(p0.X, p0.Y), MatrixOrder.Append);\n  g.Transform = mx;\n\n  g.DrawYourStuff();\n  g.ResetTransform();\n}</code></pre>\n\n",
+    "PostedDate": "2013-02-25T13:16:58.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006674",
+    "ThreadId": "434305",
+    "Html": "Thanks for the reply.\r<br />\nIt rotates the markers but puts them up at the top always.\r<br />\n<img src=\"http://www.wikispeedia.org/gmap.png\" alt=\"Image\" />\r<br />\nI am running the demo source.\r<br />\nThanks for helping!\r<br />\ncellurl\r<br />\n<br />\nGMarkerGoogle.cs<br />\n<pre><code>      public override void OnRender(Graphics g)\n      {\n#if !PocketPC\n         //if(!Bearing.HasValue)\n         {\n            if(BitmapShadow != null)\n            {\n               g.DrawImage(BitmapShadow, LocalPosition.X, LocalPosition.Y, BitmapShadow.Width, BitmapShadow.Height);\n            }\n         }\n\n          //jim uncommented this whole entire if/body thing...\n         //if (Bearing.HasValue)\n         //{\n         //    g.RotateTransform(Bearing.Value - Overlay.Control.Bearing);\n         //    g.FillPolygon(Brushes.Red, Arrow);\n         //}\n\n          //jim uncommented this one if line only\n         //if (!Bearing.HasValue)\n         {\n             Matrix mx = new Matrix();\n            mx.RotateAt(45, new PointF(LocalPosition.X, LocalPosition.Y), MatrixOrder.Append);\n            g.Transform = mx;\n            g.DrawImage(Bitmap, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n            g.ResetTransform();\n         }\n#else\n         if(BitmapShadow != null)\n         {\n            DrawImageUnscaled(g, BitmapShadow, LocalPosition.X, LocalPosition.Y);\n         }\n         DrawImageUnscaled(g, Bitmap, LocalPosition.X, LocalPosition.Y);\n#endif\n      }\n</code></pre>\n\n",
+    "PostedDate": "2013-02-25T21:01:13.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006684",
+    "ThreadId": "434305",
+    "Html": "Hello\r<br />\n<br />\nIn my example I've set the rotation angle to 45 degree, you have to change it to the needed value (in degree)\r<br />\n<br />\nmx.RotateAt(45, new PointF(LocalPosition.X, LocalPosition.Y), <br />\n",
+    "PostedDate": "2013-02-25T21:58:43.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006700",
+    "ThreadId": "434305",
+    "Html": "Yep, I realize you hardwired 45 in there for test.\r<br />\nI still get the same thing, the markers are in the wrong place, everything is rotated...\r<br />\n<br />\nQ: Is LocalPosition.X  a  latitude? (hope not). I stepped in and it was 6,12, small numbers.\r<br />\nI am out of ideas...\r<br />\nThanks for looking\r<br />\n-cellurl\r<br />\n<br />\n<br />\n<br />\nGMarkerGoogle.cs<br />\n<pre><code>\n      public override void OnRender(Graphics g)\n      {\n#if !PocketPC\n          {\n              Matrix mx = new Matrix();\n              mx.RotateAt(45, new PointF(LocalPosition.X, LocalPosition.Y), MatrixOrder.Append);\n              g.Transform = mx;\n              g.DrawImage(Bitmap, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n              g.ResetTransform();\n          }\n#else\n         if(BitmapShadow != null)\n         {\n            DrawImageUnscaled(g, BitmapShadow, LocalPosition.X, LocalPosition.Y);\n         }\n         DrawImageUnscaled(g, Bitmap, LocalPosition.X, LocalPosition.Y);\n#endif\n      }</code></pre>\n\n",
+    "PostedDate": "2013-02-25T22:42:06.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006809",
+    "ThreadId": "434305",
+    "Html": "i recommend to rotate image itself, at least until i or someone else will manage to get the code right...<br />\n",
+    "PostedDate": "2013-02-26T02:08:06.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006821",
+    "ThreadId": "434305",
+    "Html": "Using RotateAt you set the center of rotation to LocalPosition\r<br />\n<br />\nBut LocalPosition is probably not the center of your image but the top left corner of your marker (according to offset)<br />\n",
+    "PostedDate": "2013-02-26T02:31:16.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006825",
+    "ThreadId": "434305",
+    "Html": "yes, LocalPosition is topLeft of markers image, but the origin isn't topLeft of the view, it's marked as blue cross in debug mode and is dynamic...<br />\n",
+    "PostedDate": "2013-02-26T02:37:14.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006945",
+    "ThreadId": "434305",
+    "Html": "If I hear you right radioman, its solvable, but on the back burner and not super simple...\r<br />\n<br />\nAnyway, lets table this for now and I will go to plan B (bunch of separate png files).\r<br />\n<br />\nI will monitor the forum for future solutions.\r<br />\n<br />\nThanks everyone!\r<br />\n<br />\n-cellurl<br />\n",
+    "PostedDate": "2013-02-26T06:35:14.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006951",
+    "ThreadId": "434305",
+    "Html": "just use one image, and make rotated image using the first as reference<br />\n",
+    "PostedDate": "2013-02-26T06:45:32.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007037",
+    "ThreadId": "434305",
+    "Html": "However I'm quite sure that my proposition will work\r<br />\nIn the constructor Set size the size of image \r<br />\n<br />\n public override void OnRender(Graphics g)\r<br />\n{\r<br />\n  Point p0 = LocalPosition;\r<br />\n  p0.X+=Size.With /2;\r<br />\n  p0.Y+=Size.Height /2;\r<br />\n<br />\n  Matrix mx = new Matrix();\r<br />\n  mx.RotateAt(Angle, new PointF(p0.X, p0.Y), MatrixOrder.Append);\r<br />\n  g.Transform = mx;\r<br />\n<br />\n  g.DrawYourStuff();\r<br />\n  g.ResetTransform();\r<br />\n}\r<br />\n<br />\nN.B. Maybe you have to save g.Transform before and restore after<br />\n",
+    "PostedDate": "2013-02-26T09:05:44.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007232",
+    "ThreadId": "434305",
+    "Html": "This work fine<br />\n<pre><code>class C_GmapDirectionMarker : GMapMarker\n{\n    Color Co;\n    double Angle = 0;\n    Image Img;\n \n    public C_GmapDirectionMarker(PointLatLng p0,double Angle, Image _Img)\n      : base(p0)\n    {\n\n      this.Img = _Img;\n      this.Size = new Size(Img.Width, Img.Height);\n      this.Offset = new Point(-Size.Width / 2, -Size.Height / 2);\n      this.Angle = Angle;\n    }\n\n    public override void OnRender(Graphics g)\n    {\n      Point p0 = LocalPosition;\n      p0.X -= Offset.X;\n      p0.Y -= Offset.Y;\n\n      Matrix mx = new Matrix();\n      mx.RotateAt((float)Angle, new PointF(p0.X, p0.Y), MatrixOrder.Append);\n      g.Transform = mx;\n\n      g.DrawImageUnscaled(Img, LocalPosition.X, LocalPosition.Y);\n      g.ResetTransform();\n    }\n}</code></pre>\n\n",
+    "PostedDate": "2013-02-26T13:33:18.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007370",
+    "ThreadId": "434305",
+    "Html": "Thanks for that.\r<br />\nI just tried it.\r<br />\nIt almost worked.\r<br />\nIt rotates the markers wonderfully,\r<br />\nbut\r<br />\nit places them in the upper left corner.\r<br />\n<br />\nYou guys are the best.\r<br />\nDon't spend any more time on this.\r<br />\nI appreciate it! I really do.\r<br />\n<br />\n<br />\n-cellurl<br />\n",
+    "PostedDate": "2013-02-26T21:06:54.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007386",
+    "ThreadId": "434305",
+    "Html": "Here is how it works on my road\r<br />\n<br />\n<img src=\"http://s20.postimage.org/65h1w9oal/Track_Direction.png\" alt=\"Image\" />\r<br />\n<br />\nAnd the icon used\r<br />\n<br />\n<img src=\"http://s20.postimage.org/w2aq8vry1/Arrow16.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2013-02-26T21:50:13.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007592",
+    "ThreadId": "434305",
+    "Html": "can you fork it somewhere and I grab it all??\r<br />\nIt looks wonderful, just what I need ( just the markers... )<br />\n",
+    "PostedDate": "2013-02-27T06:22:55.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007633",
+    "ThreadId": "434305",
+    "Html": "Hello CellUrl\r<br />\n<br />\nI'm  just using the code already given : I make an extension of GMapMarker\r<br />\nIt should work for you too !\r<br />\n<br />\nOne tricky thing can be to compute the angle...\r<br />\n<br />\nWhat problem do you encounter ?<br />\n",
+    "PostedDate": "2013-02-27T07:12:45.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007990",
+    "ThreadId": "434305",
+    "Html": "I just downloaded new source (greatmaps_5794a8864f7c)\r<br />\nI modified the Flight Radar Demo to show all points at 45 degree angle.\r<br />\nThe points are at an angle. There are two things that don't seem correct.\r<br />\n1) In the left top, I see DEBUG BUILD cross.\r<br />\n2) When I rightclick mouse and move map a small amount, the markers do not move.\r<br />\nThe map moves, but the markers don't. (two screenshots below)\r<br />\n<br />\nIf you want to recreate this, here are the only two files I changed\r<br />\n<a href=\"http://www.wikispeedia.org/gmap/Resources.Designer.cs\" rel=\"nofollow\">TEXT</a>\r<br />\n<a href=\"http://www.wikispeedia.org/gmap/MainForm.cs\" rel=\"nofollow\">TEXT</a>\r<br />\n<br />\nBefore moving screen \r<br />\nAfter moving screen (notice marker didnt move. I waited and it never moved)\r<br />\n<a href=\"http://www.wikispeedia.org/gmap/biebield.png\" rel=\"nofollow\">TEXT</a>\r<br />\n<a href=\"http://www.wikispeedia.org/gmap/osnabrook.png\" rel=\"nofollow\">TEXT</a><br />\n",
+    "PostedDate": "2013-02-27T21:28:49.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1008677",
+    "ThreadId": "434305",
+    "Html": "Here's the correct method, i think olibara uses an older version of GMap without &quot;LocalAreaInControlSpace&quot;:<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Override Render function\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;g&quot;&gt;&lt;/param&gt;\n        public override void OnRender(Graphics g)\n        {\n            if (RotationAngle != 0f)\n            {\n                GraphicsState savedState = g.Save();\n                g.ResetTransform();\n                g.Transform.RotateAt(RotationAngle, new PointF(LocalAreaInControlSpace.Location.X - Offset.X, LocalAreaInControlSpace.Location.Y - Offset.Y));\n                g.DrawImage(img, LocalAreaInControlSpace.Location.X, LocalAreaInControlSpace.Location.Y, Size.Width, Size.Height);\n                g.Restore(savedState);\n            }\n            else\n                g.DrawImage(img, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n        }</code></pre>\n\n",
+    "PostedDate": "2013-03-01T01:22:45.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009299",
+    "ThreadId": "434305",
+    "Html": "I put this in at the top of file: GMapMarker.cs<br />\nIt doesn't rotate, but it doesn't hurt anything, so I call that progress..<br />\n<br />\nQ: How do I modify the constructor to rotate the icon in there.<br />\n(I don't know how to rotate a bitmap).<br />\nThanks for helping<br />\n-cellurl<br />\n<pre><code>    using GMap.NET.WindowsForms.Markers;\n    using System.Windows.Forms.Properties;\n    using System.Drawing.Drawing2D;\n\n    public class C_GmapDirectionMarker : GMapMarker\n    {\n        float RotationAngle = 0;\n        public Image Img;\n\n        public C_GmapDirectionMarker(PointLatLng p0, float Angle, GMarkerGoogleType _type)\n            : base(p0)\n        {\n              switch (_type)\n              {\n                  case GMarkerGoogleType.yellow_small:\n                      Img = Resources.yellow_small;\n                      break;\n                  default:\n                      Img = Resources.yellow_small;\n                      break;\n              }\n\n            this.Size = new Size(Img.Width, Img.Height);\n            this.Offset = new Point(-Size.Width / 2, -Size.Height / 2);\n            this.RotationAngle = Angle;\n        }\n\n        /// &lt;summary&gt;\n        /// Override Render function\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;g&quot;&gt;&lt;/param&gt;\n        public override void OnRender(Graphics g)\n        {\n            if (RotationAngle != 0f)\n            {\n                GraphicsState savedState = g.Save();\n                g.ResetTransform();\n             \n                g.Transform.RotateAt(RotationAngle, new PointF(LocalAreaInControlSpace.Location.X - Offset.X, LocalAreaInControlSpace.Location.Y - Offset.Y));\n\n                g.DrawImage(Img, LocalAreaInControlSpace.Location.X, LocalAreaInControlSpace.Location.Y, Size.Width, Size.Height);\n                g.Restore(savedState);\n            }\n            else\n                g.DrawImage(Img, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n        }\n    }\n</code></pre>\n\n",
+    "PostedDate": "2013-03-02T11:59:24.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009420",
+    "ThreadId": "434305",
+    "Html": "Oops, sorry, I changed something in the code without testing, the problem was, that it's not possible to directly set the transformation matrix for the Graphics object, because it returns a COPY of the matrix..... Here's the working code. By the way, in your class, you are not Disposing the Image!! That can cause trouble (memory leak).<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Override Render function\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;g&quot;&gt;&lt;/param&gt;\n        public override void OnRender(Graphics g)\n        {\n            if (rotAngle != 0f)\n            {\n                GraphicsState savedState = g.Save();\n                g.ResetTransform();\n\n                Matrix rot = new Matrix();\n                rot.RotateAt(rotAngle, new PointF(LocalAreaInControlSpace.Location.X - Offset.X, LocalAreaInControlSpace.Location.Y - Offset.Y));\n                g.Transform = rot;\n\n                g.DrawImage(MarkerImage, LocalAreaInControlSpace.Location.X, LocalAreaInControlSpace.Location.Y, Size.Width, Size.Height);\n                g.Restore(savedState);\n            }\n            else\n                g.DrawImage(MarkerImage, LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n        }</code></pre>\n\n<img src=\"https://dl.dropbox.com/u/7026787/Screenshots/RotMarker.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2013-03-03T00:38:25.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009425",
+    "ThreadId": "434305",
+    "Html": "Here's the complete code for an ImageMarker. You can also set the size of the image.<br />\n<pre><code> public class GMapMarkerImage : GMapMarker\n    {\n        private Size imgSize = Size.Empty;\n        /// &lt;summary&gt;\n        /// Gets or sets the Image size\n        /// &lt;/summary&gt;\n        public Size ImageSize\n        {\n            get\n            {\n                return imgSize;\n            }\n            set\n            {\n                imgSize = value;\n                this.Size = new System.Drawing.Size(imgSize.Width, imgSize.Height);\n                this.Offset = new System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\n            }\n        }\n\n        private float rot;\n        /// &lt;summary&gt;\n        /// Gets or sets the Rotation Angle in degrees\n        /// &lt;/summary&gt;\n        public float RotationAngle\n        {\n            get { return rot; }\n            set \n            { \n                rot = value;\n                if (Overlay != null &amp;&amp; Overlay.Control != null &amp;&amp; !Overlay.Control.HoldInvalidation)\n                {\n                    Overlay.Control.Refresh();\n                }\n            }\n        }\n\n\n        private Image img;\n        /// &lt;summary&gt;\n        /// The image to display as a marker.\n        /// &lt;/summary&gt;\n        public Image MarkerImage\n        {\n            get\n            {\n                return img;\n            }\n            set\n            {\n                img = value;\n                if (img != null)\n                {\n                    ImageSize = img.Size;\n                    if (Overlay != null &amp;&amp; Overlay.Control != null)\n                    {\n                        Overlay.Control.UpdateMarkerLocalPosition(this);\n                    }\n                }\n            }\n        }\n\n        /// &lt;summary&gt;\n        /// Constructor\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;p&quot;&gt;The position of the marker&lt;/param&gt;\n        public GMapMarkerImage(PointLatLng p, Image image, MarkerType typ)\n            : base(p)\n        {\n            img = image;\n            ImageSize = img.Size;\n            this.TypeOfMarker = typ;\n            rot = 0f;\n        }\n\n        /// &lt;summary&gt;\n        /// Overload with Angle\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;p&quot;&gt;&lt;/param&gt;\n        /// &lt;param name=&quot;image&quot;&gt;&lt;/param&gt;\n        /// &lt;param name=&quot;typ&quot;&gt;&lt;/param&gt;\n        /// &lt;param name=&quot;angle&quot;&gt;&lt;/param&gt;\n        public GMapMarkerImage(PointLatLng p, Image image, MarkerType typ, float angle)\n            : this(p, image, typ)\n        {\n            rot = angle;\n        }\n\n        /// &lt;summary&gt;\n        /// Override Render function\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;g&quot;&gt;&lt;/param&gt;\n        public override void OnRender(Graphics g)\n        {\n            var tmp = g.InterpolationMode;\n            g.InterpolationMode = InterpolationMode.HighQualityBicubic;\n\n            if (rot != 0f)\n            {\n                GraphicsState savedState = g.Save();\n                g.ResetTransform();\n                Matrix transformationMatrix = new Matrix();\n                transformationMatrix.RotateAt(rot, new PointF(LocalAreaInControlSpace.Location.X - Offset.X, LocalAreaInControlSpace.Location.Y - Offset.Y));\n                g.Transform = transformationMatrix;\n                g.DrawImage(img, LocalAreaInControlSpace.Location.X, LocalAreaInControlSpace.Location.Y, imgSize.Width, imgSize.Height);\n                g.Restore(savedState);\n            }\n            else\n                g.DrawImage(img, LocalPosition.X, LocalPosition.Y, imgSize.Width, imgSize.Height);\n\n            g.InterpolationMode = tmp;\n        }\n\n        bool disposed = false;\n        /// &lt;summary&gt;\n        /// Dispose all resources\n        /// &lt;/summary&gt;\n        public override void Dispose()\n        {\n            if (!disposed)\n            {\n                disposed = true;\n                if (MarkerImage != null)\n                {\n                    MarkerImage.Dispose();\n                    MarkerImage = null;\n                }\n                base.Dispose();\n            }\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2013-03-03T01:02:14.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009675",
+    "ThreadId": "434305",
+    "Html": "I put in the onRender() and it worked!<br />\nThanks.<br />\nI had some trouble with the GMapMarkerImage, so I just went with the onRender fix above.<br />\n<br />\nIf anyone wants it,  here is the entire file:<br />\n<a href=\"http://www.wikispeedia.org/gmap/GMapMarker.cs\" rel=\"nofollow\">GMapMarker.cs</a><br />\n<br />\nThanks Xandolph, olibara and radioman.<br />\nI will put kukos on our site.<br />\nThanks again.<br />\n-cellurl<br />\n",
+    "PostedDate": "2013-03-03T21:03:13.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015458",
+    "ThreadId": "434305",
+    "Html": "@cellurl\r<br />\n<br />\nHow you managed to build the code? I'm getting error on LocalAreaInControlSpace. Seems it's marked as internal. How can this be solved?<br />\n",
+    "PostedDate": "2013-03-14T11:02:58.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015681",
+    "ThreadId": "434305",
+    "Html": "step 1: compile the lastest windows forms using visual studio 10.net\r<br />\nstep 2: Substitute this file for the one in ./WindowsForms/Forms or ./WIndowsForms/src\r<br />\n<a href=\"http://www.wikispeedia.org/gmap/GMapMarker.cs\" rel=\"nofollow\">GmapMarker.cs</a>\r<br />\n<br />\nI don't have a clue what your error is sorry.<br />\n",
+    "PostedDate": "2013-03-14T20:47:21.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342220",
+    "ThreadId": "434305",
+    "Html": "rotation fixed\r<br />\n<br />\np.s. marker rotation demo [left menu, Live-&gt;FlightRadar] and <strong>GMarkerArrow.cs</strong><br />\n",
+    "PostedDate": "2015-01-15T08:14:48.8-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-15T08:15:01.097-08:00"
+  }
+]

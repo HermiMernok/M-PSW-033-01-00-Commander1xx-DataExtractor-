@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "673995",
+    "ThreadId": "273146",
+    "Html": "\r\n<p>Hi.</p>\r\n<p>I use local cache.</p>\r\n<p>&amp; the cache file caches</p>\r\n<p>from tile&nbsp;{ X = 3369, Y = 1549 } to tile { X = 3375,Y = 1553 }</p>\r\n<p>at zoom level 12.</p>\r\n<p>&nbsp;</p>\r\n<p>I also calculated</p>\r\n<p>topleft pointlatlng ( Lat = 40.0443061698567, Lng = 116.147632598877)</p>\r\n<p>bottonright pointlatlng (&nbsp;Lat = 39.8424178240922, Lng = 116.630687713623).</p>\r\n<p>&nbsp;</p>\r\n<p>I use the <span>code snippet in the following discussion</span></p>\r\n<p><a href=\"http://greatmaps.codeplex.com/discussions/238654\">http://greatmaps.codeplex.com/discussions/238654</a></p>\r\n<p>&nbsp;</p>\r\n<p>My code snippet.</p>\r\n<p>_mainMap.BoundsOfMap = new RectLatLng?(new RectLatLng(</p>\r\n<p><span style=\"white-space:pre\"></span>mapInfo.PointTopLeft.Lat,</p>\r\n<p><span style=\"white-space:pre\"></span>mapInfo.PointTopLeft.Lng,</p>\r\n<p><span style=\"white-space:pre\"></span>mapInfo.PointBottomRight.Lng - mapInfo.PointTopLeft.Lng,</p>\r\n<p><span style=\"white-space:pre\"></span>mapInfo.PointTopLeft.Lat - mapInfo.PointBottomRight.Lat));</p>\r\n<p>&#65279;</p>\r\n<p>But when I drag the map</p>\r\n<p>I got <strong>tiles which were not cached to local file</strong> shown in the map.</p>\r\n<p>&nbsp;</p>\r\n<p>Is there a method that I can use tile to set my map's bounds?</p>\r\n<p><strong>Such as:&nbsp;_mainMap.SetBounds( topLeftTile(&nbsp;X = 3369, Y = 1549&nbsp;), bottonRightTile(&nbsp;X = 3375,Y = 1553&nbsp;))</strong></p>\r\n<p>Thx.</p>\r\n<p>^_^</p>\r\n",
+    "PostedDate": "2011-09-19T20:01:18.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674029",
+    "ThreadId": "273146",
+    "Html": "<p>whats the point?</p>",
+    "PostedDate": "2011-09-19T23:16:44.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674042",
+    "ThreadId": "273146",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>whats the point?</p>\r\n</blockquote>\r\n<p>Thx.</p>\r\n<p>Set map bounds.</p>\r\n<p>&nbsp;</p>\r\n<p>Here is my solution code .</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n<span style=\"color: gray;\">///</span><span style=\"color: green;\"> BoundsOfMap</span>\r\n<span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;param name=\"tileTopLeft\"&gt;</span><span style=\"color: gray;\">&lt;/param&gt;</span>\r\n<span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;param name=\"tileBottomRight\"&gt;</span><span style=\"color: gray;\">&lt;/param&gt;</span>\r\n<span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;param name=\"zoom\"&gt;</span><span style=\"color: gray;\">&lt;/param&gt;</span>\r\n<span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> SetMapBounds(GPoint tileTopLeft, GPoint tileBottomRight, <span style=\"color: blue;\">int</span> zoom)\r\n{\r\n\r\n    <span style=\"color: green;\">//tileTopLeft</span>\r\n    <span style=\"color: blue;\">var</span> gpointTopLeft = <span style=\"color: blue;\">new</span> GPoint\r\n    {\r\n        X = tileTopLeft.X + 2,\r\n        Y = tileTopLeft.Y +1\r\n    };\r\n    <span style=\"color: blue;\">var</span> pixelTopLeft = _mainMap.MapProvider.Projection.FromTileXYToPixel(gpointTopLeft);\r\n    pixelTopLeft.X += 128;\r\n    pixelTopLeft.Y += 128;\r\n    <span style=\"color: blue;\">var</span> pointTopLeft = _mainMap.MapProvider.Projection.FromPixelToLatLng(pixelTopLeft, zoom);\r\n    <span style=\"color: green;\">//tileBottomRight</span>\r\n    <span style=\"color: blue;\">var</span> gpointBottomRight = <span style=\"color: blue;\">new</span> GPoint\r\n    {\r\n        X = tileBottomRight.X - 2,\r\n        Y = tileBottomRight.Y - 1\r\n    };\r\n    <span style=\"color: blue;\">var</span> pixelBottomRight = _mainMap.MapProvider.Projection.FromTileXYToPixel(gpointBottomRight);\r\n    pixelBottomRight.X += 128;\r\n    pixelBottomRight.Y += 128;\r\n    <span style=\"color: blue;\">var</span> pointBottomRight = _mainMap.MapProvider.Projection.FromPixelToLatLng(pixelBottomRight, zoom);\r\n<span style=\"color: green;\">    </span><span style=\"color: green;\">//BoundsOfMap</span>\r\n    _mainMap.BoundsOfMap = <span style=\"color: blue;\">new</span> RectLatLng?\r\n        (<span style=\"color: blue;\">new</span> RectLatLng(\r\n            pointTopLeft.Lat,\r\n            pointTopLeft.Lng,\r\n            pointBottomRight.Lng - pointTopLeft.Lng,\r\n            pointTopLeft.Lat - pointBottomRight.Lat));\r\n}\r\n</pre>\r\n</div>\r\n</p>\r\n<p>^_^</p>",
+    "PostedDate": "2011-09-20T00:36:44.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674045",
+    "ThreadId": "273146",
+    "Html": "<p>..i mean why do you use raw tile numbers?</p>",
+    "PostedDate": "2011-09-20T00:41:07.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674051",
+    "ThreadId": "273146",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>..i mean why do you use raw tile numbers?</p>\r\n</blockquote>\r\n<p>Because I know I cached some data in local file</p>\r\n<p>form&nbsp;<span>tile&nbsp;{ X = 3369, Y = 1549 } to tile { X = 3375,Y = 1553 }.</span></p>\r\n<p><span>But I don't know location's latlng &amp; size.&nbsp;</span></p>\r\n<p><strong>so I can't write code like this:</strong></p>\r\n<p><span><span>_mainMap.BoundsOfMap = new RectLatLng?(new RectLatLng( ?, ?, ?));</span></span></p>\r\n<p>&nbsp;</p>\r\n<p><strong>I want to write like this:</strong></p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">var</span> tileTopLeft = <span style=\"color: blue;\">new</span> GPoint\r\n    {\r\n        X = 3369,\r\n        Y = 1549\r\n    };\r\n\t\r\n<span style=\"color: blue;\">var</span> tileBottomRight = <span style=\"color: blue;\">new</span> GPoint\r\n    {\r\n        X = 3375,\r\n        Y = 1553\r\n    };\r\n\t\r\nSetMapBounds(tileTopLeft, tileBottomRight, 12)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Thx radioman.</p>\r\n<p><span><span><br /></span></span></p>",
+    "PostedDate": "2011-09-20T00:52:33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

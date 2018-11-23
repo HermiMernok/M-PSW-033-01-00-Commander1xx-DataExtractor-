@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "58821",
+    "ThreadId": "18011",
+    "Html": "\r\nSalve a tutti, ho scaricato ed utilizzato una parte di codice di ProjNet ed in particolare la classe SRIDReader.cs e il file associato SRID.csv per un progetto universitario senza scopo di lucro. Volevo sapere cosa devo scrivere all'interno della classe per poter rispettare la licenza. Grazie a tutti.<br />",
+    "PostedDate": "2007-11-19T02:39:59.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "59179",
+    "ThreadId": "18011",
+    "Html": "\r\nNessuno mi sa aiutare???<br />",
+    "PostedDate": "2007-11-21T00:57:54.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "62213",
+    "ThreadId": "18011",
+    "Html": "\r\nAllora il codice di Proj.Net è rilasciato sotto LGPL, quindi i vincoli sono all'incirca questi:<br />dovresti (non è obbligatorio) citare che il tuo software usa questa libreria.<br />se fissi dei bug o migliori quella parte di codice che utilizzi devi (questo è obbligatorio) sottoporre le modifiche al team del progetto.<br />non puoi (ovviamente) vendere questo progetto, ma puoi vendere un prodotto che utilizza questo progetto e aggiunge altre funzionalità.<br />Altre cose non i vengono in mente.<br />P.S: è buona norma postare le domande in inglese, anche maccheronico, in modo che tutti possano accedervi.<br />",
+    "PostedDate": "2007-12-10T13:44:13.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "62256",
+    "ThreadId": "18011",
+    "Html": "<i>\"P.S: è buona norma postare le domande in inglese, anche maccheronico, in modo che tutti possano accedervi.\"</i><br />Thanks Diego :-)<br />It's funny how people often assume that we can read and write all languages on an english website.<br /><br />mkel84: You cannot rip out individual files from the project and use these as you like. That will bind you to the LGPL license too, and you HAVE to write that you are working on a project derived from Proj.NET.<br />LGPL is only as loose as Diego says if you just link to the <i>compiled DLL</i> of the <i>unchanged</i> source as a whole, in other words if you just use the released binary files.<br />",
+    "PostedDate": "2007-12-10T18:30:10.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "62301",
+    "ThreadId": "18011",
+    "Html": "<div class=\"quote\" style=\"border: dotted .1em #aaa; border-left: none; border-right: none; font-style: italic; margin: 1em 0em 2.5em 3em;padding: .2em;\"><br />SharpGIS wrote:<br />LGPL is only as loose as Diego says if you just link to the <i>compiled DLL</i> of the <i>unchanged</i> source as a whole, in other words if you just use the released binary files.<br /><br /></div>Thanks for the explanation ;)<br />",
+    "PostedDate": "2007-12-10T23:59:41.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "63714",
+    "ThreadId": "18011",
+    "Html": "\r\nThank you, now I only read what I have written, however, mention the use of class project.<br />Again thanks.<br />",
+    "PostedDate": "2007-12-18T00:32:41.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "122258",
+    "ThreadId": "18011",
+    "Html": "&quot;<span style=\"font-family:'Segoe UI';font-size:13px\">You cannot rip out individual files from the project and use these as you like. That will bind you to the LGPL license too, and you HAVE to write that you are working on a project derived from Proj.NET.  LGPL is only as loose as Diego says if you just link to the <em>compiled DLL</em> of the <em>unchanged</em> source as a whole, in other words if you just use the released binary files.&quot;</span><div><div><span style=\"font-family:'Segoe UI';font-size:13px\"><br></span></div><div><span style=\"font-family:'Segoe UI';font-size:13px\">you DON'T have to write that &quot;you are working on a project derived from Proj.NET&quot;.  You simply need to retain the the copyright notices.</span></div><div><span style=\"font-family:'Segoe UI';font-size:13px\"><br></span></div><div><span style=\"font-family:'Segoe UI';font-size:13px\">details: <span style=\"font-family:Times;font-size:16px\"><span><a href=\"http://creativecommons.org/licenses/LGPL/2.1/\">http://creativecommons.org/licenses/LGPL/2.1/</a></span></span></span></div><div><br></div><div>Scott</div></div>",
+    "PostedDate": "2008-10-01T17:07:12.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

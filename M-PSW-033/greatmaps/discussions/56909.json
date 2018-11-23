@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "192344",
+    "ThreadId": "56909",
+    "Html": "<p>Can you please make public visible</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p>Core.GetMaxZoomToFitRect() ?</p>\r\n</span></p>",
+    "PostedDate": "2009-05-20T06:17:13.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192475",
+    "ThreadId": "56909",
+    "Html": "<p>can i ask why?</p>",
+    "PostedDate": "2009-05-20T10:53:38.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192492",
+    "ThreadId": "56909",
+    "Html": "<p>I have a <span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">RectLatLng&nbsp;<span style=\"color:#000000\"> (coming from external)&nbsp;and wand to display it on the map in a nice way and want to adjust the slider to the correct value.&nbsp; </span></span></span></p>\r\n<p><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#000000\">My code:</span></span></span></p>\r\n<p><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#000000\"><span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">int</span></span><span style=\"font-size:x-small\"> maxZoom = MainMap.Core.GetMaxZoomToFitRect( rect );<br></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">if</span></span><span style=\"font-size:x-small\"> (maxZoom &gt; 0)<br>{<br></span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">&nbsp;&nbsp;&nbsp;PointLatLng</span></span><span style=\"font-size:x-small\"> center = </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">PointLatLng</span></span><span style=\"font-size:x-small\">(rect.Lat - (rect.HeightLat / 2), rect.Lng + (rect.WidthLng / 2));<br>&nbsp;&nbsp; MainMap.CurrentPosition = center;<br>&nbsp; </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">if</span></span><span style=\"font-size:x-small\"> (MainMap.Zoom != maxZoom)<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Zoom = maxZoom;<br>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size:x-small\">trackBarGeoZoom.Value = MainMap.Zoom;<br>&nbsp; }<br></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&nbsp; else<br></span></span><span style=\"font-size:x-small\">&nbsp; {<br>&nbsp;&nbsp;&nbsp; &nbsp; MainMap.GoToCurrentPosition();<br>&nbsp; }<br>}<br></span><span style=\"font-size:x-small\">MainMap.ReloadMap();</span></p>\r\n</span></span></span></p>\r\n<p><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\"></span></span></p>",
+    "PostedDate": "2009-05-20T11:25:55.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192499",
+    "ThreadId": "56909",
+    "Html": "<p><span style=\"border-collapse:collapse;color:#30332d\">added SetZoomToFitRect, sets zoom to max to fit rect:</span></p>\r\n<p><span style=\"border-collapse:collapse;color:#30332d\">if(MainMap.<span style=\"border-collapse:separate;font-size:10px\"><span style=\"border-collapse:collapse;font-size:13px\">SetZoomToFitRect(rect))<br>{<br>&nbsp;&nbsp;&nbsp;<span style=\"border-collapse:separate;font-size:10px\">trackBarGeoZoom.Value = MainMap.Zoom;<br><span style=\"border-collapse:collapse;font-size:13px\">}</span></span></span></span></span></p>",
+    "PostedDate": "2009-05-20T11:40:03.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192501",
+    "ThreadId": "56909",
+    "Html": "<p>Great! Thanks</p>",
+    "PostedDate": "2009-05-20T11:46:38.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

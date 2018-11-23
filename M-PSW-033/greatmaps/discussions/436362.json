@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1014106",
+    "ThreadId": "436362",
+    "Html": "I am making a desktop application to display route between two locations.\r<br />\n<br />\nI have followed many links relating to same subject but still couldnt find ans.\r<br />\n<br />\nI have added overly to map.\r<br />\n<br />\nKinldy help<br />\n<pre><code>\n            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n            //gmap.Position = new PointLatLng(-25.974134, 32.593042);\n            string start = &quot;Delhi&quot;;\n            string end = &quot;Noida&quot;; \n            MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(\n              start, end, false, false, 15);\n            \n            \n            GMapRoute r = new GMapRoute(route.Points, &quot;My route&quot;);\n            r.Stroke.Width = 5;\n            r.Stroke.Color = Color.Black;\n\n            GMapOverlay routesOverlay = new GMapOverlay(&quot;routes&quot;);\n            routesOverlay.Routes.Add(r);\n            gmap.ZoomAndCenterRoute(r);\n            gmap.Overlays.Clear();\n            gmap.Overlays.Add(routesOverlay);</code></pre>\n\n",
+    "PostedDate": "2013-03-12T11:52:05.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014128",
+    "ThreadId": "436362",
+    "Html": "it should work<br />\n",
+    "PostedDate": "2013-03-12T12:17:31.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014239",
+    "ThreadId": "436362",
+    "Html": "But it isn't working.<br />\n<br />\nI am just seeing a map centered at route without route.<br />\n<br />\n<img src=\"http://wikisend.com/download/137008/Capture.JPG\" alt=\"Image\" /><br />\n<br />\n<strong>What I have done:</strong><br />\n<ol>\n<li>Created a new c# project.</li>\n<li>Reference dll files of Gmap.net</li>\n<li>in design I dragged and drop GmapControl to form.</li>\n<li>Renamed form to gmap.</li>\n<li>Copy-pasted this code to <em>Form1_Load</em></li>\n<li>Fixed imports.</li>\n<li>\nRun.<br />\n</li>\n</ol>\nWhy doesnt it work.<br />\n<br />\nI have checked properties of gmap. RoutesEnabled is set to true.<br />\n<br />\nDo i need to make any other changes<br />\n",
+    "PostedDate": "2013-03-12T16:15:50.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014262",
+    "ThreadId": "436362",
+    "Html": "Try this (assuming you have &quot;gmap&quot; as your GMapControl)<br />\n<pre><code>        gmap.MapProvider = GMap.NET.MapProviders.GoogleMap;\n        gmap.Manager.Mode = AccessMode.ServerOnly;\n\n        string start = &quot;Delhi&quot;;\n        string end = &quot;Noida&quot;; \n        MapRoute route = GMapProviders.GoogleMap.GetRouteBetweenPoints(\n          start, end, false, false, 15);\n\n\n        GMapRoute r = new GMapRoute(route.Points, &quot;My route&quot;);\n        r.Stroke.Width = 5;\n        r.Stroke.Color = Color.Black;\n\n        GMapOverlay routesOverlay = new GMapOverlay(&quot;routes&quot;);\n        routesOverlay.Routes.Add(r);\n        gmap.Overlays.Add(routesOverlay);\n        gmap.ZoomAndCenterMarkers(&quot;My route&quot;);\n</code></pre>\n\nAs you will learn from the forum here is that not many peeps will take the time to show you &quot;simple&quot; things.  Questions will likely get ignored if they think it's not important to help.  Hopefully things will change to make this a better environment for both beginners and experts alike.<br />\n\r<br />\nAll great minds start from a blank :)  Helping others to achieve their potential contribution to community should be a top priority. <br />\n",
+    "PostedDate": "2013-03-12T17:18:36.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014267",
+    "ThreadId": "436362",
+    "Html": "Sorry. You need to pass the gmap to the GMapOverLay constructor.\r<br />\n<br />\nThis line: GMapOverlay routesOverlay = new GMapOverlay(&quot;routes&quot;);\r<br />\n<br />\nShould be : GMapOverlay routesOverlay = new GMapOverlay(gmap, &quot;routes&quot;);<br />\n",
+    "PostedDate": "2013-03-12T17:29:35.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014537",
+    "ThreadId": "436362",
+    "Html": "<strong>aministrator2000 wrote:</strong><br />\n<blockquote>\nSorry. You need to pass the gmap to the GMapOverLay constructor.<br />\n<br />\nThis line: GMapOverlay routesOverlay = new GMapOverlay(&quot;routes&quot;);<br />\n<br />\nShould be : GMapOverlay routesOverlay = new GMapOverlay(gmap, &quot;routes&quot;);<br />\n</blockquote>\nSorry to bother again.\r<br />\n<br />\nWhich version are you using.\r<br />\n<br />\nI am using VS2010 and the latest hotbuild.\r<br />\n<br />\nWhen I use your code it doesn't compuile<br />\n<ol>\n<li>Errors:</li>\n<li>Error\t1\tThe type or namespace name 'GoogleMap' does not exist in the namespace 'GMap.NET.MapProviders' (are you missing an assembly reference?)\t</li>\n<li>Error\t2\tThe name 'GMapProviders' does not exist in the current context\t</li>\n<li>Error\t3\tThe best overloaded method match for 'GMap.NET.WindowsForms.GMapOverlay.GMapOverlay(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)' has some invalid arguments\t</li>\n<li>Error\t4\tArgument 1: cannot convert from 'GMap.NET.WindowsForms.GMapControl' to 'System.Runtime.Serialization.SerializationInfo'\t</li>\n<li>Error\t5\tArgument 2: cannot convert from 'string' to 'System.Runtime.Serialization.StreamingContext'\t</li>\n</ol>\n",
+    "PostedDate": "2013-03-13T05:43:45.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014626",
+    "ThreadId": "436362",
+    "Html": "..you are doing something over-complicated, try check the demo source first<br />\n",
+    "PostedDate": "2013-03-13T07:49:36.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014637",
+    "ThreadId": "436362",
+    "Html": "I am using VS2010 with GMap.net 1.6.\r<br />\n<br />\nI thought 1.6 is the stable version and the other one is Beta.  I did not try out the Beta as the name suggest it might not have everything working correctly.  Here is the full path for GoogleMap\r<br />\n<br />\nGMap.NET.MapProviders.GMapProviders.GoogleMap\r<br />\n<br />\nThis is where I get my Overlay class\r<br />\n<br />\nGMap.NET.WindowsForms.GMapOverlay\r<br />\n<br />\nWhy are you getting Serialization problem?<br />\n",
+    "PostedDate": "2013-03-13T08:13:39.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014744",
+    "ThreadId": "436362",
+    "Html": "1.6 is actually old version, beta is stable enough<br />\n",
+    "PostedDate": "2013-03-13T10:59:33.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks, fixed now",
+    "ClosedDate": "2010-10-20T13:44:17.013-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The function GetRouteBetweenPointsUrl is removing the wrong points when removing useless points.\r\n\r\nClass: Gmaps.cs\r\nFunction: GetRouteBetweenPointsUrl\r\nIssue: Using a RemoveAt() with a for loop causes unintended behavior\r\nCode:\r\n// remove useless points at zoom\r\nfor (int i = 0; i < levels.Length; i++)\r\n{\r\n\tint zi = pLevels.IndexOf(levels[i]);\r\n\tif (zi > 0 && i < points.Count)\r\n\t{\r\n\t\tif (zi * numLevel > zoom)\r\n\t\t{\r\n\t\t\tpoints.RemoveAt(i);\r\n\t\t}\r\n\t}\r\n}\r\n\r\nResolution: Create a copy of the list and use that to remove the correct item. See below.\r\n// remove useless points at zoom\r\nList<PointLatLng> pointLatLngs = new List<PointLatLng>(points);\r\nfor (int i = 0; i < levels.Length; i++)\r\n{\r\n\tint zi = pLevels.IndexOf(levels[i]);\r\n\tif (zi > 0 && i < points.Count)\r\n\t{\r\n\t\tif (zi * numLevel > zoom)\r\n\t\t{\r\n\t\t\tpoints.Remove(pointLatLngs[i]);\r\n\t\t}\r\n\t}\r\n}",
+    "LastUpdatedDate": "2010-10-20T13:44:17.013-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-10-20T08:23:28.137-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Removing too many points from route when creating routes",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15990
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

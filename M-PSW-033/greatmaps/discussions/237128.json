@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "531097",
+    "ThreadId": "237128",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I just downloaded the latest version and found this bug:</p>\r\n<p>- Build the solution</p>\r\n<p>- Open &quot;MainForm&quot; of Demo.WindowsForms in the VS-Designer</p>\r\n<p>- Start debug</p>\r\n<p>- The following error-message is shown:</p>\r\n<p>Could not load file or assembly &quot;file:///D:/Dropbox/GMap/greatmaps_0fac7ecd9b9a_23.11.2010/GMap.NET.Core/bin/x86/Debug/GMap.NET.Core.dll&quot; or one of its dependencies. An attempt was made to load a program with an incorrect format. Line 132, Position 5. D:\\Dropbox\\GMap\\greatmaps_0fac7ecd9b9a_23.11.2010\\Demo.WindowsForms\\Forms\\MainForm.resx</p>\r\n<p>- If I remove this entry from&nbsp; MainForm.resx : <br>\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">data</span> <span style=\"color:red\">name</span><span style=\"color:blue\">=</span><span style=\"color:blue\">&quot;MainMap.Position&quot;</span> <span style=\"color:red\">mimetype</span><span style=\"color:blue\">=</span><span style=\"color:blue\">&quot;application/x-microsoft.net.object.binary.base64&quot;</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">value</span><span style=\"color:blue\">&gt;</span>\r\n        AAEAAAD/////AQAAAAAAAAAMAgAAAFBHTWFwLk5FVC5Db3JlLCBWZXJzaW9uPTEuNS4zLjMsIEN1bHR1\r\n        cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg1YjkwMjdiNjE0YWZlZgUBAAAAFEdNYXAuTkVULlBv\r\n        aW50TGF0TG5nAgAAAANsYXQDbG5nAAAGBgIAAAAAAAAAAAAAAAAAAAAAAAAACw==\r\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">value</span><span style=\"color:blue\">&gt;</span>\r\n  <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">data</span><span style=\"color:blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>AND remove this line from MainForm.Designer.cs:<br>\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">this</span>.MainMap.Position = ((GMap.NET.PointLatLng)(resources.GetObject(<span style=\"color:#a31515\">&quot;MainMap.Position&quot;</span>)));\r\n<br>it works as long as I don't open MainForm.cs in the <strong>Designer </strong>again. <br>So the problem seems to be that every time I open MainForm.cs in the Designer, the property &quot;Position&quot; is being set and serialized, and then the error occurs.<br>What can I do to solve this problem?<br>Please help!<br>Thanks a lot!!</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2010-12-04T05:37:19.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531105",
+    "ThreadId": "237128",
+    "Html": "\r\n<p>should be fixed now</p>\r\n",
+    "PostedDate": "2010-12-04T05:59:27.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

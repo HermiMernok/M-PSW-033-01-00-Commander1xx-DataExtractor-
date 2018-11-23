@@ -1,0 +1,178 @@
+[
+  {
+    "Id": "461785",
+    "ThreadId": "217892",
+    "Html": "<p>I wanted to make an overlay class which is an image (for example&nbsp;http://radar.weather.gov/ridge/Conus/RadarImg/latest_radaronly.gif) and it almost works. The problem is OnRender() is not called as often as I would expect. I'd expect it to be called everytime the map is zoomed or scrolled, but it is only called sometimes when the map is zoom or scrolled. No idea why only sometimes.&nbsp;</p>\r\n<p>Any ideas?</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> GMapImage : GMapMarker\r\n{\r\n\t\t<span style=\"color:blue\">public</span> Image image = <span style=\"color:blue\">null</span>;\r\n\t\tGMap.NET.Point botleft;\r\n\t\tGMap.NET.Point topright;\r\n\r\n\t\t<span style=\"color:blue\">public</span> GMapImage(GMap.NET.PointLatLng p)\r\n\t\t\t: <span style=\"color:blue\">base</span>(p)\r\n\t\t{\r\n\t\t}\r\n\r\n\t\t<span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> Update(GMap.NET.Point botLeft, GMap.NET.Point topRight)\r\n\t\t{\r\n\t\t\tConsole.WriteLine(<span style=\"color:#a31515\">&quot;Update!&quot;</span>);\r\n\t\t\tbotleft = botLeft;\r\n\t\t\ttopright = topRight;\r\n\t\t}\r\n\r\n\t\t<span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n\t\t{\r\n\t\t\tConsole.WriteLine(<span style=\"color:#a31515\">&quot;OnRender!&quot;</span>);\r\n\t\t\t<span style=\"color:blue\">if</span> (image == <span style=\"color:blue\">null</span>)\r\n\t\t\t\t<span style=\"color:blue\">return</span>;\r\n\t\t\tg.DrawImage(image, <span style=\"color:blue\">new</span> Rectangle(botleft.X, topright.Y, topright.X - botleft.X, botleft.Y - topright.Y));\r\n\t\t}\r\n}\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-30T12:38:27.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461788",
+    "ThreadId": "217892",
+    "Html": "<p>what do you mean?</p>",
+    "PostedDate": "2010-06-30T12:49:18.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461798",
+    "ThreadId": "217892",
+    "Html": "<p>I'm not really sure I understand the question, what do I mean <em>about what</em>? Why is OnRender() not called when it needs to be?</p>\r\n<p>GMapImage is like a&nbsp;GMapMarkerRect in the Demo project, except instead of a rectangle it displays an image. Not shown above is the assignment to the image member.&nbsp;</p>\r\n<p>Just like&nbsp;GMapMarkerRect, I add GMapImage to an&nbsp;GMapOverlay which is added to a class that inherits from GMapControl. It works, and I can zoom in a couple times and OnRender() is called and the image displays correctly. But&nbsp;zoom some more and OnRender() is <strong>not</strong> called. Image no longer displayed.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-30T13:13:40.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461801",
+    "ThreadId": "217892",
+    "Html": "<p>it work, do you need a proof? ;}</p>",
+    "PostedDate": "2010-06-30T13:23:13.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461809",
+    "ThreadId": "217892",
+    "Html": "<p>It does not work, so yes I need a proof. The proof should include zooming in all the way and re-centering the map on any clicked point.</p>",
+    "PostedDate": "2010-06-30T13:42:22.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461812",
+    "ThreadId": "217892",
+    "Html": "<p>so how&nbsp;GMapMarkerGoogleGreen works?</p>",
+    "PostedDate": "2010-06-30T13:45:07.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461817",
+    "ThreadId": "217892",
+    "Html": "<p>yes. I sure wish GMapImage worked too</p>",
+    "PostedDate": "2010-06-30T13:54:05.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461820",
+    "ThreadId": "217892",
+    "Html": "<p>but i don't see any differences, it's just other image rendered in exact way</p>",
+    "PostedDate": "2010-06-30T13:59:21.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461822",
+    "ThreadId": "217892",
+    "Html": "<p>How can I cause OnRender() to be called whenever I like? It has something to do with my image being very large.</p>",
+    "PostedDate": "2010-06-30T14:00:22.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461825",
+    "ThreadId": "217892",
+    "Html": "<p>? its called automatically while invalidating map(on zoom, dragg)</p>",
+    "PostedDate": "2010-06-30T14:04:36.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461830",
+    "ThreadId": "217892",
+    "Html": "<p>Below is my debug output during zoom-in operations. OnRender is called the first 2 times, but subsequent zoom operations produce <strong>no OnRender() calls</strong>.</p>\r\n<p>OnRender!</p>\r\n<p>OnRender!</p>\r\n<p>Update!</p>\r\n<p>Update!</p>\r\n<p>Update!</p>\r\n<p>Update!</p>\r\n<p>Update!</p>\r\n<p>Update!</p>",
+    "PostedDate": "2010-06-30T14:11:54.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461833",
+    "ThreadId": "217892",
+    "Html": "<p>what Update means?</p>",
+    "PostedDate": "2010-06-30T14:16:38.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461843",
+    "ThreadId": "217892",
+    "Html": "<p>I call Update when I am going to zoom (or scroll) the map. See code in first post.</p>\r\n<p>If I recenter the map it OnRender() is called at first. But as I recenter to the right (moving the map left) at some point OnRender() is no longer called. What point? Not sure, about when more than 1/2 the image is off the screen. Then when I recenter to left (moving map right) it starts working again.&nbsp;</p>\r\n<p>Same thing with a small image, scrolling map causes image to appear (OnRender is called) and disappear (OnRender is not called).</p>",
+    "PostedDate": "2010-06-30T14:23:27.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461872",
+    "ThreadId": "217892",
+    "Html": "<p>I added a method to GMapControl</p>\r\n<p>&nbsp;</p>\r\n<pre>public Graphics getGraphics()\r\n{\r\n\treturn this CreateGraphics();\r\n}</pre>\r\n<p>&nbsp;</p>\r\n<p>and I call OnRender() myself when I call Update(). Now it almost works, but my Update() is too soon or something... I see my image, then it disappears.</p>",
+    "PostedDate": "2010-06-30T15:01:12.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461875",
+    "ThreadId": "217892",
+    "Html": "<p>i still can't understand what's the problem ;} everything works, so can you zip your solution?, i'll fix it if it's possible</p>",
+    "PostedDate": "2010-06-30T15:07:58.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461876",
+    "ThreadId": "217892",
+    "Html": "<p>Okay; my project is large. I will try to create a small project to reproduce the problem.</p>",
+    "PostedDate": "2010-06-30T15:13:44.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461888",
+    "ThreadId": "217892",
+    "Html": "Okay,<div><br></div><div>see sample project - gmail does not allow for zip files so I have renamed it.</div><div><br></div><div>After creating the project, click on the map to re-center. Notice weather overlay moves nicely for a while. As you click westward the USA moves to the right. When the USA is only showing the west coast the weather disappears. </div>\r\n<div><br></div><div>When you move the USA back to the middle of the form the weather re-appears. </div><div><br></div><div>any idea why?</div><div><br></div><div>thanks for your help,</div><div>Gerry</div>",
+    "PostedDate": "2010-06-30T15:46:52.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462002",
+    "ThreadId": "217892",
+    "Html": "<p>where do you put it? use skydrive/divshare/etc</p>",
+    "PostedDate": "2010-06-30T22:35:41.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462307",
+    "ThreadId": "217892",
+    "Html": "it was attached to the email. <div><br></div><div>Also now here: <a href=\"http://www.orangesoftware.net/or/mappy.zip\">www.orangesoftware.net/or/mappy.zip</a></div><div><br></div><div>thanks,</div><div>Gerry</div><div><br><br>\r\n<div>On Wed, Jun 30, 2010 at 10:35 PM, radioman <span dir=ltr>&lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt;</span> wrote:<br><blockquote style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex\">\r\n   <div> <p>From: radioman</p> <div><p>where do you put it? use skydrive/divshare/etc</p></div><div> <div> <p><br></p></div></div></div></blockquote></div></div>",
+    "PostedDate": "2010-07-01T12:00:52.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462356",
+    "ThreadId": "217892",
+    "Html": "<p>check the source, i've included&nbsp;Demo.Clouds ;}</p>",
+    "PostedDate": "2010-07-01T13:42:50.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462378",
+    "ThreadId": "217892",
+    "Html": "<p>thanks radioman!</p>",
+    "PostedDate": "2010-07-01T14:37:55.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462384",
+    "ThreadId": "217892",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2010-07-01T14:56:18.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

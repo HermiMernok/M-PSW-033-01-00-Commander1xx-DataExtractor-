@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "If animating the MapPoint property in WPF, the map stutters to the target point. Also, the overlays and the map moved with different behaviour.\r\n\r\nWith the following fix the MapPoint Animation will be smoothed:\r\n\r\nIn GMapControl.cs, function OnMapPointPropertyChanged.\r\n\r\nReplace the line:\r\n```\r\n(source as GMapControl).Position = new PointLatLng(temp.X, temp.Y);\r\n```\r\nwith the following lines:\r\n```\r\nGMapControl map = (source as GMapControl);\r\nGPoint centerPixel = map.Core.Provider.Projection.FromLatLngToPixel(map.Core.Position, (int)map.Zoom);\r\nGPoint targetPixel = map.Core.Provider.Projection.FromLatLngToPixel(new PointLatLng(temp.X, temp.Y), (int)map.Zoom);\r\n\r\nmap.Offset((int)(centerPixel.X - targetPixel.X), (int)(centerPixel.Y - targetPixel.Y));\r\n```\r\n\r\nAdditionally, to make it work also with fractional zoom Levels:\r\n\r\nIn GMapControl.cs, function void Offset(int x, int y):\r\n\r\nReplace the line:\r\n```\r\nUpdateMarkersOffset();\r\n```\r\nwith the following lines:\r\n```\r\nif (IsRotated || scaleMode != ScaleModes.Integer)\r\n{\r\n    ForceUpdateOverlays();\r\n}\r\nelse\r\n{\r\n    UpdateMarkersOffset();\r\n}\r\n```\r\n\r\nWould be great if you want to take this into your main branch.\r\n",
+    "LastUpdatedDate": "2015-04-06T14:07:42.993-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-02-15T08:43:00.267-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Fix for smooth MapPoint animation in WPF",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 16097
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "thanks",
+      "PostedDate": "2015-01-13T12:08:43.117-08:00",
+      "Id": 170014
+    }
+  ]
+}

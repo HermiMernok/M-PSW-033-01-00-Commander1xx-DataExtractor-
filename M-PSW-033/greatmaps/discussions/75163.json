@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "257195",
+    "ThreadId": "75163",
+    "Html": "<p>I am trying to use this control in a WPF application.&nbsp; I have the map in a popup window which can be opened and closed adn each time it is opened a new instance of the window is created.&nbsp; What I have seen is that the Window never gets garbage collected.</p>\r\n<p>I did a small test project where the main form has a button which&nbsp;only opens and closes a window with a GMapControl on and explicitly did a GC.Collect() behind another button&nbsp;and from and with my limited knowledge of WinDbg/SOS I could see that the window and the GMapControl objects were still left around after closing the window.&nbsp; I tried to figure out what was keeping the objects alive but I am not skilled enuf with WinDbg/SOS to figure it out.</p>\r\n<p>Any idea what the problem is?</p>",
+    "PostedDate": "2009-11-15T01:14:29.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257251",
+    "ThreadId": "75163",
+    "Html": "<p>do you try to put&nbsp;another&nbsp;control there instead map?</p>",
+    "PostedDate": "2009-11-15T07:27:07.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257253",
+    "ThreadId": "75163",
+    "Html": "<p>Yes, it is only when I have the map this happens.&nbsp; I have looked into it a bit more and from my understanding it is the BackgroundWorkers in the Core class which are keeping the GMapControl and in turn the Window from being garbage collected.</p>",
+    "PostedDate": "2009-11-15T07:40:42.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257274",
+    "ThreadId": "75163",
+    "Html": "<p>..try new version, it works now, but not quite instantly</p>",
+    "PostedDate": "2009-11-15T09:35:26.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257389",
+    "ThreadId": "75163",
+    "Html": "<p>It solved some of the problems but not all, I will need to look into the remaining issues and see if I can reproduce them with a smaller sample.</p>",
+    "PostedDate": "2009-11-16T00:01:33.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257491",
+    "ThreadId": "75163",
+    "Html": "<p>Maybe the IDisposable Pattern could solve this problem.</p>\r\n<p>Look at this link for further information: <a href=\"http://www.codeproject.com/KB/cs/idispose.aspx\">click</a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-16T05:51:11.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "214475",
+    "ThreadId": "63118",
+    "Html": "<p><img alt=\"\">Synchronizing a background GMap and an overlay Canvas hosting a shape Map, I get a good match with integer zoom levels but a rather poor one with the intermediate non integer zoom levels (the GMap image is larger than it should be). I noticed that in those cases CurrentViewArea.Left does not match FromLocalToLatLng(1, 1), but maybe this is expected ?</p>\r\n<p>Any explanation or hints ? If it helps, I can send a set of screenshots showing this effect.</p>\r\n<p>Great Job anyway !</p>",
+    "PostedDate": "2009-07-21T12:14:15.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214505",
+    "ThreadId": "63118",
+    "Html": "<p>yes it is know isue, any ideas?</p>",
+    "PostedDate": "2009-07-21T13:36:44.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214525",
+    "ThreadId": "63118",
+    "Html": "<p>How/where are the intermediate zoom levels actually handeled ?</p>\r\n<p>At first glance I would try to go for a canvas hosting GMap. This canvas could be scaled down between two integer zooms with no change in&nbsp; the GMap zoom level, and then reset to its full scale when reaching the next integer zoom level.</p>",
+    "PostedDate": "2009-07-21T14:30:57.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214532",
+    "ThreadId": "63118",
+    "Html": "<p>well i just apply ScaleTransform before rendering, so it must be used somehow to correct the local coordinates</p>",
+    "PostedDate": "2009-07-21T14:42:20.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214764",
+    "ThreadId": "63118",
+    "Html": "<p>I managed to get it working</p>\r\n<p>I embeded GMap in a Border that has a rendertransform (with renderorigin at the center 0.5,0.5), which in turn has a ScaleTransform (GScaleX, GScaleY).</p>\r\n<p>The code used on mousewheel is as follow :</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>            <span style=\"color:Blue\">double</span> _ZoomStep = 0.1;\r\n            <span style=\"color:Blue\">double</span> _ZoomFactor = Math.Pow(2,_ZoomStep);\r\n            <span style=\"color:Blue\">double</span> _ZFactor;\r\n\r\n            <span style=\"color:Blue\">if</span> (e.Delta &gt; 0)\r\n            {\r\n                _RealZoom += _ZoomStep;\r\n                _ZFactor = _ZoomFactor; \r\n            }\r\n            <span style=\"color:Blue\">else</span>\r\n            {\r\n                _RealZoom -= _ZoomStep;\r\n                _ZFactor = 1 / _ZoomFactor;\r\n            }\r\n\r\n            _GMap.Zoom = Math.Floor(_RealZoom);\r\n\r\n            <span style=\"color:Blue\">double</span> test = Math.Round(_RealZoom - _GMap.Zoom, 1);\r\n            <span style=\"color:Blue\">if</span> ((test == 1) || (test == 0))\r\n            {\r\n                <span style=\"color:Blue\">if</span>(test == 1) _GMap.Zoom += 1;\r\n                <span style=\"color:Blue\">this</span>.GScaleX = 1;\r\n                <span style=\"color:Blue\">this</span>.GScaleY = 1;\r\n            }\r\n            <span style=\"color:Blue\">else</span> <span style=\"color:Blue\">if</span> ((test == 1-_ZoomStep) &amp;&amp; (Math.Round(GScaleX,0) == 1.0))\r\n            {\r\n                <span style=\"color:Blue\">this</span>.GScaleX = Math.Pow(_ZoomFactor, Math.Round(1 / _ZoomStep, 0)-1);\r\n                <span style=\"color:Blue\">this</span>.GScaleY = Math.Pow(_ZoomFactor, Math.Round(1 / _ZoomStep, 0)-1);\r\n            }\r\n            <span style=\"color:Blue\">else</span>\r\n            {\r\n                <span style=\"color:Blue\">this</span>.GScaleX *= _ZFactor;\r\n                <span style=\"color:Blue\">this</span>.GScaleY *= _ZFactor;\r\n            }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2009-07-22T07:05:50.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214778",
+    "ThreadId": "63118",
+    "Html": "<p>..but how it helps to sync geo-local coordinates?</p>",
+    "PostedDate": "2009-07-22T07:27:46.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214828",
+    "ThreadId": "63118",
+    "Html": "<p>The Sync is done at initialization, first by setting the OverlayMap (called _MainMap) base scale and translate parameters, according to the size of the Map and the extent of the coordinates space that we want to view (BoundingBox being a rectangle of XY coordinates) :</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>                Double BestScale = Math.Min(_MainMap.ActualWidth / BoundingBox.Width, _MainMap.ActualHeight / BoundingBox.Height);\r\n                ScaleX = BestScale;\r\n                ScaleY = -BestScale;\r\n                TranslateX = -BoundingBox.Left;\r\n                TranslateY = -BoundingBox.Bottom;\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><br>then by adjusting the base scale to show the same longitude range as showed in the underlying GMap<br><div style=\"color:Black;background-color:White\"><pre>            <span style=\"color:Blue\">double</span> deltaL = (_GMap.ActualWidth * 360) / (256 * Math.Pow(2, _RealZoom));\r\n            <span style=\"color:Blue\">double</span> NewScale = _GMap.ActualWidth / ((EarthRadiusKm * 1000) * Math.Tan((deltaL / 180) * Math.PI));\r\n            <span style=\"color:Blue\">this</span>.ScaleX = NewScale;\r\n            <span style=\"color:Blue\">this</span>.ScaleY = -NewScale;\r\n\r\nand finally by setting the GMap current position to match the _MainMap center (in this case _MainMap is in UTM40S coordinates) <br><br>            <span style=\"color:Blue\">double</span> Xc = _MainMap.RenderTransform.Inverse.Transform(<span style=\"color:Blue\">new</span> System.Windows.Point(0.5 * (_MainMap.ActualWidth - 1), 0.5 * (_MainMap.ActualHeight - 1))).X;\r\n            <span style=\"color:Blue\">double</span> Yc = _MainMap.RenderTransform.Inverse.Transform(<span style=\"color:Blue\">new</span> System.Windows.Point(0.5 * (_MainMap.ActualWidth - 1), 0.5 * (_MainMap.ActualHeight - 1))).Y;\r\n            _GMap.CurrentPosition = UTMtoLL(22, Yc, Xc, <span style=\"color:#A31515\">&quot;40C&quot;</span>);\r\n<br><br>These last 3 lines are reused on each pan or zoom event </pre>\r\n</div>\r\n<br></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-07-22T09:05:10.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214840",
+    "ThreadId": "63118",
+    "Html": "<p>I forgot to mention that the _MainMap is obviously also rescaled on the MouseWheel event by applying the ZFactor as decribed previously :</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>            <span style=\"color:Blue\">double</span> NewScale = _ZFactor * ScaleX;\r\n            <span style=\"color:Blue\">this</span>.ScaleX = NewScale;\r\n            <span style=\"color:Blue\">this</span>.ScaleY = -NewScale;\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2009-07-22T09:27:37.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214923",
+    "ThreadId": "63118",
+    "Html": "<p>..but what we need to change here?</p>\r\n<div>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> GMap.NET.Point FromLatLngToLocal(PointLatLng point)\r\n{\r\n    <span style=\"color:Blue\">return</span> Core.FromLatLngToLocal(point);\r\n}\r\n</pre>\r\n</div>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-07-22T12:25:22.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214952",
+    "ThreadId": "63118",
+    "Html": "<p>I don't know... seems OK</p>\r\n<p>As far as I can see, the scaling problem for non integer zoom levels, as described in the first post, must originate in the way the scale transform parameters are defined.</p>\r\n<p>With the short procedure in my 3rd message, we define the scaling factor that corresponds to the zoom+ step and the zoom- step. We then set the GMap zoom level to the integer part of the real zoom level and apply this scale factor to the embedding border.</p>\r\n<p>Two special cases have to be accounted for :</p>\r\n<p>1) when realzoom reaches an integer value, we eventually adjust GMap.Zoom and reset the embedding border scale factors to 1,</p>\r\n<p>2) when realzoom gets one zoom step below an integer value, we set the scale parameters to their max value (GMap zoom has already been decreased by one.</p>\r\n<p>Hope this helps</p>",
+    "PostedDate": "2009-07-22T13:21:29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214954",
+    "ThreadId": "63118",
+    "Html": "<p>not so much, still marker positions is out of sync in non int zoom level</p>",
+    "PostedDate": "2009-07-22T13:23:37.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

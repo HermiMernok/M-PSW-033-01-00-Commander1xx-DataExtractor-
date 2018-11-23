@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "640371",
+    "ThreadId": "264655",
+    "Html": "\r\n<p>I'm sure that this is probably tedious for those of you who have figured out how to implement GMap. But it seems that I haven't caught it yet. &nbsp;Here is my setup:</p>\r\n<p>References:&nbsp;GMap.NET.Core, GMap.NET.WindowsForms.</p>\r\n<p>Target Frame work:</p>\r\n<p>My Application Setting: .Net Framework 4</p>\r\n<p>GMap.NET.Core .Net Framework 2.0.... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; thought this kinda strange radio man keeps telling users to check framework is 4.0</p>\r\n<p>This is what the source looks like right now and I'm not getting anything to show. &nbsp;Could someone help me out.</p>\r\n<p>GMap.NET.WindowsForms .Net Framework 2.0.</p>\r\n<p></p>\r\n<pre>using System;\r\nusing System.Collections.Generic;\r\nusing System.ComponentModel;\r\nusing System.Data;\r\nusing System.Drawing;\r\nusing System.Text;\r\nusing System.Windows.Forms;\r\nusing GMap.NET;\r\n\r\nnamespace GoogleTestWinForm\r\n{\r\n    public partial class Form1 : Form\r\n    {\r\n        GMap.NET.MapType m_MapType;\r\n        GMap.NET.PointLatLng m_PointLatLng;\r\n        GMap.NET.PositionChanged OnCurrentPositionChanged;\r\n        public Form1()\r\n        {\r\n            InitializeComponent();\r\n            m_GoogleMap.SuspendLayout();\r\n            m_GoogleMap.Dock = DockStyle.Fill;\r\n            m_GoogleMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;\r\n            m_MapType = MapType.MapsLT_Map;\r\n            m_GoogleMap.MaxZoom = 11;\r\n            m_GoogleMap.MinZoom = 1;\r\n            m_GoogleMap.Zoom = m_GoogleMap.MinZoom &#43; 1;\r\n            m_PointLatLng = new PointLatLng(54.6961334816182, 25.2985095977783);\r\n            m_GoogleMap.ResumeLayout();\r\n        }\r\n    }\r\n}\r\n</pre>\r\n<p></p>\r\n<p>Comment RadioMan:</p>\r\n<p>I will help with the documentation on this. &nbsp;IE a word document that you can us here. &nbsp;I'll have questions from time to time about why and so one but well get it documented. &nbsp;Thanks</p>\r\n<p>Gregg</p>\r\n",
+    "PostedDate": "2011-07-11T04:19:34.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640374",
+    "ThreadId": "264655",
+    "Html": "<p>if you target .net4 as is explained in documentation, you must add app config file ;} new version doesn't require it anymore, so you may try it</p>",
+    "PostedDate": "2011-07-11T04:29:07.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640376",
+    "ThreadId": "264655",
+    "Html": "<p>I saw what went into the file yes... What is the name of the config file.</p>",
+    "PostedDate": "2011-07-11T04:32:16.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640378",
+    "ThreadId": "264655",
+    "Html": "<p>check&nbsp;<a href=\"http://greatmaps.codeplex.com/discussions/261146#post626790\" target=\"_blank\">http://greatmaps.codeplex.com/discussions/261146#post626790&nbsp;</a></p>",
+    "PostedDate": "2011-07-11T04:38:10.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640385",
+    "ThreadId": "264655",
+    "Html": "<p>Thanks radioman</p>\r\n<p>Added per direction:</p>\r\n<p>\r\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">&lt;?</span><span style=\"color: #a31515;\">xml</span> <span style=\"color: red;\">version</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">1.0</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">?&gt;</span>\r\n<span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">configuration</span><span style=\"color: blue;\">&gt;</span>\r\n  <span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">startup</span> <span style=\"color: red;\">useLegacyV2RuntimeActivationPolicy</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">true</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">&gt;</span>\r\n    <span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">supportedRuntime</span> <span style=\"color: red;\">version</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">v4.0</span><span style=\"color: black;\">\"</span> <span style=\"color: red;\">sku</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">.NETFramework,Version=v4.0</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">/&gt;</span>\r\n  <span style=\"color: blue;\">&lt;/</span><span style=\"color: #a31515;\">startup</span><span style=\"color: blue;\">&gt;</span>\r\n<span style=\"color: blue;\">&lt;/</span><span style=\"color: #a31515;\">configuration</span><span style=\"color: blue;\">&gt;</span>\r\n</pre>\r\n</div>\r\n<br /></pre>\r\n<pre>MainFrame is no longer showing up. Not even hitting Program.Main().</pre>\r\n</p>",
+    "PostedDate": "2011-07-11T04:52:33.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640396",
+    "ThreadId": "264655",
+    "Html": "<p>Rather than add just the references to my code I guess I should have said I added the project for Core and WindowsForms and added those references.</p>",
+    "PostedDate": "2011-07-11T05:16:22.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640517",
+    "ThreadId": "264655",
+    "Html": "<p>there is no difference</p>",
+    "PostedDate": "2011-07-11T09:22:10.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

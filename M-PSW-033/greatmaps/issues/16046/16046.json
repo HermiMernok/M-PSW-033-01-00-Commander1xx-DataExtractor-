@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": "beta build 'feature'",
+    "Description": "In release from 17.8.2012: when I use trackbar to zoom map - drag map stop working.",
+    "LastUpdatedDate": "2013-09-02T06:08:56.03-07:00",
+    "PlannedForRelease": "Hot Build",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-08-21T13:33:48.3-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Drag map after using trackbar zoom",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 16046
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "it's not release it's beta build, and there can be bugs, such as this, just don't use fractional zoom levels, at least until it's fixed",
+      "PostedDate": "2012-11-18T10:16:43.58-08:00",
+      "Id": 82674
+    },
+    {
+      "Message": "Thaks for your reply.",
+      "PostedDate": "2012-12-17T11:39:29.663-08:00",
+      "Id": 84436
+    },
+    {
+      "Message": "it's martially fixed at least for windows forms version",
+      "PostedDate": "2013-01-11T09:06:09.823-08:00",
+      "Id": 85778
+    },
+    {
+      "Message": "Changing\n```\nmap.MapScaleTransform.CenterX = map.ActualWidth / 2;\nmap.MapScaleTransform.CenterY = map.ActualHeight / 2;\n```\nto\n```\nmap.MapScaleTransform.CenterX = map.Core.mouseLastZoom.X;\nmap.MapScaleTransform.CenterY = map.Core.mouseLastZoom.Y;\n```\nin GMapControl's ZoomPropertyChanged-method fixed the issue for me when using fractional zoom levels in OnMouseWheel.",
+      "PostedDate": "2013-09-02T06:08:56.03-07:00",
+      "Id": 111846
+    }
+  ]
+}

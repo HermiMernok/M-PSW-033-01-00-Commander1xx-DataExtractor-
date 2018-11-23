@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "561954",
+    "ThreadId": "244984",
+    "Html": "\r\n<p>Exception:</p>\r\n<p>System.BadImageFormatException: Could not load file or assembly 'GMap.NET.Core, Version=1.3.8.4, Culture=neutral, PublicKeyToken=b85b9027b614afef' or one of its dependencies. An attempt was made to load a program with an incorrect format.</p>\r\n<p>File name: 'GMap.NET.Core, Version=1.3.8.4, Culture=neutral, PublicKeyToken=b85b9027b614afef'</p>\r\n<p>&nbsp;&nbsp; at MSMainPrj.FormsEmbedded.MapForm.InitializeComponent()</p>\r\n<p>&nbsp;&nbsp; at MSMainPrj.FormsEmbedded.MapForm..ctor(Double latitude, Double longitude, String source, String locationName, Int32 venueId)</p>\r\n<p>&nbsp;</p>\r\n<p>Application works fine in 32 bit OS.</p>\r\n",
+    "PostedDate": "2011-02-07T07:17:15.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "562047",
+    "ThreadId": "244984",
+    "Html": "\r\n<p>use x86 target and you will be ok</p>\r\n",
+    "PostedDate": "2011-02-07T09:27:01.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "562400",
+    "ThreadId": "244984",
+    "Html": "\r\n<p>Hi radioman thanks, in my setup target is already set x86.</p>\r\n",
+    "PostedDate": "2011-02-07T23:13:45.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343235",
+    "ThreadId": "244984",
+    "Html": "We have the same issue on a Citrix XenApp 6.5, Windows Server 2008 R2. The executable is x86 (Have verified this with corFlags). The application runs without issues on all Desktop flavours (XP-&gt;Win8 | x86 + x64)\r<br />\n<br />\nNote: Memory Optimization is disabled on the server. Citrix Virtual Memory Optimization Service can lead to .NET application corruption. <a href=\"http://support.microsoft.com/kb/2480607\" rel=\"nofollow\">http://support.microsoft.com/kb/2480607</a>\r<br />\n<br />\nHope you have some ideas. In the meantime, we'll investigate to see if we find any traces of System.Data.SQLite.DLL in the Local AppData folder.<br />\n",
+    "PostedDate": "2015-01-19T06:07:00.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343237",
+    "ThreadId": "244984",
+    "Html": "The IntPtr.Size == 8 ? test seems to work as expected. <br />\n<br />\nThe System.Data.SQLLite.DLL assembly is located in the <br />\nUsers\\&lt;?&gt;\\AppData\\Local\\GMap.Net\\DllCache\\SQLlite_v84_NET2_x86 folder.<br />\n<br />\nAny ideas ? <br />\n<br />\n--- Stack Trace ---<br />\nException Information: System.TypeInitializationException: The type initializer for 'GMap.NET.WindowsForms.GMapControl' threw an exception. ---&gt; System.BadImageFormatException: is not a valid Win32 application. (Exception from HRESULT: 0x800700C1)<br />\n at GMap.NET.CacheProviders.SQLitePureImageCache.Ping()<br />\n at GMap.NET.GMaps.SQLitePing()<br />\n at GMap.NET.WindowsForms.GMapControl..cctor()<br />\n --- End of inner exception stack trace ---<br />\n at GMap.NET.WindowsForms.GMapControl..ctor()<br />\n at WinApp.Forms.GMapViewForm.InitializeComponent()<br />\n at WinApp.Forms.GMapViewForm..ctor()<br />\n",
+    "PostedDate": "2015-01-19T06:08:25.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343260",
+    "ThreadId": "244984",
+    "Html": "hm..\r<br />\n<br />\ncan you make test console app x86 and test this line?<br />\n<pre><code>System.Reflection.Assembly.LoadFile(&quot;Users\\&lt;?&gt;\\AppData\\Local\\GMap.Net\\DllCache\\SQLlite_v84_NET2_x86\\System.Data.SQLLite.DLL&quot;);</code></pre>\n\n",
+    "PostedDate": "2015-01-19T08:07:01.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343282",
+    "ThreadId": "244984",
+    "Html": "Thanks for looking into this. \r<br />\n<br />\nThe customer has outsourced the Citrix Server Management and has consequently limited access. I.e. it is a bit tricky to ask the service provider to carry out lots of tests. There are no servers rigged up for testing either which makes it even harder. \r<br />\n<br />\nIf this is the only route forward, we will give it a shot. However, if you have any other methods to suggest and/or other tests we can run at the same time, that would be highly appreciated. \r<br />\n<br />\nPS: Apologies for not starting my question with complementing the work you have put into this project. Absolutely fabulous !!!<br />\n",
+    "PostedDate": "2015-01-19T09:25:32.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343291",
+    "ThreadId": "244984",
+    "Html": "i see, ..well i would check all combination and if any would work at all, thats the idea<br />\n",
+    "PostedDate": "2015-01-19T09:40:01.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1346745",
+    "ThreadId": "244984",
+    "Html": "Hi Radioman, <br />\nWe managed to get the service provider to run a test on a Citrix Client that fail and the LoadFile call works fine. (I was sort of hoping for a different result). <br />\n<br />\nWe're a bit stuck now - any suggestions would be very much appreciated. <br />\n<br />\nPS: Not that this should make any difference to the test-result, but the LoadFile test is executed directly from an standard executable. The failing callstack goes via a form that is located in an assembly. <br />\n<br />\nUPDATE: <br />\nEverything works fine when running as local admin. Still a problem for users with normal privileges. This rules out a number of scenarios. We have been given some assistance to test this on another Citrix in the next few days and see if get a bit more insight.<br />\n",
+    "PostedDate": "2015-01-28T05:58:58.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1352124",
+    "ThreadId": "244984",
+    "Html": "Hi Radioman, \r<br />\nThe service provider finally managed to &quot;escalate&quot; this issue and had one of their more experience technicians looking at the problem. \r<br />\n<br />\nIt turned out that they had <strong>AppSense</strong> working in the background which was <strong>blocking execution</strong>. AppSense is suppose to write execution blocking to the eventlog, but I never got this confirmed. Everything works fine after they updated the AppSense policy. \r<br />\n<br />\nConclusion: Fault finding without access and limited information can feel close to impossible, but you'll get there in the end with perseverance. <br />\n",
+    "PostedDate": "2015-02-13T02:35:33.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-02-13T02:40:03.937-08:00"
+  },
+  {
+    "Id": "1352157",
+    "ThreadId": "244984",
+    "Html": "Thanks for sharing!<br />\n",
+    "PostedDate": "2015-02-13T03:48:15.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

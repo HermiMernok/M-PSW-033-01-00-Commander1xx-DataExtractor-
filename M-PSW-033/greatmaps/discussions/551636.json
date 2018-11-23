@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1266023",
+    "ThreadId": "551636",
+    "Html": "Hi Radioman,\r<br />\nThanks for making such an awesome product.  It works well and is stable.  I have 50+ customers using an application with your map and they love it.\r<br />\n<br />\nIn my Windows Project when I add a Web Reference and build the project I get an\r<br />\n<br />\nError\t9\tAn attempt was made to load an assembly with an incorrect format: C:\\Users\\xxxx\\Documents\\Visual Studio 2010\\Projects\\PTZ6\\PTZ6\\x64\\System.Data.SQLite.DLL.\r<br />\n<br />\nIf I remove the Web Reference, the project builds with no problems. \r<br />\n<br />\nDo you know why and a workaround?\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-07-15T13:27:21.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1269120",
+    "ThreadId": "551636",
+    "Html": "I figured it out.  I had to add a proxy class instead of adding a Web reference in Microsoft Visual Studio.  Thanks!<br />\n",
+    "PostedDate": "2014-07-16T15:45:35.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

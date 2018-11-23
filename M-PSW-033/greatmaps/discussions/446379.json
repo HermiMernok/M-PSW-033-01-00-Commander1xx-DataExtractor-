@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1054197",
+    "ThreadId": "446379",
+    "Html": "i downloaded several custom markers ,but all of them had mis-locate problem in rotation <br />\nin main source i saw some code like <strong>Bearing</strong> were quoted <br />\nI'm new in this fantastic component and i don't know this problem solved or not<br />\nso i change the constructor of GMarkerGoogle to this:<br />\n<pre><code>    float angel;\n    public GMarkerGoogle(PointLatLng p, Bitmap Bitmap,float angel=0)\n         : base(p)\n      {\n          this.angel = angel;\n          this.Bitmap = rotateImage(Bitmap,angel);\n          \n         Size = new System.Drawing.Size(Bitmap.Width, Bitmap.Height);\n         Offset = new Point(-Size.Width / 2, -Size.Height);\n      }\n      private Bitmap rotateImage(Bitmap b, float angle)\n      {\n          //create a new empty bitmap to hold rotated image\n          Bitmap returnBitmap = new Bitmap(b.Width, b.Height);\n          //make a graphics object from the empty bitmap\n          Graphics g = Graphics.FromImage(returnBitmap);\n          //move rotation point to center of image\n          g.TranslateTransform((float)b.Width / 2, (float)b.Height / 2);\n          //rotate\n          g.RotateTransform(angle);\n          //move image back\n          g.TranslateTransform(-(float)b.Width / 2, -(float)b.Height / 2);\n          //draw passed in image onto graphics object\n          g.DrawImage(b, new Point(0, 0));\n          return returnBitmap;\n      }\n</code></pre>\n\n",
+    "PostedDate": "2013-06-07T16:04:38.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

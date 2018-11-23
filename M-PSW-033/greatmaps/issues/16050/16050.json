@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed",
+    "ClosedDate": "2013-04-19T07:07:40.193-07:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "When the cursor changes icon when over a marker within an overay, if the overlay is changed to IsVisible=False the mouse icon does not return and subsequent selection is not possible on the map.",
+    "LastUpdatedDate": "2013-04-19T07:50:05.897-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-10-10T09:19:09.34-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Map mouse cursor locks when overlay removed",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 16050
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "\nSame issue here.  Only happens when the map has focus.\n\nI have a context menu on a marker. One of the menu items sets marker overlay IsVisible=False.\nThe same context menu does not cause a problem when clicked on an object outside of GMap.\n",
+      "PostedDate": "2013-04-16T15:55:30.72-07:00",
+      "Id": 97185
+    },
+    {
+      "Message": "Confirmed:  This occurs when the mouse pointer is over a marker, and IsVisible is set to False.",
+      "PostedDate": "2013-04-19T04:55:17.93-07:00",
+      "Id": 97469
+    },
+    {
+      "Message": "well at least removing marker works",
+      "PostedDate": "2013-04-19T06:22:22.523-07:00",
+      "Id": 97476
+    },
+    {
+      "Message": "Oh thanks, that is a good workaround. Remove then Add.\n\noverlay.Markers.Remove(marker);\noverlay.Markers.Add(marker);",
+      "PostedDate": "2013-04-19T06:54:16.543-07:00",
+      "Id": 97477
+    },
+    {
+      "Message": "check the latest code, should work without any 'arounds' ;}",
+      "PostedDate": "2013-04-19T07:08:30.923-07:00",
+      "Id": 97481
+    },
+    {
+      "Message": "Thank you, that has indeed fixed it for me. :D",
+      "PostedDate": "2013-04-19T07:50:05.897-07:00",
+      "Id": 97486
+    }
+  ]
+}

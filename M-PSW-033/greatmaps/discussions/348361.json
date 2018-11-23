@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "809472",
+    "ThreadId": "348361",
+    "Html": "<p>Hi to all, I need to start my application with the zoom set to 18. The problem is that the first tile (just the first) is not loaded correctly, BUT, if I start with zoom=0 and I put a Sleep(7000) and zoom=18 in the \"OnTileLoadComplete\" event (just the first time)&nbsp; it works perfectly.&nbsp; I use  VS2010, WPF, OpenStreetMap provider, Release and Debug compiling. The sleep is just a work around and I don't like it, what can I do? Many thanks.</p>",
+    "PostedDate": "2012-03-13T01:58:26.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809502",
+    "ThreadId": "348361",
+    "Html": "<p>show me the code, where do you set zoom values?</p>",
+    "PostedDate": "2012-03-13T03:17:09.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809509",
+    "ThreadId": "348361",
+    "Html": "<p>This is in the costructor of MainWindow, after InitializeComponent():<br /> <br /> MainMap.DragButton = MouseButton.Left;<br /> MainMap.CanDragMap = true;<br /> MainMap.MinZoom = 1;<br /> MainMap.MaxZoom = 18;<br /> MainMap.ShowCenter = false;<br /> MainMap.Manager.Mode = AccessMode.ServerAndCache;<br /> GMap.NET.MapProviders.GMapProvider.TimeoutMs = Properties.Settings.Default.MapProviderTimeoutMs;<br /> <br /> MsSQLPureImageCache ch = new MsSQLPureImageCache();<br /> ch.ConnectionString = Properties.Settings.Default.DBConnectionString;<br /> MainMap.Manager.SecondaryCache = ch;<br /> ch.Initialize();<br /> <br /> MainMap.Zoom = 18;</p>\n<p>MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);</p>\n<p>----------------------------------------------------------------------------------------------------------------</p>\n<p>in my case, if MainMap.Zoom is &gt; 2, the map will not be fully loaded.</p>\n<p>thank you</p>",
+    "PostedDate": "2012-03-13T03:38:45.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809515",
+    "ThreadId": "348361",
+    "Html": "<p>why don't you set map provider?</p>",
+    "PostedDate": "2012-03-13T03:47:49.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809518",
+    "ThreadId": "348361",
+    "Html": "<p>sorry, i'm forget to copy the first row:<br /><br /></p>\r\n<p>MainMap.MapProvider = GMapProviders.OpenStreetMap;</p>\r\n<p>MainMap.DragButton = MouseButton.Left;<br /> MainMap.CanDragMap = true;<br /> MainMap.MinZoom = 1;<br /> MainMap.MaxZoom = 18;<br /> MainMap.ShowCenter = false;<br /> MainMap.Manager.Mode = AccessMode.ServerAndCache;<br /> GMap.NET.MapProviders.GMapProvider.TimeoutMs = Properties.Settings.Default.MapProviderTimeoutMs;<br /> <br /> MsSQLPureImageCache ch = new MsSQLPureImageCache();<br /> ch.ConnectionString = Properties.Settings.Default.DBConnectionString;<br /> MainMap.Manager.SecondaryCache = ch;<br /> ch.Initialize();<br /> <br /> MainMap.Zoom = 18;</p>\r\n<p>MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);</p>",
+    "PostedDate": "2012-03-13T03:54:40.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809536",
+    "ThreadId": "348361",
+    "Html": "<p>can you try temporary disable secondary cache?</p>",
+    "PostedDate": "2012-03-13T04:27:03.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809571",
+    "ThreadId": "348361",
+    "Html": "<p>I have found the problem, there is another thread that set the Mode to CacheOnly, sorry and thank you....</p>",
+    "PostedDate": "2012-03-13T06:01:38.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809581",
+    "ThreadId": "348361",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2012-03-13T06:15:47.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

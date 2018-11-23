@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "434421",
+    "ThreadId": "210250",
+    "Html": "<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:#0000ff\"><span style=\"color:#000000\">In GMapMarkerGoogleGreen.cs I found bellow code:</span><br></span></pre>\r\n</div>\r\n</p>\r\n<pre><div style=\"color:black;background-color:white\"><pre><span style=\"color:blue\">if</span>(!IsDragging)\r\n{\r\n\r\n   DrawImageUnscaled(g, Resources.shadow50, LocalPosition.X - 10, LocalPosition.Y - 34);\r\n   DrawImageUnscaled(g, Resources.marker, LocalPosition.X - 10, LocalPosition.Y - 34);\r\n\r\n}\r\n <span style=\"color:blue\">else</span>\r\n {\r\n   DrawImageUnscaled(g, Resources.shadow50, LocalPosition.X-10, LocalPosition.Y-40);\r\n   DrawImageUnscaled(g, Resources.bigMarkerGreen, LocalPosition.X-10, LocalPosition.Y-40);\r\n   DrawImageUnscaled(g, Resources.drag_cross_67_16, LocalPosition.X-8, LocalPosition.Y-8);\r\n}</pre>\r\n<pre><br></pre>\r\n<pre>the IsDragging property is Internal set, but in the project I did not find any code to set it's value. So IsDragging will alway equal to the default value &quot;false&quot;.</pre>\r\n</div>\r\n</pre>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:#0000ff\"><br></span></pre>\r\n<pre>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-04-22T18:29:05.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434459",
+    "ThreadId": "210250",
+    "Html": "<p>it's public, but you have to set it yourself ;]</p>",
+    "PostedDate": "2010-04-22T22:29:30.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434469",
+    "ThreadId": "210250",
+    "Html": "<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">bool</span> isDragging;\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> IsDragging\r\n      {\r\n         <span style=\"color:blue\">get</span>\r\n         {\r\n            <span style=\"color:blue\">return</span> isDragging;\r\n         }\r\n         <span style=\"color:blue\">internal</span> <span style=\"color:blue\">set</span>\r\n         {\r\n            isDragging = value;\r\n         }\r\n      }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-04-22T22:49:14.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434479",
+    "ThreadId": "210250",
+    "Html": "<p>i've just removed it ;}</p>",
+    "PostedDate": "2010-04-22T23:17:19.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434480",
+    "ThreadId": "210250",
+    "Html": "<p>ok! Thank you for your reply!</p>",
+    "PostedDate": "2010-04-22T23:20:35.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435328",
+    "ThreadId": "210250",
+    "Html": "<p>I think remove is not a very nice solution, In my opinion，change &quot;internal set&quot; to &quot;set&quot; is better.</p>\r\n<p>When the user want to drag the marker(change the position), set the IsDragging=true, and when enddrag(e.g. mouse up event) set &quot;IsDragging=false&quot;.</p>",
+    "PostedDate": "2010-04-25T23:26:45.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435335",
+    "ThreadId": "210250",
+    "Html": "<p>but there is no internal dragging support yet, so i've removed it for now ;}</p>",
+    "PostedDate": "2010-04-25T23:48:08.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435344",
+    "ThreadId": "210250",
+    "Html": "<p>OK, we can&nbsp;<span>implement ourselves.</span></p>\r\n<p><span>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">class</span> ExGMapMarker:GMapMarker\r\n{\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> IsDragging{<span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>;}\r\n      \r\n      <span style=\"color:green\">//ToDo:..........................</span>\r\n}\r\n</pre>\r\n</div>\r\n</span></p>\r\n<p>I just thisnk dragging with a cross icon is very cool.</p>\r\n<p>Wait for your best solution!&nbsp;</p>\r\n<p>:)</p>",
+    "PostedDate": "2010-04-26T00:09:24.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

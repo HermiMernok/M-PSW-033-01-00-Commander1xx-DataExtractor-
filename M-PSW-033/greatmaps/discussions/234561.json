@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "521450",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>Hi ,</p>\r\n<p>&nbsp;</p>\r\n<p>i cant run the windows mobile application in studio 2005 sir, i just need&nbsp; low end version to implement in visual studio 2005 Sir.</p>\r\n<p>&nbsp;</p>\r\n<p>please sort out my issue by posting some link regading low end version?</p>\r\n",
+    "PostedDate": "2010-11-13T04:04:44.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521493",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>i don't use 2005 version anymore, can't test, so what errors do you have?</p>\r\n",
+    "PostedDate": "2010-11-13T06:56:20.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521935",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>I cant use Var keyword in studio 2005, is that any other way? if so pls guide me sir?</p>\r\n",
+    "PostedDate": "2010-11-14T20:48:10.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522046",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>so why do you want to use Var key?</p>\r\n",
+    "PostedDate": "2010-11-15T03:46:27.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522059",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>No, i dont want to use var keyword, instead i need to initialize a variable with appropriate data type</p>\r\n<p>&nbsp;</p>\r\n<p>Example</p>\r\n<p>&nbsp;</p>\r\n<p>due to error purpose i make them as comment line, i need appropriate datatype for those variable sir, so that i get rid of the error?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<pre dir=\"ltr\" style=\"margin:0px; padding:3px; border:1px inset; width:auto; height:498px; text-align:left; overflow:auto\">#if !ContinuesMap<br><br>                     //Tile t = Core.Matrix.GetTileWithNoLock(Core.Zoom, tilePoint);<br>#else<br>                     Tile t = Core.Matrix.GetTileWithNoLock(Core.Zoom, tileToDraw);<br>#endif<br>//                     if(t != null)<br>//                     {<br>//                        // render tile<br>//                        lock(t.Overlays)<br>//                        {<br>//                           foreach(WindowsFormsImage img in t.Overlays)<br>//                           {<br>//                              if(img != null &amp;&amp; img.Img != null)<br>//                              {<br>//                                 if(!found)<br>//                                    found = true;<br>//#if !PocketPC<br>//                                 g.DrawImage(img.Img, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);<br>//#else<br>//                                 g.DrawImage(img.Img, Core.tileRect.X, Core.tileRect.Y);<br>//#endif<br>//                              }<br>//                           }<br>//                        }<br>//                     }<br><br>                     // add text if tile is missing<br>                     if(!found)<br>                     {<br>                        lock(Core.FailedLoads)<br>                        {<br>                           //var lt = new LoadTask(tilePoint, Core.Zoom);<br>                           //if(Core.FailedLoads.ContainsKey(lt))<br>                           {<br>                              //var ex = Core.FailedLoads[lt];<br>#if !PocketPC<br>                              g.FillRectangle(EmptytileBrush, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height));<br><br>                              //g.DrawString(&quot;Exception: &quot; &#43; ex.Message, MissingDataFont, Brushes.Red, new RectangleF(Core.tileRect.X &#43; 11, Core.tileRect.Y &#43; 11, Core.tileRect.Width - 11, Core.tileRect.Height - 11));<br><br>                              g.DrawString(EmptyTileText, MissingDataFont, Brushes.Blue, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);<br><br>#else<br>                              g.FillRectangle(EmptytileBrush, new System.Drawing.Rectangle(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height));<br><br>                              //g.DrawString(&quot;Exception: &quot; &#43; ex.Message, MissingDataFont, TileGridMissingTextBrush, new RectangleF(Core.tileRect.X &#43; 11, Core.tileRect.Y &#43; 11, Core.tileRect.Width - 11, Core.tileRect.Height - 11));<br><br>                              g.DrawString(EmptyTileText, MissingDataFont, TileGridMissingTextBrush, new RectangleF(Core.tileRect.X, Core.tileRect.Y &#43; Core.tileRect.Width/2 &#43; (ShowTileGridLines? 11 : -22), Core.tileRect.Width, Core.tileRect.Height), BottomFormat);<br>#endif<br><br>                              g.DrawRectangle(EmptyTileBorders, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);<br>                           }<br>                       }<br>                     }<br><br>                     if(ShowTileGridLines)<br>                     {<br>                        g.DrawRectangle(EmptyTileBorders, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);<br>                        {<br>#if !PocketPC<br>                           //g.DrawString((tilePoint == Core.centerTileXYLocation? &quot;CENTER: &quot; :&quot;TILE: &quot;) &#43; tilePoint, MissingDataFont, Brushes.Red, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);<br>#else<br>                           //g.DrawString((tilePoint == Core.centerTileXYLocation? &quot;&quot; :&quot;TILE: &quot;) &#43; tilePoint, MissingDataFont, TileGridLinesTextBrush, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);<br>#endif<br>                        }<br>                     }<br>                  }<br>               }<br>            //}<br>         }<br>         finally<br>         {<br>            Core.tileDrawingListLock.ReleaseReaderLock();<br>            Core.Matrix.LeaveReadLock();<br>         }<br>      }<pre>#if !ContinuesMap\r\n\r\n                     //Tile t = Core.Matrix.GetTileWithNoLock(Core.Zoom, tilePoint);\r\n#else\r\n                     Tile t = Core.Matrix.GetTileWithNoLock(Core.Zoom, tileToDraw);\r\n#endif\r\n//                     if(t != null)\r\n//                     {\r\n//                        // render tile\r\n//                        lock(t.Overlays)\r\n//                        {\r\n//                           foreach(WindowsFormsImage img in t.Overlays)\r\n//                           {\r\n//                              if(img != null &amp;&amp; img.Img != null)\r\n//                              {\r\n//                                 if(!found)\r\n//                                    found = true;\r\n//#if !PocketPC\r\n//                                 g.DrawImage(img.Img, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);\r\n//#else\r\n//                                 g.DrawImage(img.Img, Core.tileRect.X, Core.tileRect.Y);\r\n//#endif\r\n//                              }\r\n//                           }\r\n//                        }\r\n//                     }\r\n\r\n                     // add text if tile is missing\r\n                     if(!found)\r\n                     {\r\n                        lock(Core.FailedLoads)\r\n                        {\r\n                           //var lt = new LoadTask(tilePoint, Core.Zoom);\r\n                           //if(Core.FailedLoads.ContainsKey(lt))\r\n                           {\r\n                              //var ex = Core.FailedLoads[lt];\r\n#if !PocketPC\r\n                              g.FillRectangle(EmptytileBrush, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height));\r\n\r\n                              //g.DrawString(&quot;Exception: &quot; &#43; ex.Message, MissingDataFont, Brushes.Red, new RectangleF(Core.tileRect.X &#43; 11, Core.tileRect.Y &#43; 11, Core.tileRect.Width - 11, Core.tileRect.Height - 11));\r\n\r\n                              g.DrawString(EmptyTileText, MissingDataFont, Brushes.Blue, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);\r\n\r\n#else\r\n                              g.FillRectangle(EmptytileBrush, new System.Drawing.Rectangle(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height));\r\n\r\n                              //g.DrawString(&quot;Exception: &quot; &#43; ex.Message, MissingDataFont, TileGridMissingTextBrush, new RectangleF(Core.tileRect.X &#43; 11, Core.tileRect.Y &#43; 11, Core.tileRect.Width - 11, Core.tileRect.Height - 11));\r\n\r\n                              g.DrawString(EmptyTileText, MissingDataFont, TileGridMissingTextBrush, new RectangleF(Core.tileRect.X, Core.tileRect.Y &#43; Core.tileRect.Width/2 &#43; (ShowTileGridLines? 11 : -22), Core.tileRect.Width, Core.tileRect.Height), BottomFormat);\r\n#endif\r\n\r\n                              g.DrawRectangle(EmptyTileBorders, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);\r\n                           }\r\n                       }\r\n                     }\r\n\r\n                     if(ShowTileGridLines)\r\n                     {\r\n                        g.DrawRectangle(EmptyTileBorders, Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height);\r\n                        {\r\n#if !PocketPC\r\n                           //g.DrawString((tilePoint == Core.centerTileXYLocation? &quot;CENTER: &quot; :&quot;TILE: &quot;) &#43; tilePoint, MissingDataFont, Brushes.Red, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);\r\n#else\r\n                           //g.DrawString((tilePoint == Core.centerTileXYLocation? &quot;&quot; :&quot;TILE: &quot;) &#43; tilePoint, MissingDataFont, TileGridLinesTextBrush, new RectangleF(Core.tileRect.X, Core.tileRect.Y, Core.tileRect.Width, Core.tileRect.Height), CenterFormat);\r\n#endif\r\n                        }\r\n                     }\r\n                  }\r\n               }\r\n            //}\r\n         }\r\n         finally\r\n         {\r\n            Core.tileDrawingListLock.ReleaseReaderLock();\r\n            Core.Matrix.LeaveReadLock();\r\n         }\r\n      }</pre>\r\n</pre>\r\n",
+    "PostedDate": "2010-11-15T04:09:50.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522062",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>i see, i support two versions already, vs9 and vs10, to support vs8 would be waste of time, sorry, can't fix that</p>\r\n",
+    "PostedDate": "2010-11-15T04:15:44.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522077",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>hi i have changed a version into 2008 to 2005 , even i can deploy too , after deployed its shows me an error like</p>\r\n<p>what error it might be?</p>\r\n<p>Error:</p>\r\n<p>&nbsp;</p>\r\n<p>System.MissingMethodException was unhandled<br>\r\nMessage: Could not load type 'GMap.NET.WindowsForms.Markers.GMapMarkerTransparentGoogleGreen'\\</p>\r\n<p>from assembly 'GMap.NET.WindowsMobile, Version=1.4.9.3, Culture=neutral, PublicKeyToken=B85B9027B614AFEF'.</p>\r\n",
+    "PostedDate": "2010-11-15T04:59:36.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522085",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>can you try debug it? Whats the stack trace?</p>\r\n",
+    "PostedDate": "2010-11-15T05:15:55.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522086",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>'GMap.NET.exe' (Managed): Loaded 'C:\\Program Files (x86)\\Microsoft.NET\\SDK\\CompactFramework\\v2.0\\WindowsCE\\mscorlib.dll', No symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\vs 205\\greatmaps-22b93afd000c\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c.converte3\\greatmaps_22b93afd000c.converted\\demo.windowsmobile\\bin\\debug\\GMap.NET.exe', Symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'System.Windows.Forms.dll', No symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'System.dll', No symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'System.Drawing.dll', No symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\vs 205\\greatmaps-22b93afd000c\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c.converte3\\greatmaps_22b93afd000c.converted\\gmap.net.windowsmobile\\bin\\debug\\GMap.NET.WindowsMobile.dll', Symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\vs 205\\greatmaps-22b93afd000c\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c.converte3\\greatmaps_22b93afd000c.converted\\demo.windowsmobile\\bin\\debug\\OpenNETCF.dll', No symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'd:\\vs 205\\greatmaps-22b93afd000c\\greatmaps-22b93afd000c\\greatmaps_22b93afd000c.converte3\\greatmaps_22b93afd000c.converted\\demo.windowsmobile\\bin\\debug\\System.Data.SQLite.dll', No symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'System.Data.dll', No symbols loaded.<br>\r\n'GMap.NET.exe' (Managed): Loaded 'Microsoft.WindowsCE.Forms.dll', No symbols loaded.</p>\r\n<p>&nbsp;</p>\r\n<p>This is the Error sir?</p>\r\n",
+    "PostedDate": "2010-11-15T05:20:51.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522094",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>While debugging Application</p>\r\n<p>its prompt me a message box with</p>\r\n<p>[</p>\r\n<p>A project with an output type of class library cannot be started<br>\r\ndirectly.<br>\r\n<br>\r\nIn order to debug this project, add am executable project to this solution<br>\r\nwhich reference the library project. Set the executable project as the startup project.]</p>\r\n<p>&nbsp;</p>\r\n<p>what the error it might be Sir?</p>\r\n",
+    "PostedDate": "2010-11-15T05:32:42.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522106",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>you try execute dll, set startup project on you app</p>\r\n",
+    "PostedDate": "2010-11-15T06:06:01.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522494",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>Ya i have executed that dll as my startup project, despite its giving me an same error?</p>\r\n<p>[</p>\r\n<p>A project with an output type of class library cannot be started<br>\r\ndirectly.<br>\r\n<br>\r\nIn order to debug this project, add am executable project to this solution<br>\r\nwhich reference the library project. Set the executable project as the startup project.]</p>\r\n<p>&nbsp;</p>\r\n<p>?</p>\r\n",
+    "PostedDate": "2010-11-15T21:21:17.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522505",
+    "ThreadId": "234561",
+    "Html": "\r\n<p>;/</p>\r\n",
+    "PostedDate": "2010-11-15T22:08:51.337-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

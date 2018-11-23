@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "684146",
+    "ThreadId": "275872",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I have two custom markers each with a heading property (in degress). Say that we have:</p>\r\n<p>customMarker1.Heading = 270<br>\r\ncustomMarker2.Heading = 30</p>\r\n<p>I'd like to be able to draw a line from each of the markers so the lines&nbsp;intersect. The lines should start from the center of each marker and then continue in the &quot;heading&quot; direction until it intersects with the other line originating from the second\r\n custom marker. How can I accomplish this?</p>\r\n<p>Man thanks in advance!<br>\r\n/Peter</p>\r\n",
+    "PostedDate": "2011-10-14T00:41:22.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684170",
+    "ThreadId": "275872",
+    "Html": "<p>i've no idea ;/</p>",
+    "PostedDate": "2011-10-14T01:17:59.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684584",
+    "ThreadId": "275872",
+    "Html": "<p>Do it in screen-coordinates (pixels instead of Lat/Lng).</p>\r\n<p>Check out this link: <a href=\"http://stackoverflow.com/questions/1571294/line-equation-with-angle\" target=\"_blank\">http://stackoverflow.com/questions/1571294/line-equation-with-angle</a></p>\r\n<p>This gives you two line equations, now it's easy to calculate the intersection-point (if there is one), then you can convert the coordinates of this point back to Lat/Lng if needed.</p>",
+    "PostedDate": "2011-10-15T01:15:47.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685653",
+    "ThreadId": "275872",
+    "Html": "<p>Hi Xandolph!</p>\r\n<p>Thanks for your suggestion! I had a look and tried it out myself but I get bogus behavior from \"my\" algorithm. Here's how it goes:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>                    <span style=\"color: blue;\">double</span> a = (t.Pos1Bearing * (Math.PI / 180)); <span style=\"color: green;\">// Convert to radians</span>\r\n                    <span style=\"color: blue;\">double</span> m = Math.Tan(a); <span style=\"color: green;\">// Slope</span>\r\n                    GPoint lpo = _mapControl.FromLatLngToLocal(<span style=\"color: blue;\">new</span> PointLatLng(t.Pos1Latitude, t.Pos1Longitude)); \r\n                    <span style=\"color: blue;\">double</span> n = lpo.Y - (m * lpo.X); <span style=\"color: green;\">// y-axis intersection</span>\r\n                    GPoint lpt = _mapControl.FromLatLngToLocal(<span style=\"color: blue;\">new</span> PointLatLng((<span style=\"color: blue;\">int</span>)result.Latitude, (<span style=\"color: blue;\">int</span>)result.Longitude)); \r\n                    <span style=\"color: blue;\">double</span> l = Math.Sqrt( Math.Pow(lpt.X - lpo.X, 2) + Math.Pow( ( (m * lpt.X) + (n - lpo.Y) ), 2) );\r\n</pre>\r\n</div>\r\n<p>I (probably faulty) assumed that the x and y component of the new position could be deduced by applying the following:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>                    &lt;x-component&gt; = lpo.X + (<span style=\"color: blue;\">int</span>)(l * Math.Cos(a));\r\n                    &lt;y-component&gt; = lpo.Y + (<span style=\"color: blue;\">int</span>)(l * Math.Sin(a));\r\n</pre>\r\n</div>\r\n<p>and when I inspect the calculated x and y they \"look\" reasonable but when I use the FromLocalToLatLng I get a *very* strange lat/long coordinate. Oh, BTW, \"lpo\" = point of origin, \"lpt\" = point of target. I'm looking for a possibility to calculate/draw a line between these two points...</p>\r\n<p>What am I doing wrong here?</p>\r\n<p>Again, many thanks!<br />/Peter</p>",
+    "PostedDate": "2011-10-18T03:15:20.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

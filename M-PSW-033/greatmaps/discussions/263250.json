@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "634744",
+    "ThreadId": "263250",
+    "Html": "\r\n<p>Hello, I'm using GreatMap to display assets on the map. The user can check a vehicle on the left and I'll display an image on the map and then ask the map to Zoom at that location. It works fine ... most of the time. A very important deadlock can happen\r\n if a user issues many actions at one (i.e. check 3 assets very fast): the main UI thread is locked and the complete application will freeze.</p>\r\n<p>I've spent the last 2 days to analyse the code and trying to get around this problem. Changing the logic would be too hard for me since I don't know the project enough. BUT, I made it work by doing the following. I hope you can adapt this to make a better\r\n fix.</p>\r\n<p>The problem starts when you try to ZOOM while Core.ProcessLoadTask() is calling OnNeedInvalidation().</p>\r\n<p>- Zoom is stuck on the lock(tileLoadQueue)<strong> [waiting for tileLoadQueue]</strong></p>\r\n<p>- OnNeedInvalidation() is stuck on this.BeginInvoke()<strong> [waiting for the UI ... Zoom]</strong></p>\r\n<p>So, I made it work by using a Monitor.TryEnter in the Zoom (since zoom is not that important):</p>\r\n<pre style=\"font-family:Consolas; font-size:13px; color:#f1f2f3; background:none repeat scroll 0% 0% #22282a\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsStarted)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">bool</span>&nbsp;IsLocked&nbsp;<span style=\"color:#e8e2b7\">=</span>&nbsp;<span style=\"color:#93c763\">false</span>;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">try</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IsLocked&nbsp;<span style=\"color:#e8e2b7\">=</span>&nbsp;<span style=\"color:#678cb1\">Monitor</span><span style=\"color:#e8e2b7\">.</span>TryEnter(<span style=\"color:#93c763\">this</span><span style=\"color:#e8e2b7\">.</span>tileLoadQueue,&nbsp;<span style=\"color:#ffcd22\">0</span>);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsLocked)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tileLoadQueue<span style=\"color:#e8e2b7\">.</span>Clear();\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">finally</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsLocked)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#678cb1\">Monitor</span><span style=\"color:#e8e2b7\">.</span>Exit(<span style=\"color:#93c763\">this</span><span style=\"color:#e8e2b7\">.</span>tileLoadQueue);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(<span style=\"color:#e8e2b7\">!</span>IsLocked)&nbsp;<span style=\"color:#93c763\">return</span>;</pre>\r\n<p>But then the same thing happen in UpdateBounds(), so:</p>\r\n<pre style=\"font-family:Consolas; font-size:13px; color:#f1f2f3; background:none repeat scroll 0% 0% #22282a\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IsLocked&nbsp;<span style=\"color:#e8e2b7\">=</span>&nbsp;<span style=\"color:#678cb1\">Monitor</span><span style=\"color:#e8e2b7\">.</span>TryEnter(<span style=\"color:#93c763\">this</span><span style=\"color:#e8e2b7\">.</span>tileLoadQueue,&nbsp;<span style=\"color:#ffcd22\">0</span>);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsLocked)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tileDrawingListLock<span style=\"color:#e8e2b7\">.</span>AcquireWriterLock();\r\n <br>          [...]\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loadWaitCount&nbsp;<span style=\"color:#e8e2b7\">=</span>&nbsp;<span style=\"color:#ffcd22\">0</span>;\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#678cb1\">Monitor</span><span style=\"color:#e8e2b7\">.</span>PulseAll(tileLoadQueue);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">finally</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsLocked)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#678cb1\">Monitor</span><span style=\"color:#e8e2b7\">.</span>Exit(<span style=\"color:#93c763\">this</span><span style=\"color:#e8e2b7\">.</span>tileLoadQueue);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(<span style=\"color:#e8e2b7\">!</span>IsLocked)&nbsp;<span style=\"color:#93c763\">return</span>;</pre>\r\n<p>Hope this can help anyone.</p>\r\n<p>Thanks !</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px; top:0px; width:1px; height:1px; overflow:hidden\">\r\n<pre style=\"font-family:Consolas; font-size:13; color:#f1f2f3; background:#22282a\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsStarted)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">bool</span>&nbsp;IsLocked&nbsp;<span style=\"color:#e8e2b7\">=</span>&nbsp;<span style=\"color:#93c763\">false</span>;\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">try</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IsLocked&nbsp;<span style=\"color:#e8e2b7\">=</span>&nbsp;<span style=\"color:#678cb1\">Monitor</span><span style=\"color:#e8e2b7\">.</span>TryEnter(<span style=\"color:#93c763\">this</span><span style=\"color:#e8e2b7\">.</span>tileLoadQueue,&nbsp;<span style=\"color:#ffcd22\">0</span>);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsLocked)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tileLoadQueue<span style=\"color:#e8e2b7\">.</span>Clear();\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">finally</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(IsLocked)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#678cb1\">Monitor</span><span style=\"color:#e8e2b7\">.</span>Exit(<span style=\"color:#93c763\">this</span><span style=\"color:#e8e2b7\">.</span>tileLoadQueue);\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#93c763\">if</span>&nbsp;(<span style=\"color:#e8e2b7\">!</span>IsLocked)&nbsp;<span style=\"color:#93c763\">return</span>;<br></pre>\r\n</div>\r\n",
+    "PostedDate": "2011-06-29T06:24:38.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "634810",
+    "ThreadId": "263250",
+    "Html": "<p>Hello again, I just upgraded my version to the latest and compared the old and new \"Core.cs\". GreatMap now use Monitor like I did. I'll try it out but I guess you already came to that conclusion.</p>\r\n<p>Thanks !</p>",
+    "PostedDate": "2011-06-29T07:51:38.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "634818",
+    "ThreadId": "263250",
+    "Html": "<p>yes, but i'm not sure where exactly it locks, specially with multiply controls using one loadingQueue</p>",
+    "PostedDate": "2011-06-29T07:58:56.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635018",
+    "ThreadId": "263250",
+    "Html": "<p>During my test, it always deadlocked while doing Control.Invalidate (at the BeginInvoke line) called from ProcessLoadTask. It seems to crash just while trying to call the BeginInvoke because I tried passing a timeout of 3000ms and it doesn't even timeout ! It just get stuck there.</p>\r\n<p>I think the best solution would be to seperate the tiles loading from the other public services (zoom and display images).</p>\r\n<p>For example, you receive a zoom request, so you just move the map to that location. The same Zoom function then issue a REQUEST to you TileService that he should (on another thread) download missing tile if necessary ... Since both thread use the MainThread for UI, I think you should have \"UI\" Monitor ... since .NET seems unable to manage it.</p>\r\n<p>What do you think ?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-29T13:14:09.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635236",
+    "ThreadId": "263250",
+    "Html": "<p>the current version does the same, but how do you know when tile is ready? Yes background thread calls invoke to refresh control, and there locks occur</p>",
+    "PostedDate": "2011-06-30T00:32:02.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635427",
+    "ThreadId": "263250",
+    "Html": "<p>..can you make demo app which locks frequently, so i can experiment on it?</p>",
+    "PostedDate": "2011-06-30T07:45:32.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635961",
+    "ThreadId": "263250",
+    "Html": "<p>I'll do one monday.</p>",
+    "PostedDate": "2011-07-01T05:03:39.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "637212",
+    "ThreadId": "263250",
+    "Html": "<p>pushed new version, check the sound! ;}</p>",
+    "PostedDate": "2011-07-04T15:51:00.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645951",
+    "ThreadId": "263250",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I was having this problem too, which I corrected using wizmagisters code.&nbsp; I've just upgraded to the most recent release and the problem has reappeared, this time in the GMapControl.invalidatorWatch method, specifically this line:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">while</span>(!skiped &amp;&amp; Core.Refresh.WaitOne() || (Core.Refresh.WaitOne(spanMs, <span style=\"color: blue;\">false</span>) || <span style=\"color: blue;\">true</span>))\r\n</pre>\r\n</div>\r\n<p>The program freezes on startup at this line, but strangely it can be unstuck by simply right-clicking twice on the programs taskbar icon.&nbsp; Then it continues and so far hasn't frozen again.</p>\r\n<p>Any ideas?</p>",
+    "PostedDate": "2011-07-22T01:27:21.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645977",
+    "ThreadId": "263250",
+    "Html": "<p>hm.. does it stuck always or sometimes, can you share your test project?</p>",
+    "PostedDate": "2011-07-22T02:02:57.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645989",
+    "ThreadId": "263250",
+    "Html": "<p>It freezes every time.&nbsp; The project is too big to upload, I'll see if I can create a smaller test app which does the same thing.</p>",
+    "PostedDate": "2011-07-22T02:30:06.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646009",
+    "ThreadId": "263250",
+    "Html": "<p>I haven't tracked the problem down, but I've got a workaround.&nbsp; The program resizes the main form in the OnShown event, which led to the map freezing.&nbsp; By hiding the map during the resize, the problem no longer occurrs.</p>",
+    "PostedDate": "2011-07-22T03:23:41.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646011",
+    "ThreadId": "263250",
+    "Html": "<p>so you just change form size in&nbsp;OnShown ?</p>",
+    "PostedDate": "2011-07-22T03:30:40.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646016",
+    "ThreadId": "263250",
+    "Html": "<p>Yes, the app saves and restores the window position.&nbsp; By hiding the map while the window position is restored, the deadlock is avoided.&nbsp; It may be a cross-threading issue elsewhere in the app, as we have a lot of code triggered by the map control and the UserControl it's embedded in.&nbsp; If I get any further clues I'll post them.</p>",
+    "PostedDate": "2011-07-22T03:40:40.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646020",
+    "ThreadId": "263250",
+    "Html": "<p>thanks</p>",
+    "PostedDate": "2011-07-22T03:43:31.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

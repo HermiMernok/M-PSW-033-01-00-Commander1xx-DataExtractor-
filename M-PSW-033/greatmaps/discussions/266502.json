@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "647287",
+    "ThreadId": "266502",
+    "Html": "\r\n<p>Hi everybody. Greetings to Radioman!</p>\r\n<p>Im wonder if any person here have a sample of how to put some markers, and make that markers &quot;customized&quot; with different bitmaps/icons. Im trying to develop a small windows forms app, under Visual Basic (Visual Studio 2010)</p>\r\n<p>Thanks in advance. And kudos to Radioman for this cool project.</p>\r\n",
+    "PostedDate": "2011-07-25T11:48:18.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "647937",
+    "ThreadId": "266502",
+    "Html": "<p>I figured out how to make a custom marker, also i figured how to \"activate\" the tooltips again. Only i have one doubt. How i can change in the fly the bitmap of the marker without removing and adding again the marker?</p>\r\n<p>greetings Radioman.</p>",
+    "PostedDate": "2011-07-26T13:24:46.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "647941",
+    "ThreadId": "266502",
+    "Html": "<p>update the image, call map.Invalidate()</p>",
+    "PostedDate": "2011-07-26T13:30:30.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "647976",
+    "ThreadId": "266502",
+    "Html": "<p>I have this:</p>\r\n<p>&nbsp;&nbsp;&nbsp; Public Class GMapMarker_Custom<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Inherits GMapMarker</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim _image As System.Drawing.Image<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim _point As PointLatLng</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sub New(ByVal iPoint As PointLatLng, ByVal discipline As String)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.New(iPoint)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _point = iPoint<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select Case discipline<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case \"CarroVerde\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _image = My.Resources.CarFamGreen<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case \"CarroAmarillo\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _image = My.Resources.CarFamYellow<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case \"CarroRojo\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _image = My.Resources.CarFamRed<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Case \"CarroNegro\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _image = My.Resources.CarFamBlack<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Select<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Sub</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Public Overloads Overrides Sub OnRender(ByVal g As Graphics)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim p As New System.Drawing.Point(_point.Lat, _point.Lng)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.OnRender(g)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawImageUnscaled(_image, System.Convert.ToInt32(LocalPosition.X), System.Convert.ToInt32(LocalPosition.Y))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Sub<br />&nbsp;&nbsp;&nbsp; End Class</p>\r\n<p>&nbsp;</p>\r\n<p>Im using in this way:</p>\r\n<p>private sub blahblahblah</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim ArrayMarkers(1) As GMapMarker</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Layer_Markers = New GMapOverlay(GMapControl, \"Layer_One\")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl.Overlays.Add(Layer_Markers)</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ArrayMarkers(1) = New GMapMarker_Custom(New PointLatLng(10.14, -67.44), \"CarroAmarillo\")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ArrayMarkers(1).Size = New Drawing.Size(My.Resources.CarFamGreen.Size.Width, My.Resources.CarFamGreen.Size.Height)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ArrayMarkers(1).Offset = New Drawing.Point(-(My.Resources.CarFamGreen.Size.Width / 2), -My.Resources.CarFamGreen.Size.Height)</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Layer_Markers.Markers.Add(ArrayMarkers(1))</p>\r\n<p>end sub</p>\r\n<p>&nbsp;</p>\r\n<p>I tried:</p>\r\n<p>&nbsp;ArrayMarkers(1) = New GMapMarker_Custom(New PointLatLng(10.14, -67.44), \"CarroNegro\")</p>\r\n<p>&nbsp;GMapControl.Invalidate()</p>\r\n<p>but nothing.</p>\r\n<p>&nbsp;</p>\r\n<p>How accomplish the change of bitmap? im running out of ideas. Sorry radioman.&nbsp; :'(</p>",
+    "PostedDate": "2011-07-26T14:23:49.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "648651",
+    "ThreadId": "266502",
+    "Html": "<p>Im figured out how to switch between different custom markers. I will post my final code, to help others developers in VB to make markers. Thanks anyway radioman for this cool project!</p>",
+    "PostedDate": "2011-07-27T16:01:50.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

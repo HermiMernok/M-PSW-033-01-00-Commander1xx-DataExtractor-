@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "177101",
+    "ThreadId": "52672",
+    "Html": "Hi Radioman, <br>\r\nWPF question here:<br>\r\ndo you have any pointer on creating scroll and pan functionality. I'd like to be able to scroll/pan the map with a smooth animation rather than a &quot;Jump to&quot;.<br>\r\nsomething like <br>\r\nMainMap.Pan(Direction.West, 100); // to the left 100px<br>\r\nMainMap.Pan(Direction.South, 320); // down 320px<br>\r\n<br>\r\nany ideas?<br>\r\n<br>\r\ncheers<br>\r\nMoose\r\n",
+    "PostedDate": "2009-04-08T04:41:17.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "177230",
+    "ThreadId": "52672",
+    "Html": "scrool by pixels? or scroll by lat/lng ?",
+    "PostedDate": "2009-04-08T09:14:36.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "177337",
+    "ThreadId": "52672",
+    "Html": "Scroll by pixels I think, although it doesn't really matter as your core translates between the two. If you look at a google map at the &quot;pan&quot; buttons, that's the kind of affect I'm thinking off, where the map moves smoothly to a desired point.\r\n",
+    "PostedDate": "2009-04-08T13:21:10.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "177347",
+    "ThreadId": "52672",
+    "Html": "i see, i'll see what i can do",
+    "PostedDate": "2009-04-08T13:42:10.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "460999",
+    "ThreadId": "52672",
+    "Html": "<p>use<strong>&nbsp;Offset</strong>(int x, int y)</p>",
+    "PostedDate": "2010-06-29T00:09:27.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

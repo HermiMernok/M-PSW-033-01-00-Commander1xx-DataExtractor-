@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1082612",
+    "ThreadId": "453934",
+    "Html": "Hi.\r<br />\n<br />\nGreat work man, thanks for code,\r<br />\nI am using this for my project, but i have a problem while using zoom,\r<br />\nif i zoom map using button created by me then i lost all pins and routes on my map, but i use mouse wheel to zoom then it works fine.\r<br />\nwhat i need to do to zoom using buttons without loosing pins and routes.\r<br />\ncode i write on zoomin button click is :<br />\n<pre><code> gmap.Zoom *= 1.05;\n  gmap.Position = new PointLatLng(11.052535, 17.573322);\n            GMapMarkerGoogleRed marker = new GMapMarkerGoogleRed(Pnt);\n            GMapOverlay markersOverlay = new GMapOverlay(gmap, &quot;markers1&quot;);\n            markersOverlay.Markers.Add(marker);\n            var markerToolTip = new GMapRoundedToolTip(marker);\n            marker.ToolTipText = &quot;with zoom&quot;;\n            markersOverlay.Markers.Add(marker);\n            gmap.Overlays.Add(markersOverlay);\n</code></pre>\n\nplz mail me on <a href=\"mailto:sumit0405@gmail.com.\" rel=\"nofollow\">sumit0405@gmail.com.</a><br />\nthanks\r<br />\nSumit<br />\n",
+    "PostedDate": "2013-08-20T03:48:54.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082625",
+    "ThreadId": "453934",
+    "Html": "Thanks\r<br />\nI solve it by myself<br />\n",
+    "PostedDate": "2013-08-20T04:22:54.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

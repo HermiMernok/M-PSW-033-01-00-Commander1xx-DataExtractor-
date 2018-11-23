@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "827862",
+    "ThreadId": "353367",
+    "Html": "\r\n<p>Hi GMap.Net- Users,</p>\r\n<p>I am new to this very great Component.</p>\r\n<p>Unfortunately, I am not getting the demo and the .Net Components to run as I expected.</p>\r\n<p>I always get this error regardless which tileprovider I use. (The message gets drawn on every tile with a blue background)</p>\r\n<p><span style=\"color:#ff0000\">Exception: The remotename could not be resolved : xyz.everytileproviderIchoose.com</span></p>\r\n<p>I think there is something wrong in generall that does not have to do with the GMap-Controls.&nbsp;</p>\r\n<p>You have to know that I am working for a company and that pc is in that company-network. But if my company blocks that requets (maybe??) is that true for every mapprovider???</p>\r\n<p>Any hints? I also searched the discussions and not found any related problems so I think I am the only one O_o?</p>\r\n<p>Many thanks in advance.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>digow</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-04-24T06:58:21.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827866",
+    "ThreadId": "353367",
+    "Html": "<p>The answer is:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre> GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();\r\n GMapProvider.WebProxy.Credentials = CredentialCache.DefaultCredentials;\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>It was really the Proxy of my company.</p>\r\n<p>Anyway, thanks alot for this great component.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>digow</p>",
+    "PostedDate": "2012-04-24T07:07:16.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827867",
+    "ThreadId": "353367",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2012-04-24T07:11:29.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

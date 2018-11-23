@@ -1,0 +1,146 @@
+[
+  {
+    "Id": "530073",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I modified the platform target of the project to x64, than changed GMap.Net.Core, GMap.Net.WindowsForms and Demo.WindowsForms to x64 target. Changed the SQLite to the 64 bit version and recompiled. Everything turns out ok but when starting the demo only\r\n random tiles will be filled with maps, sometimes a few sometimes nearly complete.</p>\r\n<p>Anyone any idea anyone?</p>\r\n<p>Thx</p>\r\n<p>Atlan</p>\r\n",
+    "PostedDate": "2010-12-02T07:00:07.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530080",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>hm, i'll try to test x64 build</p>\r\n",
+    "PostedDate": "2010-12-02T07:12:43.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530609",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Thx Radioman.</p>\r\n<p>&nbsp;</p>\r\n<p>Btw I used the 0fac7ecd9b9a set and when zooming in/out on the map no tiles at all are displayed.</p>\r\n<p>&nbsp;</p>\r\n<p>Kind regards,</p>\r\n<p>Atlan</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-03T05:02:39.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531132",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>indeed there is some issue, haven't found exactly what ;/</p>\r\n",
+    "PostedDate": "2010-12-04T07:49:14.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531189",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Oef, its not me than that did something stupid. Hope you find the issue soon.</p>\r\n<p>Thanks in advance,</p>\r\n<p>Atlan</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-04T12:24:18.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533776",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Anything found yet Radioman?</p>\r\n",
+    "PostedDate": "2010-12-09T23:26:12.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533779",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>nop, but it is some sqlite issue ;}</p>\r\n",
+    "PostedDate": "2010-12-09T23:40:34.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537137",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Did anyone found a solution for this problem? I desperately need to finish an 64 bit application which includes GMap :(</p>\r\n",
+    "PostedDate": "2010-12-16T23:24:44.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537412",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>can you use x86 build?</p>\r\n",
+    "PostedDate": "2010-12-17T10:16:12.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537489",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>No, it has to be x64 as the main part is a 64bit application.</p>\r\n",
+    "PostedDate": "2010-12-17T12:26:17.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537540",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>you can try older sqlite dll, it shall work</p>\r\n",
+    "PostedDate": "2010-12-17T13:58:29.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537650",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Thanks Radioman, will give it a try. Any idea for which version i go and where i can download it?</p>\r\n",
+    "PostedDate": "2010-12-18T00:02:41.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537681",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>lower, step by step until it works ;}</p>\r\n",
+    "PostedDate": "2010-12-18T03:09:09.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537690",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Any site where i can download them?</p>\r\n<p>Thanks</p>\r\n<p>Atlan</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-18T04:16:01.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537698",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>http://sqlite.phxsoftware.com/</p>\r\n",
+    "PostedDate": "2010-12-18T05:46:59.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543668",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>First of all an Happy New Year to everyone.</p>\r\n<p>&nbsp;</p>\r\n<p>I did as you said Radioman, i tried all the 64 bit dll versions from SQlite starting with version 1.060.0 up to 1.066.0 but they gave all gave the same problem. Any help would be highly appreciated.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-04T05:14:24.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547105",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>As i didn't get any answer I suppose theres no solution to make GMap run in 64bit mode. If anyone can make it work one day a post here would be highly appreciated.</p>\r\n<p>Thx all</p>\r\n",
+    "PostedDate": "2011-01-10T22:59:15.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554406",
+    "ThreadId": "236870",
+    "Html": "\r\n<p>Please see ticket #&#65279;15997</p>\r\n",
+    "PostedDate": "2011-01-24T07:23:21.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1419751",
+    "ThreadId": "634549",
+    "Html": "Hello masters,<br />\nI'm not familiar with GMaPNet. I have project using GMapNet. I wish to show marker when i click button2. <br />\n<br />\nLat and Long have I store in a database Ms Access. How to connect it?  Thanks a lot. Gbu.<br />\n<br />\nThis is my code :<br />\n<br />\n private void gMapControl1_Load(object sender, EventArgs e)<br />\n<pre><code>    {\n\n        gMapControl1.MapProvider = GoogleMapProvider.Instance;\n        gMapControl1.Manager.Mode = AccessMode.ServerOnly;\n        GMapProvider.WebProxy = null;\n       gMapControl1.Position = new PointLatLng(-9.8230724, 124.4374374);\n\n\n        gMapControl1.MinZoom = 1;\n        gMapControl1.MaxZoom = 20;\n        gMapControl1.Zoom = 10;\n        gMapControl1.DragButton = MouseButtons.Left;\n    }\n\n    private void Form1_Load(object sender, EventArgs e)\n    {\n\n        this.BackColor = System.Drawing.Color.BurlyWood;\n    }\n\n    private void button2_Click(object sender, EventArgs e)\n    {\n     }</code></pre>\n\n",
+    "PostedDate": "2015-04-27T19:49:26.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

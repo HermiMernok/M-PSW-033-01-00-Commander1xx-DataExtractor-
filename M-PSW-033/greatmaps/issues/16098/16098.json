@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I m working in winforms using C#.net.\r\nI get a latitude and longtitude from an device and plot the value in the map.\r\nInitially i loaded the map in initialize component(),It is showing me correctly.\r\nBut when i used in the button click event, map is getting loaded,it is showing me an blur images.\r\n\r\nThe code i used in button click event:-\r\n\r\ntry\r\n            {\r\n                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.CacheOnly;\r\n                gmap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\r\n                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\r\n                // gmap.SetCurrentPositionByKeywords(\"Mumbai, India\");\r\n                GMapOverlay markersOverlay = new GMapOverlay(gmap, \"marker\");\r\n                GMapMarkerGoogleGreen marker = new GMapMarkerGoogleGreen(new PointLatLng(ObjParse.latitude, ObjParse.latitude));\r\n                gmap.Position = new PointLatLng(ObjParse.latitude, ObjParse.latitude);\r\n\r\n                markersOverlay.Markers.Add(marker);\r\n                gmap.Overlays.Add(markersOverlay);\r\n                gmap.MinZoom = 1;\r\n                gmap.MaxZoom = 50;\r\n                gmap.Zoom = 18;\r\n                marker.ToolTip = new GMapRoundedToolTip(marker);\r\n                marker.ToolTipText =Convert.ToString( ObjParse.latitude)+\",\"+Convert.ToString(ObjParse.longtitude);\r\n            }\r\n            catch(Exception ex)\r\n            {\r\n                log.Info(\"Error in Map plot Button\"+ex.ToString());\r\n            }\r\n\r\nplease help me to solve it.\r\nThnk's in advance",
+    "LastUpdatedDate": "2015-01-13T12:07:15.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-03-03T01:39:58.157-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "I get a blur image of map on button click",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16098
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "tried latest version?",
+      "PostedDate": "2015-01-13T12:07:15.49-08:00",
+      "Id": 170013
+    }
+  ]
+}

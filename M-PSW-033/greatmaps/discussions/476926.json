@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "1140907",
+    "ThreadId": "476926",
+    "Html": "Hi,\r<br />\n<br />\nI'm trying to use the GMap.Net component to show maps in a Windows CE 6.0 eqquipment with .Net CF 3.5. The online maps are showing perfectly but the cache mode is not working and all I see is tiles saying &quot;Exception: No data in local tile cache&quot; and &quot;We are sorry, but we don't have imagery at this zoom level for this region&quot;.\r<br />\n<br />\nI generated the cache using the Windows Forms demo application and I tested it with success. My cache was done in a single region (Lima, Peru) from zoom 9 to zoom 15. I tested my smart device application with different zoom levels (always centering the map in Lima Peru, PointLatLng(-12.047816, -77.062203) and setting the AccessMode.CacheOnly mode) but it didn't work.\r<br />\n<br />\nIn my project I've added the followind DLLs:<br />\n<ul>\n<li>GMap.NET.WindowsMobile.dll</li>\n<li>OpenNETCF.dll</li>\n<li>OpenNETCF.Configuration.dll</li>\n<li>System.Data.SqlClient.dll</li>\n<li>System.Data.SQLite.dll</li>\n<li>\nSQLite.Interop.081.dll (Copy to output only, it cannot be added as reference)<br />\n</li>\n</ul>\nIs there any trick to put it to work?\r<br />\n<br />\nThank you very much.<br />\n",
+    "PostedDate": "2013-12-23T09:20:58.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140923",
+    "ThreadId": "476926",
+    "Html": "Hi,<br />\n<br />\nI discovered that the zoom is not working, meybe this is the problem, I am setting the zoom using the following code:<br />\n<pre><code>panelMap.Zoom = 15;</code></pre>\n\nWhere &quot;panelMap&quot; is my GMapControl object. This is showing the map without zoom (I see the entire continent), and changing the zoom in runtime (with a trackBar) does not work also.<br />\n<br />\nAny ideas?<br />\n<br />\nThank you.<br />\n<br />\n__**** Nevermind, here the problem was that I was not setting the MinZoom and MaxZoom ****__<br />\n",
+    "PostedDate": "2013-12-23T09:58:50.607-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140948",
+    "ThreadId": "476926",
+    "Html": "good ;}<br />\n",
+    "PostedDate": "2013-12-23T10:47:01.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140949",
+    "ThreadId": "476926",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\ngood ;}<br />\n</blockquote>\nHi,<br />\n<br />\nThe problem persists, what I meant in the last post was that the zoom problem was solved, not the entire problem, I still cannot see the cached maps.<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2013-12-23T10:48:41.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140955",
+    "ThreadId": "476926",
+    "Html": "where do you put the cache file?<br />\n",
+    "PostedDate": "2013-12-23T10:58:14.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140958",
+    "ThreadId": "476926",
+    "Html": "Hi,\r<br />\n<br />\nI put in the Storage Card (&quot;\\Storage Card\\TileDBv5\\en\\Data.gmdb&quot;) but I've set the &quot;CacheLocation&quot; as you can see in the following code:<br />\n<pre><code>panelMap.CacheLocation = @&quot;\\Storage Card&quot;;</code></pre>\n\nIt's probably right because when I was trying to set it and made it wrong it gave me a message saying that it could not find the cache file.\r<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2013-12-23T11:04:10.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140961",
+    "ThreadId": "476926",
+    "Html": "maybe it's empty or something, dunno ;/<br />\n",
+    "PostedDate": "2013-12-23T11:17:10.21-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1142340",
+    "ThreadId": "476926",
+    "Html": "Hi,\r<br />\n<br />\nIs there a way of checking if it is empty? \r<br />\n<br />\nI put the gmdb in this link <a href=\"http://www.setibt.com/solucoes/data.gmdb\" rel=\"nofollow\">www.setibt.com/solucoes/data.gmdb</a> to download.\r<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2013-12-26T06:48:02.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1142350",
+    "ThreadId": "476926",
+    "Html": "it has 1550 tiles in it, you can open it using <a href=\"http://www.yunqa.de/delphi/doku.php/products/sqlitespy/index\" rel=\"nofollow\">http://www.yunqa.de/delphi/doku.php/products/sqlitespy/index</a><br />\n",
+    "PostedDate": "2013-12-26T07:48:05.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1142351",
+    "ThreadId": "476926",
+    "Html": "So it's not empty, what could be?\r<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2013-12-26T07:50:58.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1209376",
+    "ThreadId": "476926",
+    "Html": "Hi,<br />\nI had same problem. Problem was in Data.gmdb generated from Windows Forms demo! In my Data.gmdb was wrong &quot;type&quot; value for all tiles (requested type = 32 for OpenStreetMap). I changed it with SQL Update command:<br />\nUPDATE Tiles SET Type = 32 WHERE Type = &lt;wrong type, some large number&gt;<br />\n<br />\nI use SQLite Expert for connecting to Sqlite database (Data.gmdb).<br />\n<br />\nUpdate: Wrong type filled by WinForm demo is 1492776782.<br />\n",
+    "PostedDate": "2014-02-17T04:34:12.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-10-09T13:23:57.667-07:00"
+  },
+  {
+    "Id": "1311978",
+    "ThreadId": "476926",
+    "Html": "Hi mudrc, thank you very much, that solved my problem!<br />\n",
+    "PostedDate": "2014-10-09T13:23:51.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

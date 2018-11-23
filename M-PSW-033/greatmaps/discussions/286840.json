@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "728203",
+    "ThreadId": "286840",
+    "Html": "<p>Hi, I saw that GMarkerGoogle has .Bearing, but has tried to set it to some values but the marker was not rotated, do I miss something?</p>\n<p>\n<div style=\"color: black; background-color: white;\">\n<pre>GMarkerGoogle marker = <span style=\"color: blue;\">new</span> GMarkerGoogle(<span style=\"color: blue;\">new</span> PointLatLng(vhc.lat.Value, vhc.lon.Value), GMarkerGoogleType.red_dot);\nmarker.ToolTipMode = MarkerTooltipMode.Always;\nmarker.ToolTipText = vhc.name;\nmarker.Bearing = 90;                       \novlVehicles.Markers.Add(marker);\n</pre>\n</div>\n</p>",
+    "PostedDate": "2012-01-20T06:44:35.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "728207",
+    "ThreadId": "286840",
+    "Html": "<p>bearing is temporary disabled</p>",
+    "PostedDate": "2012-01-20T06:50:23.19-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342225",
+    "ThreadId": "286840",
+    "Html": "bearing is fixed\r<br />\n<br />\np.s. marker rotation demo [left menu, Live-&gt;FlightRadar] and <strong>GMarkerArrow.cs</strong><br />\n",
+    "PostedDate": "2015-01-15T08:21:39.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

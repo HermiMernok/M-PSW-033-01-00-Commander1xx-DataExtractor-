@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "619361",
+    "ThreadId": "259276",
+    "Html": "\r\n<p>I am trying to include the map application in a project I am working on. Although I will eventually implement my own marker, for testing purposes I tried to use a GMapMarkerGoogleRed/Green marker but it throws a TypeInitializationException when I use the\r\n same code shown in the Demo.WindowsForms<br>\r\n<br>\r\ncurrentMarker = new GMapMarkerGoogleRed(MainMap.Position);<br>\r\n<br>\r\nIn the project I am using, if I simply add the DLL references i get a SimpletonCreator threw an exception and the tiles remain blue. If I include the Source Code then I get the exception.<br>\r\n<br>\r\nFor further testing, I removed the references in the Demo.WindowsForms and added the source code folders and once again I got the TypeInitializationException with the following error:&nbsp;<br>\r\n&quot;{&quot;Could not find any resources appropriate for the specified culture or the neutral culture. Make sure \\&quot;System.Windows.Forms.Properties.Resources.resources\\&quot; was correctly embedded or linked into assembly \\&quot;Demo.WindowsForms\\&quot; at compile time, or that all\r\n the satellite assemblies required are loadable and fully signed.&quot;}&quot;</p>\r\n<p>Any help would be appreciated!</p>\r\n",
+    "PostedDate": "2011-05-27T07:43:36.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619442",
+    "ThreadId": "259276",
+    "Html": "<p>why do you reference&nbsp;Demo.WindowsForms? ;/, you need core dll and windowsforms dll only</p>",
+    "PostedDate": "2011-05-27T10:10:56.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619467",
+    "ThreadId": "259276",
+    "Html": "<p>I am sorry. I referenced the two dlls yet is get that same error and I don't understand why. When I try to step into it (in debug mode) it doesn't step into and throws the exception right away.</p>",
+    "PostedDate": "2011-05-27T10:58:10.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619469",
+    "ThreadId": "259276",
+    "Html": "<p>why demos has no such error?</p>",
+    "PostedDate": "2011-05-27T11:04:00.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619470",
+    "ThreadId": "259276",
+    "Html": "<p>I don't know why it was doing that. I created a new project and added my files and referenced the dll's and it worked when I compiled it so I don't know why it was doing that.&nbsp;<br /><br />I also want to thank you for providing us as developers with such a great tool and module! It is fabulous! Thanks for your hard work!&nbsp;</p>",
+    "PostedDate": "2011-05-27T11:11:39.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619481",
+    "ThreadId": "259276",
+    "Html": "<p>;} thanks</p>",
+    "PostedDate": "2011-05-27T11:24:13.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

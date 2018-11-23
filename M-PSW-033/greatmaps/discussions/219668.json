@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "468136",
+    "ThreadId": "219668",
+    "Html": "<p>Good day.</p>\r\n<p>In WPF GMapControl present next 2 problems with mousewheel event:</p>\r\n<p>1. If tile not loaded (empty) and mouse point in it - mousewheel zoom not work</p>\r\n<p>2. If mouse cursor placed on marker / overlay - mousewheel zoom not work</p>\r\n<p>Problem can be restored in your last demo also in last sources too.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-16T02:21:14.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468148",
+    "ThreadId": "219668",
+    "Html": "<p>1. any ideas how to fix?</p>\r\n<p>2. why it should, and if you want to, you can set IsHitTestVisible to false on your marker shape.</p>",
+    "PostedDate": "2010-07-16T03:06:25.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468156",
+    "ThreadId": "219668",
+    "Html": "<p>1. :(</p>\r\n<p>2. It should at least to provide user friendly interface, if you run your bus example and try focus in to center of Vilnius - first you will need work hard to find clear sapce. Don't think that overlay with scrolling will more usable / popular so need left mousewheel on it.</p>\r\n<p>About HitTest - any example please.</p>",
+    "PostedDate": "2010-07-16T03:31:35.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468162",
+    "ThreadId": "219668",
+    "Html": "<p>1. ;{ does nothing</p>\r\n<p>2. you can drag map even when you mouse is over marker in wpf version</p>\r\n<p>p.s. <a href=\"http://msdn.microsoft.com/en-us/library/system.windows.uielement.ishittestvisible.aspx\">IsHitTestVisible</a></p>",
+    "PostedDate": "2010-07-16T03:40:09.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468165",
+    "ThreadId": "219668",
+    "Html": "<p>Yes drag work well, but mouse wheel zoom - not :(</p>\r\n<p>:( sorry but mouse click on marker - required. So suggestion with HitTest not work.</p>",
+    "PostedDate": "2010-07-16T03:51:00.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468180",
+    "ThreadId": "219668",
+    "Html": "<p>hm..</p>",
+    "PostedDate": "2010-07-16T05:05:08.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468715",
+    "ThreadId": "219668",
+    "Html": "<p>I see you start recreate control over UserControl. Maybe it's can fix problem with unload tie and wheel?</p>\r\n<p>Or GMapControlNew.xaml created for other purpose?</p>",
+    "PostedDate": "2010-07-18T09:02:11.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468721",
+    "ThreadId": "219668",
+    "Html": "<p>it will use more optimized rendering, maybe in 2012 it stars working ;}</p>",
+    "PostedDate": "2010-07-18T09:16:53.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

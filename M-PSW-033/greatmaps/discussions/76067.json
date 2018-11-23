@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "260162",
+    "ThreadId": "76067",
+    "Html": "<p>Hello radioman,</p>\r\n<p>i have a small problem with a simple form:</p>\r\n<p>when i draged the control and after i close IDE, reopen and design of my form display this error:</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#ff0000\"><strong><span style=\"font-size:x-small\">One or more errors encountered while  loading the designer. The errors are listed below. Some errors can be fixed by  rebuilding your project, while others may require code changes.</span></strong></span></p>\r\n<table id=table1 style=\"height:100%\" border=0 cellspacing=0 cellpadding=0 width=\"100%\">\r\n<tbody>\r\n<tr>\r\n<td colspan=2 align=left valign=top>\r\n<div id=div1><span style=\"font-weight:600\">Object reference not set to an instance of an object.</span></div>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td colspan=2 align=left valign=top>\r\n<div id=div20>at  System.ComponentModel.ReflectPropertyDescriptor.SetValue(Object component,  Object value)<br>at  System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializePropertyAssignStatement(IDesignerSerializationManager  manager, CodeAssignStatement statement, CodePropertyReferenceExpression  propertyReferenceEx, Boolean reportError)<br>at  System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeAssignStatement(IDesignerSerializationManager  manager, CodeAssignStatement statement)<br>at  System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement(IDesignerSerializationManager  manager, CodeStatement statement)</div>\r\n<div></div>\r\n<div><span id=\"result_box\"><span style=\"background-color:#ffffff\" title=\"unde este greseala\">where is the mistake</span></span><span id=\"result_box\"><span style=\"background-color:#ebeff9\" title=\"unde gresesc!?\"> !? (my IDE is Visual Studio 2005 and the form is Custon Devexpress Form)</span></span></div>\r\n<div></div>\r\n<div><span><span style=\"background-color:#ebeff9\" title=\"unde gresesc!?\">Cordially</span></span></div>\r\n<div><span><span style=\"background-color:#ebeff9\" title=\"unde gresesc!?\">Gabi<br></span></span></div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+    "PostedDate": "2009-11-24T03:01:25.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260163",
+    "ThreadId": "76067",
+    "Html": "<p>close form, rebuild soution, try open form, it's stupid not working IsDesignMode property ;}</p>",
+    "PostedDate": "2009-11-24T03:03:30.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264643",
+    "ThreadId": "76067",
+    "Html": "<p>Hi Gabi,</p>\r\n<p>I am now also getting the same error as above, using the latest build of GMAPS , and also have the DevExpress controls. I think the common factor is that the GMAP control is on an inherited form.</p>\r\n<p>radioman, is it a problem with the IsDesignMode check ?</p>\r\n<p>Gabi, how did you solve the problem. I can't now open the forms in the VS2005 designer.</p>",
+    "PostedDate": "2009-12-07T14:02:04.703-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264676",
+    "ThreadId": "76067",
+    "Html": "<p>that&nbsp;check&nbsp;simply doesn't work ;{</p>",
+    "PostedDate": "2009-12-07T16:02:19.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

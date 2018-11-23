@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1463825",
+    "ThreadId": "651545",
+    "Html": "I have searched this help several times and cannot find out how to change a marker's bitmap. Most of what I've found worked on older versions but not now.\r<br />\n<br />\nI'm adding bitmaps to Markers like this.<br />\n<pre><code>Bitmap bmp = Resources.ResourceManager.GetObject(&quot;circle&quot;, Resources.Culture) as Bitmap;\nactiveOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(lat, lng), bmp));</code></pre>\n\nRadioman or someone please show me how to change a Marker bitmap. I've been trying off and on for over a week.\r<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2016-02-20T20:24:19.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1463946",
+    "ThreadId": "651545",
+    "Html": "I found a way but it is not very elegant. \r<br />\n<br />\nIs there a way to avoid the loop?<br />\n<pre><code>gMapControl1.OnMarkerClick += Marker_Click;\n\nprivate void Marker_Click(object sender, EventArgs e)\n{\n            GMapMarker m = sender as GMapMarker;\n            \n            string ttip = m.ToolTipText;\n            double lat = m.Position.Lat;\n            double lng = m.Position.Lng;\n\n            int I = 0;\n            for (int i = 0; i &lt; activeOverlay.Markers.Count; ++i)\n            {\n                if (activeOverlay.Markers[i] == m)\n                {\n                    I = i;\n                    break;\n                }\n            }\n            activeOverlay.Markers.RemoveAt(I);\n            m.Dispose();\n\n            Bitmap bmp = Resources.ResourceManager.GetObject(&quot;green_tristar&quot;, Resources.Culture) as Bitmap;\n            activeOverlay.Markers.Add(new GMarkerGoogle(new PointLatLng(lat, lng), bmp));\n\n            int II = activeOverlay.Markers.Count - 1;\n            activeOverlay.Markers[II].ToolTipText = ttip;\n}</code></pre>\n\n",
+    "PostedDate": "2016-02-22T03:38:07.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-02-22T03:39:30.547-08:00"
+  }
+]

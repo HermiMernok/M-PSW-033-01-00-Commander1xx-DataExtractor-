@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1486629",
+    "ThreadId": "658879",
+    "Html": "I have a map in my application and when the user clicks anywhere on that map, I want to capture the coordinates of that place, for example to add a marker or center the map on that place. How can I do that?<br />\n",
+    "PostedDate": "2016-10-21T16:20:29.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1486701",
+    "ThreadId": "658879",
+    "Html": "check the demo<br />\n",
+    "PostedDate": "2016-10-23T08:31:56.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1486734",
+    "ThreadId": "658879",
+    "Html": "Something like that, add this in your GMapControl derived class :<br />\n<pre><code>protected override void OnMouseClick(MouseEventArgs e)\n{\n    PointLatLng pt = this.FromLocalToLatLng(e.X, e.Y);\n    (... do something ...)\n    base.OnMouseClick(e);\n}\n</code></pre>\n\n",
+    "PostedDate": "2016-10-24T00:41:54.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-10-24T10:11:41.58-07:00"
+  }
+]

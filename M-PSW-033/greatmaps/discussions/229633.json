@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "502382",
+    "ThreadId": "229633",
+    "Html": "<p>Hello guys,</p>\r\n<p>&nbsp;</p>\r\n<p>after I saw the huge amount of map servers, that are supported (google, bing, yahoo, ...), I wondered, if it is possible to use other type.</p>\r\n<p>To be concrete - our czech site mapy.cz is in some cases better than google and I would like to use them if possible. Example link:&nbsp; http://mapy.cz/#mm=TtTcFP@sa=s@st=s@ssq=praha@sss=1@ssp=124542060_114618060_146037868_145911500@x=133194275@y=135845724@z=9</p>\r\n<p>&nbsp;</p>\r\n<p>Is there any tutorial how to do it?</p>\r\n<p>Thanks, stej</p>",
+    "PostedDate": "2010-10-05T02:34:53.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502411",
+    "ThreadId": "229633",
+    "Html": "<p>Let's see!</p>\r\n<p><span style=\"text-decoration:underline\"><strong>Step 1</strong>: where are tiles?</span></p>\r\n<p><a href=\"http://m1.mapserver.mapy.cz/base-n/3_8000000_8000000\">http://m1.mapserver.mapy.cz/base-n/3_8000000_8000000</a></p>\r\n<p>&nbsp;<img src=\"http://m1.mapserver.mapy.cz/base-n/3_8000000_8000000\" alt=\"\"></p>\r\n<p><span style=\"text-decoration:underline\"><span style=\"color:#000000\"><strong>Step 2</strong>: how to make request url?</span></span></p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> MapyMap(<span style=\"color:blue\">int</span> zoom, <span style=\"color:blue\">int</span> x, <span style=\"color:blue\">int</span> y)\r\n{\r\n    zoom = 0x11 - zoom;\r\n    y = (((<span style=\"color:blue\">int</span>) Math.Pow(2.0, (<span style=\"color:blue\">double</span>) zoom)) - 1) - y;\r\n    <span style=\"color:blue\">return</span> (<span style=\"color:#a31515\">&quot;http://mapserver.mapy.cz/&quot;</span> + MapyVersion + <span style=\"color:#a31515\">&quot;/&quot;</span> + zoom.ToString() + <span style=\"color:#a31515\">&quot;_&quot;</span> + decToHex(x.ToString(), zoom) + <span style=\"color:#a31515\">&quot;_&quot;</span> + decToHex(y.ToString(), zoom));\r\n}\r\n\r\n<span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">string</span> decToHex(<span style=\"color:blue\">string</span> param, <span style=\"color:blue\">int</span> scale)\r\n{\r\n    <span style=\"color:blue\">int</span> num2 = <span style=\"color:blue\">int</span>.Parse(param) &lt;&lt; (0x1c - scale);\r\n    <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(<span style=\"color:#a31515\">&quot;{0:x7}&quot;</span>, num2);\r\n}\r\n</pre>\r\n</div>\r\n<p><span style=\"text-decoration:underline\"><strong>Step 3</strong>: how to convert from coordinates to tile indexes?</span></p>\r\n<p><a href=\"http://spatialreference.org/ref/sr-org/98/\">SR-ORG:98, Mapy.cz Projection</a>&nbsp;-&nbsp;used on <a href=\"http://www.mapy.cz\">www.mapy.cz</a> for raster tiles and for POI database. Mapy.cz is a Google Maps alternative with the high quality data coverage for Czech Republic. It is a slightly modified EPSG:32633 (WGS84/UTM zone 33).</p>\r\n<p>PROJCS[&quot;Mapy.cz&quot;,GEOGCS[&quot;GCS_WGS_1984&quot;,DATUM[&quot;D_WGS_1984&quot;,SPHEROID[&quot;WGS_1984&quot;,6378137,298.257223563]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.017453292519943295]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,15],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,134400000],PARAMETER[&quot;false_northing&quot;,-41600000],UNIT[&quot;1/32meter&quot;,0.03125]]</p>\r\n<p><span style=\"text-decoration:underline\"><strong>Step 4:</strong> engage!</span></p>\r\n<p>&nbsp;<img src=\"http://0wxnqw.blu.livefilestore.com/y1piCWk9PhelUGpXTfdSN17R3ILqTZZFVe6UDNyICWvcXaPlBR9_hhmO-cPd7qREqSm3SRa6W1QQ2ylihNkMorwgpNPOzh-SpxL/mapy_zn.png?psid=1\" alt=\"\"></p>\r\n<p><span style=\"text-decoration:underline\"><strong>Step 5:</strong> make it so!</span> ;}</p>",
+    "PostedDate": "2010-10-05T04:00:53.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502489",
+    "ThreadId": "229633",
+    "Html": "<p>Wow, looks promising.</p>\r\n<p>Thx, I'll try that ASAP.</p>",
+    "PostedDate": "2010-10-05T07:05:54.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505697",
+    "ThreadId": "229633",
+    "Html": "<p>I noticed you added some support for mapy.cz which is great!</p>\r\n<p>You wrote that there are some problems - do you think it is possible to fix them? From a quick look I found out that the whole coordinates stuff is a little bit mystery for me :)</p>",
+    "PostedDate": "2010-10-11T17:16:28.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505770",
+    "ThreadId": "229633",
+    "Html": "<p>welcome to the&nbsp;Transylvania, mystery of Dracula is always here ;] ..anyway there is a way in every map, just takes time to find it, help is welcome ;}</p>",
+    "PostedDate": "2010-10-11T21:45:51.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507678",
+    "ThreadId": "229633",
+    "Html": "<p>i've found the way, but somehow the formulas in official javascript isn't very accurate, or maybe i've missed something.. hm ;/</p>",
+    "PostedDate": "2010-10-15T03:59:17.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507773",
+    "ThreadId": "229633",
+    "Html": "<p><em>&quot;help is welcome ;}&quot;</em></p>\r\n<p>Sure :) I would help, but from what I've seen I have almost no clue how the maps/coordinates etc. work. I've tried something but without any usable result :|</p>",
+    "PostedDate": "2010-10-15T06:56:13.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507832",
+    "ThreadId": "229633",
+    "Html": "<p>it's done, cheers ;}</p>",
+    "PostedDate": "2010-10-15T08:34:21.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

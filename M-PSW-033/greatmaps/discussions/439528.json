@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1027314",
+    "ThreadId": "439528",
+    "Html": "<strong>How Can I set GoogleMap as default map on startup in form load ?</strong> <br />\n\r<br />\n<br />\n<br />\nGMaps.Instance.UseRouteCache = True<br />\n<pre><code>    GMaps.Instance.UseGeocoderCache = True\n    GMaps.Instance.UsePlacemarkCache = True\n    GMaps.Instance.Mode = AccessMode.ServerAndCache\n    GMap1.MapProvider = GMapProviders.GoogleMap\n\n    'Lägg till ett layer\n\n    GPSOVERLAY = New GMapOverlay(GMap1, &quot; GPSOVERLAY&quot;)\n    Layer_layers = New GMapOverlay(GMap1, &quot;Layer_layers&quot;)\n    GMap1.MinZoom = 1\n    GMap1.MaxZoom = 17\n    GMap1.Zoom = 9\n    GMap1.SetCurrentPositionByKeywords(&quot;Stockholm, Sweden&quot;)\n    GMap1.Dock = System.Windows.Forms.DockStyle.Fill\n    GMap1.DragButton = Windows.Forms.MouseButtons.Left\n    GMap1.CanDragMap = True\n    GMap1.Update()</code></pre>\n\n",
+    "PostedDate": "2013-04-08T08:57:06.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027328",
+    "ThreadId": "439528",
+    "Html": "just like you did ;}<br />\n",
+    "PostedDate": "2013-04-08T09:19:39.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

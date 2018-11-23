@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "802922",
+    "ThreadId": "346647",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>In my program, while moving along a predefined path for the first time i see blank tiles (only for a second or 2) because they are not loaded yet.&nbsp;<br>\r\nI'm looking for a way to avoid this.&nbsp;<br>\r\nWhen I move along the path in the&nbsp;opposite&nbsp;direction it doesn't happen.</p>\r\n<p>A while ago Radiomen stated the following:</p>\r\n<p>&quot;to be precise there are 5 levels of caching:</p>\r\n<ol>\r\n<li>decompressed raw bitmap tiles, in memory </li><li>compressed tiles in their native format, in memory </li><li>local sqlite/ce databse on your hdd </li><li>[optional] second cache in LAN, mysql/mssql </li><li>global servers, google/big/etc...&quot; </li></ol>\r\n<p>I presume that when i move back, the tiles are still in the first (or second?) cache level.</p>\r\n<p>is there a way to 'preload' a part (or as much as possible) from local sqllite-db in to the machine's memory?</p>\r\n<p>And then another question: If the pre-allocated space from the database (250mb) is full, will it expand or just delete tiles, and, if so, which tiles would that be?</p>\r\n<ol>\r\n</ol>\r\n<p>thx in advance</p>\r\n",
+    "PostedDate": "2012-02-28T17:00:10.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803008",
+    "ThreadId": "346647",
+    "Html": "<ul>\r\n<li>there is no 'preloading' as you scroll the map new tiles are loaded into memory and old/invisible tiles are unloaded, though it would be possible to load more but that would eat your memory very quickly because raw bitmaps are quite huge, anyway there is always a space for improvements...</li>\r\n<li>local cache has very high limit ~ 2TB, so no tiles are deleted, unless you manually delete them,&nbsp;Map.Manager.PrimaryCache.<strong>DeleteOlderThan</strong></li>\r\n</ul>",
+    "PostedDate": "2012-02-29T00:21:34.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803654",
+    "ThreadId": "346647",
+    "Html": "<p>thx for your quick reply.&nbsp;</p>\r\n<p><br />That was how i would resolve my issue, but just to be clear:&nbsp;you can think of no way to avoid displaying those 'empty' tiles while moving along a predefined path?</p>\r\n<p><br />&nbsp;<span>thx in advance</span></p>",
+    "PostedDate": "2012-03-01T02:28:23.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803698",
+    "ThreadId": "346647",
+    "Html": "<p>..it's complicated...</p>",
+    "PostedDate": "2012-03-01T04:14:41.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805360",
+    "ThreadId": "346647",
+    "Html": "<p>How about (pre)loading a known set of (say 4x3) tiles for a given zoom into decompressed raw bitmap tiles? Is it possible to force preload into decompressed raw tiles of tiles in view for 1 zoom level above and below current level?</p>",
+    "PostedDate": "2012-03-04T23:55:24.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805374",
+    "ThreadId": "346647",
+    "Html": "<p>it's possible, everything is possible ;}</p>",
+    "PostedDate": "2012-03-05T00:37:46.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805380",
+    "ThreadId": "346647",
+    "Html": "<p>Say I have LevelsKeepInMemory = 7 and current Zoom = 12. I want to decompress tiles for levels 11 and 13. I can calculate tiles in view at each of those zoom and create RectLatLng for area in view at each zoom. I can then call Instance.GetImageFrom() but this only loads from DB to compressed tile in memory.</p>\r\n<p>Can you point to a similar method to load a tile into decompressed raw bitmap in RAM?</p>",
+    "PostedDate": "2012-03-05T01:14:26.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805384",
+    "ThreadId": "346647",
+    "Html": "<p>...try it yourself, can't help much here</p>",
+    "PostedDate": "2012-03-05T01:22:49.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805426",
+    "ThreadId": "346647",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>gvenkat_00 wrote:</strong><br />\r\n<p>How about (pre)loading a known set of (say 4x3) tiles for a given zoom into decompressed raw bitmap tiles? Is it possible to force preload into decompressed raw tiles of tiles in view for 1 zoom level above and below current level?</p>\r\n</blockquote>\r\n<p>That's exactly what i am trying to do. Do you have any idea how i could do this? I just don't know where to begin.&nbsp;</p>",
+    "PostedDate": "2012-03-05T02:56:18.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805437",
+    "ThreadId": "346647",
+    "Html": "<p>Am i looking at the right page?<br /><a href=\"http://greatmaps.codeplex.com/SourceControl/changeset/view/0750e7861198#GMap.NET.Core%2fGMap.NET.CacheProviders%2fMemoryCache.cs\">http://greatmaps.codeplex.com/SourceControl/changeset/view/0750e7861198#GMap.NET.Core%2fGMap.NET.CacheProviders%2fMemoryCache.cs</a></p>\r\n<p><a href=\"http://greatmaps.codeplex.com/SourceControl/changeset/view/0750e7861198#GMap.NET.Core%2fGMap.NET.CacheProviders%2fMemoryCache.cs\"></a>&nbsp;</p>",
+    "PostedDate": "2012-03-05T03:24:43.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805582",
+    "ThreadId": "346647",
+    "Html": "<p>Hi, just implemented the last version (beta) of the dll's, nice work Radioman.<br />The empty/blank tiles are often replaced with a part of a tile from a lower zoom-level, which makes the use of preloading in ram ALMOST&nbsp;unnecessary. Nice!&nbsp;<br />I also screwed a bit with:<br />&nbsp; MainMap.Manager.MemoryCache.Capacity = 100;&nbsp;</p>",
+    "PostedDate": "2012-03-05T07:45:09.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805592",
+    "ThreadId": "346647",
+    "Html": "<p>yes, lower zoom-level tiles are reused while loading current level, at least for mercator projection</p>",
+    "PostedDate": "2012-03-05T07:58:38.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

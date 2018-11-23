@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1049717",
+    "ThreadId": "445230",
+    "Html": "It was working, however I don't know if it's related to Windows 8, but after I do the MainMap.ZoomAndCenterMarkers(Nothing), the markers show on the screen however the map tiles do not.  I tried all the different map providers.  Before the function, I can move and zoom in and out of the map.\r<br />\n<br />\nI tried different builds but to no avail.  Is anyone else having this issue?<br />\n",
+    "PostedDate": "2013-05-28T10:08:06.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050619",
+    "ThreadId": "445230",
+    "Html": "I created a new form and getting the same results.. Here is my code.  It zooms in but the map tiles just turn white.  If I move the map around I see brief flashes of blue tile.  This is happening on two different Windows 8 machines.  Going to try it on a Windows 7 machine.  Here is my code:<br />\n<pre><code>Imports System.Windows.Forms\nImports GMap.NET\nImports GMap.NET.WindowsForms\nImports GMap.NET.WindowsForms.Markers\nImports GMap.NET.WindowsForms.ToolTips\nImports GMap.NET.MapProviders\n\nPublic Class Test\n    Public overlayOne As New GMapOverlay\n\n    Private Sub Test_Load(sender As Object, e As EventArgs) Handles Me.Load\n        MainMap.MapProvider = GMapProviders.GoogleMap\n        MainMap.MaxZoom = 17\n        MainMap.MinZoom = 1\n        MainMap.Zoom = 4\n        MainMap.Position = New PointLatLng(39.605612582602, -83.233154296875)\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly\n    End Sub\n\n    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click\n        overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(-76.7953029, 40.8937513), Markers.GMarkerGoogleType.green))\n        overlayOne.Markers(overlayOne.Markers.Count - 1).Tag = &quot;Marker 1&quot;\n        MainMap.Overlays.Add(overlayOne)\n        MainMap.ZoomAndCenterMarkers(Nothing)\n    End Sub\nEnd Class</code></pre>\n\n",
+    "PostedDate": "2013-05-30T06:48:10.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050624",
+    "ThreadId": "445230",
+    "Html": "Found the issue.. My code for the long, latitude was messed up.  Sorry!<br />\n",
+    "PostedDate": "2013-05-30T06:55:15.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050657",
+    "ThreadId": "445230",
+    "Html": "i've expected something like that ;}<br />\n",
+    "PostedDate": "2013-05-30T07:59:48.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

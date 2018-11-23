@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "685545",
+    "ThreadId": "276227",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have downloaded India.osm file. It contains map data from Open Street Maps. I have with me a set of Latitude/Longitude points. Using this I want to Plot a Track, Pin head etc.. I am using Windows XP and my client application is a Windows Standalone application\r\n (without internet connection).</p>\r\n<p>Can GMap.net be used to utilize .osm files (without internet connection). Are there any Software Development Kits like GMap.net for offline map data from Open Street Map.</p>\r\n<p>Please advice.</p>\r\n",
+    "PostedDate": "2011-10-17T22:04:33.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685562",
+    "ThreadId": "276227",
+    "Html": "<p>well, if you know how to parse osm files, you can do it, offline mode is guaranteed if you prefetch some area and copy/import cache to your client machine</p>",
+    "PostedDate": "2011-10-17T23:25:09.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685677",
+    "ThreadId": "276227",
+    "Html": "<p>1) Pls let me know if any sample code / article related to Parse OSM files, Prefetch / Import cache is available.</p>\r\n<p>2) Is there any other SDK&nbsp;other than GMap.net to plot routes using .osm file.</p>",
+    "PostedDate": "2011-10-18T04:29:19.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685686",
+    "ThreadId": "276227",
+    "Html": "<p>parsing osm and GMap.NET has nothing to do with. If you have the points you can add them to the map, it doesn't care from where you get them.</p>\r\n<p>p.s. prefetch is integrated in demos, after it's done, you can shrink the database and put it on some other computer, import/export is implemented in demos, there is source if you need exact functions...</p>",
+    "PostedDate": "2011-10-18T04:41:07.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

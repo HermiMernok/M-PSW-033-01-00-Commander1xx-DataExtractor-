@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "943261",
+    "ThreadId": "403598",
+    "Html": "\r\n<p>I have created a windows forms app in Visual Basic with a map incorporated. &nbsp;The map works great and will add an overlay from the attached SQL database without any issues, upto 10,000 markers.</p>\r\n<p>The markers are all custom from PNG images depending on the category of alert generated. &nbsp;The problem I have is that when I'm doing this in real time, so when I parse through a list and add markers on the fly, after a random amount, the map vanishes\r\n and is replaced with a big red cross, shortly after this I will get an exception error that the collection has been modified and the app crashes. &nbsp;This only happens when doing them real time if I add all the markers to the db then pull them all out again\r\n they will show correctly with no error.</p>\r\n<p>As far as I know, I'm using the latest build. &nbsp;Any ideas whats going wrong ?</p>\r\n",
+    "PostedDate": "2012-11-17T07:58:05.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943263",
+    "ThreadId": "403598",
+    "Html": "\r\n<p>disable invalidation when updating/adding markers:</p>\r\n<p>Map.<strong>HoldInvalidation</strong> = <strong>true</strong>;<br>\r\n{<br>\r\n&nbsp;...<br>\r\n...<br>\r\n...<br>\r\n...<br>\r\n}<br>\r\nMap.<strong>Refresh</strong>();</p>\r\n<p>..takes few minutes for analyzing demos, and you would know that already..</p>\r\n",
+    "PostedDate": "2012-11-17T08:07:48.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

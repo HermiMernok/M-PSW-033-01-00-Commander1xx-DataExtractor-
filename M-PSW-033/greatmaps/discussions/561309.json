@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1290456",
+    "ThreadId": "561309",
+    "Html": "Greetings,<br />\n<br />\nI have recently started working on an application for my team to use to help us proactively monitor some of our customers sites using a map interface.<br />\n<br />\nGMaps has been wonderful and is very easy to use, however, each day I come in to work on my project the map will load a hadnful of times and then stops.<br />\n<br />\nIt then fills my GMapControl with blue tiles that read &quot;Exception:The remote server returned an error:(499) Failclose.&quot;<br />\n<br />\nI am trying to use BingMaps, and I have obtained a key from bing. However it does this on any MapProvider I try to use.<br />\n<br />\nNot sure if my code is wrong(Followed the demo) or if im having some sort of firewall issue(I have turned off my machines firewall temporarily to no avail)<br />\n<br />\nMy Code:<br />\n<pre><code>GMap.NET.MapProviders.BingMapProvider.Instance.ClientKey = &quot;my_key_goes_here&quot;;\n            gmap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\n\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n            \n            gmap.Position = new PointLatLng(41.088327, -96.4748517);</code></pre>\n\nPlease advise.<br />\n",
+    "PostedDate": "2014-08-15T07:39:05.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1290466",
+    "ThreadId": "561309",
+    "Html": "I just rebooted, and ran my app again, and now I get Error (400) bad request.\r<br />\n<br />\nThis is very frustrating, as I can find no information on what these errors mean...<br />\n",
+    "PostedDate": "2014-08-15T07:59:10.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1305849",
+    "ThreadId": "561309",
+    "Html": "Your Company probably has some firewalls in place.<br />\n<br />\nFor this they have configured some Proxy in order to bypass the firewalls.<br />\nYou will need to use this Proxy to bypass their firewall<br />\n<br />\nI only have VB.Net code as an example:<br />\n<pre><code> GMapProvider.WebProxy = Net.WebRequest.DefaultWebProxy\n        GMapProvider.WebProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials\n       'Do a Ping to see if your Internet connection works\n        If My.Computer.Network.Ping(&quot;www.google.com&quot;, 1000) = True Then \n            gmap_UK.Manager.Mode = GMap.NET.AccessMode.ServerAndCache\n            gmap_UK.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance\n\n\n            With Me.gmap_UK\n                .Position = New GMap.NET.PointLatLng(51.51, -0.14)\n                .SetPositionByKeywords(&quot;London&quot;)\n\n                .Manager.Mode = AccessMode.ServerAndCache\n                .Zoom = 8\n                .ShowCenter = True\n            End With</code></pre>\n\n",
+    "PostedDate": "2014-09-18T02:11:54.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1306000",
+    "ThreadId": "561309",
+    "Html": "Are you using the client key because of proxy ? if not, try and remove it.<br />\n<br />\n<br />\nwhat happens if you change the instance mode to Server And Cache?<br />\nGMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;<br />\n",
+    "PostedDate": "2014-09-18T09:55:22.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1306004",
+    "ThreadId": "561309",
+    "Html": "Thanks all for the responses.\r<br />\n<br />\nI wound up just switching to using the Bing API, Although Gmaps is great I just couldn't get it to be reliable.<br />\n",
+    "PostedDate": "2014-09-18T09:57:30.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338767",
+    "ThreadId": "561309",
+    "Html": "you need to set specific proxy address, works fine even with socks5 proxy<br />\n",
+    "PostedDate": "2015-01-03T12:07:27.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

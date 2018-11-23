@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "803747",
+    "ThreadId": "346865",
+    "Html": "\r\n<p>Hello @all,</p>\r\n<p>&nbsp;</p>\r\n<p>i can add some markers an then generate a Polygon.</p>\r\n<p>Now i want to save the polygonPoints as txt with Xml.Serialization. I can save 2 points start and end like this that works:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; saveFileDialog1.ShowDialog();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string filename = saveFileDialog1.FileName;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextWriter tx = new StreamWriter(filename);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XmlSerializer sw = new XmlSerializer(typeof(PointLatLng));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sw.Serialize(tx, start);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sw.Serialize(tx, end);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tx.Close();</p>\r\n<p>&nbsp;</p>\r\n<p>But how i can do it with the polygonPoints? i think i need a counter?</p>\r\n<p>thanks at alll :)</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-03-01T05:45:26.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803754",
+    "ThreadId": "346865",
+    "Html": "<p>sw.Serialize(tx, p1);<br />sw.Serialize(tx, p2);<br />sw.Serialize(tx, p3);<br />sw.Serialize(tx, p4);<br />sw.Serialize(tx, p5);<br />sw.Serialize(tx, p6);<br />sw.Serialize(tx, pN);</p>\r\n<p>;}</p>",
+    "PostedDate": "2012-03-01T05:57:50.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806098",
+    "ThreadId": "346865",
+    "Html": "<p>Really?</p>\r\n<p>i think that is a difficult path, what happend, if i have millions of polygonPoints?</p>",
+    "PostedDate": "2012-03-06T02:32:39.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806101",
+    "ThreadId": "346865",
+    "Html": "<p>what if sun explode?</p>",
+    "PostedDate": "2012-03-06T02:39:01.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806102",
+    "ThreadId": "346865",
+    "Html": "<p>@hakan80 - put all to some kind of list - List&lt;type&gt; myList, then use method Add - and some part of my code:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>  <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">void</span> setDataToXML&lt;T&gt;(T data, <span style=\"color: blue;\">string</span> fileName)\r\n        {\r\n\r\n            <span style=\"color: blue;\">try</span>\r\n            {\r\n                XmlSerializer serializer = <span style=\"color: blue;\">new</span> XmlSerializer(<span style=\"color: blue;\">typeof</span>(T));\r\n                TextWriter textWriter = <span style=\"color: blue;\">new</span> StreamWriter(@fileName);\r\n                serializer.Serialize(textWriter, data);\r\n                textWriter.Close();\r\n            }\r\n            <span style=\"color: blue;\">catch</span> (UnauthorizedAccessException)\r\n            {\r\n                    MessageBoxResult result = MessageBox.Show(<span style=\"color: #a31515;\">\"Aplication can not write profile file. Check if there is\\n enough space on disk.\"</span>, <span style=\"color: #a31515;\">\"Error\"</span>, MessageBoxButton.OK, MessageBoxImage.Error);\r\n                \r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-03-06T02:40:52.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809497",
+    "ThreadId": "346865",
+    "Html": "<p>thxxx it was very easy :)</p>",
+    "PostedDate": "2012-03-13T03:06:22.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813382",
+    "ThreadId": "346865",
+    "Html": "<p>hello, me again :)</p>\n<p>points save is done, now i want to load this xml-file.</p>\n<p>Loading my test.txt file with XmlTextReader, but how can i set the potins as new PointLatLng(lat, lng)?</p>\n<p>my code:</p>\n<p>XmlTextReader xtr = new XmlTextReader(\"test.txt\");<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (xtr.Read())<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xtr.NodeType == XmlNodeType.Element)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xtr.Name == \"Lat\")<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xtr.Read();<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textBox3.Text += xtr.Value;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textBox3.Text += \"\\r\\n\";<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (xtr.Name == \"Lng\")<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xtr.Read();<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textBox4.Text += xtr.Value;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\n<p>--&gt; now i can see the points Lat and Lng&nbsp; on each textbox.</p>",
+    "PostedDate": "2012-03-21T01:42:39.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813447",
+    "ThreadId": "346865",
+    "Html": "<p>In the same way as writen to file. It will return specified by you structure of data.</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>  <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> T getDataFromXML&lt;T&gt;(<span style=\"color: blue;\">string</span> fileName)\r\n        {\r\n            T temp = <span style=\"color: blue;\">default</span>(T);\r\n\r\n            XmlSerializer serializer = <span style=\"color: blue;\">new</span> XmlSerializer(<span style=\"color: blue;\">typeof</span>(T));\r\n\r\n\r\n            <span style=\"color: blue;\">try</span>\r\n            {\r\n                TextReader textReader = <span style=\"color: blue;\">new</span> StreamReader(@fileName);\r\n\r\n                temp = (T)serializer.Deserialize(textReader);\r\n\r\n                textReader.Close();\r\n\r\n\r\n            }\r\n            <span style=\"color: blue;\">catch</span> (FileNotFoundException)\r\n            {\r\n\r\n                MessageBoxResult result = MessageBox.Show(<span style=\"color: #a31515;\">\"Description file \"</span> + fileName + <span style=\"color: #a31515;\">\" doesn't exist\"</span>, <span style=\"color: #a31515;\">\"Error\"</span>, MessageBoxButton.OK, MessageBoxImage.Error);\r\n\r\n            }\r\n\r\n            <span style=\"color: blue;\">catch</span> (DirectoryNotFoundException e)\r\n            {\r\n\r\n                MessageBoxResult result = MessageBox.Show(<span style=\"color: #a31515;\">\"Directory not found.\"</span> + e.Message, <span style=\"color: #a31515;\">\"Error\"</span>, MessageBoxButton.OK, MessageBoxImage.Error);\r\n\r\n            }\r\n\r\n            <span style=\"color: blue;\">return</span> temp;\r\n              \r\n        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-03-21T04:40:46.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813936",
+    "ThreadId": "346865",
+    "Html": "<p>thxx for help :)</p>\n<p>with&nbsp; this code i can add a polygon from my xml-file,</p>\n<p>GMapPolygon P = new GMapPolygon(temp, \"test\");<br /> &nbsp; polygons.Polygons.Add(P);</p>\n<p>but i want to add also my marker for each points&nbsp; how can i change my List in each point?</p>\n<p>i think with index of list: temp[1].Lat.ToString();??</p>",
+    "PostedDate": "2012-03-22T02:31:38.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813986",
+    "ThreadId": "346865",
+    "Html": "<p>problem ist solved, with index was the right answer :)</p>\r\n<p>thxx again to radioman and herbatnic</p>",
+    "PostedDate": "2012-03-22T05:14:19.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813998",
+    "ThreadId": "346865",
+    "Html": "<p>..i was lazy on this, cheers! ;}</p>",
+    "PostedDate": "2012-03-22T05:36:19.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

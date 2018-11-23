@@ -1,0 +1,146 @@
+[
+  {
+    "Id": "988617",
+    "ThreadId": "430018",
+    "Html": "\r\n<p><span style=\"font-size:10pt\">Hi all,</span></p>\r\n<p><span style=\"font-size:10pt\">Just thought I'd share an extension to the GMapProviders.GoogleMap.GetDirections() function in the core.dll. &nbsp;My intention is hopefully for some or all of this to be added in some form to the next build so that it can be\r\n maintained with future builds.</span></p>\r\n<p><span style=\"font-size:10pt\">Just a simple update to allow you to pass a list of waypoints instead of passing a list of individual a to b routes. &nbsp;I also split the direction.Distance to DistanceStr and DistanceVal so that it was faster for me to summate\r\n multiple calls (this same extension could also be added to directionStep as well).&nbsp;\r\n</span></p>\r\n<p><span style=\"font-size:10pt\">Limitations/Drawbacks:</span></p>\r\n<ul>\r\n<li><span style=\"font-size:10pt\">Google have restricted it to 8 waypoints for free version (&#43; rate limit) and 24 waypoints for business api.</span>\r\n</li><li><span style=\"font-size:10pt\">It treats the whole journey as a single route so you don't get back specific node to node information (distance duration); only the whole journey.</span>\r\n</li></ul>\r\n<p><span style=\"font-size:10pt\">Google also allow for optimsation aka travelling salesman problem (returns an ordered index based upon the original order you sent to them). &nbsp;Personally, I have already optimised my routes before passing it this data (using\r\n the distance matrix service and some custom restrictions) so I don't need it but I may add it in the future.</span></p>\r\n<p><span style=\"font-size:10pt\">I provide an example of how I used it in a test at the bottom.</span></p>\r\n<p><span style=\"font-size:10pt\">My extension to the top level direction Distance values (durationVal = minutes, distanceVal = metres – it is more accurate than the text representation provided at the minute).</span></p>\r\n<p><span style=\"font-size:9.5pt\"></span></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> GDirections\r\n{\r\n       <span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> DurationStr;\r\n       <span style=\"color:blue\">public</span> <span style=\"color:blue\">uint</span> DurationVal;\r\n       <span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> DistanceStr;\r\n       <span style=\"color:blue\">public</span> <span style=\"color:blue\">uint</span> DistanceVal;\r\n}\r\n\r\n\r\n<span style=\"color:blue\">public</span> <span style=\"color:blue\">abstract</span> <span style=\"color:blue\">class</span> GoogleMapProviderBase : GMapProvider, RoutingProvider, GeocodingProvider, DirectionsProvider\r\n{\r\n\r\n<span style=\"color:green\">//new url format for passing the waypoints, this could be        extended to include via and the optimize (but then we would need to handle the returned optimised index).</span>\r\n\r\n<span style=\"color:blue\">static</span> <span style=\"color:blue\">readonly</span> <span style=\"color:blue\">string</span> DirectionUrlFormatWaypoint = <span style=\"color:#a31515\">&quot;http://maps.googleapis.com/maps/api/directions/xml?origin={0},{1}&waypoints={2}&sensor={3}&language={4}{5}{6}{7}&quot;</span>;\r\n\r\n\r\n<span style=\"color:green\">//new function - the last index of the waypoints list is the end node</span>\r\n<span style=\"color:blue\">public</span> DirectionsStatusCode GetDirections(<span style=\"color:blue\">out</span> GDirections direction, PointLatLng start, List&lt;PointLatLng&gt; waypoints, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> walkingMode, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n{\r\n      <span style=\"color:blue\">return</span> GetDirectionsUrl(MakeDirectionsUrl(start, waypoints, LanguageStr, avoidHighways, avoidTolls, walkingMode, sensor, metric), <span style=\"color:blue\">out</span> direction);\r\n}\r\n\r\n\r\n<span style=\"color:blue\">string</span> MakeDirectionsUrl(PointLatLng start, List&lt;PointLatLng&gt; waypoints, <span style=\"color:blue\">string</span> language, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> walkingMode, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n{\r\n      <span style=\"color:blue\">string</span> av = (avoidHighways ? <span style=\"color:#a31515\">&quot;&avoid=highways&quot;</span> : <span style=\"color:blue\">string</span>.Empty) &#43; (avoidTolls ? <span style=\"color:#a31515\">&quot;&avoid=tolls&quot;</span> : <span style=\"color:blue\">string</span>.Empty); <span style=\"color:green\">// 6</span>\r\n      <span style=\"color:blue\">string</span> mt = <span style=\"color:#a31515\">&quot;&units=&quot;</span> &#43; (metric ? <span style=\"color:#a31515\">&quot;metric&quot;</span> : <span style=\"color:#a31515\">&quot;imperial&quot;</span>);���� <span style=\"color:green\">// 7</span>\r\n      <span style=\"color:blue\">string</span> wk = <span style=\"color:#a31515\">&quot;&mode=&quot;</span> &#43; (walkingMode ? <span style=\"color:#a31515\">&quot;walking&quot;</span> : <span style=\"color:#a31515\">&quot;driving&quot;</span>); <span style=\"color:green\">// 8</span>\r\n\r\n      StringBuilder wpLatLng = <span style=\"color:blue\">new</span> StringBuilder();\r\n      <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt; waypoints.Count; i&#43;&#43;) {\r\n           <span style=\"color:blue\">if</span> (i == 0) {\r\n                wpLatLng.Append(waypoints[i].Lat.ToString() &#43; <span style=\"color:#a31515\">&quot;,&quot;</span> &#43; waypoints[i].Lng.ToString());\r\n           }\r\n           <span style=\"color:blue\">else</span> {\r\n                  wpLatLng.Append(<span style=\"color:#a31515\">&quot;|&quot;</span>); wpLatLng.Append(waypoints[i].Lat.ToString() &#43; <span style=\"color:#a31515\">&quot;,&quot;</span> &#43; waypoints[i].Lng.ToString());\r\n           }\r\n      }\r\n      <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(CultureInfo.InvariantCulture, DirectionUrlFormatWaypoint, start.Lat, start.Lng, wpLatLng.ToString(), sensor.ToString().ToLower(), language, av, mt, wk);\r\n}\r\n\r\n\r\n<span style=\"color:green\">//grab data from another node in the xml/json</span>\r\nDirectionsStatusCode GetDirectionsUrl(<span style=\"color:blue\">string</span> url, <span style=\"color:blue\">out</span> GDirections direction)\r\n{\r\n     nn = doc.SelectSingleNode(<span style=\"color:#a31515\">&quot;/DirectionsResponse/route/leg/duration&quot;</span>);\r\n     <span style=\"color:blue\">if</span>(nn != <span style=\"color:blue\">null</span>) {\r\n           XmlNode nnt = nn.SelectSingleNode(<span style=\"color:#a31515\">&quot;text&quot;</span>);\r\n           <span style=\"color:blue\">if</span>(nnt != <span style=\"color:blue\">null</span>){\r\n                  direction.DurationStr = nnt.InnerText;\r\n           }\r\n           XmlNode nnv = nn.SelectSingleNode(<span style=\"color:#a31515\">&quot;value&quot;</span>);\r\n           <span style=\"color:blue\">if</span> (nnv != <span style=\"color:blue\">null</span>)\r\n           {\r\n               <span style=\"color:blue\">uint</span> tVal = 0;\r\n               <span style=\"color:blue\">uint</span>.TryParse(nnv.InnerText, <span style=\"color:blue\">out</span> tVal);\r\n               direction.DurationVal = tVal;\r\n           }\r\n     }\r\n\r\n      nn = doc.SelectSingleNode(<span style=\"color:#a31515\">&quot;/DirectionsResponse/route/leg/distance&quot;</span>);\r\n      <span style=\"color:blue\">if</span>(nn != <span style=\"color:blue\">null</span>)\r\n      {\r\n            XmlNode nnt = nn.SelectSingleNode(<span style=\"color:#a31515\">&quot;text&quot;</span>);\r\n            <span style=\"color:blue\">if</span>(nnt != <span style=\"color:blue\">null</span>){\r\n                   direction.DistanceStr = nnt.InnerText;\r\n             }\r\n            XmlNode nnv = nn.SelectSingleNode(<span style=\"color:#a31515\">&quot;value&quot;</span>);\r\n            <span style=\"color:blue\">if</span> (nnv != <span style=\"color:blue\">null</span>){\r\n                  <span style=\"color:blue\">uint</span> tVal = 0;\r\n                  <span style=\"color:blue\">uint</span>.TryParse(nnv.InnerText, <span style=\"color:blue\">out</span> tVal);\r\n                  direction.DistanceVal = tVal;\r\n            }\r\n        }\r\n}\r\n\r\n\r\n<span style=\"color:green\">//example of how I get round the limit of 8 waypoints per call. Remembering to overlap the last and first node of each list so we get a smooth continuation, I also remove the duplicate point from the end set of route points.</span>\r\n\r\n<span style=\"color:blue\">int</span> wpLimit = 8;\r\nGDirections directions = <span style=\"color:blue\">new</span> GDirections();\r\nList&lt;PointLatLng&gt; allPoints = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\nList&lt;List&lt;PointLatLng&gt;&gt; sIndexes = <span style=\"color:blue\">new</span> List&lt;List&lt;PointLatLng&gt;&gt;();\r\n\r\n<span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt; Math.Ceiling((<span style=\"color:blue\">double</span>)dM.optiRoute.Count / wpLimit); i&#43;&#43;){\r\n        List&lt;PointLatLng&gt; nIndex = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n        <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> j = wpLimit * i; j &lt;= (wpLimit * (i &#43; 1)); j&#43;&#43;){\r\n             <span style=\"color:blue\">if</span> (j != 0 && j &lt;= dM.optiRoute.Count){ \r\n                    nIndex.Add(dM.locations[dM.optiRoute[j-1]].point);\r\n             }\r\n        }\r\n        sIndexes.Add(nIndex);\r\n}\r\n<span style=\"color:blue\">uint</span> tDist = 0;\r\n<span style=\"color:blue\">uint</span> tDur = 0;\r\n<span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> k = 0; k &lt; sIndexes.Count; k&#43;&#43;){\r\n       List&lt;PointLatLng&gt; tPoints = sIndexes[k].GetRange(1, sIndexes[k].Count - 1);\r\n       Object status = GMapProviders.GoogleMap.GetDirections(<span style=\"color:blue\">out</span>         directions, sIndexes[k][0],tPoints , <span style=\"color:blue\">false</span>, <span style=\"color:blue\">false</span>, <span style=\"color:blue\">false</span>, <span style=\"color:blue\">false</span>, <span style=\"color:blue\">true</span>);\r\n       <span style=\"color:blue\">if</span> (status.Equals(DirectionsStatusCode.OK)){\r\n             tDist &#43;= directions.DistanceVal;\r\n             tDur &#43;= directions.DurationVal;\r\n             <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt; directions.Steps.Count(); i&#43;&#43;){\r\n                   <span style=\"color:blue\">if</span> (directions.Steps[i].Points.Count != 0){\r\n                          <span style=\"color:blue\">if</span> (i == 0 && k != 0){\r\n                                  allPoints.AddRange(directions.Steps[i].Points.GetRange(1, directions.Steps[i].Points.Count - 1)); <span style=\"color:green\">//remove the initial point due to overlap</span>\r\n                   }\r\n                   <span style=\"color:blue\">else</span>{\r\n                          allPoints.AddRange(directions.Steps[i].Points);\r\n                   }\r\n              }\r\n      }\r\nlblOptiDetails.Text = String.Format(<span style=\"color:#a31515\">&quot;DistVal:{0}� DurVal:{1}&quot;</span>, tDist, tDur);\r\n}\r\n<span style=\"color:blue\">else</span>{\r\ndM.errMsgs.Add(<span style=\"color:#a31515\">&quot;Error fetching directions&quot;</span>);\r\n}\r\n}\r\n\r\n</pre>\r\n</div>\r\n<p>Any questions just ask</p>\r\n<p>Regards,</p>\r\n<p>Pete</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-18T03:01:11.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988653",
+    "ThreadId": "430018",
+    "Html": "\r\n<p>thanks!</p>\r\n",
+    "PostedDate": "2013-01-18T04:12:12.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989548",
+    "ThreadId": "430018",
+    "Html": "\r\n<p>Hello All,</p>\r\n<p>&nbsp;</p>\r\n<p>is there any release has this change?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n",
+    "PostedDate": "2013-01-21T00:41:01.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989581",
+    "ThreadId": "430018",
+    "Html": "\r\n<p>it's latest hot build, i haven't test it but it should work</p>\r\n",
+    "PostedDate": "2013-01-21T01:51:00.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989597",
+    "ThreadId": "430018",
+    "Html": "\r\n<p>from where can i got it? can you pass the correct url?</p>\r\n<p>thanks in advance</p>\r\n",
+    "PostedDate": "2013-01-21T02:32:28.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989603",
+    "ThreadId": "430018",
+    "Html": "\r\n<p>source code tab is pretty obvious ;}</p>\r\n",
+    "PostedDate": "2013-01-21T02:43:51.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989630",
+    "ThreadId": "430018",
+    "Html": "\r\n<p>thanks man,</p>\r\n<p>&nbsp;</p>\r\n<p>but an error occur while building mobile version:</p>\r\n<p>&nbsp;</p>\r\n<p>Error<span> </span>5<span> </span>The type or namespace name 'ScaleModes' could not be found (are you missing a using directive or an assembly reference?)&nbsp;<span style=\"font-size:10pt\">\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs</span><span style=\"font-size:10pt\">\r\n</span><span style=\"font-size:10pt\">2578</span><span style=\"font-size:10pt\"> </span>\r\n<span style=\"font-size:10pt\">15</span><span style=\"font-size:10pt\"> </span><span style=\"font-size:10pt\">GMap.NET.WindowsMobile (GMap.NET\\GMap.NET.WindowsMobile)</span></p>\r\n<p>here what i did to fix it:</p>\r\n<p>at the end of GmapControl.cs file</p>\r\n<p>&nbsp;</p>\r\n<p>//////////////////////////// use the PocketPC to define&nbsp;ScaleModes</p>\r\n<p>#if !PocketPC&nbsp;</p>\r\n<p>// &nbsp; int x= 0 ;</p>\r\n<p>#else</p>\r\n<p>&nbsp; &nbsp;public enum HelperLineOptions</p>\r\n<p>&nbsp; &nbsp;{</p>\r\n<p>&nbsp; &nbsp; &nbsp; DontShow = 0,</p>\r\n<p>&nbsp; &nbsp; &nbsp; ShowAlways = 1,</p>\r\n<p>&nbsp; &nbsp; &nbsp; ShowOnModifierKey = 2&nbsp;</p>\r\n<p>&nbsp;}<br>\r\n&nbsp; &nbsp;public enum ScaleModes&nbsp; &nbsp;</p>\r\n<p>{&nbsp;</p>\r\n<p>&nbsp; &nbsp; /// &lt;summary&gt;&nbsp;</p>\r\n<p>&nbsp; &nbsp; /// no scaling&nbsp;</p>\r\n<p>&nbsp; &nbsp; /// &lt;/summary&gt;&nbsp; &nbsp;</p>\r\n<p>&nbsp; Integer,</p>\r\n<p>#if !PocketPC&nbsp;</p>\r\n<p>&nbsp;// &nbsp; &nbsp;int xc = 0;</p>\r\n<p>#else&nbsp;</p>\r\n<p>&nbsp; &nbsp; /// &lt;summary&gt;&nbsp;</p>\r\n<p>&nbsp; &nbsp; /// scales to fractional level, CURRENT VERSION DOESN'T HANDLE OBJECT POSITIONS CORRECLTY,&nbsp;</p>\r\n<p>&nbsp; &nbsp; &nbsp; /// http://greatmaps.codeplex.com/workitem/16046&nbsp;</p>\r\n<p>&nbsp; &nbsp; /// &lt;/summary&gt;&nbsp;</p>\r\n<p>&nbsp; &nbsp; Fractional,</p>\r\n<p>#endif</p>\r\n<p>&nbsp; &nbsp;}<br>\r\n&nbsp; &nbsp;public delegate void SelectionChange(RectLatLng Selection, bool ZoomToFit);</p>\r\n<p>#endif</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>but a new error&nbsp;occurred:</p>\r\n<p>Error<span> </span>7<span> </span>'uint' does not contain a definition for 'TryParse'<span>\r\n</span>\\Downloads\\greatmaps-6150303191b8\\greatmaps_6150303191b8\\GMap.NET.Core\\GMap.NET.MapProviders\\Google\\GoogleMapProvider.cs<span>\r\n</span>1442<span> </span>36<span> </span>GMap.NET.WindowsMobile (GMap.NET\\GMap.NET.WindowsMobile)</p>\r\n",
+    "PostedDate": "2013-01-21T03:29:59.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989649",
+    "ThreadId": "430018",
+    "Html": "\r\n<p>i see, so there are 2 compilation errors, thats pretty usual, i'll fix them later</p>\r\n",
+    "PostedDate": "2013-01-21T04:22:29.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011715",
+    "ThreadId": "430018",
+    "Html": "Poter134\r<br />\nthank you. can you please help me out to use your code.\r<br />\nI want to be able to make a route that consists of more than just two points, and it should create a route between them deciding what should be the most shorter way; \r<br />\nEX:\r<br />\n45 lakewood Av., New York, NY\r<br />\n12 george Av., New York, NY\r<br />\n23 paul Av., New York, NY\r<br />\n<br />\nit should be able to sort it by distance and make the route so I don't have to return to the same place twice, is there such a feature?if so, can you please post some code I would REALLY appreciate ?\r<br />\nthank you <br />\n",
+    "PostedDate": "2013-03-07T04:33:03.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011986",
+    "ThreadId": "430018",
+    "Html": "\r\n<div style=\"font-family:Calibri,'Segoe UI',Meiryo,'Microsoft YaHei UI','Microsoft JhengHei UI','Malgun Gothic','Khmer UI','Nirmala UI',Tunga,'Lao UI',Ebrima,sans-serif; font-size:16px\">\r\n<div>Hi,</div>\r\n<div></div>\r\n<div>There is a method from google that calculates the fastest route (for up to 8 points on the free license). The method I submitted to GMaps was for pre-ordered routes only.</div>\r\n<div></div>\r\n<div>You could create a second function based on mine that used the optimise waypoints. You would then have to pass a ‘out List&lt;int&gt; optiRoute ’ for the optimised order and capture that when parsing the xml (you’ll get the optimised route anyways (not including\r\n the start location which you still have to specify) but it’d be easier to reference your initial locations by using that.</div>\r\n<div></div>\r\n<div>Should be fairly easy to do if you read the following link and browse through the source. Its explained in the waypoints section and how to parse it near the bottom of the page.</div>\r\n<div></div>\r\n<div><a tabindex=\"-1\" href=\"https://developers.google.com/maps/documentation/directions/\">https://developers.google.com/maps/documentation/directions/</a>\r\n</div>\r\n<div></div>\r\n<div>If you get too stuck I could give a few more pointers but i’m pretty busy at the minute so i’m not sure when i’d find the time!\r\n<span color=\"\" style=\"font-family:\"></span></div>\r\n<div></div>\r\n<div>\r\n<div></div>\r\n<div>Sent from Windows Mail</div>\r\n<div></div>\r\n</div>\r\n<div style=\"border-top-color:rgb(225,225,225); border-top-width:1px; border-top-style:solid\">\r\n<strong>From:</strong> lbrettsinclair<br>\r\n<strong>Sent:</strong> ‎07‎ ‎March‎ ‎2013 ‎12‎:‎33<br>\r\n<strong>To:</strong> p-lea@hotmail.co.uk<br>\r\n<strong>Subject:</strong> Re: Google Maps Directions - Added Waypoints [greatmaps:430018]<br>\r\n</div>\r\n<div></div>\r\n<p>From: lbrettsinclair</p>\r\n<div id=\"ThreadNotificationPostBody\">Poter134 <br>\r\nthank you. can you please help me out to use your code. <br>\r\nI want to be able to make a route that consists of more than just two points, and it should create a route between them deciding what should be the most shorter way;\r\n<br>\r\nEX: <br>\r\n45 lakewood Av., New York, NY <br>\r\n12 george Av., New York, NY <br>\r\n23 paul Av., New York, NY <br>\r\n<br>\r\nit should be able to sort it by distance and make the route so I don't have to return to the same place twice, is there such a feature?if so, can you please post some code I would REALLY appreciate ?\r\n<br>\r\nthank you <br>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-03-07T12:46:32.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012005",
+    "ThreadId": "430018",
+    "Html": "Can you show me how to test your code with those 3 dummy addresses ?\r<br />\nThat should help me get started - \r<br />\n<br />\nthank you for your time and help. Much appreciated.<br />\n",
+    "PostedDate": "2013-03-07T13:13:47.177-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012014",
+    "ThreadId": "430018",
+    "Html": "quick update: If all you want is to route get the optimised routes you can update the following function.  You always need to specify a start location, you could update it to specify an end location  &amp;destination=xxxxxxx  (but then you have a max of 6 waypoints as all are included in the total up to 8).  You don't need to parse the xml for the waypoint order if you don't want.<br />\n<pre><code>string MakeDirectionsUrl(PointLatLng start, List&lt;PointLatLng&gt; waypoints, string language, bool avoidHighways, bool avoidTolls, bool walkingMode, bool sensor, bool metric, bool optimiseRoute)\n\n{\n          string av = (avoidHighways ? &quot;&amp;avoid=highways&quot; : string.Empty) + (avoidTolls ? &quot;&amp;avoid=tolls&quot; : string.Empty); // 6\n          string mt = &quot;&amp;units=&quot; + (metric ? &quot;metric&quot; : &quot;imperial&quot;);     // 7\n          string wk = &quot;&amp;mode=&quot; + (walkingMode ? &quot;walking&quot; : &quot;driving&quot;); // 8\n           \n          StringBuilder wpLatLng = new StringBuilder();\n          for (int i = 0; i &lt; waypoints.Count; i++) {\n              if (i == 0) {\n                  if (optimiseRoute) wpLatLng.Append(&quot;optimize:true|&quot;);\n                  wpLatLng.Append(waypoints[i].Lat.ToString() + &quot;,&quot; + waypoints[i].Lng.ToString());\n              }\n              else {\n                  wpLatLng.Append(&quot;|&quot;); wpLatLng.Append(waypoints[i].Lat.ToString() + &quot;,&quot; + waypoints[i].Lng.ToString());\n              }\n          }\n          return string.Format(CultureInfo.InvariantCulture, DirectionUrlFormatWaypoint, start.Lat, start.Lng, wpLatLng.ToString(), sensor.ToString().ToLower(), language, av, mt, wk);\n      }\n</code></pre>\n\n",
+    "PostedDate": "2013-03-07T13:18:49.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012059",
+    "ThreadId": "430018",
+    "Html": "Yes. \r<br />\nAll I want an example of code where I would set a list of addresses, and the most optimized route would be displayed.\r<br />\nIf a max of 6 - I would be ok with that.\r<br />\n<br />\nthank you<br />\n",
+    "PostedDate": "2013-03-07T14:47:21.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013181",
+    "ThreadId": "430018",
+    "Html": "I noticed you hadn't replied with anything so I'll give a small example of how you can simply use it.  I Geocode all my addresses before hand - it saves a lot of hassle imo.<br />\n<pre><code>private void example()\n            {\n                \n                PointLatLng startPoint = new PointLatLng(0,0);\n                List&lt;PointLatLng&gt; myWaypoints = new List&lt;PointLatLng&gt;();\n\n                //add waypoints\n\n                GMapOverlay ovl = new GMapOverlay(&quot;MyTestOverlay&quot;);\n                GMapRoute rte = new GMapRoute(&quot;MyTestRoute&quot;);\n\n                GDirections _dir;\n                DirectionsStatusCode _code = GMapProviders.GoogleMap.GetDirections(out _dir, startPoint, myWaypoints, false, false, false, false, true);\n                if (_code == DirectionsStatusCode.OK)\n                {\n                    foreach (GDirectionStep _step in _dir.Steps)\n                    {\n                        rte.Points.AddRange(_step.Points);\n                    }\n                }\n\n                ovl.Routes.Add(rte);\n                gmap.Overlays.Add(ovl);\n            }</code></pre>\n\nThis should get you started.   Edit: Oh yeah :p typed it straight into browser :) <br />\n",
+    "PostedDate": "2013-03-11T04:25:33.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013196",
+    "ThreadId": "430018",
+    "Html": "if (_code <strong>==</strong> DirectionsStatusCode.OK)<br />\n",
+    "PostedDate": "2013-03-11T04:53:16.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013285",
+    "ThreadId": "430018",
+    "Html": "This would require to have the longitude and latitude of the addresses.\r<br />\nI wanted to use a physical address.\r<br />\nI guess my problem maybe it to find a way to &quot;translate&quot; a physical address into a latitude and longitude points.\r<br />\nIs that where you are trying to lead me to do ?<br />\n",
+    "PostedDate": "2013-03-11T07:57:46.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013368",
+    "ThreadId": "430018",
+    "Html": "yes, I prefer to geocode (the lat/lng of the address) before, then you have no reliance on an address.  You could get someone to open up a map and point out a location near a field :)\r<br />\n<br />\nOn the other hand, if you geocode an address, you can then check the location it's returned and verify that its the correct spot and that it's understood the address correctly.  Google will always understand your lat/lng points, so you can rule out that as an exception.  if one address out of 10 isn't understood or misunderstood it screws the whole journey up.<br />\n<pre><code> string googleGeoStr =    &quot;https://maps.googleapis.com/maps/api/geocode/xml?address={0}&amp;sensor=false&amp;region=gb&quot;;\n\n using(Stream stream = webClient.OpenRead(string.Format(googleGeoStr, tAddress)))\n{\n      // parse / save whatever data you want here\n}\n</code></pre>\n\n",
+    "PostedDate": "2013-03-11T10:11:29.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1491330",
+    "ThreadId": "430018",
+    "Html": "Hello, i'm using poter134 snippet of code to solve cvsp problem<br />\n<pre><code>     GMapOverlay ovl = new GMapOverlay(&quot;MyTestOverlay&quot;);\n                GMapRoute rte = new GMapRoute(&quot;MyTestRoute&quot;);\n\n                GDirections _dir;\n                DirectionsStatusCode _code = GMapProviders.GoogleMap.GetDirections(out _dir, startPoint, myWaypoints, false, false, false, false, true);\n                if (_code == DirectionsStatusCode.OK)\n                {\n                    foreach (GDirectionStep _step in _dir.Steps)\n                    {\n                        rte.Points.AddRange(_step.Points);\n                    }\n                }</code></pre>\n\nbut the _<strong>code</strong> variable return ExceptionInCode<br />\nI'm amateur in programming.<br />\n",
+    "PostedDate": "2017-01-19T00:00:59.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

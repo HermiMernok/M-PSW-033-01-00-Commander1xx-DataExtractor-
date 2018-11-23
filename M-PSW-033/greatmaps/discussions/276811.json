@@ -1,0 +1,170 @@
+[
+  {
+    "Id": "687812",
+    "ThreadId": "276811",
+    "Html": "\r\n<p>hey :)&nbsp;</p>\r\n<p>i add a marker using this :</p>\r\n<p>overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMapMarkerCross(New PointLatLng(Lat, Lon)))</p>\r\n<p>is there any function like :</p>\r\n<p>overlayOne.Markers.remove(lat,lon)</p>\r\n<p>and ty so much for this wonderful work</p>\r\n",
+    "PostedDate": "2011-10-22T05:59:39.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687815",
+    "ThreadId": "276811",
+    "Html": "<p>why do you need that ;/</p>",
+    "PostedDate": "2011-10-22T06:23:29.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687817",
+    "ThreadId": "276811",
+    "Html": "<p>i have to move marker in the map , every 2 min i receive lat and lon , and i want to remove old marker so i can put the new one&nbsp;</p>\r\n<p>did u get what i mean ?</p>",
+    "PostedDate": "2011-10-22T06:30:28.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687818",
+    "ThreadId": "276811",
+    "Html": "<p>just change the position of the marker, man...</p>",
+    "PostedDate": "2011-10-22T06:36:24.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687819",
+    "ThreadId": "276811",
+    "Html": "<p>yes , but i have lot of markers , how to know wich marker will be repositioned</p>",
+    "PostedDate": "2011-10-22T06:39:49.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687823",
+    "ThreadId": "276811",
+    "Html": "<p>check the windows forms demo, it has live flight tracker, with hundreds of planes, and no problem ;}</p>",
+    "PostedDate": "2011-10-22T06:45:09.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687825",
+    "ThreadId": "276811",
+    "Html": "<p>ok im gonna try&nbsp;</p>\r\n<p>ty so much radio man</p>",
+    "PostedDate": "2011-10-22T06:48:08.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687827",
+    "ThreadId": "276811",
+    "Html": "<p>another question radioman</p>\r\n<p>in this function</p>\r\n<p>overlayOne.Markers.Remove(\"WHAT SHOULD I PUT IN HERE\")</p>",
+    "PostedDate": "2011-10-22T06:57:35.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687828",
+    "ThreadId": "276811",
+    "Html": "<p>check this ;} basicaly each marker has it's own unique id, and thats how you find it and update it's position:&nbsp;</p>\n<p><a href=\"https://blufiles.storage.live.com/y1p37FPoyOhnPMZzgPO1atRarrY__kYs_cfgz22nht4r7cQb0ZIAT6YwRzHPQPFSa1mdrZlmZmxG5M/GMap.NET%20flight%20radar%20demo.png?psid=1\"><img src=\"https://blufiles.storage.live.com/y1p37FPoyOhnPMZzgPO1atRarrY__kYs_cfgz22nht4r7cQb0ZIAT6YwRzHPQPFSa1mdrZlmZmxG5M/GMap.NET%20flight%20radar%20demo.png?psid=1\" alt=\"\" width=\"888\" /></a></p>",
+    "PostedDate": "2011-10-22T06:58:23.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687831",
+    "ThreadId": "276811",
+    "Html": "<p>thats cool&nbsp;</p>\r\n<p>and how to get the index of markers ??</p>",
+    "PostedDate": "2011-10-22T07:04:23.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687832",
+    "ThreadId": "276811",
+    "Html": "<p>check the code...</p>",
+    "PostedDate": "2011-10-22T07:16:34.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687833",
+    "ThreadId": "276811",
+    "Html": "<p>can u plz write or give the link , i don't know where to search in here and everything is writing with c#</p>",
+    "PostedDate": "2011-10-22T07:19:39.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687835",
+    "ThreadId": "276811",
+    "Html": "<p>http://greatmaps.codeplex.com/SourceControl/changeset/view/d4512b7a5353#Demo.WindowsForms%2fForms%2fMainForm.cs</p>",
+    "PostedDate": "2011-10-22T07:24:54.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687838",
+    "ThreadId": "276811",
+    "Html": "<p>Thank you radioman :)</p>",
+    "PostedDate": "2011-10-22T07:33:42.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687839",
+    "ThreadId": "276811",
+    "Html": "<p>well i can't find solve the problem :( :(</p>\n<p>i need one of 2 things</p>\n<p>index of marker</p>\n<p>or array of markers</p>\n<p>plzz help&nbsp;</p>",
+    "PostedDate": "2011-10-22T07:33:44.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687868",
+    "ThreadId": "276811",
+    "Html": "<p>&nbsp;</p>\r\n<p>well i can't find solve the problem :( :(</p>\r\n<p>i need one of 2 things</p>\r\n<p>index of marker</p>\r\n<p>or array of markers</p>\r\n<p>plzz help&nbsp;</p>",
+    "PostedDate": "2011-10-22T09:42:22.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "690999",
+    "ThreadId": "276811",
+    "Html": "<p>WIN or WPF?</p>",
+    "PostedDate": "2011-10-28T15:12:43.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691027",
+    "ThreadId": "276811",
+    "Html": "<p>WIN</p>",
+    "PostedDate": "2011-10-28T17:53:32.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691409",
+    "ThreadId": "276811",
+    "Html": "<p>Suggestion: Add the location (lat, long) as it's ID when you add the layer. ;)</p>",
+    "PostedDate": "2011-10-30T16:35:24.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691436",
+    "ThreadId": "276811",
+    "Html": "<p>Derive from MArkers and implement your in ID, then with LINQ make a search and voila</p>",
+    "PostedDate": "2011-10-30T21:21:04.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691627",
+    "ThreadId": "276811",
+    "Html": "<p>here is my situation&nbsp;</p>\r\n<p>every 5 min , i get new lat,long</p>\r\n<p>if the lat,long belong to an id already exist (car id) , the marker will move to the new location</p>\r\n<p>else new marker will be created in the map.</p>\r\n<p>so i think i need an array of markers&nbsp;</p>\r\n<p>what do you think ??</p>",
+    "PostedDate": "2011-10-31T06:52:37.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

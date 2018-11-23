@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "416233",
+    "ThreadId": "204406",
+    "Html": "<p>I have a server that installs MSSQL Server 2005.</p>\r\n<p>How can I change the program so that GMAP image cache can be saved to the MSSQL Server?</p>\r\n<p>Thank you.</p>",
+    "PostedDate": "2010-03-09T23:25:33.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "416238",
+    "ThreadId": "204406",
+    "Html": "<p>Sorry for the stupid question.</p>\r\n<p>I found the answer.</p>\r\n<p>In MainForm.cs --&gt; public MainForm(), just add these code:</p>\r\n<p>&nbsp; MsSQLPureImageCache ch = new MsSQLPureImageCache();<br>&nbsp; ch.ConnectionString = @&quot;Password=...;Persist Security Info=True;User ID=...;Initial Catalog=...;Data Source=...&quot;;<br>&nbsp; MainMap.Manager.ImageCacheSecond = ch;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-09T23:44:12.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

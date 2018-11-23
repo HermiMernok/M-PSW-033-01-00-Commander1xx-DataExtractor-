@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "158396",
+    "ThreadId": "47325",
+    "Html": "When calling this function it returns numbers that are very high (ie 40548) which are obviously too high to be actual screen coordinates.  Is there some type of conversion that has to be done to make this number usable or is this a feature that is not fully baked yet?<br>\r\n<br>\r\nThank you,<br>\r\nJoeBerni\r\n",
+    "PostedDate": "2009-02-16T23:47:50.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "158457",
+    "ThreadId": "47325",
+    "Html": "<p>it is pixel on global map matrix at current zoom and there is billions of them....;}, if you want local coordinates for custom map drawing, use&nbsp;<span style=\"font-weight:bold\">public GMapNET.Point <span style=\"text-decoration:underline\">FromLatLngToLocal</span>(PointLatLng point)</span></p>",
+    "PostedDate": "2009-02-17T05:22:45.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507470",
+    "ThreadId": "47325",
+    "Html": "<p>FromLatLngToLocal is giving me values like&nbsp;2826, 5774, which don't look like screen&nbsp;coordinates;&nbsp;</p>\r\n<p>I have a lot of items on the map and need to avoid ToolTips being on top of each other. Real screen coordinates would really help.</p>",
+    "PostedDate": "2010-10-14T15:24:32.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507572",
+    "ThreadId": "47325",
+    "Html": "<p>yes it is</p>",
+    "PostedDate": "2010-10-14T22:00:25.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507891",
+    "ThreadId": "47325",
+    "Html": "<p>Ok, I have 2 screens; one is 1280 high and the other 900; both of those are less than 2826. Am I missing something?</p>",
+    "PostedDate": "2010-10-15T10:01:04.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507908",
+    "ThreadId": "47325",
+    "Html": "<p>where do you find these numbers?</p>",
+    "PostedDate": "2010-10-15T10:43:23.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507920",
+    "ThreadId": "47325",
+    "Html": "<p>Calling&nbsp;</p>\r\n<p><span style=\"white-space:pre\"> </span>GMap.NET.Point pt = mapControl.FromLatLngToLocal(pll);</p>\r\n<p><span style=\"white-space:pre\"> </span>where pll is a point on the map and&nbsp;mapControl is a&nbsp;GMapControl</p>\r\n<p>I get it; these are <em>virtual</em> screen coordinates; my zoom level is currently not showing the whole map so some of my points are off the screen resulting in large numbers.</p>\r\n<p>&nbsp;</p>\r\n<p>On another topic, does&nbsp;mapControl.ZoomAndCenterMarkers(null) work? It seems to Zoom okay, but seems to center on the last added marker.</p>\r\n<p>cheers,</p>\r\n<p>Gerry</p>",
+    "PostedDate": "2010-10-15T11:07:32.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507925",
+    "ThreadId": "47325",
+    "Html": "<p>try latest version</p>",
+    "PostedDate": "2010-10-15T11:13:07.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

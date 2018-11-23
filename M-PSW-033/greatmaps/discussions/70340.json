@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "239581",
+    "ThreadId": "70340",
+    "Html": "<p>Hi, I'm not sure how to describe what I'm after! I'm just hoping you could explain how or if this is possible...</p>\r\n<p>Is there a way to produce an overlay for a specific area similar to this example I found @ <a href=\"http://www.flex888.com/lab/geoweb/geoyahoo/\">http://www.flex888.com/lab/geoweb/geoyahoo/</a></p>\r\n<p>I have a database table of named&nbsp;markers with lat &amp; lng. i.e. List of&nbsp;Hotels, Hospitals, Airports etc</p>\r\n<p>What I need to do is show any markers within a specified radius of current location.</p>\r\n<p>e.g. Show all hotels within 5 miles of current location and draw a semi-transparant circle on the map to indicate the range.</p>\r\n<p>Also, I'm using WPF...</p>\r\n<p>Loving this project, thanks in advance...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-28T09:01:50.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239600",
+    "ThreadId": "70340",
+    "Html": "<p>try something like this ;}</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">         double</span> areaRadius = 5.0; <span style=\"color:Green\">// km</span></pre>\r\n<pre>         List&lt;PointLatLng&gt; objects = <span style=\"color:Blue\">new</span> List&lt;PointLatLng&gt;();\r\n         <span style=\"color:Blue\">var</span> objectsInArea = objects.Where(p =&gt; GMaps.Instance.GetDistance(MainMap.CurrentPosition, p) &lt;= areaRadius);\r\n         <span style=\"color:Blue\">var</span> maxDistObject = (<span style=\"color:Blue\">from</span> p <span style=\"color:Blue\">in</span> objectsInArea\r\n                              <span style=\"color:Blue\">orderby</span> GMaps.Instance.GetDistance(MainMap.CurrentPosition, p) <span style=\"color:Blue\">descending</span>\r\n                              <span style=\"color:Blue\">select</span> <span style=\"color:Blue\">new</span>\r\n                              {\r\n                                 Pos = <span style=\"color:Blue\">new</span> PointLatLng(p.Lat, p.Lng),\r\n                                 Dist = GMaps.Instance.GetDistance(MainMap.CurrentPosition, p)\r\n                              }).First();\r\n\r\n         <span style=\"color:Green\">// add objects to zone</span>\r\n         <span style=\"color:Blue\">foreach</span>(<span style=\"color:Blue\">var</span> o <span style=\"color:Blue\">in</span> objectsInArea)\r\n         {\r\n            GMapMarker it = <span style=\"color:Blue\">new</span> GMapMarker(pos.Value);\r\n            {\r\n               it.ZIndex = 55;\r\n\r\n               <span style=\"color:Blue\">var</span> s = <span style=\"color:Blue\">new</span> System.Windows.Controls.Button();\r\n               s.Content = <span style=\"color:#A31515\">&quot;object: &quot;</span> + o;\r\n\r\n               it.Shape = s;\r\n            }\r\n            MainMap.Markers.Add(it);\r\n         }\r\n\r\n         <span style=\"color:Green\">// add zone circle</span>\r\n         GMapMarker it = <span style=\"color:Blue\">new</span> GMapMarker(MainMap.CurrentPosition);\r\n         {\r\n            it.ZIndex = 55;\r\n\r\n            <span style=\"color:Blue\">var</span> pxCenter = MainMap.FromLatLngToLocal(MainMap.CurrentPosition);\r\n            <span style=\"color:Blue\">var</span> pxBounds = MainMap.FromLatLngToLocal(maxDistObject.Pos);\r\n\r\n            <span style=\"color:Blue\">double</span> a = (<span style=\"color:Blue\">double</span>)(pxBounds.X - pxCenter.X);\r\n            <span style=\"color:Blue\">double</span> b = (<span style=\"color:Blue\">double</span>)(pxBounds.Y - pxCenter.Y); \r\n            <span style=\"color:Blue\">var</span> pxCircleRadius = Math.Sqrt(a * a + b * b);\r\n\r\n            <span style=\"color:Green\">// set area size, you should really create ellipse or something here ;}</span>\r\n            <span style=\"color:Blue\">var</span> s = <span style=\"color:Blue\">new</span> System.Windows.Controls.Button();\r\n            s.Width = pxCircleRadius;\r\n            s.Height = pxCircleRadius;\r\n\r\n            it.Shape = s;\r\n         }\r\n         MainMap.Markers.Add(it);\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-28T09:54:30.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239632",
+    "ThreadId": "70340",
+    "Html": "<p>I've just included it in wpf demo ;}</p>",
+    "PostedDate": "2009-09-28T11:05:46.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "239887",
+    "ThreadId": "70340",
+    "Html": "<p>Perfect thank you very much</p>",
+    "PostedDate": "2009-09-29T01:23:45.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255011",
+    "ThreadId": "70340",
+    "Html": "<p>Update: I've added the ability for the user to set the zone area. However, the zone circle does not update onto the map or is drawn in top left corner!</p>\r\n<p>The zone circle will only be shown after altering the zone level...</p>\r\n<p>Any ideas why or how to set correctly?</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">GroupBox</span> <span style=\"color:Red\">Header</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;zone&quot;</span> <span style=\"color:Red\">HorizontalAlignment</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;Right&quot;</span> <span style=\"color:Red\">Name</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;zone&quot;</span> <span style=\"color:Red\">Width</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;169&quot;</span> <span style=\"color:Red\">Margin</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;0,465,11,283&quot;</span> <span style=\"color:Red\">Height</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;55&quot;</span> <span style=\"color:Red\">VerticalAlignment</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;Top&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n   <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">StackPanel</span> <span style=\"color:Red\">Orientation</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;Horizontal&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n      &lt;TextBox x:Name=&quot;Distance&quot; Margin=&quot;2&quot; FontSize=&quot;14&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Path=Double, StringFormat=F3}&quot; Width=&quot;50&quot;/&gt;\r\n      <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Label</span> <span style=\"color:Red\">Content</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;km&quot;</span> <span style=\"color:Red\">Width</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;25&quot;</span> <span style=\"color:Red\">VerticalAlignment</span><span style=\"color:Blue\">=</span><span style=\"color:Blue\">&quot;Center&quot;</span><span style=\"color:Blue\">/&gt;</span>\r\n      &lt;Button x:Name=&quot;Zone&quot; Content=&quot;Show Zone&quot; Margin=&quot;2&quot; Height=&quot;21.04&quot; VerticalAlignment=&quot;Center&quot; Click=&quot;Zone_Click&quot;/&gt;\r\n   <span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">StackPanel</span><span style=\"color:Blue\">&gt;</span>\r\n<span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">GroupBox</span><span style=\"color:Blue\">&gt;</span>\r\n\r\n<div style=\"color:Black;background-color:White\"><pre>      <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">void</span> Zone_Click(<span style=\"color:Blue\">object</span> sender, RoutedEventArgs e)\r\n      {\r\n          button10_Click(<span style=\"color:Blue\">null</span>, <span style=\"color:Blue\">null</span>);\r\n          AddDemoZone(<span style=\"color:Blue\">double</span>.Parse(Distance.Text), MainMap.CurrentPosition, markerobjects);\r\n      }\r\n</pre>\r\n</div>\r\n</pre>\r\n</div>",
+    "PostedDate": "2009-11-09T04:27:11.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "255038",
+    "ThreadId": "70340",
+    "Html": "<p>because you donot use Offset, use&nbsp;<strong>ForceToUpdate...</strong></p>",
+    "PostedDate": "2009-11-09T05:43:47.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

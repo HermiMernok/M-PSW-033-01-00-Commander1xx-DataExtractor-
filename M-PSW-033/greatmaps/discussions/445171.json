@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1049473",
+    "ThreadId": "445171",
+    "Html": "Hi, I am using GMap inside a WPF application on a Windows 7 (32x) system. In visual studio 2012 is my target platform set to Any CPU.<br />\n<br />\nWhen I try to run the application I get the following exception:<br />\n<strong>System.Windows.Markup.XamlParseException</strong><br />\n<em>Starting the constructor on type GMap.NET.WindowsPresentation.GMapControl that matches the specified binding constraints, caused an exception.</em><br />\n<br />\nWhat can I do to fix this problem? Thank you in advance :-)<br />\n<br />\n<strong>Edit</strong><br />\nTested the application on a different computer with Windows 7 (32x). Worked perfectly. Have no clue why.<br />\n<br />\n<strong>Solved</strong><br />\nUpdated sqlite. Now it works great :-P<br />\n",
+    "PostedDate": "2013-05-28T02:12:22.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049521",
+    "ThreadId": "445171",
+    "Html": "sqlite is integrated, you can't update it easily ;}<br />\n",
+    "PostedDate": "2013-05-28T03:59:32.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049524",
+    "ThreadId": "445171",
+    "Html": "Sorry, a little bit of bad language. I downloaded a setup package from <a href=\"http://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki\" rel=\"nofollow\">http://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki</a>.<br />\n",
+    "PostedDate": "2013-05-28T04:06:11.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049526",
+    "ThreadId": "445171",
+    "Html": "sqlite dll is loaded from resources, unless you updated them, installs doesn't matter<br />\n",
+    "PostedDate": "2013-05-28T04:09:44.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049534",
+    "ThreadId": "445171",
+    "Html": "I know sqlite is integrated. What i was trying to tell in the second post is that it was a setup package, not an install. Anyhow not a problem anymore ;-)<br />\n",
+    "PostedDate": "2013-05-28T04:17:32.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

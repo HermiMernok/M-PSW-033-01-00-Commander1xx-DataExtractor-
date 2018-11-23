@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "595296",
+    "ThreadId": "253401",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>The Gmap.net tool is realy greate! Thanks for your work!</p>\r\n<p>Till now I can set and delete Marker, manage Waypoint etc, but I am not enabled to manage a treck from a GPX File.</p>\r\n<p>&nbsp;</p>\r\n<p>If there anywhere a small example to load a treck from a gpx file to display the track on the map in VB.NET ??</p>\r\n<p>&nbsp;</p>\r\n<p>Many thanks!</p>\r\n<p>&nbsp;</p>\r\n<p>martin</p>\r\n",
+    "PostedDate": "2011-04-11T07:00:01.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595338",
+    "ThreadId": "253401",
+    "Html": "<p>in vb.net nop, but there is import function for gpx in demo.windowsForms</p>",
+    "PostedDate": "2011-04-11T07:39:16.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595533",
+    "ThreadId": "253401",
+    "Html": "<p>Thanks for your quick response.</p>\r\n<p>Waht do you mean with \"in VB.net nop\"??</p>\r\n<p>demo.windowsforms is a compiled version.</p>\r\n<p>Is there any way to bring the function of importing a GPX track in a own VB.NET project ??</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks in advanced</p>\r\n<p>&nbsp;</p>\r\n<p>martin</p>",
+    "PostedDate": "2011-04-11T14:05:38.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595620",
+    "ThreadId": "253401",
+    "Html": "<p>mkkirchner,</p>\r\n<p>Did you download the GMap source? If not - click on the Source Code tab and 'download' below \"Latest Version\" on the right of the page.</p>\r\n<p>I have written C# code that read a gpx file, makes some adjustments where needed,&nbsp;and loads it into GMap for display. This was based on what you will find in&nbsp;Demo.WindowsForms so feel free to ask for more help if needed.</p>",
+    "PostedDate": "2011-04-11T18:39:22.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "596163",
+    "ThreadId": "253401",
+    "Html": "<p>O.K.</p>\r\n<p>I found a solution.</p>\r\n<p>For all other with same problems:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">Dim</span> G <span style=\"color: blue;\">As</span> GMap.NET.GMaps\r\n        <span style=\"color: blue;\">Dim</span> Gpxt <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.gpxType\r\n        <span style=\"color: blue;\">Dim</span> trk <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.trkType\r\n        <span style=\"color: blue;\">Dim</span> tSeg <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.trksegType\r\n        <span style=\"color: blue;\">Dim</span> WPT <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.wptType\r\n        <span style=\"color: blue;\">Dim</span> gpxSTR <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>\r\n        <span style=\"color: blue;\">Dim</span> X <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>\r\n        <span style=\"color: green;\">'Dim RT As GMap.NET.MapRoute</span>\r\n        <span style=\"color: blue;\">Dim</span> P <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.PointLatLng\r\n\r\n        <span style=\"color: blue;\">Dim</span> Punkte <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> List(Of GMap.NET.PointLatLng)\r\n\r\n        FileOpen(1, <span style=\"color: #a31515;\">\"d:\\test.gpx\"</span>, OpenMode.Input)\r\n        <span style=\"color: blue;\">Do</span> <span style=\"color: blue;\">While</span> <span style=\"color: blue;\">Not</span> EOF(1)\r\n            X = LineInput(1)\r\n            gpxSTR = gpxSTR &amp; X\r\n        <span style=\"color: blue;\">Loop</span>\r\n        FileClose(1)\r\n\r\n        Gpxt.trk = GMap.NET.GMaps.Instance.DeserializeGPX(gpxSTR).trk\r\n\r\n\r\n\r\n        <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> trk <span style=\"color: blue;\">In</span> Gpxt.trk\r\n            <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> tSeg <span style=\"color: blue;\">In</span> trk.trkseg\r\n                <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> WPT <span style=\"color: blue;\">In</span> tSeg.trkpt\r\n                    P.Lat = WPT.lat\r\n                    P.Lng = WPT.lon\r\n                    Punkte.Add(P)\r\n\r\n                <span style=\"color: blue;\">Next</span>\r\n            <span style=\"color: blue;\">Next</span>\r\n        <span style=\"color: blue;\">Next</span>\r\n\r\n        <span style=\"color: green;\">'Dim RT As New GMap.NET.MapRoute(Punkte, \"TRK1\")</span>\r\n        <span style=\"color: blue;\">Dim</span> RT <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.WindowsForms.GMapRoute(Punkte, <span style=\"color: #a31515;\">\"TRK1\"</span>)\r\n        <span style=\"color: blue;\">Dim</span> TReKtop <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.WindowsForms.GMapOverlay(<span style=\"color: blue;\">Me</span>.GMapControl1, <span style=\"color: #a31515;\">\"TReKtop\"</span>)\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Overlays.Add(TReKtop)\r\n\r\n\r\n       \r\n        TReKtop.Routes.Add(RT)\r\n\r\n\r\n        GMapControl1.Refresh()\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>Many thanks at all for the help!!!!!</p>\r\n<p>martin</p>",
+    "PostedDate": "2011-04-12T13:39:58.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "596347",
+    "ThreadId": "253401",
+    "Html": "<p>no need to call&nbsp;GMapControl1.Refresh()</p>",
+    "PostedDate": "2011-04-12T23:20:34.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

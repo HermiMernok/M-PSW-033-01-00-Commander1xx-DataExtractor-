@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1448226",
+    "ThreadId": "646122",
+    "Html": "I am working on C# VS2013 WPF.<br />\n<br />\nI have created a heatmap for some points (with lat/longitude) on a map based on OpenStreetMap (OSM).<br />\n<br />\nI used OSM control lib GMAP.net (<a href=\"http://greatmaps.codeplex.com/\" rel=\"nofollow\">http://greatmaps.codeplex.com/</a>) and a heatmap control lib GHEAT.net at:<br />\n<br />\n<a href=\"http://www.codeproject.com/Articles/88956/GHeat-NET\" rel=\"nofollow\">http://www.codeproject.com/Articles/88956/GHeat-NET</a><br />\n<br />\nI use the max/min lat/lon of the input points as the bounding box. But, the bitmap has a magin arund the points so that when I put it on the map, all points cannot be put on the correct locations even though I use the bounding box as the W/E/S/N lat/lon in XAML Map control. <br />\n<br />\nI have set margins as &quot;0,0,0,0&quot; in <br />\n&lt;WindowsPresentation:GMapControl Name=&quot;myMap&quot; HorizontalAlignment=&quot;Left&quot; Height=&quot;500&quot; Margin=&quot;0,0,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;900&quot;/&gt;, but the result bitmap still have the margin. <br />\n<br />\nAny help would be appreciated. <br />\n",
+    "PostedDate": "2015-10-12T13:56:45.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "983985",
+    "ThreadId": "428847",
+    "Html": "\r\n<p>Given UTM GPS coordinates :</p>\r\n<ul>\r\n<li>GPSLatitude 55,00°40,00'56,54&quot; </li><li>GPSLatitudeRef North </li><li>GPSLongitude&nbsp;37,00°37,00'41,81&quot; </li><li>GPSLongitudeRef East </li><li>GPSMapDatum&nbsp;WGS-84 </li></ul>\r\n<p>There is a need to convert them to decimal LatLong (X:55.6823722222, Y:37.6282805556) in same datum and to some other like EPSG:900913 in future. Looked into project source (TestUnitTransforms in CoordinateTransformTests, i.e.), but didn't find a way to\r\n pass degree/minute/second coordinate to transformation factory. I know simple formulae&nbsp;dd.ff = dd &#43; mm/60 &#43; ss/3600 for that, but reverse conversion is much more complex and i want to have ultimate precision during conversion.&nbsp;Thanks in advance for\r\n help.</p>\r\n",
+    "PostedDate": "2013-01-08T00:29:45.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

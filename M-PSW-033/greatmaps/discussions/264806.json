@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "641003",
+    "ThreadId": "264806",
+    "Html": "\r\n<p>I have downloaded the latest build and get a GDI&#43; error when i set the map type</p>\r\n<p>to either BING or GOOGLE .&nbsp;&nbsp;&nbsp; (at line 546 in GMapControl.cs )</p>\r\n<p>I only have .NET v4 loaded on this machine with VS2010 and</p>\r\n<p>chose to target .NET v4 by the project converter when opening the project.</p>\r\n<p>I have used other builds of Gmap without problems.</p>\r\n<p>Thanks,</p>\r\n<p>Paul</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-07-12T04:45:06.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "641184",
+    "ThreadId": "264806",
+    "Html": "<p>works just fine for me, what OS, CPU target?, should with any</p>",
+    "PostedDate": "2011-07-12T10:00:05.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "641205",
+    "ThreadId": "264806",
+    "Html": "<p>OS is&nbsp;&nbsp; XP SP3,&nbsp;&nbsp;&nbsp; CPU&nbsp; is ANY</p>\r\n<p>BindMapOld&nbsp; is ok,&nbsp;&nbsp;&nbsp; but change to BingMap&nbsp; and it crashes with that GDI+ message.</p>\r\n<p>GoogleMap is ok,&nbsp; but GoogleSattelliteMap&nbsp; also crashes.&nbsp;&nbsp;</p>\r\n<p>Very stange, just running the WinFormsDemo&nbsp; without any changes at all.</p>\r\n<p>Just tried it also with the July 5th Build,,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 68aa556d13c1,&nbsp; and that too craches if i select any of the satellite sourced maps?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-12T10:35:29.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "641212",
+    "ThreadId": "264806",
+    "Html": "<p>works fine for me ;} are you using cached data or fresh from server?</p>",
+    "PostedDate": "2011-07-12T10:52:17.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642326",
+    "ThreadId": "264806",
+    "Html": "<p>Still getting the same error.</p>\r\n<p>Ive build a virtual machine now, put VS2010 with CR2010 on it.&nbsp;&nbsp; Open your build&nbsp; ea1071d1c5db&nbsp;&nbsp;&nbsp; simply run it's ok, then run and change the google maps to GOODLE satellitette.</p>\r\n<p>Then the GDI+ Error message comes.</p>",
+    "PostedDate": "2011-07-14T07:01:52.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642328",
+    "ThreadId": "264806",
+    "Html": "<p>i didn't test it on VM, maybe</p>",
+    "PostedDate": "2011-07-14T07:06:17.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642331",
+    "ThreadId": "264806",
+    "Html": "<p>then have you changed anything in the GDI routines ???? since i have always developed within a VM and</p>\r\n<p>have never has this problem before with GMAP.</p>",
+    "PostedDate": "2011-07-14T07:14:39.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642340",
+    "ThreadId": "264806",
+    "Html": "<p>i've turned off image validation, it improves loading times, you can try enable it and test again</p>\r\n<p>it's in WindowsFormsImageProxy</p>\r\n<p>...</p>\r\n<p>Image m = Image.FromStream(stream, true, <strong>false</strong>);</p>",
+    "PostedDate": "2011-07-14T07:21:19.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642352",
+    "ThreadId": "264806",
+    "Html": "<p>It works now with that setting turned back on,&nbsp; re-tested with it off error, tested with it on , works fine.</p>\r\n<p>So now, how to detect if that needs to be TRUE/FALSE in code at runtime, so i don't have to keep changing your source codes with</p>\r\n<p>build releases&nbsp;&nbsp; ???</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-14T07:38:14.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642357",
+    "ThreadId": "264806",
+    "Html": "<p>if i don't find solution, i'll add some property to turn validation on manualy</p>",
+    "PostedDate": "2011-07-14T07:43:28.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "643068",
+    "ThreadId": "264806",
+    "Html": "<p>I have the same GDI+ error if using GoogleSattelliteMap</p>\r\n<p>My OS is WinXP SP3 with CPU any and VS2008</p>\r\n<p>thanks for the hint with validation flag, setting it to true solved the problem</p>",
+    "PostedDate": "2011-07-15T11:27:21.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "643071",
+    "ThreadId": "264806",
+    "Html": "<p>do you use .net2 or .net2sp1?</p>",
+    "PostedDate": "2011-07-15T11:34:42.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656973",
+    "ThreadId": "264806",
+    "Html": "<p>I have the same error on winxp sp3,but it's good on win7!!!</p>",
+    "PostedDate": "2011-08-11T23:17:37.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "657640",
+    "ThreadId": "264806",
+    "Html": "<p>you can check the latest build again, should be working fine on xp now</p>",
+    "PostedDate": "2011-08-13T05:14:59.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

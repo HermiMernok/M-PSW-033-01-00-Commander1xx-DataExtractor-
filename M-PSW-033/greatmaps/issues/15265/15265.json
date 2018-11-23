@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "43741 \r\nby radioman\tThu at \r\n10:29 PM\t35\tadded BingMapsClientToken, for Customer Identification",
+    "ClosedDate": "2009-12-10T20:50:57.573-08:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "This control is unable to pass a Bing Maps Web Service token through in the url as described here:\nhttp://www.bing.com/toolbox/blogs/maps/archive/2008/04/29/tracking-virtual-earth-tile-usage.aspx\n\nA way to add a specific identifier to the end of the tile URL is all that is needed.  That way a user could add the Bing Maps \"token=myToken\" when using Bing Maps or add a different key/value pair when using another map provider.\n\nThe control is great.  Much easier to use than the MapPoint COM control we were having to embed.\n\nI have modified the source locally to handle this situation and will upload a patch.  Feel free to use the patch or accomplish this another way.",
+    "LastUpdatedDate": "2009-12-10T20:50:57.573-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-12-09T09:37:21.04-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unable to pass an authentication token to Bing Maps / MapPoint",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15265
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

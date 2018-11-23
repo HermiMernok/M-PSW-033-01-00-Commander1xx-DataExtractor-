@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1258165",
+    "ThreadId": "549196",
+    "Html": "Hello,<br />\nI want to make routes with respect to coming coordinates which are listing on listview.<br />\nMy codes from demo (or others code with some modification)<br />\n<br />\n  gmap.RoutesEnabled = true;<br />\n<pre><code>        gmap.MapProvider = GMapProviders.GoogleMap;\n\n        List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;(); ;\n\n        int kolon = listView1.Items.Count;\n        for (int i = 1; i &lt;= kolon; i++)\n        {\n            points.Add(new PointLatLng(Convert.ToDouble(listView1.Items[i - 1].SubItems[1].Text), Convert.ToDouble(listView1.Items[i - 1].SubItems[2].Text)));\n        }\n\n        GMapRoute r = new GMapRoute(points, &quot;my route&quot;);\n        r.Stroke.Width = 3;\n        r.Stroke.Color = Color.Red;\n        //r.Tag = &quot;1&quot;;\n        //r.Name = &quot;name&quot;;\n        routesOverlay = new GMapOverlay(gmap, &quot;routes&quot;);//new GMapOverlay(&quot;routes&quot;);\n        routesOverlay.Routes.Add(r);\n        gmap.Overlays.Add(routesOverlay);\n        gmap.ZoomAndCenterRoute(r);\n</code></pre>\n\nMy CURRENTLY problems; I want to make a path with points which are coming listview.But route is not on the road.If I use 2 points and If I use <br />\n<pre><code> MapRoute route = GMapProviders.GoogleMap.GetRouteBetweenPoints(start1, end1, false, false, 15);\n</code></pre>\n\ncode. It makes a path on the road correctly. How can I make a path with multiple points.(Route must go on the road)?<br />\n<br />\n<img src=\"http://i.hizliresim.com/zRbDYY.png\" alt=\"Image\" /><br />\n<br />\nSecondly, As shown on the map, how can draw green path automatically.I mean google map does not recognize my points locations. I want to say to map users, &quot;You should go A point&quot;<br />\nThirdly, How can I get coordinate of A point?<br />\nall comments are appreciated<br />\n",
+    "PostedDate": "2014-06-20T02:04:02.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1261634",
+    "ThreadId": "549196",
+    "Html": "You will need to manually string together your route using the MapProviders call to GetRouteBetweenPoints. Something like this:<br />\n<pre><code>MapRoute route = GMapProviders.GoogleMap.GetRouteBetweenPoints(start, waypoint1, false, false, 15);\nroute.Points.AddRange(GMapProviders.GoogleMap.GetRouteBetweenPoints(waypoint1, waypoint2, false, false, 15).Points);\nroute.Points.AddRange(GMapProviders.GoogleMap.GetRouteBetweenPoints(waypoint2, waypoint3, false, false, 15).Points);\nroute.Points.AddRange(GMapProviders.GoogleMap.GetRouteBetweenPoints(waypoint3, waypoint4, false, false, 15).Points);\nroute.Points.AddRange(GMapProviders.GoogleMap.GetRouteBetweenPoints(waypoint4, waypoint5, false, false, 15).Points);\nroute.Points.AddRange(GMapProviders.GoogleMap.GetRouteBetweenPoints(waypoint5, end, false, false, 15).Points); </code></pre>\n\nAs for the rest of what you asked, I cannot understand your broken English.<br />\n",
+    "PostedDate": "2014-07-01T09:56:42.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

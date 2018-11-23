@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "633989",
+    "ThreadId": "263043",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>My application has a MDI parent form, and I am trying to have one GmapControl instance on several MDI children.</p>\r\n<p>For example, I&nbsp;want to show a map on FormReport_AAA, and then <span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\">\r\n<span style=\"border-collapse:collapse\">simultaneously open a FormReport_BBB with different data and a&nbsp;new Gmap instance.</span></span></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\">&nbsp;</span></span>&nbsp;</p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\">Right\r\n now, when the first MDI child is open, the GmapControl displays the map and everything works well. But after that, if I open a second or third or any other MDI child, the map is not displayed on any of the new forms, only on the first one. I have tried with\r\n different MapProviders&nbsp;on each form, and also I have tested showing the first form, the closing it, and the reopening the first form, and the result is the same: the map is shown only in the first created form.</span></span></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\">When\r\n the map is not shown (second, third, etc opened forms), it does not display any error, it displays only the markers, and I can even use the zoom, but the map is never shown.</span></span></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\">&nbsp;</span></span></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\">This\r\n is my GMapControl initialization code:</span></span></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\"></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>            mapCtrl.MapProvider = GMapProviders.OpenStreetOsm;\r\n            _Overlay = <span style=\"color:blue\">new</span> GMapOverlay(mapCtrl, <span style=\"color:#a31515\">&quot;equipos&quot;</span>);\r\n            mapCtrl.Overlays.Add(_Overlay);\r\n            \r\n            mapCtrl.MaxZoom = 17;\r\n            mapCtrl.MinZoom = 1;\r\n            mapCtrl.Zoom = 3;\r\n</pre>\r\n</div>\r\n</span></span>\r\n<p></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\">Am I\r\n missing something on the initialization? Or do I need to place some code on the Form_Closed event or similar?</span></span></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"><span style=\"border-collapse:collapse\">Thank\r\n you very much in advance.</span></span></p>\r\n<p><span style=\"widows:2; text-transform:none; text-indent:0px; letter-spacing:normal; border-collapse:separate; font:12px arial,verdana,sans-serif; white-space:normal; orphans:2; color:#000000; word-spacing:0px\"></span></p>\r\n",
+    "PostedDate": "2011-06-28T00:48:57.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633992",
+    "ThreadId": "263043",
+    "Html": "<p>I forgot to mention that&nbsp;I am using VS2010&nbsp;and .NET&nbsp;Framework 3.5.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-28T00:58:50.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "634063",
+    "ThreadId": "263043",
+    "Html": "<p>it's known issue, you can fix it by editing Core.cs:</p>\r\n<p><em>//static readonly List&lt;Thread&gt; GThreadPool = new List&lt;Thread&gt;();<br /></em><em>readonly List&lt;Thread&gt; GThreadPool = new List&lt;Thread&gt;();</em></p>",
+    "PostedDate": "2011-06-28T03:41:36.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "634479",
+    "ThreadId": "263043",
+    "Html": "<p>Thank you very much!</p>\r\n<p>I have been testing it all day and it is working perfectly.</p>\r\n<p>Regards!</p>",
+    "PostedDate": "2011-06-28T19:13:03.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091989",
+    "ThreadId": "263043",
+    "Html": "What do you mean by core.cs?\r<br />\n<br />\nI am having the same issue. i would really appreciate if you can help me on this one. My Map display is a part of MDI form and is one of the child. Till the time i dont close my form map is being displayed. But once i close and reopen it again, my maps are not getting displayed. \r<br />\n<br />\nI will have to entirely close my application and reopen it again to make this work. But gain if i close my form , it happens again. Can you help me on this?<br />\n",
+    "PostedDate": "2013-09-12T16:51:28.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092015",
+    "ThreadId": "263043",
+    "Html": "Hello Radio man \r<br />\n<br />\nI really need your help on this. Dont have a clue where to start.<br />\n",
+    "PostedDate": "2013-09-12T17:10:17.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

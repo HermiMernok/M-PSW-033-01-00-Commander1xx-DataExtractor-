@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1032309",
+    "ThreadId": "440728",
+    "Html": "Hi everyone.\r<br />\n<br />\nDoes any one know how to use a dynamic GMapMarker?\r<br />\n<br />\nDeclare var:\r<br />\nGMapMarker myLocation;\r<br />\n<br />\nNow I'm using this way:\r<br />\n<br />\ntop.Markers.Remove(myLocation);\r<br />\nif( x== 1) {\r<br />\n   myLocation = new GMapMarkerGpsFx(MainMap.Position);\r<br />\n   myLocation.IsVisible = true;\r<br />\n   top.Markers.Add(myLocation);\r<br />\n} else {\r<br />\n   myLocation = new GMapMarkerGpsNotFx(MainMap.Position);\r<br />\n   myLocation.IsVisible = true;\r<br />\n   top.Markers.Add(myLocation);\r<br />\n}\r<br />\n<br />\nWhat I want to ask, is if there's anyway to use something like this:\r<br />\nif( x== 1) {\r<br />\n   myLocation = new GMapMarkerGpsFx(MainMap.Position);\r<br />\n} else {\r<br />\n   myLocation = new GMapMarkerGpsNotFx(MainMap.Position);\r<br />\n}\r<br />\nBut this doesn't seem to work.... I don't want to add/remove the myLocation Marker from the top GMapOverlay everytime I change my marker. \r<br />\n<br />\nKing Regards,\r<br />\nmdkneo.<br />\n",
+    "PostedDate": "2013-04-18T02:01:29.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1032318",
+    "ThreadId": "440728",
+    "Html": "Hello\r<br />\nI'm not sure that I understand clearly your need but why not just change the location of your MyLocation marker !<br />\n",
+    "PostedDate": "2013-04-18T02:26:46.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1032321",
+    "ThreadId": "440728",
+    "Html": "Hi,<br />\n<br />\nin the demo the location is added to the top in loading form. What I want to do is if the GPS HDOP value is bigger than x I want to use the GmapMarker type 1, otherwise GmapMarker type 2. I want to show to the user if is a good fix or not. Did you understand?<br />\n<br />\nKing Regards,<br />\nmdkneo.<br />\n",
+    "PostedDate": "2013-04-18T02:31:33.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1032329",
+    "ThreadId": "440728",
+    "Html": "Yo have to create these specific GmapMarker once\r<br />\nThen add them once to the layer\r<br />\nAfter that you just need to change the location and set them visible or not !<br />\n",
+    "PostedDate": "2013-04-18T02:46:53.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

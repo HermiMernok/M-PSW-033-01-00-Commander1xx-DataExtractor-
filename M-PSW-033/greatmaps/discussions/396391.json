@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "915668",
+    "ThreadId": "396391",
+    "Html": "\r\n<p><span style=\"font-size:10pt\">First I would like to say that GMaps is wonderful, thank you for all the work and making it available for free.\r\n</span></p>\r\n<p><span style=\"font-size:10pt\">Some users of my application will not be able to have internet access due to security reasons. Due to the amount of data involved I don&rsquo;t want to prefetch the maps. Therefore I have setup my own OSM map server (ms4w) locally\r\n and wish to use that to render the maps.<br>\r\nI&rsquo;ve got the server working and am now looking at creating my own MapProvider type. The problem is my server expects the tile location requests to be in degrees (longitude / latitude) and the zoom to be either an extent in degrees or a scale (e.g. 1:24000).<br>\r\nHaving looked at the positions and zoom in the demo applications they are obviously using some other units. What units are being used? Is there any functionality in the GMaps to convert they into degrees?</span></p>\r\n<p>Thank you</p>\r\n<p>James&nbsp;</p>\r\n",
+    "PostedDate": "2012-09-21T05:47:47.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915673",
+    "ThreadId": "396391",
+    "Html": "<p>can't you configure the server to simpler units?</p>",
+    "PostedDate": "2012-09-21T05:54:40.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915684",
+    "ThreadId": "396391",
+    "Html": "<p>Thank you for the fast reply.</p>\r\n<p>I would have thought that&nbsp;longitude / latitude were simple units for a map.</p>\r\n<p><span>My map server uses the same units as used in the map \"shape\" files, I obtained those from&nbsp;<a href=\"http://download.geofabrik.de/osm/europe/\">http://download.geofabrik.de/osm/europe/</a>.<br />If I knew what units GMaps expects I could try to find more suitable shape files or convert the units.</span></p>\r\n<p><span>So the original question still stands, what units is GMaps using or do you know of a source of shape file using the correct units?</span></p>\r\n<p>&nbsp;</p>\r\n<p><span>James</span></p>",
+    "PostedDate": "2012-09-21T06:13:18.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915685",
+    "ThreadId": "396391",
+    "Html": "<p>it uses image tiles, standart mercator projection is prefered</p>",
+    "PostedDate": "2012-09-21T06:21:29.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915700",
+    "ThreadId": "396391",
+    "Html": "<p>But what are the units? a mercator projection still needs two co-ordinates (in degrees or radians).</p>\r\n<p>Surely there is something in GMaps that can do the conversion, its possible&nbsp;to specify the centre of the map in the demo applications as a <span>longitude / latitude</span> value, this must be converted into whatever units are used to get the image tiles. What I will need for the location would be the reverse of this conversion.</p>",
+    "PostedDate": "2012-09-21T06:50:33.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915719",
+    "ThreadId": "396391",
+    "Html": "<p>coordinates are not your problem, make the tiles, don't care for the rest</p>",
+    "PostedDate": "2012-09-21T07:32:00-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915734",
+    "ThreadId": "396391",
+    "Html": "<p>I can make the tiles, the problem is what area the tiles are for.</p>\r\n<p>I need to convert GMap's co-ordinates / zoom level into the&nbsp;<span>longitude / latitude to be rendered on the tile.</span></p>\r\n<p><span><br /></span></p>",
+    "PostedDate": "2012-09-21T07:52:54.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915746",
+    "ThreadId": "396391",
+    "Html": "<p>some people use geoserver to generate the tiles</p>",
+    "PostedDate": "2012-09-21T08:20:48.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

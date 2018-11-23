@@ -1,0 +1,314 @@
+[
+  {
+    "Id": "438681",
+    "ThreadId": "211485",
+    "Html": "<div id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl00_BodyDiv\">\r\n<p>Radioman,</p>\r\n<p>About a week or so ago i downloaded new version. But now polygons are not on right position anymore.</p>\r\n<p>They are always at lower right corner of map, most of the time out of visible part. Has somethings be changed?</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n</div>",
+    "PostedDate": "2010-05-04T00:45:21.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438683",
+    "ThreadId": "211485",
+    "Html": "<p>there is no polygons in wpf version ;/</p>",
+    "PostedDate": "2010-05-04T00:50:32.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438687",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>I know that there is no polygon in WPF, but i created simular myself. With some code outside your DLL.</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-05-04T00:52:25.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438691",
+    "ThreadId": "211485",
+    "Html": "<p>can you share some demo code by creating fork?</p>",
+    "PostedDate": "2010-05-04T01:10:43.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438721",
+    "ThreadId": "211485",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> DrawPolygon(<span style=\"color:blue\">ByVal</span> strPolygonFileName <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>)\r\n\r\n        <span style=\"color:blue\">Dim</span> myPoint <span style=\"color:blue\">As</span> GMap.NET.PointLatLng\r\n        <span style=\"color:blue\">Dim</span> iTeller <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span> = 0\r\n        <span style=\"color:blue\">Dim</span> myPointCollection <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Windows.Media.PointCollection\r\n        <span style=\"color:blue\">Dim</span> iLoop <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span> = 0\r\n        <span style=\"color:blue\">Dim</span> myPolygon <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Polygon\r\n        <span style=\"color:blue\">Dim</span> myPoints(250) <span style=\"color:blue\">As</span> System.Windows.Point\r\n        <span style=\"color:blue\">Dim</span> myPointList() <span style=\"color:blue\">As</span> System.Windows.Point\r\n\r\n        <span style=\"color:blue\">Try</span>\r\n            <span style=\"color:blue\">Using</span> objStreamReader <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> StreamReader(strPolygonFileName, System.Text.Encoding.UTF8)\r\n                <span style=\"color:blue\">While</span> <span style=\"color:blue\">Not</span> objStreamReader.EndOfStream\r\n                    <span style=\"color:blue\">Dim</span> strCoordinaten <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = objStreamReader.ReadLine()\r\n                    <span style=\"color:blue\">Dim</span> intPositieLNG <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span> = strCoordinaten.IndexOf(<span style=\"color:#a31515\">&quot;Lng&quot;</span>, 6)\r\n                    <span style=\"color:blue\">Dim</span> strLat <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = strCoordinaten.Substring(5, intPositieLNG - 2 - 5)\r\n                    <span style=\"color:blue\">Dim</span> strLong <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = strCoordinaten.Substring(intPositieLNG + 4, strCoordinaten.Length - (intPositieLNG + 5))\r\n                    <span style=\"color:blue\">Dim</span> dblLat <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span> = <span style=\"color:blue\">CDbl</span>(strLat)\r\n                    <span style=\"color:blue\">Dim</span> dblLong <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span> = <span style=\"color:blue\">CDbl</span>(strLong)\r\n                    myPoint = <span style=\"color:blue\">New</span> GMap.NET.PointLatLng(dblLat, dblLong)\r\n                    <span style=\"color:blue\">Dim</span> p <span style=\"color:blue\">As</span> GMap.NET.Point = GMapControl1.FromLatLngToLocal(myPoint)\r\n                    myPoints(iTeller) = <span style=\"color:blue\">New</span> System.Windows.Point(p.X, p.Y)\r\n                    myPointCollection.Add(myPoints(iTeller))\r\n                    iTeller += 1\r\n                <span style=\"color:blue\">End</span> <span style=\"color:blue\">While</span>\r\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">Using</span>\r\n\r\n            myPoints(iTeller) = myPoints(0)\r\n            <span style=\"color:blue\">ReDim</span> myPointList(iTeller)\r\n            <span style=\"color:blue\">For</span> iLoop = 0 <span style=\"color:blue\">To</span> iTeller\r\n                myPointList(iLoop) = myPoints(iLoop)\r\n            <span style=\"color:blue\">Next</span>\r\n\r\n            <span style=\"color:blue\">Dim</span> myMarker = <span style=\"color:blue\">New</span> GMap.NET.WindowsPresentation.GMapMarker(myPoint)\r\n            intLaag += 1\r\n            myPolygon.Stroke = System.Windows.Media.Brushes.Black\r\n            myPolygon.StrokeThickness = 2\r\n            myPolygon.Points = myPointCollection\r\n            myPolygon.IsHitTestVisible = <span style=\"color:blue\">True</span>\r\n            myPolygon.ToolTip = strPolygonFileName\r\n            myPolygon.SnapsToDevicePixels = <span style=\"color:blue\">True</span>\r\n            myPolygon.FillRule = FillRule.Nonzero\r\n\r\n            myPolygon.Tag = <span style=\"color:#a31515\">&quot;Polygon&quot;</span>\r\n            <span style=\"color:blue\">Dim</span> strFileName <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = strPolygontFileName\r\n\r\n            <span style=\"color:blue\">If</span> <span style=\"color:blue\">CInt</span>(strFileName.Substring(strFileName.Length - 1, 1)) = 1 <span style=\"color:blue\">Then</span>\r\n                myPolygon.Fill = System.Windows.Media.Brushes.LightGreen\r\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n\r\n            myPolygon.Opacity = sldTransparency.Value / 100\r\n            myMarker.Tag = strFootPrintFileName\r\n            myMarker.Shape = myPolygon\r\n            myMarker.ZIndex = intLaag\r\n            GMapControl1.ZoomAndCenterMarkers(intLaag)\r\n            myMarker.ForceUpdateLocalPosition(GMapControl1)\r\n            GMapControl1.Markers.Add(myMarker)\r\n\r\n        <span style=\"color:blue\">Catch</span>\r\n            System.Windows.MessageBox.Show(Err.Description)\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Try</span>\r\n\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n<pre>This code i use to draw a polygon. It is a polygon without the triangles and can not be resized by customer, but this is what i need. I use it for showing arbitral areas.</pre>\r\n<pre>My file with coordinates looks like:</pre>\r\n<pre>{Lat=50,2893392532918, Lng=-22,8515625}<br>{Lat=51,8357775204525, Lng=-22,1484375}<br>{Lat=52,9089020477703, Lng=-22,1484375}<br>{Lat=53,5403073915002, Lng=-21,796875}<br>{Lat=55,178867663282, Lng=-21,09375}</pre>\r\n<pre>The coordinate file is made by an other piece of software. That is why above code has some lines for retreiving the real coordinates without {Lat=  etc.</pre>\r\n<pre>This code work for some months, but since last update is fails.</pre>\r\n<pre>Heru</pre>\r\n</div>",
+    "PostedDate": "2010-05-04T02:13:12.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438732",
+    "ThreadId": "211485",
+    "Html": "<p>call myMarker.<strong>RegenerateRouteShape</strong>(GMapControl1); before adding to markers // but i guess thats works only for route</p>\r\n<p>p.s. you do not need call <strong><em>ForceUpdateLocalPosition</em></strong>&nbsp;anymore</p>",
+    "PostedDate": "2010-05-04T02:58:26.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438742",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>I added myMarker.RegenerateRouteshap(GMapControl1), but this did not solve problem.</p>\r\n<p>I deleted <strong><em>ForceUpdateLocalPosition....</em></strong></p>\r\n<p><strong><em>&nbsp;</em></strong></p>\r\n<p>Maybe i will try to go back to previous version to see if that will solve problem.</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p><strong><em>&nbsp;</em></strong></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-04T03:29:32.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438777",
+    "ThreadId": "211485",
+    "Html": "<p>well in wpf, marker system has not changed, so it should work, i'm interested why it stopped working, let me know</p>",
+    "PostedDate": "2010-05-04T05:40:33.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447618",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>Can not figure out why it stopped working. Can you send me old WPF version? Lets say 2 months old?</p>\r\n<p>Want to replace current version and check if it is working again.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-26T06:28:04.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447624",
+    "ThreadId": "211485",
+    "Html": "<p>there is history of more than year ;} but you don't get anything better/faster than the last version, debug find whats cause your problems instead</p>",
+    "PostedDate": "2010-05-26T06:38:56.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447642",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>My hope was to try old version to check if something is changed in your underlaying code.</p>\r\n<p>If i debug and step into each line in code they all have the expected values.</p>\r\n<p>&nbsp;</p>\r\n<p>So i can not figure out what is going wrong.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-05-26T07:07:40.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447645",
+    "ThreadId": "211485",
+    "Html": "<p>so <em>what's</em> wrong? ;}</p>",
+    "PostedDate": "2010-05-26T07:12:59.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449558",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>Can i include in some way a screendump to clearify what is happening?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanx,</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-05-31T04:39:58.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449561",
+    "ThreadId": "211485",
+    "Html": "<p>please include whatever you have</p>",
+    "PostedDate": "2010-05-31T04:48:16.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449574",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>The question is (for me) HOW to include jpeg in reply?</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-31T05:26:27.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449578",
+    "ThreadId": "211485",
+    "Html": "<p>click html, then write: &lt;img src=&quot;picture.jpg&quot; /&gt;</p>",
+    "PostedDate": "2010-05-31T05:58:12.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449585",
+    "ThreadId": "211485",
+    "Html": "<pre><div style=\"color:black;background-color:white\"><pre><div style=\"color:black;background-color:white\"><pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">img</span> <span style=\"color:red\">src</span><span style=\"color:blue\">=</span><span style=\"color:blue\">&quot;c:\\sample.jpeg&quot;</span> <span style=\"color:blue\">/&gt;</span>\r\n</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n</pre>",
+    "PostedDate": "2010-05-31T06:15:46.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449588",
+    "ThreadId": "211485",
+    "Html": "<p>Does this work?</p>\r\n<p><img alt=\"\"></p>",
+    "PostedDate": "2010-05-31T06:17:39.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449590",
+    "ThreadId": "211485",
+    "Html": "<p>sorry i have no access to your C disk ;D</p>",
+    "PostedDate": "2010-05-31T06:20:33.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449600",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>OH, really ;-).</p>\r\n<p>My mistake, i thought that the image would be included in the message...</p>\r\n<p>So i have to upload it to some kind of website?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-31T06:54:11.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449615",
+    "ThreadId": "211485",
+    "Html": "<p><a href=\"http://www.ruijbroek.nl:2222/CMD_FILE_MANAGER/domains/ruijbroek.nl/public_html/gmap/Sample.JPG\"></a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-31T07:41:45.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449619",
+    "ThreadId": "211485",
+    "Html": "<p><a href=\"http://www.gmap.ruijbroek.nl/Sample.JPG\">http://www.gmap.ruijbroek.nl/Sample.JPG</a></p>\r\n<p>&nbsp;</p>\r\n<p>This is image of what is happening now.</p>\r\n<p>Normaly there is one polygon with one or more polygons in it.</p>\r\n<p>This polygon should be projected somewhere between afrika and australia...</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-05-31T07:45:42.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449643",
+    "ThreadId": "211485",
+    "Html": "<p>can you update to the latest version and zipp all your project or test with 'wrong' stuff ? ;}</p>",
+    "PostedDate": "2010-05-31T08:19:59.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449921",
+    "ThreadId": "211485",
+    "Html": "<p><span style=\"font-family:mceinline;font-size:small\">Radioman,</span></p>\r\n<p><span style=\"font-size:small\">I have downloaded latest version. Now i have 2 questions..</span></p>\r\n<p><span style=\"font-size:small\">1) What is best way to change to newest version without getting all the errors</span></p>\r\n<p><span style=\"font-size:small\">2) I can not drag &quot;GMapControl&quot; to Grid, just GMapControlNew is possible. Need to use GMapControlNew?</span></p>\r\n<p><span style=\"font-size:small\">&nbsp;</span></p>\r\n<p><span style=\"font-size:small\">Heru</span></p>\r\n<p><span style=\"font-size:small\">&nbsp;</span></p>\r\n<p><span style=\"font-size:small\">&nbsp;</span></p>\r\n<p><span style=\"font-size:small\">&nbsp;</span></p>",
+    "PostedDate": "2010-06-01T02:33:42.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449925",
+    "ThreadId": "211485",
+    "Html": "<p>no, it's just for testing, use usual, everything is the same</p>",
+    "PostedDate": "2010-06-01T02:39:31.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449933",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>Probably i am doing something wrong. I can not drag GMapControl, just GMapControlNew can be dragged to canvas.</p>\r\n<p>Even when i delete GMAPControlNew from Toolbox, i can not drag/drop GMapControl...</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-06-01T02:54:03.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449934",
+    "ThreadId": "211485",
+    "Html": "<p>just add it in xaml</p>",
+    "PostedDate": "2010-06-01T02:56:51.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449971",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>With new version got error:</p>\r\n<p>A first chance exception of type 'System.Windows.Markup.XamlParseException' occurred in PresentationFramework.dll</p>\r\n<p>Additional information:&nbsp; Kan bestand of assembly WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35 of een van de afhankelijkheden hiervan niet laden. Het systeem kan het opgegeven bestand niet vinden.&nbsp; Error in markup file 'Rainbow;component/mainwindow.xaml' Line 1 Position 9.</p>\r\n<p>&nbsp;</p>\r\n<p>Does new version rely on other WPFToolkit version?</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-06-01T04:41:07.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449976",
+    "ThreadId": "211485",
+    "Html": "<p>control does <strong>not</strong> relay of any toolkit</p>",
+    "PostedDate": "2010-06-01T04:44:46.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450176",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>I have several times now&nbsp;switched to new version but every time got problems while starting application.</p>\r\n<p>Can not get error fixed.....</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-01T10:45:43.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450182",
+    "ThreadId": "211485",
+    "Html": "<p>..seems that it's not maps control problem ;}</p>",
+    "PostedDate": "2010-06-01T10:53:33.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450185",
+    "ThreadId": "211485",
+    "Html": "<p>.... Could be, but the strange thing is as soon as i switch back to 1.0.0.0 / 1.5.0.0 / 1.0.65.0 version error doesn't appear any more.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-01T10:58:01.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450187",
+    "ThreadId": "211485",
+    "Html": "<p>you miss something ;}</p>",
+    "PostedDate": "2010-06-01T11:04:10.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450490",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>What am i missing (except my last trip to Indonesia)??</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-06-02T02:55:30.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450627",
+    "ThreadId": "211485",
+    "Html": "<p>i have no idea, check wpf demos xaml ;}</p>",
+    "PostedDate": "2010-06-02T07:42:27.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "454031",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>Still can't find answer... So before i go back to older version of control i want to discus something:</p>\r\n<p>When i put all co&ouml;rdinates in messagebox and show them just before put them in polygon, they all have values which falls inside of visible part of GmapControl.</p>\r\n<p>Maybe something changed with forceupfate... or something in WPF??</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-10T08:25:32.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "454159",
+    "ThreadId": "211485",
+    "Html": "<p>nop</p>",
+    "PostedDate": "2010-06-10T13:04:29.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455077",
+    "ThreadId": "211485",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>Solved? the problem...</p>\r\n<p>When i use newest version it doesn't work. With or without : myMarker.ForceUpdateLocalPosition(GMapControl1)</p>\r\n<p>With older version (1.4.9.2/1.0.0.0/1.0.65.0) it is working (without: &nbsp;myMarker.ForceUpdateLocalPosition(GMapControl1)</p>\r\n<p>When i put in myMarker.ForceUpdateLocalPosition(GMapControl1) again, problem pops up again...</p>\r\n<p>&nbsp;</p>\r\n<p>Heru<br><br><br></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-14T01:19:20.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455082",
+    "ThreadId": "211485",
+    "Html": "<p>you are doing something specific, can't help much if you don't share what ;}</p>",
+    "PostedDate": "2010-06-14T01:34:19.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

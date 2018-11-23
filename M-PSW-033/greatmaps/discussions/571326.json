@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1319248",
+    "ThreadId": "571326",
+    "Html": "Hi,<br />\nI have created an overlay with overlay id using the following code.<br />\n<pre><code>overlayArray = New GMapOverlay(GMap1, TV.Nodes(Tracker_ID_Counter).Text)</code></pre>\n\nTV is a treeview control and each id is based on its node value. Is there anyway to remove the overlay with selected id? The overlay that had been created with the specific id.<br />\n<br />\nKindly reply asap.<br />\nNick.<br />\n",
+    "PostedDate": "2014-11-04T23:55:06.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1329265",
+    "ThreadId": "571326",
+    "Html": "I have the same need could help us with this issue please.<br />\n",
+    "PostedDate": "2014-12-05T14:03:02.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338270",
+    "ThreadId": "571326",
+    "Html": "Loop and check for the value and remove when found and exit the loop.<br />\n<pre><code>    For i As Integer = 0 To _gmap.Overlays.Count - 1\n      If _gmap.Overlays(i).Id = &quot;some id&quot; Then _gmap.Overlays.RemoveAt(i)\n      Exit For\n    Next</code></pre>\n\n",
+    "PostedDate": "2014-12-31T22:08:16.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

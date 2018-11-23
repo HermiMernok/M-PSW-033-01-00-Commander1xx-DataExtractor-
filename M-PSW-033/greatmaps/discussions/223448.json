@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "480036",
+    "ThreadId": "223448",
+    "Html": "<p>Hi radioman!</p>\r\n<p>I have a running mapserver with this .map file</p>\r\n<p>MAP<br>&nbsp; NAME &quot;QGIS-MAP&quot;<br>&nbsp; SIZE 100 100<br>&nbsp; UNITS meters<br>&nbsp; EXTENT 596319.685021 1138931.858174 600111.769729 1140712.489254<br>&nbsp; FONTSET './fonts/fonts.txt'<br>&nbsp; SYMBOLSET './symbols/symbols.txt'<br>&nbsp; PROJECTION<br>&nbsp;&nbsp;&nbsp; 'proj=longlat'<br>&nbsp;&nbsp;&nbsp; 'ellps=WGS84'<br>&nbsp;&nbsp;&nbsp; 'datum=WGS84'<br>&nbsp;&nbsp;&nbsp; 'no_defs'<br>&nbsp; END<br>&nbsp; IMAGECOLOR 255 255 255<br>&nbsp; IMAGEQUALITY 80<br>&nbsp; IMAGETYPE png<br>&nbsp; OUTPUTFORMAT<br>&nbsp;&nbsp;&nbsp; NAME png<br>&nbsp;&nbsp;&nbsp; DRIVER 'AGG/PNG'<br>&nbsp;&nbsp;&nbsp; MIMETYPE 'image/png'<br>&nbsp;&nbsp;&nbsp; IMAGEMODE RGBA<br>&nbsp;&nbsp;&nbsp; EXTENSION 'png'<br>&nbsp; END<br>&nbsp; LEGEND<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMAGECOLOR 255 255 255<br>&nbsp;&nbsp;&nbsp; STATUS ON<br>&nbsp;&nbsp;&nbsp; KEYSIZE 18 12<br>&nbsp;&nbsp;&nbsp; LABEL<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TYPE BITMAP<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIZE MEDIUM<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COLOR 0 0 89<br>&nbsp;&nbsp;&nbsp; END<br>&nbsp; END<br>&nbsp; WEB<br>&nbsp;&nbsp;&nbsp; IMAGEPATH '/tmp/'<br>&nbsp;&nbsp;&nbsp; IMAGEURL '/tmp/'<br>&nbsp;&nbsp;&nbsp; METADATA<br>&nbsp;&nbsp;&nbsp; &nbsp; 'ows_title'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'QGIS-MAP'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ows_onlineresource'&nbsp; 'http://localhost/cgi-bin/mapserv.exe?map=maps/basemap.map'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ows_srs'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'EPSG:4326'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'wms_title'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'QGIS-MAP'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'wms_onlineresource'&nbsp; 'http://localhost/cgi-bin/mapserv.exe?map=maps/basemap.map'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'wms_srs'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'EPSG:4326'<br>&nbsp;&nbsp;&nbsp; END<br>&nbsp;&nbsp;&nbsp; TEMPLATE 'fooOnlyForWMSGetFeatureInfo'<br>&nbsp; END</p>\r\n<p>LAYER<br>&nbsp;&nbsp;&nbsp; NAME 'layout'<br>&nbsp;&nbsp;&nbsp; TYPE POLYGON<br>&nbsp;&nbsp;&nbsp; EXTENT 565881.175914 1134094.551561 625516.846460 1162097.388165<br>&nbsp;&nbsp;&nbsp; DATA 'D:/Van/Docs/Business Locator/AOR_POL/aor.shp|layerid=0'<br>&nbsp;&nbsp;&nbsp; METADATA<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ows_title' 'Layout'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'wms_title' 'Layout'<br>&nbsp;&nbsp;&nbsp; END<br>&nbsp;&nbsp;&nbsp; PROCESSING &quot;CLOSE_CONNECTION=DEFER&quot;<br>&nbsp;&nbsp;&nbsp; STATUS OFF<br>&nbsp;&nbsp;&nbsp; TRANSPARENCY 100<br>&nbsp;&nbsp;&nbsp; PROJECTION<br>&nbsp;&nbsp;&nbsp; 'proj=longlat'<br>&nbsp;&nbsp;&nbsp; 'ellps=WGS84'<br>&nbsp;&nbsp;&nbsp; 'datum=WGS84'<br>&nbsp;&nbsp;&nbsp; 'no_defs'<br>&nbsp;&nbsp;&nbsp; END<br>&nbsp;&nbsp;&nbsp; CLASS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NAME 'layout' <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STYLE<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SYMBOL 0 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIZE 7.0 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COLOR 242 239 233<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END<br>&nbsp;&nbsp;&nbsp; END<br>&nbsp; END<br>END</p>\r\n<p>as you can see, it has its own extent and i want to stick with it.. i tried the MapType.MapBenderWMS by replacing the url with the correct url i have but to no avail.. pls help me..</p>",
+    "PostedDate": "2010-08-13T00:25:32.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480049",
+    "ThreadId": "223448",
+    "Html": "<p>so where is the server url?</p>",
+    "PostedDate": "2010-08-13T01:08:06.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480065",
+    "ThreadId": "223448",
+    "Html": "<p>hi,</p>\r\n<p>your&nbsp;&nbsp; EXTENT 596319.685021 1138931.858174 600111.769729 1140712.489254 and EPSG:4326 aka LatLong don't go well together ;)</p>\r\n<p>but it should work just correct WMS demo: (if your source data is really EPSG:4326)</p>\r\n<div><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">\r\n<p><a href=\"http://mapbender.wheregroup.com/cgi-bin/mapserv?map=/data/umn/osm/osm_basic.map\">http://mapbender.wheregroup.com/cgi-bin/mapserv?map=/data/umn/osm/osm_basic.map</a>&nbsp;<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">to <a href=\"http://localhost/cgi-bin/mapserv.exe?map=maps/basemap.map'\">http://localhost/cgi-bin/mapserv.exe?map=maps/basemap.map'</a></span></span></p>\r\n<p>&nbsp;</p>\r\n</span></span>for best result search for tilecache</div>",
+    "PostedDate": "2010-08-13T01:39:25.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480067",
+    "ThreadId": "223448",
+    "Html": "<p>he he ;} <em>localhost</em></p>",
+    "PostedDate": "2010-08-13T01:42:43.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480108",
+    "ThreadId": "223448",
+    "Html": "<p>The localhost address is inside his MAP file, so thats the address WMS should be called with. I guess hi is doing this for test purposes.</p>\r\n<p>But as I said, if you configure MapServer correctly it's working just file (even with tilecache addon)</p>\r\n<p>Best regards</p>",
+    "PostedDate": "2010-08-13T03:20:51.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480120",
+    "ThreadId": "223448",
+    "Html": "<p>i see</p>",
+    "PostedDate": "2010-08-13T03:41:46.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480453",
+    "ThreadId": "223448",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>so where is the server url?</p>\r\n</blockquote>\r\n<p>hi radioman,</p>\r\n<p>tnx for the quick reply... im not in the office right now nd i forgot the url i used.. i'll post it as soon as im in the office..<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\"><a href=\"http://localhost/cgi-bin/mapserv.exe?map=maps/basemap.map'\"></a></span></span></span></span></p>",
+    "PostedDate": "2010-08-13T20:10:49.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480454",
+    "ThreadId": "223448",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>krneki99 wrote:</strong><br>\r\n<p>hi,</p>\r\n<p>your&nbsp;&nbsp; EXTENT 596319.685021 1138931.858174 600111.769729 1140712.489254 and EPSG:4326 aka LatLong don't go well together ;)</p>\r\n<p>but it should work just correct WMS demo: (if your source data is really EPSG:4326)</p>\r\n<div><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">\r\n<p><a href=\"http://mapbender.wheregroup.com/cgi-bin/mapserv?map=/data/umn/osm/osm_basic.map\">http://mapbender.wheregroup.com/cgi-bin/mapserv?map=/data/umn/osm/osm_basic.map</a>&nbsp;<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">to <a href=\"http://localhost/cgi-bin/mapserv.exe?map=maps/basemap.map'\">http://localhost/cgi-bin/mapserv.exe?map=maps/basemap.map'</a></span></span></p>\r\n<p>&nbsp;</p>\r\n</span></span>for best result search for tilecache</div>\r\n</blockquote>\r\n<p>hi.. tnx for the reply...</p>\r\n<p>i tried it already before asking for help... sorry for the lack of details with regards to my problem</p>",
+    "PostedDate": "2010-08-13T20:14:33.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480455",
+    "ThreadId": "223448",
+    "Html": "<p>is it possible to set the current view/rectangle with this extent 596319.685021 1138931.858174 600111.769729 1140712.489254?</p>",
+    "PostedDate": "2010-08-13T20:16:25.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480496",
+    "ThreadId": "223448",
+    "Html": "<p>what do you mean?</p>",
+    "PostedDate": "2010-08-14T01:27:59.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480790",
+    "ThreadId": "223448",
+    "Html": "<p>Hi radioman,</p>\r\n<p>this is the code</p>\r\n<p>case MapType.MapBenderWMS:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var px1 = ProjectionForWMS.FromTileXYToPixel(pos);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var px2 = px1;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; px1.Offset(0, ProjectionForWMS.TileSize.Height);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PointLatLng p1 = ProjectionForWMS.FromPixelToLatLng(px1, zoom);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; px2.Offset(ProjectionForWMS.TileSize.Width, 0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PointLatLng p2 = ProjectionForWMS.FromPixelToLatLng(px2, zoom);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var ret = string.Format(CultureInfo.InvariantCulture, &quot;http://192.168.5.162/cgi-bin/mapserv.exe?map=maps/basemap.map&amp;VERSION=1.0.0&amp;REQUEST=GetMap&amp;SERVICE=WMS&amp;LAYERS=layout&amp;styles=&amp;bbox={0},{1},{2},{3}&amp;width={4}&amp;height={5}&amp;srs=EPSG:4326&amp;format=image/png&quot;, p1.Lng, p1.Lat, p2.Lng, p2.Lat, ProjectionForWMS.TileSize.Width, ProjectionForWMS.TileSize.Height);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ret;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>while debugging, i found this:</p>\r\n<p>http://192.168.5.162/cgi-bin/mapserv.exe?map=maps/basemap.map&amp;VERSION=1.0.0&amp;REQUEST=GetMap&amp;SERVICE=WMS&amp;LAYERS=layout&amp;styles=&amp;bbox=25.3564453125,54.7246201949245,25.400390625,54.7499909702269&amp;width=256&amp;height=256&amp;srs=EPSG:4326&amp;format=image/png</p>\r\n<p>what should i do to change the range of values given by p1.Lng, p1.Lat, p2.Lng and p2.Lat to this range 596319.685021,1138931.858174,600111.769729,1140712.489254...?</p>\r\n<p>i want it to be like http://192.168.5.162/cgi-bin/mapserv.exe?map=maps/basemap.map&amp;VERSION=1.0.0&amp;REQUEST=GetMap&amp;SERVICE=WMS&amp;LAYERS=layout&amp;styles=&amp;bbox=596319.685021,1138931.858174,600111.769729,1140712.489254&amp;width=256&amp;height=256&amp;srs=EPSG:4326&amp;format=image/png</p>\r\n<p>pls help....</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-08-15T18:59:20.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480813",
+    "ThreadId": "223448",
+    "Html": "<p>you need to know geographic coordinates</p>",
+    "PostedDate": "2010-08-15T22:41:40.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480866",
+    "ThreadId": "223448",
+    "Html": "<p>Hi VanL,</p>\r\n<p>The problem is that you specify in your MAP file that the source file is EPSG:4326 but it's not!</p>\r\n<p>If you set ﻿﻿you ﻿wms_srs to EPSG:4326 and LAYER projection&nbsp;of the&nbsp;source file correctly. The&nbsp;WMS can be addressed as you see in the&nbsp;WMS demo.</p>\r\n<p>Best regards,</p>\r\n<p>Blaz</p>",
+    "PostedDate": "2010-08-16T01:06:35.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482550",
+    "ThreadId": "223448",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>krneki99 wrote:</strong><br>\r\n<p>Hi VanL,</p>\r\n<p>The problem is that you specify in your MAP file that the source file is EPSG:4326 but it's not!</p>\r\n<p>If you set ﻿﻿you ﻿wms_srs to EPSG:4326 and LAYER projection&nbsp;of the&nbsp;source file correctly. The&nbsp;WMS can be addressed as you see in the&nbsp;WMS demo.</p>\r\n<p>Best regards,</p>\r\n<p>Blaz</p>\r\n</blockquote>\r\n<p>hi krneki99,</p>\r\n<p>Thank you for clearing things. This really solved my problem. I'm able to display my map and can proceed with my project... Thank you.</p>",
+    "PostedDate": "2010-08-19T17:32:44.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

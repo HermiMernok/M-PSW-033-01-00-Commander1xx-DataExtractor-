@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "Transformations",
+      "DisplayName": "Transformations"
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2007-06-13T20:19:05.4-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "There is an issue deploying code with anonymous delegates to SQLCLR because they're compiled using a writable static field (which is not allowed in SQLCLR SAFE mode). To workaround this, we will use a harmless reference to a local field inside the anonymous delegate code making the compiler generates a private nested class with a function that is used as the delegate.\nFor details, see http://www.hedgate.net/articles/2006/01/27/troubles-with-shared-state-and-anonymous-delegates-in-sqlclr",
+    "LastUpdatedDate": "2017-12-12T22:18:15.67-08:00",
+    "PlannedForRelease": "Proj.NET 1.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2007-06-13T20:16:43.23-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Assembly can't be deployed to SQLCLR",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 1850
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 5584.",
+      "PostedDate": "2007-06-13T20:19:05.4-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:16.773-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T03:55:43.39-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-12T22:18:15.67-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

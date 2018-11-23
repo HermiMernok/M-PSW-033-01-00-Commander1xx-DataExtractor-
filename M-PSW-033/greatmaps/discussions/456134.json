@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1089831",
+    "ThreadId": "456134",
+    "Html": "its my C# Code and the route is not update\r<br />\n I have a timer that generates new Lat and Lng\r<br />\nWhat is wrong?\r<br />\n<br />\nIs there anyone can give the correct code? :(\r<br />\ni need it...tnx\r<br />\n<br />\nnamespace UpdateRoute\r<br />\n{<br />\n<pre><code>public partial class Form1 : Form\n{\n    PointLatLng start;\n    PointLatLng end;\n    MapRoute route;\n    GMapRoute r;\n    GMapOverlay routesOverlay;\n    double[] endLat = { 36.3312118236692, 36.3305246853568, 36.3298980445055, 36.3292541117596, 36.3284632340582, 36.3279014034918, 36.3273179597697, 36.3265357061464, 36.3259263208105, 36.3226027098246 };\n    double[] endLng = { 59.4885045289993, 59.4906663894653, 59.4926780462265, 59.4947862625122, 59.4972109794617, 59.4990509748459, 59.5010304450989, 59.5034712553024, 59.5053863525391, 59.5161259174347 };\n    int i = 0;\n\n    public Form1()\n    {\n        InitializeComponent();\n    }\n\n    private void Form1_Load(object sender, EventArgs e)\n    {\n        gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;\n        gMapControl1.SetPositionByKeywords(&quot;Mashhad&quot;);\n        //----------------create a route-------------------------------------------------------\n        start = new PointLatLng(36.3318816696497, 59.486283659935);\n        end = new PointLatLng(36.3314495116118, 59.487715959549);\n         route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(\n          start, end, false, false, 15);\n        //-------------------------------------------------------------------------------------\n         r = new GMapRoute(route.Points, &quot;My route&quot;);\n        //------------------------------------------------------------------------------------\n         routesOverlay = new GMapOverlay(&quot;routes&quot;);\n        routesOverlay.Routes.Add(r);\n        gMapControl1.Overlays.Add(routesOverlay);\n        gMapControl1.UpdateRouteLocalPosition(r);\n    }\n\n    private void button1_Click(object sender, EventArgs e)\n    {\n        timer1.Enabled = true;\n    }\n\n    private void timer1_Tick(object sender, EventArgs e)\n    {\n        if (i&lt;10)\n        {\n            end = new PointLatLng(endLat[i], endLng[i]);\n            textBox1.Text = end.Lat.ToString();\n            textBox2.Text = end.Lng.ToString();\n            gMapControl1.UpdateRouteLocalPosition(r);\n            i++;\n        }\n    }\n}</code></pre>\n\n}<br />\n",
+    "PostedDate": "2013-09-08T01:14:09.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090219",
+    "ThreadId": "456134",
+    "Html": "What are you trying to accomplish?<br />\n",
+    "PostedDate": "2013-09-09T08:17:16.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090296",
+    "ThreadId": "456134",
+    "Html": "by clicking on button the route updated every 5 seconds.<br />\n",
+    "PostedDate": "2013-09-09T11:05:56.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090502",
+    "ThreadId": "456134",
+    "Html": "I see, fiddled around with your code.\r<br />\nZoom level is not correct but the timer works in this example:<br />\n<pre><code>using System;\nusing System.Collections.Generic;\nusing System.ComponentModel;\nusing System.Data;\nusing System.Drawing;\nusing System.Linq;\nusing System.Text;\nusing System.Threading.Tasks;\nusing System.Windows.Forms;\nusing GMap.NET;\nusing GMap.NET.MapProviders;\nusing GMap.NET.WindowsForms;\nusing GMap.NET.WindowsForms.Markers;\n\nnamespace GmapDemo\n{\n    public partial class Form1 : Form\n    {\n           \n     \n        PointLatLng start;\n        PointLatLng end;\n        MapRoute route;\n        GMapRoute r;\n        GMapOverlay routesOverlay;\n        double[] endLat = { 36.3312118236692, 36.3305246853568, 36.3298980445055, 36.3292541117596, 36.3284632340582, 36.3279014034918, 36.3273179597697, 36.3265357061464, 36.3259263208105, 36.3226027098246 };\n        double[] endLng = { 59.4885045289993, 59.4906663894653, 59.4926780462265, 59.4947862625122, 59.4972109794617, 59.4990509748459, 59.5010304450989, 59.5034712553024, 59.5053863525391, 59.5161259174347 };\n        int i = 0;\n\n        public Form1()\n        {\n            InitializeComponent();\n\n            gMapControl1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;\n                        \n            //GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;\n            gMapControl1.Position = new PointLatLng(36.3318816696497, 59.486283659935); //.SetPositionByKeywords(&quot;Mashhad&quot;);\n            gMapControl1.Zoom = 17.0;\n\n            //----------------create a route-------------------------------------------------------\n            start = new PointLatLng(36.3318816696497, 59.486283659935);\n            end = new PointLatLng(36.3314495116118, 59.487715959549);\n            route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(start, end, false, false, 15);\n            //-------------------------------------------------------------------------------------\n            r = new GMapRoute(route.Points, &quot;My route&quot;);\n            //------------------------------------------------------------------------------------\n            routesOverlay = new GMapOverlay(&quot;routes&quot;);\n            routesOverlay.Routes.Add(r);\n            gMapControl1.Overlays.Add(routesOverlay);\n            gMapControl1.UpdateRouteLocalPosition(r);\n        }\n\n        private void button1_Click(object sender, EventArgs e)\n        {\n            timer1.Enabled = true;\n            timer1.Interval = 5000;\n            timer1.Tick += timer1_Tick;\n        }\n\n        private void timer1_Tick(object sender, EventArgs e)\n        {\n            if (i&lt;10)\n            {\n                end = new PointLatLng(endLat[i], endLng[i]);\n                textBox1.Text = end.Lat.ToString();\n                textBox2.Text = end.Lng.ToString();\n                gMapControl1.UpdateRouteLocalPosition(r);\n                gMapControl1.Position = new PointLatLng(end.Lat, end.Lng);\n                i++;\n            }\n        }\n\n    }\n}\n</code></pre>\n\n",
+    "PostedDate": "2013-09-10T01:17:42.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

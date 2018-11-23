@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "153083",
+    "ThreadId": "45858",
+    "Html": "Hello!<br>\r\nThanks for your work!<br>\r\n<br>\r\nI use route to display track from my gps coordinates. <br>\r\n<hr>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; List&lt;PointLatLng&gt; route = new List&lt;PointLatLng&gt;();<br>\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(int i=0;i&lt;trk.Points.Count;i++)<br>\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;route.Add(new PointLatLng(trk.Points[i].LAT, trk.Points[i].LON));<br>\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n<hr>\r\n<br>\r\n<br>\r\n<br>\r\nHow can I change route color?<br>\r\nMy program generate colorfull tracks in google KML format and I want to add internal preview in my program.<br>\r\nNow I use Google Earth to preview results.<br>\r\n<br>\r\nDo you plain to add support to viewing KML/KMZ files on GMap.NET?<br>\r\nIt will be great advantage!<br>\r\n<br>\r\n<br>\r\nThanks!<br>\r\n<br>\r\n",
+    "PostedDate": "2009-02-01T10:59:18.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153089",
+    "ThreadId": "45858",
+    "Html": "Route.Color = Color.FromArgb(140, Color.MidnightBlue);<div><br></div><div>..about kml/kmz i don't know</div>",
+    "PostedDate": "2009-02-01T11:31:42.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153271",
+    "ThreadId": "45858",
+    "Html": "Thank you!<br>\r\n",
+    "PostedDate": "2009-02-02T03:19:15.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

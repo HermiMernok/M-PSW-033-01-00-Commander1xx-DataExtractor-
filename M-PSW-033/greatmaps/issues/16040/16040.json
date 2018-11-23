@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "no, you should add routes in gui thread, use background worker",
+    "ClosedDate": "2012-05-10T10:30:56.917-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "   Hi, i have some trouble with GMap control and i think only you can help me. \r\nI have GMapOverlay object which containes my routes. Also i have additional thread which adds routes to this object.Routes container. \r\n   Now i get an \"Collection was modified\" in Program.Main(). StackTrace :\r\n\r\n   в System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)\r\n   в System.Collections.Generic.List`1.Enumerator.MoveNextRare()\r\n   в System.Collections.Generic.List`1.Enumerator.MoveNext()\r\n   в GMap.NET.WindowsForms.GMapOverlay.DrawRoutes(Graphics g)\r\n   в GMap.NET.WindowsForms.GMapOverlay.Render(Graphics g)\r\n   в GMap.NET.WindowsForms.GMapControl.OnPaintOverlays(Graphics g)\r\n   в GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\r\n   в System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\r\n   в System.Windows.Forms.Control.WmPaint(Message& m)\r\n   в System.Windows.Forms.Control.WndProc(Message& m)\r\n   в System.Windows.Forms.ScrollableControl.WndProc(Message& m)\r\n   в System.Windows.Forms.UserControl.WndProc(Message& m)\r\n   в System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)\r\n   в System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)\r\n   в System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r\n   в System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)\r\n   в System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)\r\n   в System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)\r\n   в System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)\r\n   в System.Windows.Forms.Application.Run(Form mainForm)\r\n   в MyApplication.Program.Main() в D:\\somedir\r\n   в System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)\r\n   в System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)\r\n   в Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()\r\n   в System.Threading.ThreadHelper.ThreadStart_Context(Object state)\r\n   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)\r\n   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\r\n   в System.Threading.ThreadHelper.ThreadStart()\r\n\r\n\r\n   I am not a skilled programmer, but I think DrawRoutes should block that collection to save it from changes.\r\n   I am sorry about my english :( .\r\n   Waiting for your response.\r\n   \r\n   ",
+    "LastUpdatedDate": "2012-05-10T10:30:56.917-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-05-10T09:50:18.377-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"Collection was modified\"  exception while rendering map",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16040
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "812733",
+    "ThreadId": "349256",
+    "Html": "<p>Hi,</p>\n<p>i am trying to display route of points, but routes it's not display correctly</p>\n<p>my code:</p>\n<p>&nbsp;</p>\n<pre>                List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();\n\n                foreach (Trace trace in traces)\n                {\n                    PointLatLng p = new PointLatLng(trace.Latitude, trace.Longitude);\n\n                    points.Add(p);\n                }\n\n                GMapRoute route = new GMapRoute(points, \"route\");\n                Pen pen=new Pen(Color.Red);\n                pen.Width=2;\n                route.Stroke = pen;\n                mapRoutes.Routes.Add(route);\n                map1.ZoomAndCenterRoute(route);</pre>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p><a href=\"http://i40.tinypic.com/e7kq69.jpg\">Sample of problem</a></p>",
+    "PostedDate": "2012-03-19T15:32:18.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812820",
+    "ThreadId": "349256",
+    "Html": "<p>so whats the 'problem'?</p>",
+    "PostedDate": "2012-03-19T23:54:21.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812893",
+    "ThreadId": "349256",
+    "Html": "<p>I want to display route over the road and not over the air. I know that this is possible, it's works <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps alt-edited\">a while ago :/<br /></span></span></p>",
+    "PostedDate": "2012-03-20T03:37:04.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812896",
+    "ThreadId": "349256",
+    "Html": "<p>use routing provider from google or openstreet, check the demos</p>",
+    "PostedDate": "2012-03-20T03:43:08.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813171",
+    "ThreadId": "349256",
+    "Html": "<p>I try this code in demo project and it's work.</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>                PointLatLng start = <span style=\"color: blue;\">new</span> PointLatLng(46.3716717, 15.8289350);\r\n                PointLatLng end = <span style=\"color: blue;\">new</span> PointLatLng(46.3810850, 15.8457600);\r\n                MapRoute route = GMapProviders.GoogleMap.GetRoute(start, end, <span style=\"color: blue;\">false</span>, <span style=\"color: blue;\">false</span>, 10);\r\n                GMapRoute r = <span style=\"color: blue;\">new</span> GMapRoute(route.Points, <span style=\"color: #a31515;\">\"test\"</span>);\r\n</pre>\r\n</div>\r\nBut when I try in my project it's not work, because route is null.</p>\r\n<p>Any ideas, what could be wrong ?</p>",
+    "PostedDate": "2012-03-20T12:29:55.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813202",
+    "ThreadId": "349256",
+    "Html": "<p>only for google?</p>",
+    "PostedDate": "2012-03-20T13:29:02.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813223",
+    "ThreadId": "349256",
+    "Html": "<p>no, also for else. It seems that function List&lt;PointLatLng&gt; GetRoutePoints not give me <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">expected points.</span></span></p>\n<p>Could not load file or assembly 'System.Data.SQLite, Version=1.0.79.0......</p>\n<p>Seems my fault.</p>",
+    "PostedDate": "2012-03-20T14:17:05.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813238",
+    "ThreadId": "349256",
+    "Html": "<p>Ok, now works but route is still out of the road :/</p>\r\n<p><a href=\"http://i44.tinypic.com/2v7yyv8.jpg\">Sample</a></p>",
+    "PostedDate": "2012-03-20T14:54:28.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813415",
+    "ThreadId": "349256",
+    "Html": "<p>Problem solved.</p>\r\n<pre>MapRoute route = GMapProviders.GoogleMap.GetRoute(start, end, <span style=\"color: blue;\">false</span>, <span style=\"color: blue;\">false</span>, <strong>15</strong>);</pre>",
+    "PostedDate": "2012-03-21T03:08:50.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817940",
+    "ThreadId": "349256",
+    "Html": "<p>Hi <span class=\"UserProfileLink\">nemonemo,<br /></span>How do you use your points list you create in your first code, in GetRoute</p>\r\n<p>it seems it only use start and end points?</p>",
+    "PostedDate": "2012-03-30T13:44:41.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833352",
+    "ThreadId": "349256",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>nemonemo wrote:</strong><br />\n<p>Hi,</p>\n<p>i am trying to display route of points, but routes it's not display correctly</p>\n<p>my code:</p>\n<p>&nbsp;</p>\n<pre>                List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();\n\n                foreach (Trace trace in traces)\n                {\n                    PointLatLng p = new PointLatLng(trace.Latitude, trace.Longitude);\n\n                    points.Add(p);\n                }\n\n                GMapRoute route = new GMapRoute(points, \"route\");\n                Pen pen=new Pen(Color.Red);\n                pen.Width=2;\n                route.Stroke = pen;\n                mapRoutes.Routes.Add(route);\n                map1.ZoomAndCenterRoute(route);</pre>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p><a href=\"http://i40.tinypic.com/e7kq69.jpg\">Sample of problem</a></p>\n</blockquote>\n<p>&nbsp;</p>\n<pre>im also trying to route. i took your code, but i didnt recognize, where mapRoutes (mapRoutes.Routes.Add(route)) come from!?<br /><br />my code:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int count = 0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int count1 = 0;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; map.RoutesEnabled = true;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; map.MapProvider = GMapProviders.GoogleMap;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (double item in lx1)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (count1 ==5)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PointLatLng p = new PointLatLng(item, ly1[count]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; points.Add(p);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count1 = 0;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count++;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count1++;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapRoute route = new GMapRoute(points, \"route\");<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pen pen = new Pen(Color.Red);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pen.Width = 2;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; route.Stroke = pen;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; map.ZoomAndCenterRoute(route);<br /><br />p.s: its my first time, working with this stuff...<br /></pre>",
+    "PostedDate": "2012-05-08T03:13:16.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833369",
+    "ThreadId": "349256",
+    "Html": "<ul>\r\n<li>mapRoutes is overlay, you have to add it to map.Overlays on start somwhere</li>\r\n<li>don't&nbsp;initialize <em>Pen pen=new Pen(Color.Red);</em> but simply use<em> route.<strong>Stroke</strong>.XX</em> directly, otherwise you'll have memory leak</li>\r\n</ul>",
+    "PostedDate": "2012-05-08T03:43:26.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

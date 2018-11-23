@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1000707",
+    "ThreadId": "432991",
+    "Html": "I'm having an odd issue I can't seem to troubleshoot.  When I open my map, I do a quick check to see if there is Internet access and then I set the <code>AccessMode</code> appropriately via:<br />\n<pre><code>try\n{\n    System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry(&quot;www.bing.com&quot;);\n    MainMap.Manager.Mode = AccessMode.ServerAndCache;\n    InternetDetected = true;\n}\ncatch\n{\n    MainMap.Manager.Mode = AccessMode.CacheOnly;\n    InternetDetected = false;\n}</code></pre>\n\nThis normally seems to work fine. \r<br />\n<br />\nBut late'y I've been using my application on my laptop with a cellular modem for Internet access. So the map is put into the <code>ServerAndCache</code> <code>AccessMode</code> when the application launches. But whenever I lose cellular service, even though I have map tiles pre-fetched, the map data does not appear. I know I have the data pre-fetched because I can run the application in <code>CacheOnly</code> mode and I see the data. But in <code>ServerAndCache</code> mode, when the Internet access is cut, the data is not being fetched from the cache.\r<br />\n<br />\nAny tips?<br />\n",
+    "PostedDate": "2013-02-13T10:07:46.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000714",
+    "ThreadId": "432991",
+    "Html": "make GMapProvider.<strong>Timeout</strong> smaller or just manualy set for cache only mode<br />\n",
+    "PostedDate": "2013-02-13T10:23:21.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000728",
+    "ThreadId": "432991",
+    "Html": "What is the default <code>Timeout</code>? It seems like I can sit with the map up for several minutes and still the tiles will not load from the cache. I've considering manually switching from <code>ServerAndCache</code> mode to <code>CacheMode</code> like you suggest but then I need to actively monitor the Internet connection.<br />\n",
+    "PostedDate": "2013-02-13T10:56:23.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

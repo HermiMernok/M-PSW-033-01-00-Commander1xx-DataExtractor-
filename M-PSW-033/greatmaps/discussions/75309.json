@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "257685",
+    "ThreadId": "75309",
+    "Html": "<p>First let me say this project is pretty freaking awesome, made my life a lot simpler.&nbsp;</p>\r\n<p>For my purposes I needed to map out where some stuff was and color code it with dots or something similar. However i noticed that GMap only had the google maps like markers and stuff. So after digging into the code I figured out how to create a custom marker which allows you to input what color you want the marker to be on the map (the marker is basically just a dot with a black border) by entering the Color value into the constructor. I was wondering if this would be useful for the community for me to upload into a patch? Let me know.</p>\r\n<p>&nbsp;</p>\r\n<p>Phil</p>",
+    "PostedDate": "2009-11-16T14:45:09.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257686",
+    "ThreadId": "75309",
+    "Html": "<p><em>perfect</em>! if the code is short you can just write here, i'll include it in demo markers ;}</p>",
+    "PostedDate": "2009-11-16T15:02:33.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257717",
+    "ThreadId": "75309",
+    "Html": "<p>Hi Ployer</p>\r\n<p>Your&nbsp; idea is great and just what I was looking for but couldn't do it by myself.</p>\r\n<p>I would appreciate if you can post your code so that I can&nbsp;try it also.</p>\r\n<p>Looking forward for your feedback.</p>\r\n<p>Best regards</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-16T17:32:38.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257896",
+    "ThreadId": "75309",
+    "Html": "<p>Here is the code for the marker, this code does take a bitmap resource i created as well, either you can create your own or give me a email address or some place to send the one I made in paint =) Basically the way it works is it replace pixels that have the argb value of 255,0,0,0. Let me know if you have any questions.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">namespace</span> GMap.NET.WindowsForms.Markers\r\n{\r\n    <span style=\"color:Blue\">using</span> System.Drawing;\r\n\r\n<span style=\"color:Blue\">#if</span> !PocketPC\r\n    <span style=\"color:Blue\">using</span> System.Windows.Forms.Properties;\r\n<span style=\"color:Blue\">#else</span>\r\n   <span style=\"color:Blue\">using</span> GMap.NET.WindowsMobile.Properties;\r\n<span style=\"color:Blue\">#endif</span>\r\n\r\n    <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span> GMapDotMarker : GMapMarker\r\n    {\r\n        <span style=\"color:Blue\">private</span> Bitmap Resource;\r\n\r\n        <span style=\"color:Blue\">public</span> GMapDotMarker(PointLatLng p, Color color)\r\n            : <span style=\"color:Blue\">base</span>(p)\r\n        {\r\n            Resource = Resources.Dot;\r\n\r\n            <span style=\"color:Blue\">for</span> (<span style=\"color:Blue\">int</span> x = 0; x &lt; Resource.Width; x++)\r\n            {\r\n                <span style=\"color:Blue\">for</span> (<span style=\"color:Blue\">int</span> y = 0; y &lt; Resource.Height; y++)\r\n                {\r\n                    <span style=\"color:Blue\">if</span> (Resource.GetPixel(x, y).A == 255 &amp;&amp; Resource.GetPixel(x, y).B == 0 &amp;&amp; Resource.GetPixel(x, y).G == 0 &amp;&amp; Resource.GetPixel(x, y).R == 0)\r\n                    {\r\n                        Resource.SetPixel(x, y, color);\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnRender(Graphics g)\r\n        {\r\n\r\n            <span style=\"color:Blue\">if</span> (!IsDragging)\r\n            {\r\n                g.DrawImageUnscaled(Resource, LocalPosition.X, LocalPosition.Y);\r\n            }\r\n            <span style=\"color:Blue\">else</span>\r\n            {\r\n           \r\n                g.DrawImageUnscaled(Resource, LocalPosition.X, LocalPosition.Y);\r\n      \r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-17T06:15:23.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257976",
+    "ThreadId": "75309",
+    "Html": "<p>painting by&nbsp;seating&nbsp;pixels is slow ;/</p>",
+    "PostedDate": "2009-11-17T09:13:07.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257979",
+    "ThreadId": "75309",
+    "Html": "<p>well it&nbsp;doesn't&nbsp;do it&nbsp;every time&nbsp;it draws to the screen, just when the object is built. Also the dot image I am using maybe only has 10 pixels in it total, as a result I am able to draw around 15000 dots to a map of the united states in under a second.</p>",
+    "PostedDate": "2009-11-17T09:25:00.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "258004",
+    "ThreadId": "75309",
+    "Html": "<p>mm, quite many</p>",
+    "PostedDate": "2009-11-17T10:44:06.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

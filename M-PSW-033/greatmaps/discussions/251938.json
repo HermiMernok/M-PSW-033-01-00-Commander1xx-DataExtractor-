@@ -1,0 +1,146 @@
+[
+  {
+    "Id": "589322",
+    "ThreadId": "251938",
+    "Html": "\r\n<p>Hello,<br>\r\n<br>\r\nI programming under vb.net (visual basic) by using the GmapControl.<br>\r\n<br>\r\nHow i can get the index of the a marker by using &quot;Map_OnMarkerEnter&quot;.<br>\r\n<br>\r\nI hope anyone can help me. I search for a solution several times, but i cannot <br>\r\nfind a solution to solve the problem (e.g. marker.SelectedIndex ).<br>\r\n<br>\r\nexcuse for my english...</p>\r\n<p>jsk001</p>\r\n",
+    "PostedDate": "2011-03-31T01:41:42.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589347",
+    "ThreadId": "251938",
+    "Html": "<p>void MainMap_OnMarkerEnter(GMapMarker item) { item.<strong>Tag</strong> ...</p>\r\n<p>or some another custom field...</p>",
+    "PostedDate": "2011-03-31T02:27:06.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589353",
+    "ThreadId": "251938",
+    "Html": "<p>Hi @Radioman</p>\r\n<p>I programming under MS Visual Basic 2008.</p>\r\n<p>I need the index of the actual marker ( if the mouse is over them) but i cannot find</p>\r\n<p>information about that.</p>\r\n<p>e.g.</p>\r\n<p>Private Sub Map_OnMarkerEnter(ByVal item As GMap.NET.WindowsForms.GMapMarker) Handles Map.OnMarkerEnter<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label2.Text = item.Tag<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pos = item.Position<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CurrentMarker= ?????????????? &lt;-----------------------<br />&nbsp;End Sub</p>\r\n<p>to remove an marker i like to use the following</p>\r\n<p>&nbsp;&nbsp;&nbsp; Private Sub Map_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Map.OnMarkerClick<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If e.Button = Windows.Forms.MouseButtons.Right Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If CurrentMarker &gt; 0 Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Map.Overlays.RemoveAt(CurrentMarker)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Map.Invalidate()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Map.Refresh()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp; End Sub</p>\r\n<p>&nbsp;</p>\r\n<p>best regards</p>\r\n<p>jsk001</p>",
+    "PostedDate": "2011-03-31T02:45:36.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589375",
+    "ThreadId": "251938",
+    "Html": "<p>Map.Overlays.RemoveAt(CurrentMarker) // thats nonsence</p>\r\n<p>all you need to do is markers.Remove(item);</p>",
+    "PostedDate": "2011-03-31T03:35:01.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589468",
+    "ThreadId": "251938",
+    "Html": "<p>Hello @radioman,</p>\n<p>&nbsp;</p>\n<p>thanks for your fast answer but it doesn't working by using GmapControl under Visual BAsic 2008.</p>\n<p>Error-msg.:</p>\n<p>Error: &nbsp;&nbsp; \"Remove\" ist kein Member von \"GMap.NET.WindowsForms.GMapMarker\".&nbsp;&nbsp;&nbsp;</p>\n<p>Source code:</p>\n<p>Private Sub GMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Markers.Remove(item)<br />End Sub</p>\n<p>I hope I make you too not much trouble.</p>\n<p>friendly regards</p>\n<p>jsk001</p>",
+    "PostedDate": "2011-03-31T06:11:00.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589476",
+    "ThreadId": "251938",
+    "Html": "<p>List&lt;int&gt; l = new List&lt;int&gt;();<br /> l.Add(1);<br /> l.Remove(1);<br /> Debug.WriteLine(\"count: \" + l.Count);</p>\n<p>it prints:</p>\n<p>count: 0</p>\n<p>so i guess, it works ;}</p>\n<p><em>p.s. use yourOverlay.Markers.Remove(...&nbsp;</em></p>",
+    "PostedDate": "2011-03-31T06:20:56.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589485",
+    "ThreadId": "251938",
+    "Html": "<p>hello,</p>\n<p>thanky for your reply.</p>\n<p>yes, that's right, but <span id=\"result_box\" lang=\"en\"><span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">I need</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">the</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">index of</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">each</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">marker</span><span title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">,</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">above over them</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">is</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">just</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">the</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">mouse pointer.</span></span></p>\n<p>sample ( but in uncorrect syntax of vb2008):</p>\n<p>Private Sub GMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Map.Overlays.RemoveAt(<span style=\"color: #ff0000;\"><strong>selectedindex.</strong></span>item) &lt;---------????????????<br /> End Sub</p>\n<p>Map.Overlays.RemoveAt(0)...Map.Overlays.RemoveAt(1)...etc is working</p>\n<p>...i search for the correct syntax...</p>\n<p>friendly regards.</p>\n<p>jsk001</p>",
+    "PostedDate": "2011-03-31T06:31:35.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589501",
+    "ThreadId": "251938",
+    "Html": "<p>not exactly, you remove whole overlay for one marker, each overlay contains N marker, N routes and N polygons, so you need only remove marker from overlay object, not the overlay itself</p>",
+    "PostedDate": "2011-03-31T07:06:06.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589521",
+    "ThreadId": "251938",
+    "Html": "<p>Hello @radioman,</p>\r\n<p>i know what do you mean. My problem is, i cannot find the correct syntax to realize it in vb2008 by using</p>\r\n<p>the GMapControl.</p>\r\n<p>&nbsp;</p>\r\n<p>the following:</p>\r\n<p>Private Sub GMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Markers.Remove(item)<br />End Sub</p>\r\n<p>does't work.</p>\r\n<p>the errormessage is:</p>\r\n<p>Error 1&nbsp;&nbsp;&nbsp; \"Remove\" is not a Member of \"Markers\".&nbsp;</p>\r\n<p>...<span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">I</span><span title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">'ll</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">go crazy ;-)</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">best regards jsk001<br /></span></span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-03-31T07:24:25.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589526",
+    "ThreadId": "251938",
+    "Html": "<p>try Markers.Markers.Remove ;}</p>",
+    "PostedDate": "2011-03-31T07:30:47.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589537",
+    "ThreadId": "251938",
+    "Html": "<p>hello @radioman,</p>\r\n<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">Thank you</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">for</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">your</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">endurance</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">with</span> <span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\">me.</span></span></p>\r\n<p>the following is working, but only for the last of the added markers.</p>\r\n<p>if i click to the other markers it doesn't work.</p>\r\n<p>Private Sub GMapControl1_MouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.MouseDoubleClick<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl1.Position = New PointLatLng(lat, lon)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NewMarker = New GMapMarkerGoogleRed(GMapControl1.Position)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NewMarker.TooltipMode = MarkerTooltipMode.OnMouseOver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NewMarker.ToolTipText = \"Lat: \" &amp; lat &amp; vbCrLf &amp; \"Lng: \" &amp; lon<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Layer_Markers = New GMapOverlay(GMapControl1, \"Layer_One\")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Layer_Markers.Markers.Add(NewMarker)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl1.Overlays.Add(Layer_Markers)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapControl1.Refresh()<br />&nbsp;&nbsp;&nbsp; End Sub</p>\r\n<p>Private Sub GMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br />&nbsp;&nbsp; Layer_Markers.Markers.Remove(item)<br />End Sub</p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\" title=\"Zur Anzeige alternativer &Uuml;bersetzungen klicken\"><br /></span></span></p>",
+    "PostedDate": "2011-03-31T07:41:12.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589545",
+    "ThreadId": "251938",
+    "Html": "<p>because you create new layer for each new marker, makes no sense</p>",
+    "PostedDate": "2011-03-31T07:47:09.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589557",
+    "ThreadId": "251938",
+    "Html": "<p>hello @radioman,</p>\r\n<p>...wow, i'm so stupid...</p>\r\n<p>i've move the following to the Form_Load routine and it work's great.</p>\r\n<p>Layer_Markers = New GMapOverlay(GMapControl1, \"Layer_One\")<br />GMapControl1.Overlays.Add(Layer_Markers)</p>\r\n<p>.....</p>\r\n<p>Private Sub GMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Layer_Markers.Markers.Remove(item)<br />End Sub</p>\r\n<p>Thank you for your great help.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-03-31T07:57:05.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589559",
+    "ThreadId": "251938",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2011-03-31T08:03:16.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1072633",
+    "ThreadId": "251938",
+    "Html": "Hi Guys..\r<br />\n<br />\nIm a LabVIEW user. I couldn't catch on this statement.\r<br />\n<br />\nGMapControl1_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GMapControl1.OnMarkerClick<br />\n<pre><code>    Layer_Markers.Markers.Remove(item)</code></pre>\n\nEnd Sub\r<br />\n<br />\nThe OnMarkerClick constructor is under which library/class.\r<br />\nThe only that i have as below.\r<br />\n<img src=\"http://i41.tinypic.com/335a3o3.png\" alt=\"Image\" />\r<br />\n<br />\nThen what is object object, n what is IntPtr method?\r<br />\nHow do i relate with the marker overlay class?\r<br />\n<br />\nPls advice.<br />\n",
+    "PostedDate": "2013-07-25T01:02:16.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1072648",
+    "ThreadId": "251938",
+    "Html": "i've no idea ;/<br />\n",
+    "PostedDate": "2013-07-25T01:42:18.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1074474",
+    "ThreadId": "251938",
+    "Html": "Thanks radioman for your great map.net library.\r<br />\nI'm able use your library in LabVIEW and meet my requirement.\r<br />\nBy the way, your latest version for right now is 1.6.0.\r<br />\nIn my storage, the library is in version 1.7.0.\r<br />\nMay I know, which one is the latest one?\r<br />\nRegarding the routing, can i route the multipoint on the roads without internet connection?\r<br />\nWithout the internet con, I got the error on maproute property to genarate the points..\r<br />\nPls advice.\r<br />\nThanks.<br />\n",
+    "PostedDate": "2013-07-29T14:21:16.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1074711",
+    "ThreadId": "251938",
+    "Html": "routing is done in servers, unless you have your own<br />\n",
+    "PostedDate": "2013-07-30T07:06:39.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

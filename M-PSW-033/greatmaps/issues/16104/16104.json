@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "this issue was fixed long ago by using parameter useCache as TRUE, it's not by default\n\nFrom(To)LatLngToPixel(PointLatLng p, int zoom, bool useCache)",
+    "ClosedDate": "2015-01-13T11:43:56.107-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello!\r\n```\r\nPointLatLng originalPosition = marker.Position;\r\n\r\nGPoint gMapPointOld = GMapControl_Main.FromLatLngToLocal(originalPosition);\r\nPoint screenPointOld= new Point(gMapPointOld.X - marker.Size.Width / 2, gMapPointOld.Y - marker.Size.Height);\r\nPointLatLng newPos = GMapControl_Main.FromLocalToLatLng(screenPointOld.X, screenPointOld.Y);\r\n\r\n//Reverting...\r\n\r\nGPoint gMapPointNew = GMapControl_Main.FromLatLngToLocal(newPos);\r\nPoint screenPointNew = new Point(gMapPointNew.X + marker.Size.Width / 2, gMapPointNew.Y + marker.Size.Height);\r\nPointLatLng newPosition = GMapControl_Main.FromLocalToLatLng(screenPointNew.X, screenPointNew.Y);\r\n```\r\n\r\nEventually the __originalPosition__ is different from the __newPosition__. Why? How can I make it same?",
+    "LastUpdatedDate": "2015-01-13T11:43:56.107-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-09-18T07:54:05.757-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "FromLatLngToLocal > FromLocalToLatLng",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16104
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

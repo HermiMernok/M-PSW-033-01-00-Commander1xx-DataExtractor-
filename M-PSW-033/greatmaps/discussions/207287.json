@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "423580",
+    "ThreadId": "207287",
+    "Html": "<p>Great control!&nbsp; I was wondering if there is a command I can use to center the map at a given mouse location.&nbsp; I'd like to add it to my onclick or ondoubleclick events.</p>",
+    "PostedDate": "2010-03-25T07:03:24.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423584",
+    "ThreadId": "207287",
+    "Html": "<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>MainMap.MouseDoubleClick += <span style=\"color:Blue\">new</span> MouseEventHandler(MainMap_MouseDoubleClick);\r\n\r\n<span style=\"color:Blue\">void</span> MainMap_MouseDoubleClick(<span style=\"color:Blue\">object</span> sender, MouseEventArgs e)\r\n{\r\n     MainMap.CurrentPosition = MainMap.FromLocalToLatLng(e.X, e.Y);\r\n}</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-03-25T07:15:05.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423589",
+    "ThreadId": "207287",
+    "Html": "<p>Yikes...that was easy.&nbsp; Thanks!</p>",
+    "PostedDate": "2010-03-25T07:21:18.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

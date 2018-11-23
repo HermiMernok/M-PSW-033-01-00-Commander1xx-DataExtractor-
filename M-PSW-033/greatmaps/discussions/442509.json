@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "1039198",
+    "ThreadId": "442509",
+    "Html": "Hello, I am brand new to C# and GMap, so please bear with me.  The following code executes roughly every 30 seconds from a timer.  Markers are associated with addresses. It checks to see if a communications timeout has occurred with each address.  If good, green marker, if bad, red.\r<br />\n<br />\nSo, I remove all overlays, create a new with appropriate markers, add the overlay. Sometimes the markers show, but in the wrong position.  If I zoom in/out, redraws properly.\r<br />\n<br />\nYes, I know that this code is written explicitly and should loop and fill in values within the loop, but I was just trying to get the feel of things.\r<br />\n<br />\nThe hardcoded zoom +/- makes it work. However, I do get a bit of a flash.\r<br />\n<br />\nI tried Refresh(), no better.  I tried to hide the overlays, then re-enable, still no good.\r<br />\n<br />\nI would assume that I would not have to do this.\r<br />\n<br />\nThanks, Pat<br />\n<pre><code>                //At end of time, recreate markers using appropriate color\n                gMap.Overlays.Clear();\n                GMapOverlay markersOverlay = new GMapOverlay(&quot;accounts&quot;);\n                if (watchdoglist.IsSatisfied(0))\n                {\n                    GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(40.758086, -73.972787),\n                        GMarkerGoogleType.green);\n                    marker.ToolTip = new GMapRoundedToolTip(marker);\n                    marker.ToolTipText = &quot;345 Park Ave&quot;;\n                    markersOverlay.Markers.Add(marker);\n                }\n                else\n                {\n                    GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(40.758086, -73.972787),\n                        GMarkerGoogleType.red);\n                    marker.ToolTip = new GMapRoundedToolTip(marker);\n                    marker.ToolTipText = &quot;345 Park Ave&quot;;\n                    markersOverlay.Markers.Add(marker);\n                }\n                if (watchdoglist.IsSatisfied(1))\n                {\n                    GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(40.75696, -73.972702),\n                        GMarkerGoogleType.green);\n                    marker.ToolTip = new GMapRoundedToolTip(marker);\n                    marker.ToolTipText = &quot;560 Lexington Ave&quot;;\n                    markersOverlay.Markers.Add(marker);\n                }\n                else\n                {\n                    GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(40.75696, -73.972702),\n                        GMarkerGoogleType.red);\n                    marker.ToolTip = new GMapRoundedToolTip(marker);\n                    marker.ToolTipText = &quot;560 Lexington Ave&quot;;\n                    markersOverlay.Markers.Add(marker);\n                }\n\n                \n                gMap.Overlays.Add(markersOverlay);\n                double z = gMap.Zoom;\n                z = z + 1;\n                gMap.Zoom = z;\n                z = z - 1;\n                gMap.Zoom = z;\n</code></pre>\n\n",
+    "PostedDate": "2013-05-03T14:30:14.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039279",
+    "ThreadId": "442509",
+    "Html": "don't gMap.Overlays.Clear(); instead call <br />\n<pre><code>map.HoldInvalidation = true;\n{\nmarkersOverlay.Marker.Clear();\nfor(;;)\n{\n   markersOverlay.Markers.Add(marker);\n   markersOverlay.Markers.Add(marker);\n   markersOverlay.Markers.Add(marker);\n   // ...\n}\n}\nmap.Refresh();</code></pre>\n\np.s. for the best performance reuse markers and just change the position and text<br />\n",
+    "PostedDate": "2013-05-03T22:58:47.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044896",
+    "ThreadId": "442509",
+    "Html": "I have same problem. And your's solution didn't worked for me. I can't call markersOverlay.Clear(); Gmap.net does not contain this definition. I'm using 1.6 version.\r<br />\nThan you.<br />\n",
+    "PostedDate": "2013-05-16T23:48:00.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044900",
+    "ThreadId": "442509",
+    "Html": "markersOverlay.Marker.Clear();<br />\n",
+    "PostedDate": "2013-05-16T23:51:43.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070774",
+    "ThreadId": "442509",
+    "Html": "Build bc8f8e61f3a4.zip - the same problem.<br />\n<br />\nI created the new C# project in VS2010. Put the GMapControl on the form.<br />\n<br />\nThen I added this code to the Form1.Load event handler:<br />\n<pre><code>private void Form1_Load(object sender, EventArgs e)\n{\n    this.gmapMain.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance;\n    GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n    this.gmapMain.Position = new PointLatLng(55.852D, 37.361D);\n    GMapOverlay markersOverlay = new GMapOverlay(&quot;markers&quot;);\n    GMarkerGoogle marker0 = new GMarkerGoogle(new PointLatLng(55.852D, 37.360D), GMarkerGoogleType.arrow);\n    GMarkerGoogle marker1 = new GMarkerGoogle(new PointLatLng(55.852D, 37.362D), GMarkerGoogleType.black_small);\n    markersOverlay.Markers.Add(marker0);\n    markersOverlay.Markers.Add(marker1);\n    this.gmapMain.Overlays.Add(markersOverlay);\n    GMapOverlay polyOverlay = new GMapOverlay(&quot;polygons&quot;);\n    List&lt;PointLatLng&gt; polygonPoints = new List&lt;PointLatLng&gt;();\n    polygonPoints.Add(new PointLatLng(55.851D, 37.359D));\n    polygonPoints.Add(new PointLatLng(55.851D, 37.363D));\n    polygonPoints.Add(new PointLatLng(55.853D, 37.363D));\n    polygonPoints.Add(new PointLatLng(55.853D, 37.359D));\n    GMapPolygon polygon = new GMapPolygon(polygonPoints, &quot;mypolygon&quot;);\n    polygon.Fill = new SolidBrush(Color.FromArgb(50, 0, 128, 0));\n    polygon.Stroke = new Pen(Color.Green, 1.0F);\n    polyOverlay.Polygons.Add(polygon);\n    this.gmapMain.Overlays.Add(polyOverlay);\n}\n</code></pre>\n\nThat's all.<br />\n<br />\nAfter I started this program, I saw:<br />\n<a href=\"http://yadi.sk/d/JO_63AKI710JW\" rel=\"nofollow\">Screen capture 1</a><br />\nthere are two markers, but they are not in right places. And there is no polygon at all!<br />\n<br />\nIt seems to me that markers must be shown in right places or must not be shown at all<br />\n<br />\nBut after I drag the border of the window to resize it I immediately saw markers in right positions and polygon appears! <br />\n<a href=\"http://yadi.sk/d/uB_R-fSz70ypU\" rel=\"nofollow\">Screen capture 2</a><br />\n<br />\nIf I move in the Load event handler only one line<br />\n<pre><code>   this.gmapMain.Position = new PointLatLng(55.852D, 37.361D);</code></pre>\n\nto the last position, the program shows markers and polygon from the very beginning.<br />\nSo, changing of the GMapControl.Position redraws the overlays too.<br />\n<br />\nAppending of the GMapControl.Refresh() to th event handler - does not work. The markers remain in the center of screen and no polygon appears.<br />\n<br />\nMy working conditions:<br />\nWindows 7 Pro<br />\nVisual Studio 2010 with all service packs<br />\n<br />\n<br />\nSorry for my english.<br />\n",
+    "PostedDate": "2013-07-20T03:27:10.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1076829",
+    "ThreadId": "442509",
+    "Html": "Build 415da84b4972 - problem remains.<br />\n",
+    "PostedDate": "2013-08-05T08:45:41.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082574",
+    "ThreadId": "442509",
+    "Html": "Hi all\r<br />\n<br />\nI found a solution for this problem.\r<br />\nby using UpdateMarkerLocalPosition fuction.<br />\n<pre><code>  youGMapControl.UpdateMarkerLocalPosition(marker);</code></pre>\n\nHappy coding\r<br />\nLinh<br />\n",
+    "PostedDate": "2013-08-20T02:18:14.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084137",
+    "ThreadId": "442509",
+    "Html": "I think it is only temporary solution. <br />\nOr the tutorial must be corrected...<br />\nAnd previous version (1.6) does not have this trouble...<br />\nI think this really great GMapControl must show markers at right positions, or do not show them at all...<br />\n",
+    "PostedDate": "2013-08-23T05:43:43.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084143",
+    "ThreadId": "442509",
+    "Html": "Build a158dfe4e6a8 - problem remains<br />\n",
+    "PostedDate": "2013-08-23T05:52:01.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084408",
+    "ThreadId": "442509",
+    "Html": "p.s. you are 'supposed' to add layers first<br />\n",
+    "PostedDate": "2013-08-24T00:21:18.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084513",
+    "ThreadId": "442509",
+    "Html": "All is done according to your tutorial.\r<br />\nI only placed 2 markers at different positions, not one. They appeared at the same place.\r<br />\nBy the way - I used ver. 4.0 of the net framework and appropriate version of the GMapControl.<br />\n",
+    "PostedDate": "2013-08-24T12:41:03.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1119895",
+    "ThreadId": "442509",
+    "Html": "Build 09991dd06609 - problem still remains.<br />\n",
+    "PostedDate": "2013-11-07T09:43:23.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1122198",
+    "ThreadId": "442509",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\np.s. you are 'supposed' to add layers first<br />\n</blockquote>\nagotro, try adding the overlay <em>before</em> adding the markers, I'm just starting with GMaps and it seems to have done the trick for me.<br />\n<div style=\"color:Black;background-color:White;\"><pre>\r\nGMarkerGoogle marker1 = <span style=\"color:Blue;\">new</span> GMarkerGoogle(<span style=\"color:Blue;\">new</span> PointLatLng(21.75, 22.5), <span style=\"color:Blue;\">new</span> Bitmap(<span style=\"color:#A31515;\">&quot;rsc\\\\strPlava.gif&quot;</span>));\nGMarkerCross marker2 = <span style=\"color:Blue;\">new</span> GMarkerCross(<span style=\"color:Blue;\">new</span> PointLatLng(0, 0));\ngmap.Overlays.Add(markersOverlay);         \nmarkersOverlay.Markers.Add(marker1);\nmarkersOverlay.Markers.Add(marker2);\r\n</pre></div>",
+    "PostedDate": "2013-11-11T19:19:40.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1130415",
+    "ThreadId": "442509",
+    "Html": "Thanks for this trick. Now markers take their position.<br />\n<br />\nBut this trick does not correspond to the tutorial:<br />\n<br />\n<a href=\"http://www.websofia.com/2013/02/gmap-net-tutorial-maps-markers-and-polygons/\" rel=\"nofollow\">http://www.websofia.com/2013/02/gmap-net-tutorial-maps-markers-and-polygons/</a><br />\n<br />\nThe marker's Overlay is added there <em>after</em> adding markers. The same story for polygons.<br />\nMoreover: when I use ver. 1.6 (&quot;stable&quot; version) the order of adding markers and marker's Overlay is the same as in Tutorial. And it works fine...<br />\n<br />\nSo &quot;Hot&quot; version is somehow not compatible with stable version...<br />\n<br />\nAnd trying to follow the tutorial with the &quot;hot&quot; version leads to wrong results.... I found no mention about this fact in the tutorial, some parts of which were written after the &quot;hot&quot; version appers. For example:<br />\n<br />\n<a href=\"http://www.websofia.com/2013/03/gmap-net-tutorial-routes\" rel=\"nofollow\">http://www.websofia.com/2013/03/gmap-net-tutorial-routes</a><br />\n<br />\nThis part was written on Mar 07, 2013, and &quot;stable&quot; version was released on Oct 17, 2011<br />\n<br />\nI only try to help to eliminate any inaccuracies from the &quot;tutorial&quot;. The Author (radioman) knows best of all how GMAP must work. But when I follow his instructions it seems that his GreatMAP does not work correctly...<br />\n<br />\nSorry for my English and best wishes to radioman. GMAP is really Great!<br />\n",
+    "PostedDate": "2013-11-29T13:22:07.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1219906",
+    "ThreadId": "442509",
+    "Html": "The advised fix works for me. Add overlay before adding markers.<br />\n",
+    "PostedDate": "2014-03-06T08:00:44.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

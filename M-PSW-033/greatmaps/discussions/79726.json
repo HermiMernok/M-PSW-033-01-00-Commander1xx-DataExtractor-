@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "273041",
+    "ThreadId": "79726",
+    "Html": "<p>I'm using the WPF version of the mapping control and having an issue getting markers to display.</p>\r\n<p>I don't set a current position on the map until after the user clicks on a button. At that point I set the current position then add a handful of markers to the map control. These markers aren't displaying until I zoom the map in or out. Dragging the map does not get the markers to display.</p>\r\n<p>I've going through the source code, trying to figure out what the zoom is doing that needs to be done from my code. The demo WPF code doesn't do anything special and it's markers display automatically.</p>\r\n<p>Any ideas?</p>",
+    "PostedDate": "2010-01-04T12:39:26.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "273044",
+    "ThreadId": "79726",
+    "Html": "<p>try marker.ForceUpdateLocalPosition(myMap);</p>",
+    "PostedDate": "2010-01-04T12:42:32.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "273291",
+    "ThreadId": "79726",
+    "Html": "<p>Thanks, that works!</p>\r\n<p>I also noticed that the first time I resize the map control, the markers disappear. I could look for the resize event and call ForceUpdateLocalPosition on each marker, but that would cause performance issues. Any ideas on why this happens?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-05T06:26:41.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "273315",
+    "ThreadId": "79726",
+    "Html": "<p>can you zip and share you project demo?</p>",
+    "PostedDate": "2010-01-05T07:24:03.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "273402",
+    "ThreadId": "79726",
+    "Html": "<p>This works, and I don't think I'll have enough markers at any one time to cause perf issues.</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">foreach</span> (<span style=\"color:Blue\">var</span> marker <span style=\"color:Blue\">in</span> _map.Markers)\r\n    marker.ForceUpdateLocalPosition(_map);\r\n\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-01-05T10:06:17.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "273429",
+    "ThreadId": "79726",
+    "Html": "<p>i see, ok'</p>",
+    "PostedDate": "2010-01-05T11:11:13.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "419714",
+    "ThreadId": "79726",
+    "Html": "<p>Same problem here. When I add a marker (after all maps/markers are displayed) it won't show up until I change the zoom level. Mattcasto's workaround works, but shouldn't be needed.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-18T05:51:14.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "419915",
+    "ThreadId": "79726",
+    "Html": "<p>what is your solution?</p>",
+    "PostedDate": "2010-03-18T11:58:10.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "419982",
+    "ThreadId": "79726",
+    "Html": "<p>If I look at your source code it looks like two properties (LocalPositionX,LocalPositionY) per marker in ForceUpdateLocalPosition are updated. When I follow Mattcasto's workaround ALL markers are repainted (unless I perform a ForceUpdateLocalPosition for only the new markers).</p>\r\n<p>One solution might be to override the Add method of the ObservableCollection for the markers. After adding the marker to the list, make it visible (depending on the Visibility).</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-18T14:21:54.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "420005",
+    "ThreadId": "79726",
+    "Html": "<p>can it be forked? ;}</p>",
+    "PostedDate": "2010-03-18T15:04:27.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "420018",
+    "ThreadId": "79726",
+    "Html": "<p>Not tested, but something like this might work:</p>\r\n<p>This is what you now have:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> <span style=\"color:Blue\">readonly</span> ObservableCollection&lt;GMapMarker&gt; Markers = <span style=\"color:Blue\">new</span> ObservableCollection&lt;GMapMarker&gt;();\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Make a new class:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> <span style=\"color:Blue\">class</span> GMapMarkerCollection : ObservableCollection&lt;GMapMarker&gt;<br>    {<br>        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">void</span> Add(GMapMarker marker)<br>        {<br>             <span style=\"color:Blue\">base</span>.Add(marker);<br>             if (marker.Shape.Visibility == Visibility.Visible)<br>                 marker.ForceUpdateLocalPosition(<span style=\"color:Blue\">null</span>); <span style=\"color:Green\">// or something more efficient</span>\r\n        }\r\n    }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>And also override the Insert method.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-18T15:29:01.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "420136",
+    "ThreadId": "79726",
+    "Html": "<p><em>&quot;Not tested, but something like this might work:&quot;&nbsp;</em>whats the point of your code then ;}</p>",
+    "PostedDate": "2010-03-19T01:01:45.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "420196",
+    "ThreadId": "79726",
+    "Html": "<p>You're right. I tested it, and came with another approach that works.</p>\r\n<p>In the main public GMapControl() add just before:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">this</span>.ItemsSource = Markers;\r\n</pre>\r\n</div>\r\n</p>\r\n<p>this line:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>Markers.CollectionChanged += <span style=\"color:Blue\">new</span> System.Collections.Specialized.NotifyCollectionChangedEventHandler(Markers_CollectionChanged);\r\n</pre>\r\n</div>\r\n</p>\r\n<p>and add the following method to GMapControl:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">void</span> Markers_CollectionChanged(<span style=\"color:Blue\">object</span> sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)\r\n      {\r\n          <span style=\"color:Blue\">if</span> (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)\r\n          {\r\n              <span style=\"color:Blue\">foreach</span> (GMapMarker marker <span style=\"color:Blue\">in</span> e.NewItems)\r\n                  marker.ForceUpdateLocalPosition(<span style=\"color:Blue\">this</span>);\r\n          }\r\n      }\r\n\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-03-19T04:16:17.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423031",
+    "ThreadId": "79726",
+    "Html": "<p><em>perfect!</em></p>",
+    "PostedDate": "2010-03-24T06:48:09.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

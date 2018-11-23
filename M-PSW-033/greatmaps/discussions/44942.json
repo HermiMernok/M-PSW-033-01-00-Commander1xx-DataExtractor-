@@ -1,0 +1,170 @@
+[
+  {
+    "Id": "149768",
+    "ThreadId": "44942",
+    "Html": "Hello again,<br>\r\n<br>\r\nAnother suggestion... How about porting the control to WPF. It would avoid having to wrap it in a windowsformshost with all the problems (for those using wpf like myself).<br>\r\n<br>\r\nA fisrt look at the code seems to suggest that only the DrawmapGdi functions would have to be modified. using the DrawingContext and replacing the OnPaint by OnRender in a wpf UserControl.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-22T07:36:34.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149849",
+    "ThreadId": "44942",
+    "Html": "please for the love of god dont port to wpf.<br>\r\n<br>\r\nnot that I have anything against wpf (i love the stuff), but if you are wanting this lib to be cross platform (works on desktop, and compact framework) you must ensure that you keep to using what is only available on the Compact Framework.<br>\r\n<br>\r\na way you can port to WPF is to seperate your code like this<br>\r\n<br>\r\nGMap4DotNet.Shared - this is an acual implementation, handles the tiles, does the downloading, all of the logic behind the control.<br>\r\nGMap4DotNet.WPF - this has a reference to .Shared and presents the control as a WPF control.<br>\r\nGMap4DotNet.Mobile - has a reference to .Shared and presents the control as a System.Windows.Forms.Control.<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-22T11:05:57.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149876",
+    "ThreadId": "44942",
+    "Html": "i can easily make special version for only wpf/etc, and sinchronize threir functionality from time to time. Using modal dll system is also good idea. We shall see...",
+    "PostedDate": "2009-01-22T11:45:14.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150098",
+    "ThreadId": "44942",
+    "Html": "Ok my suggestion was a little selfish. madG33K suggestion is the way to do it - separate the logic from the presentation part.\r\n",
+    "PostedDate": "2009-01-22T23:51:00.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "151250",
+    "ThreadId": "44942",
+    "Html": "Logic separated successufy! Map is loaded and rendered in WPF too. Just need some time to clean things up ;}",
+    "PostedDate": "2009-01-27T01:51:15.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "151467",
+    "ThreadId": "44942",
+    "Html": "on wpf map dragging isn't working correct, any idea? ",
+    "PostedDate": "2009-01-27T11:22:35.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "151619",
+    "ThreadId": "44942",
+    "Html": "In GMapWindowsPresentation:<br>\r\n<br>\r\nChange<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">protected</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">override</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> OnMouseMove(</span><span style=\"font-size:13px;color:#2b91af\">MouseEventArgs</span><span style=\"font-size:13px\"> e)<br>\r\n{<br>\r\n    </span><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(Core.IsDragging)<br>\r\n    {<br>\r\n        Core.mouseDown = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> System.Drawing.</span><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\">((</span><span style=\"font-size:13px;color:#0000ff\">int</span><span style=\"font-size:13px\">) e.GetPosition(</span><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">).X, (</span><span style=\"font-size:13px;color:#0000ff\">int</span><span style=\"font-size:13px\">) e.GetPosition(</span><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">).Y);<br>\r\n<br>\r\nTO:<br>\r\n<br>\r\n<span style=\"font-size:13px\"><span style=\"color:#0000ff\">protected</span> <span style=\"color:#0000ff\">override</span> <span style=\"color:#0000ff\">void</span> OnMouseMove(<span style=\"color:#2b91af\">MouseEventArgs</span> e)<br>\r\n{<br>\r\n    <span style=\"color:#0000ff\">if</span>(Core.IsDragging)<br>\r\n    {<br>\r\n        Core.<span style=\"font-size:13px\"><strong><span style=\"text-decoration:underline\">mouseCurrent</span></strong> </span>= <span style=\"color:#0000ff\">new</span> System.Drawing.<span style=\"color:#2b91af\">Point</span>((<span style=\"color:#0000ff\">int</span>) e.GetPosition(<span style=\"color:#0000ff\">this</span>).X, (<span style=\"color:#0000ff\">int</span>) e.GetPosition(<span style=\"color:#0000ff\">this</span>).Y);</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-27T22:45:39.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "151749",
+    "ThreadId": "44942",
+    "Html": ";/ oh caramba, thx",
+    "PostedDate": "2009-01-28T05:53:10.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "151807",
+    "ThreadId": "44942",
+    "Html": "<p>There's a problem with sizing of the map in wpf when displaying the map in the grid with columns and rows or when using dockpanels. The map isn't contained. If you change your MainWindow.xaml to something like this<br>\r\n<span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px;color:#a31515\"><span style=\"font-size:13px;color:#a31515\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">&lt;</span><span style=\"font-size:13px;color:#a31515\">Grid</span><span style=\"font-size:13px;color:#0000ff\">&gt;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">&lt;</span><span style=\"font-size:13px;color:#a31515\">Grid.ColumnDefinitions</span><span style=\"font-size:13px;color:#0000ff\">&gt;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">&lt;</span><span style=\"font-size:13px;color:#a31515\">ColumnDefinition</span><span style=\"font-size:13px;color:#ff0000\"> Width</span><span style=\"font-size:13px;color:#0000ff\">=&quot;*&quot; /&gt;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">&lt;</span><span style=\"font-size:13px;color:#a31515\">ColumnDefinition</span><span style=\"font-size:13px;color:#ff0000\"> Width</span><span style=\"font-size:13px;color:#0000ff\">=&quot;Auto&quot; /&gt;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">&lt;/</span><span style=\"font-size:13px;color:#a31515\">Grid.ColumnDefinitions</span><span style=\"font-size:13px;color:#0000ff\">&gt;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">    &lt;</span><span style=\"font-size:13px;color:#a31515\">src</span><span style=\"font-size:13px;color:#0000ff\">:</span><span style=\"font-size:13px;color:#a31515\">GMap</span><span style=\"font-size:13px;color:#ff0000\"> Name</span><span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px;color:#0000ff\">=&quot;MainMap&quot; /&gt;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">    &lt;</span><span style=\"font-size:13px;color:#a31515\">Grid</span><span style=\"font-size:13px;color:#ff0000\"> Grid.Column</span><span style=\"font-size:13px;color:#0000ff\">=&quot;1&quot;</span><span style=\"font-size:13px;color:#ff0000\"> Width</span><span style=\"font-size:13px;color:#0000ff\">=&quot;150&quot;&gt;<br>\r\n</span><span style=\"font-size:13px;color:#0000ff\">        &lt;</span><span style=\"font-size:13px;color:#a31515\">Button</span><span style=\"font-size:13px;color:#ff0000\"> Height</span><span style=\"font-size:13px;color:#0000ff\">=&quot;23&quot;</span><span style=\"font-size:13px;color:#ff0000\"> Margin</span><span style=\"font-size:13px;color:#0000ff\">=&quot;6,6,6,0&quot;</span><span style=\"font-size:13px;color:#ff0000\"> Name</span><span style=\"font-size:13px;color:#0000ff\">=&quot;button1&quot;</span><span style=\"font-size:13px;color:#ff0000\"> VerticalAlignment</span><span style=\"font-size:13px;color:#0000ff\">=&quot;Top&quot;</span><span style=\"font-size:13px;color:#ff0000\"> Click</span><span style=\"font-size:13px;color:#0000ff\">=&quot;button1_Click&quot;&gt;</span><span style=\"font-size:13px;color:#a31515\">Reload</span><span style=\"font-size:13px;color:#0000ff\">&lt;/</span><span style=\"font-size:13px;color:#a31515\">Button</span><span style=\"font-size:13px;color:#0000ff\">&gt;<br>\r\n    </span><span style=\"font-size:13px;color:#0000ff\">&lt;/</span><span style=\"font-size:13px;color:#a31515\">Grid</span><span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px;color:#0000ff\">&gt;\r\n<p>&nbsp;</p>\r\n<p>&lt;/Grid&gt;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\"><span style=\"font-size:13px;color:#0000ff\">\r\n<p>&nbsp;</p>\r\n<p>you'll notice the map tiles overlapping the button. Could be that you use the control's width/height instead of actualwidth/actualheight. Not sure as I'm uncertain of where and how you redraw the tiles.</p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#a31515\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-28T07:49:52.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "151890",
+    "ThreadId": "44942",
+    "Html": "try now ;}",
+    "PostedDate": "2009-01-28T11:20:04.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152081",
+    "ThreadId": "44942",
+    "Html": "Thanks. all good.\r\n",
+    "PostedDate": "2009-01-28T23:37:36.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152087",
+    "ThreadId": "44942",
+    "Html": "good ;} , can you look at wpf demo with loading reports now there is strange threading isue?",
+    "PostedDate": "2009-01-28T23:57:01.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152106",
+    "ThreadId": "44942",
+    "Html": "Just uploaded a patch to fix the issue. Happens all the time when calling async processes or using timers.\r\n",
+    "PostedDate": "2009-01-29T01:43:03.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152113",
+    "ThreadId": "44942",
+    "Html": "are you sure?, i still don't see the patch yet ;/",
+    "PostedDate": "2009-01-29T02:12:19.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152117",
+    "ThreadId": "44942",
+    "Html": "??? re-done. Check now\r\n",
+    "PostedDate": "2009-01-29T02:25:59.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152123",
+    "ThreadId": "44942",
+    "Html": "<span style=\"text-transform:none;text-indent:0px;border-collapse:separate;font:16px 'times new roman';white-space:normal;letter-spacing:normal;color:rgb(0,0,0);word-spacing:0px\">\r\n<div style=\"background-image:none;text-align:left;padding-bottom:3px;margin:0px;padding-left:3px;padding-right:3px;word-wrap:break-word;padding-top:3px\">ok, i've got it, ..but why backgroundworker don't do this automaticaly, maybe there is something special about WPF?</div>\r\n</span>\r\n",
+    "PostedDate": "2009-01-29T02:44:47.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152135",
+    "ThreadId": "44942",
+    "Html": "i found the bug! bakground workers was initiated to early, and they work correct only initiated when control is loaded.",
+    "PostedDate": "2009-01-29T03:45:24.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152566",
+    "ThreadId": "44942",
+    "Html": "Regarding markers, the drawingContext in WPF doesn't handle System.drawing.bitmap, meaning that the marker property would have to be converterted on each call to OmRender resulting in a lot of overhead.<br>\r\n<br>\r\nI've had a look at what you've done for rendering the tile images -great! Are you planning on something similar for the markers? <br>\r\n<br>\r\nJust thought I'd ask out of interest.\r\n",
+    "PostedDate": "2009-01-30T08:28:37.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152581",
+    "ThreadId": "44942",
+    "Html": "i think for marker system just use predefined custom shape drawing classes(class MarkerShapeBig: IMarkerDraw), so even user can draw custom marker class",
+    "PostedDate": "2009-01-30T08:54:01.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153372",
+    "ThreadId": "44942",
+    "Html": "I've been playing with the code a little drawing shapes onto the map. To do so I have create my own Map class inherited from GMap in which I override OnRender and place my code calling functions such as drawingContext.DrawLine, DrawGeometry etc..<br>\r\n<br>\r\nTo draw a line, for example, I convert my Lat/Lng point using:<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>System.Drawing.</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\"> pll = </span><span style=\"font-size:13px;color:#2b91af\">GMaps</span><span style=\"font-size:13px\">.Instance.FromLatLngToPixel(</span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\">(p.Y, p.X), </span><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">.Zoom);<br>\r\n<br>\r\nthen create a System.Windows.Point <br>\r\n<br>\r\n</span><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\"> pp = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#2b91af\">Point</span><span style=\"font-size:13px\">(pll.X, pll.Y);\r\n<p>&nbsp;</p>\r\n</span></p>\r\nthen call the DrawLine(...)<br>\r\n<br>\r\nThe problem with this is that I don't have access to the Core.RenderOffset. Could the overidden GMap.OnRender not call a virtual function passing the drawingContext and the RenderOffset that I could override without altering GMap? This however won't allow me to lock the collections while drawing so the code has to stay in GMap.<br>\r\n<br>\r\nSo, my question, have you advanced on the Imarker and IRoute classes  so that addMarker and addRoute are again implemented in the GMap ( that is call DrawMarkers or DrawRoutes or something)<br>\r\n<br>\r\nThanks<br>\r\n",
+    "PostedDate": "2009-02-02T09:01:55.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153377",
+    "ThreadId": "44942",
+    "Html": "..look at current marker drawing in wpf version, it will be something like that for other map objects",
+    "PostedDate": "2009-02-02T09:13:47.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "645566",
+    "ThreadId": "266058",
+    "Html": "\r\n<p>Hello,&nbsp;</p>\r\n<p>I'm new to GMAP.Net and its a very good tool, but I have a little problem.&nbsp;<br>\r\nI would like to add a square to my Map. But anywhere is a problem... No square on Map....<br>\r\n<br>\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> ToolStripButton1_Click_1(<span style=\"color:blue\">ByVal</span> sender <span style=\"color:blue\">As</span> System.Object, <span style=\"color:blue\">ByVal</span> e <span style=\"color:blue\">As</span> System.EventArgs) <span style=\"color:blue\">Handles</span> ToolStripButton1.Click\r\n \r\n       <span style=\"color:blue\">Dim</span> Point1 <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> PointLatLng\r\n        <span style=\"color:blue\">Dim</span> Point2 <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> PointLatLng\r\n\r\n        GMapControl1.PolygonsEnabled = <span style=\"color:blue\">True</span>\r\n\r\n        <span style=\"color:blue\">Dim</span> Area <span style=\"color:blue\">As</span> GMapPolygon\r\n        Area.Points.Add(<span style=\"color:blue\">New</span> PointLatLng(52.293939, 9.282338))\r\n        Area.Points.Add(<span style=\"color:blue\">New</span> PointLatLng(52.293229, 9.281131))\r\n        <span style=\"color:blue\">Dim</span> Layer_Polygons <span style=\"color:blue\">As</span> GMapOverlay\r\n        Layer_Polygons.Polygons.Add(Area)\r\n        GMapControl1.Overlays.Add(Layer_Polygons)\r\n        \r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;Can anybody help me please... ????</p>\r\n",
+    "PostedDate": "2011-07-21T07:25:41.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645675",
+    "ThreadId": "266058",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>\r\n<span style=\"color: blue;\">In</span> main:\r\n\r\n<span style=\"color: blue;\">Friend</span> Layer_Polygon <span style=\"color: blue;\">As</span> GMapOverlay\r\n\r\n<span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> Form_Main_Load(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> System.Object, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> <span style=\"color: blue;\">MyBase</span>.Load\r\n\r\n        Layer_Polygon = <span style=\"color: blue;\">New</span> GMapOverlay(MainMap, <span style=\"color: #a31515;\">\"Polygons\"</span>)\r\n        MainMap.Overlays.Add(Layer_Polygon)\r\n....\r\n\r\n\r\nAfter button click:\r\n\r\n<span style=\"color: blue;\">Dim</span> This_Point <span style=\"color: blue;\">as</span> <span style=\"color: blue;\">new</span> PointLatLng(51.000, 9.000)\r\n<span style=\"color: blue;\">Dim</span> polygonPoints <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> List(Of PointLatLng)()\r\npolygonPoints.Add(This_Point)\r\n\r\n        <span style=\"color: blue;\">Dim</span> myTestPolygon <span style=\"color: blue;\">As</span> GMapPolygon\r\n        myTestPolygon = <span style=\"color: blue;\">New</span> GMapPolygon(polygonPoints, <span style=\"color: #a31515;\">\"SquarePolygon\"</span>)\r\n\r\n<span style=\"color: blue;\">Me</span>.Layer_Polygon.Polygons.Add(myTestPolygon)\r\n\r\n<br />But for a square you need at least 4 Points.<br /><br />Code isnt' cheked but should work. <br /></pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-07-21T10:28:08.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645974",
+    "ThreadId": "266058",
+    "Html": "<p>Thanks....&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Very great !!!!!&nbsp;<br />This code works !&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Many Thanks to you \"robbeede\"</p>",
+    "PostedDate": "2011-07-22T02:01:06.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645978",
+    "ThreadId": "266058",
+    "Html": "<p>Sorry, I have another question.&nbsp;</p>\r\n<p>How I can add the name of this square, that I can see the name in the Map ?</p>\r\n<p>Can you help me please again ?</p>\r\n<p>Thanks...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-22T02:05:43.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646434",
+    "ThreadId": "266058",
+    "Html": "<p>1.) hmm.. you can add a marker with a name and tooltip to show it.</p>\r\n<p>Polygon itselfs has no possibilty for it.</p>\r\n<p>2.) You can add Properties like name,.. in Gmap.NET.WindowsForms.GMapPolygon.cs</p>\r\n<p>3.) in GMap.Overlay.cs you can add some graphical things, like drawstring(...</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">string</span> MyPolygonName;\r\n\r\n      <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;summary&gt;</span>\r\n      <span style=\"color: gray;\">///</span><span style=\"color: green;\"> draw polygons, override to draw custom</span>\r\n      <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;/summary&gt;</span>\r\n      <span style=\"color: gray;\">///</span> <span style=\"color: gray;\">&lt;param name=\"g\"&gt;</span><span style=\"color: gray;\">&lt;/param&gt;</span>\r\n      <span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> DrawPolygons(Graphics g)\r\n       { <br />       ... \r\n          g.Drawstring(.., MyPolygonName); \r\n       ...\r\n       }\r\n</pre>\r\n</div>\r\n</pre>\r\n</pre>\r\n</div>\r\nNot sure if this the best way, but i think this should work.</p>",
+    "PostedDate": "2011-07-23T01:48:17.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646440",
+    "ThreadId": "266058",
+    "Html": "<p>Hmm... Thanks.&nbsp;</p>\r\n<p>But this is code for C++, isnt it ?&nbsp;<br />I need for VB.Net because I don't have the files GMAP.Overlay.cs in my VB.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-23T03:10:04.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646445",
+    "ThreadId": "266058",
+    "Html": "<p>create custom overlay, and render whatever you want</p>",
+    "PostedDate": "2011-07-23T03:30:34.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646454",
+    "ThreadId": "266058",
+    "Html": "<p>I still do not know how to inherit a Custom Polygon or Route, see discussion below:</p>\r\n<p>http://greatmaps.codeplex.com/discussions/261151</p>\r\n<p>&nbsp;</p>\r\n<p>to KKIT,</p>\r\n<p>the code you can find in the SourceCode of GMap.Windowsforms.dll, you can change it there and make your own release. But the better way is to create Custom Overlay.</p>",
+    "PostedDate": "2011-07-23T04:26:55.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709404",
+    "ThreadId": "266058",
+    "Html": "<p>in c# how gonna be ?</p>",
+    "PostedDate": "2011-12-08T09:58:31.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

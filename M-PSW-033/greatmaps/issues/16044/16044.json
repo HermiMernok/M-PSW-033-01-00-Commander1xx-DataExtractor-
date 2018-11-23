@@ -1,0 +1,81 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks JFDionne, tpittma2 for helping to solve the issue!",
+    "ClosedDate": "2015-01-14T11:24:42.993-08:00",
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "Bearing was not working at least since 1.6. I'm not sure if I'm doing it correctly but now ti's working for me.\r\n\r\nsince it's only in 1 file, I'll paste the diff here.\r\n\r\n--- C:/Users/JFDionne/Downloads/greatmaps-6ccafda5ce5d/greatmaps_6ccafda5ce5d/GMap.NET.WindowsForms/GMap.NET.WindowsForms/GMapControl.cs\tMon Jul 16 16:13:00 2012\r\n+++ GMapControl.cs\tMon Jul 16 17:58:47 2012\r\n@@ -1112,10 +1112,17 @@\r\n       {\r\n          if(IsHandleCreated)\r\n          {\r\n-            // need to fix in rotated mode usinf rotationMatrix\r\n-            // ...\r\n-            Core.DragOffset(new GPoint(x, y));\r\n+             if (IsRotated)\r\n+             {\r\n+                 System.Drawing.Point[] p = new System.Drawing.Point[] { new System.Drawing.Point(x, y) };\r\n+                 rotationMatrixInvert.TransformVectors(p);\r\n+                 x = (int)p[0].X ;\r\n+                 y = (int)p[0].Y ;\r\n+                 \r\n+             }\r\n \r\n+             Core.DragOffset(new GPoint(x, y));\r\n+\r\n             ForceUpdateOverlays();\r\n          }\r\n       }\r\n@@ -1385,6 +1392,8 @@\r\n                   e.Graphics.TranslateTransform(Core.renderOffset.X, Core.renderOffset.Y);\r\n \r\n                   DrawMap(e.Graphics);\r\n+                  e.Graphics.ResetTransform();\r\n+                  e.Graphics.TranslateTransform(Core.renderOffset.X, Core.renderOffset.Y);\r\n                   OnPaintOverlays(e.Graphics);\r\n \r\n                   #endregion\r\n@@ -1451,45 +1460,45 @@\r\n          }\r\n          set\r\n          {\r\n-            //if(Core.bearing != value)\r\n-            //{\r\n-            //   bool resize = Core.bearing == 0;\r\n-            //   Core.bearing = value;\r\n+             if (Core.bearing != value)\r\n+             {\r\n+                 bool resize = Core.bearing == 0;\r\n+                 Core.bearing = value;\r\n \r\n-            //   //if(VirtualSizeEnabled)\r\n-            //   //{\r\n-            //   //   c.X += (Width - Core.vWidth) / 2;\r\n-            //   //   c.Y += (Height - Core.vHeight) / 2;\r\n-            //   //}\r\n+                 //if(VirtualSizeEnabled)\r\n+                 //{\r\n+                 //   c.X += (Width - Core.vWidth) / 2;\r\n+                 //   c.Y += (Height - Core.vHeight) / 2;\r\n+                 //}\r\n \r\n-            //   UpdateRotationMatrix();\r\n+                 UpdateRotationMatrix();\r\n \r\n-            //   if(value != 0 && value % 360 != 0)\r\n-            //   {\r\n-            //      Core.IsRotated = true;\r\n+                 if (value != 0 && value % 360 != 0)\r\n+                 {\r\n+                     Core.IsRotated = true;\r\n \r\n-            //      if(Core.tileRectBearing.Size == Core.tileRect.Size)\r\n-            //      {\r\n-            //         Core.tileRectBearing = Core.tileRect;\r\n-            //         Core.tileRectBearing.Inflate(1, 1);\r\n-            //      }\r\n-            //   }\r\n-            //   else\r\n-            //   {\r\n-            //      Core.IsRotated = false;\r\n-            //      Core.tileRectBearing = Core.tileRect;\r\n-            //   }\r\n+                     if (Core.tileRectBearing.Size == Core.tileRect.Size)\r\n+                     {\r\n+                         Core.tileRectBearing = Core.tileRect;\r\n+                         Core.tileRectBearing.Inflate(1, 1);\r\n+                     }\r\n+                 }\r\n+                 else\r\n+                 {\r\n+                     Core.IsRotated = false;\r\n+                     Core.tileRectBearing = Core.tileRect;\r\n+                 }\r\n \r\n-            //   if(resize)\r\n-            //   {\r\n-            //      Core.OnMapSizeChanged(Width, Height);\r\n-            //   }\r\n+                 if (resize)\r\n+                 {\r\n+                     Core.OnMapSizeChanged(Width, Height);\r\n+                 }\r\n \r\n-            //   if(!HoldInvalidation && Core.IsStarted)\r\n-            //   {\r\n-            //      ForceUpdateOverlays();\r\n-            //   }\r\n-            //}\r\n+                 if (!HoldInvalidation && Core.IsStarted)\r\n+                 {\r\n+                     ForceUpdateOverlays();\r\n+                 }\r\n+             }\r\n          }\r\n       }\r\n #endif\r\n@@ -1954,17 +1963,17 @@\r\n             else\r\n             {\r\n #if !PocketPC\r\n-               Core.mouseCurrent = ApplyRotationInversion(e.X, e.Y);\r\n+                Core.mouseCurrent = ApplyRotationInversion(e.X, e.Y);\r\n #else\r\n                     Core.mouseCurrent = new GPoint(e.X, e.Y);\r\n #endif\r\n                Core.Drag(Core.mouseCurrent);\r\n \r\n #if !PocketPC\r\n-               if(MobileMode)\r\n-               {\r\n+               //if(MobileMode)\r\n+               //{\r\n                   ForceUpdateOverlays();\r\n-               }\r\n+               //}\r\n #else\r\n                     ForceUpdateOverlays();\r\n #endif\r\n\r\n",
+    "LastUpdatedDate": "2015-01-14T11:24:42.993-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-07-16T15:07:55.14-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Bearing",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 7,
+    "Id": 16044
+  },
+  "FileAttachments": [
+    {
+      "FileId": 891690,
+      "FileName": "GMapControl.cs",
+      "DownloadUrl": ".\\891690"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Are there plans to re-implement this in the current version?\n\nWould a fork of the above diff help?\n\nWe currently use this feature in our application and it has been preventing us from upgrading to the latest and greatest. :-)\n\nThanks!",
+      "PostedDate": "2013-03-11T16:10:14.82-07:00",
+      "Id": 92984
+    },
+    {
+      "Message": "does it work with the latest changeset?",
+      "PostedDate": "2013-03-12T12:18:52.533-07:00",
+      "Id": 93062
+    },
+    {
+      "Message": "Not sure.  Haven't tried it.",
+      "PostedDate": "2013-03-12T13:19:19.253-07:00",
+      "Id": 93066
+    },
+    {
+      "Message": "radioman,\r\n\r\nI can confirm that this does seem to fix the map rotation issue (as far as I can tell from my tests).\r\n\r\nI've attached the updated WindowsForms.GMapControl.cs file. You can add it to the existing build or I can send you a fork :)\r\n\r\n",
+      "PostedDate": "2014-08-15T12:13:43.55-07:00",
+      "Id": 155574
+    },
+    {
+      "Message": "I re-implemented map rotation for WPF and Winforms by using the logic posted here and it seems to work now for both controls. \n\nFor anyone looking for this fix, the clone URL is:\nhttps://hg.codeplex.com/forks/tpittma2/fixbearingandmaprotation\n\nIf anyone finds and/or fixes any problems, please let me know and I'll update.",
+      "PostedDate": "2014-08-19T08:08:11.163-07:00",
+      "Id": 155737
+    },
+    {
+      "Message": "Hi tpittma2, I can confirm my code was working, I'm still using it since I posted it",
+      "PostedDate": "2014-08-19T11:21:00.08-07:00",
+      "Id": 155748
+    },
+    {
+      "Message": "\ntpittma2 hi,\nGreat work, the code is working for me too. ",
+      "PostedDate": "2014-09-07T03:07:48.53-07:00",
+      "Id": 159004
+    }
+  ]
+}

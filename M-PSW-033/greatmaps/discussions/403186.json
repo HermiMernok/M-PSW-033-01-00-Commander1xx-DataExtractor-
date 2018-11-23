@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "941636",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>Hey radioman!</p>\r\n<p>Thank your very much for greatmaps.</p>\r\n<p>Is it possible to add the routing option public transport for googleProvider? It could be very useful.</p>\r\n<p>I also found this thread about routing directions (http://greatmaps.codeplex.com/discussions/241332)</p>\r\n<p>In fact this would be even more handy if it would be able to get the public transport directions instead of my routing request.</p>\r\n<p>&nbsp;</p>\r\n<p>Keep up the good work and support!</p>\r\n",
+    "PostedDate": "2012-11-14T07:55:34.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "941649",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>any chance to provide some working code? ;}</p>\r\n",
+    "PostedDate": "2012-11-14T08:19:57.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "941657",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>I'm sorry, I am an amateur programer.</p>\r\n<p>I am happy I got everything working so far xD Only using your built-in methods and functions</p>\r\n<p>I only saw this code snippet from you (haven't used it in my program yet):</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>GDirections s;\n<span style=\"color:blue\">var</span> x = GMapProviders.GoogleMap.GetDirections(<span style=\"color:blue\">out</span> s, <span style=\"color:#a31515\">&quot;Lithuania,Vilnius&quot;</span>, <span style=\"color:#a31515\">&quot;Lithuania,Kaunas&quot;</span>, <span style=\"color:blue\">false</span>, <span style=\"color:blue\">false</span>, <span style=\"color:blue\">false</span>, <span style=\"color:blue\">true</span>);\n<span style=\"color:blue\">if</span>(x == DirectionsStatusCode.OK)\n{\n   Debug.WriteLine(s.Summary &#43; <span style=\"color:#a31515\">&quot;, &quot;</span> &#43; s.Copyrights);\n   Debug.WriteLine(s.StartAddress &#43; <span style=\"color:#a31515\">&quot; -&gt; &quot;</span> &#43; s.EndAddress);\n   Debug.WriteLine(s.Distance);\n   Debug.WriteLine(s.Duration);\n   <span style=\"color:blue\">foreach</span>(<span style=\"color:blue\">var</span> step <span style=\"color:blue\">in</span> s.Steps)\n   {\n     Debug.WriteLine(step);  \n   }\n}<br><br><pre>I thought you could add another parameter for &quot;use public transport&quot; == true, and in code-behind change it appropriatly? <br>I really don't know how much effort it is. Maybe only changing the API request to google?</pre>\n<br></pre>\r\n</div>\r\n",
+    "PostedDate": "2012-11-14T08:29:33.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942056",
+    "ThreadId": "403186",
+    "Html": "\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>K i looked <span style=\"color:blue\">into</span> the code:<br><br></pre>\r\n</div>\r\n<p></p>\r\n<pre>      <span style=\"color:blue\">public</span> DirectionsStatusCode GetDirections(<span style=\"color:blue\">out</span> GDirections direction, PointLatLng start, PointLatLng end, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> walkingMode, bool transitMode, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n      {\r\n         <span style=\"color:blue\">return</span> GetDirectionsUrl(MakeDirectionsUrl(start, end, LanguageStr, avoidHighways, avoidTolls, walkingMode, transitMode, sensor, metric), <span style=\"color:blue\">out</span> direction);\r\n      }\r\n\r\n      <span style=\"color:blue\">public</span> DirectionsStatusCode GetDirections(<span style=\"color:blue\">out</span> GDirections direction, <span style=\"color:blue\">string</span> start, <span style=\"color:blue\">string</span> end, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> walkingMode, bool transitMode, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n      {\r\n         <span style=\"color:blue\">return</span> GetDirectionsUrl(MakeDirectionsUrl(start, end, LanguageStr, avoidHighways, avoidTolls, walkingMode, transitMode, sensor, metric), <span style=\"color:blue\">out</span> direction);\r\n      }\r\n\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n      <span style=\"color:gray\">///</span><span style=\"color:green\"> NotImplemented</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;status&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;start&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;end&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;avoidHighways&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;avoidTolls&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;walkingMode&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;sensor&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;metric&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:gray\">&lt;/returns&gt;</span>\r\n      <span style=\"color:blue\">public</span> IEnumerable&lt;GDirections&gt; GetDirections(<span style=\"color:blue\">out</span> DirectionsStatusCode status, <span style=\"color:blue\">string</span> start, <span style=\"color:blue\">string</span> end, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> walkingMode, bool transitMode, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n      {\r\n         <span style=\"color:green\">// TODO: add alternative directions</span>\r\n\r\n         <span style=\"color:blue\">throw</span> <span style=\"color:blue\">new</span> NotImplementedException();\r\n      }\r\n\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n      <span style=\"color:gray\">///</span><span style=\"color:green\"> NotImplemented</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;status&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;start&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;end&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;avoidHighways&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;avoidTolls&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;walkingMode&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;sensor&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;metric&quot;&gt;</span><span style=\"color:gray\">&lt;/param&gt;</span>\r\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:gray\">&lt;/returns&gt;</span>\r\n      <span style=\"color:blue\">public</span> IEnumerable&lt;GDirections&gt; GetDirections(<span style=\"color:blue\">out</span> DirectionsStatusCode status, PointLatLng start, PointLatLng end, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> walkingMode, bool transitMode, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n      {\r\n         <span style=\"color:green\">// TODO: add alternative directions</span>\r\n\r\n         <span style=\"color:blue\">throw</span> <span style=\"color:blue\">new</span> NotImplementedException();\r\n      }</pre>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><br><br><br>&nbsp;<span style=\"color:blue\">string</span> MakeDirectionsUrl(PointLatLng start, PointLatLng end, <span style=\"color:blue\">string</span> language, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> walkingMode, <span style=\"color:blue\">bool</span> transitMode, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n      {\r\n         <span style=\"color:blue\">string</span> av = (avoidHighways ? <span style=\"color:#a31515\">&quot;&avoid=highways&quot;</span> : <span style=\"color:blue\">string</span>.Empty) + (avoidTolls ? <span style=\"color:#a31515\">&quot;&avoid=tolls&quot;</span> : <span style=\"color:blue\">string</span>.Empty); <span style=\"color:green\">// 6</span>\r\n\r\n         <span style=\"color:blue\">string</span> mt = <span style=\"color:#a31515\">&quot;&units=&quot;</span> + (metric ? <span style=\"color:#a31515\">&quot;metric&quot;</span> : <span style=\"color:#a31515\">&quot;imperial&quot;</span>);     <span style=\"color:green\">// 7</span>\r\n         <span style=\"color:blue\">string</span> wk = <span style=\"color:#a31515\">&quot;&mode=&quot;</span> + (walkingMode ? <span style=\"color:#a31515\">&quot;walking&quot;</span> : (transitMode ? <span style=\"color:#a31515\">&quot;transit&quot;</span> : <span style=\"color:#a31515\">&quot;driving&quot;</span>)); <span style=\"color:green\">// 8</span>\r\n\r\n         <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(CultureInfo.InvariantCulture, DirectionUrlFormatPoint, start.Lat, start.Lng, end.Lat, end.Lng, sensor.ToString().ToLower(), language, av, mt, wk);\r\n      }\r\n\r\n      <span style=\"color:blue\">string</span> MakeDirectionsUrl(<span style=\"color:blue\">string</span> start, <span style=\"color:blue\">string</span> end, <span style=\"color:blue\">string</span> language, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> walkingMode, <span style=\"color:blue\">bool</span> transitMode, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\r\n      {\r\n         <span style=\"color:blue\">string</span> av = (avoidHighways ? <span style=\"color:#a31515\">&quot;&avoid=highways&quot;</span> : <span style=\"color:blue\">string</span>.Empty) + (avoidTolls ? <span style=\"color:#a31515\">&quot;&avoid=tolls&quot;</span> : <span style=\"color:blue\">string</span>.Empty); <span style=\"color:green\">// 4</span>\r\n         <span style=\"color:blue\">string</span> mt = <span style=\"color:#a31515\">&quot;&units=&quot;</span> + (metric ? <span style=\"color:#a31515\">&quot;metric&quot;</span> : <span style=\"color:#a31515\">&quot;imperial&quot;</span>);     <span style=\"color:green\">// 5</span>\r\n         <span style=\"color:blue\">string</span> wk = <span style=\"color:#a31515\">&quot;&mode=&quot;</span> + (walkingMode ? <span style=\"color:#a31515\">&quot;walking&quot;</span> : (transitMode ? <span style=\"color:#a31515\">&quot;transit&quot;</span> : <span style=\"color:#a31515\">&quot;driving&quot;</span>)); <span style=\"color:green\">// 6</span>\r\n\r\n         <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(DirectionUrlFormatStr, start.Replace(<span style=\"color:#a31515\">' '</span>, <span style=\"color:#a31515\">'+'</span>), end.Replace(<span style=\"color:#a31515\">' '</span>, <span style=\"color:#a31515\">'+'</span>), sensor.ToString().ToLower(), language, av, mt, wk);\r\n      }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>Maybe this would work?</p>\r\n",
+    "PostedDate": "2012-11-15T03:13:43.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942070",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>and with MakeRouteUrl as well:</p>\r\n<p>&nbsp;</p>\r\n<p>(getRoute has to be changed accordingly)</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">static</span> <span style=\"color:blue\">readonly</span> <span style=\"color:blue\">string</span> TransitStr = <span style=\"color:#a31515\">&quot;&amp;mra=ls&amp;dirflg=r&quot;</span>;\n\n      <span style=\"color:blue\">string</span> MakeRouteUrl(PointLatLng start, PointLatLng end, <span style=\"color:blue\">string</span> language, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> walkingMode, <span style=\"color:blue\">bool</span> transitMode)\n      {\n         <span style=\"color:blue\">string</span> opt = walkingMode ? WalkingStr : (transitMode ? TransitStr : (avoidHighways ? RouteWithoutHighwaysStr : RouteStr));\n         <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(CultureInfo.InvariantCulture, RouteUrlFormatPointLatLng, language, opt, start.Lat, start.Lng, end.Lat, end.Lng, Server);\n      }\n\n      <span style=\"color:blue\">string</span> MakeRouteUrl(<span style=\"color:blue\">string</span> start, <span style=\"color:blue\">string</span> end, <span style=\"color:blue\">string</span> language, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> walkingMode, <span style=\"color:blue\">bool</span> transitMode)\n      {\n         <span style=\"color:blue\">string</span> opt = walkingMode ? WalkingStr : (transitMode ? TransitStr : (avoidHighways ? RouteWithoutHighwaysStr : RouteStr));\n         <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(RouteUrlFormatStr, language, opt, start.Replace(<span style=\"color:#a31515\">' '</span>, <span style=\"color:#a31515\">'&#43;'</span>), end.Replace(<span style=\"color:#a31515\">' '</span>, <span style=\"color:#a31515\">'&#43;'</span>), Server);\n      }\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-11-15T03:49:35.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942150",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>That code is is:<span id=\"root\"><span id=\"dir_5_span\" style=\"display:block; margin-left:20px\"><span id=\"dir_5_3_span\" style=\"display:block; margin-left:20px\"><span id=\"dir_5_3_4_span\" style=\"display:block; margin-left:20px\"><span>GoogleMapProvider.cs\r\n</span></span></span></span></span></p>\r\n<p>&nbsp;</p>\r\n<p>Can I change it myself? Is there sourceCode of the HotBuilt so I can change the .cs and compile a new dll for me?</p>\r\n<p>Sry I am amateur :/</p>\r\n",
+    "PostedDate": "2012-11-15T07:23:47.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942265",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>browse to source tab and download/pull the code, i'l test it later and add it if it works</p>\r\n",
+    "PostedDate": "2012-11-15T12:07:31.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942627",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>mh...</p>\r\n<p>I can't get the source code to work. I download it and opened the .sln in Visual Studio2012 and I get a lot of errors when trying to rebuild / compile.</p>\r\n<p>Edit: got it :)</p>\r\n",
+    "PostedDate": "2012-11-16T02:06:48.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942674",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>I don't get it to work :/</p>\r\n<p>It gives me a new route with getRoute and it also draws the line. But it isn't the same as in google. It is a little bit different (sometimes not following the streets and go from public transport station A to B without following the road / rails.)</p>\r\n<p>The directions don't work at all. It still gives me driving directions even though I added the correct &quot;&mode=transit&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>I don't know what I am missing</p>\r\n",
+    "PostedDate": "2012-11-16T04:14:09.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942686",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>check their api, maybe they change something again...</p>\r\n",
+    "PostedDate": "2012-11-16T04:37:26.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942692",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>Ok I checked their api, you have to add a &#65279;&#65279;&#65279;&#65279;departureTime as well when asking for directions.</p>\r\n<p>http://maps.googleapis.com/maps/api/directions/json?origin=Uzhhorod&amp;destination=Zhytomyr&amp;sensor=false&amp;departure_time=1353069348&amp;mode=transit</p>\r\n<p>This one works fine.</p>\r\n<p>But when trying in my code:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>      <span style=\"color:blue\">string</span> MakeDirectionsUrl(<span style=\"color:blue\">string</span> start, <span style=\"color:blue\">string</span> end, <span style=\"color:blue\">string</span> language, <span style=\"color:blue\">bool</span> avoidHighways, <span style=\"color:blue\">bool</span> walkingMode, <span style=\"color:blue\">bool</span> transitMode, <span style=\"color:blue\">bool</span> avoidTolls, <span style=\"color:blue\">bool</span> sensor, <span style=\"color:blue\">bool</span> metric)\n      {\n          <span style=\"color:blue\">string</span> av = (avoidHighways ? <span style=\"color:#a31515\">&quot;&amp;avoid=highways&quot;</span> : <span style=\"color:blue\">string</span>.Empty) &#43; (avoidTolls ? <span style=\"color:#a31515\">&quot;&amp;avoid=tolls&quot;</span> : <span style=\"color:blue\">string</span>.Empty); <span style=\"color:green\">// 4</span>\n          <span style=\"color:blue\">string</span> mt = <span style=\"color:#a31515\">&quot;&amp;units=&quot;</span> &#43; (metric ? <span style=\"color:#a31515\">&quot;metric&quot;</span> : <span style=\"color:#a31515\">&quot;imperial&quot;</span>);     <span style=\"color:green\">// 5</span>\n          <span style=\"color:blue\">string</span> wk = <span style=\"color:#a31515\">&quot;&amp;mode=&quot;</span> &#43; (walkingMode ? <span style=\"color:#a31515\">&quot;walking&quot;</span> : (transitMode ? <span style=\"color:#a31515\">&quot;transit&amp;departure_time=1353069348&quot;</span> : <span style=\"color:#a31515\">&quot;driving&quot;</span>)); <span style=\"color:green\">// 6</span>\n\n          <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(DirectionUrlFormatStr, start.Replace(<span style=\"color:#a31515\">' '</span>, <span style=\"color:#a31515\">'&#43;'</span>), end.Replace(<span style=\"color:#a31515\">' '</span>, <span style=\"color:#a31515\">'&#43;'</span>), sensor.ToString().ToLower(), language, av, mt, wk);\n      }\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>I still only get Driving directions back when asking for the steps of GDirections s; I don't even know why I get driving directions back at all xD Normaly it should say &quot;invalid request&quot;....</p>\r\n",
+    "PostedDate": "2012-11-16T04:44:22.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942697",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>I am an idiot :D</p>\r\n<p>Works now.... I set the wrong parameter -.-&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>edit1:</p>\r\n<p>Now only the problem with the route remains not being the exact same route as in googemaps.com.</p>\r\n<p>I had a look at GetRoutePoints to see why it is missing some points.... but it seems to be complicated... not as easy as direction and directionSteps</p>\r\n<p>&nbsp;</p>\r\n<p>edit2:</p>\r\n<p>In this example:</p>\r\n<p>http://maps.googleapis.com/maps/api/directions/xml?origin=Alexanderplatz&amp;destination=Brandenburgertor%20Berlin&amp;sensor=false&amp;departure_time=1353069348&amp;mode=transit</p>\r\n<p>step has another undercategory called &quot;line&quot; and you would need the &quot;short_name&quot; from that line also be able to get from steps. So in code you could say: steps.shortname or even steps.line.shortname</p>\r\n<p>&nbsp;</p>\r\n<p>edit3:</p>\r\n<p>ok I think routing doesnt work because the xml has &quot;transit_details&quot; (undercategory of step) which contains points. And they are not added to the route.</p>\r\n",
+    "PostedDate": "2012-11-16T04:50:14.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942781",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>I give up on the get Route.</p>\r\n<p>But do you have any tipps on how to get the &quot;short_name&quot; in &lt;transit_details&gt;&lt;line&gt;&lt;short_name&gt; in such a xml file in your gmap.net?</p>\r\n<p>http://maps.googleapis.com/maps/api/directions/xml?origin=Alexanderplatz&amp;destination=Brandenburgertor%20Berlin&amp;sensor=false&amp;departure_time=1353069348&amp;mode=transit</p>\r\n",
+    "PostedDate": "2012-11-16T06:47:54.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942797",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>actualy route is encoded:</p>\r\n<p>&lt;points&gt;<br>\r\n<strong>eaq_IgqzpA{@zAEJWd@V~A</strong><br>\r\n&lt;/points&gt;</p>\r\n<p>..there is function to decode it already, need some coding</p>\r\n",
+    "PostedDate": "2012-11-16T07:06:24.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942806",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>thx!</p>\r\n<p>I got everything working with the directions.</p>\r\n<p>&nbsp;</p>\r\n<p>But I don't get the route. Don't you use the API for the route as well? Or do you send a normal http request? Look like normal http request.</p>\r\n<p>I don't know what the ouput file looks like when driving and when using transit.</p>\r\n<p>&nbsp;</p>\r\n<p>EDIT: I looked into the RouteCache and opened a file. There is no difference in the file when using transit or driving hence everything should be working as intended and google just doesn't give the same points as in googlemaps. In googlemaps it follows\r\n the roads/rails of the transit and in gmap.net it doesn't. These informations are just missing (maybe a problem with copyrights)</p>\r\n",
+    "PostedDate": "2012-11-16T07:28:44.703-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942820",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>Thank you for your help! I got everything to work.</p>\r\n<p>I created a new GMap.NET.Core.dll and used it in my project.</p>\r\n<p>Only Problem: When debugging it loads very long showing these messages in debug:</p>\r\n<p></p>\r\n<pre>GMapProviders.GoogleMap.Version: m@196000000, old: m@182000000, consider updating source\r\nGMapProviders.GoogleHybridMap.Version: h@196000000, old: h@182000000, consider updating source\r\nGMapProviders.GoogleSatelliteMap.Version: 121, old: 115, consider updating source\r\nGMapProviders.GoogleTerrainMap.Version: t@129,r@196000000, old: t@129,r@182000000, consider updating source</pre>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>Do you know what the problem is? And how to fix it?</p>\r\n",
+    "PostedDate": "2012-11-16T08:10:34.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942867",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>it's not a problem, use release build</p>\r\n",
+    "PostedDate": "2012-11-16T09:22:00.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943509",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>But the hot build works better in general :/</p>\r\n<p>Only when I change the code it takes longer to load.</p>\r\n",
+    "PostedDate": "2012-11-18T04:58:28.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943516",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>?</p>\r\n",
+    "PostedDate": "2012-11-18T05:13:16.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943810",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>The Hot Built starts faster when I debug my program.</p>\r\n<p>The release built takes much longer.</p>\r\n",
+    "PostedDate": "2012-11-19T01:29:22.133-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943841",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>hot build is release build, if you build it your self, speed is the same ;}</p>\r\n",
+    "PostedDate": "2012-11-19T03:03:11.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943858",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>O.o</p>\r\n<p>But every time it checks like this:</p>\r\n<pre>GMapProviders.GoogleMap.Version: m@196000000, old: m@182000000, consider updating source</pre>\r\n<p>It takes another 10s to load.</p>\r\n<p>&nbsp;</p>\r\n<p>Release build is 2011 and Hot build is 2012 &gt;_&gt;</p>\r\n",
+    "PostedDate": "2012-11-19T03:37:55.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943875",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>i mean release/debug build, it has nothing to do with the files shared on the codeplex</p>\r\n",
+    "PostedDate": "2012-11-19T04:00:20.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943986",
+    "ThreadId": "403186",
+    "Html": "\r\n<p>thank you. Worked like a charm :)</p>\r\n",
+    "PostedDate": "2012-11-19T07:11:19.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

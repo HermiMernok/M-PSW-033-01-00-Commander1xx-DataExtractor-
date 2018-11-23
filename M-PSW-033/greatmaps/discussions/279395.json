@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "697923",
+    "ThreadId": "279395",
+    "Html": "\r\n<p>Cool control!</p>\r\n<p>A newbie question. &nbsp;I am using the Winform control and having this in the Form constructor</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">public</span> MainForm()\r\n        {\r\n            InitializeComponent();\r\n            <span style=\"color:blue\">this</span>.gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\r\n            <span style=\"color:blue\">this</span>.gMapControl1.SetCurrentPositionByKeywords(<span style=\"color:#a31515\">&quot;USA&quot;</span>);\r\n            <span style=\"color:blue\">this</span>.gMapControl1.MinZoom = 3;\r\n            <span style=\"color:blue\">this</span>.gMapControl1.MaxZoom = 17;\r\n            <span style=\"color:blue\">this</span>.gMapControl1.Zoom = 4;\r\n            <span style=\"color:blue\">this</span>.gMapControl1.Manager.Mode = AccessMode.ServerAndCache;\r\n            <span style=\"color:blue\">this</span>.gMapControl1.CanDragMap = <span style=\"color:blue\">true</span>;\r\n            <span style=\"color:blue\">this</span>.gMapControl1.DragButton = MouseButtons.Left;\r\n\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>The form takes a few seconds on the MapProvider line.</p>\r\n<p>Questions:</p>\r\n<p>1. &nbsp;Is there a way to run that line async? &nbsp;If not, how to avoid this start up delay?</p>\r\n<p>2. If I put all the gMapControl lines above on the Application_Idle event, then subsequent setting of the position</p>\r\n<p>this.gMapControl1.Position</p>\r\n<p>will not position the map. &nbsp;What else do I need to do in order to put the initialization code in the Application_Idle event?</p>\r\n",
+    "PostedDate": "2011-11-14T08:48:22.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697951",
+    "ThreadId": "279395",
+    "Html": "<p>SetCurrentPositionByKeywords calls web service, so move this function somewhere else</p>",
+    "PostedDate": "2011-11-14T09:46:22.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697982",
+    "ThreadId": "279395",
+    "Html": "<p>SetCurrentPositionByKeywords is pretty fast so that's not the problem. &nbsp;It's the line before it that's taking the longer time.</p>",
+    "PostedDate": "2011-11-14T10:42:41.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697985",
+    "ThreadId": "279395",
+    "Html": "<p>you can assign it later, like OnFormLoad event</p>",
+    "PostedDate": "2011-11-14T10:48:21.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698116",
+    "ThreadId": "279395",
+    "Html": "<p>Aren't OnFormLoad and Form Constructor both have the same effect? &nbsp;Unless it's done in another thread, the delay is unavoidable. &nbsp;But since it's a UI control, there is no way that the UI can be initialized in a different thread by the caller. &nbsp;However, the control itself should be able to&nbsp;isolate&nbsp;the slow process which I think is the web service call to Bing or Google. &nbsp;Thus I think a better solution would be to provide an async call for the&nbsp;initialization&nbsp;of the control so the UI will be more&nbsp;responsive.</p>",
+    "PostedDate": "2011-11-14T15:06:27.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698252",
+    "ThreadId": "279395",
+    "Html": "<p>does the other providers have the same issue? Anyway you can use splash screen while everything is loading</p>",
+    "PostedDate": "2011-11-14T23:58:27.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698389",
+    "ThreadId": "279395",
+    "Html": "<p>I have the same issue. Put a break point before the \"<span style=\"color: blue;\">this</span>.gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\" line. Step over...wait.....wait.....then gets to next line.</p>\r\n<p>&nbsp;</p>\r\n<p>Close form, reopen form, second time the same form containing the control is loaded it is normal fast speed.</p>\r\n<p>Any ideas where to look?</p>\r\n<p>All map providers the same. For me mapcontrol is inside app and cant be covered by splash screen.</p>",
+    "PostedDate": "2011-11-15T06:20:30.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698398",
+    "ThreadId": "279395",
+    "Html": "<p>bing/google has integrated version number check functionality, each 8 hours it refresh the cached value</p>\r\n<p>you can disable this by setting TryCorrectVersion to false, but without correct version number it might stop working, i guess you can call async later: provider.OnInitialized();</p>\r\n<p>..but if you load first time, and probably with old version numbers async doesn't help much...</p>",
+    "PostedDate": "2011-11-15T06:31:07.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "699125",
+    "ThreadId": "279395",
+    "Html": "<p>So I figured out how to cheat a little. &nbsp;During Form Load, I run the map init code async and I guess behind the scene, it will cache up the map for subsequent loading of the real map. &nbsp;It works out great!</p>\r\n<p>&nbsp;</p>\r\n<pre><div style=\"color: black; background-color: white;\"><pre>        <span style=\"color: blue;\">delegate</span> <span style=\"color: blue;\">void</span> InitMapDeleteGate();\r\n        IAsyncResult _ia = <span style=\"color: blue;\">null</span>;\r\n        InitMapDeleteGate d = <span style=\"color: blue;\">new</span> InitMapDeleteGate(InitMap);\r\n        _ia = d.BeginInvoke(<span style=\"color: blue;\">null</span>, <span style=\"color: blue;\">null</span>);\r\n\r\n        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> InitMap()\r\n        {\r\n            GMap.NET.WindowsForms.GMapControl dummy = <span style=\"color: blue;\">new</span> GMap.NET.WindowsForms.GMapControl();\r\n            dummy.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\r\n            dummy.SetCurrentPositionByKeywords(<span style=\"color: #a31515;\">\"USA\"</span>);\r\n\r\n        }\r\n</pre>\r\n</div>\r\n</pre>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-11-16T11:12:50.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

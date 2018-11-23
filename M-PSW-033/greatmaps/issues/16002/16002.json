@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "roger ;}",
+    "ClosedDate": "2011-05-02T03:12:22.63-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I would like to get the GPS coordinate for a given city and therefore use GetLatLngFromGeocoder, but I've a problem getting it working, it returns status unknow. Is properly me who have made a simple mistake, because I can't find anyone else having the same kind of problem. I've attached my code below. \r\n\r\n            GeoCoderStatusCode status = GeoCoderStatusCode.Unknow;\r\n            PointLatLng? pos = GMaps.Instance.GetLatLngFromGeocoder(\"Lithuania, Vilnius\", out status);\r\n            if (pos != null && status == GeoCoderStatusCode.G_GEO_SUCCESS)\r\n            {\r\n                System.Console.WriteLine(\"success\");\r\n            }\r\n            else\r\n            {\r\n                System.Console.WriteLine(\"failure\");\r\n            }\r\n\r\nI hope somebody can help me. Thanks in advance.\r\n\r\nBest Regards\r\nKristoffer",
+    "LastUpdatedDate": "2011-05-02T03:12:22.63-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-05-01T13:10:03.847-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GetLatLngFromGeocoder returns status unknow",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16002
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "it works for me, hm",
+      "PostedDate": "2011-05-01T23:37:31.63-07:00",
+      "Id": 35078
+    },
+    {
+      "Message": "I found the problem, I've forgot to add a reference :)",
+      "PostedDate": "2011-05-02T01:15:16.033-07:00",
+      "Id": 35079
+    },
+    {
+      "Message": "hm, what was that reference? ;}",
+      "PostedDate": "2011-05-02T01:58:02.16-07:00",
+      "Id": 35081
+    },
+    {
+      "Message": "System.Data.SQLite",
+      "PostedDate": "2011-05-02T02:30:53.663-07:00",
+      "Id": 35083
+    }
+  ]
+}

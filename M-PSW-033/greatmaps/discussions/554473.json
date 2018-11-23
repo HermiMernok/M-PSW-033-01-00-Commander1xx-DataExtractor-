@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1278604",
+    "ThreadId": "554473",
+    "Html": "Any chances that a new map provider could be added to your great project?\r<br />\n<br />\nWMS\r<br />\n<a href=\"http://tiles.kartat.kapsi.fi/peruskartta\" rel=\"nofollow\">http://tiles.kartat.kapsi.fi/peruskartta</a>?\r<br />\n<a href=\"http://tiles.kartat.kapsi.fi/taustakartta\" rel=\"nofollow\">http://tiles.kartat.kapsi.fi/taustakartta</a>?\r<br />\n<a href=\"http://tiles.kartat.kapsi.fi/ortokuva\" rel=\"nofollow\">http://tiles.kartat.kapsi.fi/ortokuva</a>?\r<br />\n<br />\nor\r<br />\n<br />\nTMS\r<br />\n<a href=\"http://tiles.kartat.kapsi.fi/peruskartta/{zoom}/{x}/{y}.jpg\" rel=\"nofollow\">http://tiles.kartat.kapsi.fi/peruskartta/{zoom}/{x}/{y}.jpg</a>\r<br />\n<a href=\"http://tiles.kartat.kapsi.fi/taustakartta/{zoom}/{x}/{y}.jpg\" rel=\"nofollow\">http://tiles.kartat.kapsi.fi/taustakartta/{zoom}/{x}/{y}.jpg</a>\r<br />\n<a href=\"http://tiles.kartat.kapsi.fi/ortokuva/{zoom}/{x}/{y}.jpg\" rel=\"nofollow\">http://tiles.kartat.kapsi.fi/ortokuva/{zoom}/{x}/{y}.jpg</a>\r<br />\n<br />\nTMS uses EPSG:900913 and resides on the server in the following folders:\r<br />\nperuskartta_3067-, ortokuva_3067- ja taustakartta_3067 \r<br />\n<br />\nPs:\r<br />\nI checked out the src code for YandexMapProviderBase class as an implementation example and stumbled upon the Guid object which I don't understand where you get the string id from + other details I felt unsure about ;)\r<br />\n<br />\nKind regards, icy<br />\n",
+    "PostedDate": "2014-07-28T22:14:03.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1278692",
+    "ThreadId": "554473",
+    "Html": "thanks, i will add it as soon as i get the time to do so...\r<br />\n<br />\nin the mean time you can make a fork to share the code<br />\n",
+    "PostedDate": "2014-07-29T04:33:43.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1278735",
+    "ThreadId": "554473",
+    "Html": "\r\n<div>\r\n<div><span style=\"\">Fork: icybridge/Kapsi done.</span></div>\r\n<div><span style=\"\"><br>\r\n</span></div>\r\n<div><span style=\"\">Some user requirements from the licence holder apply and are:</span></div>\r\n<div><span style=\"\"><br>\r\n</span></div>\r\n<div><span style=\"\">1. Name of licence holder must show on the map(s) --&gt; Maanmittauslaitos\r\n</span></div>\r\n<div><span style=\"\">Instead of the full name the MML abbreviation is in my opinion preferable and is actually used on a testmap from the map provider itself. On that map the &quot;MML&quot; is a link to\r\n<a href=\"http://www.maanmittauslaitos.fi\">http://www.maanmittauslaitos.fi</a>. Why not link it to the licence file directly and we get rid of req 4...</span></div>\r\n<div><span style=\"\"><br>\r\n</span></div>\r\n<div><span style=\"\">2. Name of map content. </span></div>\r\n<div><span style=\"\">Should be enough to use --&gt; Peruskarttarasteri, Taustakartta, Ortoilmakuva in the list of providers. For instance:\r\n<i>Kapsi_Ortoilmakuva</i></span></div>\r\n<div><span style=\"\"><br>\r\n</span></div>\r\n<div><span style=\"\">3. The date of the content has to be viewable somehow. Perhaps could be hard coded to the name above?\r\n</span></div>\r\n<div><span style=\"\"><br>\r\n</span></div>\r\n<div><span style=\"\">4. Link to the lic file. --&gt; <a href=\"http://www.maanmittauslaitos.fi/avoindata_lisenssi_versio1_20120501\">\r\nhttp://www.maanmittauslaitos.fi/avoindata_lisenssi_versio1_20120501</a></span></div>\r\n<div><span style=\"\"><br>\r\n</span></div>\r\n<div><span style=\"\"><br>\r\n</span></div>\r\n<div><span style=\"\">Icy</span></div>\r\n<div style=\"\"><br>\r\n</div>\r\n<br>\r\n<span style=\"\">Sent from my iPad</span></div>\r\n<div style=\"\"><br>\r\n</div>\r\n",
+    "PostedDate": "2014-07-29T06:07:57.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1367551",
+    "ThreadId": "554473",
+    "Html": "\r\n<div>Found another great map service, what do you think could you add support for it?</div>\r\n<div><br>\r\n</div>\r\n<div><span style=\"\"><a href=\"http://www.paikkatietoikkuna.fi/web/fi/kartta?ver=1.17&zoomLevel=11&coord=315676.35112421_6664049.319626&mapLayers=base_35&#43;100&#43;default&&showMarker=true\">http://www.paikkatietoikkuna.fi/web/fi/kartta?ver=1.17&zoomLevel=11&coord=315676.35112421_6664049.319626&mapLayers=base_35&#43;100&#43;default&&showMarker=true</a></span><br>\r\n<br>\r\nSent from my iPad</div>\r\n<div><br>\r\n</div>\r\n",
+    "PostedDate": "2015-03-20T07:54:21.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1414431",
+    "ThreadId": "554473",
+    "Html": "Could you add &quot;AMap&quot;? The code is shared in the fork &quot;ypmap&quot;.<br />\n",
+    "PostedDate": "2015-04-15T16:22:51.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1414550",
+    "ThreadId": "554473",
+    "Html": "<strong>598753468 wrote:</strong><br />\n<blockquote>\nCould you add &quot;AMap&quot;? The code is shared in the fork &quot;ypmap&quot;.<br />\n</blockquote>\nplease push your changes to the server before asking ;/<br />\n",
+    "PostedDate": "2015-04-15T23:34:49.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1414627",
+    "ThreadId": "554473",
+    "Html": "Sorry, I didn't do anything for ypmap. But I found the code at: <a href=\"https://code.google.com/p/ypmap/\" rel=\"nofollow\">https://code.google.com/p/ypmap/</a> \r<br />\nI am not good at coding and I don' know how this website running. I'm very sorry.<br />\n",
+    "PostedDate": "2015-04-16T01:22:33.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

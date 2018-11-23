@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "552710",
+    "ThreadId": "242631",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Any thoughts as to why this VB code doesn't turn an overlay On/Off</p>\r\n<p>Private Sub cboxTrack_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboxTrack.CheckedChanged&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; If frmLoading Then Exit Sub</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp;If cboxTrack.Checked Then</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;map.Overlays.Add(ovCourse)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Else</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;map.Overlays.Remove(ovCourse)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;End If</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;map.Invalidate()</p>\r\n<p>&nbsp;&nbsp; &nbsp;End Sub</p>\r\n<p>PS: ovCourse is instantiated at form level</p>\r\n<p>Anyone...</p>\r\n",
+    "PostedDate": "2011-01-20T09:41:04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552736",
+    "ThreadId": "242631",
+    "Html": "\r\n<p>tried debug step by step and it hit your wanted lines?</p>\r\n",
+    "PostedDate": "2011-01-20T10:14:14.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552777",
+    "ThreadId": "242631",
+    "Html": "\r\n<p>Sorted thanks, dumb question really. My problem not yours</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-20T11:20:38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

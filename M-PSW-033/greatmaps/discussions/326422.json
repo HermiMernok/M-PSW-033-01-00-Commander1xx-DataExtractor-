@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "778938",
+    "ThreadId": "326422",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I have used GMap.net in my C# Windows Form Application, it is working fine, but i am not able to drag it to see different places on the map, the thing which i can do is just zoom in and zoom out, So can any one tell me that how i can make it drag able?</p>\r\n<p>Code which i have used up till now is,</p>\r\n<p>try<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry(&quot;www.bing.com&quot;);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catch<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMapControl1.Manager.Mode = AccessMode.CacheOnly;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MessageBox.Show(&quot;No internet connection available, going to CacheOnly mode.&quot;, &quot;GMap.NET - Demo.WindowsForms&quot;, MessageBoxButtons.OK, MessageBoxIcon.Warning);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>gMapControl1.MapProvider = GMapProviders.OpenStreetMap;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMapControl1.Position = new PointLatLng(54.6961334816182, 25.2985095977783);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMapControl1.MinZoom = 1;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMapControl1.MaxZoom = 30;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gMapControl1.Zoom = 9;</p>\r\n<p>..................</p>\r\n<p>What else should i do so that i can make GMap dragable.</p>\r\n<p>Regards</p>\r\n<p>umair</p>\r\n",
+    "PostedDate": "2012-02-19T03:03:37.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "779029",
+    "ThreadId": "326422",
+    "Html": "<p>READ http://greatmaps.codeplex.com/documentation</p>\r\n<p>..some people want more documentation, but they even don't read just a few lines, it's decided, no more documentation</p>",
+    "PostedDate": "2012-02-19T03:32:32.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

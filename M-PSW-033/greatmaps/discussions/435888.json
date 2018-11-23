@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1012301",
+    "ThreadId": "435888",
+    "Html": "Hi radioman,\r<br />\n<br />\nI need show a mark on the Center of the map. I want to clarify that the Position associated to the mark is the same that the of the map. These positions are updated via GPS.\r<br />\n<br />\nThe cross is shown in the center, but not the mark. :(\r<br />\n<br />\nAny suggestions?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2013-03-08T04:27:03.633-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012303",
+    "ThreadId": "435888",
+    "Html": "set marker position to center<br />\n",
+    "PostedDate": "2013-03-08T04:29:55.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012308",
+    "ThreadId": "435888",
+    "Html": "Thanks,\r<br />\n<br />\nSorry, but how I obtain the center of the map?<br />\n",
+    "PostedDate": "2013-03-08T04:42:01.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012310",
+    "ThreadId": "435888",
+    "Html": "Thanks,\r<br />\n<br />\nSorry, but how I obtain the center of the map?<br />\n",
+    "PostedDate": "2013-03-08T04:43:36.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012316",
+    "ThreadId": "435888",
+    "Html": "marker.Position = map.<strong>Position</strong>;<br />\n",
+    "PostedDate": "2013-03-08T05:03:01.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012318",
+    "ThreadId": "435888",
+    "Html": "Yes, I have a similar code. See:\r<br />\n<br />\nthis.MainMap.Markers[0].Position = new PointLatLng(latitude, longitude);\r<br />\nthis.MainMap.Position = new PointLatLng(latitude, longitude);<br />\n",
+    "PostedDate": "2013-03-08T05:05:57.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012335",
+    "ThreadId": "435888",
+    "Html": "I think the problem was solved, please could you confirm it?<br />\n<ul>\n<li>\nThe size mark is (50 X 50)<br />\n</li>\n</ul>\nI changed the Offset of the mark, marking the X = -25 and Y= -25, ie  -mark.Width / 2,  -mark.Height / 2.   It is correct?<br />\n",
+    "PostedDate": "2013-03-08T05:36:09.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012342",
+    "ThreadId": "435888",
+    "Html": "yes<br />\n",
+    "PostedDate": "2013-03-08T05:49:26.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

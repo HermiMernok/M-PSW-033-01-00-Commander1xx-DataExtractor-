@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "947058",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>Hi,&nbsp;</p>\r\n<p>When I go to insert a new point on the map, the point is inserted at the center of the control.</p>\r\n<p>To make it appear, you have to zoom in and out, and the point is positioned in the correct position.</p>\r\n<p>How can I fix?</p>\r\n",
+    "PostedDate": "2012-11-26T08:02:01.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947074",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>try new version</p>\r\n",
+    "PostedDate": "2012-11-26T08:25:27.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947085",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>thanks first of all,</p>\r\n<p>also the routes are not shown!</p>\r\n",
+    "PostedDate": "2012-11-26T08:44:15.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947089",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>I recompiled with the new library but still has the problem. My application as WindowsForms</p>\r\n",
+    "PostedDate": "2012-11-26T08:56:31.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947095",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>add you overlay to map.Overlays</p>\r\n",
+    "PostedDate": "2012-11-26T09:04:53.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947105",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; GMapControl1.Overlays.Add(New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(Lat, Lng), Markers.GMarkerGoogleType.green))</p>\r\n",
+    "PostedDate": "2012-11-26T09:16:03.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947107",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>on event&nbsp;MouseDown</p>\r\n",
+    "PostedDate": "2012-11-26T09:20:49.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947110",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>check the demo source.</p>\r\n",
+    "PostedDate": "2012-11-26T09:27:47.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947275",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>I looked in demo.windowform but I did not get results.</p>\r\n<p>the position is'nt correct.</p>\r\n<p>my source is:</p>\r\n<p>&nbsp; &nbsp; Private Sub GMapControl1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles GMapControl1.Load</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; With GMapControl1</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .EmptyMapBackground = Color.White</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .EmptyTileBorders = Pens.White</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .EmptyTileText = &quot;&quot;</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .Width = Panel1.Width</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .Height = Panel1.Height</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .MapProvider = GMapProviders.OpenStreetMap</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .Manager.Mode = AccessMode.CacheOnly</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .Manager.ImportFromGMDB(Application.StartupPath & &quot;\\DataExp.gmdb&quot;)</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .Position = New PointLatLng(40.8517746, 14.2681244)</p>\r\n<p><br>\r\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style=\"white-space:pre\"></span>&nbsp; &nbsp; PLC1 = New GMapOverlay(&quot;PLC1&quot;)</p>\r\n<p><span style=\"white-space:pre\"></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PLC1.Markers.Add(New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(40.8517746, 14.2681244), Markers.GMarkerGoogleType.green)))</p>\r\n<p>&nbsp; &nbsp;<span style=\"white-space:pre\"> </span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .Overlays.Add(PLC1)</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"white-space:pre\"></span>End Width</p>\r\n<p><span style=\"white-space:pre\"></span>End Sub</p>\r\n",
+    "PostedDate": "2012-11-26T13:41:01.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948121",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>I CAN'T RESOLVE! Can you give me support. . . thanks</p>\r\n",
+    "PostedDate": "2012-11-27T23:59:42.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948178",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>turn your brains on ;} it's easy as batshit, ..and i don't like vb...</p>\r\n",
+    "PostedDate": "2012-11-28T02:03:57.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948179",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>On event GmapControl1.MouseDown my code is:</p>\r\n<p><span style=\"white-space:pre\"></span>Dim point As PointLatLng = GMapControl1.FromLocalToLatLng(e.X, e.Y)</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Dim ov As New GMapOverlay &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space:pre\"></span>Dim mk As New GMarkerGoogle(point, GMarkerGoogleType.green_dot)&nbsp;</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp;ov.Markers.Add(mk)&nbsp;</p>\r\n<p>&nbsp; &nbsp; &nbsp; GMapControl1.Overlays.Add(ov)</p>\r\n<p>&nbsp; &nbsp; &nbsp; GMapControl1.Refresh()</p>\r\n<p>&nbsp;</p>\r\n<p>the point is always connected to the control center.</p>\r\n",
+    "PostedDate": "2012-11-28T02:04:07.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948181",
+    "ThreadId": "404609",
+    "Html": "\r\n<p>add overlays in constructor</p>\r\n",
+    "PostedDate": "2012-11-28T02:07:15.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

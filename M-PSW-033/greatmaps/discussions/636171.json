@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "1421981",
+    "ThreadId": "636171",
+    "Html": "I am using this great tool for quite a while in my windows application. But from last 4 to 5 days the google satellite map/ hybrid map not shown on higher zoom (after 15), other map are working as usual. Myself check this issue on different computer and clear the cache, but no luck. This also happen in recreantly downloaded  Demo.WindowsForms.exe.  download  Please help… <br />\n",
+    "PostedDate": "2015-05-01T04:52:00.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1422015",
+    "ThreadId": "636171",
+    "Html": "update to the latest version<br />\n",
+    "PostedDate": "2015-05-01T08:36:53.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-05-01T08:36:58.51-07:00"
+  },
+  {
+    "Id": "1422134",
+    "ThreadId": "636171",
+    "Html": "Thanks radioman for superfast solution.<br />\n",
+    "PostedDate": "2015-05-02T01:27:43.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423008",
+    "ThreadId": "636171",
+    "Html": "I have updated using the binaries from GMap.NET Build-ef25f7c93e70-20150401.zip.\r<br />\nI am still getting quite a few missing satellite images when using the map provider &lt;GMapProviders.GoogleSatelliteMap&gt;.\r<br />\n<br />\nBing satellite is loading them all. (i have cleared cache as well.)<br />\n",
+    "PostedDate": "2015-05-05T07:40:29.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423055",
+    "ThreadId": "636171",
+    "Html": "whats the location/zoom?<br />\n",
+    "PostedDate": "2015-05-05T09:56:02.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423057",
+    "ThreadId": "636171",
+    "Html": "Rectangle: {Lat=38.2322473354797,Lng=-122.947998046875,WidthLng=1.30050659179688,HeightLat=0.529953416229446}; \r<br />\nZoom: 11\r<br />\n<br />\nSome tiles load, and some do not.  This happens with the hybrid provider also (streets and roads shown, but no imagery.\r<br />\n<br />\n**Side note -&gt; This library is awesome, doing some great things with it.  Keep up the good work.<br />\n",
+    "PostedDate": "2015-05-05T10:08:13.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423197",
+    "ThreadId": "636171",
+    "Html": "for me it works just excellent, all tiles loaded, no missing tiles in the woods ;} can you check this area in browser? \r<br />\n<br />\n<a href=\"https://www.google.lt/maps/place/38%C2%B013'56.1%22N+122%C2%B056'52.8%22W/@38.2322473,-122.947998,591m/data=!3m1!1e3!4m2!3m1!1s0x0:0x0!6m1!1e1\" rel=\"nofollow\">https://www.google.lt/maps/place/38%C2%B013'56.1%22N+122%C2%B056'52.8%22W/@38.2322473,-122.947998,591m/data=!3m1!1e3!4m2!3m1!1s0x0:0x0!6m1!1e1</a>\r<br />\n<br />\n<img src=\"http://s24.postimg.org/vmmflcxat/gmap2.jpg\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-05-06T00:38:25.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-05-06T00:39:56.45-07:00"
+  },
+  {
+    "Id": "1423321",
+    "ThreadId": "636171",
+    "Html": "The images load fine in the browser.\r<br />\n<br />\nWhat could be causing this here?\r<br />\nUsing the demo WPF application with latest binaries.\r<br />\n<img src=\"http://s9.postimg.org/geh9wh5mn/demo_WPFApp.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-05-06T04:20:51.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423551",
+    "ThreadId": "636171",
+    "Html": "can you run debug build in visual studio and post the output trace?<br />\n",
+    "PostedDate": "2015-05-06T07:10:41.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423562",
+    "ThreadId": "636171",
+    "Html": "I believe there is an issue with the storage.\r<br />\n<br />\nThis is repeated over and over. (In my application not the demo apps)\r<br />\nSQLite error (21): misuse at line 120362 of [018d317b12]\r<br />\n<br />\nI am using sqlite in my application as well (v1.0.92.0)\r<br />\n<br />\nCould this be causing this with the embedded sqlite lib in this library?<br />\n",
+    "PostedDate": "2015-05-06T07:40:08.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423592",
+    "ThreadId": "636171",
+    "Html": "can you try serveronly mode?<br />\n",
+    "PostedDate": "2015-05-06T10:37:33.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423599",
+    "ThreadId": "636171",
+    "Html": "Very Strange,\r<br />\nCould this be a network issue? maybe Ive been blocked by google?\r<br />\n<img src=\"http://s22.postimg.org/8j3gw3ua9/demo_WPFApp2.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-05-06T11:05:40.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423601",
+    "ThreadId": "636171",
+    "Html": "maybe you use some kind of proxy?<br />\n",
+    "PostedDate": "2015-05-06T11:15:10.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423604",
+    "ThreadId": "636171",
+    "Html": "No proxy, I work from home. This used to work, is only recently I noticed this happening. (I primarily use open street maps anyway), but clients like google satellite.  I will check if someone on a different network is having the same issues.  I may need to reset me network gear, looks to be running for over 180hours now, due for a reboot.\r<br />\n<br />\n(I use WPF so I though maybe it was related to WPF, but the WinForms demo app returns the same results.)<br />\n",
+    "PostedDate": "2015-05-06T11:25:14.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1424973",
+    "ThreadId": "636171",
+    "Html": "I was able to get this working by removing the sqlite references from gmap.net and replace with v1.0.92.0 and rebuilding the libraries.\r<br />\n(from hotbuild src) - this was caused by issues writing to the db because of conflicting versions. I also changed the libs to use .net4.0 instead of 2.0 and 3.5.<br />\n",
+    "PostedDate": "2015-05-12T08:11:52.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1425100",
+    "ThreadId": "636171",
+    "Html": "i see, well current implementation loads internal sqlite dll, if you use sqlite, you don't need deploy the dll yourself, actually you need to set 'Copy to Local' to False, and the correct version and type will be loaded at runtime(x64/x86/.net2/.net4), i will update the references to use the latest\r<br />\n<br />\np.s. anyway other guy having the 'same' issue <a href=\"http://greatmaps.codeplex.com/workitem/16119\" rel=\"nofollow\">http://greatmaps.codeplex.com/workitem/16119</a> ..and it's not sqlite related<br />\n",
+    "PostedDate": "2015-05-12T23:15:56.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

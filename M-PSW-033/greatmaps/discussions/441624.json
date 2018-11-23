@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1035904",
+    "ThreadId": "441624",
+    "Html": "I am concerned that grabbing routes from google won't work after may 19, 2013.\r<br />\n<br />\nInside greatmaps, the current requests (v2) look like this:\r<br />\n<br />\n<a href=\"http://maps.google.com/maps?f=q&amp;output=dragdir&amp;doflg=p&amp;hl=en&amp;mra=ls&amp;dirflg=d&amp;q=&amp;saddr=@37.7,-122.4&amp;daddr=@37.7,-122.4\" rel=\"nofollow\">http://maps.google.com/maps?f=q&output=dragdir&doflg=p&hl=en&mra=ls&dirflg=d&q=&saddr=@37.7,-122.4&daddr=@37.7,-122.4</a>&quot;\r<br />\n<br />\n<br />\nShouldn't it use this format (v3) with client, key pairs on the end for &gt;2500 accesses/day?\r<br />\n<a href=\"https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false\" rel=\"nofollow\">https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false</a>&quot;\r<br />\n<br />\nNote: I am working from greatmaps about 2 months old.\r<br />\n<br />\nThanks for any leads!\r<br />\n-cellurl<br />\n",
+    "PostedDate": "2013-04-25T20:10:14.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1035932",
+    "ThreadId": "441624",
+    "Html": "there is no api for routing, or i don't know something?<br />\n",
+    "PostedDate": "2013-04-25T23:26:39.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036145",
+    "ThreadId": "441624",
+    "Html": "Radioman,\r<br />\nI asked on googlegroup and below is their reply.\r<br />\nBTW, what I really want to know is if greatmaps is &quot;moving&quot; to googleapi or if I should start that work myself??\r<br />\nI need to be sure ROUTEs work....\r<br />\n-cellurl\r<br />\n<br />\n<br />\n<br />\nBarry Hunter <a href=\"&#x6d;a&#105;&#x6c;&#116;&#x6f;&#x3a;&#x62;&#x61;&#x72;&#x72;&#x79;&#x62;&#x68;&#x75;&#x6e;&#116;&#101;r&#64;&#103;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;\">&#x62;a&#x72;&#114;&#121;&#x62;h&#x75;&#x6e;&#116;&#101;&#114;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>\r<br />\n10:09 AM (25 minutes ago)\r<br />\n<br />\nto Google-Maps-API \r<br />\nThat endpoint, is not part of ANY API, you should expect it to break as of yesterday. \r<br />\n<br />\n<br />\nInstead should be using one of the real APIs as documented\r<br />\n<a href=\"https://developers.google.com/maps/\" rel=\"nofollow\">https://developers.google.com/maps/</a>\r<br />\nthen you can be more confident they wont just disappear. \r<br />\n<br />\n<br />\nOn Fri, Apr 26, 2013 at 2:09 PM, cellurl <a href=\"&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#103;&#x70;&#x73;cr&#x75;&#x69;&#115;&#101;&#64;&#x67;ma&#105;&#108;.&#x63;&#x6f;&#x6d;\">&#103;&#112;s&#99;&#x72;&#117;i&#x73;&#101;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;</a> wrote:\r<br />\nWill this method of getting ROUTES from Google dissappear May 19?:\r<br />\n<a href=\"http://maps.google.com/maps?f=q&amp;output=dragdir&amp;doflg=p&amp;hl=en&amp;mra=ls&amp;dirflg=d&amp;q=&amp;saddr=@37.7,-122.4&amp;daddr=@37.7,-122.4\" rel=\"nofollow\">http://maps.google.com/maps?f=q&output=dragdir&doflg=p&hl=en&mra=ls&dirflg=d&q=&saddr=@37.7,-122.4&daddr=@37.7,-122.4</a>&quot; \r<br />\n<br />\nWill it really do &quot;ERR 404&quot; or such? or will it work for ROUTES since they aren't really maps?\r<br />\n<br />\nI want to &quot;Let it Ride&quot; and hope for the best, but I can't help feel that it will instantly go away.\r<br />\nOur developers think that even though googleapis are coming, they aren't necessary for ROUTES.\r<br />\n<br />\n<a href=\"https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false\" rel=\"nofollow\">https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false</a>&quot; \r<br />\n<a href=\"https://developers.google.com/maps/faq#usage_avoidance\" rel=\"nofollow\">https://developers.google.com/maps/faq#usage_avoidance</a>\r<br />\n<br />\nThanks for clarifying\r<br />\n-cellurl<br />\n",
+    "PostedDate": "2013-04-26T08:39:40.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036176",
+    "ThreadId": "441624",
+    "Html": "just use directions, it's the same<br />\n",
+    "PostedDate": "2013-04-26T09:54:42.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

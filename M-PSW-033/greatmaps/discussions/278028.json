@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "692674",
+    "ThreadId": "278028",
+    "Html": "\r\n<p>If you need smooth zooming in WPF control, then you can replace commented code in RenderMapWPF(...) method with this one:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">else</span> <span style=\"color:green\">// testing smooth zooming</span>\r\n{\r\n\t<span style=\"color:blue\">int</span> zoomOffset = 0;\r\n\tTile parentTile = Tile.Empty;\r\n\t<span style=\"color:blue\">int</span> Ix = 0;\r\n\r\n\t<span style=\"color:blue\">while</span> (parentTile == Tile.Empty &amp;&amp; (Core.Zoom - zoomOffset) &gt;= 1 &amp;&amp; zoomOffset &lt;= LevelsKeepInMemmory)\r\n\t{\r\n\t\tIx = (<span style=\"color:blue\">int</span>)Math.Pow(2, &#43;&#43;zoomOffset);\r\n\t\tparentTile = Core.Matrix.GetTileWithNoLock(Core.Zoom - zoomOffset, <span style=\"color:blue\">new</span> GMap.NET.GPoint((<span style=\"color:blue\">int</span>)(tilePoint.X / Ix), (<span style=\"color:blue\">int</span>)(tilePoint.Y / Ix)));\r\n\t}\r\n\r\n\t<span style=\"color:blue\">if</span> (parentTile != Tile.Empty)\r\n\t{\r\n\t\t<span style=\"color:blue\">int</span> Xoff = Math.Abs(tilePoint.X - (parentTile.Pos.X * Ix));\r\n\t\t<span style=\"color:blue\">int</span> Yoff = Math.Abs(tilePoint.Y - (parentTile.Pos.Y * Ix));\r\n\r\n\t\t<span style=\"color:blue\">var</span> geometry = <span style=\"color:blue\">new</span> RectangleGeometry(<span style=\"color:blue\">new</span> Rect(Core.tileRect.X &#43; 0.6, Core.tileRect.Y &#43; 0.6, Core.tileRect.Width &#43; 0.6, Core.tileRect.Height &#43; 0.6));\r\n\t\t<span style=\"color:blue\">var</span> parentImgRect = <span style=\"color:blue\">new</span> Rect(Core.tileRect.X - Core.tileRect.Width * Xoff &#43; 0.6, Core.tileRect.Y - Core.tileRect.Height * Yoff &#43; 0.6, Core.tileRect.Width * Ix &#43; 0.6, Core.tileRect.Height * Ix &#43; 0.6);\r\n\r\n\t\t<span style=\"color:green\">// render tile </span>\r\n\t\t<span style=\"color:blue\">lock</span> (parentTile.Overlays)\r\n\t\t{\r\n\t\t\t<span style=\"color:blue\">foreach</span> (WindowsPresentationImage img <span style=\"color:blue\">in</span> parentTile.Overlays)\r\n\t\t\t{\r\n\t\t\t\t<span style=\"color:blue\">if</span> (img != <span style=\"color:blue\">null</span> &amp;&amp; img.Img != <span style=\"color:blue\">null</span>)\r\n\t\t\t\t{\r\n\t\t\t\t\t<span style=\"color:blue\">if</span> (!found)\r\n\t\t\t\t\t\tfound = <span style=\"color:blue\">true</span>;\r\n\r\n\t\t\t\t\tg.PushClip(geometry);\r\n\r\n\t\t\t\t\tg.DrawImage(img.Img, parentImgRect);\r\n\r\n\t\t\t\t\tg.DrawRectangle(LessDetailedLevelTileMask, <span style=\"color:blue\">null</span>, geometry.Bounds);\r\n\r\n\t\t\t\t\tg.Pop();\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-11-02T04:59:36.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "702968",
+    "ThreadId": "278028",
+    "Html": "<p>thanks, sorry for delay ;}</p>",
+    "PostedDate": "2011-11-24T06:56:08.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705881",
+    "ThreadId": "278028",
+    "Html": "<p>Hi, I took your updated code, but you have added checking for MercatorProjection. Now it's not working with maps.lt provider (because it uses&nbsp;LKS94Projection). What is the reason for this?</p>",
+    "PostedDate": "2011-12-01T07:33:39.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705883",
+    "ThreadId": "278028",
+    "Html": "<p>If not all projections could solve position in same way, then it might be done in projection class, or it somehow be modified... I could try to do that, but I don't know the difference between projections :)</p>",
+    "PostedDate": "2011-12-01T07:35:47.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706011",
+    "ThreadId": "278028",
+    "Html": "<p>not the projection itself, but level resolution in maps.lt is not consistent, so i disabled it until correct solution arrive</p>",
+    "PostedDate": "2011-12-01T10:50:28.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1022021",
+    "ThreadId": "278028",
+    "Html": "<strong>Lashas wrote:</strong><br />\n<blockquote>\nIf not all projections could solve position in same way, then it might be done in projection class, or it somehow be modified... I could try to do that, but I don't know the difference between projections :)<br />\n</blockquote>\nHave you found a solution for WPF smooth zooming?<br />\n",
+    "PostedDate": "2013-03-27T13:36:50.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

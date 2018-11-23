@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "271367",
+    "ThreadId": "79256",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Im doing a C#.NET project on Windows CE platform, I want to use GMap.NET in my application, I downloaded the recent patch &nbsp;'greatmaps-44518'. Here I opened the solution GMap.NET.sln &amp; ran it, there were some dll's generated including the GMap.NET.WindowsMobile.dll, I have read earlier discussions in this site about adding MainMap control to toolbox by dragging the GMap.NET.WindowsMobile.dll onto it. I followed the same, but I'm unable to see the control in my toolbox. I also tried adding the tool by Tools-&gt;Choose Toolbox items-&gt;in tab .net framework components, I added the GMap.NET.WindowsMobile.dll &amp; checked it. After pressing ok. I'm stil unable to see the control on my toolbox ! &nbsp;Can you please guide me how to add the control? Is there any other dll's i'm missing?</p>",
+    "PostedDate": "2009-12-29T01:34:14.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271998",
+    "ThreadId": "79256",
+    "Html": "<p>..well when i added it to toolbox it was gray(inactive) ;} so i added <em>Panel</em> on the form, then in form.desinger.cs replaced it with <em>GMapControl</em>, and it worked. You may try this too ;}</p>\r\n<p>p.s. welcome any real ideas to fix it</p>",
+    "PostedDate": "2009-12-31T08:27:59.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "272698",
+    "ThreadId": "79256",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Thanks for your reply, I'm stil not able to see the GMapControl in my toolbox, I know it may sound irritating to you, but pls can you elaborate the steps on how you add the GMap tool to the toolbox from the begining i.e Finding the required dll from your downloaded source, adding it to VS 2008 toolbox &amp; using it. This might help all who have the initial trouble of using your tool, It would be very helpful.</p>",
+    "PostedDate": "2010-01-03T19:55:10.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469072",
+    "ThreadId": "79256",
+    "Html": "<p>This is a late post but i only just started using Gmap, and to add it to your toolbox you have to right-click the toolbox and click &quot;Choose Items&quot; then Browse and select your downloaded DLL and it will add them to your toolbox</p>",
+    "PostedDate": "2010-07-19T08:48:34.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469110",
+    "ThreadId": "79256",
+    "Html": "<p>hm.. does it really work for mobile?</p>",
+    "PostedDate": "2010-07-19T10:10:54.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "865293",
+    "ThreadId": "79256",
+    "Html": "<p>hi friend, Im with a trouble also ,</p>\r\n<p>my Gmap.Net.WindowsMobile control toobox is disable.&nbsp;</p>\r\n<p>someone can send me solution ? thanks advince</p>",
+    "PostedDate": "2012-07-13T13:22:20.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869731",
+    "ThreadId": "79256",
+    "Html": "<p>..well when i added it to toolbox it was gray(inactive) ;} so i added Panel on the form, then in form.desinger.cs replaced it with GMapControl, and it worked. You may try this too ;}<br /><br />p.s. welcome any real ideas to fix it</p>",
+    "PostedDate": "2012-07-16T08:32:11.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

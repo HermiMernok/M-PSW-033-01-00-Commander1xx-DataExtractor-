@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "793976",
+    "ThreadId": "340286",
+    "Html": "\r\n<p>Thank you. I am using your project very well.</p>\r\n<p>When I create route, some&nbsp;margins between&nbsp;Top, left, right, bottom&nbsp;of route and&nbsp;map happen.</p>\r\n<p>sometimes, route&nbsp;fill&nbsp;only 50%&nbsp;area of the map.</p>\r\n<p>so. I want to remove them and fill route points&nbsp;on map tightly.</p>\r\n<p>What Can I do it? or&nbsp;decide Map Boundary with Latitude, longitude, not zoom.</p>\r\n<p>Always thank you for your work.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-02-21T23:27:27.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794010",
+    "ThreadId": "340286",
+    "Html": "<p>what do you mean?</p>",
+    "PostedDate": "2012-02-21T23:34:55.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794154",
+    "ThreadId": "340286",
+    "Html": "<p>;} Sorry.</p>\r\n<p>When I call ﻿ZoomAndCenterRoute in GMapControl class,</p>\r\n<p>s﻿ometimes I see zoom level is mismatch with boundary I set Map Rectangle.</p>\r\n<p>Below is my code.</p>\r\n<p>﻿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MapRoute rount = new MapRoute(new List(), \"TEST\");<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rount.Points.Add(new PointLatLng(locRect.sp.y, locRect.sp.x));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rount.Points.Add(new PointLatLng(locRect.ep.y, locRect.ep.x));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.ZoomAndCenterRoute(rount);</p>\r\n<pre>locRect.sp and ep are TopLeft and bottomRight LatLng of objects I want to draw on Map.</pre>\r\n<pre>After loading tiles, I draw my objects with GPS info in ﻿OnPaintOverlays().</pre>\r\n<pre>But, When I draw these objects on zoomed map, they display only in middle of map and doesn't place near boundary.</pre>\r\n<pre>I would like to fill up my objects on the map. but I don't know how to do.</pre>\r\n<pre>Do you understand me? Thank you.</pre>",
+    "PostedDate": "2012-02-22T00:10:57.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794163",
+    "ThreadId": "340286",
+    "Html": "<p>use markers</p>",
+    "PostedDate": "2012-02-22T00:12:34.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794455",
+    "ThreadId": "340286",
+    "Html": "<p>Thanks.</p>\r\n<p>But, It seems that marker and route has same internal routine.&nbsp;</p>\r\n<p>Could you explain difference ?</p>",
+    "PostedDate": "2012-02-22T02:01:23.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794620",
+    "ThreadId": "340286",
+    "Html": "<p>nop ;}</p>",
+    "PostedDate": "2012-02-22T03:54:49.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

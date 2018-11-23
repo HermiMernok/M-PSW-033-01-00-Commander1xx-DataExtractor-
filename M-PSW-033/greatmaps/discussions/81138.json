@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "278378",
+    "ThreadId": "81138",
+    "Html": "<p>Hello,</p>\r\n<p>We have a project which we use the formerly tiled maps.</p>\r\n<p>http://maps.pergo.com.tr</p>\r\n<p>Our map is published on web with OpenLayer.tilecache</p>\r\n<p>How can we provide to use the maps, which are compiled by tilecache, in gmap.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-01-17T23:38:00.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278384",
+    "ThreadId": "81138",
+    "Html": "<p>hey,</p>\r\n<p>well you just need to tell me your map projection first, and if it's not some known&nbsp;standard&nbsp;i need&nbsp;extents&nbsp;of tiles of each zoom</p>\r\n<p>if you don't know, i can figure it out in some time myself</p>",
+    "PostedDate": "2010-01-18T00:01:19.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278434",
+    "ThreadId": "81138",
+    "Html": "<p>hi,</p>\r\n<p>we used EPSG:4326 (WGS84) projections while compiling the maps</p>\r\n<p>as I mentioned above maps are currently published at <a title=\"Pergo Map\" href=\"http://maps.pergo.com.tr\">maps.pergo.com.tr</a> using Openlayer.tilecache</p>",
+    "PostedDate": "2010-01-18T02:10:57.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278441",
+    "ThreadId": "81138",
+    "Html": "<p>but it looks more like PlateCarreeProjection, google has 4 tiles in first zoom, this one has only 2, definitely other projection, anyway i'll try to figure out what it really is</p>",
+    "PostedDate": "2010-01-18T02:25:54.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278608",
+    "ThreadId": "81138",
+    "Html": "<ul>\r\n<li>http://maps.pergo.com.tr/map.htm</li>\r\n</ul>\r\n<ul>\r\n<li>PlateCarreeProjection</li>\r\n<li><br>zoom levels<br>--------------<br>00 -  2 x 1   <br>01 -  4 x 2<br>02 -  8 x 4<br>03 - 16 x 8<br>&nbsp;X -&nbsp; 2*(2^X)&nbsp; x 2^X</li>\r\n</ul>\r\n<p>// zoom0<br>http://map0.pergo.com.tr/tile/00/000/000/000/000/000/000.png <br>http://map3.pergo.com.tr/tile/00/000/000/001/000/000/000.png<br><br>// zoom1<br>http://map4.pergo.com.tr/tile/03/000/000/004/000/000/000.png<br>http://map0.pergo.com.tr/tile/00/000/000/000/000/000/000.png</p>\r\n<p>Can you tell what these cryptic 0000000 means? ;} Thats all i need now to add your map support</p>",
+    "PostedDate": "2010-01-18T11:47:03.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278630",
+    "ThreadId": "81138",
+    "Html": "<p>Hi,</p>\r\n<p><a href=\"http://{domain}/{layerName}/{zoomLevel}/{first3LetterOfTileX}/{second3LetterOfTileX}/{third3LetterOfTileX}/{first3LetterOfTileY}/{second3LetterOfTileY}/{third3LetterOfTileXY}.png\">http://{domain}/{layerName}/{zoomLevel}/{first3LetterOfTileX}/{second3LetterOfTileX}/{third3LetterOfTileX}/{first3LetterOfTileY}/{second3LetterOfTileY}/{third3LetterOfTileXY}.png</a></p>\r\n<p><a href=\"http://map3.pergo.com.tr/tile/00/000/000/001/000/000/000.png\">http://map3.pergo.com.tr/tile/00/000/000/001/000/000/000.png</a></p>\r\n<p>That means: Zoom Level: 0 TileX: 1 TileY: 0</p>\r\n<p><a href=\"http://81.214.141.201:88/tile/14/000/019/371/000/011/825.png\">http://domain/tile/14/000/019/371/000/011/825.png</a></p>\r\n<p>That means: Zoom Level: 14 TileX: 19371 TileY:11825</p>\r\n<p>&nbsp;</p>\r\n<p>Also, it should be a definition file for the system. Because we dont know howmany zoom levels we have. I guess it's not available right now.</p>\r\n<p>There are 18 Zoom levels for this map from 0 to 17.</p>\r\n<p>&nbsp;</p>\r\n<p>And these are resolutions we're using in OpenLayers. From 0 to 17. First zoom level we've 2 tiles. That means first tile's resolution is 180degree / 256pixel = 0.703125</p>\r\n<table border=0>\r\n<tbody>\r\n<tr>\r\n<p>0.703125,<br>0.3515625,<br>0.17578125,<br>0.087890625,</p>\r\n</tr>\r\n<tr>\r\n0.0439453125, 0.02197265625, 0.010986328125,\r\n</tr>\r\n<tr>\r\n0.0054931640625, 0.00274658203125, 0.001373291015625,\r\n</tr>\r\n<tr>\r\n0.0006866455078125, 0.00034332275390625, 0.000171661376953125,\r\n</tr>\r\n<tr>\r\n0.0000858306884765625, 0.00004291534423828125, 0.000021457672119140625,\r\n</tr>\r\n<tr>\r\n0.0000107288360595703125, 0.00000536441802978515625\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>I hope this help.<br>Regards,<br>Baris</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-18T13:01:29.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278640",
+    "ThreadId": "81138",
+    "Html": "<p>okey, something is showing up, tiles upside down, strange, zero/zero is bottom left o.O</p>",
+    "PostedDate": "2010-01-18T13:44:29.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278856",
+    "ThreadId": "81138",
+    "Html": "<p>Hi,<br><br>for compiling maps we use phyton + mapnik + tilecache 2.10.<br><br>The projection parameters in the tilecache.cfg file is as shown below,<br><br>[00]<br><span style=\"color:#800080\">srs=EPSG:4326<br>projection=+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defsmap<br>mapfile=pergostyle00.xml</span><br><br>in &quot;pergostyle00.xml&quot;<br><span style=\"color:#800080\">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;Map bgcolor=&quot;#99B3CC&quot; srs=&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Layer name=&quot;world&quot; srs=&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot; status=&quot;on&quot;&gt;<br>....</span></p>\r\n<p><br>You can see that we did not use a different projection<br><br>As you mentioned the tile frames start from TopLeft in google and others. But it is BottomLeft in tilecache<br><br>it seems to be the main reason for the complicacy.<br><br>while compiling map with tilecache normally the file count that had been created for 00 zoom is 6<br><br>but openlayer.tilecache shows 2 files at 00 zoom.<br><br>you can check the following file for the list of the files that belong to 00 zoom to 04 zoom<br><br>if you want I can prepare the list of the files at other zoom levels too.<br><br><a title=\"Tiled Files\" href=\"http://maps.pergo.com.tr/tile/tile_files_00-04.txt\">http://maps.pergo.com.tr/tile/tile_files_00-04.txt</a><br><br>The file list is as shown below for the first 7 zoom levels</p>\r\n<table style=\"height:270px\" border=1 cellspacing=0 cellpadding=0 width=400>\r\n<tbody>\r\n<tr>\r\n<td valign=top>\r\n<p>Zoom Level (x)</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p><span style=\"font-size:10pt\">The number of the files that is   created after the zoom compiling&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br></span></p>\r\n<p><span style=\"font-size:10pt\">(2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x+1</span>&lt;/sup&gt;<span style=\"font-size:10pt\">+1)*(2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x</span>&lt;/sup&gt;<span style=\"font-size:10pt\">+1)</span></p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p><span style=\"font-size:10pt\">The calculated number of files before   compiling</span></p>\r\n<p><span style=\"font-size:10pt\">2*(2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x</span>&lt;/sup&gt;<span style=\"font-size:10pt\">)&nbsp; x 2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x</span>&lt;/sup&gt;</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>00</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p>6</p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p>2</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>01</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p>15</p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p>8</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>02</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p>45</p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p>32</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>03</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p>153</p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p>128</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>04</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p>561</p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p>512</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>05</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p>2145</p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p>2048</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>06</p>\r\n</td>\r\n<td width=98 valign=top>\r\n<p>8385</p>\r\n</td>\r\n<td width=108 valign=top>\r\n<p>8192</p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>In this case<br><br>&quot;The calculated number of files before compiling&quot; is calculated with<br><br>X -&nbsp; <span style=\"font-size:10pt\">2*(2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x</span>&lt;/sup&gt;<span style=\"font-size:10pt\">)&nbsp; x 2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x</span>&lt;/sup&gt;<br><br>as you said.<br><br>The info that the tilecache is giving during the compiling is also making the same calculation with the given formula and gives the calculated file number<br><br>but the final compiled file count is different. It is as &quot;The number of the files that is created after the zoom compiling&quot; in the above table<br><br>and that is calculated with<br><span style=\"font-size:10pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:10pt\">(2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x+1</span>&lt;/sup&gt;<span style=\"font-size:10pt\">+1)*(2</span>&lt;sup&gt;<span style=\"font-size:12pt\">x</span>&lt;/sup&gt;<span style=\"font-size:10pt\">+1)</span><br>if we calculate for the 04 zoom it makes 561 files with the above formula. And it is the same number with &quot;The number of the files that is created after the zoom compiling&quot;.<br>In the formula</p>\r\n<p>tile process in other applications (topleft)</p>\r\n<table style=\"height:80px\" border=1 cellspacing=0 cellpadding=0 width=129>\r\n<tbody>\r\n<tr>\r\n<td valign=top>\r\n<p><span style=\"color:#ff00ff\">X,Y</span></p>\r\n</td>\r\n<td valign=top>\r\n<p>X+1,Y</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p>X,Y+1</p>\r\n</td>\r\n<td valign=top>\r\n<p>X+1,Y+1</p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>tilecache process in bottomleft appllication</p>\r\n<table style=\"height:66px\" border=1 cellspacing=0 cellpadding=0 width=125>\r\n<tbody>\r\n<tr>\r\n<td valign=top>\r\n<p>X,Y+1</p>\r\n</td>\r\n<td valign=top>\r\n<p>X+1,Y+1</p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td valign=top>\r\n<p><span style=\"color:#ff00ff\">X,Y</span></p>\r\n</td>\r\n<td valign=top>\r\n<p>X+1,Y</p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>&nbsp;</p>\r\n<p>Tilecache screen output for 01 zoom level</p>\r\n<p>01 (000000, 000000) = (-180.0000 -90.0000 -90.0000 0.0000) [0.0940s : 10.627/s] 1/8<br>01 (000001, 000000) = (-90.0000 -90.0000 0.0000 0.0000) [0.0620s : 12.812/s] 2/8<br>01 (000002, 000000) = (0.0000 -90.0000 90.0000 0.0000) [0.0630s : 13.692/s] 3/8<br>01 (000003, 000000) = (90.0000 -90.0000 180.0000 0.0000) [0.0310s : 15.994/s] 4/8<br>01 (000004, 000000) = (180.0000 -90.0000 270.0000 0.0000) [0.0000s : 19.992/s] 5/8<br>01 (000000, 000001) = (-180.0000 0.0000 -90.0000 90.0000) [0.0780s : 18.287/s] 6/8<br>01 (000001, 000001) = (-90.0000 0.0000 0.0000 90.0000) [0.1250s : 15.449/s] 7/8<br>01 (000002, 000001) = (0.0000 0.0000 90.0000 90.0000) [0.2020s : 12.212/s] 8/8<br>01 (000003, 000001) = (90.0000 0.0000 180.0000 90.0000) [0.1250s : 11.537/s] 9/8<br>01 (000004, 000001) = (180.0000 0.0000 270.0000 90.0000) [0.0000s : 12.819/s] 10/8<br>01 (000000, 000002) = (-180.0000 90.0000 -90.0000 180.0000) [0.0000s : 14.101/s] 11/8<br>01 (000001, 000002) = (-90.0000 90.0000 0.0000 180.0000) [0.0160s : 15.073/s] 12/8<br>01 (000002, 000002) = (0.0000 90.0000 90.0000 180.0000) [0.0000s : 16.330/s] 13/8<br>01 (000003, 000002) = (90.0000 90.0000 180.0000 180.0000) [0.0000s : 17.586/s] 14/8</p>\r\n<p>01 (000004, 000002) = (180.0000 90.0000 270.0000 180.0000) [0.0000s : 18.842/s]&nbsp;<span style=\"font-size:18pt;color:#4f81bd\">15</span><span style=\"font-size:18pt\">/<span style=\"color:red\">8</span></span></p>\r\n<p><span style=\"font-size:18pt;color:red\">8</span> is <span style=\"font-size:10pt\">The calculated number of files before   compiling and </span><span style=\"font-size:18pt;color:#4f81bd\">15</span><span style=\"font-size:10pt\"> is </span><span style=\"font-size:10pt\">The number of the files that is   created after the zoom compiling. I don't know the reason of this difference<br></span></p>\r\n<p>&nbsp;</p>\r\n<p>By the way the PergoMap is a map which is only compiled for Turkey and has street level<br><br>You can go to the below link for the location of Istanbul Fatih Sultan Mehmet Bridge which connects Asia and Europe<br><a title=\"Pergo Map\" href=\"http://maps.pergo.com.tr/map.htm?lat=41.091250&lon=29.060848&zoom=14\">http://maps.pergo.com.tr/map.htm?lat=41.091250&amp;lon=29.060848&amp;zoom=14</a> <br><br>After big zoom levels (i think from 08), the blank piece of lands in the generated map files are deleted.<br>this is to fasten the map by preventing the transfers of the blank lands<br><br>If the required frame could not be found at openlayer.tilecache than the frame which is at the adress &quot;<a title=\"Blank Map File\" href=\"http://maps.pergo.com.tr/img/nodata.png\">http://maps.pergo.com.tr/img/nodata.png</a>&quot; is loaded.<br><br>And this prevents a ratio of %50 unnecessary frame cacheing. In Gmap, can we provide a standart frame if the requested frame could not be found at the server as I mentioned above?<br><br>This is all from me now:)<br><br>I hope we can see PergoMap in the the new version of the type list in GMap. :)</p>\r\n<p>Regards,</p>\r\n<p>Mustafa</p>",
+    "PostedDate": "2010-01-19T02:18:56.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278902",
+    "ThreadId": "81138",
+    "Html": "<p>hm, ..any chances to switch to TopLeft system?</p>",
+    "PostedDate": "2010-01-19T05:13:24.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278911",
+    "ThreadId": "81138",
+    "Html": "<p>No, it is the tilecache's standart. we can't switch to TopLeft system.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-19T05:23:30.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278913",
+    "ThreadId": "81138",
+    "Html": "<p>i see, then i'll make some changes</p>",
+    "PostedDate": "2010-01-19T05:25:07.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279054",
+    "ThreadId": "81138",
+    "Html": "<p>done!</p>",
+    "PostedDate": "2010-01-19T09:25:07.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279419",
+    "ThreadId": "81138",
+    "Html": "<p>It's greath. I will test right away.</p>\r\n<p>Thanks for your effort.</p>",
+    "PostedDate": "2010-01-20T04:31:05.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279520",
+    "ThreadId": "81138",
+    "Html": "<p>You may want to rename from PergoMap to TileCache?<br>Because the name of standart is TileCache.</p>\r\n<p>Regards,<br>Baris</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-20T08:00:38.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279522",
+    "ThreadId": "81138",
+    "Html": "<p>all maps are tilecaches, so you want TileCache1, TileCache2bn? ;}</p>",
+    "PostedDate": "2010-01-20T08:04:24.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

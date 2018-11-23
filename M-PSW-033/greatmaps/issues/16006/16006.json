@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": ";/",
+    "ClosedDate": "2011-05-27T10:11:19.817-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I am trying to include the map application in a project I am working on. I tried to use a GMapMarkerGoogleRed marker but it throws a TypeInitializationException when I use the same code shown in the Demo.WindowsForms\r\n\r\ncurrentMarker = new GMapMarkerGoogleRed(MainMap.Position);\r\n\r\nIn the project I am using, if I simply add the DLL references i get a SimpletonCreator threw an exception and the tiles remain blue. If I include the Source Code then I get the exception.\r\n\r\nFor further testing, I removed the references in the Demo.WindowsForms and added the source code folders and once again I got the TypeInitializationException with the following error: \r\n\"{\"Could not find any resources appropriate for the specified culture or the neutral culture.  Make sure \\\"System.Windows.Forms.Properties.Resources.resources\\\" was correctly embedded or linked into assembly \\\"Demo.WindowsForms\\\" at compile time, or that all the satellite assemblies required are loadable and fully signed.\"}\"\r\n",
+    "LastUpdatedDate": "2011-05-27T10:42:56.413-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-05-27T07:36:05.81-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMapMarker Exception",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16006
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "That's what I meant...the two dlls. Sorry for posting here I meant to do it on discussion board. But I still have the same error.",
+      "PostedDate": "2011-05-27T10:42:56.413-07:00",
+      "Id": 36550
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "709615",
+    "ThreadId": "282331",
+    "Html": "\r\n<p>Hey guys,</p>\r\n<p>Any pointers on how to change the default alignment of the GMapMarker.Tooltip Text? I've tried to set Tooltip.Format with a StringFormat but it complains about it being a read only property.</p>\r\n<p>Thanks :-)</p>\r\n",
+    "PostedDate": "2011-12-08T16:42:03.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709618",
+    "ThreadId": "282331",
+    "Html": "<p>I'm a tool, for those who encounter the same problem, if you try and create another StringFormat object and then assign it to the marker as such:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.ToolTip = new GMapToolTip(marker);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringFormat sf = new StringFormat();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sf.Alignment = StringAlignment.Near;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.ToolTip.Format= sf;</p>\r\n<p>You get an error complaining about read only properties.</p>\r\n<p>Use this instead;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.ToolTip = new GMapToolTip(marker);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.ToolTip.Format.Alignment = StringAlignment.Near;</p>",
+    "PostedDate": "2011-12-08T16:45:54.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

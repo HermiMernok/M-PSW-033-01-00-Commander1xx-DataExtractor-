@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "808928",
+    "ThreadId": "348207",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>i'm new to Gmap. I'm wanna create a simple windows app with Gmap.</p>\r\n<p>I wanna find the nearest facility like Police station, Schools, Hospitals etc from the last marker placed on the map.</p>\r\n<p>the Facilities can be prefixed markers...</p>\r\n<p>any idea...<br>\r\nplease help me.....</p>\r\n<p>Rintil</p>\r\n<p>:-(&nbsp;</p>\r\n<p>thanks in advance......</p>\r\n",
+    "PostedDate": "2012-03-11T23:09:47.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817944",
+    "ThreadId": "348207",
+    "Html": "<p>you may use:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>PointLatLng start = <span style=\"color: blue;\">new</span> PointLatLng(lat1, lon1);\r\nPointLatLng end = <span style=\"color: blue;\">new</span> PointLatLng(lat2, lon2);\r\nMapRoute route = GMapProviders.GoogleMap.GetRoute(start, end, <span style=\"color: blue;\">false</span>, <span style=\"color: blue;\">false</span>, 15);\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-03-30T13:59:36.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

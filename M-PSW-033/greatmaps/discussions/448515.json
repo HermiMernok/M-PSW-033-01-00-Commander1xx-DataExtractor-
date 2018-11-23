@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1062383",
+    "ThreadId": "448515",
+    "Html": "Hello radioman and everyone else.\r<br />\n<br />\nI really love the GMap.NET control and almost every time I use it, I learn some new features of it (well, that is probably because of lack of documentation, but after all I managed to use it in my little project).\r<br />\n<br />\nWhat I'm currently trying to work out, is how can I use a tooltip on a route - in an ideal world, it would be nice to have it in a way like it works with the markers.\r<br />\n<br />\nSo\r<br />\n<br />\nroute.tooltiptext=&quot;Hello world&quot; \r<br />\nroute.tooltipmode=MarkerTooltipMode.OnMouseOver\r<br />\n<br />\nwould be so nice to have! Or am I missing something maybe and it is already implemented? I could only find the IsHitTestVisible property, which makes the route clickable, but then I would probably need to write some sort of handler for that and a simple tooltip without clicking would be so much better...\r<br />\n<br />\nIm using GMap.Net in Visual Studio 2012 in VB.Net<br />\n",
+    "PostedDate": "2013-06-28T03:21:53.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062387",
+    "ThreadId": "448515",
+    "Html": "try check OnRouteEnter/Leave events<br />\n",
+    "PostedDate": "2013-06-28T03:33:42.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062390",
+    "ThreadId": "448515",
+    "Html": "Do you know how I can attach to these events in VB.Net? I know you develop in C# - so you probably do not know...?!<br />\n",
+    "PostedDate": "2013-06-28T03:44:23.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062788",
+    "ThreadId": "448515",
+    "Html": "Hello again!\r<br />\n<br />\nI found out how to access a handler of GMap in VB.net - but the route-handler does not seem to work yet. What I can do is, for example get the event of a marker click with:<br />\n<pre><code>Private Sub RouteTipHandler() Handles GMapControl1.OnMarkerClick\n        MsgBox(&quot;Test&quot;) \nEnd Sub</code></pre>\n\nbut the OnRouteClick oder OnRouteEnter dont seem to get fired?!\r<br />\n<br />\nI add the route and marker like this:<br />\n<pre><code>Dim r As New GMapRoute(route.Points, route.Name)\nDim m1 As GMapMarker = New GMapMarker_Custom(route_start, My.Resources.Marker_Start)\nGMapControl1.Overlays(2).Routes.Add(r)\nGMapControl1.Overlays(2).Markers.Add(m1)\n</code></pre>\n\nAny ideas?<br />\n",
+    "PostedDate": "2013-06-29T08:38:44.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062795",
+    "ThreadId": "448515",
+    "Html": "I finally got it sorted out.\r<br />\n<br />\nI needed to let the route react on events by setting it's IsHitTestVisible = True !\r<br />\nThen it reacts on all the mouse events...<br />\n",
+    "PostedDate": "2013-06-29T09:16:13.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1293070",
+    "ThreadId": "448515",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\ntry check OnRouteEnter/Leave events<br />\n</blockquote>\ncan't find this event in my gMapsControl... where is should search for it?<br />\n",
+    "PostedDate": "2014-08-25T04:41:55.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1306270",
+    "ThreadId": "448515",
+    "Html": "hello guys, someone has implemented the change? it would be interesting...<br />\n",
+    "PostedDate": "2014-09-19T04:04:31.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

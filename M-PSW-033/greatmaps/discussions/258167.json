@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "614956",
+    "ThreadId": "258167",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>I have successfully added custom markers on my map, three different custom markers in their own overlay.</p>\r\n<p>However, I still need to add 2 more overlays with markers which are updated every 5 seconds in a timer.</p>\r\n<p>I have tried with no luck to see my markers using a timer.</p>\r\n<p>This is what I have tried</p>\r\n<p>The latitude and longitude are working fine I have looked at them during debugging.</p>\r\n<p>What am i doing wrong?</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> tmrAI_Tick(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            aircraft.Markers.Clear();\r\n            PointLatLng mpoint = <span style=\"color:blue\">new</span> PointLatLng(latitude, longitude);\r\n            GMapMarkerGoogleGreen gg = <span style=\"color:blue\">new</span> GMapMarkerGoogleGreen(mpoint);\r\n            gg.ToolTipText = <span style=\"color:#a31515\">&quot;TEST&quot;</span>;\r\n            aircraft.Markers.Add(gg);\r\n}\r\n</pre>\r\n</div>\r\nMike\r\n<p></p>\r\n",
+    "PostedDate": "2011-05-18T17:04:14.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614963",
+    "ThreadId": "258167",
+    "Html": "<p>Never mind I found the issue.</p>\r\n<p>Seems that you have to add the overlay first LOLOLOL!!!!!!!!!!!!!!!</p>\r\n<p>Weird though that I did not have to on my other checkbox clicked to show markers code.</p>",
+    "PostedDate": "2011-05-18T17:55:21.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615054",
+    "ThreadId": "258167",
+    "Html": "<p>..one point, if you constantly create new marker and 'forget' the old one in the loop, sooner or later you'll get memory leak, the solution is to reuse objects, and just change it's properties/visibility/position/etc...</p>",
+    "PostedDate": "2011-05-19T01:14:55.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615253",
+    "ThreadId": "258167",
+    "Html": "<p>Thanks radio I will try that today. The one aircraft can be reused for sure however I have other aircraft that are constantly changing and dropping off the map which will be a little more difficult but I should be able to figure it out.</p>",
+    "PostedDate": "2011-05-19T07:50:28.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615260",
+    "ThreadId": "258167",
+    "Html": "<p>if object tend frequently appear/disappear use property IsVisible = true/false, if the timespan is long enough you can remove it from markers and keep it in memory until it again appears, need some tuning i guess ;}</p>",
+    "PostedDate": "2011-05-19T07:56:22.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615368",
+    "ThreadId": "258167",
+    "Html": "<p>I definitely need some tuning.</p>\r\n<p>I used your older control about 2 years ago in my app and was doing the same type of map. That application used about 35 to 55MB of RAM. This current application is going up to 750MB of RAM (ouch).</p>\r\n<p>So, time to tag each marker, reuse it if it is there and drop just the marker from the overlay if it is no longer there. Think of the application as an air traffic map where the traffic drops off when they are out of scope (about 40 miles from the main marker which is on another overlay layer).</p>\r\n<p>I will figure it out to get it using less resources for sure before I release this memory hog LOL (my fault not yours).</p>\r\n<p>Thanks for the help and I will update you on how it is going.</p>",
+    "PostedDate": "2011-05-19T10:31:01.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1091939",
+    "ThreadId": "456743",
+    "Html": "Howdy,<br />\n<br />\nAn awesome application I wrote using GMap.Net all of sudden stopped working.  Couldn't add markers; map would just not respond.  So I ended up downloading the latest source and although things are working much better, I am having trouble upgrading my code.  In particular, the GMap.Net.WindowsPresentation.GMapMarker.RegenerateRouteShape method is no longer available, and neither is the routeMarker.Route.AddRange method.  Any help in working around these issues would be very appreciated.<br />\n<br />\nAnother issue with upgrading is that I used to parse out time and distance from a MapRoute Name but I'm not getting that information back, just the Distance in kms.  Where can I still get this information?<br />\n<br />\nThanks,<br />\nRobert<br />\n",
+    "PostedDate": "2013-09-12T15:23:37.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092045",
+    "ThreadId": "456743",
+    "Html": "Fyi, I was able to correct my issues but switching to GMapRoute instead of GMapMarker, ala:<br />\n<pre><code>        routeMarker = New GMapRoute(route.Points)\n        routeMarker.RegenerateShape(MainMap)\n</code></pre>\n\nAlso, in order to get distance and time, I had to use GetDirections, such as:<br />\n<pre><code>        Dim directionsResult = GMapProviders.GoogleMap.GetDirections(directions, startPoint, destinationPoint, False, False, False, False, True)\n        result.DistanceTimeToMarker = directions.ToString()</code></pre>\n\n",
+    "PostedDate": "2013-09-12T18:35:34.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "516365",
+    "ThreadId": "233298",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>On Oct 18/19&nbsp; you said your idea was working and have made changes to the markers again.</p>\r\n<p>What is/was your idea, and how have the markers changed again.</p>\r\n<p>Thanks,</p>\r\n",
+    "PostedDate": "2010-11-03T03:55:03.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516373",
+    "ThreadId": "233298",
+    "Html": "\r\n<p>...this is related to windows forms version, in the 'old' system when you drag map or move marker, each position of marker was recalculated using current projection, and if conversation code is long and if you have many coordinates to calculate it eats your\r\n cpu and lags on user interface, so i've decided to calculate only once per zoom change so markers stays in the same position regardless where you move the map, because it just change offset in translation matrix, so it virtually 'moves'. Nice and efficient.&nbsp;<strong>BUT</strong>\r\n in practice e.Graphics.<strong><em>TranslateTransform</em></strong> function and high offsets makes distortions ;/ Set max zoom and slowly drag, damn effect isn't very pleasant, specially in the satellite mode, so i'm still stuck in the optimization branch\r\n ;}</p>\r\n<p>any workarounds? ;/</p>\r\n",
+    "PostedDate": "2010-11-03T04:21:40.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "534281",
+    "ThreadId": "233298",
+    "Html": "\r\n<p>The issue I see with performance is when panning (moving the current projection left to right).</p>\r\n<p>I would think that you could do the following to make this fast:</p>\r\n<p>1. Render the markers onto an internal graphics object merged with the tile behind them.</p>\r\n<p>2. Hold that tile in memory and use it as the tile graphic (yes, you would have to render on the fly new markers that come into position, but you'd only do it once)</p>\r\n<p>3. Ignore all updates to the marker geometry (eg boundary, etc) and only draw the map while\r\n<strong>the mouse is down</strong>. Essentially draw the map as if we had no markers at all.</p>\r\n<p>4. When the mouse up occurs, update all marker internal data.</p>\r\n<p>The map would move fast and only update all the expensive floating point operations once (per mouse up)</p>\r\n<p>Thoughts?</p>\r\n",
+    "PostedDate": "2010-12-10T22:05:01.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "534389",
+    "ThreadId": "233298",
+    "Html": "\r\n<p>...what if marker is in between two tiles, rendering it would involve complex coding... anyway i'm already know transformations limitation workaround using current position point as origin for rendering, so you can pan &#43;- 100k px without any artifacts, and\r\n that would change only transformation matrix, so rendering will be done the fastest way without recalculating positions, all i need is just to implement dynamic origin aware system, i'm experimenting on it in&nbsp;optimizations branch, happy way to go ;}</p>\r\n",
+    "PostedDate": "2010-12-11T08:45:35.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "534430",
+    "ThreadId": "233298",
+    "Html": "\r\n<p>Interesting. I didn't think about the point being between two tiles. I just assumed that the tile lat/long precsion would be fine enough to prevent that. Since you point it out, it seems that I was wrong to make that assumption.</p>\r\n<p>If I want to play around with it should I get the entire optimization branch or is there a part that is revelant to just this issue?</p>\r\n",
+    "PostedDate": "2010-12-11T11:31:21.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "534434",
+    "ThreadId": "233298",
+    "Html": "\r\n<p>if you want to try implement rendering markers directly on tiles use default branch, and if you are interested to help implementing my&nbsp;transformations limitation workaround check&nbsp;the optimization branch, anyway you may need both... ;}</p>\r\n",
+    "PostedDate": "2010-12-11T11:45:31.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

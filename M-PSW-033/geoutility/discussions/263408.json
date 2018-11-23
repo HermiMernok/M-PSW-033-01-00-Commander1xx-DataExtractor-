@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "635399",
+    "ThreadId": "263408",
+    "Html": "\r\n<p>Hello geoutility Team,</p>\r\n<p>&nbsp;</p>\r\n<p>is it possible to show a transformation example in VB.Net?</p>\r\n<p>Just convert to it brings some error:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">Dim</span> geo <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Geographic(8.12345, 50.56789)\r\n        <span style=\"color:blue\">Dim</span> utm <span style=\"color:blue\">As</span> UTM = <span style=\"color:blue\">DirectCast</span>(geo, UTM)\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;Der Wert vom Typ &quot;GeoUtility.GeoSystem.Geographic&quot; kann nicht in &quot;GeoUtility.GeoSystem.UTM&quot; konvertiert werden.&nbsp;</p>\r\n<p>The Value of Type &quot;GeoUtility.GeoSystem.Geographic&quot; can not be convertet in &quot;GeoUtility.GeoSystem.UTM&quot;.</p>\r\n<p>Is there any solution known?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>RobbeEDE</p>\r\n",
+    "PostedDate": "2011-06-30T07:10:31.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635401",
+    "ThreadId": "263408",
+    "Html": "<p>Damn.</p>\r\n<p>&nbsp;</p>\r\n<p>Solution is to use CType instead of DirectCast</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">Dim</span> geo <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> Geographic(8.12345, 50.56789)\r\n        <span style=\"color: blue;\">Dim</span> utm <span style=\"color: blue;\">As</span> UTM = <span style=\"color: blue;\">CType</span>(geo, UTM)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>works great!</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks that much</p>\r\n<p>RobbeEDE</p>",
+    "PostedDate": "2011-06-30T07:13:12.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635880",
+    "ThreadId": "263408",
+    "Html": "<p>Hi RobbeEDE,</p>\r\n<p>You've already found the solution.</p>\r\n<p>This article on Code Project explaines the difference between&nbsp;CType and DirectCast&nbsp;(<a href=\"http://www.codeproject.com/KB/vb/DirectcastVsCtype.aspx\">http://www.codeproject.com/KB/vb/DirectcastVsCtype.aspx</a>):<br />[...&nbsp;Only <span class=\"search\">CType</span> can convert the underlying object to a new instance of an object of a different type. For example, if you want to turn an integer into a string. Since an Integer doesn't inherit a String, a new instance of a String object must be created in order to store the number as a String. <span class=\"search\">CType</span> can do this, <span class=\"search\">DirectCast</span> cannot. ...]</p>\r\n<p>You can try this online converter:<br /><a href=\"http://www.carlosag.net/Tools/CodeTranslator/\">http://www.carlosag.net/Tools/CodeTranslator/</a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-01T01:38:02.433-07:00",
+    "UserRole": "Owner",
+    "MarkedAsAnswerDate": null
+  }
+]

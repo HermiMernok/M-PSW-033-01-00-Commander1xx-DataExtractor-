@@ -1,0 +1,242 @@
+[
+  {
+    "Id": "1020287",
+    "ThreadId": "437803",
+    "Html": "I've got a map loaded into my program (using Visual C# 2010, and gMapControl).  I can draw lines on the map (YAY).  I'm using:<br />\n<pre><code>        private void gMapControl1_Paint(object sender, PaintEventArgs e)\n        {\n            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;\n            Pen fl = new Pen(Color.Red, 3.0f);\n            e.Graphics.DrawLine(fl, x_start, y_start, xx, yy);\n        }</code></pre>\n\nWhere x_start and y_start is the left mouseDown, and xx, yy is the current position, as below:<br />\n<pre><code>        private void gMapControl1_MouseDown(object sender, MouseEventArgs e)\n        {\n            if (e.Button == MouseButtons.Left)\n            {\n                mouseDown = 1;\n                Point pmousePos = new Point(e.X, e.Y);\n                x_start = e.X;\n                y_start = e.Y;\n            }\n        }</code></pre>\n\nMy problem is that when I pan the map, or zoom the map, my drawn lines stay in the same place on the screen; they're not &quot;tied to the ground (map&quot;).\r<br />\n<br />\nAny direction would be appreciated.\r<br />\nAW<br />\n",
+    "PostedDate": "2013-03-24T07:35:34.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020296",
+    "ThreadId": "437803",
+    "Html": "use GMapRoute/Marker/Polygon<br />\n",
+    "PostedDate": "2013-03-24T07:54:26.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020317",
+    "ThreadId": "437803",
+    "Html": "I appreciate the direction, but that only killed the battery on my cell.\r<br />\n<br />\nShould I not be using my second sample above to get coordinates?  Is this method only returning screen coordinates?\r<br />\nOr perhaps I should be feeding the method with &quot;map coordinates&quot;?\r<br />\nShould I not be using the gMapControl1_Paint method to &quot;paint&quot;  lines between mouseDown's?<br />\n",
+    "PostedDate": "2013-03-24T09:13:33.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020702",
+    "ThreadId": "437803",
+    "Html": "It looks like I need to draw (or Paint) my line on an overlay, and then add the overlay to the map.  It this correct?<br />\n",
+    "PostedDate": "2013-03-25T08:56:00.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020717",
+    "ThreadId": "437803",
+    "Html": "It looks like I need to draw (or Paint) my line on an overlay, and then add the overlay to the map.  It this correct?<br />\n",
+    "PostedDate": "2013-03-25T09:13:55.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020843",
+    "ThreadId": "437803",
+    "Html": "This is some of my code:<br />\n<pre><code>using System;\nusing System.Collections.Generic;\nusing System.ComponentModel;\nusing System.Data;\nusing System.Drawing;\nusing System.Linq;\nusing System.Text;\nusing System.Windows.Forms;\nusing GMap.NET.MapProviders;\nusing GMap.NET.WindowsForms;\nusing GMap.NET.WindowsForms.Markers;\n\nnamespace GMap_AW\n{\n\n    public partial class Form1 : Form\n    {\n        GMapControl MainMap = new GMapControl();\n        GMapMarkerImage m = new GMapMarkerImage(new PointLatLng());\n        GMapOverlay overlayOne;\n\n        int dragging = 0;\n        int mouseDown = 0;\n        float x_start;\n        float y_start;\n        float x_end;\n        float y_end;\n        float xx;</code></pre>\n\nWhy am I getting this error ?<br />\n<pre><code>Error   1   The type or namespace name 'GMapMarkerImage' could not be found (are you missing a using directive or an assembly reference?)   \n</code></pre>\n\n",
+    "PostedDate": "2013-03-25T12:52:16.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021777",
+    "ThreadId": "437803",
+    "Html": "I realize now that I need to reference the screen coordinates relative to the map, and then redraw my lines on the screen after I pan or zoom.\r<br />\nTo reference the screen I use:<br />\n<pre><code>      Double   lat = gMapControl1.FromLocalToLatLng(e.X, e.Y).Lat;\n      Double   lng = gMapControl1.FromLocalToLatLng(e.X, e.Y).Lng;\n</code></pre>\n\nAfter I pan or zoom I need to find out where the above coordinates are relative to the screen.  The command is:<br />\n<pre><code>      Double   lng = gMapControl1.FromLatLngToLocal(PointLatLng Point);\n</code></pre>\n\nBut what is the proper syntax?  Because the compiler doesn't like &quot;PointLatLng Point&quot;.\r<br />\n<br />\nThanks\r<br />\nAw<br />\n",
+    "PostedDate": "2013-03-27T07:13:16.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021838",
+    "ThreadId": "437803",
+    "Html": "&quot;Point&quot; is a structure of namespace System.Drawing, that's why the compiler is complaining...\r<br />\nWhy don't you just use a GMapRoute as radioman already suggested?<br />\n",
+    "PostedDate": "2013-03-27T08:42:19.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021871",
+    "ThreadId": "437803",
+    "Html": "I've tried using:\r<br />\n<br />\n   GMapRoute m = new GMapRoute(new Point.LatLng());\r<br />\n<br />\nBut I get an error of:\r<br />\n<br />\nError\t1\tThe type name 'LatLng' does not exist in the type 'System.Drawing.Point'\r<br />\n<br />\nAW<br />\n",
+    "PostedDate": "2013-03-27T09:34:45.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021875",
+    "ThreadId": "437803",
+    "Html": "I'm sorry, but you should learn to program C# first...<br />\n<pre><code>        GMapRoute route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;test&quot;);\n        //Add all your points here\n        route.Points.Add(...\n        yourOverlay.Routes.Add(route);</code></pre>\n\n",
+    "PostedDate": "2013-03-27T09:38:14.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023271",
+    "ThreadId": "437803",
+    "Html": "Xandolph (radioman);\r<br />\n<br />\nWell, I can appreciate that comment.\r<br />\nI'm an old guy; when I got out of school there were no computers.  Any function I can grasp and learn is a &quot;HELLS YEAH&quot; moment for me...I do enjoy the logic.\r<br />\n<br />\nI'm building my list of &quot;line ends&quot; with:\r<br />\nline_end_coordinate.Add(x_start = e.X;);\r<br />\nline_end_coordinate.Add(y_start = e.y);\r<br />\nand so on...\r<br />\n<br />\nWhich is triggered by mouse (up/down) activity.\r<br />\nBut how do I feed this into: route.Points.Add(???)  ?\r<br />\n<br />\nI do appreciate your responses, please excuse my short comings in understanding.\r<br />\nAW<br />\n",
+    "PostedDate": "2013-03-30T10:27:08.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023272",
+    "ThreadId": "437803",
+    "Html": "well just like that, nothing advanced, if you'll figure it out by yourself, later it will be a lot easier\r<br />\ndon't think, just do, don't try to understand every detail, there are just too many of them... well at least for me ;}<br />\n",
+    "PostedDate": "2013-03-30T10:53:13.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023384",
+    "ThreadId": "437803",
+    "Html": "Ok, lets start over :-) First, just tell us exactly what you want to do, then we'll find a solution.<br />\n",
+    "PostedDate": "2013-03-31T00:30:29.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023437",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nWow; I appreciate that.\r<br />\nI'm not a programmer, never had a class of any kind; and you will see this as fact (as in my previous posts).\r<br />\nAllow me to gather my thoughts, and I will post back tomorrow.\r<br />\n<br />\nThank you\r<br />\nAW<br />\n",
+    "PostedDate": "2013-03-31T06:56:04.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023798",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nI'm loading maps from ArcGIS_Topo_US_2D_MapProvider.  I like these maps because my clients send their mapping flight lines to me on USGS 7.5 minute Quad maps; the digital Topo's have ground contour elevation lines that I require to set the final altitude for the flight line.\r<br />\n<br />\nI draw flight lines on these digital maps using mouse up / down activity.  While drawing these flight lines, I capture the latitude / longitude of the start and stop of each flight line.  These coordinates are fed into my flight management system; which provides aircraft steering direction for the pilot.  The steering resolution is 0.10 degrees horizontally and one foot vertically.\r<br />\n<br />\nMy problem is that some projects require the ArcGIS Topo map to be either zoomed or moved during the digitizing of the flight lines.  When I zoom or move the map, my drawn lines stay in one place while the map moves.  I finally realized that I needed to do something like &quot;gMapControl1.FromLatLngToLocal&quot; after zooming or moving the map, and then redraw my flight lines by looping thru my list of end_of_line_coordinates.\r<br />\n<br />\nYou suggested using:\r<br />\n<br />\n GMapRoute route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;test&quot;);<br />\n<pre><code>    //Add all your points here\n    route.Points.Add(...\n    yourOverlay.Routes.Add(route);\n\n</code></pre>\n\nBut I don't know how to feed my list of end_of _line_coordinates to &quot;route.Points.Add(...&quot;.  I tried to feed the coordinates manually such as:\r<br />\n<br />\n route.Points.Add(39.302751, 077.52230);\r<br />\n...\r<br />\n<br />\nBut this is not the way.\r<br />\n<br />\nThis is where I am.  What is the syntax to feed my end of line coordinates to route.Points.Add(???);\r<br />\n<br />\nThank you\r<br />\nAW<br />\n",
+    "PostedDate": "2013-04-01T08:05:40.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023813",
+    "ThreadId": "437803",
+    "Html": "Hi!<br />\nYou have to add a PointLatLng structure to the list of points that define your route. If you take a look at the constructor of PointLatLng, you can see, that you have to pass the latitude as first parameter and the longitude as the second parameter:<br />\n<pre><code>  public PointLatLng(double lat, double lng)\n  {\n     this.lat = lat;\n     this.lng = lng;\n  }\n</code></pre>\n\nSo, to add a point to your route you just need the following lines:<br />\n<pre><code>PointLatLng p = new PointLatLng(39.302751d, 77.52230d);\nroute.Points.Add(p);</code></pre>\n\nYour mouse click event could look something like this (you could get the geographic position (Lat/Long) from the location of the mouse click):<br />\n<pre><code>    private void map1_MouseClick(object sender, MouseEventArgs e)\n    {\n        if (e.Button == System.Windows.Forms.MouseButtons.Left)\n        {\n            PointLatLng p = map1.FromLocalToLatLng(e.X, e.Y);\n            route.Points.Add(p);\n            map1.UpdateRouteLocalPosition(route);\n        }\n    }\n</code></pre>\n\nBy the way, if you want some good information on the basics of C#, check out <a href=\"http://www.informit.com/library/library.aspx?b=STY_Csharp_24hours\" rel=\"nofollow\">http://www.informit.com/library/library.aspx?b=STY_Csharp_24hours</a> it also helped me, when I started to learn. But mostly it's learning by doing...<br />\n",
+    "PostedDate": "2013-04-01T08:34:15.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1023874",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nThank you for the reading link, I will absolutely spend much time with that!\r<br />\n<br />\nUsing your suggestion above, I modified it to fit my code as below:<br />\n<pre><code>               PointLatLng p = gMapControl1.FromLocalToLatLng(e.X, e.Y);\n                route.Points.Add(p);\n                label9.Text = Convert.ToString(p);\n</code></pre>\n\nMy &quot;lable&quot; lets me see the Points.\r<br />\n<br />\nBut when I move my map the lines stay on the screen where drawn.  I have more mountains to climb.  My &quot;map&quot; does not have a name.  I initialize the map like this:<br />\n<pre><code>       // Initialize map:\n        //gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\n        gMapControl1.MapProvider = GMap.NET.MapProviders.ArcGIS_Topo_US_2D_MapProvider.Instance;\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n        gMapControl1.Position = new GMap.NET.PointLatLng(39.401389, -077.986111); //mrb\n        gMapControl1.Zoom = 10;\n</code></pre>\n\nInstead of using your &quot;map1.UpdateRouteLocalPosition(route);&quot;, I use:<br />\n<pre><code>                 gMapControl1.UpdateRouteLocalPosition(route);\n</code></pre>\n\nHow do I re-draw these lines after the map is moved or zoomed?\r<br />\n<br />\nAW<br />\n",
+    "PostedDate": "2013-04-01T11:42:31.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024240",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nWell, my world just opened up!  I've been under the impression that I had to convert the lat / longs to screen coordinates, and then feed them back into the Control1_Paint function to redraw the map when it was zoomed or moved...NOT SO !!!  I found that I can do this:<br />\n<pre><code>                PointLatLng p = gMapControl1.FromLocalToLatLng(e.X, e.Y);\n                route.Points.Add(p);\n                label9.Text = Convert.ToString(p);\n                gMapControl1.UpdateRouteLocalPosition(route);\n                route.Stroke.Width = 5;\n                route.Stroke.Color = Color.Black;\n                GMapOverlay routesOverlay = new GMapOverlay(gMapControl1, &quot;route&quot;);\n                routesOverlay.Routes.Add(route);\n                gMapControl1.ZoomAndCenterRoute(route);\n                gMapControl1.Overlays.Clear();\n                gMapControl1.Overlays.Add(routesOverlay);\n</code></pre>\n\nMy HELLS YEAH moment!\r<br />\n<br />\nThanks Xandolph!\r<br />\nAW<br />\n",
+    "PostedDate": "2013-04-02T06:21:53.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024265",
+    "ThreadId": "437803",
+    "Html": "That's the way to do it :-)\r<br />\nYou don't need to draw a line by yourself. \r<br />\nSome more points to consider: Do you add your overlay to the map in the mouse click event handler? If so, don't! Move this code to the constructor. (You only need to add it once.)\r<br />\nSet the code for your route(s) in the constructor or in the form_load event as well (Stroke settings, add it to the overlay).\r<br />\nYou just need to add the new point in the mouse click event handler.<br />\n",
+    "PostedDate": "2013-04-02T06:57:14.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024392",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nI very much appreciate your direction.\r<br />\nTo create my &quot;route&quot;, I'm using:\r<br />\n<br />\n GMapRoute route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;);\r<br />\n<br />\nMy problem is that my drawn flight lines can be very much random, like lines that are drawn on paper.  I'm using gMapControl1.Overlays.Add(...  it makes one continuous path.  I would like my drawn lines to not be connected to each other.  I'm wondering if I should (or if I can) make a new route for each flight line, so that the .Add(routesOverlay) only draws the straight flight lines.\r<br />\n<br />\nSomething like:\r<br />\n GMapRoute route_1 = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;);\r<br />\n GMapRoute route_2 = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;);\r<br />\n GMapRoute route_3 = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;);\r<br />\n(I could have 100 flight lines, or more).\r<br />\n<br />\nAnd then, if the above could be done, can the routes be named dynamically, as on the fly?\r<br />\n<br />\n<br />\nThanks\r<br />\nAW<br />\n",
+    "PostedDate": "2013-04-02T11:07:20.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024403",
+    "ThreadId": "437803",
+    "Html": "Questions: Does every flight line consist only of 2 points (start/end)? Do you need to have a unique name for every route?<br />\n<br />\nThink of the overlay as a kind of container for routes, markers, polygons, etc. Usually you only need one overlay, it can contain an arbitrary number of routes. <br />\nYou could use an array or a list of routes (the name you pass as string does not rerally matter) to accomplish what you want.<br />\n",
+    "PostedDate": "2013-04-02T11:25:32.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024418",
+    "ThreadId": "437803",
+    "Html": "Yes Sir, each flight line consists of only 2 points, start and end.\r<br />\n<br />\nTo capture the start of the line on mouseDown I do:<br />\n<pre><code> PointLatLng p = gMapControl1.FromLocalToLatLng(e.X, e.Y);\n                route.Points.Add(p);\n</code></pre>\n\nAnd I do the same thing at the end of the line:<br />\n<pre><code> PointLatLng p = gMapControl1.FromLocalToLatLng(e.X, e.Y);\n                route.Points.Add(p);\n</code></pre>\n\nHowever, with more than one flight line (and there's always more than one), now when its drawn, the path is straight between the first two mouse captures, then a line is drawn from the end of the first flight line to the beginning of the second flight line.<br />\n",
+    "PostedDate": "2013-04-02T11:56:32.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025008",
+    "ThreadId": "437803",
+    "Html": "What you could do:\r<br />\n<br />\ndefine 2 class variables:\r<br />\n<br />\nprivate bool bStartnewRoute = true;\r<br />\n<br />\nprivate GMapRoute route = null;\r<br />\n<br />\nin your mouse down:\r<br />\n<br />\nIf bStartNewRoute is true, set it to false, create a new route and add startpoint. If bStartNewRoute is false, set it to true and add endpoint. Now you can add as many flight lines as you want.\r<br />\n<br />\nIf you need more help, I can send you some code, but try for yourself first :-)<br />\n",
+    "PostedDate": "2013-04-03T10:54:56.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025012",
+    "ThreadId": "437803",
+    "Html": "I appreciate that.  I've been paddling in circles over this.  My HELLS YEAH has become a pffffttt.\r<br />\nI understand the creation of a switch (as in on / off).  Yep, I can do that for sure.\r<br />\nSo if new flight line, then make a new route as below ?\r<br />\n<br />\nGMapRoute route_1 = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;); <br />\n",
+    "PostedDate": "2013-04-03T11:06:10.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025020",
+    "ThreadId": "437803",
+    "Html": "Re-use the route object, otherwise you cannot add the 2nd point!<br />\n<br />\nIn your mouse_down event handler:<br />\n<pre><code>if(bStartNewRoute)\n{\n   bStartNewRoute = false;\n   route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;); \n   route.Points.Add...\n}\nelse\n{\n   bStartNewRoute = true;\n   route.Points.Add...\n   gMapControl1.UpdateRouteLocalPosition(route);\n}</code></pre>\n\n",
+    "PostedDate": "2013-04-03T11:25:14.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025576",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nWith your help, I've got it drawing multiple lines like I want.  At some point, I will need to modify a drawn line.  Using the method as above, a new instance of &quot;route&quot; is being generated every time there is a &quot;first&quot; mouse down.  I'm thinking that because of this method of creating a new instance of &quot;route&quot;, perhaps all history is lost to revisit a drawn line to modify it.  Its just something I've got to think about.\r<br />\n<br />\nFor now, sometimes, I need to re-position the map after the first mouse down, to pan to the next point.  I'm using &quot;gMapControl1_Paint&quot; to draw my lines in real-time (as the mouse moves).  This works real well for me.  However, when I have to move the map (after the first mouse down), the beginning of the flight line stays in one place.  And it should, because I'm drawing basically on the Form.  I need to be able to convert &quot;first mouse down lat / long&quot; to screen coordinates, so when I move the map after the first mouse down, my flight line start stays where it should on the map.  I'm trying to use:<br />\n<pre><code>              ............\n    public Point FromLatLngToPixel(double lat, double lng, int zoom)\n    {\n        Point converted_to_screen_xy = new Point();\n               return converted_to screen_xy;\n    }\n</code></pre>\n\nBut I don't know how to call the function.  I know I need to feed it the lat / lng and the zoom ratio, but I don't know the syntax.<br />\n<pre><code>          Point xx_yy = gMapControl1.gMap.FromLatLngToPixel(x_y, 10);\n</code></pre>\n\nis not right.<br />\n",
+    "PostedDate": "2013-04-04T11:26:54.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025592",
+    "ThreadId": "437803",
+    "Html": "Hi!\r<br />\nFirst of all, don't draw in gMapControl1_Paint, it is not necessary! \r<br />\n<br />\nIf you want to dynamically show the endpoint of the current flightline while moving the map, do the following:\r<br />\n<br />\nAdd TWO points (with the same coordinates!) in the Mouse_down event.\r<br />\n<br />\nIn the MouseMove event:\r<br />\n<br />\nSet the 2nd point of your current route object to the point of the mouse event, if &quot;bStartNewRoute&quot; is false, then update the route to show it correctly:<br />\n<pre><code>        private void gMapControl1_MouseMove(object sender, MouseEventArgs e)\n        {\n            if(bStartNewRoute == false)\n            {\n                PointLatLng pos = map1.FromLocalToLatLng(e.X, e.Y);\n                route.Points[1] = pos;\n                gMapControl1.UpdateRouteLocalPosition(route);\n            }\n            </code></pre>\n\nMake sure you don't add the point again in MouseDown event if(bStartNewRoute == false)!\r<br />\n<br />\nIf you want to change the routes you already added, you got to store them somewhere. A List&lt;GMapRoute&gt; should do the trick. But to move the points later is a bit tricky, you need to add some markers at start and end of route, if you need more help just tell me.\r<br />\n<br />\nGreetings from Vienna, Austria :-)<br />\n",
+    "PostedDate": "2013-04-04T12:00:23.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025629",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nI gotta tell you, I was afraid to dump the _Paint thing because I'm familiar with it; but your instruction helped me to achieve EXACTLY what I want.\r<br />\n<br />\nYou should be a teacher !!!\r<br />\nAW<br />\n",
+    "PostedDate": "2013-04-04T12:54:02.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1033121",
+    "ThreadId": "437803",
+    "Html": "Xandolph;\r<br />\n<br />\nOn the 2nd of this month you gave some advise:\r<br />\n<br />\n&quot;Some more points to consider: Do you add your overlay to the map in the mouse click event handler? If so, don't! Move this code to the constructor. (You only need to add it once.) \r<br />\nSet the code for your route(s) in the constructor or in the form_load event as well (Stroke settings, add it to the overlay). \r<br />\nYou just need to add the new point in the mouse click event handler.&quot;\r<br />\n<br />\nI moved this to the Form1_load event (out of the gMapControl1_MouseMove event where it did work);<br />\n<pre><code>        GMapRoute route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;);\n        route.Stroke.Width = 3;\n        route.Stroke.Color = Color.Red;\n        GMapOverlay routesOverlay1 = new GMapOverlay(gMapControl1, &quot;route&quot;);\n        routesOverlay1.Routes.Add(route);\n        gMapControl1.Overlays.Add(routesOverlay1);\n</code></pre>\n\nBut now there is no line drawn on the screen when there's mouse movement (after the first mouse click).  I have this in the MouseMove event:<br />\n<pre><code>           route.Points[1] = pos;\n            gMapControl1.UpdateRouteLocalPosition(route);\n</code></pre>\n\nThe &quot;route.Points[1] = pos&quot; does update with mouse movement.\r<br />\nAm I missing something else ?\r<br />\n<br />\nThanks\r<br />\nAw<br />\n",
+    "PostedDate": "2013-04-19T09:33:30.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1033303",
+    "ThreadId": "437803",
+    "Html": "Hi!\r<br />\n<br />\nDo you have a class variable declared for route? (private GMapRoute route;)\r<br />\n<br />\nYour line &quot; GMapRoute route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;);&quot; in the form_load event should be probably changed to:\r<br />\n&quot;route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;Route&quot;);&quot; because otherwise your route exists only in the scope of the load event...\r<br />\n<br />\nI would need more or the entire code, to pinpoint the problem.<br />\n",
+    "PostedDate": "2013-04-20T01:12:06.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

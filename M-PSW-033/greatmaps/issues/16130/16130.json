@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "set mode server and cache, and it will create directory gmap\\TileDBv5\\..\\.., Data.gmdb, i suggest to leave it and add additional ExportedData.gmdb from desktop app",
+    "ClosedDate": "2015-08-28T08:41:09.633-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, \r\n\r\nI've generated one OpenStreetMap cache file from zoom 12 to 17 that is working on the desktop \"GreatMaps for Windows Forms\", but I'm not able to put it to work on my Win CE device, it shows the message \"Exception: No data in local tile cache...\" in the map component.\r\n\r\nI've copied the \"Data.gmdb\" to \"\\Storage Card\\Data.gmdb\" and in my source is as follows:\r\n\r\n```\r\n            panelMap.CacheLocation = @\"\\Storage Card\";\r\n            panelMap.MapProvider = GMapProviders.OpenStreetMap;\r\n            panelMap.MinZoom = 12;\r\n            panelMap.MaxZoom = 17;\r\n            panelMap.Zoom = trackBarZoom.Value = 14;\r\n            panelMap.Manager.Mode = AccessMode.CacheOnly;\r\n```\r\n\r\nIs there anything else that I should copy to the \"Storage Card\" folder?\r\n\r\nThank you.",
+    "LastUpdatedDate": "2015-08-28T08:41:09.633-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-08-27T12:09:28.913-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cache WindowsMobile",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16130
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When parsing the WKT for ESP:3785 the following exception is thrown:\n \n    System.ArgumentException: \"Expecting ('PROJECTION') but got a 'UNIT' at line 1 column 380.\"\n \nThe text that im trying to parse:\n \nWkt = \"PROJCS[\\\"Popular Visualisation CRS / Mercator\\\",\" +\n                        \"GEOGCS[\\\"Popular Visualisation CRS\\\",\" +\n                            \"DATUM[\\\"Popular_Visualisation_Datum\\\",\" +\n                                \"SPHEROID[\\\"Popular Visualisation Sphere\\\",6378137,0,\" +\n                                    \"AUTHORITY[\\\"EPSG\\\",\\\"7059\\\"]],\" +\n                                \"TOWGS84[0,0,0,0,0,0,0],\" +\n                                \"AUTHORITY[\\\"EPSG\\\",\\\"6055\\\"]],\" +\n                            \"PRIMEM[\\\"Greenwich\\\",0,\" +\n                                \"AUTHORITY[\\\"EPSG\\\",\\\"8901\\\"]],\" +\n                            \"UNIT[\\\"degree\\\",0.01745329251994328,\" +\n                                \"AUTHORITY[\\\"EPSG\\\",\\\"9122\\\"]],\" +\n                            \"AUTHORITY[\\\"EPSG\\\",\\\"4055\\\"]],\" +\n                        \"UNIT[\\\"metre\\\",1,\" +\n                            \"AUTHORITY[\\\"EPSG\\\",\\\"9001\\\"]],\" +\n                        \"PROJECTION[\\\"Mercator_1SP\\\"],\" +\n                        \"PARAMETER[\\\"central_meridian\\\",0],\" +\n                        \"PARAMETER[\\\"scale_factor\\\",1],\" +\n                        \"PARAMETER[\\\"false_easting\\\",0],\" +\n                        \"PARAMETER[\\\"false_northing\\\",0],\" +\n                        \"AUTHORITY[\\\"EPSG\\\",\\\"3785\\\"],\" +\n                        \"AXIS[\\\"X\\\",EAST],\" +\n                        \"AXIS[\\\"Y\\\",NORTH]]\";",
+    "LastUpdatedDate": "2013-02-21T16:06:07.117-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2010-08-16T04:31:45.47-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error parsing ESPG:3785 WKT",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 18489
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "wkt string miss unit param. Try:\r\n string wkt = \"PROJCS[\\\"Popular Visualisation CRS / Mercator\\\", \" +\r\n                   \"GEOGCS[\\\"Popular Visualisation CRS\\\", \" +\r\n                      \"DATUM[\\\"Popular Visualisation Datum\\\", \" +\r\n                         \"SPHEROID[\\\"Popular Visualisation Sphere\\\", 6378137, 0, AUTHORITY[\\\"EPSG\\\",\\\"7059\\\"]], \" +\r\n                         \"TOWGS84[0, 0, 0, 0, 0, 0, 0], AUTHORITY[\\\"EPSG\\\",\\\"6055\\\"] \" +\r\n                      \"],\" +\r\n                      \"PRIMEM[\\\"Greenwich\\\", 0, AUTHORITY[\\\"EPSG\\\", \\\"8901\\\"]], \" +\r\n                      \"UNIT[\\\"degree\\\", 0.0174532925199433, AUTHORITY[\\\"EPSG\\\", \\\"9102\\\"]], \" +\r\n                      \"AXIS[\\\"E\\\", EAST], \" +\r\n                      \"AXIS[\\\"N\\\", NORTH], \" +\r\n                      \"AUTHORITY[\\\"EPSG\\\",\\\"4055\\\"]\" +\r\n                   \"], \" +\r\n                   \"PROJECTION[\\\"Mercator\\\"], \" +\r\n                   \"PARAMETER[\\\"False_Easting\\\", 0], \" +\r\n                   \"PARAMETER[\\\"False_Northing\\\", 0], \" +\r\n                   \"PARAMETER[\\\"Central_Meridian\\\", 0], \" +\r\n                   \"PARAMETER[\\\"Latitude_of_origin\\\", 0], \" +\r\n                   \"UNIT[\\\"metre\\\", 1, AUTHORITY[\\\"EPSG\\\", \\\"9001\\\"]], \" +\r\n                   \"AXIS[\\\"East\\\", EAST], \" +\r\n                   \"AXIS[\\\"North\\\", NORTH], \" +\r\n                   \"AUTHORITY[\\\"EPSG\\\",\\\"3785\\\"] \" +\r\n                \"]  \";",
+      "PostedDate": "2011-09-21T00:31:44.76-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-04-13T12:13:38.093-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:07.117-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

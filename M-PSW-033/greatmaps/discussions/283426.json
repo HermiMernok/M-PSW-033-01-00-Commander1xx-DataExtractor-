@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "714077",
+    "ThreadId": "283426",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I have the following situation:</p>\r\n<p>* No connection to internet, because of security reasons</p>\r\n<p>* All tiles that i need as files in osm like path structure</p>\r\n<p>What is the best solution for using Gmap.net?</p>\r\n<p>I think I will use an MS SQL as SecondChache.</p>\r\n<p>How can I import the tile files into the Server?</p>\r\n<p>I have look into the source of gmap.net. There will be need one table.</p>\r\n<p>What is in the field 'type'?</p>\r\n<p>Thanks.</p>\r\n<p>Best Regards.</p>\r\n<p>Gerhard</p>\r\n",
+    "PostedDate": "2011-12-19T00:42:07.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714080",
+    "ThreadId": "283426",
+    "Html": "<p>GMapProviders.OpenStreetMap.<strong>DbId</strong> // id for database</p>\n<p>p.s. set: MainMap.Manager.Mode = AccessMode.<strong>CacheOnly</strong>;</p>",
+    "PostedDate": "2011-12-19T00:53:56.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714087",
+    "ThreadId": "283426",
+    "Html": "<p>You mean I should set the sql database as DbId?</p>\r\n<p>How could I do this?</p>\r\n<p>Gerhard</p>",
+    "PostedDate": "2011-12-19T01:05:02.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714089",
+    "ThreadId": "283426",
+    "Html": "<p>no, i mean if you manually insert tiles into database, use provider.DbId as type column value</p>",
+    "PostedDate": "2011-12-19T01:08:50.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714091",
+    "ThreadId": "283426",
+    "Html": "<p>Does there already exist an import tool for gmap.net?</p>\r\n<p>Gerhard</p>",
+    "PostedDate": "2011-12-19T01:13:36.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714094",
+    "ThreadId": "283426",
+    "Html": "<p>nop, but if you want prefetch selected area, you can use demos</p>",
+    "PostedDate": "2011-12-19T01:17:08.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

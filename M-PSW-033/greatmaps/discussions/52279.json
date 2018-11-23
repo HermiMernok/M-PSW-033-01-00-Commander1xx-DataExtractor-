@@ -1,0 +1,266 @@
+[
+  {
+    "Id": "175638",
+    "ThreadId": "52279",
+    "Html": "Hi<br>\r\n<br>\r\nThis is a great control. I like it. I have a suggestion for it. <br>\r\n<br>\r\nAfter zoom level goes beyond 17, can it use map (or graphics) file downloaded (cached)? By using graphics file, the zoom can go any level. <br>\r\n<br>\r\nThank you very much,<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-04T08:58:15.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "175672",
+    "ThreadId": "52279",
+    "Html": "level is limited by map provider, zooming <span style=\"border-collapse:collapse;font-family:arial;font-size:13px\">beyond max </span>just by scaling image isn't so good idea... anyway what do you mean exactly?",
+    "PostedDate": "2009-04-04T12:21:36.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "175685",
+    "ThreadId": "52279",
+    "Html": "Beyond the map provider zoom level, I want to scale the image the control already cached. Why it is not a good idea? <br>\r\n<br>\r\nIs it hard to implement?<br>\r\n<br>\r\nThanks,<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-04T13:15:40.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "175766",
+    "ThreadId": "52279",
+    "Html": "\r\nDear Transoft !<br>\r\n <br>\r\nFirst of all I would like to Pay Plenty of thanks for providing so quick Helping Response. Secondly, I want to know how to open Cache Database File ? I tried my best to search on the Web giving this extensiion .gmdb but could'nt succeeded. Pls tell me which database software can open such files ?<br>\r\n <br>\r\nLooking Forward for your Positive & Early Response.<br>\r\n <br>\r\nYour's Sincerely,<br>\r\nUsman<br><br> <br>\r\n<hr id=stopSpelling>\r\nFrom: [email removed]<br>To: [email removed]<br>Date: Sat, 4 Apr 2009 13:15:50 -0700<br>Subject: Re: Suggestion for Zoom functionalitity [gmap4dotnet:52279]<br><br>\r\n\r\n\r\nFrom: transoft<br>\r\n<div id=\"EC_ThreadNotificationPostBody\">Beyond the map provide zoom level, I want to scale the image the control already cached. Why it is not a good idea? <br><br><br></div>\r\n<br><hr>Invite your mail contacts to join your friends list with Windows Live Spaces. It's easy! <a href=\"http://spaces.live.com/spacesapi.aspx?wx_action=create&wx_url=/friends.aspx&mkt=en-us\">Try it!</a>",
+    "PostedDate": "2009-04-05T02:20:08.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "175806",
+    "ThreadId": "52279",
+    "Html": "Sorry, I am trying to figure it out. <br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-04-05T06:14:21.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "176227",
+    "ThreadId": "52279",
+    "Html": "Along these lines the zoom would be greatly enhanced if the current image viewport was scaled up/down before the requested zoom level tiles are fetched.  I'm sure you've seen this on some of the mapping sites and it a nice way to provide good interactivity response without actually hitting the cache or network.<br>\r\n",
+    "PostedDate": "2009-04-06T11:11:30.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "176267",
+    "ThreadId": "52279",
+    "Html": "definitely! ..takes time to materilize it ;}",
+    "PostedDate": "2009-04-06T12:13:22.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204017",
+    "ThreadId": "52279",
+    "Html": "<p>I've got this working in my WPF version although I had to do some serious hacking.</p>\r\n<p>The solution is two-fold. First you use a render transform to scale the map as you zoom (I added a new dependency property of type Double&nbsp;called IncrementalZoom), then as you pass an integer zoom level, you copy the map to an image, then fade it out as you zoom into the next level.</p>\r\n<p>It works really well and gives smooth zooming, but as I said before, I've hacked and slashed at release 32093 so it's no-longer compatable with the main solution here.<br>As I know the code will &quot;break&quot; in the latest release, would you want me to upload it, or just post some code snippets on how I got it to work?</p>\r\n<p>&nbsp;</p>\r\n<p>Moose</p>",
+    "PostedDate": "2009-06-22T04:45:10.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204032",
+    "ThreadId": "52279",
+    "Html": "<p>upload all solution(that is building) ziped, and i try to figure out how to apply it to newest release, <em>great thanks</em>!</p>",
+    "PostedDate": "2009-06-22T05:31:19.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204075",
+    "ThreadId": "52279",
+    "Html": "<p>Hi Radioman, solution Uploaded as id 3144.</p>\r\n<p>In the geography project I have a window that has a usercontrol called &quot;slide&quot;. In this control you have an instance of &quot;MungleMap&quot;, do a search for &quot;<span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">AddFadeImage</span></span></span>&quot; and &quot;<span style=\"font-size:x-small\"><span style=\"font-size:x-small\">OnIncrementalZoomPropertyChanged</span></span>&quot; in MungleMap.xaml.cs, that should point to the code you're looking for.</p>\r\n<p>Moose</p>",
+    "PostedDate": "2009-06-22T07:40:22.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204076",
+    "ThreadId": "52279",
+    "Html": "<p>great! can you upload&nbsp;ActiproSoftware.Ribbon.Wpf30 and&nbsp;ActiproSoftware.Shared.Wpf30, i'm missing them?</p>",
+    "PostedDate": "2009-06-22T07:48:14.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204081",
+    "ThreadId": "52279",
+    "Html": "<p>ok, builds now, great!</p>",
+    "PostedDate": "2009-06-22T08:06:08.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204427",
+    "ThreadId": "52279",
+    "Html": "<p>did you manage to get this working Radioman?</p>\r\n<p>Moose</p>",
+    "PostedDate": "2009-06-23T04:09:55.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204568",
+    "ThreadId": "52279",
+    "Html": "<p>yes scalig works nice, now trying remove flickering using image fading</p>",
+    "PostedDate": "2009-06-23T09:27:37.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204921",
+    "ThreadId": "52279",
+    "Html": "<p>any ideas?</p>\r\n<p><img src=\"http://jjvkug.blu.livefilestore.com/y1pYOBipnzU-nNHgGS36yUsVqhQEFFCl-ATHjHD69cyS9aKb44hUBPC9Inp58PC5HkJMIQFdxOvLfD0VqODA5_e8rtUndKMHBjJ/gmap wpf scale out of bounds.png\" alt=\"\" width=888></p>",
+    "PostedDate": "2009-06-24T04:28:36.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204925",
+    "ThreadId": "52279",
+    "Html": "<p>you need to set &quot;ClipToBounds&quot; on the Canvas.... I know, that caught me out as well!</p>\r\n<p>Moose</p>",
+    "PostedDate": "2009-06-24T04:34:49.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204927",
+    "ThreadId": "52279",
+    "Html": "<p>..but thats the point: it doesn't work</p>",
+    "PostedDate": "2009-06-24T04:37:55.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204930",
+    "ThreadId": "52279",
+    "Html": "<p>can you test it: <a href=\"http://7qv7da.blu.livefilestore.com/y1pcXexFtOGyRr27FH6u0jX98yt6ZDJdbcPruThyc2UfaFQlIkbs4DEJktw88Ia93DwDoGhXXdoPE7xDR1U3b0W0PEeL6VVQ6Bi/GMapNET wpf test.zip?download\">http://7qv7da.blu.livefilestore.com/y1pcXexFtOGyRr27FH6u0jX98yt6ZDJdbcPruThyc2UfaFQlIkbs4DEJktw88Ia93DwDoGhXXdoPE7xDR1U3b0W0PEeL6VVQ6Bi/GMapNET%20wpf%20test.zip?download</a></p>",
+    "PostedDate": "2009-06-24T04:43:40.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204931",
+    "ThreadId": "52279",
+    "Html": "<p>Set cliptobounds on the instance of the&nbsp;Map itself. In my solution I've got it as:</p>\r\n<p>\r\n<p><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">local</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">:</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">Map</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\">x</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">:</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\">Name</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;MainMap&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> ClipToBounds</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;True&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> Grid.Row</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;1&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> Grid.Column</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;1&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> Margin</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;6,6,6,6&quot;&gt;&lt;/</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">local</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">:</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">Map</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&gt;</span></span></p>\r\n</p>",
+    "PostedDate": "2009-06-24T04:45:26.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204932",
+    "ThreadId": "52279",
+    "Html": "<p>still do not work</p>",
+    "PostedDate": "2009-06-24T04:47:53.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204935",
+    "ThreadId": "52279",
+    "Html": "<p>Hi RadioMan, just downloading the test code now...</p>",
+    "PostedDate": "2009-06-24T04:50:23.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204947",
+    "ThreadId": "52279",
+    "Html": "<p>OK...managed to get it working(ish), if you add the cliptobounds to the Maps parent [the groupbox called &quot;mapgroup&quot;], that seems to inforce the ClipToBounds.<br>I changed the Xaml on line 11 of MainWindow.xaml&nbsp;to: <span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#0000ff&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#0000ff&quot;&gt;\r\n<p>&lt;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#0000ff&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">GroupBox</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> Name</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;mapgroup&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> ClipToBounds</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;True&quot;</span></span><span style=\"font-size:x-small\">&nbsp; ...</span></p>\r\n<p>I think we'll need to do a bit of Googling to get it working correctly...</p>\r\n<p>Moose<span style=\"color:#ff0000;font-size:x-small\"></span></p>",
+    "PostedDate": "2009-06-24T05:16:44.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204948",
+    "ThreadId": "52279",
+    "Html": "<p>but it clips to groupbox, not a map control ;/</p>",
+    "PostedDate": "2009-06-24T05:19:27.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204952",
+    "ThreadId": "52279",
+    "Html": "<p>If you wrap the map in a control that does correctly ClipToBounds, it will work.... I wrapped the map in a grid, and it works!!!!!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<p><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">GroupBox</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> Name</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;mapgroup&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> ClipToBounds</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;True&quot;</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\">Header</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;gmap&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> Margin</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;12,7,241,12&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> VerticalContentAlignment</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;Stretch&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> HorizontalContentAlignment</span></span>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;Stretch&quot;&gt;</span></span></p>\r\n<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">Grid</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> ClipToBounds</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;True&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> HorizontalAlignment</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;Stretch&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> VerticalAlignment</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;Stretch&quot;</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> Background</span></span>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;Red&quot;&gt;</span></span></p>\r\n<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">src</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">:</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">Map</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\"> x</span></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">:</span></span><span style=\"color:#ff0000;font-size:x-small\"><span style=\"color:#ff0000;font-size:x-small\">Name</span></span>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">=&quot;MainMap&quot; /&gt;</span></span></p>\r\n<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;/</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">Grid</span></span>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&gt;</span></span></p>\r\n<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#a31515&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;/</span></span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">GroupBox</span></span>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&gt;</span></span></p>\r\n</p>\r\n</p>",
+    "PostedDate": "2009-06-24T05:26:25.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204954",
+    "ThreadId": "52279",
+    "Html": "<p>strange, any ideas how put that technique 'inside'?</p>",
+    "PostedDate": "2009-06-24T05:38:14.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204959",
+    "ThreadId": "52279",
+    "Html": "<p>Not too sure without frigging your ItemsControl properties<br>Moose</p>",
+    "PostedDate": "2009-06-24T05:51:16.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204963",
+    "ThreadId": "52279",
+    "Html": "<p>What if you changed the ItemsPanelTemplate in GMapControl to be a Grid containing a Canvas?</p>",
+    "PostedDate": "2009-06-24T06:03:51.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204970",
+    "ThreadId": "52279",
+    "Html": "<p>i discover great solution! now just need correct markers coordinates..</p>",
+    "PostedDate": "2009-06-24T06:18:26.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204975",
+    "ThreadId": "52279",
+    "Html": "<p>How did you do it?</p>",
+    "PostedDate": "2009-06-24T06:22:53.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204993",
+    "ThreadId": "52279",
+    "Html": "<p><a href=\"http://7qv7da.blu.livefilestore.com/y1pzXgLHgMagznGhcBgYkGwteBwj1BcG1UyjSPYnay52wleB13dsEPhl38NWXNUiIgQe9gEYz1oKYCwgjM9tGwHBJPzRvLmfYb9/GMapNET wpf zoom correct position.zip?download\">look there</a></p>\r\n<p>..any ideas how to correct &nbsp;local markers positions when zoom is inbetween integer scale?</p>",
+    "PostedDate": "2009-06-24T07:00:01.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "205008",
+    "ThreadId": "52279",
+    "Html": "<p>Sorry Radioman, that code doesn't run... how did you fix the cliptobounds?</p>\r\n<p>&nbsp;</p>\r\n<p>regarding the mapmarkers, I just flipped the scaletransform</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">if</span></span><span style=\"font-size:x-small\">(mm.MainMap.MapMarkers.Count &gt; 0)<br></span><span style=\"font-size:x-small\">{<br></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">foreach</span></span><span style=\"font-size:x-small\"> (</span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">GMapMarker</span></span><span style=\"font-size:x-small\"> item </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">in </span></span><span style=\"font-size:x-small\">mm.MainMap.MapMarkers)\r\n<p>{</p>\r\n&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">FrameworkElement</span></span><span style=\"font-size:x-small\"> fe = ((</span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">GMapMarkerFrameworkElement</span></span><span style=\"font-size:x-small\">)item).MarkerElement;&lt;font size=&quot;2&quot;&gt;\r\n<p>scaleTransform =</p>\r\n&lt;/font&gt;</span></p>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">ScaleTransform</span></span><span style=\"font-size:x-small\">(1 / scaleValue, 1 / scaleValue, fe.ActualWidth / 2, fe.ActualHeight / 2);&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">if</span></span><span style=\"font-size:x-small\"> (fe.RenderTransform </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">is</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">TransformGroup</span></span><span style=\"font-size:x-small\">)<br>{<br></span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">TransformGroup</span></span><span style=\"font-size:x-small\"> tg = </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">TransformGroup</span></span><span style=\"font-size:x-small\">();<br>tg.Children.Add(((</span><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">TransformGroup</span></span><span style=\"font-size:x-small\">)fe.RenderTransform).Children[0]);<br>tg.Children.Add(scaleTransform);<br>fe.RenderTransform = tg;<br>}<br></span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">else<br></span></span><span style=\"font-size:x-small\">{<br>fe.RenderTransform = scaleTransform;<br>}<br>}<br>}</span></p>",
+    "PostedDate": "2009-06-24T07:36:04.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "205011",
+    "ThreadId": "52279",
+    "Html": "<p>look at Zoom, and</p>\r\n<p>protected override void OnRender(DrawingContext drawingContext)</p>",
+    "PostedDate": "2009-06-24T07:39:00.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "205015",
+    "ThreadId": "52279",
+    "Html": "<p>very cool my friend ;)</p>",
+    "PostedDate": "2009-06-24T07:45:15.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

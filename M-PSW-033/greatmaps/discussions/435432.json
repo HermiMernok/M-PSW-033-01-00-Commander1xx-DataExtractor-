@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1010555",
+    "ThreadId": "435432",
+    "Html": "Hello,<br />\n<br />\nI am doing a project right now and I don't need a few maps as Latvia or Google in Chinese language. So, I have a question, how I can remove or add a map to GMap.NET.Core project?<br />\n<br />\nI've tried to delete LatviaMapProvider.cs and a line from GMapProvider.cs file<br />\n<pre><code>public static readonly LatviaMapProvider LatviaMap = LatviaMapProvider.Instance; </code></pre>\n\nbut I get an error: <br />\n<blockquote>\n1&gt;------ Build started: Project: GMap.NET.Core, Configuration: Debug Any CPU ------<br />\n1&gt;C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\Microsoft.Common.targets(1578,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly &quot;System.Data.SQLite&quot;. Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors.<br />\n1&gt;D:\\Ugnius\\robotika\\mapss\\GMap.NET.Core\\GMap.NET.CacheProviders\\SQLitePureImageCache.cs(17,22,17,28): error CS0234: The type or namespace name 'SQLite' does not exist in the namespace 'System.Data' (are you missing an assembly reference?)<br />\n========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========<br />\n</blockquote>\nWhat should I do that it'd work?<br />\n",
+    "PostedDate": "2013-03-05T06:09:06.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1010609",
+    "ThreadId": "435432",
+    "Html": "Solved<br />\n",
+    "PostedDate": "2013-03-05T07:06:12.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1010611",
+    "ThreadId": "435432",
+    "Html": ";}<br />\n",
+    "PostedDate": "2013-03-05T07:13:40.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

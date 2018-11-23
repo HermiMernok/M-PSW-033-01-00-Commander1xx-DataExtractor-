@@ -1,0 +1,474 @@
+[
+  {
+    "Id": "148234",
+    "ThreadId": "44539",
+    "Html": "Hi developers,<br>\r\n<br>\r\n              I am new to .NET and also to Gmap4dotnet. Whenever i execute the downloaded source code i am getting the following error. can u please suggest regarding this.....<br>\r\n<br>\r\n      Unable to read the project filr GMap.NET.Csproj<br>\r\nC:\\Documents and Settings\\Asif\\Desktop\\GMap.NET\\GMap.NET.Csproj(127,11): The imported prlject &quot;C:\\Microsoft.Csharp.targets&quot; was not found. Confirm that the path in the &lt;Import&gt; Declaration is correct, and that the file exists on the disk.<br>\r\n<br>\r\nThank Regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-19T00:38:20.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148238",
+    "ThreadId": "44539",
+    "Html": "goto folder GMap.NET\\Solution\\  and launch GMap.sln\r\n",
+    "PostedDate": "2009-01-19T00:55:35.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148243",
+    "ThreadId": "44539",
+    "Html": "First of all thanks radioman,<br>\r\n      I launch GMap.Sln but its not opening. my idea is<br>\r\n1. I want to load the gmap in C# form.<br>\r\n2. Displaying different markers on the map by using different lats and lons<br>\r\n3. connecting markers with polylines<br>\r\n<br>\r\nThese things i did with java script. but i need to do this using C#. I downloaded the GMap.NET.dll file from this website and i added this file in References. I opened it using View in Object browser, several methods,classes etc... are available. So can u please guide me regarding this...<br>\r\n<br>\r\nThank Regard<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-19T01:14:58.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148249",
+    "ThreadId": "44539",
+    "Html": "Try open that from visual studio, file-&gt;open-&gt;project/solution.\r\nWhat version of VS you use?\r\nOr you can can use only dll, drag it to VS toolbox, then to your form, should work\r\n",
+    "PostedDate": "2009-01-19T01:29:41.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148254",
+    "ThreadId": "44539",
+    "Html": "Thanks for reply radioman, <br>\r\n                   I opened file-&gt;open-&gt;project/solution. the following error occured.<br>\r\n          &quot; The selected file is a solution file but it was created by a newer version of application and cannot be opened&quot; and <br>\r\nI am using Visul Studio.NET 2005.<br>\r\n<br>\r\nThank Regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-19T01:48:17.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148260",
+    "ThreadId": "44539",
+    "Html": "mm, i see now, i use 2008 version, i don't have old one, so you have few choices, use dll without sources, or by hand from files reconstruct project in 2005 version. Ofcourse to upgrade to 2008 version is even better. More stable product, as from my experiance crashes occureaces very rare.\r\n",
+    "PostedDate": "2009-01-19T02:04:13.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148274",
+    "ThreadId": "44539",
+    "Html": "Thank a lot radioman,<br>\r\n    I am going through GMap.NET.dll , i added it in project references. but  i am not understanding how to use those classes, interfaces, methods in my project. can u send a sample program for loading google map in C# .NET form. The following source code i am using for getting google map in my form i use a webbrowser control.<br>\r\n<br>\r\n<strong>Note: I am using Visual Studio.NET 2005</strong><br>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> System;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> System.Collections.Generic;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> System.ComponentModel;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> System.Data;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> System.Drawing;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> System.Text;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> System.Windows.Forms;\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>namespace</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> a26_12_2008\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">partial</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">class</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">frmMap</span><span style=\"font-size:13px\"> : </span><span style=\"font-size:13px;color:#008080\">Form\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> frmMap(</span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> lat, </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> lon)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>InitializeComponent();</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\"> (lat == </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Empty || lon == </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Empty)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">this</span><span style=\"font-size:13px\">.Dispose();\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">try\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008080\">StringBuilder</span><span style=\"font-size:13px\"> queryAddress = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">StringBuilder</span><span style=\"font-size:13px\">();\r\n<p>&nbsp;</p>\r\n<p>queryAddress.Append(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#800000\">&quot;http://maps.google.com/maps?q=&quot;</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n<p> </p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\"> (lat != </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Empty)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>queryAddress.Append(lat);</p>\r\n<p>}</p>\r\n<p> </p>\r\n<p> </p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\"> (lon != </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Empty)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>queryAddress.Append(lon);</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// webBrowser1.Navigate(queryAddress.ToString());\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008000\">//queryAddress.Append(&quot;N12.95&quot;);\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008000\">//queryAddress.Append(&quot;E77.616667&quot;);\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>webBrowser1.Navigate(queryAddress.ToString());</p>\r\n<p>webBrowser1.DocumentText.ToString();</p>\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">catch</span><span style=\"font-size:13px\"> (</span><span style=\"font-size:13px;color:#008080\">Exception</span><span style=\"font-size:13px\"> ex)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">MessageBox</span><span style=\"font-size:13px\">.Show(ex.Message.ToString(), </span><span style=\"font-size:13px;color:#800000\">&quot;Error&quot;</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p> </p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>}</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-19T02:27:09.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148276",
+    "ThreadId": "44539",
+    "Html": "simple app source is in GMap.NET\\GMapApp. All is ready but you need recreate it to 2005 version, you need import all source code, and VS should build it.\r\n",
+    "PostedDate": "2009-01-19T02:48:05.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148284",
+    "ThreadId": "44539",
+    "Html": "Thanks radioman,<br>\r\n<br>\r\n       I will do my level best. <br>\r\n<br>\r\nRegards<br>\r\nAsif \r\n",
+    "PostedDate": "2009-01-19T03:03:16.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148314",
+    "ThreadId": "44539",
+    "Html": "check <a href=\"http://www.emmet-gray.com/Articles/ProjectConverter.htm\">http://www.emmet-gray.com/Articles/ProjectConverter.htm</a><br>\r\n<br>\r\ntry to use that converter, it should convert 2008 solution to 2005 &quot;_^\r\n",
+    "PostedDate": "2009-01-19T05:15:34.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148591",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n <br>\r\n                   Thanks a lot for providing the converter and i converted a solution project into vs.net 2005 . when ever i run that one it will displays output but it is not displaying google map.Actually i want to display markers on google map in C# form. My java script code is<br>\r\n<p>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;<a href=\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd</a>&quot;&gt;<br>\r\n&lt;html&gt;<br>\r\n  &lt;head&gt;<br>\r\n    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;/&gt;<br>\r\n    &lt;title&gt;Google Maps&lt;/title&gt;</p>\r\n<p>    &lt;script src=&quot;<a href=\"http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAIzvWEPXT4yXfiLp2DLLqpBRAD2eQqjjLhsqM5TNK0P5A5aeCNhS5GP4AXDwLFU8tVNTYaDgLq-1Y6A\">http://maps.google.com/maps?file=api&amp;amp;v=2&amp;amp;key=ABQIAAAAIzvWEPXT4yXfiLp2DLLqpBRAD2eQqjjLhsqM5TNK0P5A5aeCNhS5GP4AXDwLFU8tVNTYaDgLq-1Y6A</a>&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br>\r\n  &lt;/head&gt;<br>\r\n  &lt;body onunload=&quot;GUnload()&quot;&gt;</p>\r\n<p>    &lt;div id=&quot;map&quot; style=&quot;width: 600px; height: 600px&quot;&gt;&lt;/div&gt; </p>\r\n<p>    &lt;script type=&quot;text/javascript&quot;&gt;</p>\r\n<p>    //&lt;![CDATA[<br>\r\n    <br>\r\n    if (GBrowserIsCompatible()) { <br>\r\n      function createMarker(point,html) {<br>\r\n        var marker = new GMarker(point);<br>\r\n        GEvent.addListener(marker, &quot;click&quot;, function() {<br>\r\n          marker.openInfoWindowHtml(html);<br>\r\n        });<br>\r\n        return marker;<br>\r\n      }<br>\r\n      var map = new GMap2(document.getElementById(&quot;map&quot;));<br>\r\n      map.addControl(new GSmallMapControl());</p>\r\n<p>      map.setCenter(new GLatLng(17.3836523350338,78.46541278343632), 12);<br>\r\n      var point = new GLatLng(17.42566762633645,78.34305354153429);<br>\r\n      var marker = createMarker(point,'&lt;div style=&quot;width:240px&quot;&gt; Wipro &lt;a href=&quot;<a href=\"http://www.wipro.com\">Link&lt;\\/a&quot;&gt;http://www.wipro.com&quot;&gt;Link&lt;\\/a</a>&gt; to my wipro home&lt;\\/div&gt;')<br>\r\n      map.addOverlay(marker);</p>\r\n<p> </p>\r\n<p>      var point = new GLatLng(17.42057225253198,78.6343150998329);<br>\r\n      var marker = createMarker(point,'&lt;h1&gt;Ghatkesar&lt;/h1&gt;')<br>\r\n      map.addOverlay(marker);</p>\r\n<p>      <br>\r\n      var point = new GLatLng(17.3836523350338,78.46541278343632);<br>\r\n      var marker = createMarker(point,'&lt;h1&gt;Deccan College&lt;/h1&gt;')<br>\r\n      map.addOverlay(marker);<br>\r\n      var polyline = new GPolyline([</p>\r\n<p>      new GLatLng(17.3836523350338,78.46541278343632),</p>\r\n<p>      new GLatLng(17.42566762633645,78.34305354153429),</p>\r\n<p>    new GLatLng(17.42057225253198,78.6343150998329)</p>\r\n<p>  ], &quot;#001122&quot;, 20);</p>\r\n<p>       map.addOverlay(polyline);</p>\r\n<p> </p>\r\n<p> var blueIcon = new GIcon(G_DEFAULT_ICON);<br>\r\n <br>\r\n blueIcon.image = &quot;<a href=\"http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png\">http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</a>&quot;; <br>\r\n markerOptions = { icon:blueIcon };<br>\r\n        var bounds = map.getBounds();<br>\r\n        var southWest = bounds.getSouthWest();<br>\r\n        var northEast = bounds.getNorthEast();<br>\r\n        var lngSpan = northEast.lng() - southWest.lng();<br>\r\n        var latSpan = northEast.lat() - southWest.lat();<br>\r\n        for (var i = 0; i &lt; 10; i++) {<br>\r\n          var point = new GLatLng(southWest.lat() + latSpan * Math.random(),<br>\r\n                                  southWest.lng() + lngSpan * Math.random());<br>\r\n          map.addOverlay(new GMarker(point,markerOptions));<br>\r\n        }<br>\r\n    }<br>\r\n    <br>\r\n    // display a warning if the browser was not compatible<br>\r\n    else {<br>\r\n      alert(&quot;Sorry, the Google Maps API is not compatible with this browser&quot;);<br>\r\n    }</p>\r\n<p>      //]]&gt;</p>\r\n<p>    &lt;/script&gt;</p>\r\n<p>  &lt;/body&gt;</p>\r\n<p>&lt;/html&gt;<br>\r\n<br>\r\nCan u give some suggestions regarding this issue<br>\r\n<br>\r\nRegards<br>\r\nAsif</p>\r\n",
+    "PostedDate": "2009-01-19T21:20:31.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148592",
+    "ThreadId": "44539",
+    "Html": "hey, does it work good?\r\n",
+    "PostedDate": "2009-01-19T21:23:51.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148597",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman<br>\r\n<br>\r\n          First of all thanks for replying fastly, Its working nicely, The default marker located at the center and i added several markers using addmarker button. i performed zoom operation but except routing all operations i performed, Here one problem is google map is not loaded at all and i need to perform those operations on google maps. So what can i do for performing the above operations....<br>\r\n<br>\r\n<br>\r\nThank Regards<br>\r\nAsif<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-19T21:44:08.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148602",
+    "ThreadId": "44539",
+    "Html": "check example application, you simply need call map.ReloadMap(); on form shown event\r\n",
+    "PostedDate": "2009-01-19T22:13:12.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148607",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n       I downloaded &quot;initial tooltip support&quot; from sources. I converted that project into Visual Studio.NET 2005. Whenever i execute it it will display the following errors.I kept these errors in comments and when ever i run the project it displays Microsoft Visual Studio Window. That Window the follwoing Message<br>\r\n <br>\r\n        The following module was built either with optimizations enabled or without debug information:<br>\r\n    C:\\Documents and Settings\\Asif\\Desktop\\aaa20\\Build\\Debug\\GMap.NET.dll<br>\r\n To Debug this module, change its project build configuration to debug mode. To suppress this message, disable the Warn if no user code on launch' debugger option.<br>\r\n<br>\r\n<br>\r\nIs it necessary to include some name space to this project. Guide me regarding this.......<br>\r\n<br>\r\nError 1 'GMapNET.Marker' does not contain a definition for 'Mode' C:\\Documents and Settings\\Asif\\Desktop\\aaa20\\GMapApp\\Forms\\MainForm.cs 220 16 GMapApp<br>\r\n<br>\r\nError 2 The name 'MarkerTooltipMode' does not exist in the current context C:\\Documents and Settings\\Asif\\Desktop\\aaa20\\GMapApp\\Forms\\MainForm.cs 220 23 GMapApp<br>\r\n<br>\r\nError 3 'GMapNET.Marker' does not contain a definition for 'Mode' C:\\Documents and Settings\\Asif\\Desktop\\aaa20\\GMapApp\\Forms\\MainForm.cs 225 16 GMapApp<br>\r\n<br>\r\nError 4 The name 'MarkerTooltipMode' does not exist in the current context C:\\Documents and Settings\\Asif\\Desktop\\aaa20\\GMapApp\\Forms\\MainForm.cs 225 23 GMapApp<br>\r\n<br>\r\nError 5 'GMapNET.Marker' does not contain a definition for 'Mode' C:\\Documents and Settings\\Asif\\Desktop\\aaa20\\GMapApp\\Forms\\MainForm.cs 245 12 GMapApp<br>\r\n<br>\r\nError 6 The name 'MarkerTooltipMode' does not exist in the current context C:\\Documents and Settings\\Asif\\Desktop\\aaa20\\GMapApp\\Forms\\MainForm.cs 245 19 GMapApp<br>\r\n<br>\r\nThank Regards<br>\r\nAsif<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-19T22:59:47.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148609",
+    "ThreadId": "44539",
+    "Html": "ofcourse, you need to rebuild solution from new sources, i think you try to use new functions with old source/dll\r\n",
+    "PostedDate": "2009-01-19T23:07:20.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148610",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n     I executed sample application &quot;GMapApp&quot; without errors, Its output is like this but it doesn't display the google map. the source(Mainform.cs) for this sample is <br>\r\n<br>\r\n<span style=\"font-size:12pt;font-family:'times new roman'\"><br>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using  </p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">using </span><span style=\"font-size:13px\">System.Collections.Generic;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p> u</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">sing </span><span style=\"font-size:13px\">System.Globalization;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">using </span><span style=\"font-size:13px\">System.Windows.Forms;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">using </span><span style=\"font-size:13px\">GMapNET;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">namespace </span><span style=\"font-size:13px\">GMapApp\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n</span></p>\r\n<p> </p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">partial</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">class</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">MainForm</span><span style=\"font-size:13px\"> : </span><span style=\"font-size:13px;color:#008080\">Form\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">{\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\"> start;\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\"> end;\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> MainForm()\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>InitializeComponent();</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(!DesignMode)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// config map\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">MainMap.RenderMode = </span><span style=\"font-size:13px;color:#008080\">GMapRenderMode</span><span style=\"font-size:13px\">.GDI;\r\n<p>&nbsp;</p>\r\n<p> MainMap.UseTileCache = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> MainMap.UseRouteCache = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> MainMap.UseGeocoderCache = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> MainMap.MapType = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">GMapType</span><span style=\"font-size:13px\">.Map;\r\n<p>&nbsp;</p>\r\n<p> MainMap.Zoom = 13;<br>\r\n<br>\r\nMainMap.Language = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#800000\">&quot;lt&quot;</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> MainMap.CurrentPosition =</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\">(54.6961334816182, 25.2985095977783);\r\n<p>&nbsp;</p>\r\n<p> MainMap.OnCurrentPositionChanged += </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">GMapControl</span><span style=\"font-size:13px\">.</span><span style=\"font-size:13px;color:#008080\">CurrentPositionChanged</span><span style=\"font-size:13px\">(MainMap_OnCurrentPositionChanged);\r\n<p>&nbsp;</p>\r\n<p> MainMap.OnTileLoadStart += </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">GMapControl</span><span style=\"font-size:13px\">.</span><span style=\"font-size:13px;color:#008080\">TileLoadStart</span><span style=\"font-size:13px\">(MainMap_OnTileLoadStart);\r\n<p>&nbsp;</p>\r\n<p> MainMap.OnTileLoadComplete += </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">GMapControl</span><span style=\"font-size:13px\">.</span><span style=\"font-size:13px;color:#008080\">TileLoadComplete</span><span style=\"font-size:13px\">(MainMap_OnTileLoadComplete);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// get map type\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>comboBoxMapType.DataSource = </p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008080\">Enum</span><span style=\"font-size:13px\">.GetValues(</span><span style=\"font-size:13px;color:#0000ff\">typeof</span><span style=\"font-size:13px\">(</span><span style=\"font-size:13px;color:#008080\">GMapType</span><span style=\"font-size:13px\">));\r\n<p>&nbsp;</p>\r\n<p> comboBoxMapType.SelectedItem = MainMap.MapType;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// get render type\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">comboBoxRenderType.DataSource = </span><span style=\"font-size:13px;color:#008080\">Enum</span><span style=\"font-size:13px\">.GetValues(</span><span style=\"font-size:13px;color:#0000ff\">typeof</span><span style=\"font-size:13px\">(</span><span style=\"font-size:13px;color:#008080\">GMapRenderMode</span><span style=\"font-size:13px\">));\r\n<p>&nbsp;</p>\r\n<p> comboBoxRenderType.SelectedItem = MainMap.RenderMode;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// get cache modes\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">checkBoxUseTileCache.Checked = MainMap.UseTileCache;\r\n<p>&nbsp;</p>\r\n<p>checkBoxUseRouteCache.Checked = MainMap.UseRouteCache;</p>\r\n<p>checkBoxUseGeoCache.Checked = MainMap.UseGeocoderCache;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// get zoom\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">trackBar1.Value = MainMap.Zoom;\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// loader start loading tiles\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> MainMap_OnTileLoadStart(</span><span style=\"font-size:13px;color:#0000ff\">int</span><span style=\"font-size:13px\"> loaderId)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">switch</span><span style=\"font-size:13px\">(loaderId)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">case</span><span style=\"font-size:13px\"> 1:\r\n<p>&nbsp;</p>\r\n<p> progressBar1.Show();</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">break</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">case</span><span style=\"font-size:13px\"> 2:\r\n<p>&nbsp;</p>\r\n<p> progressBar2.Show();</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">break</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">case</span><span style=\"font-size:13px\"> 3:\r\n<p>&nbsp;</p>\r\n<p> progressBar3.Show();</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">break</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> }</p>\r\n<p>groupBoxLoading.Invalidate(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p> }</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// loader end loading tiles\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> MainMap_OnTileLoadComplete(</span><span style=\"font-size:13px;color:#0000ff\">int</span><span style=\"font-size:13px\"> loaderId)\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">switch</span><span style=\"font-size:13px\">(loaderId)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">case</span><span style=\"font-size:13px\"> 1:\r\n<p>&nbsp;</p>\r\n<p> progressBar1.Hide();</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">break</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">case</span><span style=\"font-size:13px\"> 2:\r\n<p>&nbsp;</p>\r\n<p> progressBar2.Hide();</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">break</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">case</span><span style=\"font-size:13px\"> 3:\r\n<p>&nbsp;</p>\r\n<p> progressBar3.Hide();</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">break</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p> }</p>\r\n<p>groupBoxLoading.Invalidate(</p>\r\n</span></p>\r\n<p> <span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// current point changed\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> MainMap_OnCurrentPositionChanged(</span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\"> point)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>textBoxCurrLat.Text = point.Lat.ToString(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture);\r\n<p>&nbsp;</p>\r\n<p> textBoxCurrLng.Text = point.Lng.ToString(</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture);\r\n<p>&nbsp;</p>\r\n<p> }</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// change rendering mode\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> comboBoxRenderType_DropDownClosed(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.RenderMode = (</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">GMapRenderMode</span><span style=\"font-size:13px\">) comboBoxMapType.SelectedValue;\r\n<p>&nbsp;</p>\r\n<p> MainMap.ReloadMap();</p>\r\n<p>comboBoxRenderType.SelectedItem = MainMap.RenderMode;</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// change map type\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> comboBoxMapType_DropDownClosed(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.MapType = (</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">GMapType</span><span style=\"font-size:13px\">) comboBoxMapType.SelectedValue;\r\n<p>&nbsp;</p>\r\n<p> MainMap.ReloadMap();</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// zoom\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> trackBar1_ValueChanged(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.Zoom = trackBar1.Value;</p>\r\n<p>MainMap.ReloadMap();</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// go to\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> button8_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\"> lat = </span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\">.Parse(textBoxLat.Text, </span><span style=\"font-size:13px;color:#008080\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\"> lng = </span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\">.Parse(textBoxLng.Text, </span><span style=\"font-size:13px;color:#008080\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture);\r\n<p>&nbsp;</p>\r\n<p> MainMap.CurrentPosition = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\">(lat, lng);\r\n<p>&nbsp;</p>\r\n<p> MainMap.GoToCurrentPosition();</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// goto by geocoder\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> textBoxGeo_KeyPress(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">KeyPressEventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">((</span><span style=\"font-size:13px;color:#008080\">Keys</span><span style=\"font-size:13px\">) e.KeyChar == </span><span style=\"font-size:13px;color:#008080\">Keys</span><span style=\"font-size:13px\">.Enter)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(!MainMap.SetCurrentPositionByKeywords(textBoxGeo.Text))\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">MessageBox</span><span style=\"font-size:13px\">.Show(</span><span style=\"font-size:13px;color:#800000\">&quot;Google Maps Geocoder can't find: &quot;</span><span style=\"font-size:13px\"> + textBoxGeo.Text, </span><span style=\"font-size:13px;color:#800000\">&quot;GMap.NET&quot;</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#008080\">MessageBoxButtons</span><span style=\"font-size:13px\">.OK, </span><span style=\"font-size:13px;color:#008080\">MessageBoxIcon</span><span style=\"font-size:13px\">.Exclamation);\r\n<p>&nbsp;</p>\r\n<p> }</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">else\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\">{\r\n<p>&nbsp;</p>\r\n<p>MainMap.GoToCurrentPosition();</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// get draw mode sometimes...\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> MainMap_MouseDown(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">MouseEventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(e.Button == </span><span style=\"font-size:13px;color:#008080\">MouseButtons</span><span style=\"font-size:13px\">.Right)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>comboBoxRenderType.SelectedItem = MainMap.RenderMode;</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// reload map\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p> <span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> button1_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> MainMap.ReloadMap();</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// load\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> MainForm_Shown(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.ReloadMap();</p>\r\n<p> }</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// cache config\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> checkBoxUseCache_CheckedChanged(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.UseTileCache = checkBoxUseTileCache.Checked;</p>\r\n<p>MainMap.UseRouteCache = checkBoxUseRouteCache.Checked;</p>\r\n<p>MainMap.UseGeocoderCache = checkBoxUseGeoCache.Checked;</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// clear cache\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> button2_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(</span><span style=\"font-size:13px;color:#008080\">MessageBox</span><span style=\"font-size:13px\">.Show(</span><span style=\"font-size:13px;color:#800000\">&quot;Are You sure?&quot;</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#800000\">&quot;Clear GMap.NET cache?&quot;</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#008080\">MessageBoxButtons</span><span style=\"font-size:13px\">.OKCancel, </span><span style=\"font-size:13px;color:#008080\">MessageBoxIcon</span><span style=\"font-size:13px\">.Warning) == </span><span style=\"font-size:13px;color:#008080\">DialogResult</span><span style=\"font-size:13px\">.OK)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">try  </span><span style=\"font-size:13px\">{\r\n<p>&nbsp;</p>\r\n<p>System.IO.</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Directory</span><span style=\"font-size:13px\">.Delete(MainMap.Cache, </span><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">);\r\n<p> }</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">catch</span><span style=\"font-size:13px\">(</span><span style=\"font-size:13px;color:#008080\">Exception</span><span style=\"font-size:13px\"> ex)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">MessageBox</span><span style=\"font-size:13px\">.Show(ex.Message);\r\n<p>&nbsp;</p>\r\n<p> }</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// add test route\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> button3_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// klaipeda - vilnius\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">//PointLatLng start = new PointLatLng(55.70466, 21.2261);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">//PointLatLng end = new PointLatLng(54.654769, 25.224609);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// testing route\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">//PointLatLng start = new PointLatLng(54.7290810525512, 25.2708721160889);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">//PointLatLng end = new PointLatLng(54.710441321148, 25.314474105835);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">List</span><span style=\"font-size:13px\">&lt;</span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\">&gt; route = MainMap.GetRouteBetweenPoints(start, end, </span><span style=\"font-size:13px;color:#0000ff\">false</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">if</span><span style=\"font-size:13px\">(route != </span><span style=\"font-size:13px;color:#0000ff\">null</span><span style=\"font-size:13px\">)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// add route\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Route</span><span style=\"font-size:13px\"> r = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Route</span><span style=\"font-size:13px\">(route, </span><span style=\"font-size:13px;color:#800000\">&quot;test&quot;</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p> MainMap.AddRoute(r);</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// add route start/end marks\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> m1 = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\">(start, </span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">.Medium, </span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\">.Green);\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> m2 = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\">(end, </span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">.Medium, </span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\">.Yellow);\r\n<p>&nbsp;</p>\r\n<p> MainMap.AddMarker(m1);</p>\r\n<p>MainMap.AddMarker(m2); </p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Random</span><span style=\"font-size:13px\"> rand = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Random</span><span style=\"font-size:13px\">();\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> T RandomEnum&lt;T&gt;()\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>T[] values = (T[]) </p>\r\n</span></p>\r\n<p> <span style=\"font-size:13px;color:#008080\">Enum</span><span style=\"font-size:13px\">.GetValues(</span><span style=\"font-size:13px;color:#0000ff\">typeof</span><span style=\"font-size:13px\">(T));\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\"> values[rand.Next(0, values.Length)];\r\n<p>&nbsp;</p>\r\n<p> }</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// add marker on current position\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> button4_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> m = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\">(MainMap.CurrentPosition, RandomEnum&lt;</span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">&gt;(), RandomEnum&lt;</span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\">&gt;());\r\n<p>&nbsp;</p>\r\n<p> MainMap.AddMarker(m);</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// clear routes\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> button6_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.ClearAllRoutes();</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// clear markers\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> button5_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.ClearAllMarkers();</p>\r\n<p>}</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// show current marker\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> checkBoxCurrentMarker_CheckedChanged(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.CurrentMarkerEnabled = checkBoxCurrentMarker.Checked;</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// can drag\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> checkBoxCanDrag_CheckedChanged(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>MainMap.CanDragMap = checkBoxCanDrag.Checked;</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// set route start\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> buttonSetStart_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>start = MainMap.CurrentPosition;</p>\r\n<p>}</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\">// set route end\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> buttonSetEnd_Click(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p> {</p>\r\n<p>end = MainMap.CurrentPosition;</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p>}</p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<p> </p>\r\n</span>\r\n",
+    "PostedDate": "2009-01-19T23:16:08.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148612",
+    "ThreadId": "44539",
+    "Html": "does it load when you manualy hit Reaload button? if yes, check form Shown event and set to MainForm_Shown function\r\n",
+    "PostedDate": "2009-01-19T23:29:10.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148623",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n            Whenver i click on Reaload button, The map reloads i.e, process bar 1 is working but remaining process bars are hidden. My doubt is i am not getting the sentence &quot; form shown event and set to MainForm_Shown function. can u elaborate it please<br>\r\n<br>\r\nRegards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-19T23:55:31.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148627",
+    "ThreadId": "44539",
+    "Html": "if you see map when you reaload it ok. Go to your form desinger, in properties windows choose events, find 'Shown' and choose MainForm_Shown\r\n",
+    "PostedDate": "2009-01-20T00:03:55.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148639",
+    "ThreadId": "44539",
+    "Html": "Hi radioman,<br>\r\n  <br>\r\n               I am not seeing google map after reaload but i will see a black color instead of map and one marker displayed at the center of the map(black color). designer-&gt;properties-&gt;I chosen events and after that i shown MainForm_shown. Then also the output is same as bellow<br>\r\n<br>\r\nThe output look like this<br>\r\n<br>\r\n                            *-------------* zoom coordinates<br>\r\n                            *                    * ---  -   -------<br>\r\n                            *          0        *<br>\r\n                            *-------------*          loading<br>\r\n<br>\r\n&quot;0 &quot; is nothing but a Marker displayed at center and rest of the thing will be black color buy no map will be displayed still its able to perform the following operations<br>\r\n1. add marker, clear marker<br>\r\n2. zoom in , zoom out<br>\r\n3. goto<br>\r\n4. reaload<br>\r\n<br>\r\nThank Regards<br>\r\nAsif \r\n",
+    "PostedDate": "2009-01-20T01:11:30.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148647",
+    "ThreadId": "44539",
+    "Html": "do you see map in official release build? And what type of map you use Map or Satellite?\r\n",
+    "PostedDate": "2009-01-20T01:28:16.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148650",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n            I already forwarded a java script program. In that i can able to use google map and displayed some markers on the map and a single polyline that connects several markers,Any type out of the three i.e,  google satellite map,google hybrid map.<br>\r\n<br>\r\nThank Regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-20T01:38:44.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148653",
+    "ThreadId": "44539",
+    "Html": "this control has no connections to any javascripts, i asked about demo app?\r\n",
+    "PostedDate": "2009-01-20T01:55:27.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148655",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n        In demo application i need to display any type of google map( google map, google satellite map, google hybrid map) actually whenever i run it is not displaying google map but it will display a black color in GMapNET.GMapControl area. So guide regarding this issue.<br>\r\n<br>\r\nRegards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-20T02:07:59.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148660",
+    "ThreadId": "44539",
+    "Html": "i've no idea ;}\r\n",
+    "PostedDate": "2009-01-20T02:33:33.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148662",
+    "ThreadId": "44539",
+    "Html": "<span style=\"font-size:13px;color:#0000ff\">\r\n<p>Hi radioman,<br>\r\n<br>\r\n                      I written a small program by using GMap.NET.Dll. I use GMapControl for displaying a google map in my C# form. When ever i ran the program it will not display the google map but it will display one marker. Is it possible to display google map in the form. Can u please give guidance regarding this and i am using visual studio.net 2005. My program is<br>\r\n<br>\r\nnote : - I need to use google Satellite map the<br>\r\n<br>\r\nusing</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System.Collections.Generic;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System.ComponentModel;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System.Data;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System.Drawing;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System.Text;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">System.Windows.Forms;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>using</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">GMapNET;\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px;color:#0000ff\">\r\n<p>namespace</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">codeplex20_01_2009\r\n<p> </p>\r\n<p>{</p>\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">partial</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">class</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Form1</span><span style=\"font-size:13px\"> : </span><span style=\"font-size:13px;color:#008080\">Form\r\n<p> </p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px\">\r\n<p>{</p>\r\n<p> </p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> Form1()\r\n<p> </p>\r\n<p>{</p>\r\n<p>InitializeComponent();</p>\r\n<p>gMapControl1.ReloadMap();</p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:13px\">\r\n<p> </p>\r\n<p>}</p>\r\n<p> </p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> gMapControl1_Load(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p> </p>\r\n<p>{</p>\r\n<p>gMapControl1.ReloadMap();</p>\r\n<p>}</p>\r\n<p>}</p>\r\n<p>}<br>\r\nThank Regards <br>\r\nAsif</p>\r\n</span></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2009-01-20T02:54:00.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148666",
+    "ThreadId": "44539",
+    "Html": "use shown event, and set initial coordinates, zoom, language\r\n",
+    "PostedDate": "2009-01-20T03:02:39.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148674",
+    "ThreadId": "44539",
+    "Html": "hi radioman<br>\r\n<br>\r\n     This is my updated code i ran the program still i am not able to display google satellite map. If any thing  i need to change provide some sort of guidence for getting google satellite map in my C# form.<br>\r\n<br>\r\n       <span style=\"font-size:13px;color:#0000ff\">\r\n<p>namespace</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> codeplex20_01_2009\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">partial</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">class</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Form1</span><span style=\"font-size:13px\"> : </span><span style=\"font-size:13px;color:#008080\">Form\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>{</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\"> start=</span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\"> (17.42566762633645,78.34305354153429);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\"> end = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\">(17.42057225253198, 78.6343150998329);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> Form1()\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>InitializeComponent();</p>\r\n<p>gMapControl1 .MapType =</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">GMapType</span><span style=\"font-size:13px\"> .Satellite ;\r\n<p>&nbsp;</p>\r\n<p>gMapControl1.Zoom = 13;</p>\r\n<p>gMapControl1.Language = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#800000\">&quot;lt&quot;</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>gMapControl1.CurrentPosition = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\">(17.3836523350338, 78.46541278343632);\r\n<p>&nbsp;</p>\r\n<p>gMapControl1.ReloadMap();</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> m1=</span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> (start,</span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">.Medium ,</span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\"> .Yellow );\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> m2=</span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> (end, </span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">.Medium ,</span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\"> .Green );\r\n<p>&nbsp;</p>\r\n<p>gMapControl1 .AddMarker(m1 );</p>\r\n<p>gMapControl1 .AddMarker (m2);</p>\r\n<p>gMapControl1.ReloadMap();</p>\r\n<p>&nbsp;</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#0000ff\">private</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">void</span><span style=\"font-size:13px\"> Map_Shown(</span><span style=\"font-size:13px;color:#0000ff\">object</span><span style=\"font-size:13px\"> sender, </span><span style=\"font-size:13px;color:#008080\">EventArgs</span><span style=\"font-size:13px\"> e)\r\n<p>&nbsp;</p>\r\n<p>{</p>\r\n<p>gMapControl1.ReloadMap();</p>\r\n<p>}<br>\r\n}<br>\r\nThank Regards<br>\r\nAsif</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-20T03:22:36.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148679",
+    "ThreadId": "44539",
+    "Html": "..maybe you reach google data usage limit, can you see maps in browser?\r\n",
+    "PostedDate": "2009-01-20T03:32:43.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148684",
+    "ThreadId": "44539",
+    "Html": "hi radioman,<br>\r\n<br>\r\n          my program was executed but i didn't seen the google map. Instead of google map i seen black color and one marker displayed at the center. i need to write some thing more. can u please provide some guidance....<br>\r\n<br>\r\nregards<br>\r\nasif\r\n",
+    "PostedDate": "2009-01-20T03:59:34.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148688",
+    "ThreadId": "44539",
+    "Html": "hi radioman,<br>\r\n<br>\r\n  You can load google maps in a browser by using this link<br>\r\n<br>\r\n<a href=\"http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAIzvWEPXT4yXfiLp2DLLqpBRAD2eQqjjLhsqM5TNK0P5A5aeCNhS5GP4AXDwLFU8tVNTYaDgLq-1Y6A\"><span style=\"color:#3e62a6\">http://maps.google.com/maps?file=api&amp;amp;v=2&amp;amp;key=ABQIAAAAIzvWEPXT4yXfiLp2DLLqpBRAD2eQqjjLhsqM5TNK0P5A5aeCNhS5GP4AXDwLFU8tVNTYaDgLq-1Y6A</span></a> <br>\r\n<br>\r\nor<br>\r\n<br>\r\n<a href=\"http://maps.google.com\">http://maps.google.com</a><br>\r\n<br>\r\n    but in my application how it will be i am not getting. provide some sort of guidance...........<br>\r\nthank regards<br>\r\nasif\r\n",
+    "PostedDate": "2009-01-20T04:20:33.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148690",
+    "ThreadId": "44539",
+    "Html": "...later\r\n",
+    "PostedDate": "2009-01-20T04:24:10.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148693",
+    "ThreadId": "44539",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n      I already forwarded a java script program. copy that one and paste it in notepad, save it with extension .html and run it by using internet explorer. then you can see a google map in web browser.<br>\r\n<br>\r\nRegards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-20T04:37:27.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149042",
+    "ThreadId": "44539",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n        I executed the same application in vs.net 2008 then also i am not getting google map in my form but i am able to see one marker and<strong> 2009 Google-Map Data  2009 TeleAtlas</strong>. guide me regarding this.....<br>\r\n<br>\r\nRegards<br>\r\nAsif \r\n",
+    "PostedDate": "2009-01-20T21:39:08.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149053",
+    "ThreadId": "44539",
+    "Html": "i have no idea ;}\r\n",
+    "PostedDate": "2009-01-20T22:18:11.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149108",
+    "ThreadId": "44539",
+    "Html": "<div id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl16_BodyDiv\">Hi Radioman,<br>\r\n<br>\r\n       I successfully executed the program in C#.NET 2005 and located a single marker.There is no problem at all in the program but problem with internet. Here internet is slow b/c of this reason the map was not at all displayed. Really sorry for that and i am going through how to display several markers in google map. Thanks alot for developing a GMapNET.dll. Its very nice thing...<br>\r\n<br>\r\nThanks &amp;  Regards<br>\r\nAsif </div>\r\n",
+    "PostedDate": "2009-01-21T01:26:36.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149140",
+    "ThreadId": "44539",
+    "Html": "<span style=\"white-space:pre-wrap;font-family:'segoe ui';font-size:13px;color:rgb(48, 51, 45)\">i see, hm... maybe i try to increase timeout value, so even slow connections can load maps.</span><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px;white-space:pre-wrap\"><br></span></div><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px;white-space:pre-wrap\">p.s. do not post the same text on few discusions ;}</span></div>",
+    "PostedDate": "2009-01-21T02:55:47.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149145",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n         I am sorry about that one and i will not repeat it. Thanks a  lot... and one more suggestion i need, whenever i run the program it displays a draggable marker at the center of gmap. I want to display only static marker so which function i need to use for displaying a static marker at center of map and i want to move the map to left, right, top, bottom..<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif \r\n",
+    "PostedDate": "2009-01-21T03:11:18.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149152",
+    "ThreadId": "44539",
+    "Html": "<div><br></div><div>// hides current location marker</div><div>MainMap.CurrentMarkerEnabled = false;<br></div><div><br></div><div>// adds static marker</div>MainMap.AddMarker(...);<div><br></div>",
+    "PostedDate": "2009-01-21T03:24:25.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149155",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n        I added those statements but how can i move the map to left, right, up, down. <br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-21T03:38:13.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149157",
+    "ThreadId": "44539",
+    "Html": ";] drag it holding right",
+    "PostedDate": "2009-01-21T03:43:09.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149163",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n <br>\r\n              Yes i did that one but its not working. If i use Zoom option then i can see world map. After zooming i want to drag the map to left, right,top,bottom.Give some guidance regarding this<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif \r\n",
+    "PostedDate": "2009-01-21T03:51:18.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149167",
+    "ThreadId": "44539",
+    "Html": "yes it work, no you didn't ;}",
+    "PostedDate": "2009-01-21T03:58:46.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149170",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n         Its working. I am very sorry. i am using mouse left button but just now i tried with mouse right button it working<br>\r\n<br>\r\nThank Regards<br>\r\nASif\r\n",
+    "PostedDate": "2009-01-21T04:04:33.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149176",
+    "ThreadId": "44539",
+    "Html": ";}",
+    "PostedDate": "2009-01-21T04:09:52.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149196",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n  <span style=\"font-size:13px;color:#008080\">\r\n<p>List</p>\r\n</span>\r\n<p><span style=\"font-size:13px\">&lt;</span><span style=\"font-size:13px;color:#008080\">PointLatLng</span><span style=\"font-size:13px\">&gt; route = gMapControl1.GetRouteBetweenPoints(start, end, </span><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Route</span><span style=\"font-size:13px\"> r1 = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Route</span><span style=\"font-size:13px\">(route, </span><span style=\"font-size:13px;color:#800000\">&quot;test&quot;</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p>r1.Color = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Color</span><span style=\"font-size:13px\">.Beige;\r\n<p>&nbsp;</p>\r\n<p>route.Add(start);</p>\r\n<p>gMapControl1.AddRoute(route);</p>\r\n</span></p>\r\n<br>\r\n     Whenever i execute a program with above code it will display a route (polyline) that connect three markers and this route is contineous but i want to display a route between two markers then what can i do.Give me sugessions...<br>\r\n<br>\r\nThanks &amp;  Regards <br>\r\nAsif<br>\r\n",
+    "PostedDate": "2009-01-21T05:09:41.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149201",
+    "ThreadId": "44539",
+    "Html": "don't use <span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">GetRouteBetweenPoints, because it's returns point on the road, just manualy add two point:</span><div><span style=\"font-family:'segoe ui';font-size:13px;color:rgb(48, 51, 45)\"><br></span></div><div><span style=\"color:rgb(0, 128, 128);font-family:'segoe ui';font-size:13px\">List <span style=\"color:rgb(48, 51, 45)\"><span style=\"font-size:13px\">&lt;</span><span style=\"font-size:13px;color:rgb(0, 128, 128)\">PointLatLng</span><span style=\"font-size:13px\">&gt; route = new </span></span></span><span style=\"color:rgb(0, 128, 128);font-family:'segoe ui';font-size:13px\">List <span style=\"color:rgb(48, 51, 45)\"><span style=\"font-size:13px\">&lt;</span><span style=\"font-size:13px;color:rgb(0, 128, 128)\">PointLatLng</span><span style=\"font-size:13px\">&gt;();</span></span></span><br></div><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">route.Add(start);</span></div><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">route.Add(end);</span></div><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\"><br></span></div><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\"><span style=\"font-size:13px;color:rgb(0, 128, 128)\">Route</span><span style=\"font-size:13px\"> r1 = </span><span style=\"font-size:13px;color:rgb(0, 0, 255)\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:rgb(0, 128, 128)\">Route</span><span style=\"font-size:13px\">(route, </span><span style=\"font-size:13px;color:rgb(128, 0, 0)\">&quot;test&quot;</span><span style=\"font-size:13px\">);</span><br></span></div><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">gMapControl1.AddRoute(r1);<br></span></div>",
+    "PostedDate": "2009-01-21T05:20:50.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149568",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n            Thank you i updated my program with your code. Whatever i thought in initial stage i got it now.<br>\r\n<br>\r\n<br>\r\nThanks &amp; Regrads<br>\r\nAsif\r\n",
+    "PostedDate": "2009-01-21T21:47:39.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149569",
+    "ThreadId": "44539",
+    "Html": "good ;}",
+    "PostedDate": "2009-01-21T21:54:43.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150135",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n        <span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> m = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\">(point, </span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">.Medium, </span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\">.Red);<br>\r\n</span><span style=\"font-size:13px\"><br>\r\nIn above code Marker Color is Red,Green,Blue or Yellow we nedd to use but how can i display my own colored marker like pink, cyan etc.... suggest me regarding this<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif <br>\r\n<br>\r\n</span>\r\n",
+    "PostedDate": "2009-01-23T01:45:49.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150142",
+    "ThreadId": "44539",
+    "Html": "Suggest using the System.Drawing.Colors&nbsp; enum for the MarkerColor<br>\r\n",
+    "PostedDate": "2009-01-23T02:08:40.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150153",
+    "ThreadId": "44539",
+    "Html": "set marker.CustomMarker to your custom image and MarkerType to Custom, don't forget aligment",
+    "PostedDate": "2009-01-23T02:37:17.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150182",
+    "ThreadId": "44539",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n I am not understanding. how i can set CustomMarker???? and whever i use the following line of code it is not displaying <br>\r\n<span style=\"font-size:13px;color:#008080\">the entire string on the marker.<br>\r\n<br>\r\nFor example <br>\r\n<br>\r\ninput string:- <br>\r\n<br>\r\nstring celno = &quot;+919000443392&quot;;<br>\r\n<br>\r\nbut o/p it is displaying on the marker like this +91900044339<br>\r\n<br>\r\nsuggest regarding this...............................<br>\r\n<br>\r\n<br>\r\nMarker</span><span style=\"font-size:13px\"> m8 = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\">(point, </span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">.Medium, </span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\">.Green );\r\n<p>m8.Text = celno.ToString ();</p>\r\n<p>m8.Visible = </p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">true</span><span style=\"font-size:13px\">;\r\n<p>&nbsp;</p>\r\n<p>gMapControl1.AddMarker(m8);</p>\r\n</span></p>\r\nThanks &amp; Regards<br>\r\nAsif<br>\r\n",
+    "PostedDate": "2009-01-23T03:55:10.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150195",
+    "ThreadId": "44539",
+    "Html": "i'm just explained that ;}",
+    "PostedDate": "2009-01-23T04:24:57.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198490",
+    "ThreadId": "44539",
+    "Html": "<p>Hi Radioman,<br> <br>&nbsp; very very nice coding. thanks</p>\r\n<p>&nbsp; how can i use &quot;Maps Icon&quot; and where can i find them.</p>",
+    "PostedDate": "2009-06-05T23:42:40.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198518",
+    "ThreadId": "44539",
+    "Html": "<p>check demo</p>",
+    "PostedDate": "2009-06-06T04:25:15.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443381",
+    "ThreadId": "44539",
+    "Html": "<p>hello <span id=\"result_box\"><span>Programmers,</span></span></p>\r\n<p><span><span>im new starting C# programing, i cant </span></span><span id=\"result_box\"><span style=\"background-color:#ffffff\">execution this project,</span></span></p>\r\n<p><span><span style=\"background-color:#ffffff\">Error:<br></span></span></p>\r\n<p>C:\\WINDOWS\\Microsoft.NET\\Framework\\v4.0.30319\\Microsoft.CShorp.targets(132.9): the attribute &quot;Returns&quot; in element &lt;target&gt; is unrecognized</p>\r\n<p>thanks</p>",
+    "PostedDate": "2010-05-15T23:13:29.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443439",
+    "ThreadId": "44539",
+    "Html": "<p>;/ ??</p>",
+    "PostedDate": "2010-05-16T07:31:08.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

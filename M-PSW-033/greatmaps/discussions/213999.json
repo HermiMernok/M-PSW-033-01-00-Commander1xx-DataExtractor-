@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "447916",
+    "ThreadId": "213999",
+    "Html": "<p>First of all awesome work!!! I just started using your control and am wowed by it!</p>\r\n<p>Two questions:</p>\r\n<p>1) I have a route that can span 2000 miles. Is there a way to zoom out far enough to see all points? In your demo (WPF), you have the min/max zoom set to @5 and 17 respectively. Maybe I am not entirely understanding -- but I'd like to automatically Zoom out far enough to see the entire route -- or at least some of my points that are quite far apart.&nbsp; Thoughts on how to do this?</p>\r\n<p>2) Also, when I use AddRoute, the route line isn't even close to either a straight line or a great circle. Am I doing something wrong -- or is there a way to get a smoother looking line between points or to override the drawing of the route line to do it myself?</p>\r\n<p>Thanks so much!!! Brilliant work! Am looking forward to digging into it.</p>",
+    "PostedDate": "2010-05-26T17:40:00.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448026",
+    "ThreadId": "213999",
+    "Html": "<p>1) get bounds of route points, and use function MainMap.<strong>SetZoomToFitRect</strong></p>\r\n<p>2) route is route, if you want direct line, use only two points, circle would require some custom algorithm</p>\r\n<p>p.s. are you trying to connect some cities on the earth? ;}</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-27T00:55:43.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448183",
+    "ThreadId": "213999",
+    "Html": "<p>Thanks so much!!! This stuff ROCKS!</p>\r\n<p>Didn't you know, it's a small world out there!!!!</p>\r\n<p>:-)</p>",
+    "PostedDate": "2010-05-27T07:19:58.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448253",
+    "ThreadId": "213999",
+    "Html": "<p>..but i live in the stars, energize! ;}</p>",
+    "PostedDate": "2010-05-27T09:14:02.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

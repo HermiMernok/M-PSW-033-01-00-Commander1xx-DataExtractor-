@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "just use changeset 22b93afd000c or belove",
+    "ClosedDate": "2010-12-21T14:49:56.68-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I'm working on windos 7 32 bits and Visual Studio 2008\r\n\r\nSystem.OutOfMemoryException was unhandled\r\n  Message=\"OutOfMemoryException\"\r\n  StackTrace:\r\n    en System.Collections.Generic.Dictionary`2.Initialize(Int32 capacity)\r\n    en System.Collections.Generic.Dictionary`2..ctor(Int32 capacity, IEqualityComparer`1 comparer)\r\n    en System.Collections.Generic.Dictionary`2..ctor(Int32 capacity)\r\n    en GMap.NET.PureProjection..ctor()\r\n    en GMap.NET.Projections.MercatorProjection..ctor()\r\n    en GMap.NET.GMaps.AdjustProjection(MapType type, PureProjection& Projection, Int32& maxZoom)\r\n    en GMap.NET.Internals.Core.set_MapType(MapType value)\r\n    en GMap.NET.Internals.Core..ctor()\r\n    en GMap.NET.WindowsForms.GMapControl..ctor()\r\n    en Demo.WindowsMobile.MainForm.InitializeComponent()\r\n    en Demo.WindowsMobile.MainForm..ctor()\r\n    en Demo.WindowsMobile.Program.Main()\r\n\r\nThis error occurs exactly in the next code segment:\r\n\r\n      public PureProjection()\r\n      {\r\n         for(int i = 0; i < FromLatLngToPixelCache.Capacity; i++)\r\n         {\r\n            FromLatLngToPixelCache.Add(new Dictionary<PointLatLng, GPoint>(4444));\r\n            FromPixelToLatLngCache.Add(new Dictionary<GPoint, PointLatLng>(4444));\r\n         }\r\n      }",
+    "LastUpdatedDate": "2010-12-21T14:49:56.68-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-12-21T14:02:00.913-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error when deploying mobile app on HTC Touch 2 T3333",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15994
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

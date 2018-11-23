@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "175199",
+    "ThreadId": "52165",
+    "Html": "<p>I suggest to add a length of the route:</p>\r\n<p>In MapRoute:</p>\r\n<p>public double Distance<br>\r\n{<br>\r\nget<br>\r\n{<br>\r\nvar distance = 0.0;<br>\r\nfor (var i = 1; i &lt; Points.Count; i++)<br>\r\n{<br>\r\ndistance += Distance.Calc(Points[i - 1].Lat, Points[i - 1].Lng, Points[i].Lat,<br>\r\nPoints[i].Lng);<br>\r\n}<br>\r\n<br>\r\nreturn distance;<br>\r\n}<br>\r\n}</p>\r\n<p>public static class Distance<br>\r\n{<br>\r\npublic static double Calc(double lat1, double lng1, double lat2, double lng2)<br>\r\n{<br>\r\nvar dLat1InRad = lat1 * (Math.PI / 180);<br>\r\nvar dLong1InRad = lng1 * (Math.PI / 180);<br>\r\nvar dLat2InRad = lat2 * (Math.PI / 180);<br>\r\nvar dLong2InRad = lng2 * (Math.PI / 180);<br>\r\nvar dLongitude = dLong2InRad - dLong1InRad;<br>\r\nvar dLatitude = dLat2InRad - dLat1InRad;<br>\r\nvar a = Math.Pow(Math.Sin(dLatitude / 2), 2) + Math.Cos(dLat1InRad) * Math.Cos(dLat2InRad) * Math.Pow(Math.Sin(dLongitude / 2), 2);<br>\r\nvar c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));<br>\r\nconst double kEarthRadiusKms = 6376.5;<br>\r\nvar dDistance = kEarthRadiusKms * c;<br>\r\nreturn dDistance;<br>\r\n}<br>\r\n}<br>\r\n<br>\r\n</p>\r\n",
+    "PostedDate": "2009-04-03T02:58:31.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "175224",
+    "ThreadId": "52165",
+    "Html": "it's direct line, real route has its own distance calculated by google, anyway we can use this function to calculate distance of sum of route splits",
+    "PostedDate": "2009-04-03T03:50:21.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "175230",
+    "ThreadId": "52165",
+    "Html": "This is not a  direct line. It is calculated by  route of coordinates. Google feels the same way.\r\n",
+    "PostedDate": "2009-04-03T04:24:19.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

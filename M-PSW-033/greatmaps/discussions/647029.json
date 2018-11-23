@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1451058",
+    "ThreadId": "647029",
+    "Html": "I need to only include a short list of the GMapProviders list how do i do this in c#<br />\n",
+    "PostedDate": "2015-11-05T11:09:00.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1451265",
+    "ThreadId": "647029",
+    "Html": "You have to do it manually, by selecting the GMapProviders that you want and put them in a combobox for example.<br />\n",
+    "PostedDate": "2015-11-07T09:17:27.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1453718",
+    "ThreadId": "647029",
+    "Html": "<strong>skyhikeeper wrote:</strong><br />\n<blockquote>\nI need to only include a short list of the GMapProviders list how do i do this in c#<br />\n</blockquote>\nI think, you open source code, file name is GMapProviders.cs,  then REM some Provider you dont want, then recompile, like below:<br />\n<pre><code>    public static readonly BingMapProvider BingMap = BingMapProvider.Instance;\n    public static readonly BingSatelliteMapProvider BingSatelliteMap = BingSatelliteMapProvider.Instance;\n    public static readonly BingHybridMapProvider BingHybridMap = BingHybridMapProvider.Instance;\n\n    //public static readonly YahooMapProvider YahooMap = YahooMapProvider.Instance;\n    //public static readonly YahooSatelliteMapProvider YahooSatelliteMap = YahooSatelliteMapProvider.Instance;\n    //public static readonly YahooHybridMapProvider YahooHybridMap = YahooHybridMapProvider.Instance;\n\n    public static readonly GoogleMapProvider GoogleMap = GoogleMapProvider.Instance;\n    public static readonly GoogleSatelliteMapProvider GoogleSatelliteMap = GoogleSatelliteMapProvider.Instance;\n    public static readonly GoogleHybridMapProvider GoogleHybridMap = GoogleHybridMapProvider.Instance;\n    public static readonly GoogleTerrainMapProvider GoogleTerrainMap = GoogleTerrainMapProvider.Instance;</code></pre>\n\n",
+    "PostedDate": "2015-11-24T20:43:08.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

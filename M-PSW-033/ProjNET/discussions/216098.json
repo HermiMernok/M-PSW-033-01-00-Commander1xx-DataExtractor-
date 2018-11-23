@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "455688",
+    "ThreadId": "216098",
+    "Html": "I'm trying to transform WGS84 coordinates to EPSG 3857 (ESRI 102100) coordinates. I have specified the WKT for the output coordinate system with this (and several variant) WKT: http://spatialreference.org/ref/sr-org/6928/. In every case the y-coordinates of my output are about 20km too small (only tested in SoCal). What do I need to do to correct this?\r\n\r\n-Dan Walton\r\n",
+    "PostedDate": "2010-06-15T08:44:19.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455951",
+    "ThreadId": "216098",
+    "Html": "<p>You can find the correct WKT in the WIKI: <a href=\"http://projnet.codeplex.com/wikipage?title=CommonWellKnownText&referringTitle=Home\">http://projnet.codeplex.com/wikipage?title=CommonWellKnownText&amp;referringTitle=Home</a></p>",
+    "PostedDate": "2010-06-15T21:32:22.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455957",
+    "ThreadId": "216098",
+    "Html": "<p>I am using that WKT, and for whatever reason it isn't properly overlaying a 102100 map service.</p>",
+    "PostedDate": "2010-06-15T21:56:05.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554088",
+    "ThreadId": "216098",
+    "Html": "\r\n<p>Sounds like you might be creating a Mercator projection with respect to the WGS84 ellipsoid, rather than relative to a sphere. Try adding:</p>\r\n<p>PARAMETER[&quot;semi_minor&quot;,6378137]</p>\r\n<p>into the list of parameters in the WKT of your projection.</p>\r\n<p>See here for more details: http://alastaira.wordpress.com/2011/01/23/the-google-maps-bing-maps-spherical-mercator-projection/</p>\r\n",
+    "PostedDate": "2011-01-23T16:23:09.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

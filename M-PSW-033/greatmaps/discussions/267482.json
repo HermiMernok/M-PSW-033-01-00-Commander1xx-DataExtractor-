@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "651280",
+    "ThreadId": "267482",
+    "Html": "<p>I am deploying my app via ClickOnce, when running the app I get the following error. I also tried including the x86 and x64 folders...same thing. The app runs fine on the development box. What else can I try?</p>\n<p>I am not using .NET 4.0 and the BSE.Windows.Forms.dll is not in my project. I also confirm that I have MapControl.Manager.Mode = ServerAndCache</p>\n<p>=================================================<br />ERROR DETAIL<br />=================================================</p>\n<p>See the end of this message for details on invoking <br />just-in-time (JIT) debugging instead of this dialog box.</p>\n<p>************** Exception Text **************<br />System.TypeInitializationException: The type initializer for 'SingletonCreator' threw an exception. ---&gt; System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; System.BadImageFormatException: Could not load file or assembly 'System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. An attempt was made to load a program with an incorrect format.<br />File name: 'System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139'<br />&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CreateEmptyDB(String file)<br />&nbsp;&nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation(String value)<br />&nbsp;&nbsp; at GMap.NET.Internals.Cache.set_CacheLocation(String value)<br />&nbsp;&nbsp; at GMap.NET.Internals.Cache..ctor()</p>\n<p>WRN: Assembly binding logging is turned OFF.<br />To enable assembly bind failure logging, set the registry value [HKLM\\Software\\Microsoft\\Fusion!EnableLog] (DWORD) to 1.<br />Note: There is some performance penalty associated with assembly bind failure logging.<br />To turn this feature off, remove the registry value [HKLM\\Software\\Microsoft\\Fusion!EnableLog].</p>\n<p>&nbsp;&nbsp; --- End of inner exception stack trace ---<br />&nbsp;&nbsp; at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean&amp; canBeCached, RuntimeMethodHandle&amp; ctor, Boolean&amp; bNeedSecurityCheck)<br />&nbsp;&nbsp; at System.Activator.CreateInstance[T]()<br />&nbsp;&nbsp; at GMap.NET.Singleton`1.SingletonCreator..cctor()<br />&nbsp;&nbsp; --- End of inner exception stack trace ---<br />&nbsp;&nbsp; at GMap.NET.Singleton`1.get_Instance()<br />&nbsp;&nbsp; at GMap.NET.GMaps.set_ImageCacheSecond(PureImageCache value)<br />&nbsp;&nbsp; at MapView.frmMain.InitMap()<br />&nbsp;&nbsp; at MapView.frmMain.frmMain_Load(Object sender, EventArgs e)<br />&nbsp;&nbsp; at System.EventHandler.Invoke(Object sender, EventArgs e)<br />&nbsp;&nbsp; at System.Windows.Forms.Form.OnLoad(EventArgs e)<br />&nbsp;&nbsp; at DevExpress.XtraEditors.XtraForm.OnLoad(EventArgs e)<br />&nbsp;&nbsp; at System.Windows.Forms.Form.OnCreateControl()<br />&nbsp;&nbsp; at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.CreateControl()<br />&nbsp;&nbsp; at System.Windows.Forms.Control.WmShowWindow(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.ContainerControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Form.WmShowWindow(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Form.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at DevExpress.XtraEditors.XtraForm.WndProc(Message&amp; msg)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)<br />&nbsp;&nbsp; at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</p>",
+    "PostedDate": "2011-08-02T11:03:36.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651302",
+    "ThreadId": "267482",
+    "Html": "<p>I found the problem...although I was deploying the x86 and x64 folders, the System.Data.SQLite.DLL was also deployed separately. I just removed the dll and all works. Question though, can't I tell the map control not to use the local SQLite cache and use the ImageCacheSecond instead?</p>",
+    "PostedDate": "2011-08-02T11:42:02.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651330",
+    "ThreadId": "267482",
+    "Html": "<p>it uses both, leave it so, or recompile without SQLite conditional symbol, not recommended action, ...and give a try to latest version in source, it manages sqlite deployment automatically, so you don't need to manually add folders for it</p>",
+    "PostedDate": "2011-08-02T12:25:07.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

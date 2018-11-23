@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "194108",
+    "ThreadId": "57432",
+    "Html": "<p>If Google Maps returns a 620,0,0,0,0 value which means &quot;slow down&quot; or &quot;too many geocode's&quot;, this response is cached forever and always returned.</p>\r\n<p>If 620 is read from the cache it should be retried. That will fix any existing badly cached entries. I did this by changing GMaps.cs line 677 to read</p>\r\n<p>&nbsp;&nbsp;&nbsp; if (string.IsNullOrEmpty(geo) || geo.StartsWith(&quot;620&quot;))</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-25T23:11:58.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "194142",
+    "ThreadId": "57432",
+    "Html": "<p>fixed, thanks</p>",
+    "PostedDate": "2009-05-26T01:39:00.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

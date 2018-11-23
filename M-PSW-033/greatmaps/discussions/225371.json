@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "486701",
+    "ThreadId": "225371",
+    "Html": "<p>Hi guys,</p>\r\n<p>I have a GPS value from a device that looks like this:</p>\r\n<pre>-27.322914, 153.023697<br><br>This should place me near Brisbane, Australia. However, although it gets me close.. it's thousands of kilometers off. <br>I am starting from basics, and am happy that I have brought up a map in my Winforms project. <br>I'd like to zoom to around 150 meters up from this point. Could someone correct my code to achieve this? <br>I'm worried that my GPS co-ords aren't in the right format maybe?</pre>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>            <span style=\"color:blue\">try</span>\r\n            {\r\n                System.Net.IPHostEntry ip = System.Net.Dns.GetHostEntry(<span style=\"color:#a31515\">&quot;www.google.com&quot;</span>);\r\n            }\r\n            <span style=\"color:blue\">catch</span>\r\n            {\r\n                MainMap.Manager.Mode = AccessMode.CacheOnly;\r\n                MessageBox.Show(<span style=\"color:#a31515\">&quot;No internet connection avaible, going to CacheOnly mode.&quot;</span>, <span style=\"color:#a31515\">&quot;GMap.NET - Demo.WindowsForms&quot;</span>, MessageBoxButtons.OK, MessageBoxIcon.Warning);\r\n            }\r\n\r\n            <span style=\"color:green\">// config map             </span>\r\n            MainMap.CurrentPosition = <span style=\"color:blue\">new</span> PointLatLng(-27.322914, 153.023697);\r\n            MainMap.MaxZoom = 11;\r\n            MainMap.MinZoom = 1;\r\n            MainMap.Zoom = MainMap.MinZoom + 1;\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>Also, the zoom doesn't get me close. How does the zoom value work?</p>\r\n<p>And finally, am I right in saying that I need the 3 GMAp reference DLLs in my project? Core, Winforms and the SQL one?</p>\r\n<p>Thanks guys.</p>",
+    "PostedDate": "2010-08-30T17:54:52.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "486835",
+    "ThreadId": "225371",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre>MainMap.MapType = MapType.GoogleMap;\r\nMainMap.MaxZoom = 17;\r\nMainMap.MinZoom = 1;\r\nMainMap.Zoom = MainMap.MinZoom + 4;\r\nMainMap.CurrentPosition = <span style=\"color:blue\">new</span> PointLatLng(-27.322914, 153.023697);\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-08-31T03:29:19.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487116",
+    "ThreadId": "225371",
+    "Html": "<p>Fixed!</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks sir,</p>\r\n<p>&nbsp;</p>\r\n<p>Great product!</p>",
+    "PostedDate": "2010-08-31T11:02:31.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

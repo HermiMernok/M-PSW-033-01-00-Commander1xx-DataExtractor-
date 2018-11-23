@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "691652",
+    "ThreadId": "277776",
+    "Html": "\r\n<p>Hi Radioman!</p>\r\n<p>We're using WPF&#43;.NetFW4&#43;PRISM4 in order to build a WPF based standalone app. Now when we're merging all our PRISMV4 modules together my module containing a GMAP control has started to behave badly. It starts to spontaneously change the zoom level and furthermore\r\n is the current position changed. I remember from a previous discussion with you that I needed to include the following in order to have GMAP support .NetFW4:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>  &lt;startup useLegacyV2RuntimeActivationPolicy=<span style=\"color:#a31515\">&quot;true&quot;</span>&gt;\r\n    &lt;supportedRuntime version=<span style=\"color:#a31515\">&quot;v4.0&quot;</span> sku=<span style=\"color:#a31515\">&quot;.NETFramework,Version=v4.0&quot;</span>/&gt;\r\n  &lt;/startup&gt;\r\n</pre>\r\n</div>\r\n<p>and I've placed that entry immediately after the &lt;configSections/&gt;&nbsp;section in App.config. Is there anything else I need to do to make this strange behavior disappear? The version of GMap I use is &quot;greatmaps_5866b20195bb&quot;. I believe it was released\r\n in late 2010.</p>\r\n<p>Many thanks for an excellent piece of work. It truly is a work of art - in a word: &quot;Mastery&quot;:)<br>\r\n/Peter</p>\r\n",
+    "PostedDate": "2011-10-31T07:47:37.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692416",
+    "ThreadId": "277776",
+    "Html": "<p>...i don't know about old versions, but current version doesn't need any configs, and what do you mean 'merge', few dlls into one?</p>",
+    "PostedDate": "2011-11-01T14:48:21.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

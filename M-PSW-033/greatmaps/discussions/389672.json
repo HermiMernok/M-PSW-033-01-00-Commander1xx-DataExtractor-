@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "893471",
+    "ThreadId": "389672",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I use this code for when user click on buttonzoom, map zoom smoothly. code work correctly on any zoom but at max and min zoom cant't drag map.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> btnMapZoomPlus_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n{\r\n    ZoomFunctions.ZoomTo = <span style=\"color:blue\">true</span>;\r\n    ZoomFunctions.ZoomLevel = MainMapControl.Zoom;\r\n    MainMapZoom = MainMapControl.Zoom;\r\n    MapZoomTimer.Enabled = <span style=\"color:blue\">true</span>;\r\n}\r\n\r\n<span style=\"color:blue\">internal</span> <span style=\"color:blue\">double</span> MainMapZoom = 9.0;\r\n<span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> MapZoomTimer_Tick(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n{\r\n    MainMapZoom = ZoomFunctions.ZoomLevel;\r\n    MapZoom = (ZoomFunctions.ZoomTo) ? MapZoom &#43; 0.05 : MapZoom - 0.05;\r\n    MainMapControl.Zoom = MapZoom;\r\n\r\n    <span style=\"color:blue\">switch</span> (ZoomFunctions.ZoomTo)\r\n    {\r\n        <span style=\"color:blue\">case</span> <span style=\"color:blue\">true</span>:\r\n            <span style=\"color:blue\">if</span> (MapZoom &gt;= ZoomFunctions.ZoomLevel &#43; 1.0)\r\n            {\r\n                MainMapControl.Zoom = ZoomFunctions.ZoomLevel &#43; 1.0;\r\n                MapZoomTimer.Enabled = <span style=\"color:blue\">false</span>;\r\n            }\r\n            <span style=\"color:blue\">break</span>;\r\n\r\n        <span style=\"color:blue\">case</span> <span style=\"color:blue\">false</span>:\r\n            <span style=\"color:blue\">if</span> (MapZoom &lt;= ZoomFunctions.ZoomLevel - 1.0)\r\n            {\r\n                MainMapControl.Zoom = ZoomFunctions.ZoomLevel - 1.0;\r\n                MapZoomTimer.Enabled = <span style=\"color:blue\">false</span>;\r\n            }\r\n            <span style=\"color:blue\">break</span>;\r\n    }\r\n}\r\n\r\n<span style=\"color:blue\">internal</span> <span style=\"color:blue\">class</span> ZoomFunctions\r\n    {\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">static</span> Boolean zoomTo = <span style=\"color:blue\">true</span>;\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> Boolean ZoomTo\r\n        {\r\n            <span style=\"color:blue\">get</span>\r\n            {\r\n                <span style=\"color:blue\">return</span> zoomTo;\r\n            }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (zoomTo != value)\r\n                {\r\n                    zoomTo = value;\r\n                }\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">double</span> zoomLevel = 9.00;\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">double</span> ZoomLevel\r\n        {\r\n            <span style=\"color:blue\">get</span>\r\n            {\r\n                <span style=\"color:blue\">return</span> zoomLevel;\r\n            }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (zoomLevel != value)\r\n                {\r\n                    zoomLevel = value;\r\n                }\r\n            }\r\n        }\r\n    }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>how can i fix this bug?</p>\r\n<p>Thanks many</p>\r\n",
+    "PostedDate": "2012-07-31T00:57:15.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893474",
+    "ThreadId": "389672",
+    "Html": "<p>what do you mean 'cant't drag map', it stuck or what?</p>",
+    "PostedDate": "2012-07-31T01:03:56.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893478",
+    "ThreadId": "389672",
+    "Html": "<p>It's like control at zoom 17.5</p>",
+    "PostedDate": "2012-07-31T01:13:23.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893484",
+    "ThreadId": "389672",
+    "Html": "<p>?</p>",
+    "PostedDate": "2012-07-31T01:32:21.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893491",
+    "ThreadId": "389672",
+    "Html": "<p>With trackbar go to zoom 17.5. set trakbar between 17 and 18 and try to drag map. u can't drag map. my problem like this. i can't drag map.</p>",
+    "PostedDate": "2012-07-31T02:04:08.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893535",
+    "ThreadId": "389672",
+    "Html": "<p>there are some bugs in fractional zooming, but on integer zooms it's ok</p>",
+    "PostedDate": "2012-07-31T04:05:00.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895027",
+    "ThreadId": "389672",
+    "Html": "<p>Yes, at integer zoom it's ok but with this code at zoom 18(max zoom in my app) and zoom 7(min zoom) can't drag. must zoom in and out with mouse wheel to can drag,</p>",
+    "PostedDate": "2012-08-03T01:13:39.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "707555",
+    "ThreadId": "281850",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>could you help me with zooming markers?</p>\r\n<p>When i use ZoomAndCenterMarkers() method in constructor of my class implementing gmapControl map won't zoom in. I just see the markers from very high level.</p>\r\n<p>I call it as last thing in constructor after I added overlay with markers.</p>\r\n<p>When I for ex. insert MassageBox.Show(blabla); before calling this method in constructor and( when running) I close messageBox,&nbsp; map then zooms in.</p>\r\n<p>When I call this method from any other position in code(for ex. with button) it works prefectly as well.</p>\r\n<p>What am I doing wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for reply.</p>\r\n",
+    "PostedDate": "2011-12-05T07:24:04.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707562",
+    "ThreadId": "281850",
+    "Html": "<p>just move that code to forms load event, because in constructor map size is unknown</p>",
+    "PostedDate": "2011-12-05T07:32:41.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707568",
+    "ThreadId": "281850",
+    "Html": "<p>Thanks, it makes sense. I'll try it.</p>",
+    "PostedDate": "2011-12-05T07:39:07.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

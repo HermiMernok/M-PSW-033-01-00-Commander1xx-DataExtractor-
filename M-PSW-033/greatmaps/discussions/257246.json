@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "611078",
+    "ThreadId": "257246",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>First, since it my first post, I'd like to say nice component!&nbsp; Works great!&nbsp; Keep up the good work!</p>\r\n<p>Now for the question...</p>\r\n<p>Is there a way to be able to do some custom painting right over the map but before any layers are painted ?</p>\r\n<p>Using the &quot;paint&quot; event I can paint over the resulting composition (maps &#43; all layers) but I would like to be able to paint over the map but under the layers ?</p>\r\n<p>Any info on how to accomplish this without major modification to the source code would be appreciated.</p>\r\n<p>Thanks!</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-05-11T10:37:02.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "611445",
+    "ThreadId": "257246",
+    "Html": "<p>check for <strong>OnPaintEtc</strong>, it paints on top of all layers, you need to modify or create similar function and call it before rendering overlays</p>",
+    "PostedDate": "2011-05-11T23:19:27.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "611450",
+    "ThreadId": "257246",
+    "Html": "<p>i found the solution without modifying the source just override <strong>OnPaintEtc:</strong></p>\r\n<p>protected override void OnPaintEtc(System.Drawing.Graphics g)<br />&nbsp;{&nbsp;<br />&nbsp; &nbsp; &nbsp;g.Draw... // draw before overlays<br />&nbsp;<br />&nbsp; &nbsp; &nbsp;base.OnPaintEtc(g);<br /><br />&nbsp; &nbsp; &nbsp;g.Draw... // draw after overlays<br />}</p>",
+    "PostedDate": "2011-05-11T23:32:09.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "611602",
+    "ThreadId": "257246",
+    "Html": "<p>Hi,</p>\r\n<p>I'll try that!</p>\r\n<p>Thanks!</p>\r\n<p>AJ</p>",
+    "PostedDate": "2011-05-12T05:21:02.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

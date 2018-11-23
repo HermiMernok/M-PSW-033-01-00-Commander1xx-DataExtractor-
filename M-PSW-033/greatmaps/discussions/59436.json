@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "201222",
+    "ThreadId": "59436",
+    "Html": "<p>Hello Guys,</p>\r\n<p>I am just a beginner, and I am trying to add this dll to my application as a test. But when I did, and then ran, it gave me this exception:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>System.BadImageFormatException was unhandled\r\n  Message=<span style=\"color:#A31515\">&quot;Could not load file or assembly 'GMap.NET.Core, Version=1.2.4.7, Culture=neutral, PublicKeyToken=b85b9027b614afef' or one of its dependencies. An attempt was made to load a program with an incorrect format.&quot;</span>\r\n  Source=<span style=\"color:#A31515\">&quot;gps_track&quot;</span>\r\n  FileName=<span style=\"color:#A31515\">&quot;GMap.NET.Core, Version=1.2.4.7, Culture=neutral, PublicKeyToken=b85b9027b614afef&quot;</span>\r\n  FusionLog=<span style=\"color:#A31515\">&quot;=== Pre-bind state information ===\\r\\nLOG: User = Khaled-PC\\\\Khaled\\r\\nLOG: DisplayName = GMap.NET.Core, Version=1.2.4.7, Culture=neutral, PublicKeyToken=b85b9027b614afef\\n (Fully-specified)\\r\\nLOG: Appbase = file:///C:/Users/Khaled/Documents/Visual Studio 2008/Projects/gps_track/gps_track/bin/Debug/\\r\\nLOG: Initial PrivatePath = NULL\\r\\nCalling assembly : gps_track, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.\\r\\n===\\r\\nLOG: This bind starts in default load context.\\r\\nLOG: No application configuration file found.\\r\\nLOG: Using machine configuration file from C:\\\\Windows\\\\Microsoft.NET\\\\Framework64\\\\v2.0.50727\\\\config\\\\machine.config.\\r\\nLOG: Post-policy reference: GMap.NET.Core, Version=1.2.4.7, Culture=neutral, PublicKeyToken=b85b9027b614afef\\r\\nLOG: Attempting download of new URL file:///C:/Users/Khaled/Documents/Visual Studio 2008/Projects/gps_track/gps_track/bin/Debug/GMap.NET.Core.DLL.\\r\\nERR: Failed to complete setup of assembly (hr = 0x8007000b). Probing terminated.\\r\\n&quot;</span>\r\n  StackTrace:\r\n       at gps_track.Program.Main()\r\n       at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)\r\n       at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()\r\n       at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\r\n       at System.Threading.ThreadHelper.ThreadStart()\r\n  InnerException: \r\n\r\n<br><br>For a fact, the problem is not with the dll, I am pretty much certain that the problem is with me. But what should I do!! I just copied and pasted the DEMO program and added the controls as it is.<br>What else should I do??<br>Thanks</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-13T15:33:36.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201296",
+    "ThreadId": "59436",
+    "Html": "<p>What should I do??</p>\r\n<p>It seems that there is something wrong with calling the image... I am not sure.</p>\r\n<p>It stops at:</p>\r\n<pre>InitializeComponent();<br></pre>\r\n<p>Any HELP!!!!!</p>",
+    "PostedDate": "2009-06-14T06:10:42.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201297",
+    "ThreadId": "59436",
+    "Html": "<p>there is two dll:&nbsp;GMap.NET.Core.dll,&nbsp;GMap.NET.WindowsForms.dll(or&nbsp;GMap.NET.WindowsPresentation.dll). If you default cache then also&nbsp;System.Data.SQLite.dll</p>",
+    "PostedDate": "2009-06-14T06:25:20.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201320",
+    "ThreadId": "59436",
+    "Html": "<p>Thanks radioman for your reply.</p>\r\n<p>I did add both dlls (GMap.NET.Core.dll and GMap.NET.WindowsForms.dll). And as you said, I also added System.Data.SQLite.dll, but still I get the same error.</p>\r\n<p>The exception says:</p>\r\n<p>TITLE: BadImageFormatException was unhandled</p>\r\n<p>Could not load file or assembly 'GMap.NET.WindowsForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef' or one of its dependencies. An attempt was made to load a program with an incorrect format.</p>\r\n<p>Any other solution!!?</p>",
+    "PostedDate": "2009-06-14T10:09:58.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201322",
+    "ThreadId": "59436",
+    "Html": "<p>64bit?</p>",
+    "PostedDate": "2009-06-14T10:28:37.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201371",
+    "ThreadId": "59436",
+    "Html": "<p>Yes the computer that I am using is 64-bit. But, the EXE program that you have with the DLL zip works fine. So, is problem due to compiling or what???</p>",
+    "PostedDate": "2009-06-14T15:27:23.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201424",
+    "ThreadId": "59436",
+    "Html": "<p>if you target only 64bit you must recompile all projects wit it(and use 64bit sqlite dll), or set target to x86, so it works enywhere</p>",
+    "PostedDate": "2009-06-14T21:18:20.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201523",
+    "ThreadId": "59436",
+    "Html": "<p>Thanks Radioman!</p>\r\n<p>I did change the configuration of my project to x86 and actually the dll worked FINE :D :D</p>\r\n<p>But my question now, if I want to help out writing extra stuff in this dll, should I also make the project on x86 processors or what??</p>\r\n<p>Thanks soo much, and I will test this neet dll.</p>",
+    "PostedDate": "2009-06-15T03:53:39.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201536",
+    "ThreadId": "59436",
+    "Html": "<p>yes, by default it's compiled to x86, so if you want to use it, your projects must be x86 too, if you want 64bits you must recompile all projects to 64bits</p>",
+    "PostedDate": "2009-06-15T04:38:55.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

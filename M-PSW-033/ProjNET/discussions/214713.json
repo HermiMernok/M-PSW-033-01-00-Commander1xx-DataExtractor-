@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "450555",
+    "ThreadId": "214713",
+    "Html": "<p>Hello - anyone run into this?</p>\r\n<p>Trying to transform from a Mercator to WGS84.&nbsp; After using the following&nbsp;the Latitude&nbsp;is wrong.&nbsp; I'm looking for latitude values like 43.xxxx, 44.xxxx but I get values like 6.xxxxx.&nbsp; The longitude value appears fine. ANY IDEAS?</p>\r\n<p>&nbsp;</p>\r\n<p>ICoordinateSystem latlon = ProjNet.CorodinateSystems.GeographicCoordinateSystem.WGS84;</p>\r\n<p>ICoordinateSystem mercator = GetMercatorProjection();</p>\r\n<p>CoordinateTransformationFactory ctfac = new CoordinateTransformationFactory();</p>\r\n<p>ICoordinateTransformation transformation = ctfac.CreateFromCoordinateSystems(mercator, latlon);</p>\r\n<p>ICoordinateTransformation transform = transformation;</p>\r\n<p>double[] converted = transform.MathTransform.Transform(values);</p>\r\n<p>&nbsp;</p>\r\n<p>private ICoordinateSystem GetMercatorProjection() {</p>\r\n<p>CoordinateSystemFactory factory = new CoordinateSystemFactory():</p>\r\n<p>IGeographicCoordinateSystem wgs84 = (IGeographicCoordinateSystem) GeographicCoordinateSystem.WGS84;</p>\r\n<p>List&lt;ProjectionParameter&gt; parameters = new List&lt;ProjectionParameter&gt;{</p>\r\n<p>new ProjectionParameter(&quot;semi_major&quot;, 6378137.0),</p>\r\n<p>new ProjectionParameter(&quot;semi_minor&quot;, 6356752.31414035610),</p>\r\n<p>new ProjectionParameter(&quot;latitude_of_origin&quot;, 41.6666667),</p>\r\n<p>new ProjectionParameter(&quot;central_meridian&quot;, -115.750000),</p>\r\n<p>new ProjectionParameter(&quot;scale_factor&quot;, 1.000113),</p>\r\n<p>new ProjectionParameter(&quot;false_easting&quot;, 2625138.996431),</p>\r\n<p>new ProjectionParameter(&quot;false_northing&quot;, 0.0)</p>\r\n<p>}</p>\r\n<p>IProjection projection = factory.CreateProjection(&quot;Mercator&quot;, &quot;mercator_1sp&quot;, parameters);</p>\r\n<p>IProjectedCoordinateSystem mercator = factory.CreateProjectedCoordinateSystem(&quot;Mercator&quot;, wgs84, projection, LinearUnit.Metre, new AxisInfo(&quot;East&quot;, AxisOrientationEnum.East), new AxisInfo(&quot;North&quot;, AxisOrientationEnum.North));</p>\r\n<p>return mercator;</p>\r\n<p>}</p>",
+    "PostedDate": "2010-06-02T05:54:57.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450564",
+    "ThreadId": "214713",
+    "Html": "<p>RESOLVED:</p>\r\n<p>after doing a little more research I changed the mercator_1sp to transverse_mercator.&nbsp; Everything ok now.</p>",
+    "PostedDate": "2010-06-02T06:05:24.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

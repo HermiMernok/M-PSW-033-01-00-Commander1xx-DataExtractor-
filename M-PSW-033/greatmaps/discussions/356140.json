@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "837635",
+    "ThreadId": "356140",
+    "Html": "\r\n<p>Hi all - I have created some markers using the following vb2010 code</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\"></div>\r\n<pre>'loop around inserting points<br>coordsys = TDPG.GeoCoordConversion.CoordinateSystems.OSGB36\r\nunits = TDPG.GeoCoordConversion.AngleUnit.Degrees\r\n\r\ncoords.Easting = currnodex\r\ncoords.Northing = currnodey\r\n\r\nlatlng = TDPG.GeoCoordConversion.GridReference.ChangeToPolarGeo(coords)\r\n\r\ntemp.Lat = latlng.Lat\r\ntemp.Lng = latlng.lon<br>pl1.Add(temp)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>Dim r1 As New GMap.NET.WindowsForms.GMapRoute(pl1, &quot;route1&quot;)<br>Dim o1 As New GMap.NET.WindowsForms.GMapOverlay(Me.GMapControl1, &quot;routeoverlay&quot;)<br>Me.GMapControl1.Overlays.Add(o1)<br>r1.Stroke.Color = Color.Red<br>r1.Stroke.Width = 1<br><br></pre>\r\n<p>the overlay gets drawn but is not accurate on the map - it doesn't matter which map provider I use - I've tried Yahoo, Bing and OpenStreet.</p>\r\n<p>Initially, I thought there was a slight inaccuracy in the 3rd party tool I was using to convert from Eastings/Northings to Lat/Long but I exported the converted values and imported them into MapInfo and they are correct. So I don't understand why GMap isn't\r\n plotting them at the same positions as MapInfo (on OS 1:10K raster mapping)</p>\r\n<p>Any ideas anyone?</p>\r\n<p>Thanks</p>\r\n<p>Tim</p>\r\n",
+    "PostedDate": "2012-05-17T05:08:50.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "837656",
+    "ThreadId": "356140",
+    "Html": "<p>can you try to do the same <span class=\"HW\">conversion </span>using <strong>DotSpatial</strong>?</p>",
+    "PostedDate": "2012-05-17T06:02:38.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "837662",
+    "ThreadId": "356140",
+    "Html": "<p>Interestingly, if I plot my converted co-ordinates into Google Earth, they are also misplaced, so the fault can't be in GMaps or the conversion.</p>\r\n<p>I wonder if the base mapping is not as accurate as the OS 1:10K I am comparing it against. I recall that the OS tidied up their stuff in the Positional Accuracy Improvement programme. But I find this hard to believe because this would mean that all Objects plotted on web-mapping would be affected.</p>\r\n<p>Puzzled</p>",
+    "PostedDate": "2012-05-17T06:08:49.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

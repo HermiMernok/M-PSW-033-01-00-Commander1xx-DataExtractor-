@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "729718",
+    "ThreadId": "287170",
+    "Html": "\r\n<p>Does anyone out there have code they could share for creating custom polygons with holes in them for use with the WPF version of GMap?</p>\r\n<p>What I'm trying to do basically is highlight a US state by darkening the surrounding states.&nbsp; I've done this in Google Maps Javascript API by creating a polygon with two paths (one that creates a large square to darken the overall region, and a second\r\n going the reverse direction that outlines the state needing highlighting).&nbsp; Has anyone attempted something like this with Great Maps?</p>\r\n",
+    "PostedDate": "2012-01-23T21:46:42.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "800225",
+    "ThreadId": "287170",
+    "Html": "<p>need same feature!</p>",
+    "PostedDate": "2012-02-26T05:42:36.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "800232",
+    "ThreadId": "287170",
+    "Html": "<p>i need house with big windows too ;} ..and a nice view would be great</p>",
+    "PostedDate": "2012-02-26T05:48:21.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801971",
+    "ThreadId": "287170",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>i need house with big windows too ;} ..and a nice view would be great</p>\r\n</blockquote>\r\n<p>LOL</p>",
+    "PostedDate": "2012-02-27T05:54:14.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803031",
+    "ThreadId": "287170",
+    "Html": "<p>So you're saying that it is not possible to do this with Great Maps?&nbsp; Can you elaborate?</p>",
+    "PostedDate": "2012-02-29T01:48:33.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803034",
+    "ThreadId": "287170",
+    "Html": "<p>it has nothing to to with control itself, if you can generate shape with holes in wpf, thats the only question</p>",
+    "PostedDate": "2012-02-29T01:51:23.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803709",
+    "ThreadId": "287170",
+    "Html": "<p>I think this is probably possible, but you would to do a bit of coding to make it work... I think what you would need to do would be to treat the hole as a separate polygon. Then you would need to have something within the tag of both the outer polygon and inner polygon to tell each that they are related so that when either is clicked on they behave properly. Then if you are storing these in a database, you would need an attribute such as Parent ID so you could chain them together. If you take this to it's logical conclusion, if you are putting a hole in the polygon then in theory, you then might want to create an island within the hole which is part of the outer polygon and so on. Storing the Parent ID's within the Tags would probably be the way to go with this...</p>",
+    "PostedDate": "2012-03-01T04:32:15.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803714",
+    "ThreadId": "287170",
+    "Html": "<p>probably ;}</p>\n<p>p.s. -&gt; http://www.google.com/search?client=opera&amp;rls=en&amp;q=wpf+hole+in+polygon&amp;sourceid=opera&amp;ie=utf-8&amp;oe=utf-8&amp;channel=suggest</p>",
+    "PostedDate": "2012-03-01T04:42:46.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

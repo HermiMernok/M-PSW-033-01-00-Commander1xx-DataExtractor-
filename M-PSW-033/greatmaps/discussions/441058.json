@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1033565",
+    "ThreadId": "441058",
+    "Html": "hello,\r<br />\n<br />\nI have created a custom marker image.\r<br />\n<br />\nhowever when i zoom out, image is displayed somewhere else on the map away from the original position\r<br />\n<br />\n<img src=\"http://img189.imageshack.us/img189/9813/originalzoomout.png\" alt=\"Image\" />\r<br />\n<br />\nthe figure on the left shows actual position of image, and right shows the shifting of image after zoom out.\r<br />\n<br />\nwhat is the solution for this??<br />\n",
+    "PostedDate": "2013-04-21T07:20:13.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1033765",
+    "ThreadId": "441058",
+    "Html": "probably you set marker.Offset ?<br />\n",
+    "PostedDate": "2013-04-21T23:10:34.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1033801",
+    "ThreadId": "441058",
+    "Html": "no...i have not set any offset<br />\n",
+    "PostedDate": "2013-04-22T00:44:14.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1033861",
+    "ThreadId": "441058",
+    "Html": "so why default markers don't have this issue?<br />\n",
+    "PostedDate": "2013-04-22T03:02:36.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1033873",
+    "ThreadId": "441058",
+    "Html": "I don't know the reason.\r<br />\n<br />\nThis is my custom marker code,\r<br />\n<br />\npublic class GMapImage : GMapMarker<br />\n<pre><code>{\n    private Image image;\n    public Image Image\n    {\n        get\n        {\n            return image;\n        }\n        set\n        {\n            image = value;\n            if (image != null)\n            {\n                this.Size = new Size(image.Width, image.Height);\n            }\n        }\n    }\n\n    public GMapImage(GMap.NET.PointLatLng p) : base(p)\n    {\n        DisableRegionCheck = true;\n        IsHitTestVisible = false;\n    }\n\n    public override void OnRender(Graphics g)\n    {\n        if (image == null)\n            return;\n\n        g.DrawImage(image,  LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n    }\n}\n</code></pre>\n\nand this is how i place an image over map,\r<br />\nGMapImage gmimage;\r<br />\ngmimage = new GMapImage(new PointLatLng(latitude, longitude));\r<br />\ngmimage.Size = gMapControl1.Size;\r<br />\nvar TL= gMapControl1.FromLocalToLatLng(gMapControl1.Location.X,gMapControl1.Location.Y);\r<br />\ngmimage.Position = TL;\r<br />\n<br />\ngmimage.Image = bMap; // bmap is my image\r<br />\ntransmarkers.Markers.Add(gmimage);\r<br />\ngMapControl1.Overlays.Add(transmarkers);\r<br />\n<br />\nPlease let me know if i am doing something wrong over here<br />\n",
+    "PostedDate": "2013-04-22T03:36:12.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1033906",
+    "ThreadId": "441058",
+    "Html": "gmimage.Size = gMapControl1.Size; \r<br />\n var TL= gMapControl1.FromLocalToLatLng(gMapControl1.Location.X,gMapControl1.Location.Y); \r<br />\n gmimage.Position = TL;\r<br />\n<br />\n???\r<br />\n<br />\nthats beyond strange...<br />\n",
+    "PostedDate": "2013-04-22T05:05:47.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1034014",
+    "ThreadId": "441058",
+    "Html": "My application is based on visualization of radio waves over the geographical area. This is connection with database. i had to convert geographical coordinates to local coordinates to generate a colored image, hence i don have any fixed size for the image and fixed position for it. It would change randomly according to my data and would be placed anywhere according to coordinates i receive from data, so i selected the size as my gmapcontrol size, and i noticed that if i don't use gmimage.Position = TL;  my image is not placed on correct position on map.<br />\n",
+    "PostedDate": "2013-04-22T08:43:54.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1034015",
+    "ThreadId": "441058",
+    "Html": "i took this idea from mike_mankus\r<br />\n<br />\n// Assign the bitmap\r<br />\ngmImage.Image = (your bitmap here); \r<br />\n<br />\n// Passing PointLatLng of top left (TL) corner of where to plot image\r<br />\nvar tl = MainMap.FromLatLngToLocal(gmImageTL);\r<br />\n \r<br />\n// Passing PointLatLng of bottom right (BR) corner of where to plot image\r<br />\nvar br = MainMap.FromLatLngToLocal(gmImageBR); \r<br />\n<br />\n// Setting the GMapImage position based on the top left corner\r<br />\ngmImage.Position = gmImageTL; \r<br />\n<br />\n// Setting the GMapImage size based on the top left and bottom right corner\r<br />\ngmImage.Size = new System.Drawing.Size(br.X - tl.X, br.Y - tl.Y); \r<br />\n<br />\n// Telling the map to redraw\r<br />\nMainMap.Invalidate();\r<br />\n<br />\n<br />\n<a href=\"https://greatmaps.codeplex.com/discussions/284459\" rel=\"nofollow\">https://greatmaps.codeplex.com/discussions/284459</a>\r<br />\n<br />\nbut i donno what am i doing wrong.<br />\n",
+    "PostedDate": "2013-04-22T08:47:44.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1034052",
+    "ThreadId": "441058",
+    "Html": "you have to repeat these actions on zoom changed event<br />\n",
+    "PostedDate": "2013-04-22T09:55:30.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

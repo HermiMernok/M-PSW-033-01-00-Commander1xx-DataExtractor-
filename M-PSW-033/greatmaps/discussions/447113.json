@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1057077",
+    "ThreadId": "447113",
+    "Html": "I have a problem with the geocoder in my app. \r<br />\nIn the GetPoint I need a placemark.\r<br />\nin my case i need to put &quot;address[0]&quot;, that is a string, and also the string itself is a placemark to.\r<br />\nThe program doesn't allow me to put a string even if it is a placemark.\r<br />\nWhat can i do?\r<br />\n<br />\n GeoCoderStatusCode status = GeoCoderStatusCode.Unknow;\r<br />\n PointLatLng? pos = GMapProviders.GoogleMap.GetPoint((addresses[0]), out status);<br />\n",
+    "PostedDate": "2013-06-14T12:53:34.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1057564",
+    "ThreadId": "447113",
+    "Html": "<pre><code>/// &lt;summary&gt;\n        /// NotImplemented\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;placemark&quot;&gt;&lt;/param&gt;\n        /// &lt;param name=&quot;pointList&quot;&gt;&lt;/param&gt;\n        /// &lt;returns&gt;&lt;/returns&gt;\n        public GeoCoderStatusCode GetPoints(Placemark placemark, out List&lt;PointLatLng&gt; pointList)\n        {\n            throw new NotImplementedException(&quot;use GetPoints(string keywords...&quot;);\n        }</code></pre>\n\n",
+    "PostedDate": "2013-06-16T23:36:57.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "well it's not gmap.net issue",
+    "ClosedDate": "2015-05-11T23:35:04.47-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nmy Winform project with a satellite map works fine on one machine but does not work on another machine.\r\nwhile it works fine on both machines when using 'GoogleMap' provider.\r\n\r\nAny help will be appreciated.\r\n\r\nI'm using the latest build (1.7) \r\n\r\nRegards,\r\nAfshin\r\n\r\nI just got this message.. it's weird as one block could load the map but the rest not!\r\n",
+    "LastUpdatedDate": "2015-05-13T04:05:52.59-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-05-11T14:31:17.233-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMap with GoogleSatelliteMap provider not working?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16119
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1455990,
+      "FileName": "gmap.png",
+      "DownloadUrl": ".\\1455990"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Thank radioman for your reply...\nwhy not gmap issue?! clearly it's not working as it should be\n",
+      "PostedDate": "2015-05-11T23:59:26.587-07:00",
+      "Id": 184232
+    },
+    {
+      "Message": "check http://greatmaps.codeplex.com/discussions/636171#post1423562\n\nif you want to help to solve the issue, you can try run fiddler, then use web browser and go to the same test area and post http request log on forum\n\nthen you need to run gmap.net and post output log, so we can compare requests\n\nin theory request should be the same\n\nthanks",
+      "PostedDate": "2015-05-12T01:32:59.117-07:00",
+      "Id": 184237
+    },
+    {
+      "Message": "Chances are if it works one place and not another it's something in that environment.\nI had a similar issue with my system. After ruling out network issues I found this command you can run from the terminal (Administrative terminal) __netsh winsock reset__ . After rebooting my issue was cleared up.",
+      "PostedDate": "2015-05-13T04:05:52.59-07:00",
+      "Id": 184271
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "874772",
+    "ThreadId": "374691",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>The following example route is the result of importing a gpx.. kml.. file etc</p>\r\n<p>When i am on &quot;route over event&quot; i can double click the route line and add new points / markers to this particular route.<br>\r\nThe problem is that i can't always insert the new point in mid array in the correct index position.<br>\r\n<br>\r\nEx.&nbsp;<br>\r\n<br>\r\n<a href=\"http://img844.imageshack.us/img844/6724/capturar1y.jpg\">http://img844.imageshack.us/img844/6724/capturar1y.jpg</a></p>\r\n<p><br>\r\n<a href=\"http://img151.imageshack.us/img151/7139/capturar2k.jpg\">http://img151.imageshack.us/img151/7139/capturar2k.jpg</a></p>\r\n<p>If i click where the mouse hand is, i insert a new point based on the index of the closest point to the one i'm creating<br>\r\nIn this example, this route is very simple and straight, but not always will be like this, and most of the times the new point get's insert in the wrong array index position.</p>\r\n<p>Anybody has any ideias on how to insert always between the two point &nbsp;united by the line i am clicking in? &nbsp;Or is it possible to identify only one line segment from all the line segments that constitute the route?&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-07-18T15:25:39.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906061",
+    "ThreadId": "374691",
+    "Html": "<p>me too</p>\r\n<p>can you help me and&nbsp;<a class=\"UserProfileLink\" href=\"http://www.codeplex.com/site/users/view/SyferCV\">SyferCV</a></p>",
+    "PostedDate": "2012-08-29T20:25:31.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913219",
+    "ThreadId": "374691",
+    "Html": "\r\n<p>I've tried with linear equations but it has a lot of problems to solve when zoom is considered or straight line routes.\r\n<br>\r\nThe solution i've implemented is to select two markers that already exist and as soon as the two &nbsp;are selected a new marker/ point is created at half distance between them .</p>\r\n<p>When the markers are selected i grab their array position so i know where to insert the new one.</p>\r\n<p>The selection method is also mine.<br>\r\n<br>\r\n</p>\r\n<p><a href=\"http://imageshack.us/f/829/61855813.png/\">http://imageshack.us/f/829/61855813.png/</a></p>\r\n<p><a href=\"http://imageshack.us/f/35/99122481.png/\">http://imageshack.us/f/35/99122481.png/</a></p>\r\n",
+    "PostedDate": "2012-09-16T05:11:05.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

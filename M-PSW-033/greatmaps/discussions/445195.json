@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1049586",
+    "ThreadId": "445195",
+    "Html": "Hi, I am trying to use the method GetRectOfAllMarkers(null), after having filled the Markers list in GMapControl. The methods only returns null. Overlay is not possible in WPF. Any help appreciated<br />\n",
+    "PostedDate": "2013-05-28T06:28:04.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049594",
+    "ThreadId": "445195",
+    "Html": "rect is calculated on items where: m.Shape != null &amp;&amp; m.Shape.Visibility == Visibility.Visible<br />\n",
+    "PostedDate": "2013-05-28T06:33:52.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049602",
+    "ThreadId": "445195",
+    "Html": "Thank you. The following code now works fine :)\r<br />\n<br />\npublic void AddMarker(Report s, bool update){<br />\n<pre><code>        GMapMarker m = new GMapMarker(new PointLatLng(s.latitude, s.longitude));\n        m.Shape = new System.Windows.UIElement();\n        gMap.Markers.Add(m);</code></pre>\n\n}<br />\n",
+    "PostedDate": "2013-05-28T06:43:41.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1049608",
+    "ThreadId": "445195",
+    "Html": "i think your markers are still invisible ;}<br />\n",
+    "PostedDate": "2013-05-28T06:48:53.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "193233",
+    "ThreadId": "57190",
+    "Html": "<p>It would be great if one could specify the maximum cache size (e.g. 250 MB).</p>\r\n<p>It it is reached, one of these things could happen:</p>\r\n<p>- the next&nbsp;program closing should&nbsp;delete cache directory<br>- the control deletes &quot;unused&quot; tiles automatically <br>-an event is thrown<br>...</p>\r\n<p>Deleting &quot;unused&quot; tiles automatically would be perfect, but I think its also the most complicated one.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-22T07:35:03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193235",
+    "ThreadId": "57190",
+    "Html": "<p>what is&nbsp;<span style=\"border-collapse:collapse;font-family:arial\">unused tiles? and why to limit cache to 200MB its allmost nothing</span></p>",
+    "PostedDate": "2009-05-22T07:38:11.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193240",
+    "ThreadId": "57190",
+    "Html": "<p>&quot;unused&quot; means the oldest tiles (lowest &quot;last access time&quot;).</p>\r\n<p>200 MB is just am example. As I know that the cache-size is huge, I want to avoid that it is growing all over the time - without control.</p>\r\n<p>Why not shrink it from time to time ?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-22T07:46:38.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193242",
+    "ThreadId": "57190",
+    "Html": "<p>why not limit user browsing area instead?</p>",
+    "PostedDate": "2009-05-22T07:48:14.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193514",
+    "ThreadId": "57190",
+    "Html": "<p>But I don't know where the user wants to browse. Or did I misunderstand you ?</p>",
+    "PostedDate": "2009-05-23T04:49:25.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193523",
+    "ThreadId": "57190",
+    "Html": "<p>browsers are used for browsing ;}</p>",
+    "PostedDate": "2009-05-23T06:17:58.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193524",
+    "ThreadId": "57190",
+    "Html": "<p>Well,</p>\r\n<p>the web-browser has a build-it maximum memory border (temporary internet files). If this size is arrived, the system begins to delete old files - automatically.</p>\r\n<p>Here the browsing is in a forms application, and the cache&nbsp; is OUTSIDE the control of the temporary internet files. <br>So if the user browses all over the time - he is allowed to and it is good that he is doing so&nbsp;- the cache grows and grows. No control here. How many Gigabytes&nbsp;are ok?</p>\r\n<p>If the user notices that there are some 10 GBytes of data just for cache anywhere in his application data folder, I think he will not agree with this. Thats the point.</p>",
+    "PostedDate": "2009-05-23T06:27:44.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193540",
+    "ThreadId": "57190",
+    "Html": "<p>10GB would be allmost all world map in all zoom levels ;} it pretty hard to 'browse' that a lot of tiles, even 1GB is like europa on allmost all zoom levels</p>",
+    "PostedDate": "2009-05-23T08:53:34.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193542",
+    "ThreadId": "57190",
+    "Html": "<p>anyway, if you want such option, you need to create new db provider which stores last access time to tile ...and that will slow loading down which is slow enough even now...</p>",
+    "PostedDate": "2009-05-23T09:06:37.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196430",
+    "ThreadId": "57190",
+    "Html": "<p>I had created such functionality, but it is for build gmap4dotnet-30649... It's not working out of the box because of the old version it is made for, but if you want to see it...;-)</p>",
+    "PostedDate": "2009-06-01T08:30:05.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196474",
+    "ThreadId": "57190",
+    "Html": "<p>sure ;}</p>",
+    "PostedDate": "2009-06-01T09:51:50.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196502",
+    "ThreadId": "57190",
+    "Html": "<p>You can download a sample app (non GMap.NET) from here&nbsp;<a title=here href=\"http://www.vbforums.com/attachment.php?attachmentid=69164&d=1234879918\">http://www.vbforums.com/attachment.php?attachmentid=69164&amp;d=1234879918</a>&nbsp;. Then I made a few adjustements in GMap.NET, as a new property &quot;public long MaxCacheSize&quot;, and with every&nbsp;updated file &quot;Cache.Update(dir.ToString().Replace(Cache.RootFolder, &quot;&quot;), new FileInfo(dir.ToString()).Length, DateTime.Now);&quot; etcetera.</p>\r\n<p>If you like it, I have a few more details for you tomorrow ;-)</p>",
+    "PostedDate": "2009-06-01T11:00:37.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196512",
+    "ThreadId": "57190",
+    "Html": "<p>sure ;}</p>",
+    "PostedDate": "2009-06-01T11:29:20.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196897",
+    "ThreadId": "57190",
+    "Html": "<p>I had created a file which adjustements&nbsp;I had made in Gmap.NET for myself, but I had to translate it. This should be it.</p>\r\n<ul>\r\n<li>Rename Cache.cs to CacheFunctions.cs</li>\r\n<li>Add in CacheFunctions.cs, in &quot;internal class Cache&quot;, this:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public long MaxCacheSize<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return maxcachesize;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maxcachesize = value;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>Add in GMapControl.cs, in &quot;#region -- properties --&quot;, this:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;summary&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// Maximum cache size in bytes<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public long MaxCacheSize<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return Manager.Cache.MaxCacheSize;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Manager.Cache.MaxCacheSize = value;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SafeInvalidate();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>Replace in GoogleMaps.cs, in &quot;public class GoogleMaps&quot;,<br>&quot;internal Cache Cache = new Cache();&quot; to &quot;public CacheFunctions Cache = new CacheFunctions();&quot;</li>\r\n<li>Replace in CacheFunctions.cs, &quot;internal class Cache&quot; to &quot;public class CacheFunctions&quot;</li>\r\n<li>Create Cache.cs, with this code:<br>using System;<br>using System.Collections.Generic;<br>using System.Text;<br>using System.Collections;</li>\r\n<li>namespace GMapNET<br>{<br>&nbsp;&nbsp;&nbsp; [Serializable()]<br>&nbsp;&nbsp;&nbsp; public class Cache<br>&nbsp;&nbsp;&nbsp; {</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private List&lt;CacheFile&gt; _CacheFiles;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public List&lt;CacheFile&gt; CacheFiles<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _CacheFiles; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set { _CacheFiles = value; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private long _MaxSize;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public long MaxSize<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _MaxSize; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set { _MaxSize = value; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private string _RootFolder;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public string RootFolder<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _RootFolder; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set { _RootFolder = value; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private long _CacheSize;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public long CacheSize<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _CacheSize; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set { _CacheSize = value; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void Add(string FileName, long FileSize, System.DateTime LastUsedDate)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _CacheFiles.Add(new CacheFile(FileName, FileSize, LastUsedDate));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _CacheSize += FileSize;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void Update(string FileName, long FileSize, System.DateTime LastUsedDate)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DeleteFile(FileName);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add(FileName, FileSize, LastUsedDate);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void DeleteFile(string FileName) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CacheFile cf = default(CacheFile);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (CacheFile c in _CacheFiles)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(c.FileName == FileName) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cf = c;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //VB:&nbsp; cf = (From c In _CacheFiles Where c.FileName = FileName).LastOrDefault<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //C#1: cf = from c in _CacheFiles where c.FileName = FileName select c;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //C#2: cf = from CacheFile c in _CacheFiles where c.FileName = FileName select c;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((cf != null)) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _CacheFiles.Remove(cf); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _CacheSize -= cf.FileSize; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void Clear()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _CacheSize = 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CacheFile cf = default(CacheFile);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (CacheFile c in _CacheFiles)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _CacheFiles.Remove(c);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Cache()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _CacheFiles = new List&lt;CacheFile&gt;();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; } <br>}</li>\r\n<li><span style=\"font-size:x-small\">Create CacheFile.cs with this code:<br>using System;<br>using System.Collections.Generic;<br>using System.Text;</span></li>\r\n<li><span style=\"font-size:x-small\">namespace GMapNET<br>{<br>&nbsp;&nbsp;&nbsp; [Serializable()]<br>&nbsp;&nbsp;&nbsp; public class CacheFile<br>&nbsp;&nbsp;&nbsp; {</span></li>\r\n<li><span style=\"font-size:x-small\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private string _FileName;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public string FileName<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _FileName; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set { _FileName = value; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></li>\r\n<li><span style=\"font-size:x-small\"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private long _FileSize;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public long FileSize<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _FileSize; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set { _FileSize = value; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></li>\r\n<li><span style=\"font-size:x-small\"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private System.DateTime _LastUsedDate;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public System.DateTime LastUsedDate<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _LastUsedDate; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set { _LastUsedDate = value; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></li>\r\n<li><span style=\"font-size:x-small\"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public CacheFile(string File, long Size, System.DateTime LastUsed)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FileName = File;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FileSize = Size;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LastUsedDate = LastUsed;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></li>\r\n<li><span style=\"font-size:x-small\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public CacheFile()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></li>\r\n<li><span style=\"font-size:x-small\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; } <br>}<br></span><span style=\"font-size:x-small\"></span></li>\r\n<li><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">In CacheFunctions.cs add this: (In &quot;public class CacheFunctions&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public CacheFunctions()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XmlSerializer serializer = new XmlSerializer(typeof(Cache));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FileStream myFileStream = new FileStream(Application.StartupPath + &quot;<a>\\\\cache.xml</a>&quot;, FileMode.Open);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cache = (Cache)serializer.Deserialize(myFileStream);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myFileStream.Close();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; catch<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></span>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">public void Serialize()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ComputeSize();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StreamWriter string_writer = new StreamWriter(Application.StartupPath + &quot;<a>\\\\cache.xml</a>&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; XmlSerializer serializer = new XmlSerializer(typeof(Cache));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serializer.Serialize(string_writer, Cache);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string_writer.Close();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br></span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">public void ComputeSize()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Cache.CacheSize &gt; Cache.MaxSize)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comparer dc = new Comparer();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cache.CacheFiles.Sort(dc);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (i = Cache.CacheFiles.Count - 1; i &gt;= 0; i += -1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Cache.CacheSize &lt;= Cache.MaxSize) break;<br></span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (File.Exists(Cache.RootFolder + Cache.CacheFiles[i].FileName)) File.Delete(Cache.RootFolder + Cache.CacheFiles[i].FileName);<br></span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Directory.Exists(GetParentPath(Cache.RootFolder + Cache.CacheFiles[i].FileName)))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Directory.GetFiles(GetParentPath(Cache.RootFolder + Cache.CacheFiles[i].FileName)).Length == 0) Directory.Delete(GetParentPath(Cache.RootFolder + Cache.CacheFiles[i].FileName));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br></span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cache.DeleteFile(Cache.CacheFiles[i].FileName);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br></span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&nbsp;private string GetParentPath(string currentPath)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string delimiter = &quot;<a>\\\\\\\\</a>&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.Text.RegularExpressions.Regex rx = new System.Text.RegularExpressions.Regex(delimiter);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string[] childPath = rx.Split(currentPath);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&nbsp;int parentLength = childPath.Length - 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string[] parentPath = new string[parentLength + 1];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">int i = 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (i = 0; i &lt;= parentLength - 1; i++)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; parentPath[i] = childPath[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (parentPath.Length == 1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return &quot;\\\\&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return string.Join(&quot;\\\\&quot;, parentPath);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void Clear()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Cache.CacheSize &gt; Cache.MaxSize)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (i = Cache.CacheFiles.Count - 1; i &gt;= 0; i += -1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Uit de xml gooien.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cache.DeleteFile(Cache.CacheFiles[i].FileName);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></span></p>\r\n</li>\r\n<li></li>\r\n<li><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>Add in CacheFunctions.cs, in &quot;namespace GMapNET&quot;<br>&nbsp;&nbsp; public class Comparer : IComparer&lt;CacheFile&gt;<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public int Compare(CacheFile x, CacheFile y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (x.LastUsedDate &lt; y.LastUsedDate)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return -1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp; }</p>\r\n</span></span></li>\r\n<li><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>Add in CacheFunctions.cs, in every Get ...., in the &quot;if(file.exists)&quot; piece:<br>Cache.Update(dir.ToString().Replace(Cache.RootFolder, &quot;&quot;), new FileInfo(dir.ToString()).Length, DateTime.Now);</p>\r\n</span></span></li>\r\n<li><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>Add in CacheFunctions.cs, in everything without Get ....,<br>Cache.Add(dir.ToString().Replace(Cache.RootFolder, &quot;&quot;), new FileInfo(dir.ToString()).Length, DateTime.Now);</p>\r\n</span></span></li>\r\n<li><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>Add in CacheFunctions.cs, in public string CacheLocation&raquo;SET<br>Cache.RootFolder = cache;</p>\r\n</span></span></li>\r\n</ul>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>That should be exact every adjustment that I made ;-)</p>\r\n</span></span></p>\r\n<p><span style=\"font-size:x-small\">-Edit Codeplex quite messed up stuff, but I hope it is readable-</span></p>",
+    "PostedDate": "2009-06-02T09:23:35.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196975",
+    "ThreadId": "57190",
+    "Html": "<p>cool, does speed it ok, can you build some demo to test it? ;}</p>\r\n<p>p.s. you can use html editor here and paste all stuff in '&lt;pre&gt;my code&lt;/pre&gt;'</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-02T13:17:29.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197196",
+    "ThreadId": "57190",
+    "Html": "<p>Ah, thanks for the tip. As for the demo, I have the build were it was meant for here somewere.. I will search for it ;-)</p>",
+    "PostedDate": "2009-06-03T04:32:30.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197346",
+    "ThreadId": "57190",
+    "Html": "<p>Ok, I have created a demo that *should* work, but where should I upload it?</p>",
+    "PostedDate": "2009-06-03T10:32:39.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197407",
+    "ThreadId": "57190",
+    "Html": "<p><a href=\"http://gmap4dotnet.codeplex.com/SourceControl/UploadPatch.aspx\">http://gmap4dotnet.codeplex.com/SourceControl/UploadPatch.aspx</a></p>",
+    "PostedDate": "2009-06-03T12:55:40.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197409",
+    "ThreadId": "57190",
+    "Html": "<p>Done</p>",
+    "PostedDate": "2009-06-03T12:59:55.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197417",
+    "ThreadId": "57190",
+    "Html": "<p>quite old version huh ;}</p>",
+    "PostedDate": "2009-06-03T13:12:55.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197421",
+    "ThreadId": "57190",
+    "Html": "<p>That's what I said, I only created the patch for that version, and I don't really feel the need to update it to the latest version. But I hope I can help with this, because the system is the same, just the implementation has to be changed</p>",
+    "PostedDate": "2009-06-03T13:23:06.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197422",
+    "ThreadId": "57190",
+    "Html": "<p>yes, you can make your custom cache provider with limits support</p>",
+    "PostedDate": "2009-06-03T13:25:34.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197423",
+    "ThreadId": "57190",
+    "Html": "<p>Exactly. Point is, I don't have time the next weeks, I have &quot;testweek&quot; at school, and after that I have &quot;big vacation&quot;, so maybe I look at it then.. ;}</p>",
+    "PostedDate": "2009-06-03T13:32:44.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197434",
+    "ThreadId": "57190",
+    "Html": "<p>havea a great rest ;}</p>",
+    "PostedDate": "2009-06-03T13:45:40.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

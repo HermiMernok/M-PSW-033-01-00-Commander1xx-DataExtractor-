@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1005851",
+    "ThreadId": "434287",
+    "Html": "Hello \r<br />\n<br />\nIs there any build-in method or property to display the direction of a route between two point ?\r<br />\nOr do you have any suggestion to do it ?\r<br />\nThanks for help<br />\n",
+    "PostedDate": "2013-02-24T02:19:49.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006035",
+    "ThreadId": "434287",
+    "Html": "pureprojection.cs<br />\n<pre><code>  /// &lt;summary&gt;\n  /// Accepts two coordinates in degrees.\n  /// &lt;/summary&gt;\n  /// &lt;returns&gt;A double value in degrees. From 0 to 360.&lt;/returns&gt;\n  public double GetBearing(PointLatLng p1, PointLatLng p2)\n  {\n     var latitude1 = DegreesToRadians(p1.Lat);\n     var latitude2 = DegreesToRadians(p2.Lat);\n     var longitudeDifference = DegreesToRadians(p2.Lng - p1.Lng);\n\n     var y = Math.Sin(longitudeDifference) * Math.Cos(latitude2);\n     var x = Math.Cos(latitude1) * Math.Sin(latitude2) - Math.Sin(latitude1) * Math.Cos(latitude2) * Math.Cos(longitudeDifference);\n\n     return (RadiansToDegrees(Math.Atan2(y, x)) + 360) % 360;\n  }</code></pre>\n\n",
+    "PostedDate": "2013-02-24T15:27:42.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006815",
+    "ThreadId": "434287",
+    "Html": "you need to use this bearing function and override route rendering<br />\n",
+    "PostedDate": "2013-02-26T02:13:31.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006827",
+    "ThreadId": "434287",
+    "Html": "Thank you all\r<br />\n<br />\nMy route is composed from point aquired by GPS\r<br />\nSo what I did now is a little method returning Angle,middle, speed, distance, duration between two Point then I create a Custommarker at the middle with the Angle property to draw an arrow in the appropriate direction<br />\n",
+    "PostedDate": "2013-02-26T02:38:11.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

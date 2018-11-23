@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "439271",
+    "ThreadId": "211651",
+    "Html": "<p>Hello, i want to ask how to blink marker ?</p>\r\n<p>&nbsp;</p>\r\n<p>Idea:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>  GMapMarker blinkMarker;\r\n    Timer timerBlink;\r\n    <span style=\"color:blue\">int</span> count = 5;\r\n    <span style=\"color:blue\">bool</span> blink = <span style=\"color:blue\">true</span>;\r\n    <span style=\"color:blue\">protected</span> <span style=\"color:blue\">void</span> BlinkMarker(GMapMarker_Vehicle gMapMarker_Vehicle)\r\n    {     \r\n       <span style=\"color:blue\">if</span> (gMapMarker_Vehicle != <span style=\"color:blue\">null</span>)\r\n       {\r\n           <span style=\"color:blue\">if</span> (timerBlink == <span style=\"color:blue\">null</span>)\r\n               CreateTimerBlink();\r\n           blinkMarker = gMapMarker_Vehicle;\r\n           gMapMarker_Vehicle.Visible = <span style=\"color:blue\">true</span>;          \r\n       }\r\n       <span style=\"color:blue\">else</span> <span style=\"color:blue\">return</span>;\r\n       timerBlink.Enabled = <span style=\"color:blue\">true</span>;\r\n       count = 5;\r\n       blink = <span style=\"color:blue\">false</span>;      \r\n    }  \r\n      \r\n     <span style=\"color:blue\">void</span> timerBlink_Tick(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n    {\r\n      <span style=\"color:blue\">if</span> (count &gt;= 0)\r\n      {\r\n        count--;\r\n        timerBlink.Enabled = <span style=\"color:blue\">true</span>;   \r\n        blinkMarker.Visible=blink;          \r\n        <span style=\"color:blue\">this</span>.InvalidateMap();\r\n        blink = !blink;        \r\n      }\r\n      <span style=\"color:blue\">else</span>\r\n      {\r\n        timerBlink.Enabled = <span style=\"color:blue\">false</span>;    \r\n        blinkMarker.Visible = <span style=\"color:blue\">true</span>;\r\n        count = 5;\r\n      }\r\n    }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-05-05T06:59:04.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439421",
+    "ThreadId": "211651",
+    "Html": "<p>yeah, something like that, you can change color instead of visibility too</p>",
+    "PostedDate": "2010-05-05T11:21:54.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

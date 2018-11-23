@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "803298",
+    "ThreadId": "346757",
+    "Html": "\r\n<p>Hi!<br>\r\n<br>\r\nI currently have map provider as GoogleMap. When i try to change provider like as GoogleHybridMap, GoogleSatelliteMap or GoogleTerrainMap it occurs crossed blank map.<br>\r\n<br>\r\nAny idea?</p>\r\n",
+    "PostedDate": "2012-02-29T11:00:28.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803321",
+    "ThreadId": "346757",
+    "Html": "<p>nop</p>",
+    "PostedDate": "2012-02-29T11:33:24.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803357",
+    "ThreadId": "346757",
+    "Html": "<p>Looks like it's problem with GDI+ (<a href=\"http://greatmaps.codeplex.com/discussions/264806\">http://greatmaps.codeplex.com/discussions/264806</a>). I try to fix problem with changing that line, but not exist anymore.</p>",
+    "PostedDate": "2012-02-29T12:20:13.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803587",
+    "ThreadId": "346757",
+    "Html": "<p>do you use winxp?</p>",
+    "PostedDate": "2012-02-29T23:54:23.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803623",
+    "ThreadId": "346757",
+    "Html": "<p>I use vista.</p>\r\n<p>Error details:</p>\r\n<p>System.Runtime.InteropServices.ExternalException: A generic error occurred in GDI+.</p>\r\n<p>at GMap.NET.WindowsForms.GMapControl.DrawMap(Graphics g) in C:\\Users\\Admin\\Desktop\\gmap\\WindowsFormsApplication1\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 607</p>\r\n<p>&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e) in C:\\Users\\Admin\\Desktop\\gmap\\WindowsFormsApplication1\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 1398</p>",
+    "PostedDate": "2012-03-01T01:37:48.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803627",
+    "ThreadId": "346757",
+    "Html": "<p>plain vista or with service packs?</p>",
+    "PostedDate": "2012-03-01T01:42:31.133-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803631",
+    "ThreadId": "346757",
+    "Html": "<p>Vista Bussiness, Service pack 2</p>",
+    "PostedDate": "2012-03-01T01:46:24.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803634",
+    "ThreadId": "346757",
+    "Html": "<p>hm, did you tried to set True in that function call mentioned above?</p>",
+    "PostedDate": "2012-03-01T01:52:19.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803636",
+    "ThreadId": "346757",
+    "Html": "<p>in WindowsFormsImage.cs</p>\n<p>i change this line Image m = Image.FromStream(stream, true, VistaOrLater ? false : true);</p>\n<p>to Image m = Image.FromStream(stream, true, true);</p>\n<p>and now works.</p>",
+    "PostedDate": "2012-03-01T01:57:24.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803707",
+    "ThreadId": "346757",
+    "Html": "<p>roger, fixed</p>",
+    "PostedDate": "2012-03-01T04:29:43.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

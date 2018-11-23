@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\r\n\r\nI am using GMap.Net.Core and GMap.Net.WindowsForms API to show map and put multiple markers over it.\r\nNow the issue is If I have put multiple markers over the map and I want to move one of the marker to some other location, how can I achieve this?\r\nI went through with several articles and forums but it did not worked for me yet.\r\n\r\nI am adding marker as below:\r\n gMapOverlay.Markers.Add(marker);\r\n                //marker.ToolTipMode = MarkerTooltipMode.Always;\r\n                marker.ToolTip = new GMapRoundedToolTip(marker);\r\n                marker.ToolTipText = \"Coordinates: (\" + Convert.ToString(gMapControl.FromLocalToLatLng(e.X, e.Y).Lat) + \",\" + Convert.ToString(gMapControl.FromLocalToLatLng(e.X, e.Y).Lng) + \")\";\r\n\r\n                lstPoints.Add(new PointLatLng(gMapControl.FromLocalToLatLng(e.X, e.Y).Lat, gMapControl.FromLocalToLatLng(e.X, e.Y).Lng));\r\n\r\n                GMap.NET.WindowsForms.GMapRoute route = new GMapRoute(lstPoints, \"Route\");\r\n                gMapOverlay.Routes.Add(route);\r\n\r\n                gMapControl.Overlays.Add(gMapOverlay);\r\n\r\nHow to move marker to some other location over map?\r\nPlease help.",
+    "LastUpdatedDate": "2016-01-04T05:21:51.89-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-01-04T05:21:51.89-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Urgent help required to move or drag marker",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16136
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1209508",
+    "ThreadId": "532345",
+    "Html": "Hello, i have a route consisting of several points stored in the database. I load it in this way:\r<br />\n<br />\nDim data as datatable = WebService.GetRoute() 'get points\r<br />\nDim r = New GMapRoute(&quot;Myroute&quot;)\r<br />\nDim rp As RoutingProvider = Map.MapProvider\r<br />\n<br />\nFor Each row As DataRow In data.Rows<br />\n<pre><code>        LastLat = row.Item(&quot;latitude&quot;)\n        LastLon = row.Item(&quot;longitude&quot;)\n\n        r.Points.Add(New PointLatLng(LastLat, LastLon))</code></pre>\n\nNext\r<br />\nr.stroke.width=5\r<br />\nRoutesOv.Routes.Add(r)\r<br />\n<br />\nSo the route plots it self on the map but it does not follow the roads. it simply plots a line from point to point. Map provider is MapProviders.GoogleMapProvider.Instance\r<br />\n<br />\nIf i create a route between two points then it works ok. What might be the problem, is it even possible to get correct route on the map using Points.Add method ?<br />\n",
+    "PostedDate": "2014-02-17T08:56:24.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1210672",
+    "ThreadId": "532345",
+    "Html": "it's possible, but you have to use routing provider<br />\n",
+    "PostedDate": "2014-02-19T10:07:28.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211006",
+    "ThreadId": "532345",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div style=\"font-family:'Calibri'; color:#000000; font-size:12pt\">\r\n<div>Hello and thank you for reply,</div>\r\n<div></div>\r\n<div></div>\r\n<div>i thought that this line of code: </div>\r\n<div><font face=\"Times New Roman\"></font></div>\r\n<div><font face=\"Times New Roman\">Dim rp As RoutingProvider = Map.MapProvider </font>\r\n<br>\r\n</div>\r\n<div style=\"font-style:normal; display:inline; font-family:'Calibri'; color:#000000; font-size:small; font-weight:normal; text-decoration:none\">\r\n<div style=\"font:10pt tahoma\">\r\n<div><font size=\"3\" face=\"Calibri\"></font></div>\r\n<div><font size=\"3\" face=\"Calibri\">defines routing provider . If this is not so, coud you be so kind and clarify with some small sample code ?</font></div>\r\n<div><font size=\"3\" face=\"Calibri\"></font></div>\r\n<div><font size=\"3\" face=\"Calibri\"></font></div>\r\n<div><font size=\"3\" face=\"Calibri\"></font></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"\"><b></b></div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2014-02-20T01:24:40.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211043",
+    "ThreadId": "532345",
+    "Html": "just use mapprovider instance, but not every provider support it<br />\n",
+    "PostedDate": "2014-02-20T03:02:41.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211106",
+    "ThreadId": "532345",
+    "Html": "I am using this provider\r<br />\n<br />\nMap.MapProvider = MapProviders.GoogleMapProvider.Instance\r<br />\n<br />\nBut the route still wont follow the road ...<br />\n",
+    "PostedDate": "2014-02-20T04:59:41.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211120",
+    "ThreadId": "532345",
+    "Html": "can you show some picture?<br />\n",
+    "PostedDate": "2014-02-20T05:28:25.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211174",
+    "ThreadId": "532345",
+    "Html": "<img src=\"http://www.softlab.hr/images/image_route.png\" alt=\"Image\" />              <br />\n",
+    "PostedDate": "2014-02-20T07:10:29.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211194",
+    "ThreadId": "532345",
+    "Html": "if it's list of gps points, you'l never get smooth line, unless your gps update speed is very high<br />\n",
+    "PostedDate": "2014-02-20T07:37:29.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211200",
+    "ThreadId": "532345",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div style=\"font-family:'Calibri'; color:#000000; font-size:12pt\">\r\n<div>Tha was exactly my question. But if you use .GetRoute method with start and end points then you get smooth line and it follows the road exactly. unlike if you use gps points. Thanks for the effort</div>\r\n<div style=\"font-style:normal; display:inline; font-family:'Calibri'; color:#000000; font-size:small; font-weight:normal; text-decoration:none\">\r\n<div style=\"font:10pt tahoma\">\r\n<div></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"\"><b></b></div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2014-02-20T07:45:30.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1219824",
+    "ThreadId": "532345",
+    "Html": "Is there any other way to get smooth line that you know of ?<br />\n",
+    "PostedDate": "2014-03-06T03:35:42.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

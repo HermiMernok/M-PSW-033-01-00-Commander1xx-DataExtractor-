@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "897245",
+    "ThreadId": "390797",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I am developing a project in which areas of a city have to be bounded by a polygon.</p>\r\n<p>I am creating polygons by taking the lat and longs from KML File.</p>\r\n<p>But as soon as click the button to plot polygons my form becomes very slow nearly unresponsive.</p>\r\n<p>&nbsp;</p>\r\n<p>I am creating some 198(actually exact) Polygons.</p>\r\n<p>&nbsp;</p>\r\n<p>Need help on how to solve this problem ?</p>\r\n<p>Any help will be appriciated :)</p>\r\n<p>&nbsp;</p>\r\n<p>ck</p>\r\n",
+    "PostedDate": "2012-08-08T14:38:38.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897361",
+    "ThreadId": "390797",
+    "Html": "<p>Hello</p>\r\n<p>I have the same problem, it seems to come when the Polygons layer is displayed</p>\r\n<p>I've try with all polygons isvisible=false but the polygon layer isvisibe=true : no much difference</p>\r\n<p>But If I switch off the polygon layer it seems better.<br />I will try to run som objective result about that</p>",
+    "PostedDate": "2012-08-08T22:21:09.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897385",
+    "ThreadId": "390797",
+    "Html": "<p>make it faster, don't complain</p>",
+    "PostedDate": "2012-08-08T23:43:53.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897409",
+    "ThreadId": "390797",
+    "Html": "<p>Hello Radioman</p>\r\n<p>I do not complain, but just trying to figure out in which situation polygons display are affecting the performance and how we can improde that</p>\r\n<p>Thanks for your GREAT work !</p>",
+    "PostedDate": "2012-08-09T01:09:18.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897569",
+    "ThreadId": "390797",
+    "Html": "<p>thankx for the reply radioman.</p>\r\n<p>As soon as I get free from this project i'am in, i'll try to make it faster. But i guess there is greater possibility of you doing it before ;)</p>\r\n<p>Thanks a million for Great Maps :)</p>\r\n<p>You Rock</p>\r\n<p>&nbsp;</p>\r\n<p>ck</p>",
+    "PostedDate": "2012-08-09T06:58:07.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903157",
+    "ThreadId": "390797",
+    "Html": "<p>If you really need speed, and you need to draw polygons, you can convert the gps coordinates to graphic coordinates and draw your polygons in the paint() event of the gmap control...</p>\r\n<p>Cheers</p>\r\n<p>Yeyo</p>",
+    "PostedDate": "2012-08-23T11:50:48.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903269",
+    "ThreadId": "390797",
+    "Html": "<p>whats the difference? ;}</p>",
+    "PostedDate": "2012-08-23T15:41:26.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "904667",
+    "ThreadId": "390797",
+    "Html": "<p>you can guide me code drawing route going between points on the map (Code)</p>\r\n<p>thank you very much</p>",
+    "PostedDate": "2012-08-27T09:33:31.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "904789",
+    "ThreadId": "390797",
+    "Html": "<p>Radio:</p>\r\n<p>Really dont know (you know i dont dive in C# yet :)) wath's the difference, but using paint event i can draw more than 300.000 lines in a second using your FromLatLngToLocal function to translate the gps coordinates to graphics coordinates. All the stuff takes 800 ms in a i3 with 2 gig of ram.</p>\r\n<p>Wonderfull control... jeje</p>\r\n<p>Yeyo</p>",
+    "PostedDate": "2012-08-27T14:25:02.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "904807",
+    "ThreadId": "390797",
+    "Html": "<p>try it on supercomputer ;}</p>",
+    "PostedDate": "2012-08-27T15:08:19.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "904809",
+    "ThreadId": "390797",
+    "Html": "<p>And what if i try learning C# coding (or even coding right in vb.net)? The problem is the indian, not then bow nor the arrow... jejeje!</p>",
+    "PostedDate": "2012-08-27T15:11:59.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914964",
+    "ThreadId": "390797",
+    "Html": "<p>Hello radioman,</p>\r\n<p>i've the same problem. In old version, i could draw a lot of polygons without performance lost, but actually i draw just 3 polygons and the control is responsible any more. Is it possible that the events Click, Over and so are the problem, 'cause this is new? Perhaps you can build 2 Types of Polygons(with/without events)?</p>\r\n<p>Thanks for your help</p>\r\n<p>bye EDE</p>",
+    "PostedDate": "2012-09-19T22:08:26.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914980",
+    "ThreadId": "390797",
+    "Html": "<p>by default polygon <em>IsHitTestVisible = false</em>, it can draw thousands of marker, works quite fast</p>",
+    "PostedDate": "2012-09-19T23:23:15.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

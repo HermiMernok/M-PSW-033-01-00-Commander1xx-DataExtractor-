@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "501279",
+    "ThreadId": "229360",
+    "Html": "<p>I am trying to run this control with the<span style=\"color:#000000\"><a id=fileDownload2 tabindex=9 href=\"../releases/view/20235#DownloadId=80809\"></a></span> GMap.NET.WindowsForms.Mono download, with MONO 2.67, on Windows Vista 32 bit. If I change the MapType to anything besides the default, it crashes where I cannot see anything.&nbsp;</p>\r\n<p>I tried it also with the the latest available code and the form stays up, but displays the error tiles and has &quot;Exception: An exception was thrown by the type initialize for SingletonCreator&quot;</p>\r\n<p>Any ideas?</p>\r\n<p>Thanks for the work on an awesome control!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-01T15:12:28.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501280",
+    "ThreadId": "229360",
+    "Html": "<p>i haven't tested mono on latest versions, so it seems to have some issues, whats the stack-trace?</p>",
+    "PostedDate": "2010-10-01T15:18:39.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501433",
+    "ThreadId": "229360",
+    "Html": "Off for the weekend. See what I can do Monday morning. \r\n",
+    "PostedDate": "2010-10-02T06:32:12.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502668",
+    "ThreadId": "229360",
+    "Html": "<p>Stack Trace revealed that I was missing SQLite.dll. Added that.</p>\r\n<p>Now it is not crashing, but rather a message box appears stating</p>\r\n<p>&quot;Runtime Error!</p>\r\n<p>Program:c:\\......\\mono.exe</p>\r\n<p>R6030</p>\r\n<p>-CRT not initialize&quot;</p>\r\n<p>I will see if I can use your example code to help debug this. Suggestions\\ideas for debugging this appreciated.</p>",
+    "PostedDate": "2010-10-05T12:20:13.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502730",
+    "ThreadId": "229360",
+    "Html": "<p>GMap.NET\\References\\Windows\\Mono.Data.SqliteClient.dll ?</p>",
+    "PostedDate": "2010-10-05T15:18:28.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "503091",
+    "ThreadId": "229360",
+    "Html": "<p>Ok,&nbsp; So I learned that I entered the compilation symbol incorrectly so it was not compiling for MONO. I think I have it set correctly now. Now the example form does not compile. I will see what I can do.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-06T10:27:13.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1040965",
+    "ThreadId": "442982",
+    "Html": "Hey, I am writing application using twitter api and I get user locations as keywords, like &quot;New York, USA&quot;. Is there any way to make marker using only this string, or do I need to use some other api for converting string to latitute and longitude like google geocoding? I need something similar as:\r<br />\ngmap.SetCurrentPositionByKeywords(&quot;Maputo, Mozambique&quot;);\r<br />\nbut for markers.\r<br />\nTo clarify instead of using new PointLatLng(-25.966688, 32.580528) in \r<br />\nGMapOverlay markersOverlay = new GMapOverlay(&quot;markers&quot;);\r<br />\nGMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(-25.966688, 32.580528),\r<br />\n  GMarkerGoogleType.green);\r<br />\nmarkersOverlay.Markers.Add(marker);\r<br />\ngmap.Overlays.Add(markersOverlay);\r<br />\nI want to use string &quot;New York, USA&quot; for coordinates.\r<br />\nAny help would be appreciated.<br />\n",
+    "PostedDate": "2013-05-08T10:34:57.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040981",
+    "ThreadId": "442982",
+    "Html": "use map providers functions<br />\n",
+    "PostedDate": "2013-05-08T11:08:42.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

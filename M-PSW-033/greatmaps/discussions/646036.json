@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1447927",
+    "ThreadId": "646036",
+    "Html": "I compiled and ran Demo.Forms forcing it to use google.<br />\nSingle stepping, it gets to GoogleMapProvider()<br />\n<br />\nThen, using Fiddler, I never see it going to googleapi.com<br />\nIt also times out in OnInitialized() at html=GetContentsUsingHttp(url);<br />\n<br />\nShouldn't it go to googleapi.com?<br />\n<br />\nWhat am I doing wrong?<br />\nNeedless to say, it doesn't get any tiles.<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2015-10-09T13:50:30.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

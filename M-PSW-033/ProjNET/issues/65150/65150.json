@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Several national mapping agencies publish a grid-based datum file for use when converting between different CRSs.\n\nOne example is the OSTN02 file published for Ordnance Survey for use with EPSG:27700 (British National Grid) CRS, which can be downloaded here: https://www.ordnancesurvey.co.uk/business-and-government/help-and-support/navigation-technology/os-net/ostn02-ntv2-format.html\n\nWithout this file, conversions are from WGS84 to BNG are only accurate to 5-7m. With the grid shift file, error reduces to centimetres.\n\nThis functionality is already implemented in proj.4 C library, and is used by specifying a path to the gridshift file with the +nadgrids parameter, see here for details: https://trac.osgeo.org/proj/wiki/GenParms#nadgrids-GridBasedDatumAdjustments\n\nThe work would require a parser for the NTv2 format that grid files are usually delivered in, and the function to apply the grid shift. Details of both can be found in the existing proj4 C source code.",
+    "LastUpdatedDate": "2016-05-04T09:21:05.22-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2016-05-04T09:21:05.22-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Support for grid-based datum correction files (+nadgrids proj.4 parameter)",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 65150
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

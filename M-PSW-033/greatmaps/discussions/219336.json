@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "466956",
+    "ThreadId": "219336",
+    "Html": "<p>Hi,</p>\r\n<p>I have a &quot;Presentation&quot;&nbsp;solution that's running on a vista 32 bit machine using VS 2008.</p>\r\n<p>I then copy the entire solution over to a Windows Server Enterprise (64 bit OS), and convert the solution to VS 2010.</p>\r\n<p>Upon running the WPF app again in this new environment I'm greeted with the following message:</p>\r\n<p>Error&nbsp;1&nbsp;Unable to load the metadata for assembly 'GMap.NET.WindowsPresentation'. This assembly may have been downloaded from the web.&nbsp; See <a href=\"http://go.microsoft.com/fwlink/?LinkId=179545\">http://go.microsoft.com/fwlink/?LinkId=179545</a>.&nbsp; The following error was encountered during load: Could not load file or assembly 'GMap.NET.WindowsPresentation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)&nbsp;C:\\adCenter\\src\\CoverTrees\\MapProject\\Window1.xaml&nbsp;1&nbsp;1&nbsp;MapProject</p>\r\n<p>From what Iunderstand it's not able to load the assembly. Someone said that WPF should work fine in 64 bit so I gave it a try.</p>\r\n<p>Any ideas? <br><br>Thanks!</p>",
+    "PostedDate": "2010-07-13T13:08:42.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466959",
+    "ThreadId": "219336",
+    "Html": "<p>or one of its dependencies -&gt; means, you can't use AnyCPU target in x64 system, because of sqlite ;}</p>",
+    "PostedDate": "2010-07-13T13:26:04.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466968",
+    "ThreadId": "219336",
+    "Html": "<p>Thanks! So I set to x86 and that worked. I'm still confused about the SQLite. Should I use X86 version or not?&nbsp; Right now I'm using the standard version, and that runs.</p>",
+    "PostedDate": "2010-07-13T13:46:41.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466974",
+    "ThreadId": "219336",
+    "Html": "<p>Actually, now I'm in a situation where it compiles and runs, but the Designer won't load...</p>",
+    "PostedDate": "2010-07-13T14:02:27.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466975",
+    "ThreadId": "219336",
+    "Html": "<p>sqlite provider for .net is in mixed mode with native code, so it simply can't be targeted to AnyCPU, you must use different dll for different target, usual stuff in native coding ;}</p>\r\n<p>p.s. in latest versions there was temporary bug using designer, fixed in last changeset</p>",
+    "PostedDate": "2010-07-13T14:04:19.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610652",
+    "ThreadId": "219336",
+    "Html": "<p>Absolutely love this product.&nbsp; Does this mean that we have to create two applications, each with a different SQLite?&nbsp; Is there a better solution?&nbsp; I have some machines that are running a 64 bit operating system and some running a 32 bit system.&nbsp; Thanks</p>",
+    "PostedDate": "2011-05-10T17:05:55.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610816",
+    "ThreadId": "219336",
+    "Html": "<p>no, the latest version loads sqlite dynamically, just build targeting AnyCPU, provide two folders(x86 and x64) as content with appropriate sqlite dll, and it runs on every OS, check the demos how it's done</p>",
+    "PostedDate": "2011-05-11T02:58:40.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "611324",
+    "ThreadId": "219336",
+    "Html": "<p>Where in the demos?</p>",
+    "PostedDate": "2011-05-11T17:32:19.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "611444",
+    "ThreadId": "219336",
+    "Html": "<p>All demos use the same idea as i've explained</p>",
+    "PostedDate": "2011-05-11T23:16:59.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "613518",
+    "ThreadId": "219336",
+    "Html": "<p>I'm going to document this just in case someone else runs into the same&nbsp;difficulties I had.&nbsp; In order to get&nbsp;sqllite to load dynamically and&nbsp;switch between x86 and x64&nbsp;I had to change the following file/assembly properties.</p>\r\n<p>The System.Data.SQLite&nbsp;assembly in References had Aliases=global, Copy Local=false and Specific Version=false.</p>\r\n<p>The System.Data.SQLite.DLL files in the x64 and x86 folders had Build Action=None and Copy to Output Directory=Copy always.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-05-16T12:36:02.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "613551",
+    "ThreadId": "219336",
+    "Html": "<p>i've find the way to embed dll in resources, so folders will be unnecessary, but for now Yes, thx</p>",
+    "PostedDate": "2011-05-16T13:19:45.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

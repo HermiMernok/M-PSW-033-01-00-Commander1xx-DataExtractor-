@@ -1,0 +1,95 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "Transformations",
+      "DisplayName": "Transformations"
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2007-06-17T17:40:34.423-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Change:\n    pnts = ct.MathTransform.TransformList(pnts);\nto:\n    pnts = ct.MathTransform.TransformList(points);",
+    "LastUpdatedDate": "2013-05-16T03:55:42.803-07:00",
+    "PlannedForRelease": "Proj.NET 1.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2007-06-17T16:16:00.737-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ConcatenatedTransform.TransformList always returns empty collection",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 1959
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 6056.",
+      "PostedDate": "2007-06-17T16:16:45.58-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "\r\n\r\n** Closed by SharpGIS 6/17/2007 4:16 PM",
+      "PostedDate": "2007-06-17T16:24:22.983-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "There's more to it...",
+      "PostedDate": "2007-06-17T16:24:23.14-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2007-06-17T16:24:40.077-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 6061.",
+      "PostedDate": "2007-06-17T17:11:13.28-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "\r\n\r\n** Closed by SharpGIS 6/17/2007 5:11 PM",
+      "PostedDate": "2007-06-17T17:40:19.423-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2007-06-17T17:40:19.643-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2007-06-17T17:40:29.343-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2007-06-17T17:40:34.423-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:12.11-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T03:55:42.803-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "463137",
+    "ThreadId": "218259",
+    "Html": "<p>I've noticed that performance is drastically better in the WinForms demo over the WPF one. I'm wondering is this something that other people are seeing, or am I a bit of a special case? I did notice that the WinForms is limited to particular zoom scales, whereas the WPF version looks like it's maybe doing some dynamic rescaling which could be the performance hit?</p>\r\n<p>I'm just wondering if this is common, and if so is there much that can be done? Personally I felt like the WPF version was a little sluggish so instead am embedding the WinForms (GMapControl) into my WPF application. For anyone else who wants to do this:</p>\r\n<p>Add the following two references:</p>\r\n<ul>\r\n<li>GMap.NET.WindowsForms</li>\r\n<li>WindowsFormIntegration</li>\r\n</ul>\r\n<p>Add the namespace in your xaml for the control to host the Winforms control. Obviously this needs to go with all the other namespaces...</p>\r\n<pre><pre></pre>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Window</span> <span style=\"color:red\">x:Class</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">MapApp.MainWindow</span><span style=\"color:black\">&quot;</span>\r\n<span style=\"color:red\">xmlns:gm</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">clr-namespace:GMap.NET.WindowsForms;assembly=GMap.NET.WindowsForms</span><span style=\"color:black\">&quot;</span> <span style=\"color:blue\">/&gt;</span>\r\n</pre>\r\n</div>\r\n</pre>\r\n<p>Add the control code, wrapped in a Form Host</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre> <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">WindowsFormsHost</span><span style=\"color:blue\">&gt;</span>\r\n     <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">gm</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">GMapControl</span> <span style=\"color:red\">x:Name</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">mapControl</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span><span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">gm</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">GMapControl</span><span style=\"color:blue\">&gt;</span>\r\n <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">WindowsFormsHost</span><span style=\"color:blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-07-03T14:18:20.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463139",
+    "ThreadId": "218259",
+    "Html": "<p>actually it depends of your video card, but yes wpf version can be improved alot</p>",
+    "PostedDate": "2010-07-03T14:24:40.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

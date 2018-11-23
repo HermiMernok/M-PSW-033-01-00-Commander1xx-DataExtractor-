@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "448302",
+    "ThreadId": "214099",
+    "Html": "I use this piece of code to get a route\r\nDim start As GMap.net.PointLatLng = New GMap.net.PointLatLng(38.047, 23.7864)\r\nDim [end] As GMap.net.PointLatLng = New GMap.net.PointLatLng(38.13974, 23.7997)\r\nDim route As MapRoute\r\nDim r As GMapRoute\r\nDim routes As GMapOverlay\r\n       \r\nroute = n.Manager.GetRouteBetweenPoints(start, [end], False, 5)\r\nr = New GMapRoute(route.Points, route.Name)\r\nroutes = New GMapOverlay(n, &quot;routes&quot;)\r\nn.Overlays.Add(routes)\r\n\r\nbut route always return nothing.What am i doing wrong;\r\nAlso i try  ' route = GMaps.Instance.GetRouteBetweenPoints(start, [end], False, 5) with no result",
+    "PostedDate": "2010-05-27T10:51:37.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448309",
+    "ThreadId": "214099",
+    "Html": "I also add enableroute=true but nothing again",
+    "PostedDate": "2010-05-27T11:09:34.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448311",
+    "ThreadId": "214099",
+    "Html": "<p>check demo ;}</p>",
+    "PostedDate": "2010-05-27T11:20:12.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448314",
+    "ThreadId": "214099",
+    "Html": "I have already check but ....I try the code to mobile",
+    "PostedDate": "2010-05-27T11:23:53.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448353",
+    "ThreadId": "214099",
+    "Html": "No one can help;",
+    "PostedDate": "2010-05-27T13:03:24.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448362",
+    "ThreadId": "214099",
+    "Html": "<p><span style=\"text-decoration:underline\">you</span> can help yourself easily anywhere, anytime ;} why people even use vb</p>",
+    "PostedDate": "2010-05-27T13:19:12.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448376",
+    "ThreadId": "214099",
+    "Html": "thanks",
+    "PostedDate": "2010-05-27T13:46:19.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448378",
+    "ThreadId": "214099",
+    "Html": "<p>..anyway, you missed the point what's exactly doesn't work?</p>",
+    "PostedDate": "2010-05-27T13:48:07.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448381",
+    "ThreadId": "214099",
+    "Html": "the function .GetRouteBetweenPoints always return null",
+    "PostedDate": "2010-05-27T13:49:45.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448395",
+    "ThreadId": "214099",
+    "Html": "<p>are you sure?</p>",
+    "PostedDate": "2010-05-27T14:18:25.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448491",
+    "ThreadId": "214099",
+    "Html": "yes i am sure",
+    "PostedDate": "2010-05-27T20:49:34.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448523",
+    "ThreadId": "214099",
+    "Html": "<p>so why it still works in demos?</p>",
+    "PostedDate": "2010-05-27T23:37:50.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448527",
+    "ThreadId": "214099",
+    "Html": "<p>I wish i know.My code is ok;</p>",
+    "PostedDate": "2010-05-27T23:56:38.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448534",
+    "ThreadId": "214099",
+    "Html": "<p>can you run it in debug mode, maybe there is service error, try enter function step by step?</p>",
+    "PostedDate": "2010-05-28T00:31:36.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448539",
+    "ThreadId": "214099",
+    "Html": "<p>Yes i run it in debug mode.I try one version for mobile and one for pc.GetRouteBetweenPoints always return null.Demo works fine.</p>\r\n<p>PS I am 55 years old and i start learning programming with qbasic etc.So i stuck with vb and i am too old to change habits now.Thanks for your great project and your help &nbsp;</p>",
+    "PostedDate": "2010-05-28T00:50:28.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448543",
+    "ThreadId": "214099",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2010-05-28T01:01:23.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

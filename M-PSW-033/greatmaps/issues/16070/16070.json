@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed, thanks",
+    "ClosedDate": "2013-05-24T07:59:09.53-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hello radioman,\r\n\r\nsince I developed an application which lets the user draw polygons by adding one point after another I came across a bug with the most recent version. When the \"polygon\" only consists of one or two points I get an ArgumentException in GMapPolygon.cs, line 141. While for one point I don't want anything to be drawn besides the point itself I'd like a line to be drawn when there are two points. So I changed lines 140 up to 142 in GMapPolygon.cs to\r\n```\r\nif (pnts.Length > 2)\r\n{\r\n   graphicsPath.AddPolygon(pnts);\r\n}\r\nelse if (pnts.Length == 2)\r\n{\r\n   graphicsPath.AddLines(pnts);\r\n}\r\n```\r\nI consider this a proper solution and I want to ask you to include this change into your sources if you think I'm right.",
+    "LastUpdatedDate": "2013-05-24T07:59:09.53-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-05-22T08:23:29.857-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "\"Polygons\" with 2 points",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16070
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "me too\nhttps://www.codeplex.com/greatmaps/discussions/444804",
+      "PostedDate": "2013-05-24T07:23:12.173-07:00",
+      "Id": 101090
+    }
+  ]
+}

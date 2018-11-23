@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "675186",
+    "ThreadId": "273442",
+    "Html": "<p>Look like this:</p>\n<p><img src=\"http://i51.tinypic.com/24yv444.png\" alt=\"\" />﻿</p>\n<p>&nbsp;</p>\n<p>The code:</p>\n<p>&nbsp;</p>\n<pre>using System;\r\nusing System.Linq;\r\nusing System.Collections.Generic;\r\nusing System.ComponentModel;\r\nusing System.Data;\r\nusing System.Data.SQLite;\r\nusing System.Drawing;\r\nusing System.Text;\r\nusing System.Windows.Forms;\r\nusing GMap.NET;\r\nusing GMap.NET.WindowsForms;\r\nusing GMap.NET.WindowsForms.Markers;\r\nusing GMap.NET.MapProviders;\r\n\r\nnamespace MapNet\r\n{\r\n    public partial class Form1 : Form\r\n    {\r\n        private GMapControl _map;\r\n        public Form1()\r\n        {\r\n            InitializeComponent();\r\n            this.SuspendLayout();\r\n            initMapControl();\r\n            this.ResumeLayout(false);\r\n        }\r\n        private void initMapControl()  \r\n        {\r\n            _map = new GMapControl();  \r\n            _map.BackColor = System.Drawing.Color.White;  \r\n            _map.CanDragMap = true;  \r\n            _map.Dock = System.Windows.Forms.DockStyle.Fill;  \r\n            _map.Location = new System.Drawing.Point(0, 0);  \r\n            _map.MapProvider = GMapProviders.GoogleMap;  \r\n            _map.MarkersEnabled = true; \r\n            _map.Name = \"MainMap\";  \r\n            _map.RoutesEnabled = true; \r\n            _map.ShowTileGridLines = false;  \r\n            _map.TabIndex = 0;  \r\n            _map.Manager.Language = LanguageType.ChineseSimplified; \r\n            _map.Zoom = trackBar1.Value;  \r\n            this.panel1.Controls.Add(_map);  \r\n        }\r\n\r\n        private void Form1_Load(object sender, EventArgs e)\r\n        {\r\n            PointLatLng current = new PointLatLng(54.6961334816182, 25.2985095977783);\r\n            GMapMarkerGoogleGreen currentMark = new GMapMarkerGoogleGreen(current);\r\n            GMapOverlay overlay = new GMapOverlay(_map, \"current\");  \r\n            overlay.Markers.Add(currentMark);  \r\n            _map.Overlays.Add(overlay); \r\n\r\n \r\n        } \r\n    }\r\n}</pre>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-09-22T03:05:17.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675212",
+    "ThreadId": "273442",
+    "Html": "<p>you must cradle emulator to have internet connection, or use cache</p>",
+    "PostedDate": "2011-09-22T04:30:06.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675285",
+    "ThreadId": "273442",
+    "Html": "<p>i have cradled emulator to have internet connection.still like this.</p>\r\n<p>what's the problem?&nbsp; how to use cache ?Please give me a hand. do u have some demon?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-09-22T06:51:29.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675313",
+    "ThreadId": "273442",
+    "Html": "<p>did you deploy SQLite.Interop.074.dll as content and&nbsp;System.Data.SQLite.dll as reference? Everything else is automatic</p>",
+    "PostedDate": "2011-09-22T07:29:41.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675603",
+    "ThreadId": "273442",
+    "Html": "<p>Yes.I have deployed SQLite.Interop.074.dll as content and System.Data.SQLite.dll as reference.</p>\r\n<p><img src=\"http://i56.tinypic.com/34xgyyo.png\" alt=\"\" /></p>\r\n<p>&nbsp;</p>\r\n<p>when i change \"_map.MapProvider = GMapProviders.GoogleMap;\" to \"_map.MapProvider = GMapProviders.LithuaniaMap;\"</p>\r\n<p>GoogleMap display the image:</p>\r\n<p><img src=\"http://i51.tinypic.com/24yv444.png\" alt=\"\" /></p>\r\n<p>&nbsp;</p>\r\n<p>LithuaniaMap display the image:</p>\r\n<p><img src=\"http://i54.tinypic.com/25ixixy.jpg\" alt=\"\" /></p>\r\n<p>&nbsp;</p>\r\n<p>i&nbsp;debug GMap.NET Demon.WidowsMobile,and it shows:</p>\r\n<p><img src=\"http://i51.tinypic.com/2cp88ef.png\" alt=\"\" /></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-09-22T18:43:26.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675604",
+    "ThreadId": "273442",
+    "Html": "<p>&nbsp;i delete \"_map.Manager.Language = LanguageType.ChineseSimplified;\", and it shows perfectly.haha.</p>\r\n<p>but it doesnt support&nbsp;&nbsp;LanguageType.ChineseSimplified?...how to use it.</p>\r\n<p>and if i use googlemap,it can't work.i dont know why. The same is GoogleChinaMap.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-09-22T18:56:18.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675608",
+    "ThreadId": "273442",
+    "Html": "<p>GoogleMap needs certificate?...the other maps can show well ,but GoogleMap.how to get certificate</p>",
+    "PostedDate": "2011-09-22T19:31:25.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675667",
+    "ThreadId": "273442",
+    "Html": "<p>what&nbsp;certificate o.O what demon ;] everything is working, if google doesn't support some language, screw them</p>",
+    "PostedDate": "2011-09-22T23:44:19.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675685",
+    "ThreadId": "273442",
+    "Html": "<p>lol.After i came here,now everything is working well.Funny.</p>\r\n<p>Anyway ,thx a lot</p>",
+    "PostedDate": "2011-09-23T00:32:20.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

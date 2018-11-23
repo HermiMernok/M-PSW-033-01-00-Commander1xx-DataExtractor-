@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "217476",
+    "ThreadId": "63962",
+    "Html": "<p>If it's possible add a property for use control with the default proxy</p>\r\n<p>You can get del default proxy with<br><span style=\"font-size:x-small\">System.Net.WebRequest.DefaultWebProxy</span></p>\r\n<p><span style=\"font-size:x-small\">and the default credential with<br></span><span style=\"font-size:x-small\">System.Net.CredentialCache.DefaultCredentials</span></p>\r\n<p><span style=\"font-size:x-small\">Good work</span></p>",
+    "PostedDate": "2009-07-30T00:02:46.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "217482",
+    "ThreadId": "63962",
+    "Html": "<p>set to anything you want -&gt; <strong>GMaps.Instance.Proxy</strong></p>\r\n<p>if its null it uses default proxy as you see belove:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>request.Proxy = Proxy != <span style=\"color:Blue\">null</span> ? Proxy : WebRequest.DefaultWebProxy;</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-07-30T00:18:25.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218771",
+    "ThreadId": "63962",
+    "Html": "<p>It's work, if proxy it's not set the default proxy it's used</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-03T06:21:28.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218772",
+    "ThreadId": "63962",
+    "Html": "<p>welcome ;}</p>",
+    "PostedDate": "2009-08-03T06:23:03.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

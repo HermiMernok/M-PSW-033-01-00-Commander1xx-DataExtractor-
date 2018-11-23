@@ -1,0 +1,7 @@
+<div class="wikidoc"><br /><div style="color:Black;background-color:White;"><pre>
+
+<span style="color:Green;">// add your custom map db provider, hits after local cache, if not found any tiles, uses global server cache and caches them</span>
+MsSQLPureImageCache ch = <span style="color:Blue;">new</span> MsSQLPureImageCache();
+ch.ConnectionString = <span style="color:#A31515;">@&quot;Data Source=SQL2008\SQLSRV08;Initial Catalog=PFleet;Integrated Security=True&quot;</span>;
+GMaps.Instance.SecondaryCache = ch;
+</pre></div></div><div class="ClearBoth"></div>

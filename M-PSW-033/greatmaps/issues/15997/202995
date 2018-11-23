@@ -1,0 +1,519 @@
+OnMapSizeChanged, w: 683, h: 550, size: {Width=2, Height=2}
+DBINIT
+TryCorrectGoogleVersions, VersionGoogleMap: m@144
+TryCorrectGoogleVersions, VersionGoogleLabels: h@144
+TryCorrectGoogleVersions, VersionGoogleSatellite: 76
+TryCorrectGoogleVersions, VersionGoogleTerrain: t@126,r@144
+-------------------------------------------------------------------
+2011-01-25 18:14:04: 
+TryCorrectBingVersions, VersionBingMaps: 632
+-------------------------------------------------------------------
+2011-01-25 18:14:06: 
+OnMapSizeChanged, w: 1408, h: 1067, size: {Width=3, Height=3}
+add GMap.NET TileLoader: 0 to GThreadPool
+add GMap.NET TileLoader: 1 to GThreadPool
+add GMap.NET TileLoader: 2 to GThreadPool
+add GMap.NET TileLoader: 3 to GThreadPool
+add GMap.NET TileLoader: 4 to GThreadPool
+OnTileLoadStart - at zoom 3, time: 18:14:06.7120000
+Thread started
+Thread started
+Thread started
+Thread started
+Thread started
+Thread started Thread[10]
+Thread started Thread[11]
+Thread started Thread[9]
+Thread started Thread[12]
+Thread started Thread[13]
+Thread[11] - Fill empty TileMatrix: 3 - {X=6,Y=0}
+Thread[9] - Fill empty TileMatrix: 3 - {X=6,Y=2}
+Thread[13] - Fill empty TileMatrix: 3 - {X=3,Y=1}
+Thread[10] - Fill empty TileMatrix: 3 - {X=3,Y=3}
+Thread[12] - Fill empty TileMatrix: 3 - {X=1,Y=3}
+GetImageFromCache
+GetImageFromCache
+GetImageFromCache
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=1 AND Y=3 AND Zoom=3 AND Type=1)
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=6 AND Y=0 AND Zoom=3 AND Type=1)
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=6 AND Y=2 AND Zoom=3 AND Type=1)
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=3 AND Y=1 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=6,Y=2}
+Starting GetResponse: {X=6,Y=0}
+Starting GetResponse: {X=3,Y=1}
+Starting GetResponse: {X=1,Y=3}
+GetImageFrom: System.Runtime.InteropServices.SEHException: Składnik zewnętrzny zgłosił wyjątek.
+   w GMap.NET.Internals.FastReaderWriterLock.NativeMethods.ReleaseSRWLockShared(IntPtr& srw)
+   w GMap.NET.Internals.FastReaderWriterLock.ReleaseReaderLock()
+   w GMap.NET.GMaps.GetTileFromMemoryCache(RawTile tile)
+   w GMap.NET.GMaps.GetImageFrom(MapType type, GPoint pos, Int32 zoom, Exception& result)
+Thread[10] - Fill empty TileMatrix: 3 - {X=6,Y=5}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=6 AND Y=5 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=6,Y=5}
+GetResponse OK: {X=3,Y=1}
+Starting GetResponseStream: {X=3,Y=1}
+GetResponseStream OK: {X=3,Y=1}
+EnqueueCacheTask: {X=3,Y=1}
+CacheEngine: start
+Thread[13] - Fill empty TileMatrix: 3 - {X=6,Y=4}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=6 AND Y=4 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=6,Y=4}
+PutImageToCache
+GetResponse OK: {X=6,Y=2}
+Starting GetResponseStream: {X=6,Y=2}
+GetResponseStream OK: {X=6,Y=2}
+EnqueueCacheTask: {X=6,Y=2}
+Thread[9] - Fill empty TileMatrix: 3 - {X=5,Y=3}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=5 AND Y=3 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=5,Y=3}
+GetResponse OK: {X=1,Y=3}
+Starting GetResponseStream: {X=1,Y=3}
+GetResponseStream OK: {X=1,Y=3}
+EnqueueCacheTask: {X=1,Y=3}
+Thread[12] - Fill empty TileMatrix: 3 - {X=4,Y=3}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=4 AND Y=3 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=6,Y=5}
+Starting GetResponseStream: {X=6,Y=5}
+GetResponseStream OK: {X=6,Y=5}
+EnqueueCacheTask: {X=6,Y=5}
+Thread[10] - Fill empty TileMatrix: 3 - {X=0,Y=1}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=0 AND Y=1 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=0,Y=1}
+GetResponse OK: {X=6,Y=0}
+Starting GetResponseStream: {X=6,Y=0}
+GetResponseStream OK: {X=6,Y=0}
+EnqueueCacheTask: {X=6,Y=0}
+Thread[11] - Fill empty TileMatrix: 3 - {X=5,Y=0}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=5 AND Y=0 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=5,Y=0}
+PutImageToCache
+GetResponse OK: {X=6,Y=4}
+Starting GetResponseStream: {X=6,Y=4}
+GetResponseStream OK: {X=6,Y=4}
+EnqueueCacheTask: {X=6,Y=4}
+Thread[13] - Fill empty TileMatrix: 3 - {X=3,Y=0}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=3 AND Y=0 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=3,Y=0}
+GetResponse OK: {X=5,Y=3}
+Starting GetResponseStream: {X=5,Y=3}
+GetResponse OK: {X=0,Y=1}
+Starting GetResponseStream: {X=0,Y=1}
+GetResponseStream OK: {X=0,Y=1}
+EnqueueCacheTask: {X=0,Y=1}
+Thread[10] - Fill empty TileMatrix: 3 - {X=2,Y=1}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=2 AND Y=1 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=5,Y=0}
+Starting GetResponseStream: {X=5,Y=0}
+GetResponseStream OK: {X=5,Y=0}
+EnqueueCacheTask: {X=5,Y=0}
+Thread[11] - Fill empty TileMatrix: 3 - {X=2,Y=4}
+GetImageFromCache
+GetResponseStream OK: {X=5,Y=3}
+EnqueueCacheTask: {X=5,Y=3}
+Thread[9] - Fill empty TileMatrix: 3 - {X=5,Y=4}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=5 AND Y=4 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=5,Y=4}
+PutImageToCache
+GetResponse OK: {X=3,Y=0}
+Starting GetResponseStream: {X=3,Y=0}
+GetResponseStream OK: {X=3,Y=0}
+EnqueueCacheTask: {X=3,Y=0}
+Thread[13] - Fill empty TileMatrix: 3 - {X=0,Y=0}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=0 AND Y=0 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=0,Y=0}
+Starting GetResponse: {X=4,Y=3}
+GetResponse OK: {X=5,Y=4}
+Starting GetResponseStream: {X=5,Y=4}
+GetResponseStream OK: {X=5,Y=4}
+EnqueueCacheTask: {X=5,Y=4}
+Thread[9] - Fill empty TileMatrix: 3 - {X=2,Y=2}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=2 AND Y=2 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=2,Y=2}
+Starting GetResponse: {X=2,Y=1}
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=2 AND Y=4 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=0,Y=0}
+Starting GetResponseStream: {X=0,Y=0}
+GetResponseStream OK: {X=0,Y=0}
+EnqueueCacheTask: {X=0,Y=0}
+Thread[13] - Fill empty TileMatrix: 3 - {X=0,Y=4}
+GetImageFromCache
+GetResponse OK: {X=4,Y=3}
+Starting GetResponseStream: {X=4,Y=3}
+GetResponseStream OK: {X=4,Y=3}
+EnqueueCacheTask: {X=4,Y=3}
+Thread[12] - Fill empty TileMatrix: 3 - {X=4,Y=5}
+GetImageFromCache
+GetResponse OK: {X=2,Y=1}
+Starting GetResponseStream: {X=2,Y=1}
+GetResponseStream OK: {X=2,Y=1}
+EnqueueCacheTask: {X=2,Y=1}
+Thread[10] - Fill empty TileMatrix: 3 - {X=2,Y=0}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=2 AND Y=0 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=2,Y=0}
+GetResponse OK: {X=2,Y=2}
+Starting GetResponseStream: {X=2,Y=2}
+-------------------------------------------------------------------
+2011-01-25 18:14:07: 
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=0 AND Y=4 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=0,Y=4}
+Starting GetResponse: {X=2,Y=4}
+PutImageToCache
+GetResponseStream OK: {X=2,Y=2}
+EnqueueCacheTask: {X=2,Y=2}
+Thread[9] - Fill empty TileMatrix: 3 - {X=4,Y=0}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=4 AND Y=0 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=4,Y=0}
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=4 AND Y=5 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=4,Y=5}
+GetResponse OK: {X=2,Y=0}
+Starting GetResponseStream: {X=2,Y=0}
+GetResponseStream OK: {X=2,Y=0}
+EnqueueCacheTask: {X=2,Y=0}
+Thread[10] - Fill empty TileMatrix: 3 - {X=6,Y=3}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=6 AND Y=3 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=0,Y=4}
+Starting GetResponseStream: {X=0,Y=4}
+GetResponseStream OK: {X=0,Y=4}
+EnqueueCacheTask: {X=0,Y=4}
+Thread[13] - Fill empty TileMatrix: 3 - {X=6,Y=1}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=6 AND Y=1 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=6,Y=3}
+Starting GetResponse: {X=6,Y=1}
+GetResponse OK: {X=4,Y=0}
+Starting GetResponseStream: {X=4,Y=0}
+GetResponseStream OK: {X=4,Y=0}
+EnqueueCacheTask: {X=4,Y=0}
+Thread[9] - Fill empty TileMatrix: 3 - {X=2,Y=3}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=2 AND Y=3 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=2,Y=3}
+PutImageToCache
+GetResponse OK: {X=4,Y=5}
+Starting GetResponseStream: {X=4,Y=5}
+GetResponseStream OK: {X=4,Y=5}
+EnqueueCacheTask: {X=4,Y=5}
+Thread[12] - Fill empty TileMatrix: 3 - {X=3,Y=5}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=3 AND Y=5 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=3,Y=5}
+GetResponse OK: {X=6,Y=3}
+Starting GetResponseStream: {X=6,Y=3}
+GetResponseStream OK: {X=6,Y=3}
+EnqueueCacheTask: {X=6,Y=3}
+Thread[10] - Fill empty TileMatrix: 3 - {X=3,Y=2}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=3 AND Y=2 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=3,Y=2}
+GetResponse OK: {X=2,Y=3}
+Starting GetResponseStream: {X=2,Y=3}
+GetResponseStream OK: {X=2,Y=3}
+EnqueueCacheTask: {X=2,Y=3}
+Thread[9] - Fill empty TileMatrix: 3 - {X=1,Y=0}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=1 AND Y=0 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=3,Y=5}
+Starting GetResponseStream: {X=3,Y=5}
+GetResponseStream OK: {X=3,Y=5}
+EnqueueCacheTask: {X=3,Y=5}
+Thread[12] - Fill empty TileMatrix: 3 - {X=5,Y=1}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=5 AND Y=1 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=5,Y=1}
+GetResponse OK: {X=6,Y=1}
+Starting GetResponseStream: {X=6,Y=1}
+GetResponseStream OK: {X=6,Y=1}
+EnqueueCacheTask: {X=6,Y=1}
+Thread[13] - Fill empty TileMatrix: 3 - {X=0,Y=5}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=0 AND Y=5 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=0,Y=5}
+GetResponse OK: {X=2,Y=4}
+Starting GetResponseStream: {X=2,Y=4}
+GetResponseStream OK: {X=2,Y=4}
+EnqueueCacheTask: {X=2,Y=4}
+Thread[11] - Fill empty TileMatrix: 3 - {X=4,Y=1}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=4 AND Y=1 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=4,Y=1}
+PutImageToCache
+GetResponse OK: {X=3,Y=2}
+Starting GetResponseStream: {X=3,Y=2}
+GetResponseStream OK: {X=3,Y=2}
+EnqueueCacheTask: {X=3,Y=2}
+Thread[10] - Fill empty TileMatrix: 3 - {X=1,Y=5}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=1 AND Y=5 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=1,Y=5}
+GetResponse OK: {X=5,Y=1}
+Starting GetResponseStream: {X=5,Y=1}
+GetResponseStream OK: {X=5,Y=1}
+EnqueueCacheTask: {X=5,Y=1}
+Thread[12] - Fill empty TileMatrix: 3 - {X=1,Y=1}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=1 AND Y=1 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=1,Y=1}
+GetResponse OK: {X=0,Y=5}
+Starting GetResponseStream: {X=0,Y=5}
+GetResponseStream OK: {X=0,Y=5}
+EnqueueCacheTask: {X=0,Y=5}
+Thread[13] - Fill empty TileMatrix: 3 - {X=5,Y=5}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=5 AND Y=5 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=1,Y=5}
+Starting GetResponseStream: {X=1,Y=5}
+GetResponseStream OK: {X=1,Y=5}
+EnqueueCacheTask: {X=1,Y=5}
+Thread[10] - Fill empty TileMatrix: 3 - {X=5,Y=2}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=5 AND Y=2 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=1,Y=0}
+GetResponse OK: {X=4,Y=1}
+Starting GetResponseStream: {X=4,Y=1}
+GetResponseStream OK: {X=4,Y=1}
+EnqueueCacheTask: {X=4,Y=1}
+Thread[11] - Fill empty TileMatrix: 3 - {X=4,Y=4}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=4 AND Y=4 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=4,Y=4}
+Starting GetResponse: {X=5,Y=2}
+Starting GetResponse: {X=5,Y=5}
+GetResponse OK: {X=1,Y=1}
+Starting GetResponseStream: {X=1,Y=1}
+PutImageToCache
+GetResponseStream OK: {X=1,Y=1}
+EnqueueCacheTask: {X=1,Y=1}
+Thread[12] - Fill empty TileMatrix: 3 - {X=0,Y=2}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=0 AND Y=2 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=0,Y=2}
+GetResponse OK: {X=1,Y=0}
+Starting GetResponseStream: {X=1,Y=0}
+GetResponseStream OK: {X=1,Y=0}
+EnqueueCacheTask: {X=1,Y=0}
+GetResponse OK: {X=4,Y=4}
+Starting GetResponseStream: {X=4,Y=4}
+GetResponseStream OK: {X=4,Y=4}
+EnqueueCacheTask: {X=4,Y=4}
+Thread[11] - Fill empty TileMatrix: 3 - {X=1,Y=2}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=1 AND Y=2 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=5,Y=5}
+Starting GetResponseStream: {X=5,Y=5}
+GetResponseStream OK: {X=5,Y=5}
+EnqueueCacheTask: {X=5,Y=5}
+Thread[13] - Fill empty TileMatrix: 3 - {X=1,Y=4}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=1 AND Y=4 AND Zoom=3 AND Type=1)
+GetResponse OK: {X=0,Y=2}
+Starting GetResponseStream: {X=0,Y=2}
+GetResponseStream OK: {X=0,Y=2}
+EnqueueCacheTask: {X=0,Y=2}
+Thread[12] - Fill empty TileMatrix: 3 - {X=2,Y=5}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=2 AND Y=5 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=2,Y=5}
+Starting GetResponse: {X=1,Y=4}
+Starting GetResponse: {X=1,Y=2}
+GetResponse OK: {X=5,Y=2}
+Starting GetResponseStream: {X=5,Y=2}
+GetResponseStream OK: {X=5,Y=2}
+EnqueueCacheTask: {X=5,Y=2}
+Thread[10] - Fill empty TileMatrix: 3 - {X=3,Y=4}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=3 AND Y=4 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=3,Y=4}
+PutImageToCache
+GetResponse OK: {X=2,Y=5}
+Starting GetResponseStream: {X=2,Y=5}
+GetResponseStream OK: {X=2,Y=5}
+EnqueueCacheTask: {X=2,Y=5}
+Thread[12] - Fill empty TileMatrix: 3 - {X=4,Y=2}
+GetImageFromCache
+GetResponse OK: {X=1,Y=4}
+Starting GetResponseStream: {X=1,Y=4}
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=4 AND Y=2 AND Zoom=3 AND Type=1)
+GetResponseStream OK: {X=1,Y=4}
+Starting GetResponse: {X=4,Y=2}
+EnqueueCacheTask: {X=1,Y=4}
+Thread[13] - Fill empty TileMatrix: 3 - {X=0,Y=3}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=0 AND Y=3 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=0,Y=3}
+GetResponse OK: {X=3,Y=4}
+Starting GetResponseStream: {X=3,Y=4}
+GetResponseStream OK: {X=3,Y=4}
+EnqueueCacheTask: {X=3,Y=4}
+Thread[10] - Wait 0 - 18:14:08.0190000
+GetResponse OK: {X=4,Y=2}
+Starting GetResponseStream: {X=4,Y=2}
+GetResponse OK: {X=1,Y=2}
+Starting GetResponseStream: {X=1,Y=2}
+PutImageToCache
+GetResponse OK: {X=0,Y=3}
+Starting GetResponseStream: {X=0,Y=3}
+GetResponseStream OK: {X=0,Y=3}
+EnqueueCacheTask: {X=0,Y=3}
+Thread[13] - Wait 1 - 18:14:08.0530000
+GetResponseStream OK: {X=4,Y=2}
+EnqueueCacheTask: {X=4,Y=2}
+Thread[12] - Wait 2 - 18:14:08.0980000
+GetResponseStream OK: {X=1,Y=2}
+EnqueueCacheTask: {X=1,Y=2}
+PutImageToCache
+PutImageToCache
+PutImageToCache
+-------------------------------------------------------------------
+2011-01-25 18:14:08: 
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+-------------------------------------------------------------------
+2011-01-25 18:14:09: 
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+-------------------------------------------------------------------
+2011-01-25 18:14:10: 
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+PutImageToCache
+-------------------------------------------------------------------
+2011-01-25 18:14:11: 
+PutImageToCache
+PutImageToCache
+-------------------------------------------------------------------
+2011-01-25 18:14:15: 
+OnTileLoadStart - at zoom 3, time: 18:14:15.7180000
+Thread[13] - Fill empty TileMatrix: 3 - {X=1,Y=2}
+Thread[12] - Fill empty TileMatrix: 3 - {X=7,Y=2}
+Thread[10] - Fill empty TileMatrix: 3 - {X=7,Y=3}
+GetImageFromCache
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=7 AND Y=2 AND Zoom=3 AND Type=1)
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=7 AND Y=3 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=7,Y=2}
+Thread[13] - Fill empty TileMatrix: 3 - {X=7,Y=5}
+Starting GetResponse: {X=7,Y=3}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=7 AND Y=5 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=7,Y=5}
+GetResponse OK: {X=7,Y=3}
+Starting GetResponseStream: {X=7,Y=3}
+GetResponseStream OK: {X=7,Y=3}
+EnqueueCacheTask: {X=7,Y=3}
+PutImageToCache
+Thread[10] - Fill empty TileMatrix: 3 - {X=7,Y=0}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=7 AND Y=0 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=7,Y=0}
+GetResponse OK: {X=7,Y=5}
+Starting GetResponseStream: {X=7,Y=5}
+GetResponseStream OK: {X=7,Y=5}
+EnqueueCacheTask: {X=7,Y=5}
+Thread[13] - Fill empty TileMatrix: 3 - {X=7,Y=4}
+GetImageFromCache
+SELECT Tile FROM TilesData WHERE id = (SELECT id FROM Tiles WHERE X=7 AND Y=4 AND Zoom=3 AND Type=1)
+Starting GetResponse: {X=7,Y=4}
+GetResponse OK: {X=7,Y=2}
+Starting GetResponseStream: {X=7,Y=2}
+GetResponseStream OK: {X=7,Y=2}
+EnqueueCacheTask: {X=7,Y=2}
+GetResponse OK: {X=7,Y=0}
+Starting GetResponseStream: {X=7,Y=0}
+GetResponseStream OK: {X=7,Y=0}
+EnqueueCacheTask: {X=7,Y=0}
+PutImageToCache
+GetResponse OK: {X=7,Y=4}
+Starting GetResponseStream: {X=7,Y=4}
+GetResponseStream OK: {X=7,Y=4}
+EnqueueCacheTask: {X=7,Y=4}
+PutImageToCache
+PutImageToCache
+PutImageToCache
+-------------------------------------------------------------------
+2011-01-25 18:14:18: 
+OnTileLoadStart - at zoom 4, time: 18:14:18.5410000
+-------------------------------------------------------------------
+2011-01-25 18:14:20: 
+OnTileLoadStart - at zoom 4, time: 18:14:20.1510000
+OnTileLoadStart - at zoom 4, time: 18:14:20.5910000
+CacheEngine: stop
+OnTileLoadStart - at zoom 4, time: 18:14:21.0100000
+OnTileLoadStart - at zoom 4, time: 18:14:21.1440000
+-------------------------------------------------------------------
+2011-01-25 18:14:22: 
+OnTileLoadStart - at zoom 4, time: 18:14:22.1750000
+OnTileLoadStart - at zoom 4, time: 18:14:22.3100000
+OnTileLoadStart - at zoom 4, time: 18:14:22.4500000
+OnTileLoadStart - at zoom 4, time: 18:14:23.0690000
+-------------------------------------------------------------------
+2011-01-25 18:14:23: 
+OnTileLoadStart - at zoom 4, time: 18:14:23.2230000
+-------------------------------------------------------------------
+2011-01-25 18:14:24: 
+OnTileLoadStart - at zoom 5, time: 18:14:24.8070000
+OnTileLoadStart - at zoom 6, time: 18:14:25.3390000
+-------------------------------------------------------------------
+2011-01-25 18:14:25: 
+OnTileLoadStart - at zoom 6, time: 18:14:25.9670000
+OnTileLoadStart - at zoom 6, time: 18:14:26.1140000
+-------------------------------------------------------------------
+2011-01-25 18:14:27: 
+OnTileLoadStart - at zoom 6, time: 18:14:27.2710000
+-------------------------------------------------------------------
+2011-01-25 18:14:28: 
+OnTileLoadStart - at zoom 7, time: 18:14:28.4700000
+OnTileLoadStart - at zoom 8, time: 18:14:29.0850000
+-------------------------------------------------------------------
+2011-01-25 18:14:29: 
+OnTileLoadStart - at zoom 8, time: 18:14:29.7850000
+OnTileLoadStart - at zoom 8, time: 18:14:29.9380000
+OnTileLoadStart - at zoom 8, time: 18:14:30.6840000
+-------------------------------------------------------------------
+2011-01-25 18:14:30: 
+OnTileLoadStart - at zoom 8, time: 18:14:30.8370000
+OnTileLoadStart - at zoom 8, time: 18:14:31.0030000
+OnTileLoadStart - at zoom 8, time: 18:14:31.7640000
+-------------------------------------------------------------------
+2011-01-25 18:14:31: 
+OnTileLoadStart - at zoom 8, time: 18:14:31.9150000
+-------------------------------------------------------------------
+2011-01-25 18:14:33: 
+OnTileLoadStart - at zoom 8, time: 18:14:33.1290000
+OnTileLoadStart - at zoom 8, time: 18:14:33.2820000
+OnTileLoadStart - at zoom 8, time: 18:14:33.8850000
+OnTileLoadStart - at zoom 8, time: 18:14:34.0360000

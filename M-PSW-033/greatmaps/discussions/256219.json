@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "606739",
+    "ThreadId": "256219",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I'm having good fun using and learning about this software!</p>\r\n<p>I had a few questions/ideas that i would like to toss out for consideration. For code ideas approx line numbers shown with #</p>\r\n<p>1) MapType.MapBenderWMS - I was trying this out and had some sucess!<br>\r\n<br>\r\n1A) Would it make sense to use a public property to allow the user to select the URL, currently it is hardcoded<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; GMap.NET.GMaps.cs <br>\r\n&nbsp;&nbsp;&nbsp; #43&nbsp;&nbsp; public string MapBenderWMSUrl = &quot;http://mapbender.wheregroup.com/cgi-bin/mapserv?map=/data/umn/osm/osm_basic.map&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;SERVICE=WMS&amp;LAYERS=OSM_Basic&amp;styles=&amp;bbox={0},{1},{2},{3}&amp;width={4}&amp;height={5}&amp;srs=EPSG:4326&amp;format=image/png&quot;;<br>\r\n&nbsp;&nbsp;&nbsp; #1798 var ret = string.Format(CultureInfo.InvariantCulture, MapBenderWMSUrl, p1.Lng, p1.Lat, p2.Lng, p2.Lat, ProjectionForWMS.TileSize.Width, ProjectionForWMS.TileSize.Height);<br>\r\n<br>\r\n1B) If using this, to change the URL, the issue it the cache does not realize and serves tiles from a different WMS server.<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; I figure i could delete the disk cache and then call ReloadMap(). But there might be some good stuff in the cache for other MapType.<br>\r\n&nbsp;&nbsp;&nbsp; Could write something that selectively deletes cached tiles for MapType.MapBenderWMS<br>\r\n&nbsp;&nbsp;&nbsp; Not sure yet the best strategy so i toss it out for consideration.<br>\r\n<br>\r\n<br>\r\n2) Caching, TilePrefetcher etc.<br>\r\n<br>\r\n2A) I am wondering if it would make sense to expose these properties, perhaps as readonly. For some reason MsSQLPureImageCache is the only one that is public.<br>\r\n&nbsp;&nbsp;&nbsp; GMap.NET.CacheProviders.SQLitePureImageCache.cs<br>\r\n&nbsp;&nbsp;&nbsp; #25&nbsp;&nbsp; public class SQLitePureImageCache : PureImageCache<br>\r\n&nbsp;&nbsp;&nbsp; #28&nbsp;&nbsp; public string gtileCache;<br>\r\n&nbsp;&nbsp;&nbsp; #29&nbsp;&nbsp; public string dir;<br>\r\n&nbsp;&nbsp;&nbsp; #30&nbsp;&nbsp; public string db;<br>\r\n&nbsp;&nbsp;&nbsp; #391&nbsp; public readonly List&lt;string&gt; AttachedCaches = new List&lt;string&gt;();<br>\r\n<br>\r\n2B) As you change cache locations, new databases are added to the AttachedCaches collection. So you may have some from a prevous cache location.<br>\r\nI'm not sure if this makes sense or not. Or should the AttachedCaches list be cleared when you change cache locations?<br>\r\n<br>\r\n<br>\r\n2C) I'm trying to learn about the SQLitePureImageCache.ExportMapDataToDB function.<br>\r\nI noticed that it does not copy over the Tiles.CacheTime field<br>\r\nI'm wondering why the difference is between doing it this way, copy record by record between database, vs just copy the entire .gmdb file?<br>\r\nSeems to me both do about the same, not sure why to use one vs the other.</p>\r\n",
+    "PostedDate": "2011-05-03T15:44:22.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "606878",
+    "ThreadId": "256219",
+    "Html": "<p>1. You can create another custom MapType with custom urls, anyway abstract map provider system is coming, so it will be easy to add new maps</p>\r\n<p>2B. I'l fix it, thx</p>\r\n<p>2C.&nbsp;ExportMapDataToDB does not override current records, so you can can 'merge' two caches, CacheTime isn't copied because old databases doesn't have such column, i'll try to check it too</p>",
+    "PostedDate": "2011-05-03T23:48:34.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "612770",
+    "ThreadId": "256219",
+    "Html": "<p>Thank you very much for making the changes for 2B.<br /><br />I am writing an application which will do a lot of management of caches for offline use.<br />I have made a few changes in my local copy to give access to the things in 2A - they are helpful to report to the user what is going on.<br /><br />3)<br />I have been looking over the winforms demo and doing my own code for map caching and it is largely working,<br />I'm trying to better understand the ideas here so had a few questions:<br /><br />3A) GMap.NET.WindowsForms.GMapControl.ShowImportDialog<br />- this works well to import one file<br />- the second file to import fails with:<br />SQLite error - database Source is already in use<br />- it appears to be failing on the destination file, perhaps left locked by the previous import?<br />- i didnt spot the reason for this issue, but i am not very skilled with SQLite.<br /><br />3B) Using the WinForms demo, when i try to delete with the 'clear all' button<br />MainForm.button2_Click<br />\"The process cannot access the file 'Data.gmdb' because it is being used by another process.\"<br /><br />Is there a way to close so as to allow this?<br /><br />3C)<br />My design has separate caches as follows:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - main cache for most operational usage<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - saved cache which will be used for PreFetch, Import, Export etc.<br />I did this so as to keep the saved cache pure with the data selected and not mixed with the assortment of data<br />that is in the main cache. To do this i switch the cache location for import/export/prefetch, then restore the<br />normal cache after.<br />Later i hope to be able to have the application fetching data into one cache file (perhaps a large fetch),<br />and at the same time be using GMaps normally to view using the main cache.<br /><br />Any thoughts on this idea and the feasability of it - or perhaps better ideas?<br /><br />3D)<br />One other idea i had was to be able to limit the cache file size, and the download bandwidth during large prefetch.<br />Is there anything in place that migth help in these?<br /><br />1) the abstract map provider system sounds interesting - is this present in a fork as yet?</p>",
+    "PostedDate": "2011-05-14T10:02:10.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "613163",
+    "ThreadId": "256219",
+    "Html": "<p>...need some testing, provider system is not done yet. About locked file, i forget to detach source database, fix is coming ;}</p>\r\n<p>// for fast fix, in function ExportMapDataToDB<br />...<br />tr.Rollback();<br /> ret = false;<br /> }<br /> }<br />// add this code<br /> <strong>using(SQLiteCommand cmd = new SQLiteCommand(string.Format(\"DETACH DATABASE Source;\", sourceFile), cn2))</strong><br /><strong> {</strong><br /><strong> cmd.ExecuteNonQuery();</strong><br /><strong>&nbsp;}</strong><br />...<br />&nbsp;<br />Prefetching to separate database is quite good idea, anyway we can import it easily later if we want to or just use as additional cache.</p>\r\n<p>And about limiting download bandwidth, need to change prefetcher logic somehow...</p>",
+    "PostedDate": "2011-05-16T00:32:44.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "613199",
+    "ThreadId": "256219",
+    "Html": "<p>Wow, thanks for such quick response. Your export patch works well!</p>\r\n<p>Glad to hear i am on a reasonable path with the separate cache - it seems to be working also but i've got more testing to do on that.</p>\r\n<p>Is the issue in 3B similar to that in 3A maybe?</p>",
+    "PostedDate": "2011-05-16T02:53:04.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "613223",
+    "ThreadId": "256219",
+    "Html": "<p>3B works for me, maybe you try dear data while some tiles are still flushing bytes to cache, just wait few seconds and try again, you can use process explorer to see if you process do some I/O operations...</p>",
+    "PostedDate": "2011-05-16T03:25:00.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

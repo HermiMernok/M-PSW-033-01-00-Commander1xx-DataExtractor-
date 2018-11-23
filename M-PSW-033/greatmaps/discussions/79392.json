@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "271780",
+    "ThreadId": "79392",
+    "Html": "<p>Is google earth blocking people from getting the maptiles?&nbsp; it seems after very little use, it stops working.</p>\r\n<p>Is it possible to set the User-Agent to mimic Google Earth and cause google to stop blocking?</p>",
+    "PostedDate": "2009-12-30T10:59:56.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271999",
+    "ThreadId": "79392",
+    "Html": "<p>GMaps.Instance.UserAgent = &quot;xxx yyy&quot;;</p>",
+    "PostedDate": "2009-12-31T08:31:15.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274298",
+    "ThreadId": "79392",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>GMaps.Instance.UserAgent = &quot;xxx yyy&quot;;</p>\r\n</blockquote>\r\n<p>Well, where to add this code? Will it fix the problem?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-07T06:05:42.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274436",
+    "ThreadId": "79392",
+    "Html": "<p>anywhere you want, but i didn't test it</p>",
+    "PostedDate": "2010-01-07T10:33:35.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "274443",
+    "ThreadId": "79392",
+    "Html": "\r\nnah. i wish.<br> <br>\r\n<hr id=stopSpelling>\r\nFrom: [email removed]<br>To: [email removed]<br>Date: Thu, 7 Jan 2010 06:05:53 -0800<br>Subject: Re: Google Satellite Not Available.. [greatmaps:79392]<br><br>\r\n\r\n\r\nFrom: polcovnic<br>\r\n<div id=ecxThreadNotificationPostBody>\r\n<blockquote style=\"border-bottom:#ccc 0.1em solid;border-left:#ccc 0.1em solid;padding-bottom:0px;font-style:italic;padding-left:0.25em;padding-right:0.25em;border-top:#ccc 0.1em solid;border-right:#ccc 0.1em solid;padding-top:0px\"><strong>radioman wrote:</strong><br>\r\nGMaps.Instance.UserAgent = &quot;xxx yyy&quot;;<br></blockquote>\r\nWell, where to add this code? Will it fix the problem?<br>\r\n <br></div>\r\n<div id=ecxThreadNotificationFooter>\r\nRead the <a>full discussion online</a>.<br>\r\nTo add a post to this discussion, reply to this email (<a>greatmaps@discussions.codeplex.com</a>)<br>\r\nTo start a new discussion for this project, email <a>greatmaps@discussions.codeplex.com</a><br>\r\nYou are receiving this email because you subscribed to this discussion on CodePlex. You can <a>unsubscribe</a> on CodePlex.com.<br>\r\nPlease note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com<br></div> \t\t \t   \t\t  <br><hr>Hotmail: Trusted email with powerful SPAM protection. <a href=\"http://clk.atdmt.com/GBL/go/196390707/direct/01/\">Sign up now.</a>",
+    "PostedDate": "2010-01-07T10:43:10.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275072",
+    "ThreadId": "79392",
+    "Html": "<p>Well, i have tested. it doesn't work - nothing changes. any ideas?</p>",
+    "PostedDate": "2010-01-09T01:15:53.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275093",
+    "ThreadId": "79392",
+    "Html": "<p>is the tile source from Google Earth the same as from maps?</p>",
+    "PostedDate": "2010-01-09T04:08:44.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275100",
+    "ThreadId": "79392",
+    "Html": "<p>I wont be able to check until Monday..</p>\r\n<p>If anyone wants to check in the meantime what tile server google earth is doing..</p>\r\n<p>download a memory reader (<a href=\"http://www.artmoney.ru/\">http://www.artmoney.ru/</a>),</p>\r\n<p>select google earth as the process</p>\r\n<p>search for google.com</p>\r\n<p>should give you a bunch of results.... right click on one and click Memory Editor....</p>\r\n<p>Keep clicking &quot;Next&quot; on the bottom left until you see one that looks like a tile server.</p>",
+    "PostedDate": "2010-01-09T04:19:01.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275297",
+    "ThreadId": "79392",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>is the tile source from Google Earth the same as from maps?</p>\r\n</blockquote>\r\n<p>If I understand You - yes, the same. For ex. - just select &quot;Google Satellite&quot; (map of entire world) in comboBox of Your example project for windows Forms - there is a picture. Then zoom in twice - there is no picture. And if we select &quot;Google Maps&quot; - all is Ok. But when I was beginning tests - all was Ok with Google Satellite too.</p>",
+    "PostedDate": "2010-01-10T01:56:27.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275355",
+    "ThreadId": "79392",
+    "Html": "<p>..i have checked google earth http requests with fiddler and they are&nbsp;totally&nbsp;different than from browser ;/</p>\r\n<p>but strange, i just browsed few zooms in browser and they banned me ;] so wtf how they imagine that i'm bot ;/</p>",
+    "PostedDate": "2010-01-10T08:08:21.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275382",
+    "ThreadId": "79392",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>..i have checked google earth http requests with fiddler and they are&nbsp;totally&nbsp;different than from browser ;/</p>\r\n<p>but strange, i just browsed few zooms in browser and they banned me ;] so wtf how they imagine that i'm bot ;/</p>\r\n</blockquote>\r\n<p>Gmmm... They banned You, then You were browsing via standard browser? Like IE, Mozilla, Opera? They never ban me while I use standard browser. If soo - let's think a little. May be You have included into code some identifier (i have not yet looked Your http requests in GMap), and now we all (!!!) are identified as ONE PERSON? I compile, run project, You run, iifuzz runs, etc. - we all use one identifier, create too many requests - and guys think: Hey!!! This is a bot!!!</p>",
+    "PostedDate": "2010-01-10T10:28:24.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275388",
+    "ThreadId": "79392",
+    "Html": "<p>the GoogleMapsAPIKey is not used to get tiles, only for geocoding</p>",
+    "PostedDate": "2010-01-10T10:45:41.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "277246",
+    "ThreadId": "79392",
+    "Html": "<p>Try this for the user agent</p>\r\n<p>GMaps.Instance.UserAgent = &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.7) Gecko/20091221 Firefox/3.5.7&quot;</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-14T11:00:21.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "277248",
+    "ThreadId": "79392",
+    "Html": "<p>can you confirm it's working?</p>",
+    "PostedDate": "2010-01-14T11:03:42.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "277261",
+    "ThreadId": "79392",
+    "Html": "<p>So far so good :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-14T11:24:42.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

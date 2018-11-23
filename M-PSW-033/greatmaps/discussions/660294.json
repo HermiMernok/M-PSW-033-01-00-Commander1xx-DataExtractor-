@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1490190",
+    "ThreadId": "660294",
+    "Html": "Hi,\r<br />\n<br />\nThis error is printed on every map tile when I deploy my app to client PCs. The target CPU is AnyCPU and the .NET framework is 4.0. On my development PC it works without problems.\r<br />\n<br />\nI use GMap.NET 1.7.1. I tried to update to 1.7.5 but I get the same error. Now I cannot go back to 1.7.1 because I get this error when trying to install 1.7.1: &quot;The change on C:...\\packages\\GMap.NET.WindowsForms.1.7.1\\readme.txt cannot be undone because a file already exists at C:...\\packages\\GMap.NET.WindowsForms.1.7.1\\readme.txt. The file must be deleted from disk for the undo to succeed.&quot;. Nothing works today... :-(\r<br />\n<br />\nCould you please help me?\r<br />\n<br />\nThanks,\r<br />\n<br />\nStavros<br />\n",
+    "PostedDate": "2016-12-22T09:33:06.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1490244",
+    "ThreadId": "660294",
+    "Html": "The problem was caused by SQLite and specifically the SQLite.Interop.dll. I was using incorrect version of the file in setup.<br />\n",
+    "PostedDate": "2016-12-23T12:38:50.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-12-23T12:38:55.587-08:00"
+  }
+]

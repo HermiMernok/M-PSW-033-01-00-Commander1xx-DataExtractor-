@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "806852",
+    "ThreadId": "347656",
+    "Html": "\r\n<p>Hi,everyone. I really want to make sure if I can add my own data to a GMapControl.</p>\r\n<p>In this case,I need a GMapControl loading google map,and I also&nbsp; need cover my own kml data to the map.but till now I'm not sure if the GMapControl can load a kml file.If can,how to make it?</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-03-07T05:52:20.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806927",
+    "ThreadId": "347656",
+    "Html": "<p>kml isn't supported</p>",
+    "PostedDate": "2012-03-07T08:30:37.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809474",
+    "ThreadId": "347656",
+    "Html": "<p>There are libraries on the web for reading kml files, (or you can write your own - it's a published standard) and it's easy enough then to make and display markers for the data.</p>",
+    "PostedDate": "2012-03-13T01:59:42.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819842",
+    "ThreadId": "347656",
+    "Html": "<p>Thanks.</p>",
+    "PostedDate": "2012-04-04T07:15:42.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820387",
+    "ThreadId": "347656",
+    "Html": "<p>KML file&nbsp;<span class=\"hps\">is</span>&nbsp;<span class=\"hps\">XML.</span>&nbsp;<span class=\"hps\">A simple</span>&nbsp;<span class=\"hps\">example of a</span>&nbsp;<span class=\"hps\">draft. Copy kml from url &nbsp;and use <strong>gpoints&nbsp;</strong><span>to construct Polygon</span></span></p>\n<p><a href=\"http://kml-samples.googlecode.com/svn/trunk/interactive/index.html#./Polygons/Polygons.Absolute_Extruded.kml\">http://kml-samples.googlecode.com/svn/trunk/interactive/index.html#./Polygons/Polygons.Absolute_Extruded.kml</a>&nbsp;</p>\n<p><span class=\"hps\">&nbsp;</span></p>\n<div style=\"color: black; background-color: white;\">\n<pre>            <span style=\"color: blue;\">var</span> doc = XDocument.Load(<span style=\"color: #a31515;\">@\"C:\\Users\\MyHome\\Desktop\\test.kml\"</span>);            \n            <span style=\"color: blue;\">var</span> elements = doc.Root.Elements().Elements().Elements();\n            <span style=\"color: blue;\">var</span> xlineStyle = elements.Where(x=&gt;x.Name.LocalName.ToUpper().Equals(<span style=\"color: #a31515;\">\"LineStyle\"</span>.ToUpper()));\n            <span style=\"color: blue;\">var</span> xpolyStyle = elements.Where(x =&gt; x.Name.LocalName.ToUpper().Equals(<span style=\"color: #a31515;\">\"PolyStyle\"</span>.ToUpper()));\n            <span style=\"color: blue;\">var</span> xpolygon = elements.Where(x =&gt; x.Name.LocalName.ToUpper().Equals(<span style=\"color: #a31515;\">\"Polygon\"</span>.ToUpper())).Elements();\n            <span style=\"color: blue;\">var</span> points = xpolygon.Where(x =&gt; x.Name.LocalName.ToUpper().Equals(<span style=\"color: #a31515;\">\"outerBoundaryIs\"</span>.ToUpper())).Elements().Where(x=&gt;x.Name.LocalName.ToUpper().Equals(<span style=\"color: #a31515;\">\"LinearRing\"</span>.ToUpper())).FirstOrDefault();\n            <span style=\"color: blue;\">var</span> s = points.Value.Split(<span style=\"color: #a31515;\">'\\n'</span>).Where(x =&gt; !<span style=\"color: blue;\">string</span>.IsNullOrWhiteSpace(x)).ToList();\n           <strong> <span style=\"color: blue;\">var</span> gpoints = <span style=\"color: blue;\">new</span> List&lt;PointLatLng&gt;();</strong>\n            <span style=\"color: blue;\">foreach</span> (<span style=\"color: blue;\">var</span> item <span style=\"color: blue;\">in</span> s)\n            {\n                <span style=\"color: blue;\">var</span> value = item.Trim().Split(<span style=\"color: #a31515;\">','</span>);\n                <span style=\"color: blue;\">var</span> lat = <span style=\"color: blue;\">double</span>.Parse(value[0], CultureInfo.InvariantCulture);\n                <span style=\"color: blue;\">var</span> lng = <span style=\"color: blue;\">double</span>.Parse(value[1], CultureInfo.InvariantCulture);\n                <strong>gpoints</strong>.Add(<span style=\"color: blue;\">new</span> PointLatLng(){Lat = lat,Lng = lng});\n            }\n</pre>\n</div>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-04-05T07:14:51.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "506087",
+    "ThreadId": "230597",
+    "Html": "<p>I want to make a class similar to GMapMarkerRect with the following change, draw a border around a geographic area of a specific size measured in km or miles.</p>\r\n<p>I want to be able to make the rectangle's size correspond to a certain distance, say 5 miles or 10 kilometers. I plan on adding a property to the class to do hold this value, it may change over time but stay relatively stable.</p>\r\n<p>I think doing so involves setting the marker's Size property correctly but I haven't yet been able to figure out how to set the scaling appropriately. Of course as one zooms in and out the marker should appear larger and smaller. What's the best way to tweak this. I imagine it could be done by a client class such as MainForm or somehow done from within the modified marker class.</p>\r\n<p>Anyone have a good way to do this?</p>\r\n<p>TIA</p>",
+    "PostedDate": "2010-10-12T08:54:19.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506095",
+    "ThreadId": "230597",
+    "Html": "<p>it's something like in wpf demo, you need to calculate pixels from coordinates expressed in meters</p>",
+    "PostedDate": "2010-10-12T09:13:21.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506703",
+    "ThreadId": "230597",
+    "Html": "<p>Can you provide a more specific reference to what you're speaking about? Perhaps a specific function and class?</p>\r\n<p>It sounds like what you're talking about is not WPF specific, but can you confirm this? I have an app that is Win Forms based and I am considering adding something like the Win Form gmap.net demo to it.</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2010-10-13T08:58:03.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506844",
+    "ThreadId": "230597",
+    "Html": "<p>there are just a few functions to adjust the size of the circle in wpf demo, but you can make the same in win forms</p>",
+    "PostedDate": "2010-10-13T12:57:32.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "609678",
+    "ThreadId": "256939",
+    "Html": "\r\n<p>hi radioman :)</p>\r\n<p>&nbsp;</p>\r\n<p>i want to make path with multiple points like google earth. i don't need polygon. i'm using forms. i tried a lot but failed can u help me?</p>\r\n",
+    "PostedDate": "2011-05-09T10:58:10.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "609975",
+    "ThreadId": "256939",
+    "Html": "<p>check the demo</p>",
+    "PostedDate": "2011-05-09T23:21:37.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610320",
+    "ThreadId": "256939",
+    "Html": "<p>what is the name of that class?&nbsp; \"set route\" didn't work on my machine.</p>",
+    "PostedDate": "2011-05-10T09:35:15.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610353",
+    "ThreadId": "256939",
+    "Html": "<p>i need it for ships so it must work on sea, is there any way to do it?</p>",
+    "PostedDate": "2011-05-10T10:05:42.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610787",
+    "ThreadId": "256939",
+    "Html": "<p>List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();</p>\r\n<p>//Add points to list:</p>\r\n<p>points.Add ...</p>\r\n<p>//Create path and add it to Overlay</p>\r\n<p>GMapRoute path = new GMapRoute(points , \"testPath\");<br />yourOverlay.Routes.Add(path);</p>\r\n<p>It doesn't matter where your path actually is (land or sea) as long as you provide the Lat/Lng coordinates for the points of the path</p>",
+    "PostedDate": "2011-05-11T01:43:24.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "612831",
+    "ThreadId": "256939",
+    "Html": "<p>thx xandolph but i couldn't do it anyway..</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;void RegeneratePath()<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach (GMapMarker m in objects.Markers)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (m is GMapMarkerRect)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.Tag = points.Count;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; points.Add(m.Position);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (polygon == null)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polygon = new GMapPolygon(points, \"polygon test\");<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polygons.Polygons.Add(polygon);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polygon.Points.Clear();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polygon.Points.AddRange(points);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (polygons.Polygons.Count == 0)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polygons.Polygons.Add(polygon);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.UpdatePolygonLocalPosition(polygon);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>i did this but doesn't work. if you could this, can u pass me your code piece</p>",
+    "PostedDate": "2011-05-14T14:57:40.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "612910",
+    "ThreadId": "256939",
+    "Html": "<p>I'm not really sure, what you are trying to do.</p>\r\n<p>Do you just want to connect your markers with a polyline?</p>",
+    "PostedDate": "2011-05-15T02:34:18.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "612919",
+    "ThreadId": "256939",
+    "Html": "<p>yes only connect markers, not make a polygon. i think it can't be done with polygon class??</p>",
+    "PostedDate": "2011-05-15T03:23:26.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "612988",
+    "ThreadId": "256939",
+    "Html": "<p>Just use GMapRoute instead of GMapPolygon</p>",
+    "PostedDate": "2011-05-15T08:48:41.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614794",
+    "ThreadId": "256939",
+    "Html": "<p>thanks so much xandolph :)</p>",
+    "PostedDate": "2011-05-18T12:18:45.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

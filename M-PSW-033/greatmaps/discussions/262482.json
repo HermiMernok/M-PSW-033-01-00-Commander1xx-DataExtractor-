@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "631755",
+    "ThreadId": "262482",
+    "Html": "\r\n<p>Hey,&nbsp;</p>\r\n<p>I'm new to the Gmap.Net and just started figuring out if this tool can work for my needs.</p>\r\n<p>i would like to know if it is possible to draw dots. polygons, lines etc.. and save them as layers and after that turn on and off each layer.</p>\r\n<p>i saw the clouds demo and from my understanding you make an object GMapImage (which is as Marker) and just put in it's Image propery a BitMap of the clouds you have.</p>\r\n<p>my question is how the it knows where to put the clouds in the right x,y position so it will fit the map underneath. and how can i make a set of lines and dots, save them as png or other format and display them on a map in the right position. and after that\r\n turn them on and off.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>Sophie</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-06-23T04:30:37.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631760",
+    "ThreadId": "262482",
+    "Html": "<p>everything is possible, but thats depends on your skills, what exactly are you trying to achieve?</p>",
+    "PostedDate": "2011-06-23T04:38:17.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631766",
+    "ThreadId": "262482",
+    "Html": "<p>As a first step i want to be able to draw a polygon and save it as a layer (maybe in some Data Structure). then show and hide it.</p>\r\n<p>after this i want to be able to take a layer that someone gave me, lets say in png file and show it on a some map.</p>\r\n<p>&nbsp;(btw, does every Layer must be a Marker? what is an overlay and how do you use it?)&nbsp;</p>",
+    "PostedDate": "2011-06-23T04:54:58.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631771",
+    "ThreadId": "262482",
+    "Html": "<p>overlay is a layer on map which can contain markers, polygons or routes. And marker is is an visual object which can render anything you want, for example the image</p>\r\n<p>check the demo source to see how it works</p>",
+    "PostedDate": "2011-06-23T05:05:23.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

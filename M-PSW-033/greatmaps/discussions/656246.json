@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1478518",
+    "ThreadId": "656246",
+    "Html": "I have multiple overlays with markers.  When I hover over a marker in overlay[0] it is partially hidden by the markers in overlay[1].  How can I set these to be the top most.\r<br />\n<br />\nThanks!!<br />\n",
+    "PostedDate": "2016-07-09T13:43:46.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1478528",
+    "ThreadId": "656246",
+    "Html": "use one overlay or reverse the order<br />\n",
+    "PostedDate": "2016-07-10T03:30:02.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1478531",
+    "ThreadId": "656246",
+    "Html": "\r\n<div>If I reverse the order I will have the same problem with the tool tips on the other layer and I use 2 overlays because one overlay changes all the time and the other I only fill once and it stays the same. So I was very happy that I had that option.\r\n</div>\r\n<div id=\"AppleMailSignature\"><br>\r\n</div>\r\n<div id=\"AppleMailSignature\">Given that I want to use the overlays as I have them. Is there a way when the tooltip is rendered that I can force it on top.\r\n<br>\r\n<br>\r\nSent from my iPhone</div>\r\n<div><br>\r\n</div>\r\n",
+    "PostedDate": "2016-07-10T05:41:14.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1478533",
+    "ThreadId": "656246",
+    "Html": "dunno, objects are rendered in sequence, check the source and try something ;/<br />\n",
+    "PostedDate": "2016-07-10T08:20:23.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482026",
+    "ThreadId": "656246",
+    "Html": "I seem to be having this same issue....\r<br />\nIt does not matter which comes first the tooltip will still not be fully visible.\r<br />\n<br />\nI have found out what my issue has been and I may have to revert to creating a custom tooltip to fix.\r<br />\nI need to be able to turn off the transparency or opacity feature in the tooltip.\r<br />\n<br />\nI have added this code to change the color, but in the main code has some sort of opacity level.<br />\n<pre><code>marker.ToolTip.Fill = new SolidBrush(Color.White);\n</code></pre>\n\n",
+    "PostedDate": "2016-08-24T15:51:51.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

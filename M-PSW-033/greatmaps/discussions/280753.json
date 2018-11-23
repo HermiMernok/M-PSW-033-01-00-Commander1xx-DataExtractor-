@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "703069",
+    "ThreadId": "280753",
+    "Html": "\r\n<p>Hello i got a question, i looking on the code of the example of the windows form and i don't find information or code about the possibility of drag markers, in the example this can possible but i don't find how can i do it? thats my code for put a marker\r\n on the map:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> button1_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            <span style=\"color:green\">//top = new GMapOverlay(GMap, &quot;SSC - GMaps&quot;);</span>\r\n            GMap.Overlays.Add(Capa);\r\n            \r\n            Marcador.ToolTipMode = MarkerTooltipMode.OnMouseOver;\r\n            \r\n            Placemark localizarLugar = <span style=\"color:blue\">null</span>;\r\n            GeoCoderStatusCode status;\r\n            <span style=\"color:blue\">var</span> ret = GMapProviders.GoogleMap.GetPlacemark(Marcador.Position, <span style=\"color:blue\">out</span> status);\r\n            <span style=\"color:blue\">if</span> (status == GeoCoderStatusCode.G_GEO_SUCCESS &amp;&amp; ret != <span style=\"color:blue\">null</span>)\r\n            {\r\n                localizarLugar = ret;\r\n            }\r\n            <span style=\"color:blue\">if</span> (localizarLugar != <span style=\"color:blue\">null</span>)\r\n            {\r\n                Marcador.ToolTipText = localizarLugar.Address;\r\n            }\r\n            <span style=\"color:blue\">else</span>\r\n            {\r\n                Marcador.ToolTipText = Marcador.Position.ToString();\r\n            }\r\n            Marcador.Tag = <span style=\"color:#a31515\">&quot;2011000086&quot;</span>;\r\n            Marcador.ToolTipText = Marcador.ToolTipText &#43; <span style=\"color:#a31515\">&quot;Fecha y Hora: &quot;</span> &#43; DateTime.Now.ToString() &#43; <span style=\"color:#a31515\">&quot;\\n No. de Solicitud: &quot;</span> &#43;Marcador.Tag&#43;  <span style=\"color:#a31515\">&quot;\\n Estatus: En Atencion.&quot;</span>;\r\n                        \r\n            Capa.Markers.Add(Marcador);            \r\n        }<br><br>In that code how i can able the option for the marker can be draggable, thanks in advance.<br></pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-11-24T10:02:00.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703081",
+    "ThreadId": "280753",
+    "Html": "<p>start exploring demo source ;} there is no better way to learn something</p>",
+    "PostedDate": "2011-11-24T10:28:40.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703165",
+    "ThreadId": "280753",
+    "Html": "<p>I'm do it man but i can't find exactly that thing, i look something with the rectangle over the marker but i want to do it witout that rectangle only the marker.</p>",
+    "PostedDate": "2011-11-24T15:03:23.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703248",
+    "ThreadId": "280753",
+    "Html": "<p><em>MainMap.MouseMove += new MouseEventHandler(MainMap_MouseMove);</em></p>\r\n<p><em>void MainMap_MouseMove(object sender, MouseEventArgs e)</em><br /><em>{</em><br /><em>&nbsp; &nbsp;Marker.<strong>Position</strong> = MainMap.<strong>FromLocalToLatLng</strong>(e.X, e.Y);</em><br /><em>}</em></p>",
+    "PostedDate": "2011-11-24T23:31:36.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "704866",
+    "ThreadId": "280753",
+    "Html": "<p>Thanks for the answer i really appreciate the attention, but that's not exactly the thing i want to do, that code works for the markers follow the mouse movement but i want to drag a marker with this form:</p>\r\n<p>I want to put a marker on the map, and drag that only when i put the mouse over the marker press clic on it hold it and when i move the mouse the marker follows the position of the mouse, and only when i release the clic of the mouse, the marker will be placed on the site of the mouse position, but only when i press a clic on it, sorry for the discomfort but i continue looking on the code and i don't find exactly that part and i prove it on the example and that is possible thanks in advance.</p>",
+    "PostedDate": "2011-11-29T09:32:33.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

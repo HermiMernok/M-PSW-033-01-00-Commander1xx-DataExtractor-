@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "636193",
+    "ThreadId": "263617",
+    "Html": "\r\n<p>Here is my code:</p>\r\n<p>Dim top As GMapOverlay</p>\r\n<p>In the &lt;Form_load&gt;:</p>\r\n<p>Me.GMapControl1.MapType = GMap.NET.MapType.OpenStreetMap<br>\r\nMe.GMapControl1.MinZoom = 1<br>\r\nMe.GMapControl1.MaxZoom = 20<br>\r\nMe.GMapControl1.Zoom = 15<br>\r\nMe.GMapControl1.SetCurrentPositionByKeywords(&quot;Berlin, Germany&quot;)<br>\r\ntop = New GMapOverlay(GMapControl1, &quot;top&quot;)<br>\r\nMe.GMapControl1.Overlays.Add(top)</p>\r\n<p>&nbsp;</p>\r\n<p>In the &lt;MouseDown&gt;-Event:</p>\r\n<p>Dim m As New GMapMarkerGoogleGreen(GMapControl1.FromLocalToLatLng(e.X, e.Y))<br>\r\nDim lat As Double = GMapControl1.Position.Lat<br>\r\nDim lng As Double = GMapControl1.Position.Lng<br>\r\ntop.Markers.Add(m)<br>\r\nGMapControl1.Position = New PointLatLng(lat, lng)</p>\r\n<p>&nbsp;</p>\r\n<p>If I click on the map I always get the error (in german, sorry):</p>\r\n<p>InvalidCastException:</p>\r\n<p>Das Objekt des Typs &quot;GMap.NET.WindowsForms.GMapControl&quot; kann nicht in Typ &quot;GMap.NET.WindowsForms.GMapMarker&quot; umgewandelt werden.</p>\r\n<p>&nbsp;</p>\r\n<p>What I'm doing wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you!</p>\r\n",
+    "PostedDate": "2011-07-01T13:20:52.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636204",
+    "ThreadId": "263617",
+    "Html": "<p>i don't know, but this doesn't make any sense:</p>\r\n<p><em>Dim lat As Double = GMapControl1.Position.Lat</em><br /><em> Dim lng As Double = GMapControl1.Position.Lng</em><br /><em> top.Markers.Add(m)</em><br /><em> GMapControl1.Position = New PointLatLng(lat, lng)</em></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-01T13:41:16.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636207",
+    "ThreadId": "263617",
+    "Html": "<p>[Solved]</p>\r\n<p>Sorry, I previously changed the event from mouseclick to mousedown and I forgot the change the sender.</p>\r\n<p>&nbsp;</p>\r\n<p>Sorry ....and closed</p>",
+    "PostedDate": "2011-07-01T13:45:47.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636221",
+    "ThreadId": "263617",
+    "Html": "<p>nop ;}</p>",
+    "PostedDate": "2011-07-01T14:03:37.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895523",
+    "ThreadId": "263617",
+    "Html": "<p>How can i identify Lan, Lat values from mouse_click</p>",
+    "PostedDate": "2012-08-04T06:50:37.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895526",
+    "ThreadId": "263617",
+    "Html": "<p>Yes I got it</p>\r\n<p>we can use&nbsp;</p>\r\n<p>Mouse location on map as</p>\r\n<p>dim Lat as double = MyMap.FromLocalToLatLng(e.X, e.Y).Lat&nbsp;</p>\r\n<p>dim Lng as double = MyMap.FromLocalToLatLng(e.X, e.Y).Lng&nbsp;</p>",
+    "PostedDate": "2012-08-04T06:58:25.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

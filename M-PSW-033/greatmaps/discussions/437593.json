@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1019351",
+    "ThreadId": "437593",
+    "Html": "Hi all,<br />\n<br />\nI need to manipulate the polygons on the map but I have encountered some problems.<br />\nThese are what I need:<br />\n<ul>\n<li>Left clicking on the map: If a polygon is there, it will be selected for manipulation.</li>\n<li>After selecting the polygon, when the left mouse button is pressed (and hold) and the clicked area is within the polygon, any moving will shift the polygon to the new location until the left mouse button is released.</li>\n<li>\nAfter selecting the polygon, if the right mouse button is pressed and dragging the mouse left will increase the angle while dragging the mouse right will decrease the angle.<br />\n</li>\n</ul>\nAnyone have any idea how to performs these manipulation? I am able to do the first point which is to select the polygon of interest from the map.<br />\n<br />\nCurrently I already have the following events:<br />\n<ul>\n<li>Map_MouseMove(object sender, System.Windows.Input.MouseEventArgs e) : which will update the latitiude and longtitude whent he mouse is moving within the map.</li>\n<li>private void MainMap_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) : which will select and deselect the polygons.</li>\n</ul>\n",
+    "PostedDate": "2013-03-22T01:12:32.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1019924",
+    "ThreadId": "437593",
+    "Html": "Point 2, moving the polygon:\r<br />\n<br />\nSave the Position of the Mouse_down event\r<br />\n<br />\nIn the mouse_move event, get position, subtract it from the saved position, and add the resulting value to every point of the selected polygon.\r<br />\n<br />\nPoint 3: Do you mean to resize the Polygon (&quot;increase the angle&quot;)?<br />\n",
+    "PostedDate": "2013-03-23T02:57:45.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020445",
+    "ThreadId": "437593",
+    "Html": "Thanks for the reply.\r<br />\n<br />\nI will try out your method for moving of the polygon.\r<br />\n<br />\nFor point 3, its regarding to rotating the polygon (ie. rectangle). The angle is according to the map true north. I am trying to emulate something like powerpoint. when the mouse is at the corner and user clicks and drags on it, it will rotate in the direction of mouse move.<br />\n",
+    "PostedDate": "2013-03-24T18:35:56.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

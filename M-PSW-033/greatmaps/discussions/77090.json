@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "263574",
+    "ThreadId": "77090",
+    "Html": "<p>Hello,</p>\r\n<p>I try to place custommarker on location where user clicks. But marker always appears at upper left corner of mapcontrol. Stepping in code shows me the right values.</p>\r\n<p>What can be wrong in code?</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p><span style=\"color:Blue\">Dim</span> myPosition <span style=\"color:Blue\">As</span> System.Windows.Point = Mouse.GetPosition(GMapControl1)<br><span style=\"color:Blue\">Dim</span> myPoint <span style=\"color:Blue\">As</span> GMap.NET.PointLatLng<br>myPoint = GMapControl1.FromLocalToLatLng(<span style=\"color:Blue\">CInt</span>(myPosition.X), <span style=\"color:Blue\">CInt</span>(myPosition.Y))<br><span style=\"color:Blue\">Dim</span> myMarker <span style=\"color:Blue\">As</span> GMapMarker = <span style=\"color:Blue\">New</span> GMap.NET.WindowsPresentation.GMapMarker(myPoint)<br>myMarker.Position = myPoint<br><br><span style=\"color:Blue\">Dim</span> myCircle <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> Ellipse<br>myCircle.Height = 5<br>myCircle.Width = 5<br>myCircle.Fill = Windows.Media.Brushes.Black<br>myMarker.Shape = myCircle<br>GMapControl1.Markers.Add(myMarker)</p>\r\n<p>I use same principal for using a polygon as marker and that works</p>\r\n&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2009-12-04T03:44:56.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263584",
+    "ThreadId": "77090",
+    "Html": "<p>because your marker doesn't have offset, call <strong>myMarker.ForceUpdateLocalPosition(GMapControl);</strong></p>",
+    "PostedDate": "2009-12-04T04:09:16.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263586",
+    "ThreadId": "77090",
+    "Html": "<p>Radioman,</p>\r\n<p>Again: THANX.</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-04T04:22:16.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

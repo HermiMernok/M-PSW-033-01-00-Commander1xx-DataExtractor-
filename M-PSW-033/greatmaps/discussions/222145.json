@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "475312",
+    "ThreadId": "222145",
+    "Html": "Hi Radioman,\r\n\r\nFound a bug inside prefetch routine if you use PergoMap.\r\n\r\nYou turn the Y axis upside down before drawing the tiles, you do not when Prefetching.\r\n\r\nOne way is to alter Y axis inside get URL, second is to add the Y alter before Prefetching\r\n\r\nBest regards,\r\n\r\nBlaz",
+    "PostedDate": "2010-08-01T23:54:16.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475381",
+    "ThreadId": "222145",
+    "Html": "i see, fix is coming",
+    "PostedDate": "2010-08-02T04:05:25.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478763",
+    "ThreadId": "222145",
+    "Html": "<p>thanks, fixed now</p>",
+    "PostedDate": "2010-08-10T12:31:41.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

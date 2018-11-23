@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "711343",
+    "ThreadId": "282757",
+    "Html": "\r\n<p>Hi,<br>\r\nthis is my situation:<br>\r\n- a form with the <em>GMapControl</em>;<br>\r\n- before to load the map (setting <em>MapProvider</em> property) I visualize a simple system.windows.form with showdialog command, then I close and dispose this form.</p>\r\n<p>Problem: everything works fine, but the map is loaded only in the top-left corner of the\r\n<em>GMapControl</em>.</p>\r\n<p>Can anyone help me?</p>\r\n<p>Thanks,</p>\r\n<p>Gabeluna</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-12-13T03:03:07.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711352",
+    "ThreadId": "282757",
+    "Html": "<p>set dock = fill or something</p>",
+    "PostedDate": "2011-12-13T03:25:59.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711360",
+    "ThreadId": "282757",
+    "Html": "<p>I set <em>myGMapControl.dock&nbsp;= DockStyle.Fill</em><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">&nbsp;</span></span></span></span>from designer and also beetwen <em>myform.showdialog </em>and <em>myGMapControl.currentProvider = GMap.NET.MapProviders.GMapProviders.BingMap,</em></p>\r\n<p>but nothing change, I always have the error...</p>",
+    "PostedDate": "2011-12-13T03:35:43.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711362",
+    "ThreadId": "282757",
+    "Html": "<p>does it changes when you resize the form?</p>",
+    "PostedDate": "2011-12-13T03:43:33.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711391",
+    "ThreadId": "282757",
+    "Html": "<p>Yes after the resize, it's ok...</p>\r\n<p>What code must I write?</p>",
+    "PostedDate": "2011-12-13T05:07:18.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711415",
+    "ThreadId": "282757",
+    "Html": "<p>i don't see you code, do you manually add map to form?</p>",
+    "PostedDate": "2011-12-13T05:41:34.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711424",
+    "ThreadId": "282757",
+    "Html": "<p>Yes, from VS2010 toolbox</p>\r\n<p>My code:</p>\r\n<div style=\"background-color: white; color: black;\">\r\n<pre> <span style=\"color: blue;\">Dim</span> myForm <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> CustomForm\r\n <span style=\"color: blue;\">If</span> myForm.ShowDialog = Windows.Forms.DialogResult.OK <span style=\"color: blue;\">Then</span>\r\n   <span style=\"color: green;\">' Do this</span>\r\n <span style=\"color: blue;\">Else</span>\r\n   <span style=\"color: green;\">' Do that</span>\r\n <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n\r\n<span style=\"color: blue;\">If</span> myForm <span style=\"color: blue;\">Is</span> <span style=\"color: blue;\">Nothing</span> = <span style=\"color: blue;\">False</span> <span style=\"color: blue;\">Then</span>\r\n   myForm.Dispose()\r\n   myForm = <span style=\"color: blue;\">Nothing</span>\r\n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.Manager.Mode = GMap.NET.AccessMode.ServerAndCache\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.MapProvider = _mappaProviderCorrente\r\n\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.MinZoom = Globals.ZoomMin\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.MaxZoom = Globals.ZoomMax\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.Zoom = Globale.ZoomDefault\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.MapProvider.Language = GMap.NET.LanguageType.Italian.ToString\r\n\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.CanDragMap = <span style=\"color: blue;\">True</span>\r\n\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.DragButton = Windows.Forms.MouseButtons.Left\r\n\r\n_mappaOverlayRoute = <span style=\"color: blue;\">New</span> GMap.NET.WindowsForms.GMapOverlay(<span style=\"color: blue;\">Me</span>.cntMainMap, <span style=\"color: #a31515;\">\"OverlayRoute\"</span>)\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.Overlays.Add(_mappaOverlayRoute)\r\n_mappaOverlayMarker = <span style=\"color: blue;\">New</span> GMap.NET.WindowsForms.GMapOverlay(<span style=\"color: blue;\">Me</span>.cntMainMap, <span style=\"color: #a31515;\">\"OverlayMarker\"</span>)\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.Overlays.Add(_mappaOverlayMarker)\r\n_mappaOverlayMarkerSelection = <span style=\"color: blue;\">New</span> GMap.NET.WindowsForms.GMapOverlay(<span style=\"color: blue;\">Me</span>.cntMainMap, <span style=\"color: #a31515;\">\"OverlayMarkerSelection\"</span>)\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.Overlays.Add(_mappaOverlayMarkerSelection)\r\n\r\n<span style=\"color: blue;\">Me</span>.cntMainMap.SetCurrentPositionByKeywords(<span style=\"color: #a31515;\">\"Italy, Roma\"</span>)\r\n</pre>\r\n</div>",
+    "PostedDate": "2011-12-13T05:56:50.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711428",
+    "ThreadId": "282757",
+    "Html": "<p>set these before map is loaded:</p>\r\n<p>Me.cntMainMap.Manager.Mode = GMap.NET.AccessMode.ServerAndCache<br />Me.cntMainMap.MapProvider = _mappaProviderCorrente<br />Me.cntMainMap.MinZoom = Globals.ZoomMin<br />Me.cntMainMap.MaxZoom = Globals.ZoomMax<br />Me.cntMainMap.Zoom = Globale.ZoomDefault</p>",
+    "PostedDate": "2011-12-13T06:02:24.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711434",
+    "ThreadId": "282757",
+    "Html": "<p>In this case I partially resolve my problem, because I show my form after the main form load and everything works, but if I&nbsp; put my form before the commands you suggest in previous replay, I have the same problem...</p>\r\n<p>&nbsp;This is OK:</p>\r\n<p><span style=\"color: blue;\">Protected</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">Sub</span> OnLoad(<span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs)</p>\r\n<p style=\"padding-left: 30px;\"><span style=\"color: blue;\">Me</span>.cntMainMap.Manager.Mode = GMap.NET.AccessMode.ServerAndCache<br /><span style=\"color: blue;\">Me</span>.cntMainMap.MapProvider = _mappaProviderCorrente<br /><span style=\"color: blue;\">Me</span>.cntMainMap.MinZoom = Globals.ZoomMin<br /><span style=\"color: blue;\">Me</span>.cntMainMap.MaxZoom = Globals.ZoomMax<br /><span style=\"color: blue;\">Me</span>.cntMainMap.Zoom = Globale.ZoomDefault<br /><br /><span style=\"color: blue;\">MyBase</span>.OnLoad(e)<br /><br />myForm.ShowDialog</p>\r\n<p><span style=\"color: blue;\">end</span> <span style=\"color: blue;\">Sub</span></p>\r\n<p>&nbsp;</p>\r\n<p>But this doesn'work:</p>\r\n<p><span style=\"color: blue;\">Protected</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">Sub</span> OnLoad(<span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs)</p>\r\n<p style=\"padding-left: 30px;\"><span style=\"color: blue;\"><span style=\"color: #000000;\">myForm.ShowDialog</span></span></p>\r\n<p style=\"padding-left: 30px;\"><span style=\"color: blue;\">Me</span>.cntMainMap.Manager.Mode = GMap.NET.AccessMode.ServerAndCache<br /><span style=\"color: blue;\">Me</span>.cntMainMap.MapProvider = _mappaProviderCorrente<br /><span style=\"color: blue;\">Me</span>.cntMainMap.MinZoom = Globals.ZoomMin<br /><span style=\"color: blue;\">Me</span>.cntMainMap.MaxZoom = Globals.ZoomMax<br /><span style=\"color: blue;\">Me</span>.cntMainMap.Zoom = Globale.ZoomDefault<br /><br /><span style=\"color: blue;\">MyBase</span>.OnLoad(e)</p>\r\n<p><span style=\"color: blue;\">end</span> <span style=\"color: blue;\">Sub</span></p>\r\n<p><br />&nbsp;</p>",
+    "PostedDate": "2011-12-13T06:34:16.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711467",
+    "ThreadId": "282757",
+    "Html": "<p>onLoad is too late, use constructor</p>",
+    "PostedDate": "2011-12-13T07:27:53.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711507",
+    "ThreadId": "282757",
+    "Html": "<p>How can i do that?</p>",
+    "PostedDate": "2011-12-13T08:28:39.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711585",
+    "ThreadId": "282757",
+    "Html": "<p>...</p>",
+    "PostedDate": "2011-12-13T10:05:54.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712078",
+    "ThreadId": "282757",
+    "Html": "<p>I solved,</p>\r\n<p>thanks</p>",
+    "PostedDate": "2011-12-14T05:01:15.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1230572",
+    "ThreadId": "541268",
+    "Html": "Hello, I dont speak english very well, i m sorry<br />\n<br />\nplease i need your help<br />\n<br />\nI m a begginer in gmap c# form, my objectif is to marker some client on a map witch present a my city, my clients are in BD sql server<br />\n<br />\nI have a lot of problem :<br />\nfirst : i can't limite de area of my city, i only marked the city but with a lot of zomm (min 1, 17 max, zom 6)<br />\nsecond : i don t know the latitude and log for my points i know only the adresses <br />\n<br />\nplease help me<br />\n<br />\nusing System;<br />\nusing System.Collections.Generic;<br />\nusing System.ComponentModel;<br />\nusing System.Data;<br />\nusing System.Drawing;<br />\nusing System.Linq;<br />\nusing System.Text;<br />\nusing System.Windows.Forms;<br />\nusing GMap.NET;<br />\nusing GMap.NET.MapProviders;<br />\nusing GMap.NET.WindowsForms;<br />\n<br />\n<br />\nnamespace Région_Services<br />\n{<br />\n<pre><code>public partial class FMainStations : Form\n{\n    GMapOverlay overlayOne;\n\n    public FMainStations()\n    {\n        InitializeComponent();\n    }\n\n    private void FMainStations_Load(object sender, EventArgs e)\n    {\n        gMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n        gMap.SetCurrentPositionByKeywords(&quot;K, M&quot;);\n\n            gMap.BoundsOfMap = new RectLatLng();\n\n\n        //ajout des overlay\n        overlayOne = new GMapOverlay(gMap, &quot;OverlayOne&quot;);\n        //ajout de Markers\n        overlayOne.Markers.Add(new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen\n            (new PointLatLng(34.2640610, -6.5782960)));\n\n\n        //ajout de overlay à la map\n        gMap.Overlays.Add(overlayOne);\n        gMap.ZoomAndCenterMarkers(overlayOne.Id);\n     }\n\n}</code></pre>\n\n}<br />\n",
+    "PostedDate": "2014-04-04T16:01:56.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

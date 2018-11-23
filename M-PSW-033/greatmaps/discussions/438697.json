@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1023890",
+    "ThreadId": "438697",
+    "Html": "Dear Radioman,\r<br />\n<br />\nKindly advice if it is possible to get the address of a PoitLatLng in specific Language , eg Arabic.\r<br />\n<br />\nI use this code , it return the address in English , and it's working like magic. I only ask about possibility to get address in Arabic.\r<br />\n<br />\n<br />\n Dim p As Placemark = Nothing<br />\n<pre><code>    Dim status As GeoCoderStatusCode\n\n    Me.Cursor = Cursors.WaitCursor\n    p = GMapProviders.GoogleMap.GetPlacemark(currentMarker.Position, status)\n\n    If IsNothing(p) = False Then\n     msgbox ( p.Address )\n    Else\n        msgbox(&quot;Address is not Recognized&quot;)\n    End If\n    Me.Cursor = Cursors.Arrow\n\n\n</code></pre>\n\nThanks,\r<br />\nWalee<br />\n",
+    "PostedDate": "2013-04-01T12:34:06.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024068",
+    "ThreadId": "438697",
+    "Html": "try set GMapProvider.<strong>Language</strong><br />\n",
+    "PostedDate": "2013-04-01T23:54:54.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024535",
+    "ThreadId": "438697",
+    "Html": "Dear Radioman,\r<br />\n<br />\nAgain, Thanks so much for your great support , which is really as great as this great control.\r<br />\nagain , Thanks, so much for sharing this excellent project.<br />\n",
+    "PostedDate": "2013-04-02T16:28:31.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

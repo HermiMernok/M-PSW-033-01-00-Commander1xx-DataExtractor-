@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "818987",
+    "ThreadId": "350942",
+    "Html": "\r\n<p>Hi all, my problem is that i will try compile the latest version at today (greatmaps_cebf19d4121b) show me error in the GMarkerGoogle.cs in this part of code</p>\r\n<p>internal static Bitmap GetIcon(string name)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bitmap ret;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(!iconCache.TryGetValue(name, out ret))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ret = Resources.ResourceManager.GetObject(name, Resources.Culture) as Bitmap;&lt;------- here error<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iconCache.Add(name, ret);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ret;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>error say ---&gt;Could not load file or assembly 'System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.</p>\r\n<p>Can anyone help me...</p>\r\n<p>Sorry for my very very bad english..... ;)</p>\r\n",
+    "PostedDate": "2012-04-02T16:05:23.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819147",
+    "ThreadId": "350942",
+    "Html": "<p>builds fine for me</p>",
+    "PostedDate": "2012-04-03T02:30:53.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

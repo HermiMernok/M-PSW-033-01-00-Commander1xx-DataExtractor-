@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1018719",
+    "ThreadId": "437453",
+    "Html": "Hi all,\r<br />\n<br />\nI wonder if I could add an overlaying layer that contains the cloud information on top of the map control using the WPF GMap library?\r<br />\n<br />\nIf it is possible, how to do it?\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2013-03-21T01:26:31.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1018850",
+    "ThreadId": "437453",
+    "Html": "check Testing/Clouds.Demo<br />\n",
+    "PostedDate": "2013-03-21T06:45:20.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1019279",
+    "ThreadId": "437453",
+    "Html": "Thanks for the reply.\r<br />\n<br />\nI looked through the Clouds.Demo you mentioned but the sample is for windows form.  However, I require one for WPF.\r<br />\n<br />\nI have to find the necessary classes in the WPF library but found that the follwing classes and methods are missing from the library:<br />\n<ul>\n<li>GMapOverlay mapControl (in MainForm.cs)</li>\n<li>mapControl.Overlays (in MainForm.cs)</li>\n<li>\nprotected override void OnPaintOverlays(System.Drawing.Graphics g) (in MapControl.cs)<br />\n</li>\n</ul>\nIs there any way to add the cloud overlay in the WPF even without these classes/methods?<br />\n",
+    "PostedDate": "2013-03-21T19:37:56.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1019586",
+    "ThreadId": "437453",
+    "Html": "nop, but the principle is the same<br />\n",
+    "PostedDate": "2013-03-22T08:04:51.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020442",
+    "ThreadId": "437453",
+    "Html": "If GMapOverlay is not available in the  GMap WPF library, how can I add the cloud overlay onto the map?<br />\n",
+    "PostedDate": "2013-03-24T18:30:56.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1043779",
+    "ThreadId": "437453",
+    "Html": "I'm also interested in knowing how to add overlays or worst case just draw something on the map manually.\r<br />\n<br />\nWhat I want to do is quite simple, I want the user to be able to draw rectangles on the map.\r<br />\nCurrently I'm using the selection feature (shift + drag) to let the user select an area, once they do I have all the information\r<br />\nI need to draw a rectangle, but I can't figure out how to do it properly.\r<br />\n<br />\nWould be great if you could help me (us) out.<br />\n",
+    "PostedDate": "2013-05-15T03:16:41.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1043796",
+    "ThreadId": "437453",
+    "Html": "Ok, actually it's easy.\r<br />\nYou override the OnRender method of the control and draw all your stuff there, using the FromLatLngToLocal method to position everything correctly.<br />\n",
+    "PostedDate": "2013-05-15T03:54:26.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

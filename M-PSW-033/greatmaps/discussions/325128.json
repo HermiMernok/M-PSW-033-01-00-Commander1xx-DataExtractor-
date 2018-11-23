@@ -1,0 +1,162 @@
+[
+  {
+    "Id": "777471",
+    "ThreadId": "325128",
+    "Html": "<p>hi radioman please tell me about serverandcache mode,what does it actually. i have another problem i am using your gmap.net windows form dll. there is a option of cache status that show how much tiles are remaining to save in local cache in a textbox also on progressbar in gmap.net demo. but i am unable to get it,i am using same dll what is problem please help me</p>",
+    "PostedDate": "2012-02-18T06:33:54.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "777481",
+    "ThreadId": "325128",
+    "Html": "<p>it means what it means, uses tile source from server and cache</p>",
+    "PostedDate": "2012-02-18T06:40:08.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808101",
+    "ThreadId": "325128",
+    "Html": "<p>Hello Radioman,</p>\r\n<p>Please, I have question I have to concept a application which use google map, but this application must work always offline.</p>\r\n<p>Is it possible that google map work only offline?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2012-03-09T07:38:12.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808127",
+    "ThreadId": "325128",
+    "Html": "<p>yes, if you prefetch the area you want before using it</p>",
+    "PostedDate": "2012-03-09T08:21:57.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808152",
+    "ThreadId": "325128",
+    "Html": "<p>Thank you for your quik response, so that mean that I can prefetch a country for instance, and use the application offline?</p>\r\n<p>Where is it stored in the application or the computer? and is it possible to prefetch many countries?</p>",
+    "PostedDate": "2012-03-09T09:18:29.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808208",
+    "ThreadId": "325128",
+    "Html": "<p>if you have the space needed and time ;}</p>",
+    "PostedDate": "2012-03-09T10:40:02.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808225",
+    "ThreadId": "325128",
+    "Html": "<p>I explain, I have to do an application which work only in offline, so the user won't have the possibility to prefetch the area which he needs, I must I must include this featuse and store all map myself.</p>\r\n<p>&nbsp;</p>\r\n<p>Could you give me a help and your opinion</p>\r\n<p>thank you!&nbsp;</p>",
+    "PostedDate": "2012-03-09T11:22:28.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808235",
+    "ThreadId": "325128",
+    "Html": "<p>demos has integrated prefetcher, use it, you can import/export it, later in your 'real' app you can manually set map.CacheLocation to where the files actually is, maybe in your app directory or something...</p>",
+    "PostedDate": "2012-03-09T11:36:44.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809021",
+    "ThreadId": "325128",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>First, thank you for your proposition, I found in forum some discussions about 'offline geocoding database' where we can not store all geo in database and 'cache Maker' which will be probably the solution.</p>\r\n<p>Could you give me some runways please,</p>\r\n<p>Now I prefetch area 'France', and it still prefetching with progressive zoom level, when I export it and import it to my real app, do I need sql server to store this files or not?</p>\r\n<p>Which would be the best solution. Really I need explicit answer :)</p>",
+    "PostedDate": "2012-03-12T04:20:07.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809029",
+    "ThreadId": "325128",
+    "Html": "<p>when you import it, it's done and sql server is optional</p>",
+    "PostedDate": "2012-03-12T05:00:11.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810318",
+    "ThreadId": "325128",
+    "Html": "<p>I export the file .gmdb from your Demo, but I don't know <strong>how to add it into my project</strong>, I tried to use System.data.sqlite.dll but I see blue map with exception \"could not load file or assembly 'System.Data.SQLite version = 1.0.44.0 culture = neutral, public key tocken = db937bc2d44ff139' or one of its dependencies.</p>\r\n<p>I have platform 64bit, and I set the platform targets to x86, and evenif I use any CPU I have the same error with my project.</p>\r\n<p>Any Idea please?</p>",
+    "PostedDate": "2012-03-14T09:36:13.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810436",
+    "ThreadId": "325128",
+    "Html": "<p>import using 'my' demo ;}</p>",
+    "PostedDate": "2012-03-14T12:45:41.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810449",
+    "ThreadId": "325128",
+    "Html": "<p>thank you for your reply;</p>\r\n<p>Yes, I agree, but if I use import in your demo, it will import the file in your demo and not in my project?!</p>",
+    "PostedDate": "2012-03-14T13:05:21.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810517",
+    "ThreadId": "325128",
+    "Html": "<p>cache is shared across all apps that uses GMap.NET</p>",
+    "PostedDate": "2012-03-14T15:52:58.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810692",
+    "ThreadId": "325128",
+    "Html": "<p>&nbsp;when I import in your Demo,&nbsp; it works and my app not ;(</p>",
+    "PostedDate": "2012-03-15T01:23:02.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810700",
+    "ThreadId": "325128",
+    "Html": "<p>Should I add some thing in my code??</p>",
+    "PostedDate": "2012-03-15T01:59:13.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810783",
+    "ThreadId": "325128",
+    "Html": "<p>well demo imports into default cache, if you changed cache location manually, it use two different databases, use default</p>",
+    "PostedDate": "2012-03-15T04:43:44.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810818",
+    "ThreadId": "325128",
+    "Html": "<p>Really many thanks for your support :)</p>\r\n<p>but I don't know why I have this problem, I didn't set any cache location, and I don't know where to set it, could you help me please?&nbsp;</p>",
+    "PostedDate": "2012-03-15T06:11:55.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810848",
+    "ThreadId": "325128",
+    "Html": "<p>you do not need to set anything, it works</p>",
+    "PostedDate": "2012-03-15T07:18:09.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811270",
+    "ThreadId": "325128",
+    "Html": "<p>It works!! thank you so so much, really you're a great person</p>",
+    "PostedDate": "2012-03-16T00:51:27.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello radioman.\r\n\r\nThere is problem at parse xml answer from google.\r\nGetDirections function calls GetDirectionsUrl and this function uses DecodePointsInto function.\r\nDecodePointsInto parses xml node <overview_polyline> <points>.\r\nYou use \r\n```\r\nstring encoded = encodedPoints.Replace(\"\\\\\\\\\", \"\\\\\");\r\n```\r\nParsing after this give incorrect result.\r\nI attached two xml file. You can use [https://developers.google.com/maps/documentation/utilities/polylineutility?csw=1](https://developers.google.com/maps/documentation/utilities/polylineutility?csw=1) \r\nfor check result. Do two request (with replace and without replace) and you can see different results.\r\n\r\nThanks.\r\n",
+    "LastUpdatedDate": "2015-03-01T14:31:25.037-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-03-01T14:31:24.88-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Direction parse problem.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16113
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1435241,
+      "FileName": "xml.zip",
+      "DownloadUrl": ".\\1435241"
+    }
+  ],
+  "Comments": []
+}

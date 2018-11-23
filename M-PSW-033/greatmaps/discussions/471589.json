@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1130534",
+    "ThreadId": "471589",
+    "Html": "This is my code.\r<br />\nWhat i want?\r<br />\nI want draw route between point (routePoint)\r<br />\n<br />\nexactly i want draw line between 1-2 point, then 2-3 etc\r<br />\n<br />\nwhere i make error (mistake)\r<br />\n<br />\nprivate void button1_Click_1(object sender, EventArgs e)<br />\n<pre><code>    {\n        List&lt;PointLatLng&gt; routePoint = new List&lt;PointLatLng&gt;();\n        for (int i = 1; i &lt; dostupno.zaTransformacijuImeTacke.Count + 1; i++)\n        {\n            MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(\n        new PointLatLng(dostupno.Latituda[i], dostupno.Longituda[i]), new PointLatLng(dostupno.Latituda[i], dostupno.Longituda[i])\n        , false, false, 15);\n            //tackeRute.Add(dostupno.Latituda[i], dostupno.Longituda[i]);\n            gMapControl1.Position = new PointLatLng(dostupno.Latituda[i], dostupno.Longituda[i]);\n            routePoint.Add(gMapControl1.Position);\n            GMapRoute r = new GMapRoute(route.Points, &quot;My route&quot;);\n            GMapOverlay routesOverlay = new GMapOverlay(&quot;My route&quot;);\n            routesOverlay.Routes.Add(r);\n            gMapControl1.Overlays.Add(routesOverlay);\n            r.Stroke.Width = 10;\n            r.Stroke.Color = Color.SeaGreen;\n        }\n\n    }</code></pre>\n\n",
+    "PostedDate": "2013-11-30T10:54:17.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1130643",
+    "ThreadId": "471589",
+    "Html": "OK i change code now is look \r<br />\n<br />\nprivate void button1_Click_1(object sender, EventArgs e)<br />\n<pre><code>    {\n        List&lt;PointLatLng&gt; routePoint = new List&lt;PointLatLng&gt;();\n        for (int i = 0; i &lt; dostupno.zaTransformacijuImeTacke.Count; i++)\n        {\n            gMapControl1.Position = new PointLatLng(dostupno.Latituda[i], dostupno.Longituda[i]);\n            routePoint.Add(gMapControl1.Position);\n        }\n        GMapRoute r = new GMapRoute(routePoint, &quot;my route&quot;);\n        r.IsHitTestVisible = true;\n        r.IsVisible = true;\n        r.Stroke.Width = 10;\n        r.Stroke.Color = Color.Red;\n    }\n</code></pre>\n\nand now is ok, but i want draw line between points. How i do that?\r<br />\nthanks in advance<br />\n",
+    "PostedDate": "2013-12-01T05:23:08.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1130649",
+    "ThreadId": "471589",
+    "Html": "Solve problem\r<br />\ni put code here\r<br />\n<br />\nprivate void button1_Click_1(object sender, EventArgs e)<br />\n<pre><code>    {\n        GMapOverlay routes = new GMapOverlay(&quot;routes&quot;);\n        gMapControl1.Overlays.Add(routes);\n        List&lt;PointLatLng&gt; routePoint = new List&lt;PointLatLng&gt;();\n        for (int i = 0; i &lt; dostupno.zaTransformacijuImeTacke.Count; i++)\n        {\n            routePoint.Add(new PointLatLng(dostupno.Latituda[i], dostupno.Longituda[i]));\n        }\n        GMapRoute r = new GMapRoute(routePoint, &quot;My car route&quot;);\n        routes.Routes.Add(r);\n    }\n</code></pre>\n\nBuy<br />\n",
+    "PostedDate": "2013-12-01T06:09:28.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1160119",
+    "ThreadId": "471589",
+    "Html": "hi \r<br />\ni have the same probleme \r<br />\ni need to draw a routes with lot of points (900 or 1000) \r<br />\ni try this code put it doesn t work \r<br />\n<br />\n  Dim routesOverlay As GMapOverlay = New GMapOverlay(MainMap, &quot;routes&quot;)<br />\n<pre><code>    MainMap.Overlays.Add(routesOverlay)\n    Dim listPointlatlon As New List(Of PointLatLng)\n    For Each lst In listofRoute\n        MainMap.Position = New PointLatLng(lst.latitude, lst.longitude)\n        listPointlatlon.Add(New PointLatLng(lst.latitude, lst.longitude))\n\n    Next\n    Dim r As GMapRoute = New GMapRoute(listPointlatlon, &quot;routes&quot;)\n    r.IsVisible = True\n    r.Stroke.Width = 5\n    r.Stroke.Color = Color.Blue\n</code></pre>\n\nplease help!!!\r<br />\nDave <br />\n",
+    "PostedDate": "2014-01-12T23:29:16.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1160655",
+    "ThreadId": "471589",
+    "Html": "routesOverlay.Routes.Add(r)\r<br />\n<br />\nis maybe missing?\r<br />\n<br />\nEde<br />\n",
+    "PostedDate": "2014-01-13T02:55:43.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1318230",
+    "ThreadId": "571065",
+    "Html": "<pre><code>var p1 = new PointLatLng(slat, slng);\nvar p2 = new PointLatLng(item.Position.Lat, item.Position.Lng);\nmarkersOverlay2.Routes.Clear();\ngmap.RoutesEnabled = true;\nMapRoute MaprMapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(p1, p2, false, false, (int)gmap.Zoom);\nGMapRoute g_Route = new GMapRoute(MaprMapRoute.Points, MaprMapRoute.Name);\ng_Route.Stroke = new Pen(Color.DarkGreen, 3);\nmarkersOverlay2.Routes.Add(g_Route);\ngmap.Overlays.Add(markersOverlay2);\nmarkersOverlay2.IsVisibile = true;\ngmap.Refresh();</code></pre>\n\nSome of my code for &quot;route&quot;.\r<br />\nThat worked very well a few days ago. \r<br />\nBut now that dosn't work anymore.\r<br />\nI don't know what's the problem. \r<br />\nPlease. help me. \r<br />\n<br />\nand how can i use GoogleMapProvider instead of OpenStreetMapProvider ??<br />\n",
+    "PostedDate": "2014-11-01T09:24:12.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1320014",
+    "ThreadId": "571065",
+    "Html": "Hi,\r<br />\n<br />\nI had the same problem with OSM now i force to use the Google maps provider.\r<br />\n<br />\nhere my code in VB.net<br />\n<pre><code>            Dim rp As RoutingProvider = GMapProviders.GoogleMap\n\n            Dim route As MapRoute = rp.GetRoute(r_start, r_end, False, False, CInt(GMapControl1.Zoom))\n            If route IsNot Nothing Then\n                ' add route\n                Dim r As New GMapRoute(route.Points, route.Name)\n                r.IsHitTestVisible = True\n                routes.Routes.Add(r)</code></pre>\n\n",
+    "PostedDate": "2014-11-07T06:20:22.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

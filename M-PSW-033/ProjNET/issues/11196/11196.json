@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "Core",
+      "DisplayName": "Core"
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2008-09-08T21:24:36.22-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In the method: public override bool EqualParams(object obj)\nthe comparison is done using :\n    return datum.Ellipsoid == this.Ellipsoid && this.DatumType == datum.DatumType\n \nIt should use:\n    return datum.Ellipsoid.EqualParams(this.Ellipsoid) && this.DatumType == datum.DatumType;",
+    "LastUpdatedDate": "2017-12-12T22:24:54.063-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2008-09-08T21:21:28.75-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "HorizontalDatum.EqualParams(obj) incorrectly compares the Ellipsoid instance instead of its parameters",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11196
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 22686.",
+      "PostedDate": "2008-09-08T21:24:36.22-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:09.773-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T03:55:41.54-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-12T22:24:54.063-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

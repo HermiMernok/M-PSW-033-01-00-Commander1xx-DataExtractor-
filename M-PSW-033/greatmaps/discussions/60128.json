@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "203556",
+    "ThreadId": "60128",
+    "Html": "<p>I'm not a GIS expert at all so I am having some trouble understanding how I could create a new provider for the ArcGISOnline static map tiles.&nbsp; <a href=\"http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer\">http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer</a></p>\r\n<p>Perhaps someone more familiar with this could create an ESRArcGISOnline Map Provider quite easily?</p>\r\n<p>512x512 image<br>Tiles: <br>Level 0:&nbsp;&nbsp;&nbsp; <a href=\"http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer/tile/0/0/0\">/tile/0/0/0</a> ... <a href=\"http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer/tile/0/0/1\">/tile/0/0/1</a>&nbsp; (world)<br>...<br>level 15&nbsp;&nbsp;&nbsp; <a href=\"http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer/tile/15/0/0\">/tile/15/0/0</a> ... <a href=\"http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer/tile/15/32767/65535\">/tile/15/32767/65535</a></p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Matt MS</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-19T16:49:35.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203557",
+    "ThreadId": "60128",
+    "Html": "<p>the problem is&nbsp;512x512 size of tile, hm...&nbsp;</p>",
+    "PostedDate": "2009-06-19T16:54:22.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203558",
+    "ThreadId": "60128",
+    "Html": "<p>sniffing on&nbsp;<a href=\"http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer?f=jsapi\">http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer?f=jsapi</a></p>\r\n<p><strong>challenge&nbsp;accepted! :}</strong></p>",
+    "PostedDate": "2009-06-19T16:58:28.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203652",
+    "ThreadId": "60128",
+    "Html": "<p>Maybe in Gmap core there is only the map provider interface, and others can add more and more map provider without modify the core code.&nbsp; I think it will be more extendable.</p>",
+    "PostedDate": "2009-06-20T05:37:48.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203656",
+    "ThreadId": "60128",
+    "Html": "<p>but providers list is quite short ;}</p>",
+    "PostedDate": "2009-06-20T06:02:03.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "207063",
+    "ThreadId": "60128",
+    "Html": "<p>testing:</p>\r\n<p><img src=\"http://jjvkug.blu.livefilestore.com/y1pggpz13X9pYBKdI1Pv4zOq4Cuu_YPCPO7_cves3kSiWAAz0ThD-2OxgxdBD7iKLT-6KvD-W7niXc51CuvK4CpmG8T_XZFinvS/argis test.png\" alt=\"\"></p>",
+    "PostedDate": "2009-06-30T07:20:14.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "207153",
+    "ThreadId": "60128",
+    "Html": "<p>does ArcGIS use different projection in Y ?</p>",
+    "PostedDate": "2009-06-30T10:20:49.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "207162",
+    "ThreadId": "60128",
+    "Html": "<p><a href=\"http://en.wikipedia.org/wiki/Robinson_projection\">http://en.wikipedia.org/wiki/Robinson_projection</a></p>",
+    "PostedDate": "2009-06-30T10:47:57.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "208047",
+    "ThreadId": "60128",
+    "Html": "<p>I think the tiles are all in &quot;WGS 1984&quot;.&nbsp; The links below have some details on the system that you may be able to better understand than I:</p>\r\n<p><a href=\"http://webhelp.esri.com/arcgisserver/9.3/dotNET/index.htm#designing_overlay_agol.htmhttp://webhelp.esri.com/arcgisserver/9.3/dotNet/overlay_agol_net.htm\">http://webhelp.esri.com/arcgisserver/9.3/dotNET/index.htm#designing_overlay_agol.htm<br>http://webhelp.esri.com/arcgisserver/9.3/dotNet/overlay_agol_net.htm</a></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-07-02T10:22:09.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "208063",
+    "ThreadId": "60128",
+    "Html": "<p><em>'The latest revision is WGS 84 (dating from 1984 and last revised in 2004), which will be valid up to about 2010'</em></p>\r\n<p><em>;/</em></p>",
+    "PostedDate": "2009-07-02T11:07:49.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "208106",
+    "ThreadId": "60128",
+    "Html": "<p>yes they use&nbsp;WGS 1984, but what is their maps real projection?</p>",
+    "PostedDate": "2009-07-02T12:41:37.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "208529",
+    "ThreadId": "60128",
+    "Html": "<p>enjoy ;}</p>\r\n<p><img src=\"http://jjvkug.blu.livefilestore.com/y1pHHldnrbWdAtySNxs2pSwGAvihfoZLH6ie5GehbtbU3tCK1FCsMAl16TT7h9Hud6iqLRHLYTB_WhWLAWBUDsOCKWxpDzHsXoQ/gmap arcgis support.png\" alt=\"\"></p>",
+    "PostedDate": "2009-07-04T09:15:46.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "209434",
+    "ThreadId": "60128",
+    "Html": "<p>Hey Radioman,</p>\r\n<p>At this point the routing is done through Google Maps regardless of the Map provider is used which means that the route points might not be consistent with the map (OpenStreetMap with Google Routes is a good example).</p>\r\n<p>Is it possible for the ArcGIS map provider to also use the ArcGIS routing system?</p>\r\n<p>In this manner is it possible for the Map providers that support also routing to be synchronized?</p>\r\n<p>&nbsp;</p>\r\n<p>Cristian..</p>",
+    "PostedDate": "2009-07-07T04:58:36.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "209436",
+    "ThreadId": "60128",
+    "Html": "<p>where is ArcGIS routing services?</p>",
+    "PostedDate": "2009-07-07T05:07:29.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "210254",
+    "ThreadId": "60128",
+    "Html": "<p>Excellent Work!&nbsp;The only problem I&nbsp;noticed is that <strong>ZOOM is odd/different</strong> than other providers.<br>Thus when I toggle between Google and ArcGis the viewport&nbsp;is not preserved.&nbsp;&nbsp;<br><br>FYI: ArcGIS Routing services: <a href=\"http://tasks.arcgisonline.com/ArcGIS/rest/services/NetworkAnalysis\">http://tasks.arcgisonline.com/ArcGIS/rest/services/NetworkAnalysis</a>&nbsp;and: <a href=\"http://resources.esri.com/help/9.3/arcgisonline/about/start.htm#free_routing.htm#\">HelpLInk</a></p>\r\n<p>I also now realized that instead of accessing the TILES directly and having to do projection&nbsp;and zoom <br>factoring you could access all these esri services thru the 'MapServer' api on&nbsp;<strong>any </strong>of their datasources&nbsp;<br>and grab 'tiles' dimensioned and projected to your norm.&nbsp; Instead of calculating a tile Zoom/Y/X&nbsp; <br>from the LatLon you would calculate a LatLon Bounding Box and pass that the the following link.&nbsp; <br>Note that only the URI part before /MapServer/ changes for each ESRI datasource.<br><strong><a href=\"http://preview.tinyurl.com/n8298f\">http://preview.tinyurl.com/n8298f</a></strong><br><br>Many of the tile datasources on the ESRI site seems to have&nbsp;their own tiling scheme <br>(tile sizes and scales) which makes working with each a bit of a pain I would imagine.</p>\r\n<p>Matthew</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-07-08T20:33:08.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

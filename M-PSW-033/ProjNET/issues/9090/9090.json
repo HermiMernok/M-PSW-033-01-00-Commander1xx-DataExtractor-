@@ -1,0 +1,96 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "Transformations",
+      "DisplayName": "Transformations"
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The Invert() and Inverse() methods in ConcatenatedTransform do not give the desired result.  I have made a quick fix.",
+    "LastUpdatedDate": "2017-12-12T22:24:53.793-08:00",
+    "PlannedForRelease": "Proj.NET 1.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2007-12-21T06:50:19.66-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Inverse and Invert in ConcatenatedTransform",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 9090
+  },
+  "FileAttachments": [
+    {
+      "FileId": 682,
+      "FileName": "ConcatenatedTransform.cs",
+      "DownloadUrl": ".\\682"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Could you send a little test to show the bug?\r\nThe original code looks correct for me...\r\n",
+      "PostedDate": "2007-12-21T10:23:04.17-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "dan3258: Could you be a little more specific with regards to \"desired result\" ?\r\nOr as Diego says.. perhaps a unit test showing that its failing before and parsing afterwards.",
+      "PostedDate": "2007-12-21T21:50:42.113-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The problem with Inverse() is that _CoordinateTransformationList is a list and lists seem to be treated like pointers.  So when _inverse.Invert(); is executed...it inverses the original _CoordinateTransformationList also.  I guess my \"desired result\" is when Inverse() is called, it returns a new IMathTransform without messing with the original.\r\n<p>\r\nSample:\r\n<p>\r\n            GeoAPI.CoordinateSystems.ICoordinateSystem src, tgt;\r\n            SharpMap.CoordinateSystems.CoordinateSystemFactory cfac = new SharpMap.CoordinateSystems.CoordinateSystemFactory();\r\n            SharpMap.CoordinateSystems.Transformations.CoordinateTransformationFactory tfac = new SharpMap.CoordinateSystems.Transformations.CoordinateTransformationFactory();\r\n            GeoAPI.CoordinateSystems.Transformations.ICoordinateTransformation transform;\r\n<p>\r\n            tgt = cfac.CreateFromWkt(\"PROJCS[\\\"NAD_1983_UTM_Zone_15N\\\",GEOGCS[\\\"GCS_North_American_1983\\\",DATUM[\\\"D_North_American_1983\\\",SPHEROID[\\\"GRS_1980\\\",6378137,298.257222101]],PRIMEM[\\\"Greenwich\\\",0],UNIT[\\\"Degree\\\",0.017453292519943295]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",500000],PARAMETER[\\\"False_Northing\\\",0],PARAMETER[\\\"Central_Meridian\\\",-93],PARAMETER[\\\"Scale_Factor\\\",0.9996],PARAMETER[\\\"Latitude_Of_Origin\\\",0],UNIT[\\\"Meter\\\",1]]\");\r\n            <p>\r\n            src = cfac.CreateFromWkt(\"PROJCS[\\\"NAD_1983_StatePlane_Missouri_East_FIPS_2401\\\",GEOGCS[\\\"GCS_North_American_1983\\\",DATUM[\\\"D_North_American_1983\\\",SPHEROID[\\\"GRS_1980\\\",6378137,298.257222101]],PRIMEM[\\\"Greenwich\\\",0],UNIT[\\\"Degree\\\",0.0174532925199432955]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"False_Easting\\\",250000],PARAMETER[\\\"False_Northing\\\",0],PARAMETER[\\\"Central_Meridian\\\",-90.5],PARAMETER[\\\"Scale_Factor\\\",0.9999333333333333],PARAMETER[\\\"Latitude_Of_Origin\\\",35.83333333333334],UNIT[\\\"Meter\\\",1]]\");\r\n            <p>\r\n            transform = tfac.CreateFromCoordinateSystems(src, tgt);\r\n<p>\r\n            double[] point = {150000, 150000};\r\n<p>\r\n            point = transform.MathTransform.Transform(point);  // point = (621953, 4115702)  Correct\r\n<p>\r\n            point = transform.MathTransform.Inverse().Transform(point);  // point = (150000, 150000)  Correct\r\n<p>\r\n            point = transform.MathTransform.Transform(point);  // point = (-379167, -3816227)  Incorrect\r\n<p>\r\n            point = transform.MathTransform.Inverse().Transform(point);  // point = (-861604, -7809053)  Incorrect\r\n<p>\r\nI haven't been able to reproduce the problem I was having, or thought I was having with the Invert() method.  Perhaps my problem was just with Inverse(), and Invert() was a red herring.",
+      "PostedDate": "2008-01-02T11:26:45.76-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Opps, sorry about the <p>'s.  I assumed my comment would be in html.",
+      "PostedDate": "2008-01-02T11:28:54.697-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2008-01-02T22:55:03.883-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've looked into it, and unfortunately the problem goes deeper with the way Inverse has been implemented. The problem is not only the list not being cloned, but all the contents of the list are also inverted, and I don't think cloning the contents of the list is such a good idea either.\r\n\r\nInstead I would recommend two things:\r\n- Use Invert() instead when you need it to go the other way  - that is more efficient anyway (it's pretty much just setting a flag internally for the most part).\r\n- Remove Inverse() method (and perhaps implement a clone() on all MathTransform is people still need a clone to invert for what ever reason that might be). This method leads people into too much trouble anyhow.",
+      "PostedDate": "2008-01-02T23:15:15.703-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-03-26T03:30:48.757-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-03-26T09:49:53.65-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:10.02-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-12T22:24:53.793-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

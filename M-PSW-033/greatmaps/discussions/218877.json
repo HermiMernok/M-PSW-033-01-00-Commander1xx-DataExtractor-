@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "465243",
+    "ThreadId": "218877",
+    "Html": "<p>Hi everybody (from Slovenia),</p>\r\n<p>first of, great control!</p>\r\n<p>I've set up a Mapserver on windows, made my own .Map file to create map.</p>\r\n<p>Installed KaMap for tilecache purposes.</p>\r\n<p>Any ideas how to implement my map inside GMap.NET?</p>\r\n<p>- Already added my map to MapTypes, altered MakeImageUrl but the map is not in the correct scale and a little shifted.</p>\r\n<p>- Anybody played with that ?</p>\r\n<p>- Whats are the scales for zoom levels&nbsp;in other maps&nbsp;?</p>\r\n<p>Thanks</p>\r\n<p>Blaz</p>",
+    "PostedDate": "2010-07-09T00:06:53.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465244",
+    "ThreadId": "218877",
+    "Html": "<p>hey!</p>\r\n<p>first, you must know what projection you use, and the size of tiles</p>",
+    "PostedDate": "2010-07-09T00:11:09.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465250",
+    "ThreadId": "218877",
+    "Html": "<p>Hi,</p>\r\n<p>TileSize 256X256</p>\r\n<p>In MapServer Map file I use</p>\r\n<p>&quot;wms_srs&quot;&nbsp;&nbsp; &quot;EPSG:4326&quot;&nbsp;&nbsp; so it should be longlat, WGS84</p>",
+    "PostedDate": "2010-07-09T00:23:55.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465260",
+    "ThreadId": "218877",
+    "Html": "<p>if its wms, check&nbsp;MapType.MapBenderWMS</p>",
+    "PostedDate": "2010-07-09T00:52:52.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465283",
+    "ThreadId": "218877",
+    "Html": "<p>it is WMS, already fot it working with corrections on MapType.MapBenderWMS</p>\r\n<p>but kamap has server side tile caching. Or you have any other suggestion.</p>\r\n<p>THX</p>",
+    "PostedDate": "2010-07-09T02:09:15.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465285",
+    "ThreadId": "218877",
+    "Html": "<p>so you have tiles on your server? Can you grant me readonly access for testing?</p>",
+    "PostedDate": "2010-07-09T02:14:39.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465290",
+    "ThreadId": "218877",
+    "Html": "<p>I'm behind company firewall, I'll try but it could take days.</p>\r\n<p>One other question. Can I raise maxzoom from 17 to lets say 18,19,... for other and my&nbsp;WMS source&nbsp;(it's working on&nbsp;on maps.google.com)</p>",
+    "PostedDate": "2010-07-09T02:24:30.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465300",
+    "ThreadId": "218877",
+    "Html": "<p>HI,</p>\r\n<p>Fount the Maxzoom value</p>\r\n<p>thanks anyway</p>",
+    "PostedDate": "2010-07-09T02:51:06.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

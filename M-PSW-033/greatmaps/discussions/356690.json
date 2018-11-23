@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "839369",
+    "ThreadId": "356690",
+    "Html": "\r\n<p>Is there a simple way to&nbsp;get normalised address details in response to an address lookup like&nbsp;<a href=\"http://code.google.com/p/geocoding-net/\">http://code.google.com/p/geocoding-net/</a>?</p>\r\n<p>I'm looking at the code for the first time (awesome library), and I haven't yet tested how to geocode some user-entered keywords into a normalised address such as described in the Placemark class.</p>\r\n<p>Can someone let me know if I'm on the the right track with this pseudo code, or alternatively recommend a better method:</p>\r\n<p>String keywords = &quot;my address, my country&quot;;<br>\r\nPointLatLng? location;<br>\r\nGeoCoderStatusCode result;<br>\r\nlocation = GetPoint(keywords, out result);&nbsp;<br>\r\nif (result ==&nbsp;GeoCoderStatusCode.G_GEO_SUCCESS &amp;&amp; location!=null) {<br>\r\n&nbsp; Placemark placemark =&nbsp;GetPlacemark(location, out result);<br>\r\n&nbsp; // Placemark now holds address: Locality, PostCode, Street etc.<br>\r\n}</p>\r\n<p>What I'm not sure about is whether the instance of the Placemark class returned by the MapProvider will populate the various public fields with data returned from the geocoding service?</p>\r\n",
+    "PostedDate": "2012-05-22T05:58:05.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

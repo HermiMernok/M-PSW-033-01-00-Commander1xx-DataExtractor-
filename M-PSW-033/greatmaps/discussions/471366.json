@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1129816",
+    "ThreadId": "471366",
+    "Html": "I think it would be better if the image saved with the &quot;Static Map maker&quot; is not overlaid with boundary, coordinates and scale when &quot;make Worldfile&quot; is checked so the plain image could be used in a GIS software with other layers.<br />\n<br />\nIt's simple to implement this enhancement.<br />\n<br />\nJust add:<br />\n<pre><code>if (!info.MakeWorldFile)\n</code></pre>\n\nafter<br />\n<pre><code>// draw info</code></pre>\n\nin the file <em>StaticImage.cs</em>.<br />\n<br />\nOr you could add an additional check-box in the &quot;Static Map maker&quot; window to choose to enable or disable the boundary, coordinates and scale overlaying.<br />\n<br />\nHope you agree with me.<br />\n<br />\nThank you for your effort.<br />\n<br />\nAndrea Giudiceandrea<br />\n",
+    "PostedDate": "2013-11-27T16:37:09.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

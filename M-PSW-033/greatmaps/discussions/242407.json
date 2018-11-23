@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "551889",
+    "ThreadId": "242407",
+    "Html": "\r\n<p>Yes, your map control is proving to <strong>much better</strong> than I dared to expect, I bow to your genius!\r\n<strong>Thank you</strong></p>\r\n<p>I may have missed the point somewhat, and this may be a stupid question, but...</p>\r\n<p>I use your <strong>GMap</strong> control in a <strong>windows Forms</strong> application, developed in\r\n<strong>VB</strong> in <strong>Visual Studio 2008</strong>.</p>\r\n<p>The application is to plot astronomical observations, taken with a sextant, on board a ship at sea, to enable the user to graphically determine their position from the plotted observations</p>\r\n<p>Being at sea, it is <strong>unlikely</strong> the user will have an active i<strong>nternet connection</strong>! What I really wanted was the functionality of your GMap contol, ie.\r\n<strong>Zooming</strong>, <strong>panning</strong>, <strong>plotting</strong> geographic coordinates,\r\n<strong>routes</strong> and <strong>markers</strong> but <strong>without</strong> necessarily having the\r\n<strong>map tiles</strong> as a background, and without bothering with any caching, should no internet connection be available!</p>\r\n<p>So, <strong>is it possible</strong> to just use the Gmap control, when <strong>\r\nno internet connection</strong> is available, with a <strong>plain background</strong> colour, without even attempting to 'Connect' or retrieve map tiles? If so,\r\n<strong>how</strong>?</p>\r\n<p>Regards</p>\r\n<p>TS</p>\r\n",
+    "PostedDate": "2011-01-19T05:46:17.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "551910",
+    "ThreadId": "242407",
+    "Html": "\r\n<p>I think this might be helpful:</p>\r\n<p>mapControl.MapType =&nbsp;GMap.NET.MapType.None</p>\r\n",
+    "PostedDate": "2011-01-19T06:15:14.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552009",
+    "ThreadId": "242407",
+    "Html": "\r\n<p>Thanks <strong>Matt</strong>, great help.</p>\r\n<p>Couple more points leading on from that....</p>\r\n<p>1. What is the quickest, most convenient way to determine if an internet connection is, or is not active?</p>\r\n<p>2. With MapType set to None, I'd like to be able to plot on a Dark background. Whatever I set the BackColor Property of the GMap Control &nbsp;to it is always displayed in the same,(on my machine) light gray color? Am I missing something here?</p>\r\n<p>Rgds TS</p>\r\n",
+    "PostedDate": "2011-01-19T09:28:02.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552013",
+    "ThreadId": "242407",
+    "Html": "\r\n<p>set <strong>EmptyMapBackground</strong> ;}</p>\r\n<p>// set cache mode only if no internet avaible<br>\r\ntry<br>\r\n{<br>\r\nSystem.Net.IPHostEntry e = System.Net.Dns.GetHostEntry(&quot;www.google.com&quot;);<br>\r\n}<br>\r\ncatch<br>\r\n{<br>\r\nMainMap.Manager.Mode = AccessMode.CacheOnly;<br>\r\nMessageBox.Show(&quot;No internet connection avaible, going to CacheOnly mode.&quot;, &quot;GMap.NET - Demo.WindowsForms&quot;, MessageBoxButtons.OK, MessageBoxIcon.Warning);<br>\r\n}</p>\r\n",
+    "PostedDate": "2011-01-19T09:37:37.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552044",
+    "ThreadId": "242407",
+    "Html": "\r\n<p>Good Lord! You've thought of everything!&nbsp;</p>\r\n<p>Many thanks</p>\r\n<p>Rgds TS</p>\r\n",
+    "PostedDate": "2011-01-19T10:17:12.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

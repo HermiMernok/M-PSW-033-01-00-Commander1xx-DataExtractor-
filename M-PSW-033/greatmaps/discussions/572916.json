@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1325253",
+    "ThreadId": "572916",
+    "Html": "Hello.\r<br />\n<br />\nI have a question about cache. \r<br />\nI have many cached maps and I would like to create app(only cache mode) where user can select cached map. I'm trying to change  mapControl.CacheLocation but this work only when i use  mapControl.CacheLocation in constructor. Is there any posibility to change cache location while app working? Not only on start. User can change the cache location many times.\r<br />\n<br />\nThanks for Gmap.<br />\n",
+    "PostedDate": "2014-11-23T07:36:24.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1326247",
+    "ThreadId": "572916",
+    "Html": "Can anyone help me?<br />\n",
+    "PostedDate": "2014-11-26T00:51:05.757-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1326418",
+    "ThreadId": "572916",
+    "Html": "well it should work, what version do you use?<br />\n",
+    "PostedDate": "2014-11-26T06:32:55.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1326422",
+    "ThreadId": "572916",
+    "Html": "1.6 wpf<br />\n",
+    "PostedDate": "2014-11-26T06:37:38.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1326846",
+    "ThreadId": "572916",
+    "Html": "Tried hot build?<br />\n",
+    "PostedDate": "2014-11-27T10:51:50.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1328317",
+    "ThreadId": "572916",
+    "Html": "It's better. But how to clear cache? When I change map, the old tiles remain if new map don't have this tiles.<br />\n",
+    "PostedDate": "2014-12-03T01:41:13.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1329370",
+    "ThreadId": "572916",
+    "Html": "map.Manager.PrimaryCache.Clear();<br />\nmap.Reload();<br />\n",
+    "PostedDate": "2014-12-06T06:40:43.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

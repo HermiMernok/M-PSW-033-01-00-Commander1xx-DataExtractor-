@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "870750",
+    "ThreadId": "371307",
+    "Html": "\r\n<p>If you zoom between a integer, like 16.5 the map dragging is not working anymore, and we see the border of each title.</p>\r\n",
+    "PostedDate": "2012-07-17T05:45:43.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870757",
+    "ThreadId": "371307",
+    "Html": "<p>i know ;}</p>",
+    "PostedDate": "2012-07-17T05:53:58.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870761",
+    "ThreadId": "371307",
+    "Html": "<p>oh, hmm, any idea where to start for try to fix it? I'll try :)</p>\r\n<p>&nbsp;</p>\r\n<p>btw, I think I found a way for \"fix\" the rotation, see my code in issue tracker</p>",
+    "PostedDate": "2012-07-17T05:55:56.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870778",
+    "ThreadId": "371307",
+    "Html": "<p>well it's related to rotation too, it should work in between integer zooms ;}</p>",
+    "PostedDate": "2012-07-17T06:35:15.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870790",
+    "ThreadId": "371307",
+    "Html": "<p>yeah it will work between integer, because it will not use MapRenderTransform :) but since the way a \"fix\" the rotation on my side was only to resettransform between the draw of the map and the overlays, I don't know how it can be related (but i'm not sure since I don't know all your programmation :) ), if we take only the \"title\" problem at first, it seem to be in the function DrawMap, after the ScaleTransform</p>",
+    "PostedDate": "2012-07-17T06:50:07.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870801",
+    "ThreadId": "371307",
+    "Html": "\r\n<p>okay, you need to add</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Core.tileRectBearing.Size == Core.tileRect.Size)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Core.tileRectBearing = Core.tileRect;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Core.tileRectBearing.Inflate(1, 1);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>and&nbsp; Core.tileRectBearing = Core.tileRect; for the else</p>\r\n<p>in the zoom function too, now the title are nice.</p>\r\n",
+    "PostedDate": "2012-07-17T07:10:16.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870833",
+    "ThreadId": "371307",
+    "Html": "<p>hmm, for the \"dragging\", the problem seem to be around Core.tileRect.OffsetNegative(Core.compensationOffset); I presume the transform ratio need to be applied on this value... but can't figure it for now, any idea?</p>",
+    "PostedDate": "2012-07-17T08:07:21.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1106828",
+    "ThreadId": "462005",
+    "Html": "Hello,i'm Farm. I try to show the path between point to point with straight line.I'm try a lot to solve but i can't.If someone know how to make it please help me.Right now my output show the walk way not the straight line. PS.sorry for my bad english.\r<br />\n<br />\nThank a lot\r<br />\n<br />\nthis is my code about GMap<br />\n<pre><code>        private void init_map(object sender, EventArgs e)\n        {           \n            mapcon1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;\n            mapcon1.Position = new PointLatLng(14.076412, 100.30723);\n     //     mapcon1.SetCurrentPositionByKeywords(&quot;Bangkok&quot;);\n            mapcon1.MinZoom = 3;\n            mapcon1.MaxZoom = 17;\n            mapcon1.Zoom = 13;\n            mapcon1.Manager.Mode = AccessMode.ServerOnly;\n\n            markerOverlays = new GMapOverlay(mapcon1, &quot;overlay&quot;);\n            markerOverlays.Markers.Add(new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleRed(new PointLatLng(14.076412, 100.30723)));\n            mapcon1.Overlays.Add(markerOverlays);\n            markerOverlays.Markers.Add(new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleRed(new PointLatLng(14.078811,100.309869)));\n            mapcon1.Overlays.Add(markerOverlays);\n\n            //Show path\n            PointLatLng start = new PointLatLng(14.076412, 100.30723);\n            PointLatLng end = new PointLatLng(14.078811, 100.309869);\n\n            MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRouteBetweenPoints(start,end, true, false, 13);\n            GMapRoute r = new GMapRoute(route.Points, &quot;r&quot;);\n\n            GMapOverlay routeOverlay = new GMapOverlay(mapcon1,&quot;routeOverlay&quot;);\n            routeOverlay.Routes.Add(r);\n            mapcon1.Overlays.Add(routeOverlay);\n \n        }</code></pre>\n\n",
+    "PostedDate": "2013-10-13T01:34:04.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

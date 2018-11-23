@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "714281",
+    "ThreadId": "283481",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I have a problem in my application: when I pan and resize the window containing the gmap control, the marks I added are not positioned correctly until I zoom the map.</p>\r\n<p>To correct this behaviour&nbsp;I changed the sizechanged method this way:</p>\r\n<p><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">void</span> GMapControl_SizeChanged(<span style=\"color:blue\">object</span> sender, SizeChangedEventArgs\r\ne) \r\n{\r\nSystem.Windows.\r\n \r\nSize \r\nconstraint = e.NewSize; \r\n \r\n<span style=\"color:green\">// 50px outside control</span>\r\nregion =\r\n<span style=\"color:blue\">new</span> GRect(-50, -50, (<span style=\"color:blue\">int</span>)constraint.Width &#43; 100, (<span style=\"color:blue\">int</span> \r\n)constraint.Height &#43; 100); \r\nCore.OnMapSizeChanged((\r\n<span style=\"color:blue\">int</span>)constraint.Width, (<span style=\"color:blue\">int</span> \r\n)constraint.Height); \r\n \r\n<span style=\"color:green\">// keep center on same position</span>\r\n \r\n<span style=\"color:blue\">if</span> \r\n(IsLoaded) \r\n{\r\nCore.GoToCurrentPosition();\r\n \r\n \r\n<span style=\"color:blue\">if</span> \r\n(IsRotated) \r\n{\r\nUpdateRotationMatrix();\r\n \r\n<span style=\"color:green\">//modified by marco</span>\r\n \r\n<span style=\"color:green\">//ForceUpdateOverlays();</span>\r\n}\r\n \r\n<span style=\"color:blue\">else</span>\r\n{\r\nUpdateMarkersOffset();\r\n}\r\n \r\n<span style=\"color:gray\">///</span><span style=\"color:green\">/modified by marco</span>\r\nForceUpdateOverlays();\r\n}\r\n}\r\n</pre>\r\n</div>\r\n<span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\">\r\n<p>Thanks you very much for your amazing libraries!</p>\r\n<span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><font face=\"Consolas\" size=\"2\" color=\"#0000ff\">\r\n<p>Marco</p>\r\n</font></span></span></span><span style=\"font-family:Consolas; font-size:x-small\"></span></span></span></span></span><span style=\"font-family:Consolas; font-size:x-small\"></span></span></span></span></span><span style=\"font-family:Consolas; font-size:x-small\"></span>\r\n<p></p>\r\n",
+    "PostedDate": "2011-12-19T08:02:10.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714327",
+    "ThreadId": "283481",
+    "Html": "<p>welcome to the hot build testing team ;}</p>",
+    "PostedDate": "2011-12-19T10:05:09.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714334",
+    "ThreadId": "283481",
+    "Html": "<p>p.s. fixed</p>",
+    "PostedDate": "2011-12-19T10:14:54.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

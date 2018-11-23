@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "726543",
+    "ThreadId": "286451",
+    "Html": "<p>I need a DB in order to store GPS data in order to then plot it in the GMap.net control.</p>\n<p>So, i am thinking to reuse GMap.net DLL for my own database.</p>\n<p>&nbsp;</p>\n<p>Is it safe to use dll for GMap.net internals (cache) and at the same time use it to interact with application database (GPS data)?</p>\n<p>&nbsp;</p>\n<p>Thanks a lot</p>\n<p>&nbsp;</p>\n<p>Alan</p>\n<p>Env: windows xp+c# visual studio 10</p>",
+    "PostedDate": "2012-01-17T09:48:30.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726557",
+    "ThreadId": "286451",
+    "Html": "<p>what do you mean reuse?</p>",
+    "PostedDate": "2012-01-17T10:05:47.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726577",
+    "ThreadId": "286451",
+    "Html": "<p>Like launch a new thread listen seral port and insert data on the app database using the SQLite dll...</p>\r\n<p>Is this possibble and thread-safe?</p>\r\n<p>&nbsp;</p>\r\n<p>Alan</p>",
+    "PostedDate": "2012-01-17T10:41:48.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726589",
+    "ThreadId": "286451",
+    "Html": "<p>why do you need to insert into the same database anyway? Just create fresh one and use it, inserting data to tile cache probably would slow down tile loading. And it's thread 'safe' as long as you use database connection on one thread, if you have more threads, you'll need more connections</p>",
+    "PostedDate": "2012-01-17T10:59:00.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726605",
+    "ThreadId": "286451",
+    "Html": "<p>I think you did not understood:</p>\r\n<p>the GMap.net code/object uses SQLite database in order to implement map caching, right?</p>\r\n<p>Now, i wat to use the map control in an aplication to plot veicle GPS information in the map control.</p>\r\n<p>I am thinking t create a new database (veicule) and this database is updated by a thread that is listenning GSM modem on serial port. So, there are 2 databases: map caching and veicule.&nbsp;</p>\r\n<p>The question is: can thread use (is it safe) existing SQLite dll in order to write data to veicule database?</p>\r\n<p>As i understood, if each thread has a separate connection there is not problem, right?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>Alan</p>",
+    "PostedDate": "2012-01-17T11:16:29.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726608",
+    "ThreadId": "286451",
+    "Html": "<p>sure, you can check demo source, there is ip address cache using sqlite, i guess it's something similar to your idea</p>\r\n<p>p.s. set on sqlite reference option '<strong>Copy to local</strong>' = <strong>False</strong>, if you have map in your app, you automatically will use internal dll</p>",
+    "PostedDate": "2012-01-17T11:23:07.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726660",
+    "ThreadId": "286451",
+    "Html": "<p>Sorry, I thing you did not understood yet :-(</p>\r\n<p>I dont want to implement nothing similar to the existing SQLite database(s) of the GMap.net control.</p>\r\n<p>Please, consider de demo application. It works very well and noting to say about it.</p>\r\n<p>&nbsp;</p>\r\n<p>suppose now, that instead a button to create marks on demand, I wnat to draw marks in specific positions. Those possitions (veicules) are stored in a veicules.db at c:\\ (this is my database of veicules and have nothing to do with demo sample)</p>\r\n<p>&nbsp;</p>\r\n<p>So, I can reuse the SQLite dll (from the demo project) and use it in order to open veicules.db and load all veicules positions and draw them in map control as markers all this inside a new that that i have to create im demo project.</p>\r\n<p>The question is: if the demo main thread yelds processor (or scheduler grabs it) and the the other thread (draw veicules) runs and both threads are using sqlite dll code, is it safe? (thread safe?)</p>\r\n<p>&nbsp;</p>\r\n<p>Sorry but my eglish is not very good...</p>\r\n<p>&nbsp;</p>\r\n<p>Alan</p>",
+    "PostedDate": "2012-01-17T12:48:05.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726882",
+    "ThreadId": "286451",
+    "Html": "<p>one dll can use many programs, it has nothing to do with thread safeness anyway</p>",
+    "PostedDate": "2012-01-17T23:17:53.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726943",
+    "ThreadId": "286451",
+    "Html": "<p>What i mean is one program (many threads) use one (the same) DLL!</p>\n<p>If the dll code is not thread safe (with safe critical sections ) there will be problems...</p>\n<p>Hence, I would like to know if the SQLite dll that come with GMap.net control is thread safe or not.</p>\n<p>Alan</p>",
+    "PostedDate": "2012-01-18T02:13:50.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726975",
+    "ThreadId": "286451",
+    "Html": "<p>thread 'safeness' depends on your coding, not the dll</p>",
+    "PostedDate": "2012-01-18T03:37:28.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726978",
+    "ThreadId": "286451",
+    "Html": "<p>There are 2 approachs:</p>\r\n<p>IF dll is already safe, app code have no problem. If dll is not safe we have to take care of it at app code. As some app code is already written (the GMap.net control) if dll is not safe i have to take care at my code (plot veicule on map) and i also have to protect GMap.net control because now there are another thread that also uses the same dll.</p>\r\n<p>It is my point of view.</p>\r\n<p>&nbsp;</p>\r\n<p>But, no problem, the map control continues use the sqlite dll (for caching, etc) and I will implement sqlite veicule database connection by hand using C# suport for that.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Alan</p>",
+    "PostedDate": "2012-01-18T03:50:18.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726979",
+    "ThreadId": "286451",
+    "Html": "<p>you have strange idea, what is thread safe code... ;}</p>",
+    "PostedDate": "2012-01-18T03:52:57.337-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726987",
+    "ThreadId": "286451",
+    "Html": "<p>Thread safe code is well written code that could be called \"simultaneously\" by 2 or more threads (or processes) and integrity is safeguarded.</p>\r\n<p>Supopose a DLL x that implements funcion y.</p>\r\n<p>Assume that function y uses global variables and is not protected</p>\r\n<p>suppose now that 2 different threads call function y.</p>\r\n<p>suppose that thread 1 is executing function y and at the middle the scheduler gives processor to thread 2 .</p>\r\n<p>Suppose that thread 2 runts till the end of function y.</p>\r\n<p>Then scheduler gives processor again to thread 1 (stopped at the middle)</p>\r\n<p>When thread 1 runs again with have the global variables written by thread 2 and probably data integrity is compromised!</p>\r\n<p>&nbsp;</p>\r\n<p>To handle that we used to define critical sections and semaphores (for exmple) in order to turn the function y thread safe. an improved way to turn function y thread safe is to rewrite it to just use local valiables (each thread have those lcoal variables on their stacks and there is no probem)</p>\r\n<p>&nbsp;</p>\r\n<p>Alan</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-01-18T04:11:18.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726992",
+    "ThreadId": "286451",
+    "Html": "<p>dll can have N functions, half of them can be thread safe other half can be not thread safe, it has nothing to do with the dll itself ;}</p>",
+    "PostedDate": "2012-01-18T04:13:49.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727021",
+    "ThreadId": "286451",
+    "Html": "<p>I quit! :-))</p>\r\n<p>&nbsp;</p>\r\n<p>And i will write my own code for database connection and forget the existing dll</p>\r\n<p>&nbsp;</p>\r\n<p>Alan</p>",
+    "PostedDate": "2012-01-18T05:24:31.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

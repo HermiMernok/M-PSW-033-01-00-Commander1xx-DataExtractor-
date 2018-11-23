@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "838240",
+    "ThreadId": "356317",
+    "Html": "<p>hello @ all,</p>\n<p>&nbsp;</p>\n<p>can i use the gmap c# projekt on c++?</p>\n<p>i think i have to use the GMap.NET.Core.dll, and call the managed dll from unmanaged c++?</p>\n<p>is that the right way?</p>\n<p>&nbsp;</p>\n<p>thanxx for all helps :)</p>\n<p>habe a nice weekend!</p>",
+    "PostedDate": "2012-05-18T11:55:39.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838250",
+    "ThreadId": "356317",
+    "Html": "<p>it's possible, yet difficult</p>",
+    "PostedDate": "2012-05-18T12:16:12.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838251",
+    "ThreadId": "356317",
+    "Html": "<p>why difficult? how i can do it?</p>",
+    "PostedDate": "2012-05-18T12:20:59.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838259",
+    "ThreadId": "356317",
+    "Html": "<p>if it would not, if would be easy, i have no idea, do you use mfc or smth?</p>",
+    "PostedDate": "2012-05-18T13:05:16.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838269",
+    "ThreadId": "356317",
+    "Html": "<p>yes it would be easy :)</p>\n<p>&nbsp;i use mfc , i thought i can use the c# dll with the c++ windows form?</p>",
+    "PostedDate": "2012-05-18T13:18:21.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838280",
+    "ThreadId": "356317",
+    "Html": "<p>yeah, should work</p>",
+    "PostedDate": "2012-05-18T14:05:11.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838293",
+    "ThreadId": "356317",
+    "Html": "\r\n<p>can i use only the core.dll and show this on c&#43;&#43;,</p>\r\n<p>i mean without the control, without gmap.windows.form.dll?</p>\r\n",
+    "PostedDate": "2012-05-18T15:19:41.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838359",
+    "ThreadId": "356317",
+    "Html": "<p>do whatever you want ;}</p>",
+    "PostedDate": "2012-05-19T01:05:57.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840448",
+    "ThreadId": "356317",
+    "Html": "<p>thxx :D</p>\r\n<p>it is really difficult to use my c++ projekt with gmap.</p>\r\n<p>I can call the core class with my project, but now i have to show the bitmaps.</p>\r\n<p>i think i have to use the void drawmap method like in c#?</p>",
+    "PostedDate": "2012-05-24T07:33:56.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840478",
+    "ThreadId": "356317",
+    "Html": "\r\n<p>How to: Create the User Control and Host in a Dialog Box: http://msdn.microsoft.com/en-us/library/b1kyh79x(v=vs.100).aspx</p>\r\n<p>Walkthrough: Hosting WPF Content in Win32: http://msdn.microsoft.com/en-us/library/ms744829.aspx</p>\r\n",
+    "PostedDate": "2012-05-24T08:27:21.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840992",
+    "ThreadId": "356317",
+    "Html": "<p>thx for the links, nice help for me :)</p>\r\n<p>&nbsp;</p>\r\n<p>i think i have to look the function void DrawMap and void Onpaint to call the bitmaps?</p>\r\n<p>what do windowsformimage.cs?</p>",
+    "PostedDate": "2012-05-25T09:01:59.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847372",
+    "ThreadId": "356317",
+    "Html": "\r\n<p>sorry wrong comment</p>\r\n",
+    "PostedDate": "2012-06-11T03:19:57.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847376",
+    "ThreadId": "356317",
+    "Html": "<p>i want to explain the project.</p>\r\n<p>i have c++ project that have a form with a bitmapcontrol. i can createa bitmap with my c++ project . The c++ project works well.</p>\r\n<p>Now i want to show a map in my bitmapcontrol.&nbsp; I have create a  mixedmode (c++ and c#) to use my core.dll. The mixedmode works well.</p>\r\n<p>Now i want to show a bitmap on my bitmapcotrol. Dont forget i have no GMapControl.cs.</p>\r\n<p>I think i have to use the function void DrawMap?</p>",
+    "PostedDate": "2012-06-11T03:28:50.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847384",
+    "ThreadId": "356317",
+    "Html": "<p>just use whole control embedding stuff</p>",
+    "PostedDate": "2012-06-11T03:40:31.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

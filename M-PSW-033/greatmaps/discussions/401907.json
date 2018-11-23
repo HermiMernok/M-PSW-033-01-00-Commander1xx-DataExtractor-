@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "936568",
+    "ThreadId": "401907",
+    "Html": "\r\n<p>Hi there,</p>\r\n<p>As it discribes in the subject, I would like to know if there is an existing function to create a marker without coordinates but only with distance and&nbsp;bearing from an existing marker?</p>\r\n<p>If not, can someone explains me how to manage to do it please ?</p>\r\n<p>Thanks in advance for the help.</p>\r\n<p>Kemanke</p>\r\n",
+    "PostedDate": "2012-11-05T00:41:45.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936613",
+    "ThreadId": "401907",
+    "Html": "<p>I found a formula with my friend Google ;):</p>\r\n<p>(Note: lat and lon should be in radians)</p>\r\n<pre class=\"code prettyprint margin-l-0\"><span class=\"pun\"><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">var</span> lat2 = Math.asin( Math.sin(lat1)*Math.cos(d/R) + \r\n              Math.cos(lat1)*Math.sin(d/R)*Math.cos(brng) );\r\n<span style=\"color: blue;\">var</span> lon2 = lon1 + Math.atan2(Math.sin(brng)*Math.sin(d/R)*Math.cos(lat1), \r\n                     Math.cos(d/R)-Math.sin(lat1)*Math.sin(lat2));</pre>\r\n<pre></pre>\r\n<pre><span class=\"pun\"></span></pre>\r\n</div>\r\n</span></pre>",
+    "PostedDate": "2012-11-05T02:19:40.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

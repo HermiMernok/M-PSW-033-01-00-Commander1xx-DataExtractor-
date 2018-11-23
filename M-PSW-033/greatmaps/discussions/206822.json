@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "421956",
+    "ThreadId": "206822",
+    "Html": "<p>Hi Radioman.&nbsp; Sorry to be an idiot but Im really struggling to translate from&nbsp;C# into&nbsp;VB.&nbsp;&nbsp;I'm not trying to do&nbsp;anything really difficult, just get the basics.&nbsp;&nbsp;Do you have any links to some VB.net examples or demos that I can start off with.&nbsp; Would really be appreciated.&nbsp; Thanks</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-21T18:59:22.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "421984",
+    "ThreadId": "206822",
+    "Html": "<p>what exactly do you try to do? you can look in demos source with reflector and set language to VB</p>",
+    "PostedDate": "2010-03-21T23:34:23.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422042",
+    "ThreadId": "206822",
+    "Html": "<p>TeflonTed,</p>\r\n<p>&nbsp;</p>\r\n<p>maybe i can be of any help. I have almost complete program now and sharing parts of it (or some hints) is no problem.</p>\r\n<p>Just let me know if i can be of any help.</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-03-22T03:20:00.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422056",
+    "ThreadId": "206822",
+    "Html": "<p>i encourage to create <a href=\"http://greatmaps.codeplex.com/SourceControl/network/create/fork\">fork</a> with added vb demo inside solution, then anyone can benefit</p>",
+    "PostedDate": "2010-03-22T04:21:13.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422432",
+    "ThreadId": "206822",
+    "Html": "<p>Thanks so much Heru.&nbsp; Really appreciate it - I've never used c# so you can imagine, I'm&nbsp;pulling my hair out trying to convert it.</p>\r\n<p>Can we do as radioman suggests and create a fork?</p>\r\n<p>Thanks again</p>\r\n<p>&nbsp;&nbsp;</p>",
+    "PostedDate": "2010-03-23T01:09:20.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422444",
+    "ThreadId": "206822",
+    "Html": "<p>TeflonTed, Radioman,</p>\r\n<p>I don't know if i am the right person to create and maintain a fork. I do not program in OOP style.</p>\r\n<p>I still program with procedures. So if that is no problem than i can help. Otherwise......sorry.</p>\r\n<p>&nbsp;</p>\r\n<p>Let me know,</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-23T01:29:52.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422464",
+    "ThreadId": "206822",
+    "Html": "<p>Heru at this stage anything would help.&nbsp; Is there some way we could converse offline if a fork is not acceptable?&nbsp; I'm not sure how to proceed from here</p>\r\n<p>Thanks again for taking the time</p>\r\n<p>Ted</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-23T02:43:53.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422471",
+    "ThreadId": "206822",
+    "Html": "<p>TeflonTed,</p>\r\n<p>&nbsp;</p>\r\n<p>What do you have so far? Or just nothing?</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-23T03:21:21.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422574",
+    "ThreadId": "206822",
+    "Html": "<p><span style=\"color:#000000\">Hi Heru</span></p>\r\n<p><span style=\"color:#000000\">I have VS2005 .net2.&nbsp; Added references to GMAP.Net.Core, Gmap.Net.Windowsforms, GMap.Net.WindowsPresentation.&nbsp;&nbsp;&nbsp; Added the control to the Toolbox.</span></p>\r\n<p><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">\r\n<p><span style=\"color:#000000\">Imports&nbsp; GMAP</span></p>\r\n<p><span style=\"font-size:x-small;color:#0000ff\">&nbsp;</span><span style=\"color:#000000\"><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">Imports </span></span><span style=\"font-size:x-small\">System.Globalization</span><span style=\"font-size:x-small;color:#008000\"><span style=\"font-size:x-small;color:#008000\"> </span></span></span></p>\r\n<p><span style=\"color:#000000\">&nbsp;</span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\"><span style=\"color:#000000\">Imports </span></span></span><span style=\"color:#000000\"><span style=\"font-size:x-small\">System.Windows.Forms.PaintEventArgs</span></span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">&nbsp;</span></span></p>\r\n</span></span></p>\r\n<p><span style=\"color:#000000\"><span style=\"font-size:x-small\">\r\n<p>Imports System.ComponentModel</p>\r\n</span></span></p>\r\n<p>\r\n<p>\r\n<p><span style=\"color:#000000\">Imports System.Diagnostics</span></p>\r\n</p>\r\n</p>\r\n<p><span style=\"color:#000000\">&nbsp;</span><span style=\"color:#000000\">Created form, added control, works fine.&nbsp; Am able to Zoom in and out.&nbsp; Change Map providors, change&nbsp;server/local cache and import and export cache.</span></p>\r\n<p><span style=\"color:#000000\">So far so good.&nbsp; But according to the examples, I should be able to expose&nbsp;<span style=\"font-size:x-small;color:#008000\"><span style=\"font-size:x-small;color:#008000\">OnCurrentPositionChanged, </span></span>, mouse movements,&nbsp;rendering etc and I cant seem to get to them.</span></p>\r\n<p><span style=\"color:#000000\">Im also having problems converting gmap values to strings etc</span></p>\r\n<p><span style=\"color:#000000\">Does this make any sense ?</span></p>\r\n<p><span style=\"font-size:x-small;color:#008000\"><span style=\"font-size:x-small;color:#008000\"><span style=\"color:#000000\">&nbsp;</span></span></span></p>\r\n<p><span style=\"font-size:x-small;color:#008000\"><span style=\"font-size:x-small;color:#008000\">&nbsp;</span></span></p>\r\n<p><span style=\"font-size:x-small;color:#008000\"><span style=\"font-size:x-small;color:#008000\">&nbsp;</span></span></p>\r\n<p>Many Thanks&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-23T07:35:49.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422655",
+    "ThreadId": "206822",
+    "Html": "<p>?</p>",
+    "PostedDate": "2010-03-23T10:22:29.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422811",
+    "ThreadId": "206822",
+    "Html": "<p>&quot;<span style=\"color:#000000\">Im also having problems converting gmap values to strings etc&quot;. Do you mean the map type enum?<br></span></p>",
+    "PostedDate": "2010-03-23T16:23:28.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423532",
+    "ThreadId": "206822",
+    "Html": "<p>No, I had that problem but wimped out with &quot;if dropdownboxvalue = &quot;Bing..&quot; then gmapcontrol.mapstyle = ... etc&nbsp; Not elegant but it worked.</p>\r\n<p>I was hoping that Heru could explain how he got to those that I described above though cos I cant</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-25T05:38:13.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423538",
+    "ThreadId": "206822",
+    "Html": "<p><span style=\"color:#1000a0\">this</span>.comboBoxMapType.DataSource = Enum.GetValues(<span style=\"color:#1000a0\">typeof</span>(MapType));</p>\r\n<p><span style=\"color:#1000a0\">this</span>.comboBoxMapType.SelectedItem = <span style=\"color:#1000a0\">this</span>.MainMap.MapType;</p>\r\n<p>=&gt;</p>\r\n<p><span style=\"color:#1000a0\">Me</span>.comboBoxMapType.DataSource = Enum.GetValues(<span style=\"color:#1000a0\">GetType</span>(MapType))</p>\r\n<p><span style=\"color:#1000a0\">Me</span>.comboBoxMapType.SelectedItem = <span style=\"color:#1000a0\">Me</span>.MainMap.MapType</p>\r\n<p>-------------------------</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#1000a0\">this</span>.MainMap.OnCurrentPositionChanged += <span style=\"color:#1000a0\">new</span> CurrentPositionChanged(<span style=\"color:#1000a0\">this</span>.MainMap_OnCurrentPositionChanged);</p>\r\n<p>=&gt;</p>\r\n<p><span style=\"color:#1000a0\">AddHandler </span><span style=\"color:#1000a0\">Me</span>.MainMap.OnCurrentPositionChanged, <span style=\"color:#1000a0\">New </span>CurrentPositionChanged(<span style=\"color:#1000a0\">AddressOf</span><span style=\"color:#1000a0\"> </span><span style=\"color:#1000a0\">Me</span>.MainMap_OnCurrentPositionChanged)</p>\r\n<pre><span style=\"color:#1000a0\">Private</span> <span style=\"color:#1000a0\">Sub</span> <strong>MainMap_OnCurrentPositionChanged</strong>(<span style=\"color:#1000a0\">ByVal</span> <strong>point</strong><span style=\"color:#1000a0\"> As </span>PointLatLng)\r\n    <span style=\"color:#1000a0\">Me</span>.center.Position = point\r\n<span style=\"color:#1000a0\">End Sub<br></span>\r\n</pre>\r\n<p>-------------------------</p>\r\n<pre><span style=\"color:#1000a0\">private</span> void <strong>comboBoxMapType_DropDownClosed</strong>(object sender, EventArgs e)\r\n{\r\n    <span style=\"color:#1000a0\">this</span>.MainMap.MapType = (MapType) <span style=\"color:#1000a0\">this</span>.comboBoxMapType.SelectedValue;\r\n}\r\n<br>=&gt;<br><br><table style=\"margin-bottom:0px\" border=0 cellspacing=0 cellpadding=0 width=\"100%\">\r\n<tbody>\r\n<tr>\r\n<td style=\"padding-bottom:4px;padding-left:5px;padding-right:5px;padding-top:4px\" colspan=2 valign=top><pre><span style=\"color:#1000a0\">Private</span> <span style=\"color:#1000a0\">Sub</span> <strong>comboBoxMapType_DropDownClosed</strong>(<span style=\"color:#1000a0\">ByVal</span> <strong>sender</strong><span style=\"color:#1000a0\"> As </span>Object, <span style=\"color:#1000a0\">ByVal</span> <strong>e</strong><span style=\"color:#1000a0\"> As </span>EventArgs)\r\n    <span style=\"color:#1000a0\">Me</span>.MainMap.MapType = <span style=\"color:#1000a0\">DirectCast</span>(<span style=\"color:#1000a0\">Me</span>.comboBoxMapType.SelectedValue, MapType)\r\n<span style=\"color:#1000a0\">End Sub</span></pre>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</pre>",
+    "PostedDate": "2010-03-25T05:52:45.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424216",
+    "ThreadId": "206822",
+    "Html": "<p>Many thanks for trying to help radioman, appreciated.&nbsp; Currently working through your suggestions.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-26T11:52:27.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

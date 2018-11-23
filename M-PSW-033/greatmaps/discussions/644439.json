@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1442698",
+    "ThreadId": "644439",
+    "Html": "Hi,<br />\nI would like to know that is there any way that I can pre cache map of whole world at all zoom level or lets say for a sepcific region. I know that it will be alot to swallow but thats what I aim to do. To develop an offline app using Windows Forms or WPF which will have all levels of zoom data/map for a specific country. If you have any idea please contribute.<br />\n",
+    "PostedDate": "2015-09-01T08:43:34.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1442723",
+    "ThreadId": "644439",
+    "Html": "use demos, there is prefetch functionality built-in<br />\n",
+    "PostedDate": "2015-09-01T12:33:53.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1442733",
+    "ThreadId": "644439",
+    "Html": "okie thanks man<br />\n",
+    "PostedDate": "2015-09-01T13:01:09.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1458948",
+    "ThreadId": "644439",
+    "Html": "I have this same question but in more general terms.  If I use the Google maps app on my android phone and have it make a region available for offline usage, it pulls the whole bundle down in under a minute and then I am able to zoom to any level without being online.  I assume what is happening here is that it is pulling down the raw map data, not the tile image data, and then rendering the tiles as needed on the local device?  I say this because there are millions of tiles that would have to be downloaded in order to get all zoom levels for an entire city.  The OSM servers prohibit this and even using a paid commercial server it seems like it would be impractical (in terms of time required at least) to download all of the tiles exhaustively.<br />\n<br />\nSo if my assumptions are correct, is there any way to have GMap.NET get the raw map data and do the rendering locally?  If not, what do you suggest?  Perhaps just not supporting the highest zoom levels for offline?<br />\n<br />\nEDIT:  I just read that google maps don't use image tiles any more but rather use vector graphics which makes them self-scaling and require far less space.  How does this work with GMap.NET?  Are the vectors being converted to PNGs locally or does google still have a legacy API that provides bitmap tiles?<br />\n",
+    "PostedDate": "2016-01-12T08:56:40.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

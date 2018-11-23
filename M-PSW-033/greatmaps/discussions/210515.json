@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "435330",
+    "ThreadId": "210515",
+    "Html": "<p>Hi there,</p>\r\n<p>I am working on a small tool which reads ESRI shape files and plot the shapes into the GMap,&nbsp; any ideas how can I set the projection of the Gmap using the prj file?</p>\r\n<p>Also, I am very new to Geo stuff..&nbsp; can someone please explain to me what is the differences between the ESRI X,Y coordinates and the GMap Latitude/Longitude?</p>\r\n<p>many thanks,</p>\r\n<p>vtec</p>",
+    "PostedDate": "2010-04-25T23:33:29.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435337",
+    "ThreadId": "210515",
+    "Html": "<p>well you need to experiment, ..anyway why you need prj files?</p>",
+    "PostedDate": "2010-04-25T23:53:00.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435706",
+    "ThreadId": "210515",
+    "Html": "<p>becuase the shapefile I am trying to import has a PRJ file, which I assume is used to store the Projection coordinate.</p>\r\n<p>I have managed to read the shapes within the Shape files. but they somehow appear in the WRONG place..&nbsp; so I assume it has something to do with the projection?&nbsp; or either I need to somehow convert the ESRI coordinate to GMAP lat/lng?</p>\r\n<p>by the way..&nbsp; cool project you have here, love it...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-26T15:17:34.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436105",
+    "ThreadId": "210515",
+    "Html": "<p>can you share some results, maybe i can help ;}</p>",
+    "PostedDate": "2010-04-27T11:29:41.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "653666",
+    "ThreadId": "210515",
+    "Html": "<p>hi radioman.In the first thank you for this great project</p>\r\n<p>i have the same problem</p>\r\n<p>i need to load ESRI shape files&nbsp; into Gmap</p>\r\n<p>i get some tools to read .shp file content</p>\r\n<p>like polygons coordinates into each shape</p>\r\n<p>but when i tried to draw polygon (they somehow appear in the WRONG place)</p>\r\n<p>as shown in attached image link</p>\r\n<p>i don't now what the problem the polygon its like's need to rotate or some thing like that</p>\r\n<p>i guess the projection will solve this problem but i don't know how?</p>\r\n<p><a href=\"http://imageshack.us/photo/my-images/89/unleddfa.jpg\" target=\"_blank\">http://imageshack.us/photo/my-images/89/unleddfa.jpg</a></p>",
+    "PostedDate": "2011-08-06T07:02:58.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "653779",
+    "ThreadId": "210515",
+    "Html": "<p>so what is your projection, are you sure you get correct points?</p>",
+    "PostedDate": "2011-08-06T10:51:25.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

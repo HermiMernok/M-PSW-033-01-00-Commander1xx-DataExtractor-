@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "732019",
+    "ThreadId": "287744",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>First, thanks for that great piece of software.</p>\r\n<p>In WindowsForm, if GetPlacemark returns the status 620 - G_GEO_TOO_MANY_QUERIES, GMap record that result in cache.</p>\r\n<p>So if you put the thread in sleep for 500 ms and than the query is repeated, I get the same status of 620 from the cache and the application could enter in infinite loop.</p>\r\n<p>I think that result with 620 status code should not be cached.</p>\r\n",
+    "PostedDate": "2012-01-28T09:00:01.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732047",
+    "ThreadId": "287744",
+    "Html": "<p>thx, it will be fixed</p>",
+    "PostedDate": "2012-01-28T11:10:58.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732481",
+    "ThreadId": "287744",
+    "Html": "<p>done</p>",
+    "PostedDate": "2012-01-30T00:03:21.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

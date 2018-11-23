@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "247887",
+    "ThreadId": "72591",
+    "Html": "<p>I see that I can only create routes by coordinates, how about creating them by addresses?</p>\r\n<p>How about creating a route from addresses?<br>Also, is there an option that I provide a list of addresses and the control will create a route of them and sort them according to closer distances?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot!</p>",
+    "PostedDate": "2009-10-20T14:40:00.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "247889",
+    "ThreadId": "72591",
+    "Html": "<p>it depends only of geocoding service, if you can get coordinates from somewhere you can draw it on map ;}</p>",
+    "PostedDate": "2009-10-20T14:44:58.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "247914",
+    "ThreadId": "72591",
+    "Html": "<p>What do you mean get coordinates from somewhere?</p>",
+    "PostedDate": "2009-10-20T16:20:24.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248269",
+    "ThreadId": "72591",
+    "Html": "<p>from google/microsoft/yahoo/etc... anyway there is integrated google geocoding, so you can get route between two places using something like that:</p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\">MapRoute r = GMaps.Instance.GetRouteBetweenPoints(<span style=\"color:#A31515\">&quot;Lithuania, Kaunas&quot;</span>, <span style=\"color:#A31515\">&quot;Lithuania, Vilnius&quot;</span>, <span style=\"color:Blue\">false</span>, MainMap.Zoom);</span></p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-21T13:14:23.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248283",
+    "ThreadId": "72591",
+    "Html": "<p>Hello radioman and thanks for your response!</p>\r\n<p>Which means that I can replace &quot;Lithuania, Kaunas&quot; with addresses, for example:</p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\">\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>MapRoute r = GMaps.Instance.GetRouteBetweenPoints(<span style=\"color:#A31515\">&quot;1445 Dummy st., Rome, Italy 12345&quot;</span>, <span style=\"color:#A31515\">&quot;1111 Other Dummy st., Rome, Italy 12349&quot;</span>, <span style=\"color:Blue\">false</span>, MainMap.Zoom);\r\n</pre>\r\n</div>\r\n</span></p>\r\n<p>Correct me if I am wrong.</p>\r\n<p>Now, I want to be able to make a route that consists of more than just two points, I want to have like 15 addresses and it should create a route between them deciding what should be the most shoter way; <br>For example, if I have a route that consists of the following addresses:</p>\r\n<p>2 Dummy st.,<br>45 Dummy st.,<br>1 Dummy st.</p>\r\n<p>it should be able to sort it by distance and make the route so I don't have to return to the same place twice, is there such a feature? Is there even a feature to make a route of many points??</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for all!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-21T13:43:32.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248315",
+    "ThreadId": "72591",
+    "Html": "<p>i don't know try look at google docmentation... sure you can call function for each two addresses and have some list...</p>",
+    "PostedDate": "2009-10-21T15:24:05.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489488",
+    "ThreadId": "72591",
+    "Html": "<p>Hello radioman.</p>\r\n<p>I'm working on mobile app and I'm using your control. I have problem with creating route by addresses because this code:</p>\r\n<p>\r\n<pre><div style=\"color:black;background-color:white\"><pre>GMaps.Instance.GetRouteBetweenPoints(<span style=\"color:#a31515\">&quot;Vienna, Austria&quot;</span>, <span style=\"color:#a31515\">&quot;Berlin, Deutschland&quot;</span>, <span style=\"color:blue\">false</span>, (<span style=\"color:blue\">int</span>)map.Zoom);</pre>\r\n<pre><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">return null.</span></pre>\r\n</div>\r\n</pre>\r\n</p>\r\n<p>Maybe someone can &nbsp;help me ??&nbsp;</p>\r\n<p>Thanks for all.</p>",
+    "PostedDate": "2010-09-05T14:08:16.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489567",
+    "ThreadId": "72591",
+    "Html": "<p>it's disabled in mobile version, you can try uncomment these functions, but there is need to adapt them to make it work on mobile</p>",
+    "PostedDate": "2010-09-05T21:47:39.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "498926",
+    "ThreadId": "72591",
+    "Html": "<p>I have enabled the GetRouteBetweenPoints for WM. Seems to work fine.</p>\r\n<p>You have to remove all the directives in the function.</p>\r\n<p>Comment the last four row in the function (after the #endif directive&nbsp;for the first directive #if !PocketPC)</p>\r\n<p>The function GetInvalidFileChars not exist, change with GetInvalidPathChars</p>\r\n<p>The propriety ConnectionLimit not exist, i have commented the row</p>\r\n<p>Thats all.</p>\r\n<p>Bye</p>\r\n<p>&nbsp;</p>\r\n<p>Max</p>",
+    "PostedDate": "2010-09-27T06:57:43.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499065",
+    "ThreadId": "72591",
+    "Html": "<p>thanks</p>",
+    "PostedDate": "2010-09-27T11:02:22.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011441",
+    "ThreadId": "72591",
+    "Html": "<strong>weitzhandler wrote:</strong><br />\n<blockquote>\nHello radioman and thanks for your response! Which means that I can replace &quot;Lithuania, Kaunas&quot; with addresses, for example:   MapRoute r = GMaps.Instance.GetRouteBetweenPoints(&quot;1445 Dummy st., Rome, Italy 12345&quot;, &quot;1111 Other Dummy st., Rome, Italy 12349&quot;, false, MainMap.Zoom);    Correct me if I am wrong. Now, I want to be able to make a route that consists of more than just two points, I want to have like 15 addresses and it should create a route between them deciding what should be the most shoter way; For example, if I have a route that consists of the following addresses: 2 Dummy st.,45 Dummy st.,1 Dummy st. it should be able to sort it by distance and make the route so I don't have to return to the same place twice, is there such a feature? Is there even a feature to make a route of many points?? &nbsp; Thanks for all! &nbsp;<br />\n</blockquote>\nweitzhandler were you able to accomplish this ?\r<br />\nif so - do you have an example ?\r<br />\nthank you<br />\n",
+    "PostedDate": "2013-03-06T14:43:13.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

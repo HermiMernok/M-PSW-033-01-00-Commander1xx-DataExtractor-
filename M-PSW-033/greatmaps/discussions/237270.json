@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "531669",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>Hallo</p>\r\n<p>I have implemented in a my windows form application Gmap and it's work fine on Win Xp and Vista but today i have try to install on windows Server 2008 foundation and when i call Gmap i receive&nbsp;this error:</p>\r\n<p><em>Le informazioni su come richiamare il debug JIT (Just-In-Time) anzich&eacute; questa finestra</em><br>\r\n<em>sono riportate in fondo al messaggio.</em></p>\r\n<p><em>************** Testo dell'eccezione **************</em><br>\r\n<em>System.BadImageFormatException: Impossibile caricare il file o l'assembly 'GMap.NET.Core, Version=1.5.1.3, Culture=neutral, PublicKeyToken=b85b9027b614afef' o una delle relative dipendenze. Tentativo di caricare un programma con un formato non corretto.</em><br>\r\n<em>Nome file: 'GMap.NET.Core, Version=1.5.1.3, Culture=neutral, PublicKeyToken=b85b9027b614afef'</em><br>\r\n<em>&nbsp;&nbsp; in GeLog.FormIndirizzoHome.BtGeoRef_Click(Object sender, EventArgs e)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.Control.OnClick(EventArgs e)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.Control.WmMouseUp(Message&amp; m, MouseButtons button, Int32 clicks)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.Control.WndProc(Message&amp; m)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.ButtonBase.WndProc(Message&amp; m)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.Button.WndProc(Message&amp; m)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)</em><br>\r\n<em>&nbsp;&nbsp; in System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</em></p>\r\n<p><em>AVV: la registrazione dell'associazione di assembly &egrave; disattivata.</em><br>\r\n<em>Per attivare la registrazione degli errori di associazione di assembly, impostare il valore del Registro di sistema [HKLM\\Software\\Microsoft\\Fusion!EnableLog] (DWORD) su 1.</em><br>\r\n<em>Nota: alcune penalit&agrave; di prestazione sono associate alla registrazione degli errori di associazione di assembly.</em><br>\r\n<em>Per disattivare la funzionalit&agrave;, rimuovere il valore del Registro di sistema [HKLM\\Software\\Microsoft\\Fusion!EnableLog].</em></p>\r\n<p><em>&nbsp;</em></p>\r\n<p><em>************** Assembly caricati **************</em><br>\r\n<em>mscorlib</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4952 (win7RTMGDR.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/Microsoft.NET/Framework64/v2.0.50727/mscorlib.dll\">\r\nfile:///C:/Windows/Microsoft.NET/Framework64/v2.0.50727/mscorlib.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>GeLog</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 1.0.2.2</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 1.0.2.2</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/GeLog/GeLog.exe\">file:///C:/GeLog/GeLog.exe</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>Microsoft.VisualBasic</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 8.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 8.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/Microsoft.VisualBasic/8.0.0.0__b03f5f7f11d50a3a/Microsoft.VisualBasic.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/Microsoft.VisualBasic/8.0.0.0__b03f5f7f11d50a3a/Microsoft.VisualBasic.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System/2.0.0.0__b77a5c561934e089/System.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System/2.0.0.0__b77a5c561934e089/System.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Windows.Forms</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System.Windows.Forms/2.0.0.0__b77a5c561934e089/System.Windows.Forms.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System.Windows.Forms/2.0.0.0__b77a5c561934e089/System.Windows.Forms.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Drawing</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System.Drawing/2.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System.Drawing/2.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Runtime.Remoting</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System.Runtime.Remoting/2.0.0.0__b77a5c561934e089/System.Runtime.Remoting.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System.Runtime.Remoting/2.0.0.0__b77a5c561934e089/System.Runtime.Remoting.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Data</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_64/System.Data/2.0.0.0__b77a5c561934e089/System.Data.dll\">\r\nfile:///C:/Windows/assembly/GAC_64/System.Data/2.0.0.0__b77a5c561934e089/System.Data.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Xml</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System.Xml/2.0.0.0__b77a5c561934e089/System.Xml.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System.Xml/2.0.0.0__b77a5c561934e089/System.Xml.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Windows.Forms.resources</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System.Windows.Forms.resources/2.0.0.0_it_b77a5c561934e089/System.Windows.Forms.resources.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System.Windows.Forms.resources/2.0.0.0_it_b77a5c561934e089/System.Windows.Forms.resources.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Transactions</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_64/System.Transactions/2.0.0.0__b77a5c561934e089/System.Transactions.dll\">\r\nfile:///C:/Windows/assembly/GAC_64/System.Transactions/2.0.0.0__b77a5c561934e089/System.Transactions.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.EnterpriseServices</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_64/System.EnterpriseServices/2.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll\">\r\nfile:///C:/Windows/assembly/GAC_64/System.EnterpriseServices/2.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Configuration</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System.Configuration/2.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System.Configuration/2.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>mscorlib.resources</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4952 (win7RTMGDR.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/Microsoft.NET/Framework64/v2.0.50727/mscorlib.dll\">\r\nfile:///C:/Windows/Microsoft.NET/Framework64/v2.0.50727/mscorlib.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>System.Data.resources</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 2.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 2.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/System.Data.resources/2.0.0.0_it_b77a5c561934e089/System.Data.resources.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/System.Data.resources/2.0.0.0_it_b77a5c561934e089/System.Data.resources.dll</a></em><br>\r\n<em>----------------------------------------</em><br>\r\n<em>Microsoft.VisualBasic.resources</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione assembly: 8.0.0.0</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Versione Win32: 8.0.50727.4927 (NetFXspW7.050727-4900)</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; Base di codice: <a href=\"file:///C:/Windows/assembly/GAC_MSIL/Microsoft.VisualBasic.resources/8.0.0.0_it_b03f5f7f11d50a3a/Microsoft.VisualBasic.resources.dll\">\r\nfile:///C:/Windows/assembly/GAC_MSIL/Microsoft.VisualBasic.resources/8.0.0.0_it_b03f5f7f11d50a3a/Microsoft.VisualBasic.resources.dll</a></em><br>\r\n<em>----------------------------------------</em></p>\r\n<p><em>************** Debug JIT **************</em><br>\r\n<em>Per attivare il debug JIT, &egrave; necessario impostare il valore</em><br>\r\n<em>jitDebugging nella sezione system.windows.forms del file di configurazione</em><br>\r\n<em>dell'applicazione o del computer (machine.config).</em><br>\r\n<em>L'applicazione inoltre deve essere compilata con il debug</em><br>\r\n<em>attivato.</em></p>\r\n<p><em>Ad esempio:</em></p>\r\n<p><em>&lt;configuration&gt;</em><br>\r\n<em>&nbsp;&nbsp;&nbsp; &lt;system.windows.forms jitDebugging=&quot;true&quot; /&gt;</em><br>\r\n<em>&lt;/configuration&gt;</em></p>\r\n<p><em>Quando il debug JIT &egrave; attivato, tutte le eccezioni non gestite</em><br>\r\n<em>vengono inviate al debugger JIT registrato nel computer,</em><br>\r\n<em>anzich&eacute; essere gestite da questa finestra di dialogo.</em></p>\r\n<p>&nbsp;can you give some help?</p>\r\n<p>Regards</p>\r\n<p>Guido</p>\r\n",
+    "PostedDate": "2010-12-06T04:10:04.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531875",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>using x86 build?</p>\r\n",
+    "PostedDate": "2010-12-06T10:41:42.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "532115",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>Visual studio 2008, VB,&nbsp; Any CPU, framework 3.5</p>\r\n<p>And i receive the same error if i build in X64 mode</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2010-12-06T21:59:06.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "532261",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>I have tried to compile with X64 mode and it's ok for the error but the result of the map ia a blue screen with</p>\r\n<p>excpetion: of &quot;SingletonCreator&quot;</p>\r\n<p>I have&nbsp;downloaded the new version an i have create a simple application with a translation of your demo version from C to Vb.net,&nbsp;but the results is the same on X86 mode and X64 mode, the strange is that your demo version run correctly on X86 an\r\n X64.</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-07T06:12:58.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "532291",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>try x86</p>\r\n",
+    "PostedDate": "2010-12-07T07:05:42.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "532305",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>I have tried&nbsp;but return the same first error</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2010-12-07T07:18:44.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "532368",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>hm...</p>\r\n",
+    "PostedDate": "2010-12-07T09:06:36.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "532382",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>If you want i can send to you the small application with translation&nbsp;C to VB.NET of your demo version</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-07T09:29:43.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "532713",
+    "ThreadId": "237270",
+    "Html": "\r\n<p>Finally i have found the solution:</p>\r\n<p>Gretamap works on X64 and X86&nbsp;only if is builded in X86 mode</p>\r\n<p>But my&nbsp;solution must be builded in AnyCPU mode because 'Microsoft.ACE.OLEDB.12.0' don't work on X64 if is builded in in X86 mode</p>\r\n<p>So i must have two application 'Myapplication' and&nbsp;'Greatmap'&nbsp;and call this&nbsp;externally.</p>\r\n<p>Is not a good solution but if it's work, OK! &nbsp;:(</p>\r\n<p>Thanks for your patience and support.<span style=\"color:#a31515; font-size:x-small\"></span></p>\r\n",
+    "PostedDate": "2010-12-08T00:19:28.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636240",
+    "ThreadId": "237270",
+    "Html": "<p>does it work now?</p>",
+    "PostedDate": "2011-07-01T14:53:29.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

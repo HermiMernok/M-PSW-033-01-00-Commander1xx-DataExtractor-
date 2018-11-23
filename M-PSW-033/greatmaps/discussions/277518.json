@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "690669",
+    "ThreadId": "277518",
+    "Html": "\r\n<p>Hello, we&nbsp;are developing and testing&nbsp;a windows forms app, and we have included your module on it.</p>\r\n<p>For some unknown reason, and not always, mostly in a random way... the users are getting this error message:</p>\r\n<p><span style=\"font-size:12pt\">Exception of type 'System.OutOfMemoryException' was thrown. at System.Collections.Generic.Dictionary`2.Initialize(Int32 capacity) at System.Collections.Generic.Dictionary`2..ctor(Int32 capacity, IEqualityComparer`1 comparer)\r\n at GMap.NET.PureProjection..ctor() at GMap.NET.GMaps.AdjustProjection(MapType type, PureProjection&amp; Projection, Int32&amp; maxZoom) at GMap.NET.Internals.Core.set_MapType(MapType value) at GMap.NET.Internals.Core..ctor() at GMap.NET.WindowsForms.GMapControl..ctor()\r\n at StrikingSystems.Controls.Viewers.GMapViewer.InitializeComponent() at StrikingSystems.Controls.Viewers.GMapViewer..ctor() at UI.UIPanels.GenericControls.Media.MultimediaViewerControl.InitializeComponent() at UI.UIPanels.GenericControls.Media.MultimediaViewerControl..ctor()\r\n at ....</span></p>\r\n<p><span style=\"font-size:12pt\">Is this error already notified?</span></p>\r\n<p><span style=\"font-size:12pt\">Do you have a reported solution?</span></p>\r\n<p><span style=\"font-size:12pt\">regards,</span></p>\r\n<p><span style=\"font-size:12pt\">Ariel Garmendia</span></p>\r\n",
+    "PostedDate": "2011-10-28T01:42:52.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "690677",
+    "ThreadId": "277518",
+    "Html": "<p>1. you use old version</p>\r\n<p>2. i don't support old versions ;}</p>",
+    "PostedDate": "2011-10-28T02:08:27.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "690724",
+    "ThreadId": "277518",
+    "Html": "<p>Hi,</p>\r\n<p>it means its an already notified bug? and that upgrading it will be removed?</p>\r\n<p>thanks</p>\r\n<p>Ariel</p>",
+    "PostedDate": "2011-10-28T03:46:15.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

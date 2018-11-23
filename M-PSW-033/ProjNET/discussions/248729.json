@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "576667",
+    "ThreadId": "248729",
+    "Html": "\r\n<p>Hi&nbsp;</p>\r\n<p>I am trying to convert from EPSG: 25832 (&nbsp;UTM zone 32N) To Googlemaps Lat/Long which I believe is WGS84?</p>\r\n<p>Here is what I have come up with so far:</p>\r\n<p>The WKT I got from:&nbsp;<a href=\"http://spatialreference.org/ref/epsg/25832/\">http://spatialreference.org/ref/epsg/25832/</a></p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre> <span style=\"white-space:pre\">\t</span><span style=\"color:blue\">string</span> wktFrom = <span style=\"color:#a31515\">&quot;GEOGCS[\\&quot;ETRS89\\&quot;,DATUM[\\&quot;European_Terrestrial_Reference_System_1989\\&quot;,SPHEROID[\\&quot;GRS 1980\\&quot;,6378137,298.257222101,AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;7019\\&quot;]],AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;6258\\&quot;]],PRIMEM[\\&quot;Greenwich\\&quot;,0,AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;8901\\&quot;]],UNIT[\\&quot;degree\\&quot;,0.01745329251994328,AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;9122\\&quot;]],AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;4258\\&quot;]],UNIT[\\&quot;metre\\&quot;,1,AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;9001\\&quot;]],PROJECTION[\\&quot;Transverse_Mercator\\&quot;],PARAMETER[\\&quot;latitude_of_origin\\&quot;,0],PARAMETER[\\&quot;central_meridian\\&quot;,9],PARAMETER[\\&quot;scale_factor\\&quot;,0.9996],PARAMETER[\\&quot;false_easting\\&quot;,500000],PARAMETER[\\&quot;false_northing\\&quot;,0],AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;25832\\&quot;],AXIS[\\&quot;Easting\\&quot;,EAST],AXIS[\\&quot;Northing\\&quot;,NORTH]&quot;</span>;\r\n            ICoordinateSystem csFrom = CoordinateSystemWktReader.Parse(wktFrom) <span style=\"color:blue\">as</span> ICoordinateSystem;\r\n            GeographicCoordinateSystem csWgs84 = GeographicCoordinateSystem.WGS84;\r\n             \r\n            \r\n            CoordinateTransformationFactory ctfac = <span style=\"color:blue\">new</span> CoordinateTransformationFactory();\r\n\r\n            ICoordinateTransformation trans = ctfac.CreateFromCoordinateSystems(csFrom, csWgs84);\r\n            \r\n            <span style=\"color:green\">//&lt;XKoordinat&gt;563097,269&lt;/XKoordinat&gt;</span>\r\n            <span style=\"color:green\">//&lt;YKoordinat&gt;6194521,937&lt;/YKoordinat&gt;</span>\r\n            <span style=\"color:blue\">double</span>[] fromPoint = <span style=\"color:blue\">new</span> <span style=\"color:blue\">double</span>[] { 563097, 269, 6194521, 937 };\r\n            \r\n            <span style=\"color:blue\">double</span>[] toPoint = trans.MathTransform.Transform(fromPoint);\r\n</pre>\r\n</div>\r\n<p>The result thou, is not correct,&nbsp;-122.99999999996504 , -88.9999999999934 which should have been Lat:&nbsp;55.8920212295552 Long:&nbsp;10.008904232448355</p>\r\n<p>I am fairly new to this are, so any help would be very appreciated.</p>\r\n<p>&nbsp;</p>\r\n<p>Patrick Moog</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-03-07T07:30:51.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "577135",
+    "ThreadId": "248729",
+    "Html": "<p>&nbsp;</p>\r\n<p>Whoops</p>\r\n<pre><span>double</span>[] fromPoint = <span>new</span> <span>double</span>[] { 563097, 269, 6194521, 937 }; is of course:</pre>\r\n<pre><span>double</span>[] fromPoint = <span>new</span> <span>double</span>[] { 563097.269, 6194521.937 };</pre>\r\n<pre><br /></pre>\r\n<pre>still not giving the correct answer thou.</pre>",
+    "PostedDate": "2011-03-08T05:02:14.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "579635",
+    "ThreadId": "248729",
+    "Html": "<p>Moog,</p>\r\n<p>&nbsp;</p>\r\n<p>WGS84 is not Google, the unofficial EPSG code for google is 900913 (see the resemblance?) and the WKT for that is&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;public const string EPSG_900913_WKT = @\"PROJCS[\"\"WGS84 / Simple Mercator\"\", GEOGCS[\"\"WGS 84\"\",DATUM[\"\"WGS_1984\"\", SPHEROID[\"\"WGS_1984\"\", 6378137.0, 298.257223563]],&nbsp;PRIMEM[\"\"Greenwich\"\", 0.0], UNIT[\"\"degree\"\", 0.017453292519943295],&nbsp;AXIS[\"\"Longitude\"\", EAST], AXIS[\"\"Latitude\"\", NORTH]],PROJECTION[\"\"Mercator_1SP_Google\"\"],&nbsp;PARAMETER[\"\"latitude_of_origin\"\", 0.0], PARAMETER[\"\"central_meridian\"\", 0.0],&nbsp;PARAMETER[\"\"scale_factor\"\", 1.0], PARAMETER[\"\"false_easting\"\", 0.0],&nbsp;PARAMETER[\"\"false_northing\"\", 0.0], UNIT[\"\"m\"\", 1.0], AXIS[\"\"x\"\", EAST],AXIS[\"\"y\"\", NORTH], AUTHORITY[\"\"EPSG\"\",\"\"900913\"\"]]\";</p>\r\n<p>&nbsp;</p>\r\n<p>But that is not going to help you because 900913 is not supported. I was just trying to transform between WGS84 (EPSG:4326) and Google but I get an error saying that \"System.NotSupportedException: Projection Oblique Stereographic is not supported.\"&nbsp;</p>\r\n<p>I get a similar error when I try to convert between 28992 (Dutch CS) and 4326 so I am beginning to think that ProjNET is not going to be useful in this respect unless I dig deep and start adding the unsupported coordinate systems.</p>\r\n<p>Of course if someone else knows a reason why 900913 (possibly the single most useful CS at the moment) is not supported I'd appreciate hearing from you.</p>\r\n<p>Nick</p>",
+    "PostedDate": "2011-03-13T01:27:13.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583125",
+    "ThreadId": "248729",
+    "Html": "<p>The Google Maps API <em>does </em>use geographic coordinates relative to the WGS84 datum. So, if you're trying to create vector shapes on the map - pushpins, polylines and the like, you need WGS84 lat/long coordinates.</p>\r\n<p>naskew's comments relate to the projected coordinate system used to <em>display</em> that data, which is a Mercator projection relative to a perfect sphere. For a time, the mapping community used the \"unofficial\" code 900913 to refer to this projection, but it's had an official EPSG code for several years now - 3857. This is the reference system you'll need to use if you want to create raster tile images to overlay directly on the map, rather than using the Google API. This is supported by Proj.NET - you just need to supply the appropriate WKT.</p>\r\n<p>As for your WGS84 conversion, from the magnitude of the error (and from your subsequent comment), I'd guess that your input coordinates are not being supplied correctly - can you check the use of commas and periods as decimal separators in the culture of your application, and add a debug step to make sure that the values that you think you're providing to fromPoint[] really are as you expect them to be?</p>",
+    "PostedDate": "2011-03-19T12:58:21.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

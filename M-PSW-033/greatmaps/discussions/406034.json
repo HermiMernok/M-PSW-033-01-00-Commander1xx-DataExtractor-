@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "953202",
+    "ThreadId": "406034",
+    "Html": "\r\n<p>I am a beginner with GMaps, so I almost have no idea how to integrate GMaps into my c# code. I downloaded 'GMap.NET.WindowsForms.dll' and 'GMap.NET.Core.dll' and referenced them in my code. this is so far my code:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System;\r\n<span style=\"color:blue\">using</span> System.Collections.Generic;\r\n<span style=\"color:blue\">using</span> System.ComponentModel;\r\n<span style=\"color:blue\">using</span> System.Data;\r\n<span style=\"color:blue\">using</span> System.Drawing;\r\n<span style=\"color:blue\">using</span> System.Linq;\r\n<span style=\"color:blue\">using</span> System.Text;\r\n<span style=\"color:blue\">using</span> System.Windows.Forms;\r\n<span style=\"color:blue\">using</span> GMap.NET;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms.Markers;\r\n\r\n<span style=\"color:blue\">namespace</span> MapView\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">partial</span> <span style=\"color:blue\">class</span> Form1 : Form\r\n    {\r\n        <span style=\"color:blue\">public</span> Form1()\r\n        {\r\n            InitializeComponent();\r\n            <span style=\"color:green\">// set cache mode only if no internet avaible</span>\r\n            <span style=\"color:blue\">try</span>\r\n            {\r\n                System.Net.IPHostEntry e =\r\n                     System.Net.Dns.GetHostEntry(<span style=\"color:#a31515\">&quot;www.google.com&quot;</span>);\r\n            }\r\n            <span style=\"color:blue\">catch</span>\r\n            {\r\n                MainMap.Manager.Mode = AccessMode.CacheOnly;\r\n                MessageBox.Show(<span style=\"color:#a31515\">&quot;No internet connection avaible, going to CacheOnly mode.&quot;</span>,\r\n                      <span style=\"color:#a31515\">&quot;GMap.NET - Demo.WindowsForms&quot;</span>, MessageBoxButtons.OK,\r\n                      MessageBoxIcon.Warning);\r\n            }\r\n\r\n            <span style=\"color:green\">// config map</span>\r\n            MainMap.MapType = MapType.MapsLT_Map;\r\n            MainMap.MaxZoom = 11;\r\n            MainMap.MinZoom = 1;\r\n            MainMap.Zoom = MainMap.MinZoom &#43; 1;\r\n            MainMap.CurrentPosition = <span style=\"color:blue\">new</span> PointLatLng(54.6961334816182,\r\n            25.2985095977783);\r\n\r\n            <span style=\"color:green\">// map events</span>\r\n            MainMap.OnCurrentPositionChanged &#43;= <span style=\"color:blue\">new</span>\r\n            CurrentPositionChanged(MainMap_OnCurrentPositionChanged);\r\n            MainMap.OnTileLoadStart &#43;= <span style=\"color:blue\">new</span> TileLoadStart(MainMap_OnTileLoadStart);\r\n            MainMap.OnTileLoadComplete &#43;= <span style=\"color:blue\">new</span>\r\n            TileLoadComplete(MainMap_OnTileLoadComplete);\r\n            MainMap.OnMarkerClick &#43;= <span style=\"color:blue\">new</span> MarkerClick(MainMap_OnMarkerClick);\r\n            MainMap.OnMapZoomChanged &#43;= <span style=\"color:blue\">new</span> MapZoomChanged(MainMap_OnMapZoomChanged);\r\n            MainMap.OnMapTypeChanged &#43;= <span style=\"color:blue\">new</span> MapTypeChanged(MainMap_OnMapTypeChanged);\r\n            MainMap.MouseMove &#43;= <span style=\"color:blue\">new</span> MouseEventHandler(MainMap_MouseMove);\r\n            MainMap.MouseDown &#43;= <span style=\"color:blue\">new</span> MouseEventHandler(MainMap_MouseDown);\r\n            MainMap.MouseUp &#43;= <span style=\"color:blue\">new</span> MouseEventHandler(MainMap_MouseUp);\r\n            MainMap.OnMarkerEnter &#43;= <span style=\"color:blue\">new</span> MarkerEnter(MainMap_OnMarkerEnter);\r\n            MainMap.OnMarkerLeave &#43;= <span style=\"color:blue\">new</span> MarkerLeave(MainMap_OnMarkerLeave);\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>but I am getting a red line under MainMap with the following error: The name 'MainMap' does not exist in the current context.&nbsp;</p>\r\n<p>Can anyone please tell me what the problem might be?</p>\r\n",
+    "PostedDate": "2012-12-07T18:18:33.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "953247",
+    "ThreadId": "406034",
+    "Html": "\r\n<p>check the demo code</p>\r\n",
+    "PostedDate": "2012-12-07T23:02:00.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007518",
+    "ThreadId": "406034",
+    "Html": "hello, radioman!\r<br />\nI don't found demo code?\r<br />\nwhere is it?<br />\n",
+    "PostedDate": "2013-02-27T04:12:06.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007540",
+    "ThreadId": "406034",
+    "Html": "in the source files ;}<br />\n",
+    "PostedDate": "2013-02-27T04:43:33.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036418",
+    "ThreadId": "406034",
+    "Html": "MainMap is the name you define in the property of  the GmapControl <br />\n",
+    "PostedDate": "2013-04-27T00:31:46.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

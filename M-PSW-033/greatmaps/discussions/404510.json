@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "946668",
+    "ThreadId": "404510",
+    "Html": "\r\n<p>http://www.freebords.se/b1.gif &nbsp;(kind of apple mapkit blue pulsating marker image)&nbsp;</p>\r\n<p>This is how I add the gif image. &nbsp;Is the GMAP control aware of the new&nbsp;google.maps.MarkerOptions&nbsp;<strong>optimized:false</strong>&nbsp;</p>\r\n<p><span style=\"color:#008000\"><strong>&nbsp;Dim m = New GMapMarkerImage(New PointLatLng(lat2, lng2), New Bitmap(&quot;C:\\b1.gif&quot;)) &nbsp; &nbsp;Layer_GPSmarker.Markers.Add(m)</strong></span></p>\r\n<p>Read something here, is it related ? How to solve this ?</p>\r\n<pre>In V3, make sure to use optimized:false\r\n<a rel=\"nofollow\" href=\"http://code.google.com/apis/maps/documentation/javascript/reference.html#MarkerOptions\">http://code.google.com/apis/maps/documentation/javascript/reference.html#MarkerOptions</a></pre>\r\n<p><span style=\"color:#008000\"><strong><br>\r\n</strong></span></p>\r\n",
+    "PostedDate": "2012-11-25T07:46:55.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946672",
+    "ThreadId": "404510",
+    "Html": "\r\n<p>google: c# render gif</p>\r\n",
+    "PostedDate": "2012-11-25T08:02:58.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947010",
+    "ThreadId": "404510",
+    "Html": "\r\n<p>GMap.NET does not use the Google Maps API, it only accesses the Google servers, rendering is done in C#.</p>\r\n",
+    "PostedDate": "2012-11-26T05:20:01.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947070",
+    "ThreadId": "404510",
+    "Html": "\r\n<p>Thank you X<span style=\"font-size:9pt\">andolph ! this helps a bit. &nbsp;Do you have a code snippet that explains how to position a picturebox and adjust offset for marker_image.gif size &nbsp;</span></p>\r\n",
+    "PostedDate": "2012-11-26T08:17:33.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

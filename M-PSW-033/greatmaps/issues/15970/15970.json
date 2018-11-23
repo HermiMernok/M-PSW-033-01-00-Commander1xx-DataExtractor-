@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "yahoomap use MercatorProjectionand PlateCarreeProjection is for ArcGIS. everything is in perfect precision ;}",
+    "ClosedDate": "2010-02-20T03:52:05.517-08:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "Hi,\r\n\r\nwhen experimenting the plate carree projection (with a yahoomap map), the points are misplaced on the map.\r\ne.g. - A PointLatLng with lat=0, lng=0 is displayed on latitude 0 and longitude 180 of the map\r\n\r\nBesides, a question: Platecarreeprojection and PlatecarreeprojectionPergo only differs on the Tilesize (512 vs. 256): was-it intended?",
+    "LastUpdatedDate": "2010-02-20T03:52:05.517-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-02-20T02:34:54.093-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wrong position with Platecarreeprojection",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15970
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

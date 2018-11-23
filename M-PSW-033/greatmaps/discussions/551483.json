@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1265431",
+    "ThreadId": "551483",
+    "Html": "So there is GMapControl on form. I want to print map, and here is code<br />\n<pre><code>PrintDocument doc = new PrintDocument { DocumentName = &quot;Map printing file&quot; };\ndoc.PrintPage += DocOnPrintPage;\nPrintDialog dialog = new PrintDialog { Document = doc };\nDialogResult result = dialog.ShowDialog();\nif (result == DialogResult.OK) doc.Print();</code></pre>\n\nand<br />\n<pre><code>private void DocOnPrintPage(object sender, PrintPageEventArgs e)\n{\n    var img = View.gmap.ToImage();\n    System.Drawing.Point loc = new System.Drawing.Point(0, 0);\n    e.Graphics.DrawImage(img, loc);\n}</code></pre>\n\nI'm using ToImage() method, but it does not work as I want (it's like PrintScreen, because there are another objects like cursor, dialogbox, etc.) Is there any workaround to implement printing without this objects?\r<br />\n<br />\nP.S. Gmap.Net.Core and Gmap.Net.WindowForms verison is 1.7.0.0, and .Net FrameWork version is 4.0 and I cant upgrade .Net Framework version, because some of clients are using Windows XP.\r<br />\n<br />\nP.P.S Thank you for replies<br />\n",
+    "PostedDate": "2014-07-14T02:14:37.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1265472",
+    "ThreadId": "551483",
+    "Html": "Problem was resolved by using temporary files<br />\n<pre><code>            string path = Path.GetTempPath() + Path.GetRandomFileName() + @&quot;.png&quot;;\n            _tmpImage = View.gmap.ToImage();\n            if (_tmpImage == null) return;\n            _tmpImage.Save(path);\n\n            PrintDocument doc = new PrintDocument { DocumentName = &quot;Map printing file&quot; };\n            doc.PrintPage += DocOnPrintPage;\n            PrintDialog dialog = new PrintDialog { Document = doc };\n            DialogResult result = dialog.ShowDialog();\n            if (result == DialogResult.OK) doc.Print();</code></pre>\n\n",
+    "PostedDate": "2014-07-14T04:53:46.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-07-14T04:53:51.06-07:00"
+  },
+  {
+    "Id": "1293956",
+    "ThreadId": "551483",
+    "Html": "To Help VB.Net coders:<br />\n<br />\n<strong>Here is a sample of VB Code to Copy a Map Image to the Clipboard, where you can paste it later into Word, Outlook etc:</strong><br />\nI have a Button with Code to perform the &quot;Copy&quot; operation<br />\nI change the backcolour of the button to indicate that the Map has been copied to the Clipboard.<br />\n<br />\nPrivate Sub cmdCopy1_Click(sender As Object, e As EventArgs) Handles cmdCopy1.Click<br />\n<pre><code>    Dim imgMap As Image\n\n    Try\n        'Copy the image to the Clipboard=========\n\n        imgMap = Me.gmapData.ToImage 'The map control is named gmapData\n\n        Clipboard.SetImage(imgMap)\n        Me.cmdCopy1.BackColor = Color.Violet\n\n    Catch ex As Exception\n        MessageBox.Show(ex.Message, &quot;Error copying map!&quot;, MessageBoxButtons.OK)\n    End Try</code></pre>\n\n",
+    "PostedDate": "2014-08-27T08:03:38.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

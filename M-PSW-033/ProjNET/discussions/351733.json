@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "821783",
+    "ThreadId": "351733",
+    "Html": "\r\n<p>When i am trying reproject data from one coordinate system to another i have mistake in second decimal place.</p>\r\n<p>I reproject point with Proj.net&nbsp;from&nbsp;Pulkovo 1942 / Gauss-Kruger zone 14 (EPSG&nbsp;28414) -&gt;&nbsp;Pulkovo 1942 (EPSG 4284) -&gt;&nbsp;Pulkovo 1942 / Gauss-Kruger zone 14 (EPSG&nbsp;28414).</p>\r\n<p>After this&nbsp;i'm seeing ~0,02210329 meter shift in X and&nbsp;-0,000919423&nbsp;shift in Y. Shift in X is so mutch!!</p>\r\n<p>Test:</p>\r\n<p>I have point in projection&nbsp;Pulkovo 1942 / Gauss-Kruger zone 14 (EPSG 28414):</p>\r\n<p>x: <span style=\"font-size:9.5pt\">14181052.913</span></p>\r\n<p>y: <span style=\"font-size:9.5pt\">6435927.692</span></p>\r\n<p>I reproject this point with Proj.net in geographic coord sys&nbsp;Pulkovo 1942 (EPSG 4284):</p>\r\n<p>longitude:&nbsp;<span style=\"font-size:11pt\"><span style=\"font-size:11pt\">75.613911283608331</span></span></p>\r\n<p>latitude:&nbsp;<span style=\"font-size:11pt\">57.926509119323505 &nbsp; &nbsp; &nbsp;</span></p>\r\n<p>I reproject this point with Proj.net back in Pulkovo 1942 / Gauss-Kruger zone 14 (EPSG&nbsp;28414) and i have another coordinate:</p>\r\n<p>x: <span style=\"font-size:11pt\">14181052.890896715 &nbsp; &nbsp; &nbsp;</span></p>\r\n<p>y: <span style=\"font-size:11pt\">6435927.6929194238 &nbsp; &nbsp; &nbsp;</span></p>\r\n<p>Shift in X is so mutch (mistake in&nbsp;centimeters)!!!</p>\r\n<p>I make this test with proj4.dll and after reprojection i'am seeing&nbsp;~-0,00012585&nbsp;shift in X and&nbsp;-0,000165318 shift in Y. It's good result.</p>\r\n<p><span>I am using Proj.net in sharpmap&nbsp;<span>and just now</span>&nbsp;<span>discovered</span>&nbsp;<span>this problem.&nbsp;</span>&nbsp;</span><span>Can i</span>&nbsp;<span>achieve greater</span>&nbsp;<span>accuracy from Proj.net? D<span>oes anyone\r\n know</span>&nbsp;<span>about reprojection problem in Proj.net</span>?</span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-04-09T20:07:06.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985933",
+    "ThreadId": "351733",
+    "Html": "\r\n<p>Did you ever figure this out?&nbsp; I'm running into a similar issue going from UTM 18N to WGS84.</p>\r\n",
+    "PostedDate": "2013-01-12T10:08:05.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

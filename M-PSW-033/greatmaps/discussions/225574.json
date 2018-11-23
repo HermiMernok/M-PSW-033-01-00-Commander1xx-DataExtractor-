@@ -1,0 +1,330 @@
+[
+  {
+    "Id": "487390",
+    "ThreadId": "225574",
+    "Html": "<p>Hi guys,</p>\r\n<p>&nbsp;</p>\r\n<p>I am feeding in a list of positions. I am intending for a marker to move from position to position as it goes through the list. Here's my code so far:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> PlotFlight()\r\n        {\r\n\r\n            List&lt;GMapMarker&gt; marked = <span style=\"color:blue\">new</span> List&lt;GMapMarker&gt;();\r\n\r\n            List&lt;PointLatLng&gt; positions = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n            <span style=\"color:blue\">string</span> aLine;\r\n\r\n            TextReader file = <span style=\"color:blue\">new</span> StreamReader(<span style=\"color:#a31515\">&quot;c:\\\\gps.csv&quot;</span>);\r\n\r\n            <span style=\"color:blue\">while</span> ((aLine = file.ReadLine()) != <span style=\"color:blue\">null</span>)\r\n            {\r\n                <span style=\"color:blue\">string</span>[] pos = aLine.Split(<span style=\"color:#a31515\">','</span>);\r\n                PointLatLng p = <span style=\"color:blue\">new</span> PointLatLng\r\n                {\r\n                    Lat = <span style=\"color:blue\">float</span>.Parse(pos[1]),\r\n                    Lng = <span style=\"color:blue\">float</span>.Parse(pos[0])\r\n                };\r\n                positions.Add(p);\r\n\r\n            }\r\n\r\n\r\n            GMapMarker lastmark = <span style=\"color:blue\">new</span> GMapMarker(positions[0]); <span style=\"color:green\">// Set the first position</span>\r\n             \r\n            <span style=\"color:blue\">foreach</span> (<span style=\"color:blue\">var</span> GPSposition <span style=\"color:blue\">in</span> positions)\r\n            {\r\n                _topOverlay.Markers.Remove(lastmark);\r\n                GMapMarker mark = <span style=\"color:blue\">new</span> GMapMarker(GPSposition);\r\n                AddMarker(mark, <span style=\"color:blue\">true</span>);\r\n                marked.Add(mark);\r\n                lastmark = mark;\r\n\r\n                Thread.Sleep(1000);\r\n\r\n\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>The first bit is just reading in the data. Works good.</p>\r\n<p>I then store the first marker position in lastmark.</p>\r\n<p>I then itterate though the list of positions... but first, I try to remove 'lastmark'. And then I want to plot the new position on the map.</p>\r\n<p>It's not removing the lastmark. So, I get a 'snake' of markers on the screen.</p>\r\n<p>&nbsp;</p>\r\n<p>The AddMarker methods adds the marker to&nbsp; _topOverlay.Markers.</p>\r\n<p>How should I be removing previously added markers?</p>\r\n<pre></pre>",
+    "PostedDate": "2010-09-01T00:14:26.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487399",
+    "ThreadId": "225574",
+    "Html": "<p>Actually, when I would prefer, would be a line, instead of markers... forming where the thing travels.... But more like a snake, so that it stays a certain length, and doesn't clutter the screen too much. Is this possible?</p>",
+    "PostedDate": "2010-09-01T00:30:53.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487537",
+    "ThreadId": "225574",
+    "Html": "<p>i think you could use the Route to do something like this.</p>\r\n<p>Snippet</p>\r\n<pre style=\"font-family:consolas\"><span style=\"color:#2b91af\">GMapRoute</span>&nbsp;route&nbsp;=&nbsp;<span style=\"color:blue\">new</span>&nbsp;<span style=\"color:#2b91af\">GMapRoute</span>(<span style=\"color:blue\">new</span>&nbsp;<span style=\"color:#2b91af\">List</span>&lt;<span style=\"color:#2b91af\">PointLatLng</span>&gt;(),&nbsp;<span style=\"color:#a31515\">&quot;lineRoute&quot;</span>);<br>route.Points.Add(yourPoint));<br>MapControl.UpdateRouteLocalPosition(route));<br><br>greetz Manuel</pre>",
+    "PostedDate": "2010-09-01T05:16:34.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487538",
+    "ThreadId": "225574",
+    "Html": "<p>Of course do you need to add the route to an overlay ;)</p>",
+    "PostedDate": "2010-09-01T05:17:01.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487854",
+    "ThreadId": "225574",
+    "Html": "<p>Thanks Manuel.</p>\r\n<p>I now have this:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>            GMapRoute route = <span style=\"color:blue\">new</span> GMapRoute(<span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;(), <span style=\"color:#a31515\">&quot;lineRoute&quot;</span>);\r\n            <span style=\"color:blue\">foreach</span> (<span style=\"color:blue\">var</span> GPSposition <span style=\"color:blue\">in</span> positions)\r\n            {\r\n             \r\n                route.Points.Add(GPSposition);\r\n                MainMap.UpdateRouteLocalPosition(route);\r\n                Thread.Sleep(1000);\r\n            }\r\n\r\n</pre>\r\n</div>\r\nBut, nothing is drawn on the map. This code is running within a worker thread. Do I need re refresh something, or am I doing something wrong?</p>",
+    "PostedDate": "2010-09-01T14:09:46.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487862",
+    "ThreadId": "225574",
+    "Html": "<pre>Hi did you add the route to the overlay?<br><br>_topOverlay.Routes.Add(route);<br><br>Maybe you have to call MaiMap.Refresh();<br><br><br>if you do this within a worker-thread you should syncronize them, or fire an event on the maintread (ui-tread) to refresh the map. <br><br></pre>",
+    "PostedDate": "2010-09-01T14:24:31.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487867",
+    "ThreadId": "225574",
+    "Html": "<p>Thanks again, Manuel.</p>\r\n<p>I tried a Refresh, but as you pointed out, the thread is giving me an issue.</p>\r\n<p>System.InvalidOperationException was unhandled<br>&nbsp; Message=Cross-thread operation not valid: Control 'MainMap' accessed from a thread other than the thread it was created on.<br>&nbsp; Source=System.Windows.Forms<br>&nbsp; StackTrace:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Control.get_Handle()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Control.Invalidate(Boolean invalidateChildren)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Control.Refresh()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.Refresh() in D:\\Projects\\Greatmaps\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 256<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at MapDemo.Form1.PlotFlight() in C:\\Users\\Craig Lister\\Documents\\Visual Studio 2010\\Projects\\MapDemo\\MapDemo\\Form1.cs:line 296<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Threading.ThreadHelper.ThreadStart_Context(Object state)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Threading.ThreadHelper.ThreadStart()<br>&nbsp; InnerException:</p>\r\n<p>That occurs on base.Refresh() in GMapControl.cs</p>\r\n<p>I am new to threading, and it's biting me hard! :)</p>\r\n<p>At the moment, to start my plotting thread, I do:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>            Thread t = <span style=\"color:blue\">new</span> Thread(PlotFlight);\r\n            t.IsBackground = <span style=\"color:blue\">true</span>;\r\n            t.Start();\r\n</pre>\r\n</div>\r\nWhere PlotFlight is the method I am using to do the plotting. Could you maybe give me guidence on how to fix this by syncronizing the thread, or the main threads event?</p>",
+    "PostedDate": "2010-09-01T14:36:32.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487871",
+    "ThreadId": "225574",
+    "Html": "<p>use <a href=\"http://msdn.microsoft.com/en-us/library/cc221403(VS.95).aspx\">BackgroundWorker</a></p>",
+    "PostedDate": "2010-09-01T14:41:59.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487878",
+    "ThreadId": "225574",
+    "Html": "<p>look at the System.ComponentModel.BackgroundWorker.</p>\r\n<p>For simple threading operations this is a good point to start, and understand how Threads work.</p>\r\n<p>&nbsp;</p>\r\n<p>To your Problem</p>\r\n<p>You  can't directly call an object from 2 different threads unless they are  locked (main-thread quere waits for the worker-thread queue)</p>\r\n<p>you could read more about this on http://www.parallelcsharp.com/</p>\r\n<p>&nbsp;</p>\r\n<p>if you want to use the background worker you can do something like this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System;\r\n<span style=\"color:blue\">using</span> System.Collections.Generic;\r\n<span style=\"color:blue\">using</span> System.Linq;\r\n<span style=\"color:blue\">using</span> System.Text;\r\n<span style=\"color:blue\">using</span> System.ComponentModel;\r\n\r\n<span style=\"color:blue\">namespace</span> ConsoleApplication1\r\n{\r\n    <span style=\"color:blue\">class</span> Program\r\n    {\r\n        <span style=\"color:blue\">static</span> <span style=\"color:blue\">void</span> Main(<span style=\"color:blue\">string</span>[] args)\r\n        {\r\n            <span style=\"color:blue\">using</span> (BackgroundWorker BGW = <span style=\"color:blue\">new</span> BackgroundWorker())\r\n            {\r\n                BGW.WorkerReportsProgress = <span style=\"color:blue\">true</span>;\r\n\r\n                BGW.WorkerSupportsCancellation = <span style=\"color:blue\">true</span>; <span style=\"color:green\">//if you want to abort the worker from the mainthread</span>\r\n\r\n                BGW.DoWork += <span style=\"color:blue\">new</span> DoWorkEventHandler(BGW_DoWork);\r\n                BGW.ProgressChanged += <span style=\"color:blue\">new</span> ProgressChangedEventHandler(BGW_ProgressChanged);\r\n                BGW.RunWorkerCompleted += <span style=\"color:blue\">new</span> RunWorkerCompletedEventHandler(BGW_RunWorkerCompleted);\r\n\r\n                BGW.RunWorkerAsync(<span style=\"color:blue\">null</span>); <span style=\"color:green\">//you could pass here informations the worker should work with.</span>\r\n            };\r\n\r\n\r\n        }\r\n\r\n        <span style=\"color:blue\">static</span> <span style=\"color:blue\">void</span> BGW_RunWorkerCompleted(<span style=\"color:blue\">object</span> sender, RunWorkerCompletedEventArgs e)\r\n        {\r\n            <span style=\"color:green\">//Do here other stuff, check for errors and so on</span>\r\n            <span style=\"color:green\">//Or cleanup</span>\r\n        }\r\n\r\n        <span style=\"color:blue\">static</span> <span style=\"color:blue\">void</span> BGW_ProgressChanged(<span style=\"color:blue\">object</span> sender, ProgressChangedEventArgs e)\r\n        {\r\n            <span style=\"color:green\">//Do here draw the markers on the map.</span>\r\n            <span style=\"color:green\">//e helps you to get data from one thread to the mainthread</span>\r\n            \r\n            \r\n        }\r\n\r\n        <span style=\"color:blue\">static</span> <span style=\"color:blue\">void</span> BGW_DoWork(<span style=\"color:blue\">object</span> sender, DoWorkEventArgs e)\r\n        {\r\n            BackgroundWorker bgw = sender <span style=\"color:blue\">as</span> BackgroundWorker;\r\n            <span style=\"color:green\">//Do your Heavy Work here</span>\r\n            bgw.ReportProgress(0, <span style=\"color:blue\">null</span>); <span style=\"color:green\">//you can pass as second parameter a object</span>\r\n\r\n            <span style=\"color:green\">//if you want to cancle you work when the user wants it:</span>\r\n            <span style=\"color:blue\">if</span> (bgw.CancellationPending)\r\n                e.Cancel = <span style=\"color:blue\">true</span>;\r\n        }\r\n    }\r\n}\r\n<span style=\"color:green\">//Thats it ;)</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-01T14:55:25.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487894",
+    "ThreadId": "225574",
+    "Html": "<p>Ok, thanks again.</p>\r\n<p>I nearly understand. :)</p>\r\n<p>On my form creation, I do this:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;lineRoute&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.RoutesEnabled = true;</p>\r\n<p>(route is a variable defined earlier)</p>\r\n<p>I then have a button to start drawing the route:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>   <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> button2_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n\r\n            BackgroundWorker bgw = <span style=\"color:blue\">new</span> BackgroundWorker();\r\n            bgw.WorkerSupportsCancellation = <span style=\"color:blue\">true</span>;\r\n            bgw.WorkerReportsProgress = <span style=\"color:blue\">true</span>;\r\n            bgw.DoWork += <span style=\"color:blue\">new</span> DoWorkEventHandler(PlotFlight);\r\n            bgw.ProgressChanged += <span style=\"color:blue\">new</span> ProgressChangedEventHandler(Plot_MapChanged);\r\n            bgw.RunWorkerAsync(<span style=\"color:blue\">null</span>);\r\n        }\r\n<br><br><br></pre>\r\n</div>\r\n</p>\r\n<p>As you can see, my DoWork is pointing at this method:</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> PlotFlight(<span style=\"color:blue\">object</span> sender, DoWorkEventArgs e)\r\n        {\r\n            BackgroundWorker bgw = sender <span style=\"color:blue\">as</span> BackgroundWorker;\r\n\r\n            List&lt;PointLatLng&gt; positions = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n            <span style=\"color:blue\">string</span> aLine;\r\n\r\n            <span style=\"color:blue\">#region</span> Read File Data\r\n            TextReader file = <span style=\"color:blue\">new</span> StreamReader(<span style=\"color:#a31515\">&quot;c:\\\\gps.csv&quot;</span>);\r\n\r\n            <span style=\"color:blue\">while</span> ((aLine = file.ReadLine()) != <span style=\"color:blue\">null</span>)\r\n            {\r\n                <span style=\"color:blue\">string</span>[] pos = aLine.Split(<span style=\"color:#a31515\">','</span>);\r\n                PointLatLng p = <span style=\"color:blue\">new</span> PointLatLng\r\n                {\r\n                    Lat = <span style=\"color:blue\">float</span>.Parse(pos[1]),\r\n                    Lng = <span style=\"color:blue\">float</span>.Parse(pos[0])\r\n                };\r\n                positions.Add(p);\r\n\r\n            }\r\n            <span style=\"color:blue\">#endregion</span>\r\n\r\n            \r\n            <span style=\"color:blue\">foreach</span> (<span style=\"color:blue\">var</span> GPSposition <span style=\"color:blue\">in</span> positions)\r\n            {\r\n             \r\n                route.Points.Add(GPSposition);\r\n              <span style=\"color:green\">//  MainMap.UpdateRouteLocalPosition(route);</span>\r\n                bgw.ReportProgress(0, <span style=\"color:blue\">null</span>);\r\n                Thread.Sleep(1000);\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>And then, when I 'ReportProgress', my 'Plot_MapChanged' method is called:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> Plot_MapChanged(<span style=\"color:blue\">object</span> sender, ProgressChangedEventArgs e)\r\n        {\r\n            MainMap.Refresh();\r\n        }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>It compiles fine, and runs... but nothing appears.</p>\r\n<p>This might be because I am not assigning my route to the map.</p>\r\n<p>Do I need to add something here?</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;lineRoute&quot;);<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.RoutesEnabled = true;</p>\r\n<p>I thought I would have to add it as an overlay, like this: MainMap.Overlays.Add(route);</p>\r\n<p>But it's the wrong type.</p>",
+    "PostedDate": "2010-09-01T15:51:10.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487898",
+    "ThreadId": "225574",
+    "Html": "<p><strong>WAIT!</strong></p>\r\n<p>:)</p>\r\n<p>It works... nearly.</p>\r\n<p>I did this:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; route = new GMapRoute(new List&lt;PointLatLng&gt;(), &quot;lineRoute&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.RoutesEnabled = true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _topOverlay.Routes.Add(route);</p>\r\n<p>That may have fixed it...</p>\r\n<p>BUT... the route only displays if I move the map! If I don't touch the map, the route doesn't appear.... :(</p>",
+    "PostedDate": "2010-09-01T15:58:45.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487899",
+    "ThreadId": "225574",
+    "Html": "<p>You have to add the Overlay to the MainMap.</p>\r\n<p>And the Overlay-object has a Routes property.</p>\r\n<p>&nbsp;</p>\r\n<p>i think you should better do something like this:</p>\r\n<pre><span style=\"color:blue\"><div style=\"color:black;background-color:white\"><pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> PlotFlight(<span style=\"color:blue\">object</span> sender, DoWorkEventArgs e)\r\n        {\r\n            BackgroundWorker bgw = sender <span style=\"color:blue\">as</span> BackgroundWorker;\r\n\r\n            List&lt;PointLatLng&gt; positions = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n            <span style=\"color:blue\">string</span> aLine;\r\n\r\n            <span style=\"color:blue\">#region</span> Read File Data\r\n            TextReader file = <span style=\"color:blue\">new</span> StreamReader(<span style=\"color:#a31515\">&quot;c:\\\\gps.csv&quot;</span>);\r\n\r\n            <span style=\"color:blue\">while</span> ((aLine = file.ReadLine()) != <span style=\"color:blue\">null</span>)\r\n            {\r\n                <span style=\"color:blue\">string</span>[] pos = aLine.Split(<span style=\"color:#a31515\">','</span>);\r\n                PointLatLng p = <span style=\"color:blue\">new</span> PointLatLng\r\n                {\r\n                    Lat = <span style=\"color:blue\">float</span>.Parse(pos[1]),\r\n                    Lng = <span style=\"color:blue\">float</span>.Parse(pos[0])\r\n                };\r\n                positions.Add(p);\r\n\r\n            }\r\n            <span style=\"color:blue\">#endregion</span>\r\n\r\n            \r\n            <span style=\"color:blue\">foreach</span> (<span style=\"color:blue\">var</span> GPSposition <span style=\"color:blue\">in</span> positions)\r\n            {\r\n                bgw.ReportProgress(0, GPSposition);\r\n                Thread.Sleep(1000);\r\n            }\r\n        }\r\n\r\n       <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> Plot_MapChanged(<span style=\"color:blue\">object</span> sender, ProgressChangedEventArgs e)\r\n        {\r\n             PointLatLng pnt = e.UserState <span style=\"color:blue\">as</span> PointLatLng;\r\n                route.Points.Add(pnt);\r\n                MainMap.UpdateRouteLocalPosition(route);\r\n            MainMap.Refresh();\r\n        }\r\n\r\n</pre>\r\n</div>\r\n</span><br></pre>",
+    "PostedDate": "2010-09-01T15:59:23.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487901",
+    "ThreadId": "225574",
+    "Html": "<p>Fantastic, sir!</p>\r\n<p>That has worked brilliantly!!</p>\r\n<p>I just used the c# cast instead. :)</p>\r\n<pre><span style=\"color:blue\"><pre> PointLatLng pnt = (PointLatLng)e.UserState;<br></pre>\r\n<br><span style=\"color:#000000\">THis is fantastic!!!!</span><br><span style=\"color:#000000\">Thanks!</span><br></span></pre>",
+    "PostedDate": "2010-09-01T16:03:02.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487902",
+    "ThreadId": "225574",
+    "Html": "<p>Additional Note @ threads!</p>\r\n<p>NEVER EVER! use Objects from the mainthread (without telling the runtime to lock it) on the workingthread.</p>\r\n<pre>            <span style=\"color:blue\">foreach</span> (<span style=\"color:blue\">var</span> GPSposition <span style=\"color:blue\">in</span> positions)<br>            {<br>             <br>/* This is really bad */<br>                route.Points.Add(GPSposition);<br>              <span style=\"color:green\">//  MainMap.UpdateRouteLocalPosition(route);</span><br>                bgw.ReportProgress(0, <span style=\"color:blue\">null</span>);<br>                Thread.Sleep(1000);<br>            }<br></pre>\r\n<p>you will get a &quot;Cross-thread operation not valid:&quot; InvalidOperationException if you touch the routes list on 2 diffenrent threads.</p>\r\n<p>@radioman: are the Collections of GMap.NET threadsave?</p>\r\n<p>Greetings, Manuel</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-01T16:04:27.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487903",
+    "ThreadId": "225574",
+    "Html": "<p>You are welcome :)</p>",
+    "PostedDate": "2010-09-01T16:05:09.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487904",
+    "ThreadId": "225574",
+    "Html": "<p>One moth thing, and this just might be bnasic logic, but ...</p>\r\n<p>Is there a way to show only the last 5 points in the route? So it forms more of a snake? The code I am writing is for tracking a remote controlled plane. (Yip, pretty cool!)</p>\r\n<p>As the plane stays close to the person, the screen gets very messy very quicly. I'd like to show it as a snake, showing it's last few seconds of movement only.</p>\r\n<p>So, can I remove any parts in the route, which are more than 5 samples old?</p>",
+    "PostedDate": "2010-09-01T16:06:54.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487905",
+    "ThreadId": "225574",
+    "Html": "<p>Manuel,</p>\r\n<p>Thanks for the lesson in Threads! Very much appriciated!</p>\r\n<p>Is the problem you mentioned above, where you say I mustn't use Objects from main thread, because the object was created in the main thread, but accessed in the worker thread... and this may land up with tow threads accessing the same object at the same time?</p>\r\n<p>Very useful! Thanks again!</p>\r\n<p>And @radioman - great bit of code, thanks!</p>",
+    "PostedDate": "2010-09-01T16:09:24.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487907",
+    "ThreadId": "225574",
+    "Html": "<p>you got it :)</p>\r\n<p>&gt;&gt;and this may land up with tow threads accessing the same object at the same time?</p>\r\n<p>you mustn't access it from 2 diffrent threads, cause if they accidentally access it at the same moment, you'll get the exception.</p>\r\n<p>&nbsp;</p>\r\n<p>To your problem with the 5 points:</p>\r\n<p>sure. Its just a list.</p>\r\n<p>before adding the new element, check if count &gt; 5 and kick out index 0.</p>",
+    "PostedDate": "2010-09-01T16:15:47.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487919",
+    "ThreadId": "225574",
+    "Html": "Thanks Manuel. You have been an amazing help. It's working extremely well now. Thank you. ",
+    "PostedDate": "2010-09-01T17:10:01.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488175",
+    "ThreadId": "225574",
+    "Html": "<p>cool indeed(i can only hope it isn't a some type of missile ;]) ...do you have any ideas for the demo, like some video on youtube on how the system works in real?</p>",
+    "PostedDate": "2010-09-02T04:52:19.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488268",
+    "ThreadId": "225574",
+    "Html": "<p>100% for sure, you'll see it.</p>\r\n<p>Basically, we fly reote controlled planes, with video transmitters, video cameras, gpd and on screen displays. They transmit video to our gogglesd we wear. The flight data is recorded.</p>\r\n<p>Once we land, we plug into my first system, which downloads the GPS data. I then create a KML file... for Google Earth... with is static.</p>\r\n<p>However, your amazing software allows me to draw the flight as it happens... They can send down GPS data over the video signal, so I can get that and plot live position on a laptop.</p>\r\n<p>Or, the person can load up a KML file, and run the flight, and watch where he goes. Very interesting stuff....</p>\r\n<p>Your development has made this possible, and I thiank you!</p>\r\n<p>&nbsp;</p>\r\n<p>Craig.</p>",
+    "PostedDate": "2010-09-02T07:14:33.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488718",
+    "ThreadId": "225574",
+    "Html": "<p>Here's another question about my moving marker.</p>\r\n<p>Can I add a marker, but instead of the default icon displayed, can I display a small aeroplane, and then rotate the image based on the direction of travel? I can pass it the direction, based on the previous Position, and the current position.</p>",
+    "PostedDate": "2010-09-03T01:48:27.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488735",
+    "ThreadId": "225574",
+    "Html": "<p>for sure, just extend GMapMarker.</p>\r\n<p>You find a sample in the docs.</p>\r\n<p>:)</p>",
+    "PostedDate": "2010-09-03T02:48:00.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488756",
+    "ThreadId": "225574",
+    "Html": "<p>demo markers has integrated bearing arrow, you can use them as example for your plane</p>",
+    "PostedDate": "2010-09-03T03:36:55.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488772",
+    "ThreadId": "225574",
+    "Html": "<p>Thanks guys.</p>\r\n<p>Just to confirm, is this the demo?</p>\r\n<p>http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=71409</p>",
+    "PostedDate": "2010-09-03T04:10:55.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488777",
+    "ThreadId": "225574",
+    "Html": "<p>no ;} it's&nbsp;<em>GMapMarkerGoogleGreen</em> &amp; <em>GMapMarkerGoogleRed</em></p>",
+    "PostedDate": "2010-09-03T04:21:34.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488802",
+    "ThreadId": "225574",
+    "Html": "<p>Ah man, I'm sorry for sounding really stupid, but ... where can I find an example?</p>\r\n<p>I used the 'Search Wiki and Dolcumentation' for '<em>GMapMarkerGoogleRed', but it found zero results.</em></p>\r\n<p><em>I found this somewhere:</em></p>\r\n<p>http://www.java2s.com/Open-Source/CSharp/GIS/GMap.NET/GMap/NET/WindowsForms/Markers/GMapMarkerGoogleRed.cs.htm</p>\r\n<p>Is that what I am looking for?</p>",
+    "PostedDate": "2010-09-03T05:08:41.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488810",
+    "ThreadId": "225574",
+    "Html": "<p>g, just download the latest changeset</p>",
+    "PostedDate": "2010-09-03T05:16:43.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488815",
+    "ThreadId": "225574",
+    "Html": "<p>Hot build</p>\r\n<div><span>Released:</span> <span id=ReleaseDateLiteral>Aug 25 2010?</span></div>",
+    "PostedDate": "2010-09-03T05:25:23.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488845",
+    "ThreadId": "225574",
+    "Html": "<p>Sorry, what's a .sn file?</p>\r\n<p>I am getting the error:</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 26&nbsp;&nbsp;&nbsp; Cannot import the following key file: sn.snk. The key file may be password protected. To correct this, try to import the certificate again or import the certificate manually into the current user&rsquo;s personal certificate store.&nbsp;&nbsp;&nbsp; GMap.NET - Hot Build</p>",
+    "PostedDate": "2010-09-03T06:20:34.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488848",
+    "ThreadId": "225574",
+    "Html": "<p>just disable that project, why do you need it? ;]</p>",
+    "PostedDate": "2010-09-03T06:28:43.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488853",
+    "ThreadId": "225574",
+    "Html": "<p>Thanks radioman!</p>\r\n<p>Yes, you're right! Sorry for the silly questions, but I am new to using 3rd party components... I do simple database applications for professional work... so, I'm learning.</p>\r\n<p>Thanks for the help. For my main project (The application which is making use of your fantastic dlls), I should add GMap.NET.Core and the GMap.NET.WindowsForms projects, to the soultion which currently contains my main application? And then reference the dlls that get created by those projects?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-03T06:41:47.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488861",
+    "ThreadId": "225574",
+    "Html": "<p>set Build to <strong>Release</strong>, use <strong>x86 target</strong>, Rebuild All, and use generated dlls in Build folder</p>",
+    "PostedDate": "2010-09-03T06:53:02.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "488902",
+    "ThreadId": "225574",
+    "Html": "<p>Thanks Radioman!</p>\r\n<p>Got it working... solution builds... I've even made a setup, and sent it to a tester on the other side of the planet, and it's all good. Thanks sir!</p>\r\n<p>Now, to draw a plane... and somehow get that working. :)</p>",
+    "PostedDate": "2010-09-03T08:19:08.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489386",
+    "ThreadId": "225574",
+    "Html": "<p>radioman - here's what I have written, and your amazing code is living inside...</p>\r\n<p>&nbsp;</p>\r\n<p>http://www.forum.tsebi.com/viewtopic.php?f=7&amp;t=93&amp;p=1186#p1186</p>\r\n<p>One it's running, click 'File -&gt; Live Tracker'...</p>\r\n<p>There's a setup, as well as a demonstration KML file (Google Earth file) which I flew and generated.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your cool code!</p>\r\n<p>Now, I need to find a way to make the movement smoother (You'll see what I mean) when zoomed in on the plane, and the map is tracking the flight.</p>\r\n<p>&nbsp;</p>\r\n<p>If you see any ideas how I can make it better, please shout.</p>\r\n<p>Oh... And here's the actual flight... what I see when flying it.</p>\r\n<p>http://www.youtube.com/watch?v=CHMC7DVwcn8</p>",
+    "PostedDate": "2010-09-05T02:23:24.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489404",
+    "ThreadId": "225574",
+    "Html": "<p>Congrats!&nbsp;Brilliant indeed ;}</p>\r\n<p>p.s. you can remove that line from prefetcher at <strong><a href=\"http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://DragonOSD:1.0.0.0/DragonOSD.LiveTracker.Tracker/Button1Click(Object,System.EventArgs)\">Button1Click</a></strong>: <a title=\"System.Collections.Generic.List&lt;Point&gt;\" href=\"http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://mscorlib:2.0.0.0:b77a5c561934e089/System.Collections.Generic.List&lt;&gt;\">List</a>&lt;<a title=GMap.NET.Point href=\"http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://GMap.NET.Core:1.5.3.3:b85b9027b614afef/GMap.NET.Point\">Point</a>&gt; <strong>list</strong> = <span style=\"color:#1000a0\">this</span>.<a title=\"GMapControl DragonOSD.LiveTracker.Tracker.MainMap;\" href=\"http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://DragonOSD:1.0.0.0/DragonOSD.LiveTracker.Tracker/MainMap:GMap.NET.WindowsForms.GMapControl\">MainMap</a>.<a title=\"PureProjection GMap.NET.WindowsForms.GMapControl.Projection { ... }\" href=\"http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://GMap.NET.WindowsForms:1.0.0.0:b85b9027b614afef/GMap.NET.WindowsForms.GMapControl/property:Projection:GMap.NET.PureProjection\">Projection</a>.<a title=\"List&lt;Point&gt; GMap.NET.PureProjection.GetAreaTileList(RectLatLng, int, int);\" href=\"http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://GMap.NET.Core:1.5.3.3:b85b9027b614afef/GMap.NET.PureProjection/GetAreaTileList(GMap.NET.RectLatLng,Int32,Int32):System.Collections.Generic.List&lt;GMap.NET.Point&gt;\">GetAreaTileList</a>(<a title=\"RectLatLng currentViewArea // Local Variable\">currentViewArea</a>, <a title=\"int i // Local Variable\">i</a>, <span style=\"color:#800000\">0</span>);</p>",
+    "PostedDate": "2010-09-05T05:00:10.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489606",
+    "ThreadId": "225574",
+    "Html": "<p>Thanks sir!</p>\r\n<p>So, I now have:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> Button1Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            RectLatLng area = MainMap.CurrentViewArea;\r\n            <span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = (<span style=\"color:blue\">int</span>)MainMap.Zoom; i &lt;= MainMap.MaxZoom; i++)\r\n            {\r\n                TilePrefetcher obj = <span style=\"color:blue\">new</span> TilePrefetcher();\r\n                obj.ShowCompleteMessage = <span style=\"color:blue\">true</span>;\r\n                obj.Start(area, MainMap.Projection, i, MainMap.MapType, 100);\r\n            }\r\n        }\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Seem OK?</p>\r\n<p>I am not finding a way to use a custom marker (A small aeroplane) and then rotate it based on direction. Is there an example online?</p>",
+    "PostedDate": "2010-09-06T01:10:06.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489607",
+    "ThreadId": "225574",
+    "Html": "<p>it's GMapMarkerGoogleGreen &amp; GMapMarkerGoogleRed, check the source</p>",
+    "PostedDate": "2010-09-06T01:12:23.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489852",
+    "ThreadId": "225574",
+    "Html": "<p>Aw man, radioman - you make it too easy for us! Fantastic!</p>\r\n<p>I now have a beautiful green arrow, pointing the planes direction. Amazing!</p>\r\n<p>Is there a way to NOT show the green placemarker above the arrow? Or must it stay? I have a green balloon marker on the arrow. I'd like to just show the arrow.</p>",
+    "PostedDate": "2010-09-06T15:16:56.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489856",
+    "ThreadId": "225574",
+    "Html": "<p>;} yeah, you can customize it, just change the code, ...and now i've implemented map rotation, so you can fly and map can rotate to the direction, your plane is going! Use bearing property. Should look really fun!</p>\r\n<p>Mr. Scott, energize! ;]</p>",
+    "PostedDate": "2010-09-06T15:46:03.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "489944",
+    "ThreadId": "225574",
+    "Html": "<p>MainMap.CurrentPosition = marker.Position;<br> if(marker.Bearing.HasValue)<br> {<br>&nbsp; &nbsp;MainMap.Bearing = marker.Bearing.Value;<br> }</p>",
+    "PostedDate": "2010-09-07T00:16:20.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

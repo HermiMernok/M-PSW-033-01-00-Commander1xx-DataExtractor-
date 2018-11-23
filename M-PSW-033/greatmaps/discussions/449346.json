@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1065761",
+    "ThreadId": "449346",
+    "Html": "Hi,\r<br />\n<br />\nI try to use the OnMarkerClick function on the WPF version, but I can't find it.\r<br />\n<br />\nDoes it exists?\r<br />\n<br />\nThanks...<br />\n",
+    "PostedDate": "2013-07-08T13:05:46.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1066088",
+    "ThreadId": "449346",
+    "Html": "in wpf version all markers is UIElements, use their events<br />\n",
+    "PostedDate": "2013-07-09T05:42:34.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1074288",
+    "ThreadId": "449346",
+    "Html": "Yes, but the MouseLeftButtonDown event is on the Shape of the marker, and when I catch the event, the object sender is an image.<br />\n",
+    "PostedDate": "2013-07-29T05:28:14.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075556",
+    "ThreadId": "449346",
+    "Html": "Hi,\r<br />\n<br />\nTo make it work, I had to create a CustomMarker class, like you did in the demo. Now, I can select markers in the view.\r<br />\n<br />\nBut how can I do the same for route objects?<br />\n",
+    "PostedDate": "2013-08-01T06:23:17.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075560",
+    "ThreadId": "449346",
+    "Html": "the same way?<br />\n",
+    "PostedDate": "2013-08-01T06:39:50.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075590",
+    "ThreadId": "449346",
+    "Html": "It would have been too easy...\r<br />\n<br />\nHere's the way I create the marker for a point:<br />\n<pre><code>    GMapMarker m = new GMapMarker(new PointLatLng(YLat.Value, XLon.Value));\n        stream = System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceStream(&quot;MyClient.Resources.Icones.bigMarkerGreen.png&quot;);\n    PngBitmapDecoder decoder = new PngBitmapDecoder(stream, BitmapCreateOptions.IgnoreColorProfile, BitmapCacheOption.OnLoad);\n    BitmapSource bitmapSource = decoder.Frames[0];\n\n    Image myImage = new Image();\n    myImage.Source = bitmapSource;\n    myImage.Stretch = Stretch.Fill;\n\n    m.Shape = new CustomMarker(m, wo.Name, myImage, wo);\n\n    m.Offset = new System.Windows.Point(-myImage.Source.Width / 2, -myImage.Source.Height);\n    m.ZIndex = int.MaxValue;\n        m.Shape.MouseLeftButtonDown  += MarkerClick; </code></pre>\n\nAnd the way I create it for a route<br />\n<pre><code>MapRoute r = new MapRoute(points, &quot;my road&quot;);\nGMapMarker m = new GMapMarker(from);\nm.Route.AddRange(r.Points);\n\nm.Shape = new CustomMarker(m, &quot;my road&quot;);\nm.RegenerateRouteShape(MainMap);\nm.ZIndex = int.MaxValue;\nm.Shape.MouseLeftButtonDown  += MarkerClick; </code></pre>\n\nwith<br />\n<pre><code>public void MarkerClick(object sender, MouseButtonEventArgs  e)\n{\n     MessageBox.Show(&quot;clic&quot;);\n}</code></pre>\n\nA MessageBox appears when I clic on a marker but no MessageBox on the route.<br />\n",
+    "PostedDate": "2013-08-01T07:27:02.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075628",
+    "ThreadId": "449346",
+    "Html": "Actually, I just want to draw a line between 2 objects, maybe the MapRoute object is not the best to do that. Is there a simple line object?<br />\n",
+    "PostedDate": "2013-08-01T08:57:51.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

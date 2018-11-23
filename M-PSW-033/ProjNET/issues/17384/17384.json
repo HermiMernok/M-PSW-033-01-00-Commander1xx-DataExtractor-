@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "See:\n \nhttp://sharpmap.codeplex.com/Thread/View.aspx?ThreadId=210317\n \n /// <summary>\n        /// Create a new point by a douuble[] array\n        /// </summary>\n        /// <param name=\"point\"></param>\n        public Point(double[] point)\n        {\n            if (point.Length §!= 2)\n                throw new Exception(\"Only 2 dimensions are supported for points\");\n \n            _X = point[0];\n            _Y = point[1];\n        }\nThis is the \"point\" constructor with a double array point....   ok it is perfect...\n \n BUT..   here...    \n \n  \t/// <summary>\n        /// Transforms a <see cref=\"SharpMap.Geometries.BoundingBox\"/>.\n        /// </summary>\n        /// <param name=\"box\">BoundingBox to transform</param>\n        /// <param name=\"transform\">Math Transform</param>\n        /// <returns>Transformed object</returns>\n        public static BoundingBox TransformBox(BoundingBox box, IMathTransform transform)\n        {\n            if (box == null)\n                return null;\n            Point[] corners = new Point[4];\n            corners[0] = new Point(transform.Transform(box.Min.ToDoubleArray())); //LL\n            corners[1] = new Point(transform.Transform(box.Max.ToDoubleArray())); //UR\n            corners[2] = new Point(transform.Transform(new Point(box.Min.X, box.Max.Y).ToDoubleArray())); //UL\n            corners[3] = new Point(transform.Transform(new Point(box.Max.X, box.Min.Y).ToDoubleArray())); //LR\n \n            BoundingBox result = corners[0].GetBoundingBox();\n            for (int i = 1; i < 4; i++)\n                result = result.Join(corners[i].GetBoundingBox());\n            return result;\n        }\nWhen you use a Coordinate Projection...   some times it returns back more than 2 points...   this is a bug. of projnet????\n \n \n \n        /// <summary>\n        /// Transforms a point\n        /// </summary>\n        /// <param name=\"point\"></param>\n        /// <returns></returns>\n        public override double[] Transform(double[] point)\n        {\n            foreach (ICoordinateTransformation ct in _CoordinateTransformationList)\n                point = ct.MathTransform.Transform(point);\n            return point;\n        }\n \n \nCiao\n \nAlberto",
+    "LastUpdatedDate": "2013-02-21T16:06:07.48-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2010-04-23T07:46:49.527-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Math Transform  returns more than 2 point???",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 17384
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "Id": "1040754",
+    "ThreadId": "442921",
+    "Html": "hi\r<br />\nsome times in my application the map is not showing and a red cross is showing instead of it\r<br />\nthe error cause this problem is here:<br />\n<pre><code>Arithmetic operation resulted in an overflow. At    at GMap.NET.Internals.Tile.&lt;get_Overlays&gt;d__0.MoveNext()\n   at GMap.NET.WindowsForms.GMapControl.DrawMap(Graphics g)\n   at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\n   at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\n   at System.Windows.Forms.Control.WmPaint(Message&amp; m)\n   at System.Windows.Forms.Control.WndProc(Message&amp; m)\n   at System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)\n   at System.Windows.Forms.UserControl.WndProc(Message&amp; m)\n   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)\n   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\n</code></pre>\n\nwhat should i do?\r<br />\nthanks<br />\n",
+    "PostedDate": "2013-05-08T01:43:55.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040760",
+    "ThreadId": "442921",
+    "Html": "what do you mean 'sometimes'? It never happened to me ;/<br />\n",
+    "PostedDate": "2013-05-08T01:59:36.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040842",
+    "ThreadId": "442921",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nwhat do you mean 'sometimes'? It never happened to me ;/<br />\n</blockquote>\nmaybe it's because of updating markers location\r<br />\nhow to update them with background worker and locks?\r<br />\ni don't know i should lock which variable\r<br />\nmarkers or polygons or the whole overlay ?\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-05-08T06:05:15.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040843",
+    "ThreadId": "442921",
+    "Html": "check the demo, there are few examples of live data<br />\n",
+    "PostedDate": "2013-05-08T06:06:32.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060152",
+    "ThreadId": "442921",
+    "Html": "i have done just the same as what is on demo application\r<br />\nbut sometimes it gives the following exception:<br />\n<pre><code>2013/06/23 06:51:11.33 Arithmetic operation resulted in an overflow. At    at GMap.NET.Internals.Tile.&lt;get_Overlays&gt;d__0.MoveNext()\n   at GMap.NET.WindowsForms.GMapControl.DrawMap(Graphics g)\n   at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\n   at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\n   at System.Windows.Forms.Control.WmPaint(Message&amp; m)\n   at System.Windows.Forms.Control.WndProc(Message&amp; m)\n   at System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)\n   at System.Windows.Forms.UserControl.WndProc(Message&amp; m)\n   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)\n   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</code></pre>\n\ni update the markers every 20 seconds from database<br />\n",
+    "PostedDate": "2013-06-23T12:06:56.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060265",
+    "ThreadId": "442921",
+    "Html": "does the demo throws the same exception?<br />\n",
+    "PostedDate": "2013-06-24T00:42:12.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060282",
+    "ThreadId": "442921",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\ndoes the demo throws the same exception?<br />\n</blockquote>\nno\r<br />\nhow can i find out why this is happening?\r<br />\ni have just copied demo's source code into my application and fill my values in the collection\r<br />\nis it because of application setting (optimization,...) or something like that?<br />\n",
+    "PostedDate": "2013-06-24T01:40:18.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060293",
+    "ThreadId": "442921",
+    "Html": "you are doing something wrong ;/<br />\n",
+    "PostedDate": "2013-06-24T02:14:40.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060360",
+    "ThreadId": "442921",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nyou are doing something wrong ;/<br />\n</blockquote>\nhere is my code:<br />\n<pre><code>List&lt;CarData&gt; driversData = new List&lt;CarData&gt;();\nSqlDataAdapter DataAdapter = new SqlDataAdapter();\n\nprotected void LoadDataOfLastPosition(DoWorkEventArgs e)\n{\n    lock (driversData)\n    {\n        driversData.Clear();\n        string CommandString = &quot;SELECT  id,lat,lng from LastPosition&quot;;\n\n        if (DataAdapter.SelectCommand == null) DataAdapter.SelectCommand = new SqlCommand(CommandString, new SqlConnection(sqlConnectionString));\n\n        if (DataAdapter.SelectCommand.Connection.State == ConnectionState.Closed)   DataAdapter.SelectCommand.Connection.Open();\n\n        DataAdapter.SelectCommand.CommandType = CommandType.Text;\n        DataAdapter.SelectCommand.CommandText = CommandString;\n        SqlDataReader reader = DataAdapter.SelectCommand.ExecuteReader();\n        try\n        {\n            while (reader.Read())\n            {\n                if (bwUpdateData.CancellationPending &amp;&amp; !preventCancellation)\n                {\n                    e.Cancel = true;\n                    return;\n                }\n                CarData cardata = new CarData();\n                cardata.ID = reader.GetInt32(0);\n                cardata.Latitude = reader.GetDouble(1);\n                cardata.Longitude = reader.GetDouble(2);\n                driversData.Add(cardata);\n            }\n            reader.Close();\n        }\n        catch (Exception)\n        {\n            reader.Close();\n        }\n    }\n\n}\n\nprivate void bwUpdateData_DoWork(object sender, DoWorkEventArgs e)\n{\n\n    if (bwUpdateData.CancellationPending &amp;&amp; !preventCancellation)\n    {\n        e.Cancel = true;\n        return;\n    }\n\n    try\n    {\n        updating = true;                \n        bwUpdateData.ReportProgress(15,&quot;fetch from database started&quot;);\n        LoadDataOfLastPosition(e);\n        bwUpdateData.ReportProgress(16,&quot;fetch from database ended&quot;); \n       \n        // do other updates on form\n       \n        bwUpdateData.ReportProgress(100,&quot;update ended&quot;);\n        updating = false;\n    }\n    catch (NullReferenceException NREX)\n    {\n\n    }\n    catch (Exception ex)\n    {\n        updating = false;\n    }\n    finally\n    {\n        Thread.Sleep(20000);\n    }\n}\n\n\nprivate void bwUpdateData_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)\n        {\n            try\n            {\n                if (e.ProgressPercentage == 100)\n                {\n                    gMapControl1.HoldInvalidation = true;\n                    driversCollection.Markers.Clear();\n\n                    lock (driversData)\n                    {\n                        foreach (CarData item in driversData)\n                        {\n                            Bitmap bmp = RotateImage(); //rotate marker in a direction of car\n                            PointLatLng pos = new PointLatLng(item.Latitude, item.Longitude);\n                            GMapMarkerCar m = new GMapMarkerCar(pos, bmp);\n                            m.ToolTip = new GMapRoundedToolTip(m);\n                            m.ToolTip.Format.Alignment = StringAlignment.Center;\n                            m.ToolTip.Format.Trimming = StringTrimming.None;\n                            m.ToolTip.Format.FormatFlags = StringFormatFlags.DirectionRightToLeft | StringFormatFlags.NoWrap;\n                            m.Tag = item.DriverID;\n                            m.ToolTipText = &quot;somevalue&quot;;\n                            driversCollection.Markers.Add(m);\n                            if (item.ID == CurrentSelectedCar)\n                                gMapControl1.Position = m.Position;\n                        }\n                        gMapControl1.Refresh();\n                    }\n                }\n\n                toolStripProgressBar1.Value = e.ProgressPercentage;\n                toolStripProgressBar1.Visible = true;\n                toolStripStatusLabelUpdateLevel.Text = (e.UserState != null) ? e.UserState.ToString() : string.Empty;\n            }\n            catch (Exception)\n            {\n\n            }\n\n        }\n\n        private void bwUpdateData_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)\n        {\n            if (e.Cancelled)\n            {\n                AddLog(&quot;bwUpdateData Cancelled&quot;);\n            }\n            else if (e.Error != null)\n            {\n                AddLog(&quot;Update Finished with result &quot; + ((e.Result != null) ? e.Result : &quot;&quot;) + &quot; &quot; + ((e.Error != null) ? e.Error.Message : &quot;&quot;));\n            }\n            else\n            {                \n                bwUpdateData.RunWorkerAsync();\n            }\n        }\n</code></pre>\n\n",
+    "PostedDate": "2013-06-24T05:58:08.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060381",
+    "ThreadId": "442921",
+    "Html": "well you clear all markers each time and don't reuse them, but even with that it should work just fine<br />\n",
+    "PostedDate": "2013-06-24T06:33:21.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060467",
+    "ThreadId": "442921",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nwell you clear all markers each time and don't reuse them, but even with that it should work just fine<br />\n</blockquote>\nas u see i do just the same as demo app\r<br />\nbut some times the red cross is appearing on the gmapcontrol<br />\n",
+    "PostedDate": "2013-06-24T09:33:09.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091027",
+    "ThreadId": "442921",
+    "Html": "I put the map controller in  windows form. When i run it for the first time, map is perfectly displayed. But when i call it second time big red cross on white back ground is displayed. Can you tell me why?\r<br />\n<br />\nMy Code\r<br />\nPublic Shadows Sub ShowDialog(ByVal owner As Form, ByVal LAT As Double, ByVal LON As Double)<br />\n<pre><code>    _Lat = LAT\n    _Lon = LON\n    MyBase.ShowDialog(owner)\nEnd Sub\n\nPrivate Sub myMap_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles myMap.Disposed\n    myMap.Dispose()\n\nEnd Sub\nPrivate Sub myMap_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles myMap.Load\n\n\n    'not use proxy\n    GMapProvider.WebProxy = Nothing\n\n    myMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance\n    GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly\n    'myMap.SetCurrentPositionByKeywords(&quot;CAMDEN, AUSTRALIA&quot;)\n\n    myMap.Position = New PointLatLng(_Lon, _Lat)\n    Dim markersOverlay As GMapOverlay = New GMapOverlay(&quot;markers&quot;)\n    Dim marker As GMarkerGoogle = New GMarkerGoogle(New PointLatLng(_Lon, _Lat), GMarkerGoogleType.green)\n    markersOverlay.Markers.Add(marker)\n    myMap.Overlays.Add(markersOverlay)\n\n\n\n\n    myMap.MinZoom = 1\n    myMap.MaxZoom = 20\n    myMap.Zoom = 12\n\nEnd Sub</code></pre>\n\n",
+    "PostedDate": "2013-09-11T00:46:16.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091039",
+    "ThreadId": "442921",
+    "Html": "you cant use disposed map<br />\n",
+    "PostedDate": "2013-09-11T01:27:37.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091082",
+    "ThreadId": "442921",
+    "Html": "is there a way to do it? <br />\n",
+    "PostedDate": "2013-09-11T03:44:37.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091094",
+    "ThreadId": "442921",
+    "Html": "Actually I have a list view with addresses. When user clicks on it, I am calling new form which has a map controller and tried to display that address on it. \r<br />\nFor the first time it is working fine. But next time when I close the form and tried to load the address it is not getting displayed? \r<br />\n<br />\nYour suggestion on this is highly appreciated<br />\n",
+    "PostedDate": "2013-09-11T04:24:08.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091102",
+    "ThreadId": "442921",
+    "Html": "hide/show the form instead<br />\n",
+    "PostedDate": "2013-09-11T04:50:57.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091121",
+    "ThreadId": "442921",
+    "Html": "Can you tell me why I have to hide/show the form? What happens to map controller when I closed the form?<br />\n",
+    "PostedDate": "2013-09-11T05:29:17.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091125",
+    "ThreadId": "442921",
+    "Html": "Even if I hide/show the form instead, I am having the same problem. \r<br />\n<br />\nCan you guide me on this?<br />\n",
+    "PostedDate": "2013-09-11T05:39:16.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091128",
+    "ThreadId": "442921",
+    "Html": "you can't have the same problem if hide/show it<br />\n",
+    "PostedDate": "2013-09-11T05:46:46.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091150",
+    "ThreadId": "442921",
+    "Html": "why all the markers are getting added. How to replace the existing markers with the new one?<br />\n",
+    "PostedDate": "2013-09-11T06:26:02.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

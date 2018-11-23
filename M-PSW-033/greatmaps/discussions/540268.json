@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1227132",
+    "ThreadId": "540268",
+    "Html": "Hi,<br />\n<br />\nI am currently reviewing GMap.Net v1.7. I am creating a test program which has a textbox to enter an address and a button to reload the map to point to the address after it is changed. I can't get this to work. The Map will load with the first address but when I change the address I can't get the map to reload. I have tried the below. What am I missing about reloading the map ? <br />\n<pre><code>private void gMapControl1_Load(object sender, EventArgs e)\n        {\n            gMapControl1.MapProvider = BingMapProvider.Instance;\n\n            //not use proxy\n            GMapProvider.WebProxy = null;\n\n             gMapControl1.SetPositionByKeywords(&quot;USA&quot;);\n            gMapControl1.Manager.Mode = AccessMode.ServerAndCache;\n            gMapControl1.MinZoom = 1;\n            gMapControl1.MaxZoom = 20;\n            gMapControl1.Zoom = 8;\n// This works perfectly and displays the correct map and location\n        }\n\nprivate void RefreshMap_click()\n        {\n\n            if (!string.IsNullOrEmpty(txtAddress.Text))\n            {\n                // Just testing....\n                gMapControl1.SetPositionByKeywords(&quot;Sydney, Australia&quot;);\n                var xxx = gMapControl1.Position;  &lt;=== Still set too the initial values. ie. &quot;USA&quot;\n                gMapControl1.SetPositionByKeywords(&quot;Auckland, New Zealand&quot;);\n                var zzz = gMapControl1.Position; &lt;=== Still set too the initial values. ie. &quot;USA&quot;\n\n                // Set new address\n                gMapControl1.SetPositionByKeywords(txtAddress.Text);\n                var zzz = gMapControl1.Position; &lt;=== Still set too the initial values. ie. &quot;USA&quot;\n\n                gMapControl1.Refresh();\n                gMapControl1.Show();\n                gMapControl1.ReloadMap();\n// PROBLEM: Nothing changes here, the map stays the same, ie &quot;USA&quot;\n            }\n        }</code></pre>\n\n<strong>EDIT:</strong> Actually, in playing around with it, it does work sometimes, but I need to move to different zoom levels (I use a slider control) and also change the map provider and it will then reload the map to the new address but I can't find the consistency. Should I always re-zoom to some value and/or change the provider when I change locations ?<br />\n<br />\nThanks<br />\nDave<br />\n",
+    "PostedDate": "2014-03-26T13:54:38.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244671",
+    "ThreadId": "540268",
+    "Html": "I am having exactly the same problem.<br />\n<br />\nI have created a control with GMap loaded and run through a list of paths. After loading each overlay, I need to refresh the map so i call gMapControl1.Invalidate(); or gMapControl1.ReloadMap();. - Niether of them works.<br />\n<br />\nTo show the loaded paths, once the list has been complete I change the zoom level and all paths show.<br />\n<br />\nAm I missing something?<br />\n",
+    "PostedDate": "2014-05-12T23:09:42.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244728",
+    "ThreadId": "540268",
+    "Html": "your code?<br />\n",
+    "PostedDate": "2014-05-13T02:41:17.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

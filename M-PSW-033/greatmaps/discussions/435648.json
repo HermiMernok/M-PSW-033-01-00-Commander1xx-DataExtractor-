@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1011425",
+    "ThreadId": "435648",
+    "Html": "Hey guys,\r<br />\n<br />\nI've successfully implemented multitouch gesture support in GreatMaps. Took some trial and error but the route I ended up going with was incrementing the WPF version used from version 3.0 to version 4.5. This allowed me to utilize the OnManipulation events integrated in the WPF library to handle zooming and dragging. I basically reimplemented the OnMouseMove for the dragging and based on the number of points detected I performed different actions. If anybody wants, I can post up the code. It's kind of dirty right now but I could take a few minutes to clean it up if need be.\r<br />\n<br />\nRegards,\r<br />\n-Free<br />\n",
+    "PostedDate": "2013-03-06T14:00:21.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011658",
+    "ThreadId": "435648",
+    "Html": "thanks, share anything you have<br />\n",
+    "PostedDate": "2013-03-07T02:40:10.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "685160",
+    "ThreadId": "276146",
+    "Html": "\r\n<p>With the newest build (both the hot build and compling the source and using those dlls) the same thing happens.&nbsp; When I run my map, only the left half side of the control is filled.</p>\r\n<p>Here is a screenshot of it:&nbsp; <a href=\"http://www.pronet-systems.us/gmap.jpg\">\r\nhttp://www.pronet-systems.us/gmap.jpg</a></p>\r\n<p>Any idea on how to fix this?</p>\r\n",
+    "PostedDate": "2011-10-17T05:56:43.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685163",
+    "ThreadId": "276146",
+    "Html": "<p>you probably adding control in onLoad event, i've no idea vhy vb people do this ;} just add it in constructor or use designer</p>",
+    "PostedDate": "2011-10-17T06:03:30.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685168",
+    "ThreadId": "276146",
+    "Html": "<p>I am using designer.</p>",
+    "PostedDate": "2011-10-17T06:17:30.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685173",
+    "ThreadId": "276146",
+    "Html": "<p>can you show the code?</p>",
+    "PostedDate": "2011-10-17T06:36:55.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685186",
+    "ThreadId": "276146",
+    "Html": "<pre style=\"font-family: Consolas; background: white; color: black; font-size: 13px;\"><span style=\"color: blue;\"><pre style=\"font-family: Consolas; background: white; color: black; font-size: 13px;\">&nbsp;&nbsp;<span style=\"color: blue;\">Private</span>&nbsp;<span style=\"color: blue;\">Sub</span>&nbsp;Button1_Click(<span style=\"color: blue;\">ByVal</span>&nbsp;sender&nbsp;<span style=\"color: blue;\">As</span>&nbsp;System.<span style=\"color: #2b91af;\">Object</span>,&nbsp;<span style=\"color: blue;\">ByVal</span>&nbsp;e&nbsp;<span style=\"color: blue;\">As</span>&nbsp;System.<span style=\"color: #2b91af;\">EventArgs</span>)&nbsp;<span style=\"color: blue;\">Handles</span>&nbsp;Button1.Click\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">With</span>&nbsp;myMap\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MapProvider&nbsp;=&nbsp;<span style=\"color: #2b91af;\">GMapProviders</span>.OpenStreetMap\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MinZoom&nbsp;=&nbsp;1\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MaxZoom&nbsp;=&nbsp;20\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Zoom&nbsp;=&nbsp;2\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Manager.Mode&nbsp;=&nbsp;GMap.NET.<span style=\"color: #2b91af;\">AccessMode</span>.ServerAndCache\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">End</span>&nbsp;<span style=\"color: blue;\">With</span>\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myMap.Position&nbsp;=&nbsp;<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.<span style=\"color: #2b91af;\">PointLatLng</span>(39.605612582602,&nbsp;-83.233154296875)\r\n \r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">Dim</span>&nbsp;overlayOne&nbsp;<span style=\"color: blue;\">As</span>&nbsp;<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.WindowsForms.<span style=\"color: #2b91af;\">GMapOverlay</span>(myMap,&nbsp;<span style=\"color: #a31515;\">\"OverlayOne\"</span>)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overlayOne.Markers.Add(<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.WindowsForms.Markers.<span style=\"color: #2b91af;\">GMapMarkerGoogleGreen</span>(<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.<span style=\"color: #2b91af;\">PointLatLng</span>(39.605612582602,&nbsp;-83.233154296875)))\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myMap.Overlays.Add(overlayOne)\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">End</span>&nbsp;<span style=\"color: blue;\">Sub</span></pre>\r\n</span></pre>",
+    "PostedDate": "2011-10-17T07:04:57.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685189",
+    "ThreadId": "276146",
+    "Html": "<p>move these to form constructor:</p>\r\n<p>With myMap<br /> .MapProvider = GMapProviders.OpenStreetMap<br /> .MinZoom = 1<br /> .MaxZoom = 20<br /> .Zoom = 2<br />End With</p>",
+    "PostedDate": "2011-10-17T07:16:21.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685205",
+    "ThreadId": "276146",
+    "Html": "<p>Just tried that.. no luck, I get the same results..&nbsp; Here is the code:</p>\r\n<p>&nbsp;</p>\r\n<pre style=\"font-family: Consolas; background: white; color: black; font-size: 13px;\"><span style=\"color: blue;\">Imports</span>&nbsp;System.Data.SQLite\r\n<span style=\"color: blue;\">Imports</span>&nbsp;GMap.NET.WindowsForms\r\n<span style=\"color: blue;\">Imports</span>&nbsp;GMap.NET.WindowsForms.Markers\r\n<span style=\"color: blue;\">Imports</span>&nbsp;GMap.NET.WindowsForms.ToolTips\r\n<span style=\"color: blue;\">Imports</span>&nbsp;GMap.NET\r\n<span style=\"color: blue;\">Imports</span>&nbsp;GMap.NET.MapProviders\r\n<span style=\"color: blue;\">Public</span>&nbsp;<span style=\"color: blue;\">Class</span>&nbsp;<span style=\"color: #2b91af;\">class1</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">Shared</span>&nbsp;x&nbsp;<span style=\"color: blue;\">As</span>&nbsp;<span style=\"color: blue;\">Integer</span>\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">Public</span>&nbsp;<span style=\"color: blue;\">Sub</span>&nbsp;<span style=\"color: blue;\">New</span>()\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">With</span>&nbsp;<span style=\"color: #2b91af;\">Form2</span>.myMap\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MapProvider&nbsp;=&nbsp;<span style=\"color: #2b91af;\">GMapProviders</span>.OpenStreetMap\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MinZoom&nbsp;=&nbsp;1\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.MaxZoom&nbsp;=&nbsp;20\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Zoom&nbsp;=&nbsp;2\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">End</span>&nbsp;<span style=\"color: blue;\">With</span>\r\n&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">End</span>&nbsp;<span style=\"color: blue;\">Sub</span>\r\n<span style=\"color: blue;\">End</span>&nbsp;<span style=\"color: blue;\">Class</span>\r\n</pre>\r\n<pre style=\"font-family: Consolas; background: white; color: black; font-size: 13px;\"><pre style=\"font-family: Consolas; background: white; color: black; font-size: 13px;\"><span style=\"color: blue;\">Private</span>&nbsp;<span style=\"color: blue;\">Sub</span>&nbsp;Button1_Click(<span style=\"color: blue;\">ByVal</span>&nbsp;sender&nbsp;<span style=\"color: blue;\">As</span>&nbsp;System.<span style=\"color: #2b91af;\">Object</span>,&nbsp;<span style=\"color: blue;\">ByVal</span>&nbsp;e&nbsp;<span style=\"color: blue;\">As</span>&nbsp;System.<span style=\"color: #2b91af;\">EventArgs</span>)&nbsp;<span style=\"color: blue;\">Handles</span>&nbsp;Button1.Click\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">Dim</span>&nbsp;objItem&nbsp;<span style=\"color: blue;\">As</span>&nbsp;<span style=\"color: blue;\">New</span>&nbsp;<span style=\"color: #2b91af;\">class1</span>\r\n \r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myMap.Position&nbsp;=&nbsp;<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.<span style=\"color: #2b91af;\">PointLatLng</span>(39.605612582602,&nbsp;-83.233154296875)\r\n \r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">Dim</span>&nbsp;overlayOne&nbsp;<span style=\"color: blue;\">As</span>&nbsp;<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.WindowsForms.<span style=\"color: #2b91af;\">GMapOverlay</span>(myMap,&nbsp;<span style=\"color: #a31515;\">\"OverlayOne\"</span>)\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overlayOne.Markers.Add(<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.WindowsForms.Markers.<span style=\"color: #2b91af;\">GMapMarkerGoogleGreen</span>(<span style=\"color: blue;\">New</span>&nbsp;GMap.NET.<span style=\"color: #2b91af;\">PointLatLng</span>(39.605612582602,&nbsp;-83.233154296875)))\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myMap.Overlays.Add(overlayOne)\r\n \r\n&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color: blue;\">End</span>&nbsp;<span style=\"color: blue;\">Sub</span></pre>\r\n</pre>",
+    "PostedDate": "2011-10-17T07:55:30.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685207",
+    "ThreadId": "276146",
+    "Html": "<p>class1 ? ;/ ..you are doing it in the wrong place, you need set parameters in the form where is your map control, witch is Form2</p>",
+    "PostedDate": "2011-10-17T08:00:37.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685211",
+    "ThreadId": "276146",
+    "Html": "<p>Sorry im new to contructors.. i'll be reading more on it now.</p>",
+    "PostedDate": "2011-10-17T08:04:57.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687331",
+    "ThreadId": "276146",
+    "Html": "<p>You need to add the code ...</p>\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">With</span> myMap\n   .MapProvider = GMapProviders.OpenStreetMap\n   .MinZoom = 1\n   .MaxZoom = 20\n   .Zoom = 2\n   .Manager.Mode = GMap.NET.AccessMode.ServerAndCache\n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">With</span><br /><br />...in the myMap_Load(....) handles mymap.load() - event<br /></pre>\n</div>\n</pre>",
+    "PostedDate": "2011-10-21T03:40:05.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

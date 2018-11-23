@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1083960",
+    "ThreadId": "454311",
+    "Html": "Is it possible to have multiple routes with each route having a different color, stroke, etc?\r<br />\n<br />\nI have 2 overlays such as this:\r<br />\n<br />\nGMapRoute FlightTrackerFlownRoute = new GMapRoute(FlightTrackerFlownRouteList, &quot;flighttrackerflownroute&quot;);\r<br />\nFlightTrackerFlownRoute.Stroke.Width = 1;\r<br />\nFlightTrackerFlownRoute.Stroke.Color = Color.Black;\r<br />\nFlightTrackerFlownRouteOverlay.Routes.Add(FlightTrackerFlownRoute);\r<br />\ngmap.UpdateRouteLocalPosition(FlightTrackerFlownRoute);\r<br />\n<br />\nthen another overlay such as this:\r<br />\n<br />\nGMapRoute route = new GMapRoute(routeList, &quot;myroute&quot;);\r<br />\nroute.Stroke.Width = 1;\r<br />\nroute.Stroke.Color = Color.Red;\r<br />\nflightplanOverlay.Routes.Add(route);\r<br />\n<br />\nWhen displayed, the first route will appear as BLACK but once the second route is loaded, both routes appear as RED.\r<br />\n<br />\nAny ideas?<br />\n",
+    "PostedDate": "2013-08-22T23:02:16.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083970",
+    "ThreadId": "454311",
+    "Html": "route.Stroke = new ...<br />\n",
+    "PostedDate": "2013-08-22T23:20:08.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084177",
+    "ThreadId": "454311",
+    "Html": "Hi radioman,\r<br />\n<br />\nWhat you mean by new? Can you give an example, please?<br />\n",
+    "PostedDate": "2013-08-23T07:07:08.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084300",
+    "ThreadId": "454311",
+    "Html": "For those that might run into the same issue, here is how you create a new route with a different color:\r<br />\n<br />\nGMapRoute route = new GMapRoute(routeList, &quot;myroute&quot;);\r<br />\nPen pen = new Pen(Color.Red);\r<br />\npen.Width = 1;\r<br />\nroute.Stroke = pen;<br />\n",
+    "PostedDate": "2013-08-23T12:18:44.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1214555",
+    "ThreadId": "454311",
+    "Html": "Hi sorry for the question but i have shearch in a lot of discussion and in the demo but i don't find my anwser.\r<br />\n<br />\nIn my project i have differents positons. i have to draw a route with those positions but i have just this fonction:<br />\n<pre><code>        PointLatLng start = new PointLatLng(48.85, -0.55); \n        PointLatLng end = new PointLatLng(48.863, -0.56); \n        MapRoute route = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(\n        start, end, false, false, 15);\n\n        GMapRoute r = new GMapRoute(route.Points, &quot;Ma route&quot;);\n        GMapOverlay routesOverlay = new GMapOverlay(&quot;routes&quot;);\n        routesOverlay.Routes.Add(r);\n        gmap.Overlays.Add(routesOverlay);\n        r.Stroke.Width = 2;\n        r.Stroke.Color = Color.SeaGreen;\n</code></pre>\n\nso i have just one route and the direction of the route is calculated auto, and i have to make a route with MY positions.\r<br />\n<br />\nTy.(sorry for the english)<br />\n",
+    "PostedDate": "2014-02-25T06:33:15.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248075",
+    "ThreadId": "454311",
+    "Html": "If I understand correctly, you want to create a route with your own points instead of the auto-generated points? Here is code I use to generate a route of random points in my area.:<br />\n<pre><code>    Random rnd = new Random();\n    var pts = new List&lt;PointLatLng&gt;();\n    double longitude = rnd.Next(-79000, -78500) * .001;\n    double latitude = rnd.Next(35500, 36000) * .001;\n    pts.Add(new PointLatLng(latitude, longitude));\n    for (int i = 0; i &lt; 6; i++)\n    {\n        double longitudeDelta = rnd.Next(50, 100) * .001;\n        double latitudeDelta = rnd.Next(50, 100) * .001;\n        pts.Add(new PointLatLng(latitude + latitudeDelta, longitude + longitudeDelta));\n    }\n    \n    var route = new GMapRoute(pts, &quot;Random Test Route&quot;);\n    route.Tag = ID;\n    route.Name = name;\n    overlayRandomData.Routes.Add(route);</code></pre>\n\n",
+    "PostedDate": "2014-05-21T10:37:08.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

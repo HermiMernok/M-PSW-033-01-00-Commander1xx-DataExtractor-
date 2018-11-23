@@ -1,0 +1,306 @@
+[
+  {
+    "Id": "269486",
+    "ThreadId": "78708",
+    "Html": "<p>First off, great maps!!</p>\r\n<p>I tried to rotate the map using RenderTransform, but the markers are no longer oriented correctly. Is there a better way to rotate the map or should I try to do it in code?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2009-12-20T22:38:01.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269509",
+    "ThreadId": "78708",
+    "Html": "<p>currently there is no rotation functionality, but it will be ;}</p>",
+    "PostedDate": "2009-12-21T01:24:38.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269713",
+    "ThreadId": "78708",
+    "Html": "<p>Let me know if I can contribute. I am not knowledgeable about mapping and GPS but I am good with Windows and 2D/3D. Can you suggest a starting point or do you have some code that I can continue with...</p>\r\n<p>&nbsp;</p>\r\n<p>G</p>",
+    "PostedDate": "2009-12-21T14:17:41.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269718",
+    "ThreadId": "78708",
+    "Html": "<p>yes you can, &nbsp;there is <strong>MapRenderTransform</strong> in windows forms and <strong>RenderTransform </strong>in wpf, but you need to synchronize markers with it, quite complex but&nbsp;possible...</p>",
+    "PostedDate": "2009-12-21T14:46:58.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269802",
+    "ThreadId": "78708",
+    "Html": "<p>I might assign a new dependency property to something like MapDirection or DirectionVector so the Markers can rotate themselves around their respective origins (the text as well). Also if the map is rotated using MapRenderTransform this should return the corrected LatLong in function FromLocaltoLatLong and the reverse? How about the Copyright info? I'll look into these in the next 2 days.</p>",
+    "PostedDate": "2009-12-21T21:37:42.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "269830",
+    "ThreadId": "78708",
+    "Html": "<p>feel free to experiment ;}</p>",
+    "PostedDate": "2009-12-21T23:57:43.757-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275743",
+    "ThreadId": "78708",
+    "Html": "<p>radioman, I now have some proto code that successfully rotates the map and markers. I changed MapRenderTransform from type Transform to TransformGroup. I added two member transforms - MapRotateTransform and MapScaleTransform (to support the prior zooming functionality) - to the MapRenderTransform in the ctor. I modified the set accessor of Zoom so the intermediate zoom levels are put into the MapRotateTransform. I also call Core_OnMapZoom... to force repositioning of all markers. Now I need some support for one issue I ran into... I need to increase the bounds of the map to sqrt((largest_map dimension)^2) - I'll try to use the patch for continuous maps....</p>\r\n<p>Separately, is there a way to zoom a given set of markers, and center on another? ZoomandCenterMarkers(&lt;ObservableCollection zoom_markers, GMapMarker center_marker)</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-11T08:51:09.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275771",
+    "ThreadId": "78708",
+    "Html": "<p>just perfect!</p>\r\n<p>on zooming markers, you can set map position&nbsp;immediately&nbsp;after using function ZoomandCenterMarkers, or just overload with new params... The default action is to set center of these markers.</p>",
+    "PostedDate": "2010-01-11T09:46:04.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275952",
+    "ThreadId": "78708",
+    "Html": "<p>So I tried increasing the bounds of the map in GMapControl_SizeChanged. It works but... my map center is off by 1/2 of the increase in width. I messed with increasing the offset in DrawWPF still having issues. Can you give me any tips?</p>",
+    "PostedDate": "2010-01-11T16:36:09.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275972",
+    "ThreadId": "78708",
+    "Html": "<p>Done. How do you want it. It's got a lot of hackification in it.</p>",
+    "PostedDate": "2010-01-11T19:14:31.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275999",
+    "ThreadId": "78708",
+    "Html": "<p>please upload a patched solution zip. I'll try to test and fix things if it really works.</p>",
+    "PostedDate": "2010-01-11T21:39:35.287-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "276071",
+    "ThreadId": "78708",
+    "Html": "<p>perfect! testing now...</p>",
+    "PostedDate": "2010-01-12T01:28:56.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278013",
+    "ThreadId": "78708",
+    "Html": "<p>radioman, I came back to this today and it doesn't work properly anymore. Must have been a problem with my test code... Obviously you got the same result. Can you give me a heads up?</p>",
+    "PostedDate": "2010-01-16T15:13:49.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278014",
+    "ThreadId": "78708",
+    "Html": "<p>well your code works&nbsp;basically, just need to put all parts right ;} if have some stable code, please share any time</p>",
+    "PostedDate": "2010-01-16T15:20:05.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278045",
+    "ThreadId": "78708",
+    "Html": "<p>Found a couple of offsetting bugs in the test code and seem to have it working. I'll continue to test before I make my next pass.</p>",
+    "PostedDate": "2010-01-16T18:07:38.72-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278053",
+    "ThreadId": "78708",
+    "Html": "<p>great, i'll port rotation functionality to windows forms too, would be quitly&nbsp;wonderful&nbsp;to have it in windows mobile using digital&nbsp;compass&nbsp;as bearing!</p>",
+    "PostedDate": "2010-01-16T18:58:54.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279542",
+    "ThreadId": "78708",
+    "Html": "<p>Posted another attempt. It's been stable for 3 days.... Let me know.</p>",
+    "PostedDate": "2010-01-20T08:50:18.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279550",
+    "ThreadId": "78708",
+    "Html": "<p>can you remove&nbsp;machine&nbsp;specific configs, i can't even build your demo ;{</p>",
+    "PostedDate": "2010-01-20T08:57:55.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280263",
+    "ThreadId": "78708",
+    "Html": "<p>Try putting GMapControl into your own environment and building it. If I'm not mistaken, that's the only file I changed.</p>",
+    "PostedDate": "2010-01-21T14:00:12.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432897",
+    "ThreadId": "78708",
+    "Html": "<p>Hi, did you implement this code into the currant projet?</p>\r\n<p>&nbsp;</p>\r\n<p>or is there any place I can download the code for rotation?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-19T14:36:37.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433410",
+    "ThreadId": "78708",
+    "Html": "<p>let me know, I really want to do this too</p>",
+    "PostedDate": "2010-04-20T17:37:06.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433834",
+    "ThreadId": "78708",
+    "Html": "<p>radioman, this thread/projet is dead?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-21T12:41:26.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433840",
+    "ThreadId": "78708",
+    "Html": "<p>try contact&nbsp;<strong>gvenkat_00</strong></p>",
+    "PostedDate": "2010-04-21T12:49:43.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433849",
+    "ThreadId": "78708",
+    "Html": "<p>radioman, good point, but if he's not replying, do you still have his &quot;demo&quot;? maybe I can continue the projet?</p>",
+    "PostedDate": "2010-04-21T13:19:18.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433882",
+    "ThreadId": "78708",
+    "Html": "<p>the stuff i've managed to build <span style=\"color:#888888;font-family:'Segoe UI', Tahoma, Verdana, Arial;font-size:12px;line-height:15px;white-space:pre\"><a href=\"http://cid-e8bbd1bbd58dbc88.skydrive.live.com/self.aspx/.Public/Stuff/GMaps^_Rotation^_GV.zip\">http://cid-e8bbd1bbd58dbc88.skydrive.live.com/self.aspx/.Public/Stuff/GMaps^_Rotation^_GV.zip</a></span></p>",
+    "PostedDate": "2010-04-21T14:18:23.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433901",
+    "ThreadId": "78708",
+    "Html": "<p>thank you, I'm pretty sure I'll be able to work with that, but even if we have a&nbsp; &quot;stable&quot; version, we'll have the problem of the road name... I don't think we can't rotate them?</p>",
+    "PostedDate": "2010-04-21T15:03:10.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433979",
+    "ThreadId": "78708",
+    "Html": "<p>yeah ;} we can't, but usually there is no need to rotate the map</p>",
+    "PostedDate": "2010-04-21T21:44:24.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433980",
+    "ThreadId": "78708",
+    "Html": "<p>I don't agree :) I need the &quot;gps&quot; feature on my application, since it's a incar device, I need to rotate the map when the car move...</p>",
+    "PostedDate": "2010-04-21T21:46:05.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433998",
+    "ThreadId": "78708",
+    "Html": "<p>mm, that's cool ;} sounds like my next quest ;]</p>",
+    "PostedDate": "2010-04-21T22:52:31.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433999",
+    "ThreadId": "78708",
+    "Html": "<p>:)</p>\r\n<p>&nbsp;</p>\r\n<p>maybe I'll try to explore to render the tile myself and render them twice, one reverse and one normal.. so when I rotate I'll &quot;load&quot; the &quot;reverse&quot; tile</p>",
+    "PostedDate": "2010-04-21T22:56:37.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434035",
+    "ThreadId": "78708",
+    "Html": "<p>..interesting, i wonder how it will look ;}</p>",
+    "PostedDate": "2010-04-22T00:12:37.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434262",
+    "ThreadId": "78708",
+    "Html": "<p>hmm, maybe we can just have the road name into another layer and have title without roadname</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-22T08:54:34.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490579",
+    "ThreadId": "78708",
+    "Html": "<p>windows forms now has integrated rotation</p>",
+    "PostedDate": "2010-09-08T02:59:26.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025361",
+    "ThreadId": "78708",
+    "Html": "radioman,\r<br />\n<br />\nYou said windows forms now has integrated rotation. thanks great! can you point me in the direction of where I can change the map rotation? thank you!<br />\n",
+    "PostedDate": "2013-04-04T05:52:33.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025400",
+    "ThreadId": "78708",
+    "Html": "latest release has it, latest hot build has bugs, therefore it's disabled\r<br />\n<br />\np.s. map.<strong>Bearing</strong> = xxx<br />\n",
+    "PostedDate": "2013-04-04T07:15:38.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025555",
+    "ThreadId": "78708",
+    "Html": "Great that works.  I was looking for &quot;Rotation&quot; properties and never happened to see &quot;Bearing.&quot;\r<br />\n<br />\nI am having some limited success, however.  All my routes work fine. My normal map markers work fine. I do have one map marker which is an arrow representing your direction of travel: so that marker's OnRender function had code in it to do a RotationTransform and TranslateTransform already. So I just made a small modification to adjust for the rotation of the map as well - works great.\r<br />\n<br />\nMy issue is with GMapImage. Here was my original OnRender function which worked perfectly fine before I began rotating the map around:<br />\n<pre><code>public override void OnRender(Graphics g)\n{\n    if (image == null)\n        return;\n\n    Rectangle rect = new Rectangle(LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n    g.DrawImage(image, rect);\n    g.DrawRectangle(Outline, rect);    \n}</code></pre>\n\nSo, naturally, I just did the transforming that I was used to doing with the arrow marker I described above to have it also rotate with the map:<br />\n<pre><code>public double MapBearing { get; set; }\n\npublic override void OnRender(Graphics g)\n{\n    if (image == null)\n        return;\n\n    g.RotateTransform(Convert.ToSingle(MapBearing));\n    g.TranslateTransform(LocalPosition.X, LocalPosition.Y, System.Drawing.Drawing2D.MatrixOrder.Append);\n\n    Rectangle rect = new Rectangle(0, 0, Size.Width, Size.Height);\n    g.DrawImage(image, rect);\n    g.DrawRectangle(Outline, rect);    \n}</code></pre>\n\nBut this is not working at all. The image plots in different locations based on zoom and as I pan the map, it's moves wildly around the screen. Something is not tracking correctly to keep it aligned with the rotating map. Any suggestions?\r<br />\n<br />\nI was worried that doing a rotation on the marker and then doing a rotation on the image was the problem but they are both on separate overlays, so I assume that is not the issue.<br />\n",
+    "PostedDate": "2013-04-04T11:06:49.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025580",
+    "ThreadId": "78708",
+    "Html": "I believe my problem is here: I do this every time I update the image of the GMapImage<br />\n<pre><code>standaloneHeatMap.Image = value;\nvar tl = MainMap.FromLatLngToLocal(heatTL);\nvar br = MainMap.FromLatLngToLocal(heatBR);\nstandaloneHeatMap.Position = heatTL;\nstandaloneHeatMap.Size = new System.Drawing.Size(br.X - tl.X, br.Y - tl.Y);\nMainMap.Invalidate();</code></pre>\n\nYou'll see that I know the Lat and Lon I want for the top-left (TL) and bottom-right (BR) corners. But I am getting the local coordinates and assigning that as the size of the GMapImage, which I use for drawing the image. However, when the map is rotated, the local points that correspond to those Lat's and Lon's are messing up the size of the GMapImage.\r<br />\n<br />\nNot sure how to tackle this.<br />\n",
+    "PostedDate": "2013-04-04T11:30:04.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342219",
+    "ThreadId": "78708",
+    "Html": "rotation fixed\r<br />\n<br />\np.s. marker rotation demo [left menu, Live-&gt;FlightRadar] and <strong>GMarkerArrow.cs</strong><br />\n",
+    "PostedDate": "2015-01-15T08:12:22.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-15T08:12:35.67-08:00"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "363253",
+    "ThreadId": "155519",
+    "Html": "<p>I read a post&nbsp;talking&nbsp;about changed the AccessMode of the control to SERVER. I am assumng this would disable caching which in turn I think should fix my issue. Let me explain.</p>\r\n<p>&nbsp;</p>\r\n<p>My application runs in both a 32bit and 64bit environments, and its a pain to add and readd the 32 bit and 64 bit SQL Lite references to get the thing to work correctly. Currently I have both projects set to compile as Any CPU and the GMap.Core is referencing the 32bit SQLlite DLL. Everything works fine in the 32bit environment however in the 64 bit one I am getting blue map tiles saying it cant pull data down from the server. So my question is how do i disable caching just to force it to pull directly each time so that i dont get the blue map tiles in the 64 bit environment.</p>",
+    "PostedDate": "2010-02-23T09:25:40.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363255",
+    "ThreadId": "155519",
+    "Html": "<p>documentation, line 2:&nbsp;set target to x86 so it works anywhere</p>",
+    "PostedDate": "2010-02-23T09:27:01.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363306",
+    "ThreadId": "155519",
+    "Html": "<p>Ok i tried this, now when I am loading my application in the 64 bit environment it says &quot;Could not load file or assembly 'GMap.NET.Core, Version-1.4.8.8&quot; etc etc.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Looking at the documentation section it says to change references, do i need to do this as well? and if i do what am i wanting to change the reference to?&nbsp;</p>",
+    "PostedDate": "2010-02-23T11:12:32.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363319",
+    "ThreadId": "155519",
+    "Html": "<p>crazy stuff ;] change to 32bit sqlite dll and target x86</p>",
+    "PostedDate": "2010-02-23T11:35:36.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363329",
+    "ThreadId": "155519",
+    "Html": "<p>I tried what you suggested and still no luck, I am still getting the same error on start up.</p>",
+    "PostedDate": "2010-02-23T12:02:33.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363344",
+    "ThreadId": "155519",
+    "Html": "<p>try my demo in x64 system?</p>",
+    "PostedDate": "2010-02-23T12:31:42.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

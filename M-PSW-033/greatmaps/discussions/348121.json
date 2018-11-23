@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "808544",
+    "ThreadId": "348121",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I am looking for a way to calculate GPS position accuracy, similar to Android's position accuracy, no luck so far.</p>\r\n<p>The only criteria I can probably use to evaluate quality of GPS location is PositionDilutionOfPrecision.</p>\r\n<p>Would be nice to have accuracy though, similar to Google Maps on Android.</p>\r\n<p>Any ideas?</p>\r\n",
+    "PostedDate": "2012-03-10T11:25:01.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808547",
+    "ThreadId": "348121",
+    "Html": "<p>accuracyInMeters = HorizontalPositionDilutionOfPrecision * yourDeviceAccuracyInMeters;</p>",
+    "PostedDate": "2012-03-10T11:30:21.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808552",
+    "ThreadId": "348121",
+    "Html": "<p>OK and where to get yourDeviceAccuracyInMeters?</p>",
+    "PostedDate": "2012-03-10T11:34:59.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808553",
+    "ThreadId": "348121",
+    "Html": "<p>in your device specs</p>",
+    "PostedDate": "2012-03-10T11:37:21.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808556",
+    "ThreadId": "348121",
+    "Html": "thanks will try to find it :-) in Chinese rugged windows mobile 6/1<br>\r\ndata collection device.<br>\r\nAnyway, HorizontalPositionDilutionOfPrecision can be used, the less<br>\r\nthis value is the better position quality...<br>\r\n<br>\r\n<br>\r\nOn 10 March 2012 21:37, radioman &lt;notifications@codeplex.com&gt; wrote:<br>\r\n&gt; From: radioman<br>\r\n&gt;<br>\r\n&gt; in your device specs<br>\r\n&gt;<br>\r\n&gt; Read the full discussion online.<br>\r\n&gt;<br>\r\n&gt; To add a post to this discussion, reply to this email<br>\r\n&gt; ([email removed])<br>\r\n&gt;<br>\r\n&gt; To start a new discussion for this project, email<br>\r\n&gt; [email removed]<br>\r\n&gt;<br>\r\n&gt; You are receiving this email because you subscribed to this discussion on<br>\r\n&gt; CodePlex. You can unsubscribe on CodePlex.com.<br>\r\n&gt;<br>\r\n&gt; Please note: Images and attachments will be removed from emails. Any posts<br>\r\n&gt; to this discussion will also be available online at CodePlex.com",
+    "PostedDate": "2012-03-10T11:43:01.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808557",
+    "ThreadId": "348121",
+    "Html": "<p>&lt;= 1.0 means your device get most accurate position possible</p>",
+    "PostedDate": "2012-03-10T11:45:56.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

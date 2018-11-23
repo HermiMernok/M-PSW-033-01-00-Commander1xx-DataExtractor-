@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "471622",
+    "ThreadId": "220983",
+    "Html": "<p>How can I draw a circle? So, for example, I give it the center Lat/Long and the radius.</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2010-07-23T07:04:03.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471763",
+    "ThreadId": "220983",
+    "Html": "<p>check wpf demo</p>",
+    "PostedDate": "2010-07-23T10:43:03.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472514",
+    "ThreadId": "220983",
+    "Html": "<p>Thanks for the quick reply radioman. I forgot to mention that I an working on a WinForm app... I don't know if the WPF demo will help me? I'll take a look anyways... could you please post me the link to where the demos are?</p>\r\n<p>&nbsp;</p>\r\n<p>Kind Regards</p>\r\n<p>Fabricio Rodriguez</p>\r\n<p>Pretoria, South Africa</p>",
+    "PostedDate": "2010-07-26T01:06:09.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472534",
+    "ThreadId": "220983",
+    "Html": "<p>U Can use a custom marker, like this:</p>\r\n<p>To use it, give 2 points on the map, or simple the centerpoint ant the distance in kilometers.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System;\r\n<span style=\"color:blue\">using</span> System.Drawing;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color:blue\">using</span> GMap.NET;\r\n<span style=\"color:blue\">using</span> System.Windows.Forms;\r\n\r\n<span style=\"color:blue\">namespace</span> GMap.NET.WindowsForms.CustomMarkers\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> GMapMarkerCircle : GMapMarker\r\n    {\r\n        <span style=\"color:blue\">public</span> Pen Pen;\r\n\r\n        <span style=\"color:blue\">public</span> GMap.NET.PointLatLng maxDistancePoint;\r\n        <span style=\"color:blue\">private</span> System.Drawing.Size drawingSize;\r\n\r\n        <span style=\"color:blue\">private</span> GMapControl MainMap;\r\n\r\n        <span style=\"color:blue\">public</span> GMapMarkerCircle(GMap.NET.PointLatLng p, GMap.NET.PointLatLng distancePoint, GMapControl mainMap, Brush brush, <span style=\"color:blue\">int</span> penSize)\r\n            : <span style=\"color:blue\">base</span>(p)\r\n        {\r\n            Pen = <span style=\"color:blue\">new</span> Pen(brush, penSize);\r\n            maxDistancePoint = distancePoint;\r\n            MainMap = mainMap;\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> GMapMarkerCircle(GMap.NET.PointLatLng p, GMap.NET.PointLatLng distancePoint, GMapControl mainMap)\r\n            : <span style=\"color:blue\">this</span>(p, distancePoint, mainMap, Brushes.Red, 5)\r\n        {\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> GMapMarkerCircle(GMap.NET.PointLatLng p, <span style=\"color:blue\">double</span> distance, GMapControl mainMap, Brush brush, <span style=\"color:blue\">int</span> penSize)\r\n            : <span style=\"color:blue\">base</span>(p)\r\n        {\r\n            Pen = <span style=\"color:blue\">new</span> Pen(brush, penSize);\r\n            MainMap = mainMap;\r\n            maxDistancePoint = createPointLatLngFromCenterDistance(p, distance);\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> GMapMarkerCircle(GMap.NET.PointLatLng p, <span style=\"color:blue\">double</span> distance, GMapControl mainMap)\r\n            : <span style=\"color:blue\">this</span>(p, distance, mainMap, Brushes.Red, 5)\r\n        {\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> PointLatLng createPointLatLngFromCenterDistance(PointLatLng center, <span style=\"color:blue\">double</span> xMeter)\r\n        {\r\n            <span style=\"color:blue\">return</span> createPointLatLngFromCenterDistance(center, xMeter, xMeter);\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> PointLatLng createPointLatLngFromCenterDistance(PointLatLng center, <span style=\"color:blue\">int</span> direction, <span style=\"color:blue\">double</span> xMeter)\r\n        {\r\n            <span style=\"color:blue\">return</span> createPointLatLngFromCenterDistance(center, direction, xMeter, xMeter);\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> PointLatLng createPointLatLngFromCenterDistance(PointLatLng center, <span style=\"color:blue\">double</span> xMeter, <span style=\"color:blue\">double</span> yMeter)\r\n        {\r\n            <span style=\"color:blue\">return</span> createPointLatLngFromCenterDistance(center, 360, xMeter, yMeter);\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> PointLatLng createPointLatLngFromCenterDistance(PointLatLng center, <span style=\"color:blue\">int</span> direction, <span style=\"color:blue\">double</span> xMeter, <span style=\"color:blue\">double</span> yMeter)\r\n        {\r\n            PointLatLng distancePoint = <span style=\"color:blue\">new</span> PointLatLng();\r\n\r\n            xMeter = xMeter / 1000;\r\n\r\n            <span style=\"color:blue\">double</span> earthRadius = 6367.0;\r\n            <span style=\"color:blue\">double</span> lat = center.Lat * (Math.PI / 180);\r\n            <span style=\"color:blue\">double</span> lon = center.Lng * (Math.PI / 180);\r\n\r\n            <span style=\"color:blue\">double</span> d = xMeter / earthRadius;\r\n            <span style=\"color:blue\">double</span> brng = direction * (Math.PI / 180);\r\n\r\n            <span style=\"color:blue\">var</span> latRadians = Math.Asin(Math.Sin(lat) * Math.Cos(d) + Math.Cos(lat) * Math.Sin(d) * Math.Cos(brng));\r\n            <span style=\"color:blue\">var</span> lngRadians = lon + Math.Atan2(Math.Sin(brng) * Math.Sin(d) * Math.Cos(lat), Math.Cos(d) - Math.Sin(lat) * Math.Sin(latRadians));\r\n\r\n            distancePoint.Lat = latRadians * 180 / Math.PI;\r\n            distancePoint.Lng = lngRadians * 180 / Math.PI;\r\n\r\n            <span style=\"color:blue\">return</span> distancePoint;\r\n        }\r\n        \r\n        <span style=\"color:green\">// calculates circle radius</span>\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> autoScaleToZoom()\r\n        {\r\n            <span style=\"color:blue\">var</span> pxCenter = MainMap.FromLatLngToLocal(<span style=\"color:blue\">this</span>.Position);\r\n            <span style=\"color:blue\">var</span> pxBounds = MainMap.FromLatLngToLocal(maxDistancePoint);\r\n\r\n            <span style=\"color:blue\">double</span> a = (<span style=\"color:blue\">double</span>)(pxBounds.X - pxCenter.X);\r\n            <span style=\"color:blue\">double</span> b = (<span style=\"color:blue\">double</span>)(pxBounds.Y - pxCenter.Y);\r\n            <span style=\"color:blue\">var</span> pxCircleRadius = Math.Sqrt(a * a + b * b);\r\n\r\n            \r\n            drawingSize = <span style=\"color:blue\">new</span> System.Drawing.Size(\r\n                (<span style=\"color:blue\">int</span>) Math.Round(pxCircleRadius * 2),\r\n                (<span style=\"color:blue\">int</span>) Math.Round(pxCircleRadius * 2)\r\n            );\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> setDistance(PointLatLng p)\r\n        {\r\n            maxDistancePoint = p;\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> setDistance(<span style=\"color:blue\">double</span> range)\r\n        {\r\n            maxDistancePoint = createPointLatLngFromCenterDistance(<span style=\"color:blue\">this</span>.Position,range);\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n        {\r\n            autoScaleToZoom();\r\n            g.DrawEllipse(Pen, <span style=\"color:blue\">new</span> System.Drawing.Rectangle(LocalPosition.X - drawingSize.Width / 2, LocalPosition.Y - drawingSize.Height / 2, drawingSize.Width, drawingSize.Height));\r\n        }\r\n    }\r\n}\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>greetz, Manuel</p>",
+    "PostedDate": "2010-07-26T02:00:27.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472551",
+    "ThreadId": "220983",
+    "Html": ";;",
+    "PostedDate": "2010-07-26T02:57:59.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472553",
+    "ThreadId": "220983",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:green\">// Or another way, Radius in Meters - Cheers</span>\r\n\r\n\r\n<span style=\"color:blue\">using</span> System.Drawing;\r\n<span style=\"color:blue\">using</span> System.Drawing.Drawing2D;\r\n\r\n<span style=\"color:blue\">namespace</span> GMap.NET.WindowsForms.Markers\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> GMapMarkerCircle : GMapMarker\r\n    {\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">int</span> Radius;  <span style=\"color:green\">//In Meters</span>\r\n        <span style=\"color:blue\">public</span> Pen OutlinePen;\r\n        <span style=\"color:blue\">public</span> Brush FillBrush;\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> Fill;\r\n\r\n        <span style=\"color:blue\">public</span> GMapMarkerCircle(PointLatLng p)\r\n            : <span style=\"color:blue\">base</span>(p)\r\n        {\r\n            OutlinePen = <span style=\"color:blue\">new</span> Pen(Brushes.Orange, 2);\r\n            FillBrush = <span style=\"color:blue\">new</span> SolidBrush(Color.FromArgb(60, Color.Orange));\r\n            Radius = 0;\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n        {\r\n            g.SmoothingMode = SmoothingMode.AntiAlias;\r\n            \r\n            <span style=\"color:blue\">int</span> R = (<span style=\"color:blue\">int</span>)((Radius) / Overlay.Control.Core.Projection.GetGroundResolution(Overlay.Control.Zoom, Position.Lat)) * 2;\r\n            \r\n            <span style=\"color:blue\">if</span> (Fill == <span style=\"color:blue\">true</span>)\r\n            {\r\n               g.FillEllipse(FillBrush, <span style=\"color:blue\">new</span> System.Drawing.Rectangle(LocalPosition.X - R / 2, LocalPosition.Y - R / 2, R, R));\r\n            }\r\n            g.DrawEllipse(OutlinePen, <span style=\"color:blue\">new</span> System.Drawing.Rectangle(LocalPosition.X - R / 2, LocalPosition.Y - R / 2, R, R));\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-07-26T03:03:43.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472579",
+    "ThreadId": "220983",
+    "Html": "<p>ah, didn't know the GetGroundResolution method</p>\r\n<p>&nbsp;</p>\r\n<p>thx!</p>",
+    "PostedDate": "2010-07-26T04:04:26.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472592",
+    "ThreadId": "220983",
+    "Html": "The Object Browser is your friend:)",
+    "PostedDate": "2010-07-26T04:21:40.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472658",
+    "ThreadId": "220983",
+    "Html": "<p>That's perfect! Thank you guys sooo much! I will try the code tonight. Thank you for your support!</p>",
+    "PostedDate": "2010-07-26T07:18:47.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

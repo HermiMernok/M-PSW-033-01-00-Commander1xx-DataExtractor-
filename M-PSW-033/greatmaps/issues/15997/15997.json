@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed using cheap trick",
+    "ClosedDate": "2011-03-10T11:25:09.827-08:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "General inconsistency and tiling engine errors on 64-bit OSes. There's more detailed bug description on: http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=236870\r\n\r\nNow, I'm not quite sure whether it's up to SQLite provider. I tried \"Managed Only\" version of SQLite + latest 64-bit sqlite3.dll and it didn't help much. Maybe the errors were caused by some other component?",
+    "LastUpdatedDate": "2011-03-10T11:25:09.827-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-01-24T07:18:23.2-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Issues running map control on 64-bit Win7",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 15997
+  },
+  "FileAttachments": [
+    {
+      "FileId": 202995,
+      "FileName": "maps.log",
+      "DownloadUrl": ".\\202995"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "May be also linked to ticket #15993, although I didn't get any exceptions. I performed tests on several VM OS instances, starting from Win XP 32-bit up to Win 7 64-bit. It performs quite well on 32-bit OSes, but it fails on getting map tiles on 64-bit OSes (performs \"clugged\", doesn't download tiles and/or populates cache correctly/timely).",
+      "PostedDate": "2011-01-25T01:17:21.507-08:00",
+      "Id": 27161
+    },
+    {
+      "Message": "One more tip when testing functionality on x64 processor architecture - please set \"Target CPU\" to \"Any CPU\", rather than \"x86\". In that way you'll be able to test the application in pure 64-bit mode, rather than virtualized 32-bit one.",
+      "PostedDate": "2011-01-25T03:13:46.38-08:00",
+      "Id": 27172
+    },
+    {
+      "Message": "in 64 bit os you need to set target to x64, native dll(sqlite) do not support Any CPU target",
+      "PostedDate": "2011-01-25T06:57:18.017-08:00",
+      "Id": 27184
+    },
+    {
+      "Message": "Actually, it's up to the installer - I'm setting AnyCPU to application (an executable) and attaching sqlite3.dll based on target OS architecture. The \"Managed Only\" version of System.Data.SQLite.dll is platform-neutral, but underlying sqlite3.dll is not. Anyways, I've been testing with both AnyCPU and x64 target architecture, using 64-bit sqlite3.dll build, but it fails the way described above.",
+      "PostedDate": "2011-01-25T07:27:10.41-08:00",
+      "Id": 27185
+    },
+    {
+      "Message": "I`m experienced similar problem. Log file attached.",
+      "PostedDate": "2011-01-25T22:43:10.787-08:00",
+      "Id": 27234
+    },
+    {
+      "Message": "FastReaderWriterLock, targeting x64 the SRWLock doesn't work",
+      "PostedDate": "2011-02-24T13:21:10.05-08:00",
+      "Id": 29609
+    }
+  ]
+}

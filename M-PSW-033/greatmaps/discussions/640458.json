@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1431886",
+    "ThreadId": "640458",
+    "Html": "Hello,\r<br />\n<br />\nI've been using the GMAP.net solution for quite some time now, and it seems that as of this morning, every project in which we used GMAP.net has started throwing 404 errors.  Here is an example of a URL that throws an error:\r<br />\n<br />\n<a href=\"http://maps.google.com/maps?f=q&amp;output=dragdir&amp;doflg=p&amp;hl=en&amp;mra=ls&amp;q=&amp;saddr=@40.637666,-73.947676&amp;daddr=@40.655961,-73.950774\" rel=\"nofollow\">http://maps.google.com/maps?f=q&output=dragdir&doflg=p&hl=en&mra=ls&q=&saddr=@40.637666,-73.947676&daddr=@40.655961,-73.950774</a>\r<br />\n<br />\nIf your try to navigate to this URL, you'll receive a 404... unless you remove the output=dragdir parameter.<br />\n\r<br />\nDoes anyone know if google recently removed the ability to receive json in this manner?  Are there any plans for a work around here if so?<br />\n\r<br />\nThanks for any help anyone can give me.\r<br />\n<br />\nScott<br />\n",
+    "PostedDate": "2015-06-25T11:55:39.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1431943",
+    "ThreadId": "640458",
+    "Html": "Good morning\r<br />\n<br />\nJust wanted to put our voice to this issue also.<br />\n\r<br />\nWe're experiencing exactly the same problem as Scott.\r<br />\n<br />\nWe call GMaps.Instance.GetRouteBetweenPoints.\r<br />\n<br />\nThis problem has crippled our app.\r<br />\n<br />\nThanks\r<br />\n<br />\nDean<br />\n",
+    "PostedDate": "2015-06-26T01:01:59.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432003",
+    "ThreadId": "640458",
+    "Html": "i guess you need to switch to direction api: GMapProviders.GoogleMap.<strong>GetDirections</strong><br />\n",
+    "PostedDate": "2015-06-26T05:13:24.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432078",
+    "ThreadId": "640458",
+    "Html": "That worked great, thanks!<br />\n",
+    "PostedDate": "2015-06-26T12:03:10.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "456048",
+    "ThreadId": "216195",
+    "Html": "Thank you for the great work! It’s very useful control. But I have some problems, can you help me. \r\nI use WPF version, and I have to render on the map polyline-markers and polygon-markers. To show polyline I use this code:\r\nGMapMarker mRoute = new GMapMarker(r.pointsList[0]);\r\n      mRoute.Route.AddRange(r.pointsList);                            \r\n      mRoute.ZIndex = 5;\r\n      mRoute.Tag = r.Name;\r\n      mRoute.RegenerateRouteShape(mainMap.map);\r\n      routeMap.Markers.Add(mRoute);  \r\nand when I try to render more than one marker, stroke has disappeared.\r\nTo show polygon I use this method\r\n(it’s modified  method  public Path CreateRoutePath(List&lt;System.Windows.Point&gt; localPath) I only add Fill to stroke)\r\npublic Path CreateZonePath(List&lt;System.Windows.Point&gt; localPath)\r\n      {\r\n          // Create a StreamGeometry to use to specify myPath.\r\n          StreamGeometry geometry = new StreamGeometry();\r\n\r\n          using (StreamGeometryContext ctx = geometry.Open())\r\n          {\r\n              ctx.BeginFigure(localPath[0], true, true);\r\n\r\n              // Draw a line to the next specified point.\r\n              ctx.PolyLineTo(localPath, true, true);\r\n          }\r\n\r\n          // Freeze the geometry (make it unmodifiable)\r\n          // for additional performance benefits.\r\n          geometry.Freeze();\r\n\r\n          // Create a path to draw a geometry with.\r\n          Path myPath = new Path();\r\n          {\r\n              // Specify the shape of the Path using the StreamGeometry.\r\n              myPath.Data = geometry;\r\n\r\n              BlurEffect ef = new BlurEffect();\r\n              {\r\n                  ef.KernelType = KernelType.Gaussian;\r\n                  ef.Radius = 3.0;\r\n                  ef.RenderingBias = RenderingBias.Quality;\r\n              }\r\n\r\n              myPath.Effect = ef;\r\n              myPath.Fill = Brushes.DarkOrange;\r\n              myPath.Stroke = Brushes.Orange;\r\n              myPath.StrokeThickness = 5;\r\n              myPath.StrokeLineJoin = PenLineJoin.Round;\r\n              myPath.StrokeStartLineCap = PenLineCap.Triangle;\r\n              myPath.StrokeEndLineCap = PenLineCap.Square;\r\n              myPath.Opacity = 0.6;              \r\n          }     \r\n\r\n          return myPath;\r\n      }\r\nand here I have same problem: the filling has disappeared (when I change map zoom)\r\n",
+    "PostedDate": "2010-06-16T02:41:39.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456852",
+    "ThreadId": "216195",
+    "Html": "<p>check, newest version, it preserve Path's data</p>\r\n<p>p.s. actually now i've included polygon generation, just like route</p>",
+    "PostedDate": "2010-06-17T10:46:40.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457313",
+    "ThreadId": "216195",
+    "Html": "<p>Thanks I will check it. Polygon generation is the thing that i've looked for.&nbsp;</p>",
+    "PostedDate": "2010-06-18T09:16:42.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

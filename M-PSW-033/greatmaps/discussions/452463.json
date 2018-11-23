@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1076883",
+    "ThreadId": "452463",
+    "Html": "Hello!\r<br />\nmy problem is this I have the following code and shows me my polygon but I want the full TEXTBOX just some also show me if the polygon is filled TEXTBOX any mistake I make.\r<br />\n<br />\n  private void button3_Click(object sender, EventArgs e)<br />\n<pre><code>    {\n\n\n\n\n        {\n            GMap.NET.WindowsForms.GMapOverlay polyOverlay = new GMap.NET.WindowsForms.GMapOverlay(&quot;polygons&quot;);\n            List&lt;GMap.NET.PointLatLng&gt; polygonPoints = new List&lt;GMap.NET.PointLatLng&gt;();\n\n\n           double ALat = double.Parse(textBoxALat.Text);\n           double ALng = double.Parse(textBoxALng.Text);\n           double BLat = double.Parse(textBoxBLat.Text);\n           double BLng = double.Parse(textBoxBLng.Text);\n           double CLat = double.Parse(textBoxCLat.Text);\n           double CLng = double.Parse(textBoxCLng.Text);\n           double DLat = double.Parse(textBoxDLat.Text);\n           double DLng = double.Parse(textBoxDLng.Text);\n           double ELat = double.Parse(textBoxELat.Text);\n           double ELng = double.Parse(textBoxELng.Text);\n\n\n                polygonPoints.Add(new GMap.NET.PointLatLng(ALat, ALng));\n                polygonPoints.Add(new GMap.NET.PointLatLng(BLat, BLng));\n                polygonPoints.Add(new GMap.NET.PointLatLng(CLat, CLng));\n                polygonPoints.Add(new GMap.NET.PointLatLng(DLat, DLng));\n                polygonPoints.Add(new GMap.NET.PointLatLng(ELat, ELng));\n                GMap.NET.WindowsForms.GMapPolygon polygon = new GMap.NET.WindowsForms.GMapPolygon(polygonPoints, &quot;mypolygon&quot;);\n                polygon.Stroke = new Pen(Color.YellowGreen, 2);\n                polyOverlay.Polygons.Add(polygon);\n                gmap.Overlays.Add(polyOverlay);                                \n\n            gmap.Position = new GMap.NET.PointLatLng(ALat, ALng);\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2013-08-05T10:56:05.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "154007",
+    "ThreadId": "46142",
+    "Html": "Using the latest version 30974,&nbsp; <br>\r\nthe cache database is not being created and therefore only MODE = ServerOnly is the only way for me to get the maps.<br>\r\nI am now in africa with a ** very ** slow internet connection, and set the TIMEOUT to 100000, i can see maps<br>\r\nfrom OpenStreetMap&nbsp;&nbsp; if i set the MODE = ServerOnly but i can't find where the cache database should be. The<br>\r\nCeocoderCache folder is created ok.&nbsp; Tried deleting the GMap.Net folder in the user\\application data&nbsp; folder to<br>\r\ntry and force it to be created.<br>\r\n<br>\r\nThanks,<br>\r\n<br>\r\n",
+    "PostedDate": "2009-02-03T16:09:33.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154257",
+    "ThreadId": "46142",
+    "Html": "are you using source from Trunk? <div><br></div><div>the maps are stored here: C:\\Documents and Settings\\[USER]\\Application Data\\GMap.NET\\TileDBv3\\[LANGUAGE]\\Data.gmdb<br></div><div><br></div><div>..old(last) release cant get satellite images from google, because they changed image format &amp; version, use fresh code from Trunk instead</div>",
+    "PostedDate": "2009-02-04T07:28:14.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154261",
+    "ThreadId": "46142",
+    "Html": "..and if want that maps be cached set to ServerAndCache... and its better to prefetch and export maps when you outisde africa, then anywhere you can just import it.",
+    "PostedDate": "2009-02-04T07:35:27.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154270",
+    "ThreadId": "46142",
+    "Html": "i am using the trunck code from the 30974 release, even when i set the MODE = ServerAndCache&nbsp; the db file is not created. I tried<br>\r\ndeleting the GMap.NET folder from the app data folder, and see that the GeocoderCache is created. the map type im using is<br>\r\nOpenStreetMap<br>\r\n",
+    "PostedDate": "2009-02-04T07:51:48.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154273",
+    "ThreadId": "46142",
+    "Html": "So unless i set the access type to SERVER ONLY i dont' get anything, except for the blank black map<br>\r\n",
+    "PostedDate": "2009-02-04T07:56:13.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154289",
+    "ThreadId": "46142",
+    "Html": "can't be, what OS? <div><br></div><div>try my build <span><a href=\"http://www.sharefile.org/showfile-697/gmapnetprerelease.zip\">http://www.sharefile.org/showfile-697/gmapnetprerelease.zip</a></span></div><div><br></div><div>..and just  keep paatient if your connection is slow</div>",
+    "PostedDate": "2009-02-04T08:37:45.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154381",
+    "ThreadId": "46142",
+    "Html": "Your build is working fine, as expected. Ill use that release.<br>\r\nThanks<br>\r\n<br>\r\n",
+    "PostedDate": "2009-02-04T11:46:42.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154765",
+    "ThreadId": "46142",
+    "Html": "oh, markers dont seem to be available.<br>\r\nWhen will you make them ready in this release ? i am in africa and want to demo a<br>\r\ngps vehicle tracking system ive wrote, but without markers there isn't much to demo !!!!&nbsp; eeeeek<br>\r\n<br>\r\nThanks,<br>\r\n<br>\r\n",
+    "PostedDate": "2009-02-05T10:23:02.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154795",
+    "ThreadId": "46142",
+    "Html": "..well it's question about abstraction of design, so i can't know exactly ;}",
+    "PostedDate": "2009-02-05T11:40:08.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

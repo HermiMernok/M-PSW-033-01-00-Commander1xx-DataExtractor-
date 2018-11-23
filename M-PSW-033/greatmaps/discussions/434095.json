@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1005158",
+    "ThreadId": "434095",
+    "Html": "Hello, i am new in WPF, at this moment i am not have complete realized WPF applications.\r<br />\nAt now i am research the best approach to build WPF application.  MVVM looks like the most attractive.\r<br />\n<br />\nMy goal is realize WPF application with displaying markers and other data on the map. GMap.NET looks at the best solution. But at now i ask you to define for me, as a beginner, can i beautifully and without rake use Gmap.NET control within MVVM application?\r<br />\n<br />\nThank you, and sorry for very beginner level question. BUt i am beginner in WPF.<br />\n",
+    "PostedDate": "2013-02-22T03:37:05.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006973",
+    "ThreadId": "434095",
+    "Html": "WPF is already MVVM, the View is your xaml, the Controler is the code, and the model is EF<br />\n",
+    "PostedDate": "2013-02-26T07:15:00.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007061",
+    "ThreadId": "434095",
+    "Html": "Thank you, for answer.\r<br />\nBut Gmap.NET control has a classic events, but how to handle GMap.NET events with MVVM model?<br />\n",
+    "PostedDate": "2013-02-26T09:33:48.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007079",
+    "ThreadId": "434095",
+    "Html": "events are part of controller, like requests in the web app<br />\n",
+    "PostedDate": "2013-02-26T09:56:08.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1008183",
+    "ThreadId": "434095",
+    "Html": "You could create a behaviour to all you to bind commands to events. \r<br />\nTake a look at this article <a href=\"http://geekswithblogs.net/HouseOfBilz/archive/2009/08/27/adventures-in-mvvm-ndash-binding-commands-to-any-event.aspx\" rel=\"nofollow\">http://geekswithblogs.net/HouseOfBilz/archive/2009/08/27/adventures-in-mvvm-ndash-binding-commands-to-any-event.aspx</a><br />\n",
+    "PostedDate": "2013-02-28T06:03:42.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

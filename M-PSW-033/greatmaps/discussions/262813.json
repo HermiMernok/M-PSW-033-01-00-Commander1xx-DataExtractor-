@@ -1,0 +1,170 @@
+[
+  {
+    "Id": "633094",
+    "ThreadId": "262813",
+    "Html": "\r\n<p>hi!</p>\r\n<p>I've just found this control and looks awesome. I want to use it but i have some difficulties.</p>\r\n<p>I've added the references to BSE.Windows.Forms, GMat.Net.Core and Gmap.Net.Windows.Forms to my project. I've added the component GmapControl to the toolbar, and dropped one on my form. I start the app and the window looks empty. what am i missing? is there\r\n a demo implementation? I've looked around and i couldn't find any.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards!</p>\r\n",
+    "PostedDate": "2011-06-25T23:43:34.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633120",
+    "ThreadId": "262813",
+    "Html": "<p>hey ;}</p>\r\n<p>..first remove BSE.Windows.Forms, it's only demo related, and the next thing would be to set position and define min/max zooms, and if you use release version, put two folders x86/x64 with sqlite dlls to our project output, just like in demos</p>",
+    "PostedDate": "2011-06-26T03:52:30.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633150",
+    "ThreadId": "262813",
+    "Html": "<p>Hi!<br /> <br /> Thanks you for your fast answer! I've done as you said, but I still have some issues. I've found some examples on the discussions, and pasted some lines. This is my&nbsp;initialization&nbsp;code:&nbsp;</p>\n<p>&nbsp;</p>\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Class</span> Form1\n\n    <span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> Form1_Load(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Object</span>, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> <span style=\"color: blue;\">Me</span>.Load\n        <span style=\"color: green;\">' set cache mode only if no internet avaible</span>\n        <span style=\"color: blue;\">Try</span>\n            <span style=\"color: blue;\">Dim</span> es <span style=\"color: blue;\">As</span> System.Net.IPHostEntry = System.Net.Dns.GetHostEntry(<span style=\"color: #a31515;\">\"www.google.com\"</span>)\n        <span style=\"color: blue;\">Catch</span>\n            MainMap.Manager.Mode = AccessMode.CacheOnly\n            MessageBox.Show(<span style=\"color: #a31515;\">\"No internet connection avaible, going to CacheOnly mode.\"</span>, <span style=\"color: #a31515;\">\"GMap.NET - Demo.WindowsForms\"</span>, MessageBoxButtons.OK, MessageBoxIcon.Warning)\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Try</span>\n\n        <span style=\"color: green;\">' config map</span>\n        MainMap.MapType = MapType.GoogleMap\n\n        MainMap.MaxZoom = 11\n        MainMap.MinZoom = 1\n        MainMap.Zoom = MainMap.MinZoom + 1\n        MainMap.Position = <span style=\"color: blue;\">New</span> PointLatLng(54.6961334816182, 25.2985095977783) 'it's seems that currentposition can't be used anymore.</pre>\n<pre>\n\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\n</pre>\n</div>\n<br /></pre>\n<p>The problem I have is I get, at runtime, \"tiles\" with 2 messages; one with a red label indicating an exception with \"singletoncreator\" and another, blue, saying there is no images for that zoom level. (I don't transcribe them because they are in spanish).</p>\n<p>&nbsp;</p>\n<p>Another question.... I've followed your discussion with Josh; can google maps still be used? I get the obsolete warning on the GoogleMap type.</p>\n<p>&nbsp;</p>\n<p>Regards!</p>",
+    "PostedDate": "2011-06-26T08:50:09.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633165",
+    "ThreadId": "262813",
+    "Html": "<p>did you set target to AnyCPU? And you can ignore warnings ;}</p>",
+    "PostedDate": "2011-06-26T09:51:44.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633178",
+    "ThreadId": "262813",
+    "Html": "<p>Hi!<br /><br />Yes, target is set to anycpu... but the problem still happens. And i'll ignore the warnings if you do so too :P</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-26T10:34:56.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633180",
+    "ThreadId": "262813",
+    "Html": "<p>..well try move out code from load event to form constructor</p>",
+    "PostedDate": "2011-06-26T10:47:28.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633185",
+    "ThreadId": "262813",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>no luck; i've moved the code to a new form's initializecomponent event. I have a form, a gmapcontrol, and this code:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre> <span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> InitializeComponent()\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1 = <span style=\"color: blue;\">New</span> GMap.NET.WindowsForms.GMapControl()\r\n        <span style=\"color: blue;\">Me</span>.SuspendLayout()\r\n        <span style=\"color: green;\">'</span>\r\n        <span style=\"color: green;\">'GMapControl1</span>\r\n        <span style=\"color: green;\">'</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Bearing = 0.0!\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.CanDragMap = <span style=\"color: blue;\">True</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Dock = System.Windows.Forms.DockStyle.Fill\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.GrayScaleMode = <span style=\"color: blue;\">False</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.LevelsKeepInMemmory = 5\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Location = <span style=\"color: blue;\">New</span> System.Drawing.Point(0, 0)\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MarkersEnabled = <span style=\"color: blue;\">True</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MaxZoom = 17\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MinZoom = 2\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Name = <span style=\"color: #a31515;\">\"GMapControl1\"</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.NegativeMode = <span style=\"color: blue;\">False</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.PolygonsEnabled = <span style=\"color: blue;\">True</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.RetryLoadTile = 0\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.RoutesEnabled = <span style=\"color: blue;\">True</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.ShowTileGridLines = <span style=\"color: blue;\">False</span>\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Size = <span style=\"color: blue;\">New</span> System.Drawing.Size(284, 262)\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.TabIndex = 0\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Zoom = 0.0R\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MapType = MapType.GoogleMap\r\n\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MaxZoom = 11\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MinZoom = 1\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Zoom = GMapControl1.MinZoom + 1\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Position = <span style=\"color: blue;\">New</span> PointLatLng(54.6961334816182, 25.2985095977783)\r\n        <span style=\"color: green;\">'</span>\r\n        <span style=\"color: green;\">'Form3</span>\r\n        <span style=\"color: green;\">'</span>\r\n        <span style=\"color: blue;\">Me</span>.AutoScaleDimensions = <span style=\"color: blue;\">New</span> System.Drawing.SizeF(6.0!, 13.0!)\r\n        <span style=\"color: blue;\">Me</span>.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font\r\n        <span style=\"color: blue;\">Me</span>.ClientSize = <span style=\"color: blue;\">New</span> System.Drawing.Size(284, 262)\r\n        <span style=\"color: blue;\">Me</span>.Controls.Add(<span style=\"color: blue;\">Me</span>.GMapControl1)\r\n        <span style=\"color: blue;\">Me</span>.Name = <span style=\"color: #a31515;\">\"Form3\"</span>\r\n        <span style=\"color: blue;\">Me</span>.Text = <span style=\"color: #a31515;\">\"Form3\"</span>\r\n        <span style=\"color: blue;\">Me</span>.ResumeLayout(<span style=\"color: blue;\">False</span>)\r\n\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>I've added my own code after the auto-generated code. I also tried removing the \"duplicate\" assignments (min, max, zoom, type) and the same happens (error tiles indicating singletoncreator exception)</p>",
+    "PostedDate": "2011-06-26T11:18:37.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633215",
+    "ThreadId": "262813",
+    "Html": "<p>do you use .net4?</p>",
+    "PostedDate": "2011-06-26T13:01:57.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633218",
+    "ThreadId": "262813",
+    "Html": "<p>I had 4 client profile,&nbsp;switched&nbsp;to 4, same issue. visual studio 2010.</p>",
+    "PostedDate": "2011-06-26T13:13:14.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633240",
+    "ThreadId": "262813",
+    "Html": "<p>did you tried to browse documentation page? ;}</p>",
+    "PostedDate": "2011-06-26T15:06:02.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633286",
+    "ThreadId": "262813",
+    "Html": "<p>Hi!</p>\r\n<p>Missed the useLegacyV2RuntimeActivationPolicy=\"true\" line at app.config. I've read it but, for some reason, I thought it was for the web.config. \"GMap.NET.WindowsForms\" was kinda an empty section. Your reprimand :P about reading the documentation told me that there was more than meets the eye.</p>\r\n<p><br />Thank you very much! See you soon.</p>",
+    "PostedDate": "2011-06-26T17:59:32.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633368",
+    "ThreadId": "262813",
+    "Html": "<p>welcome ;}</p>\r\n<p>p.s. in the next version you won't need any configs</p>",
+    "PostedDate": "2011-06-26T23:39:24.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633547",
+    "ThreadId": "262813",
+    "Html": "<p>nice! and there is/there will be a way to use it on x86 builds? I'd like to edit code while debugging too much....</p>",
+    "PostedDate": "2011-06-27T07:33:39.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633550",
+    "ThreadId": "262813",
+    "Html": "<p>yes, any target you want</p>",
+    "PostedDate": "2011-06-27T07:42:37.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633552",
+    "ThreadId": "262813",
+    "Html": "<p>hi!&nbsp;</p>\r\n<p>the problem is that if I change the build to x86, i get the singletoncreator tiles...</p>",
+    "PostedDate": "2011-06-27T07:50:28.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "633556",
+    "ThreadId": "262813",
+    "Html": "<p>add manually sqlite dll, and disable assembly resolving in GMaps.cs static constructor</p>",
+    "PostedDate": "2011-06-27T07:57:33.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635084",
+    "ThreadId": "262813",
+    "Html": "<p>Hi!<br /><br />sqlite dll added, but i'm lost in your second indication... i don't even have a gmaps.cs class. could you give me some guide?<br /><br />Regards!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-29T15:55:29.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635234",
+    "ThreadId": "262813",
+    "Html": "<p>just build from source</p>",
+    "PostedDate": "2011-06-30T00:29:49.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636327",
+    "ThreadId": "262813",
+    "Html": "<p>Hi!<br /><br />It's seems I finally can workaroun this, and I'll share the solution.</p>\r\n<p>Added the source code to my solution and added the references to gmap.net.core and gmap.net.windowsforms libraries.&nbsp;</p>\r\n<p><br />First of all, I've located the gmap.cs constructor and commented the assembly resolving:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">static</span> GMaps()\r\n      {\r\n         <span style=\"color: green;\">//AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);</span>\r\n      }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>Second, the source code component doesn't have the \"mapttype\" property? I've switched this:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: green;\">'Me.Map.MapType = GMap.NET.MapType.GoogleMap</span>\r\n <span style=\"color: blue;\">Me</span>.Map.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>I have the sqlite reference in my project and in the core project, however, I got a sqlite library exception. I've noticed they where different versions, I've removed them and added the&nbsp;1.0.66.0 on both. Also, I've manually switched all the projects to x86 builds.</p>\r\n<p>&nbsp;</p>\r\n<p>QWell, I got the debuggin'edit on my project. Thank you very much for your help! see you soon.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-01T21:16:40.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636344",
+    "ThreadId": "262813",
+    "Html": "<p>nice ;}</p>",
+    "PostedDate": "2011-07-01T23:57:56.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667801",
+    "ThreadId": "262813",
+    "Html": "<p>current version in source requires no configs, and run on .net2/4 - x86/x64</p>",
+    "PostedDate": "2011-09-05T10:33:39.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

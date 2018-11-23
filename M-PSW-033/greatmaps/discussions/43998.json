@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "146316",
+    "ThreadId": "43998",
+    "Html": "This really is an excellent project! Do you see any way of being able to mark multiple positions on a map and having the map automatically zoom in or out to include all positions? I am thinking of using this to indicate positions of multiple vehicles on a city map.<br>\r\nThanks in advance\r\n",
+    "PostedDate": "2009-01-12T07:24:31.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "146429",
+    "ThreadId": "43998",
+    "Html": "yeah definitely ;} ...my feature list expanding and i'm planing <strong>fast &amp; flexible</strong> system of <em>dynamic</em> <strong>{ multiply [markers &amp; routing &amp; toolltips] }</strong> for <em>real time</em> information !  <br>\r\n<br>\r\nAny improve/idea/code/patch/fix/etc very <em>welcome</em> ;}\r\n",
+    "PostedDate": "2009-01-12T12:47:22.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148053",
+    "ThreadId": "43998",
+    "Html": "Thanks, your proyect is great, will be a very nice option to add more than one marker for real time tracking.<div>Again thanks.</div>",
+    "PostedDate": "2009-01-18T02:00:13.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148078",
+    "ThreadId": "43998",
+    "Html": "not will, it IS ;} i mean it support multiply markers right now\r\n",
+    "PostedDate": "2009-01-18T06:01:18.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148107",
+    "ThreadId": "43998",
+    "Html": "Excellent, radioman! You said you'd welcome suggestions for improvements, so here you go: <br>\r\n<br>\r\n1.    How about being able to attach custom labels to markers, that appear when you hover the mouse over them? <br>\r\n2.    What about a zoom function that automatically zooms the map to the maximum possible while showing all markers?<br>\r\n<br>\r\nthanks, nickcami\r\n",
+    "PostedDate": "2009-01-18T10:14:37.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148117",
+    "ThreadId": "43998",
+    "Html": "1. i'm just started to that, searching optimal way to implement it\r\nAbout 2. you want set zoom = 17; ? or max zoom level at wich all markers are still visible on map?\r\n",
+    "PostedDate": "2009-01-18T12:30:14.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148226",
+    "ThreadId": "43998",
+    "Html": "Re 2. It would be great to have a function that would automatically zoom the map to the correct level necessary to show all markers. <br>\r\nThanks\r\n",
+    "PostedDate": "2009-01-18T23:44:45.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148232",
+    "ThreadId": "43998",
+    "Html": "task enquened succeffuly ;}\r\n",
+    "PostedDate": "2009-01-19T00:20:05.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "167988",
+    "ThreadId": "43998",
+    "Html": "for the custom label...in the WPF version, just use marker.Label.SetResource(&quot;resourceKeyName&quot;) where the resourceKeyName is a label style in a resource dictionary of the WPF project.<br>\r\nIf you also change the GMapMarker base class so the popup.allowstransparency = true you'll find it looks better and you can have semi transparent labels.<br>\r\n<br>\r\nMoose\r\n",
+    "PostedDate": "2009-03-13T18:14:15.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "280712",
+    "ThreadId": "81741",
+    "Html": "<p>Is it possible to create a route with the mobile version of the class?&nbsp; I was trying to use the GetRouteBetweenPoints function and it always throws a not implemented exception(&quot;Don't use in WindowsMobile&quot;).&nbsp; There any other way to do it?</p>",
+    "PostedDate": "2010-01-22T11:57:04.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280738",
+    "ThreadId": "81741",
+    "Html": "<p>it's possible, but with manual coordinates, because as you know&nbsp;GetRouteBetweenPoints doesn't yet working on mobile, it is simply commented code</p>",
+    "PostedDate": "2010-01-22T13:11:16.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280739",
+    "ThreadId": "81741",
+    "Html": "<p>Sorry, but what do you mean by manual coordinates? I have the latitude and longitude for each point...is there another function I can access?</p>",
+    "PostedDate": "2010-01-22T13:14:22.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280747",
+    "ThreadId": "81741",
+    "Html": "<div style=\"color:Black;background-color:White\">\r\n<pre>List&lt;PointLatLng&gt; track = <span style=\"color:Blue\">new</span> List&lt;PointLatLng&gt;();\r\n\r\n<span style=\"color:Blue\">foreach</span>(<span style=\"color:Blue\">var</span> points <span style=\"color:Blue\">in</span> session)\r\n{\r\n      track.Add(points.Position);\r\n}\r\n\r\nGMapRoute gr = <span style=\"color:Blue\">new</span> GMapRoute(track, <span style=\"color:#A31515\">&quot;myTrack&quot;</span>);\r\n{\r\n     gr.Color = Color.Blue;\r\n}\r\n\r\nGMapOverlay routes = <span style=\"color:Blue\">new</span> GMapOverlay(MainMap, <span style=\"color:#A31515\">&quot;routes&quot;</span>);\r\nMainMap.Overlays.Add(routes);\r\n\r\nroutes.Routes.Add(gr);</pre>\r\n</div>",
+    "PostedDate": "2010-01-22T13:57:25.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281830",
+    "ThreadId": "81741",
+    "Html": "<p>Ok thanks, this is great and allows me to get the points I need to create a route.&nbsp; However, when I add route all I get is a straight blue line from the destination that goes no where near my starting point.&nbsp; I can trace through the code and properties such as distance seem correct.&nbsp; I can also draw the route with a marker for each point and the route shows up as expected.&nbsp; Is there something wrong with the route overlay for mobile?&nbsp; Can anyone else draw a route onto their mobile screen?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-26T05:34:32.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "282323",
+    "ThreadId": "81741",
+    "Html": "<p>Yes I can. I use it for showing tracks. Have you got the bugfix done in change set 45694?</p>",
+    "PostedDate": "2010-01-27T06:23:32.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "282362",
+    "ThreadId": "81741",
+    "Html": "<p>No, I hadn't gotten it. That was it! I love it when it is something simple!&nbsp; Thanks!</p>",
+    "PostedDate": "2010-01-27T07:36:37.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

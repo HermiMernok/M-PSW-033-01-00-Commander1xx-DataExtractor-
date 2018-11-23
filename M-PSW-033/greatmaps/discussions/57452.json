@@ -1,0 +1,154 @@
+[
+  {
+    "Id": "194165",
+    "ThreadId": "57452",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am not understanding about&nbsp;adding markers and displaying routes on the map. This bellow code contains 5 markers and i need to connect these markers with one poly line guide me regarding this</p>\r\n<p>&nbsp;<span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">private</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">void</span></span><span style=\"font-size:x-small\"> UserDefined_Click(</span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">object</span></span><span style=\"font-size:x-small\"> sender, </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">EventArgs</span></span><span style=\"font-size:x-small\"> e)</span></p>\r\n<p><span style=\"font-size:x-small\">{\r\n<p>objects.Markers.Clear();</p>\r\n<p>routes.Routes.Clear();</p>\r\n</span></p>\r\n<p><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\"> point1 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\">(17.4180196850649, 78.3441817760468);&lt;font size=&quot;2&quot;&gt; </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\"> point2 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\">(17.4186338967422, 78.3431839942932);</span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\"> point3 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\">(17.4193197640071, 78.3420038223267);</span></p>\r\n<p><span style=\"font-size:x-small\">&nbsp;</span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\"> point4 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\">(17.4203843886888, 78.3401584625244);</span></p>\r\n<p><span style=\"font-size:x-small\">&nbsp;</span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\"> point5 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">PointLatLng</span></span><span style=\"font-size:x-small\">(17.4218380008271, 78.3377659320831);</span></p>\r\n<p><span style=\"font-size:x-small\">&nbsp;</span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\"> m1 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\">(point1);</span></p>\r\n<p><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\"> m2 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\">(point2);</span></p>\r\n<p><span style=\"font-size:x-small\">&nbsp;</span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\"> m3 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\">(point3);</span></p>\r\n<p><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\"> m4 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\">(point4);</span></p>\r\n<p><span style=\"font-size:x-small\">&nbsp;</span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\"> m5 = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarker</span></span><span style=\"font-size:x-small\">(point5);</span></p>\r\n<p>\r\n<p>m1.ToolTipText =&quot;HI1&quot;;</p>\r\n</p>\r\n<p>\r\n<p>m2.ToolTipText =&quot;HI2&quot;;</p>\r\n</p>\r\n<p>m3.ToolTipText =&quot;HI3&quot;;</p>\r\n<p>m4.ToolTipText =&quot;HI4&quot;;</p>\r\n<p>m5.ToolTipText =&quot;HI5&quot;;</p>\r\n<p>\r\n<p>objects.markers.add(m1);</p>\r\n</p>\r\n<p>objects.markers.add(m2);</p>\r\n<p>objects.markers.add(m3);</p>\r\n<p>objects.markers.add(m4);</p>\r\n<p>objects.markers.add(m5);</p>\r\n<p>&nbsp;mainmap.reloadmap();</p>\r\n<p>}</p>\r\n<p>thanks &amp; regards</p>\r\n<p>asif</p>",
+    "PostedDate": "2009-05-26T02:17:43.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "194243",
+    "ThreadId": "57452",
+    "Html": "<pre>     void Test()\r\n      {\r\n         PointLatLng point1 = new PointLatLng(17.4180196850649, 78.3441817760468);\r\n         PointLatLng point2 = new PointLatLng(17.4186338967422, 78.3431839942932);\r\n         PointLatLng point3 = new PointLatLng(17.4193197640071, 78.3420038223267);\r\n         PointLatLng point4 = new PointLatLng(17.4203843886888, 78.3401584625244);\r\n         PointLatLng point5 = new PointLatLng(17.4218380008271, 78.3377659320831);\r\n\r\n         GMapMarker m1 = new GMapMarkerGoogleGreen(point1);\r\n         GMapMarker m2 = new GMapMarkerGoogleGreen(point2);\r\n         GMapMarker m3 = new GMapMarkerGoogleGreen(point3);\r\n         GMapMarker m4 = new GMapMarkerGoogleGreen(point4);\r\n         GMapMarker m5 = new GMapMarkerGoogleGreen(point5);\r\n\r\n         m1.ToolTipText =&quot;HI1&quot;;\r\n         m2.ToolTipText =&quot;HI2&quot;;\r\n         m3.ToolTipText =&quot;HI3&quot;;\r\n         m4.ToolTipText =&quot;HI4&quot;;\r\n         m5.ToolTipText =&quot;HI5&quot;;\r\n\r\n         m1.TooltipMode = MarkerTooltipMode.Always;\r\n         m2.TooltipMode = MarkerTooltipMode.Always;\r\n         m3.TooltipMode = MarkerTooltipMode.Always;\r\n         m4.TooltipMode = MarkerTooltipMode.Always;\r\n         m5.TooltipMode = MarkerTooltipMode.Always;\r\n\r\n         GMapOverlay objects = new GMapOverlay(MainMap, &quot;stops&quot;);\r\n         {\r\n            objects.Markers.Add(m1);\r\n            objects.Markers.Add(m2);\r\n            objects.Markers.Add(m3);\r\n            objects.Markers.Add(m4);\r\n            objects.Markers.Add(m5);\r\n         }\r\n         MainMap.Overlays.Add(objects);\r\n\r\n         // add route\r\n         List route = new List();\r\n         {\r\n            route.Add(point1);\r\n            route.Add(point2);\r\n            route.Add(point3);\r\n            route.Add(point4);\r\n            route.Add(point5);\r\n            route.Add(point1);\r\n         }\r\n         MapRoute r = new GMapRoute(route, &quot;track&quot;);\r\n         routes.Routes.Add(r);\r\n\r\n         MainMap.ZoomAndCenterMarkers(&quot;stops&quot;);\r\n      }\r\n</pre>\r\n<pre>// simple ;}</pre>",
+    "PostedDate": "2009-05-26T05:32:58.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "195568",
+    "ThreadId": "57452",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you, one more doubt how to change route color? i am using the following code for changing route color but its not changing at all. guide me regarding this.</p>\r\n<p>routes.RoutePen.Color = Color.green;</p>\r\n<p>Regards</p>\r\n<p>Asif</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-28T23:27:58.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "195573",
+    "ThreadId": "57452",
+    "Html": "<pre>GMapRoute r = new GMapRoute(route, &quot;test&quot;);\r\n{\r\n  r.Color = Color.Blue;\r\n}\r\nroutes.Routes.Add(r);\r\n</pre>",
+    "PostedDate": "2009-05-28T23:36:43.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237223",
+    "ThreadId": "57452",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I'm trying to add routes on my map but I have some problems here :S</p>\r\n<p>I tried to use your example code but I have erros. I can't understand this line:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>routes.Routes.Add(r);\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>I can see the markers on map but not the route. This is the best way to draw routes?</p>\r\n<p>Tks a lot!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-22T02:32:34.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237238",
+    "ThreadId": "57452",
+    "Html": "<p>Ok I solve the problem adding this lines:</p>\r\n<p>GMapOverlay routes = new GMapOverlay(MainMap, &quot;routes&quot;);<br>routes.Routes.Add(testes);<br>MainMap.Overlays.Add(routes);</p>\r\n<p>But now I have another problem. This route doesn't show me the directions to next point,I mean, the route doesn't follow the roads to get the next point.</p>\r\n<p>Should I use GetRouteBetweenPoints function ?</p>\r\n<p>Tks again and sorry for my english!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-22T03:18:43.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237382",
+    "ThreadId": "57452",
+    "Html": "<p>you can add any point in the route, but if you want correct route generated&nbsp;automatically, use that function or any other service of that type</p>\r\n<p>..and do not sorry for&nbsp;English, i catch your mind ;}</p>",
+    "PostedDate": "2009-09-22T08:59:37.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237395",
+    "ThreadId": "57452",
+    "Html": "<p>Tks a lot for your help radioman. It's done :D</p>\r\n<p>I used GetRouteBetweenPoints and it works perfectly :P</p>\r\n<p>Now I have another doubts. It's not related with this topic but I write right here:</p>\r\n<p>1-How can I show on the map the original zoom bar and type map menu?</p>\r\n<p>2-How can I use the right button mouse event on left button?</p>\r\n<p>Tks again!</p>",
+    "PostedDate": "2009-09-22T09:22:51.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237396",
+    "ThreadId": "57452",
+    "Html": "<p>1 - use slidebar ;}</p>\r\n<p>2 - use DragButton property ;}</p>",
+    "PostedDate": "2009-09-22T09:26:55.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237413",
+    "ThreadId": "57452",
+    "Html": "<p>1 - which slidebar? I really want to use the original zoom bar? Is it possible?</p>\r\n<p>2- done :P</p>\r\n<p>3-Another doubt: I'm using the google maps api to find a given local coordinates (cause I didn't find the right function to do that). So I use the follow url:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>http:<span style=\"color:Green\">//maps.google.com/maps/geo?q=BLABLA</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>In some cases the same given name exists many times, for example, if I use the string &quot;X Street&quot; perhaps exists 2 diferent places with the same name. How can I know every places with that name?</p>\r\n<p>If there is a better way to find coordinates I can change my code :D</p>",
+    "PostedDate": "2009-09-22T09:58:51.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237417",
+    "ThreadId": "57452",
+    "Html": "<p>1 - what original? ;]</p>\r\n<p>3 - it will be some day! ;}</p>",
+    "PostedDate": "2009-09-22T10:17:12.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238224",
+    "ThreadId": "57452",
+    "Html": "<p>Hello again.</p>\r\n<p>Sorry for my late answer.</p>\r\n<p>1- I was talking about the zoom slidebar on google maps (http://maps.google.com/). On up left corner. Is it possible to show? if not I will use a slidebar like in demo.</p>\r\n<p>3-Ok I have a version to do this:D search for a local (string) and get many coordinates. I'm using a XML answer to get different coordinates. I give the code here if you want to use it.</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">private</span> List&lt;Destino&gt; loadXmlFile()\r\n        {\r\n            List&lt;Destino&gt; arrayCoordinates = <span style=\"color:Blue\">new</span> List&lt;Destino&gt;();\r\n            XmlDocument doc = <span style=\"color:Blue\">new</span> XmlDocument();\r\n            String url = <span style=\"color:#A31515\">&quot;http://maps.google.com/maps/geo?q=&quot;</span> + textBox1.Text + <span style=\"color:#A31515\">&quot;&amp;output=xml&amp;sensor=true&amp;oe=utf8&quot;</span>;\r\n            Console.WriteLine(url);\r\n            doc.Load(url);\r\n\r\n            XmlTextReader reader = <span style=\"color:Blue\">new</span> XmlTextReader(url);\r\n            XmlNodeList memberNodes = doc.SelectNodes(<span style=\"color:#A31515\">&quot;//kml&quot;</span>);\r\n            String localDestino = <span style=\"color:#A31515\">&quot;&quot;</span>;\r\n            String coordDestino = <span style=\"color:#A31515\">&quot;&quot;</span>;\r\n            <span style=\"color:Blue\">while</span> (reader.Read())\r\n            { \r\n                <span style=\"color:Blue\">switch</span> (reader.NodeType)\r\n                {\r\n                    <span style=\"color:Blue\">case</span> XmlNodeType.Element:\r\n                        <span style=\"color:Blue\">if</span> (reader.Name.Equals(<span style=\"color:#A31515\">&quot;address&quot;</span>))\r\n                        {\r\n                            localDestino = reader.ReadElementString();\r\n                            \r\n                        }\r\n                        <span style=\"color:Blue\">else</span> <span style=\"color:Blue\">if</span> (reader.Name.Equals(<span style=\"color:#A31515\">&quot;coordinates&quot;</span>)) {\r\n                            coordDestino = reader.ReadElementString();\r\n                            arrayCoordinates .Add(<span style=\"color:Blue\">new</span> Destino(localDestino,coordDestino));                            \r\n                        }\r\n                        <span style=\"color:Blue\">break</span>;                    \r\n                }\r\n            }            \r\n            <span style=\"color:Blue\">return</span> getCoordinates(arrayCoordinates );            \r\n        }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>This is just an example. This code gets the coordinates and address also. Hope its useful :D</p>\r\n<p>Bye</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-24T03:32:57.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238229",
+    "ThreadId": "57452",
+    "Html": "<p>1 - this is not browser based control, so it's&nbsp;impossible</p>\r\n<p>2 - great!</p>",
+    "PostedDate": "2009-09-24T03:41:03.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238343",
+    "ThreadId": "57452",
+    "Html": "<p>radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>On your point no.1 about it being impossible and using the other API functions of Google from within VB/VC , well some time ago i came across a control called VirtualEarth and it hosted a WebBrowse control</p>\r\n<p>but used this WebBrowser control to send/recieved API functions.</p>\r\n<p>I expanded it to work as i wanted, including adding pins etc, but also enabled Google options such as zooms etc.&nbsp; Anyway it demonstrates how to get to the Goolge API using a bit of clever dynamically build java.</p>\r\n<p>Let me have a link where i can drop a copy of the program for you. It is a while since i used it, and it may not even compile , but you can see the code in the VEControl.vb&nbsp; file&nbsp;&nbsp; ShowInitalMap sub.</p>\r\n<p>&nbsp;</p>\r\n<p>Paul.</p>",
+    "PostedDate": "2009-09-24T08:12:52.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238380",
+    "ThreadId": "57452",
+    "Html": "<p>can you send it to me at radioman.lt@gmail.com ?</p>",
+    "PostedDate": "2009-09-24T09:40:38.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238397",
+    "ThreadId": "57452",
+    "Html": "<p>hmm, hotmail just returned the email to that address,</p>\r\n<p>any other address to try?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-24T10:08:34.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238401",
+    "ThreadId": "57452",
+    "Html": "<p>skydrive?</p>",
+    "PostedDate": "2009-09-24T10:11:20.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238410",
+    "ThreadId": "57452",
+    "Html": "<p>ive uploaded as a patch</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-24T10:30:56.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "238939",
+    "ThreadId": "57452",
+    "Html": "<p>interesting ;}</p>",
+    "PostedDate": "2009-09-25T12:49:05.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

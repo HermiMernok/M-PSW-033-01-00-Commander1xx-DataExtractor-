@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "710930",
+    "ThreadId": "282660",
+    "Html": "<p>The GMap.Net is a great development. I'm planning to use the component i a public Windows form application and have tried to read about licencing criteria on this website. All previously discussions talking about Googgle license. I persume that&nbsp;Google Maps  API are implemented in&nbsp;GMap.Net &nbsp; Is this right?</p>\n<p>As I have read that, Google also allow usage of Google Map API in Windows forms application as long as the application are available for download to public and promoted through a public website. This solution doesn't require a Google Map API Premium licence,  and is free.</p>\n<p>But what about changing&nbsp;</p>\n<pre>gmap<span>.</span>MapType&nbsp;<span>=</span>&nbsp;<span>MapType</span><span>.</span>YahooHybrid<br /></pre>\n<pre>or&nbsp;</pre>\n<pre>gmap.MapType&nbsp;=&nbsp;MapType.BingHybrid</pre>\n<pre><br /></pre>\n<pre>Does that use another API and other licencing rules respectively from Yahoo and Bing (Microsoft)?</pre>\n<p>&nbsp;</p>\n<dt id=\"tos_nonweb\"><br />\n<p>&nbsp;</p>\n</dt>",
+    "PostedDate": "2011-12-12T07:32:34.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710931",
+    "ThreadId": "282660",
+    "Html": "<p>yes, different providers use different&nbsp;license stuff.. and none of them i understand ;}</p>",
+    "PostedDate": "2011-12-12T07:36:10.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711442",
+    "ThreadId": "282660",
+    "Html": "<p>Does this mean that GMap.Net are in use when gmap.type=GoogleHybrid?</p>\r\n<p>and GMap.Net use&nbsp;Bing Maps APIs when gmap.type=BingHybrid?</p>\r\n<p>and&nbsp;GMap.Net use&nbsp;Yahoo Map AS3 when gmap.type=YahooHybrid?</p>",
+    "PostedDate": "2011-12-13T06:47:33.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711548",
+    "ThreadId": "282660",
+    "Html": "<p>No, GMap.NET doesn't use any (Javascript) API, it gets the map-tiles directly from the servers, that makes it so cool and fast and unfortunately not exactly legal in the sense of Google &amp; Co.... :-(</p>",
+    "PostedDate": "2011-12-13T09:23:38.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

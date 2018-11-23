@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1061390",
+    "ThreadId": "448274",
+    "Html": "Hi radioman,\r<br />\n<br />\nIn the latest build tiles outside the range provide by MinZoom and MaxZoom are cached in the background.  In the stable 1.6 release this is not an issue.\r<br />\n<br />\nDebug output:\r<br />\n<a href=\"http://tiles1.opdekaart.amsterdam.nl/tegels/merc_topo/6/32_21.png\" rel=\"nofollow\">http://tiles1.opdekaart.amsterdam.nl/tegels/merc_topo/6/32_21.png</a>\r<br />\nA first chance exception of type 'System.Net.WebException' occurred in System.dll\r<br />\nGetImageFrom: System.Net.WebException: The remote server returned an error: (404) Not Found.\r<br />\n   at System.Net.HttpWebRequest.GetResponse()\r<br />\n   at GMap.NET.MapProviders.GMapProvider.GetTileImageUsingHttp(String url) in C:\\Marcel\\Repo\\greatmaps_54bd9b1cd62d\\GMap.NET.Core\\GMap.NET.MapProviders\\GMapProvider.cs:line 422\r<br />\n   at GMap.NET.MapProviders.AmsterdamMapProvider.GetTileImage(GPoint pos, Int32 zoom) in C:\\Marcel\\Repo\\greatmaps_54bd9b1cd62d\\GMap.NET.Core\\GMap.NET.MapProviders\\Vcs\\AmsterdamMapProvider.cs:line 159\r<br />\n   at GMap.NET.GMaps.GetImageFrom(GMapProvider provider, GPoint pos, Int32 zoom, Exception&amp; result) in C:\\Marcel\\Repo\\greatmaps_54bd9b1cd62d\\GMap.NET.Core\\GMap.NET\\GMaps.cs:line 785\r<br />\n<br />\nZoomLevel 6 does not exists on the tile server.\r<br />\nMaxZoom is set to 19 and MinZoom is set to 11.\r<br />\n<br />\nFor now I use this work around in the custom provider:<br />\n<pre><code>   private int internalMinZoom = 11;\n   private int internalMaxZoom = 19;\n\n  public override PureImage GetTileImage(GPoint pos, int zoom)\n  {\n     // no use to return zoom levels the tile server doesn't provide\n     if (zoom &lt; internalMinZoom &amp;&amp; zoom &gt; internalMaxZoom) return null;\n\n     string url = MakeTileImageUrl(pos, zoom, LanguageStr);\n     PureImage tileImage;\n     tileImage = GetTileImageUsingHttp(url);\n     if (tileImage == null)\n     {\n         tileImage = TileImageProxy.FromArray(GetBlankImage());\n\n     }\n     return tileImage;\n  }\n</code></pre>\n\n",
+    "PostedDate": "2013-06-26T05:44:57.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1061417",
+    "ThreadId": "448274",
+    "Html": "you can set MaxZoom/MinZoom in your custom provider constructor, but even without limits set in provider, map settings itself doesn't allow that, works fine in other providers too<br />\n",
+    "PostedDate": "2013-06-26T06:30:05.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

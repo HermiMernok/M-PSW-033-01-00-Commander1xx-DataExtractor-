@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Get the following exception when doing directions call:\r\n\r\n SaveContent: System.IO.IOException: The process cannot access the file 'C:\\Windows\\system32\\config\\systemprofile\\AppData\\Local\\GMap.NET\\DirectionsCache\\1A-2D-17-6D-AE-29-DA-98-86-3B-D4-13-6F-72-D3-1C-23-0C-D4-21.txt' because it is being used by another process. \t\r\nat System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath) \t\r\nat System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost) \t\r\nat System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost) \t\r\nat System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost) \t\r\nat System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost) \t\r\nat System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding) \t\r\nat GMap.NET.Internals.Cache.SaveContent(String url, CacheType type, String content) \t\r\n\r\nSeems like it should trap the exception and retry - there can be multiple processes trying to update the cache.",
+    "LastUpdatedDate": "2014-08-18T08:35:45.18-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-08-18T08:35:45.18-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "DirectionsCache - file in use exception",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16103
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

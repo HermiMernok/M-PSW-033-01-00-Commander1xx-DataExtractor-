@@ -1,0 +1,126 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "roger ;}",
+    "ClosedDate": "2011-03-26T06:29:56.363-07:00",
+    "CommentCount": 15,
+    "Custom": null,
+    "Description": "hi,\r\ni have many problem with your source code,,, do you can help me?\r\n1- when i open the source,, VS show the message that i must install Windows mobile 6 professional sdk,, what is that?\r\n2- at the source, when i want view mainForm in demo.WindowsForms, the designer throw : The file '\\greatmaps-1b23a7b6543a\\greatmaps_1b23a7b6543a\\Demo.WindowsForms\\Form2.cs' does not support code parsing or generation because it is not contained within a project that supports code. \r\n3- at final, when i want run your source, i have to enter the password for MyPFX.pfx,, what can i do for this?\r\n\r\nplease help me,, \r\n\r\ni need this Map :(( \r\n",
+    "LastUpdatedDate": "2011-04-05T00:01:37.05-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-03-26T02:46:33.51-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "bugs",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16000
+  },
+  "FileAttachments": [
+    {
+      "FileId": 221128,
+      "FileName": "bug1.jpg",
+      "DownloadUrl": ".\\221128"
+    },
+    {
+      "FileId": 221129,
+      "FileName": "bug2.jpg",
+      "DownloadUrl": ".\\221129"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "thanks for your reply,,, but i have problem with  MyPFX.pfx,,, i need password ,,, what can i do for this?\n",
+      "PostedDate": "2011-03-26T03:33:40.843-07:00",
+      "Id": 31846
+    },
+    {
+      "Message": "And\n\nwhen i want open mainForm tn demo.windowsForms,.... this happend:\n\n     \nInstances of this error (1)  \n \n1.   Hide Call Stack \n \nat Microsoft.VisualStudio.Design.Serialization.CodeDom.XML.CodeDomXmlProcessor.GetMemberTargetObject(XmlElementData xmlElementData, String& member)\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.XML.CodeDomXmlProcessor.CreateAssignStatement(XmlElementData xmlElement)\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.XML.CodeDomXmlProcessor.XmlElementData.get_CodeDomElement()\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.XML.CodeDomXmlProcessor.EndElement(String prefix, String name, String urn)\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.XML.CodeDomXmlProcessor.Parse(XmlReader reader)\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.XML.CodeDomXmlProcessor.ParseXml(String xmlStream, CodeStatementCollection statementCollection, String fileName, String methodName)\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.VSCodeDomParser.OnMethodPopulateStatements(Object sender, EventArgs e)\nat System.CodeDom.CodeMemberMethod.get_Statements()\nat System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.Deserialize(IDesignerSerializationManager manager, CodeTypeDeclaration declaration)\nat System.ComponentModel.Design.Serialization.CodeDomDesignerLoader.PerformLoad(IDesignerSerializationManager manager)\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.VSCodeDomDesignerLoader.PerformLoad(IDesignerSerializationManager serializationManager)\nat Microsoft.VisualStudio.Design.Serialization.CodeDom.VSCodeDomDesignerLoader.DeferredLoadHandler.Microsoft.VisualStudio.TextManager.Interop.IVsTextBufferDataEvents.OnLoadCompleted(Int32 fReload)  \n \n \n",
+      "PostedDate": "2011-03-26T03:38:58.127-07:00",
+      "Id": 31847
+    },
+    {
+      "Message": "unload Setup project, if you don't use mobile version, unload it too, build, be happy ;}\n\r\n\r** Closed by powerboy2988 03/26/2011 3:13AM",
+      "PostedDate": "2011-03-26T03:13:57.603-07:00",
+      "Id": 31849
+    },
+    {
+      "Message": "bugs",
+      "PostedDate": "2011-03-26T04:04:55.017-07:00",
+      "Id": 31850
+    },
+    {
+      "Message": "what bugs? ;}",
+      "PostedDate": "2011-03-26T04:15:16.043-07:00",
+      "Id": 31851
+    },
+    {
+      "Message": "but i have problem with MyPFX.pfx,,, i need password ,,, what can i do for this?",
+      "PostedDate": "2011-03-26T04:16:44.79-07:00",
+      "Id": 31852
+    },
+    {
+      "Message": "no bugs ;}\n\r\n\r** Closed by powerboy2988 03/26/2011 4:16AM",
+      "PostedDate": "2011-03-26T04:16:32.993-07:00",
+      "Id": 31853
+    },
+    {
+      "Message": "please see these pictures,, those are my problem,, please help me.. please",
+      "PostedDate": "2011-03-26T04:23:41.373-07:00",
+      "Id": 31854
+    },
+    {
+      "Message": "and this",
+      "PostedDate": "2011-03-26T04:25:28.32-07:00",
+      "Id": 31856
+    },
+    {
+      "Message": "thanks, i solve my problems,, thanks a lot ,,, thank you.... :)\n",
+      "PostedDate": "2011-03-26T04:41:35.073-07:00",
+      "Id": 31857
+    },
+    {
+      "Message": "the solution is??? i can not see the solution... ",
+      "PostedDate": "2011-04-04T09:49:47.097-07:00",
+      "Id": 32527
+    },
+    {
+      "Message": "whats the problem?",
+      "PostedDate": "2011-04-04T10:15:26.977-07:00",
+      "Id": 32530
+    },
+    {
+      "Message": "thanks for your attention,,\n\nI did resolved my problem..\n\n",
+      "PostedDate": "2011-04-04T10:16:10.57-07:00",
+      "Id": 32531
+    },
+    {
+      "Message": "i know, just wandering, what missing is Iberica2000MS ;}",
+      "PostedDate": "2011-04-04T10:41:38.503-07:00",
+      "Id": 32536
+    },
+    {
+      "Message": "sorry, was my first post... ",
+      "PostedDate": "2011-04-05T00:01:37.05-07:00",
+      "Id": 32629
+    }
+  ]
+}

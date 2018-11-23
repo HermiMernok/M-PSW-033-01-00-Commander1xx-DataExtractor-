@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1463721",
+    "ThreadId": "651505",
+    "Html": "When I dispose of a Marker like this:<br />\n<pre><code>activeOverlay.Markers[i].Dispose();</code></pre>\n\n<pre><code>activeOverlay.Markers.Count</code></pre>\n\nis not updating by reducing the marker count as I expected.\r<br />\n<br />\nIs this a bug or am I missing something?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2016-02-19T06:22:13.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1463942",
+    "ThreadId": "651505",
+    "Html": "I discovered <br />\n<pre><code>activeOverlay.Markers.RemoveAt(i);\nactiveOverlay.Markers[i].Dispose();</code></pre>\n\nWhich does keep the marker count correct. But I hope it does not cause memory leaks.\r<br />\n<br />\nAny comments welcome.<br />\n",
+    "PostedDate": "2016-02-22T03:27:25.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-02-22T03:27:38.93-08:00"
+  }
+]

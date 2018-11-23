@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "748286",
+    "ThreadId": "299533",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span>I need to</span> <span>delete and create</span> <span>a map</span> <span>during the</span> <span>life of the program</span><span>, as</span> <span>it</span> <span>must always be</span> <span>on the screen,</span> <span>but always</span> <span>keep</span> <span>the memory</span> <span>- too</span> <span>expensive.</span><br /> <span>Easy to use</span> <span>Dispose ()</span> <span>leads to</span> <span>memory leaks</span> <span>because of the</span> <span>references</span> <span>to events that</span> <span> are not removed</span><span>, I've done</span> <span>this in </span></span><strong>GMapControl</strong><span id=\"result_box\" lang=\"en\"><span>:</span></span><span id=\"result_box\" lang=\"en\"><br /> <br /> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void Dispose()<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Application.Current.SessionEnding -= new SessionEndingCancelEventHandler(Current_SessionEnding);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMaps.Instance.CancelTileCaching();<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Core.OnMapZoomChanged -= new MapZoomChanged(ForceUpdateOverlays);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Loaded -= new RoutedEventHandler(GMapControl_Loaded);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unloaded -= new RoutedEventHandler(GMapControl_Unloaded);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dispatcher.ShutdownStarted -= new EventHandler(Dispatcher_ShutdownStarted);<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SizeChanged -= new SizeChangedEventHandler(GMapControl_SizeChanged);<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Core.OnMapClose();<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\n<p><span id=\"result_box\" lang=\"en\"><span>Now</span> <span>there is</span> <span>a memory leak</span><span>, I think</span> <span>the project</span> <span>should</span> <span>add</span> <span>something like that.</span></span></p>",
+    "PostedDate": "2012-02-09T03:47:17.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748420",
+    "ThreadId": "299533",
+    "Html": "<p>and how much it leaks, 2 bytes, 3?</p>\n<p>p.s. fixed</p>",
+    "PostedDate": "2012-02-09T05:43:29.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748446",
+    "ThreadId": "299533",
+    "Html": "<p>no, <span id=\"result_box\" lang=\"en\"><span class=\"hps\">in my case,</span> <span class=\"hps\">these links are</span> <span class=\"hps\">forced to</span> <span class=\"hps\">live and</span> <span class=\"hps\">fly</span> <span class=\"hps\">control</span><span>, and it</span> <span class=\"hps\">weighs</span> <span class=\"hps\">a little more</span><span>.</span></span></p>\r\n<p><a class=\"UserProfileLink\" href=\"http://www.codeplex.com/site/users/view/radioman\">radioman</a>, you are from Russia? For <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">the sake of</span></span>.</p>",
+    "PostedDate": "2012-02-09T05:58:36.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748449",
+    "ThreadId": "299533",
+    "Html": "<p>thanks</p>",
+    "PostedDate": "2012-02-09T05:59:35.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748468",
+    "ThreadId": "299533",
+    "Html": "<p>i'm from old mars district called lithuania ;}</p>",
+    "PostedDate": "2012-02-09T06:13:57.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

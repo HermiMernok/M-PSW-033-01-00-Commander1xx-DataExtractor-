@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "1129472",
+    "ThreadId": "471277",
+    "Html": "&quot;<em>Date: Tue=2C 26 Nov 2013 11:19:12 -0800<br />\nSubject: API Yandex.Maps<br />\n<br />\nDear Sirs<br />\nMy name is Andrey Chebotarev. I represent Yandex.Maps API service.<br />\n<br />\nWe learned your component and it caused our interest. Unfortunately, we have to admit that it breaks Yandex.Maps API terms of use, because it uses only our tiles without using our API. More details about the rules use you can read here - <a href=\"http://legal.yandex.com/maps_api/\" rel=\"nofollow\">http://legal.yandex.com/maps_api/</a>. <br />\n<br />\nPlease either stop using our tiles or use it via our API. In other case we'll have to sent the request to our legal department. <br />\n<br />\nBest regards,<br />\n<strong>Andrey Chebotarev</strong><br />\nYandex.Maps API marketing manager</em>&quot;<br />\n<br />\n// Dear dude, i'm not using your maps or services in any way, so go and fuck yourself..<br />\n",
+    "PostedDate": "2013-11-27T00:30:53.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131216",
+    "ThreadId": "471277",
+    "Html": "Dear dude. You use tiles from Yandex. Proof - <a href=\"https://greatmaps.codeplex.com/SourceControl/latest#GMap.NET.Core/GMap.NET.MapProviders/Yandex/YandexMapProvider.cs\" rel=\"nofollow\">https://greatmaps.codeplex.com/SourceControl/latest#GMap.NET.Core/GMap.NET.MapProviders/Yandex/YandexMapProvider.cs</a>\r<br />\n<br />\nBest regards,\r<br />\nAndrey Chebotarev\r<br />\nYandex.Maps API marketing manager<br />\n",
+    "PostedDate": "2013-12-03T05:15:25.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131232",
+    "ThreadId": "471277",
+    "Html": "it's a source file, it does nothing, there is no yandex servers defined there<br />\n",
+    "PostedDate": "2013-12-03T06:11:02.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131236",
+    "ThreadId": "471277",
+    "Html": "You use tiles from Yandex without using our API. Please either stop using our tiles or use it via our API. In other case we'll have to sent the request to our legal department. <br />\n",
+    "PostedDate": "2013-12-03T06:19:51.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131238",
+    "ThreadId": "471277",
+    "Html": "<strong>I don't use it</strong>, if some people do, it's their problem, therefore write to them. If you don't want people browsing your servers maybe shut it down or hide it.<br />\n",
+    "PostedDate": "2013-12-03T06:24:48.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131282",
+    "ThreadId": "471277",
+    "Html": "<a href=\"https://greatmaps.codeplex.com/SourceControl/latest#GMap.NET.Core/GMap.NET.MapProviders/Yandex/YandexMapProvider.cs\" rel=\"nofollow\">https://greatmaps.codeplex.com/SourceControl/latest#GMap.NET.Core/GMap.NET.MapProviders/Yandex/YandexMapProvider.cs</a> - here you use Yandex. And here - <a href=\"https://greatmaps.codeplex.com/SourceControl/latest#GMap.NET.Core/GMap.NET.MapProviders/Bing/BingMapProvider.cs\" rel=\"nofollow\">https://greatmaps.codeplex.com/SourceControl/latest#GMap.NET.Core/GMap.NET.MapProviders/Bing/BingMapProvider.cs</a> you use Bing. You can not use Bing, too :) <br />\n",
+    "PostedDate": "2013-12-03T08:10:02.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131617",
+    "ThreadId": "471277",
+    "Html": "show me the exact line of your server and i'll remove it<br />\n",
+    "PostedDate": "2013-12-04T02:40:40.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131909",
+    "ThreadId": "471277",
+    "Html": "-<br />\n",
+    "PostedDate": "2013-12-04T14:04:47.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1132462",
+    "ThreadId": "471277",
+    "Html": "Okey. I just warned you. Now I'll write to CodePlex. Good luck!<br />\n",
+    "PostedDate": "2013-12-06T04:35:48.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1132789",
+    "ThreadId": "471277",
+    "Html": "-<br />\n",
+    "PostedDate": "2013-12-07T09:43:13.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1229400",
+    "ThreadId": "471277",
+    "Html": "Hi there. \r<br />\n<br />\nI work for Microsoft on the Bing Maps team and stumbled on this thread. I thought I would correct a few inaccuracies in here. Bing Maps actually does allow users to directly access the road and aerial (hybrid) tiles for use in custom mapping applications like this. One restriction is that you can't mix the data from other providers such as geocodes from Google with maps from Bing. Since this app only shows one base layer at a time having other map layer options isn't really mixing of data, the main concern is overlaying content from one provider on the maps of another. There is however a specific method that must be used to access the tiles to ensure that authentication occurs and that hardcoded URL's are not used (They will break, they did last time we tried to update the tile URL's). The process consists of the following:\r<br />\n<br />\nCall the Bing Maps REST Imagery Metadata Services when the app loads to get the tile URL.  <a href=\"http://msdn.microsoft.com/en-us/library/ff701716.aspx\" rel=\"nofollow\">Documentation</a> This metadata URL request will look something like this: <a href=\"http://dev.virtualearth.net/REST/V1/Imagery/Metadata/Road?output=xml&amp;key=BingMapsKey\" rel=\"nofollow\">http://dev.virtualearth.net/REST/V1/Imagery/Metadata/Road?output=xml&key=BingMapsKey</a>\r<br />\nYou will need to do this for each Bing Maps tile layer (Road, Aerial, Hybrid). You can delay this until the user tries to turn that layer on. You can then replace the different parts of the string; {subdomain}, {culture}, {quadkey}. By doing this the app will always be authenticating the usage of Bing Maps and will also have the correct URL's. We do change them from time to time. This will help to ensure that this app doesn't break.\r<br />\n<br />\n<strong>radioman</strong>,\r<br />\n<br />\nI can understand you want to make things open and that technically you personally may not be using Yandex maps but you are providing others with the tools to access them inside of the application. However, you should respect the Terms of Use of data providers. I recommend you review the Terms of Use and code of Conduct for CodePlex.\r<br />\n<br />\n<strong>Andrey Chebotarev</strong>,\r<br />\n<br />\nIf Yandex does not allow direct accessing of it's tiles outside of it's map controls you can report this CodePlex project. To do this you will need make a DMCA takedown request to Microsoft (Microsoft owns CodePlex) here: <a href=\"https://www.microsoft.com/info/Cloud.aspx\" rel=\"nofollow\">https://www.microsoft.com/info/Cloud.aspx</a> Once this is done you can also report this directly to the CodePlex team here: <a href=\"https://www.codeplex.com/site/contact\" rel=\"nofollow\">https://www.codeplex.com/site/contact</a><br />\n",
+    "PostedDate": "2014-04-02T04:08:06.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1229408",
+    "ThreadId": "471277",
+    "Html": "i'm not providing anything, knowledge exist, is free, and it will continue to be so forever__.__\r<br />\n<br />\np.s. for all those idiots who can't grasp a thing: ;}~~<br />\n",
+    "PostedDate": "2014-04-02T04:42:10.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-04-03T08:03:18.65-07:00"
+  },
+  {
+    "Id": "1229426",
+    "ThreadId": "471277",
+    "Html": "<strong>rbrundritt wrote:</strong><br />\n<blockquote>\n<strong>Andrey Chebotarev</strong>,<br />\n<br />\nIf Yandex does not allow direct accessing of it's tiles outside of it's map controls you can report this CodePlex project. To do this you will need make a DMCA takedown request to Microsoft (Microsoft owns CodePlex) here: <a href=\"https://www.microsoft.com/info/Cloud.aspx\" rel=\"nofollow\">https://www.microsoft.com/info/Cloud.aspx</a> Once this is done you can also report this directly to the CodePlex team here: <a href=\"https://www.codeplex.com/site/contact\" rel=\"nofollow\">https://www.codeplex.com/site/contact</a><br />\n</blockquote>\nThank you. 'll Do that. Wait for my letter.<br />\n",
+    "PostedDate": "2014-04-02T05:31:11.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1248849",
+    "ThreadId": "471277",
+    "Html": "Andrey Chebotarev,\r<br />\nPlease also ask your legal department to sue car makers because they hit people on the road, and makers of lighters, because they burn houses. Do not forget electricity providers - they cause electrical shock to people...<br />\n",
+    "PostedDate": "2014-05-23T05:49:47.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1249820",
+    "ThreadId": "471277",
+    "Html": "@rbrundritt: Its good to have pointed others in a direction that may help explain some things. One comment you make hit me like a steam train though...\r<br />\n<br />\n&quot;... but you are providing others with the tools to access them inside of the application.&quot;\r<br />\n<br />\nMaybe Microsoft <em>provided the tool</em> and should take C# off the market? Or maybe the Visual C++ team should take its tools off the Visual C# / IDE department? Or maybe Google should take its search engine off the market so people like myself may not have found radioman's 'tools'. Everyone is guilty/innocent/whatever. Maybe LCD screen manufacturers are the ultimate wrong-doers, without them providing a 'tool' at the end of the chain Yandex might now be happy?.. Fuckit, its probably Intel's fault..\r<br />\n<br />\n(<em>rolls eyes</em>) It's all pretty stupid\r<br />\n<br />\n@radioman: Cool down bro, i'd take a guess 99% of people stand by you. Nice project too. Although i have no need for it, its good to see you helping out the community with your time and helping flourish / make new ideas possible for some developers.<br />\n",
+    "PostedDate": "2014-05-26T19:50:06.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1249897",
+    "ThreadId": "471277",
+    "Html": "corporate marketing managers nonsense piss me a bit... just another rock on the road..<br />\n",
+    "PostedDate": "2014-05-27T01:31:51.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1262672",
+    "ThreadId": "471277",
+    "Html": "Без кота́ мыша́м раздо́лье.<br />\n",
+    "PostedDate": "2014-07-04T00:12:40.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

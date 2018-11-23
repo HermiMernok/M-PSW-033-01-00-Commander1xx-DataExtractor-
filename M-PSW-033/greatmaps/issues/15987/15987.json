@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "ok",
+    "ClosedDate": "2010-09-27T10:46:31.527-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I'm developping app for windows mobile 6 with vb.net 2008.\r\nWhen i try to create a route from two points i dont have any route. \r\nWhatching with debug i beleave that the problem is the directive - #if !PocketPC - in the function GetRouteBetweenPointsUrl in file Gmap.cs of the GMap.Net.Core.\r\nThe function is executed well from PC but from Mobile Phone do nothing.\r\nIf possible to cancel this directive? or i must do other function to create route?\r\nThanks\r\n ",
+    "LastUpdatedDate": "2010-09-27T10:46:31.527-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-09-27T05:35:11.48-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Problem developping app for windows mobile",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15987
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I forget to say that i'm using the changeset 22b93afd000c\nMax",
+      "PostedDate": "2010-09-27T05:37:49.493-07:00",
+      "Id": 16465
+    },
+    {
+      "Message": "I have resolved the problem. Removed all the directives that exclude the execution of the code for windows mobile, resolved some error in rebuild of windows mobile dll and now work fine.\nFor detailed explaint let me know\nBye\n\nMax\n",
+      "PostedDate": "2010-09-27T06:29:51.017-07:00",
+      "Id": 16466
+    }
+  ]
+}

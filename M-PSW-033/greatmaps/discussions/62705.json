@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "212861",
+    "ThreadId": "62705",
+    "Html": "<p>1. I do understand that google maps api do provide a feature that resolves your IP address and finds out your location.</p>\r\n<p>Does Gmap has this feature? what steps do i need to do to integrate this feature?</p>\r\n<p>&nbsp;</p>\r\n<p>2. Is it possible to draw an arbiturary line on the screen?</p>\r\n<p>I know you can set 2 points and draw a route, but i can't find a method to draw a arbituary line on the screen even though you obviously need that to draw a route</p>",
+    "PostedDate": "2009-07-16T20:50:47.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213594",
+    "ThreadId": "62705",
+    "Html": "<ol>\r\n<li>i shall add thi function soon if it's really posible</li>\r\n<li>yes you use route with two points, if you want custom line, <strong>overide protected virtual void DrawRoutes(Graphics g)</strong>&nbsp;in <strong>GMapOverlay</strong>&nbsp;or if you use WPF: <strong>public Path CreateRoutePath(List&lt;System.Windows.Point&gt; localPath)</strong>&nbsp;in <strong>GMapControl</strong></li>\r\n</ol>",
+    "PostedDate": "2009-07-19T13:20:48.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "213900",
+    "ThreadId": "62705",
+    "Html": "<p>you can use http://www.geobytes.com/IpLocator.htm?Getlocation</p>",
+    "PostedDate": "2009-07-20T10:36:59.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "214463",
+    "ThreadId": "62705",
+    "Html": "<p>Thanks, i'll try that out</p>",
+    "PostedDate": "2009-07-21T11:45:35.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

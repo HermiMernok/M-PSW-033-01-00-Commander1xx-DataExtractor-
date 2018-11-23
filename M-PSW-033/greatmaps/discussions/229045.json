@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "500061",
+    "ThreadId": "229045",
+    "Html": "<p>Here is my code for version update. A gift from me to you ;). I hope this saves you some trouble :). Of course Goooogle may change their javascript code to prevent us from updating... Great project!</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>\t\t<span style=\"color:blue\">bool</span> TryCorrectGoogleVersions()\r\n\t\t{\r\n\t\t\t<span style=\"color:blue\">string</span> url = <span style=\"color:#a31515\">@&quot;http://maps.google.com&quot;</span>;\r\n\t\t\t<span style=\"color:blue\">try</span>\r\n\t\t\t{\r\n\t\t\t\tHttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);\r\n\t\t\t\t<span style=\"color:blue\">if</span> (Proxy != <span style=\"color:blue\">null</span>)\r\n\t\t\t\t{\r\n\t\t\t\t\trequest.Proxy = Proxy;\r\n\t\t\t\t\trequest.PreAuthenticate = <span style=\"color:blue\">true</span>;\r\n\t\t\t\t}\r\n\t\t\t\t<span style=\"color:blue\">else</span>\r\n\t\t\t\t{\r\n\t\t\t\t\trequest.Proxy = WebRequest.DefaultWebProxy;\r\n\t\t\t\t}\r\n\t\t\t\trequest.UserAgent = UserAgent;\r\n\t\t\t\trequest.Timeout = Timeout;\r\n\t\t\t\trequest.ReadWriteTimeout = Timeout * 6;\r\n\r\n\t\t\t\t<span style=\"color:blue\">using</span> (HttpWebResponse response = request.GetResponse() <span style=\"color:blue\">as</span> HttpWebResponse)\r\n\t\t\t\t{\r\n\t\t\t\t\t<span style=\"color:blue\">using</span> (Stream responseStream = response.GetResponseStream())\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t<span style=\"color:blue\">using</span> (StreamReader read = <span style=\"color:blue\">new</span> StreamReader(responseStream))\r\n\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t<span style=\"color:blue\">string</span> html = read.ReadToEnd();\r\n\r\n\t\t\t\t\t\t\tRegex reg = <span style=\"color:blue\">new</span> Regex(<span style=\"color:#a31515\">&quot;\\&quot;*http://mt0.google.com/vt/lyrs=m@(\\\\d*)&quot;</span>, RegexOptions.IgnoreCase);\r\n\t\t\t\t\t\t\tMatch mat = reg.Match(html);\r\n\t\t\t\t\t\t\t<span style=\"color:blue\">if</span>(mat.Success)\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tGroupCollection gc = mat.Groups;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">int</span> count = gc.Count;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">if</span>(count &gt; 0)\r\n\t\t\t\t\t\t\t\t\tVersionGoogleMap = <span style=\"color:blue\">string</span>.Format(<span style=\"color:#a31515\">&quot;m@{0}&quot;</span>, gc[1].Value);\r\n\t\t\t\t\t\t\t}\r\n\r\n\t\t\t\t\t\t\treg = <span style=\"color:blue\">new</span> Regex(<span style=\"color:#a31515\">&quot;\\&quot;*http://mt0.google.com/vt/lyrs=h@(\\\\d*)&quot;</span>, RegexOptions.IgnoreCase);\r\n\t\t\t\t\t\t\tmat = reg.Match(html);\r\n\t\t\t\t\t\t\t<span style=\"color:blue\">if</span> (mat.Success)\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tGroupCollection gc = mat.Groups;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">int</span> count = gc.Count;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">if</span> (count &gt; 0)\r\n\t\t\t\t\t\t\t\t\tVersionGoogleLabels = <span style=\"color:blue\">string</span>.Format(<span style=\"color:#a31515\">&quot;h@{0}&quot;</span>, gc[1].Value);\r\n\t\t\t\t\t\t\t}\r\n\r\n\t\t\t\t\t\t\treg = <span style=\"color:blue\">new</span> Regex(<span style=\"color:#a31515\">&quot;\\&quot;*http://khm0.google.com/kh/v=(\\\\d*)&quot;</span>, RegexOptions.IgnoreCase);\r\n\t\t\t\t\t\t\tmat = reg.Match(html);\r\n\t\t\t\t\t\t\t<span style=\"color:blue\">if</span> (mat.Success)\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tGroupCollection gc = mat.Groups;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">int</span> count = gc.Count;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">if</span> (count &gt; 0)\r\n\t\t\t\t\t\t\t\t\tVersionGoogleSatellite = gc[1].Value;\r\n\t\t\t\t\t\t\t}\r\n\r\n\t\t\t\t\t\t\treg = <span style=\"color:blue\">new</span> Regex(<span style=\"color:#a31515\">&quot;\\&quot;*http://mt0.google.com/vt/lyrs=t@(\\\\d*),r@(\\\\d*)&quot;</span>, RegexOptions.IgnoreCase);\r\n\t\t\t\t\t\t\tmat = reg.Match(html);\r\n\t\t\t\t\t\t\t<span style=\"color:blue\">if</span> (mat.Success)\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t\tGroupCollection gc = mat.Groups;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">int</span> count = gc.Count;\r\n\t\t\t\t\t\t\t\t<span style=\"color:blue\">if</span> (count &gt; 1)\r\n\t\t\t\t\t\t\t\t\tVersionGoogleTerrain = <span style=\"color:blue\">string</span>.Format(<span style=\"color:#a31515\">&quot;t@{0},r@{1}&quot;</span>, gc[1].Value, gc[2].Value);\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\tVersionsUpdated = <span style=\"color:blue\">true</span>;\r\n\t\t\t\t<span style=\"color:blue\">return</span> <span style=\"color:blue\">true</span>;\r\n\t\t\t}\r\n\t\t\t<span style=\"color:blue\">catch</span> (WebException)\r\n\t\t\t{\r\n\t\t\t\t<span style=\"color:green\">//...</span>\r\n\t\t\t}\r\n\t\t\t<span style=\"color:blue\">catch</span> (Exception ex)\r\n\t\t\t{\r\n\t\t\t\tReportException(ex);\r\n\t\t\t}\r\n\t\t\t<span style=\"color:blue\">return</span> <span style=\"color:blue\">false</span>;\r\n\t\t}\r\n</pre>\r\n</div>\r\n</p>\r\n<p><strong><span style=\"color:#ff0000\">(Updated to fix sth.)</span></strong></p>",
+    "PostedDate": "2010-09-29T08:41:38.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500065",
+    "ThreadId": "229045",
+    "Html": "<p>a gift for <em>all of us</em>, thx ;}</p>",
+    "PostedDate": "2010-09-29T08:45:31.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500095",
+    "ThreadId": "229045",
+    "Html": "<p>I have updated the code above.</p>",
+    "PostedDate": "2010-09-29T09:48:22.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500127",
+    "ThreadId": "229045",
+    "Html": "<p>commited</p>",
+    "PostedDate": "2010-09-29T11:09:07.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500388",
+    "ThreadId": "229045",
+    "Html": "<p>For Bing Maps, it could be sth like this (http://www.bing.com/maps/):</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>Regex reg = <span style=\"color:blue\">new</span> Regex(<span style=\"color:#a31515\">&quot;http://ecn.t(\\\\d*).tiles.virtualearth.net/tiles/r(\\\\d*)[?*]g=(\\\\d*)&quot;</span>, RegexOptions.IgnoreCase);\r\nMatch mat = reg.Match(html);\r\n<span style=\"color:blue\">if</span>(mat.Success)\r\n{\r\n\tGroupCollection gc = mat.Groups;\r\n\t<span style=\"color:blue\">int</span> count = gc.Count;\r\n\t<span style=\"color:blue\">if</span>(count &gt; 2)\r\n\t\tVersionBingMap = gc[2].Value;\r\n}</pre>\r\n<pre><br></pre>\r\n<pre>In the previous code (for Google Maps) it would be better if you advanced the check values by one, e.g.:</pre>\r\n</div>\r\n</p>\r\n<pre><div style=\"color:black;background-color:white\"><pre><span style=\"color:blue\">if</span> (count &gt; 0)  --&gt; <span style=\"color:blue\">if</span> (count &gt; 1)\r\n</pre>\r\n</div>\r\n</pre>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace\"><span style=\"white-space:pre\">I've missed this one...</span></span></p>",
+    "PostedDate": "2010-09-30T01:19:43.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500531",
+    "ThreadId": "229045",
+    "Html": "<p>hm.. but whats the difference in:&nbsp;<strong>if (count &gt; 0)  --&gt; if (count &gt; 1) ?</strong></p>",
+    "PostedDate": "2010-09-30T07:23:34.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500841",
+    "ThreadId": "229045",
+    "Html": "<p>Actually, I think that when &quot;mat.Success==true&quot; it doesn't matter anyway, since &quot;count&quot; will always be the desired value. But I tend to put more checks to be sure, so I have put this check to be sure that &quot;gc[k]&quot; always exists before accessing it...</p>\r\n<p>Am I missing sth again ?</p>",
+    "PostedDate": "2010-09-30T23:14:09.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500854",
+    "ThreadId": "229045",
+    "Html": "<p>i see, i've just wondered why you use gc[1] instead of gc[0] ?</p>",
+    "PostedDate": "2010-10-01T00:13:55.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500890",
+    "ThreadId": "229045",
+    "Html": "<p>Because gc[0] contains the whole text match (e.g. &quot;\\&quot;http://khm0.google.com/kh/v=71&quot;). It's weird but that's the way it is...</p>",
+    "PostedDate": "2010-10-01T02:04:59.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500899",
+    "ThreadId": "229045",
+    "Html": "<p>roger ;}</p>",
+    "PostedDate": "2010-10-01T02:29:34.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

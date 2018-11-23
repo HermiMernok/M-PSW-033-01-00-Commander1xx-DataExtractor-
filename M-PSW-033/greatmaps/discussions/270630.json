@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "664250",
+    "ThreadId": "270630",
+    "Html": "<p>Hi radioman!</p>\n<p>In my application, I provide the possibility to cache map-tiles. The problem is, with the new caching system the downloaded tiles are still in the cache queue, when the download is long finished, so when the user closes the program, the tiles in the queue  are not stored in the database.</p>\n<p>Is there a way to somehow alert the user when the queue is empty and all tiles are stored in the database (raise an event?). Then I could just show a wait dialog, until all tiles are saved.</p>\n<p>Please help!</p>\n<p>Thanks a lot</p>",
+    "PostedDate": "2011-08-27T08:36:39.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665761",
+    "ThreadId": "270630",
+    "Html": "<p>Any ideas?</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-08-31T06:50:20.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665864",
+    "ThreadId": "270630",
+    "Html": "<p>actually tiles are stored in background after you close your app, it's done in foreground thread, anyway event for empty queue can be useful, i'll add it</p>",
+    "PostedDate": "2011-08-31T10:35:03.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703449",
+    "ThreadId": "270630",
+    "Html": "<p>check: map.Manager.<strong>OnTileCacheComplete</strong></p>",
+    "PostedDate": "2011-11-25T10:24:39.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

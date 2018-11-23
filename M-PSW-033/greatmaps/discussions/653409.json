@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1469538",
+    "ThreadId": "653409",
+    "Html": "I have a label that shows the latitude and longitude at the mouse pointer position in gMapControl1.MouseMove()<br />\n<pre><code>LatLonglabel.Text = &quot; &quot; + gMapControl1.FromLocalToLatLng(e.X, e.Y).Lat.ToString() \n+ &quot;\\n&quot; + gMapControl1.FromLocalToLatLng(e.X, e.Y).Lng.ToString();</code></pre>\n\nI've tested it with known locations and it is accurate.<br />\n<br />\nWhen I run the mouse pointer just off the right side and bottom of the map LatLonglabel.Text shows different values than ViewArea returns for Right and Bottom (Top and Left match exactly). ViewArea always is larger.<br />\n<br />\nI discovered this when loading customers in a ViewArea. It always returned customers past the right and bottom of the map which is not acceptable.<br />\n<br />\nBut I found a hack (notice PointLatLng w).<br />\n<pre><code>PointLatLng w = gMapControl1.FromLocalToLatLng(gMapControl1.Width - 3, gMapControl1.Height - 3);\n\nstring area = &quot;&quot;;\narea += &quot; tblLocation.Longitude &gt;= &quot;     + map_area.Left.ToString();\narea += &quot; AND tblLocation.Longitude &lt;= &quot; + w.Lng.ToString();  //map_area.Right.ToString();\narea += &quot; AND tblLocation.Latitude &lt;= &quot;  + map_area.Top.ToString();\narea += &quot; AND tblLocation.Latitude &gt;= &quot;  + w.Lat.ToString(); // map_area.Bottom.ToString();</code></pre>\n\nI insert &quot;area&quot; in my SQL query when loading customers.<br />\n<br />\nI discovered if I shorten the maps width and height by 3 as &quot;w&quot; shows, it returns the exact values shown by LatLonglabel.Text.<br />\n<br />\nI should mention that I zoom in small fractions.<br />\n<br />\nMaybe I'm doing something weird which is causing this problem. But I'm posting this for Radioman just in case.<br />\n",
+    "PostedDate": "2016-04-09T04:10:45.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1469737",
+    "ThreadId": "653409",
+    "Html": "maybe it's a fractional zoom related<br />\n",
+    "PostedDate": "2016-04-11T10:15:04.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

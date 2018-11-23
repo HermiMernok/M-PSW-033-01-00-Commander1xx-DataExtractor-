@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "910952",
+    "ThreadId": "395125",
+    "Html": "\r\n<p>Hi everyone, specially radioman. Awesome code!</p>\r\n<p>I&acute;ve included Gmap in one of my Windows Forms applications. I&acute;ve noticed that when&nbsp;my main form closes there&acute;s a thread - I think it&acute;s only a thread - that stays in memory&nbsp;- maybe 15-30 seconds -&nbsp;and grows and grows\r\n in memory until it closes.</p>\r\n<p>A detailed&nbsp;view shows some strange errors concerning SQLite. Here&acute;s -a part- of the log&nbsp;of the closing&nbsp; process.</p>\r\n<p>[...]<span style=\"font-size:xx-small\"></span></p>\r\n<p></p>\r\n<p>The thread 0x1610 has exited with code 0 (0x0).</p>\r\n<p>SQLite error (5): database is locked</p>\r\n<p>SQLite error (5): database is locked</p>\r\n<p><span style=\"font-size:xx-small\">&nbsp;</span></p>\r\n<p></p>\r\n<p>.... more and more errors....<span style=\"font-size:xx-small\"></span> </p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>SQLite error (5): database is locked</p>\r\n<p>SQLite error (5): database is locked</p>\r\n<p>SQLite error (5): database is locked</p>\r\n<p>SQLite error (5): database is locked</p>\r\n<p>SQLite error (5): database is locked</p>\r\n<p>The thread 0x1930 has exited with code 0 (0x0).</p>\r\n<p>The thread '&lt;No Name&gt;' (0x1c0c) has exited with code 0 (0x0).</p>\r\n<p><span style=\"font-size:xx-small\">&nbsp;</span></p>\r\n<p></p>\r\n<p>I don&acute;t use SQLite, so it appears to be a GMap bug. Any idea??</p>\r\n<p>Regards,</p>\r\n<p></p>\r\n&nbsp;",
+    "PostedDate": "2012-09-11T07:29:12.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911050",
+    "ThreadId": "395125",
+    "Html": "<p>no issues for me ;/ do you use the latest version?</p>",
+    "PostedDate": "2012-09-11T09:51:19.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911071",
+    "ThreadId": "395125",
+    "Html": "<p>Yes, I think... Friday, 7/sep/2012. :-)</p>",
+    "PostedDate": "2012-09-11T10:45:33.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911076",
+    "ThreadId": "395125",
+    "Html": "<p>I&acute;ll try to discard other issues.</p>\r\n<p>When you don&acute;t use maps, my application closes fine. When you use maps, and only a few movements and zooms, the closing process is a bit slower. And when you use two providers and several zooms closing time grows... as well as used memory...&nbsp;</p>\r\n<p>It always come to an end - the application really closes itself. But that thread is a bit rebel... :-)</p>",
+    "PostedDate": "2012-09-11T10:49:09.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911084",
+    "ThreadId": "395125",
+    "Html": "<p>it's backgroun tile caching, it saves loaded tiles to disk,&nbsp; you can disable it if you want quick exit:</p>\r\n<p>map.Manager.<strong>CancelTileCaching</strong>();</p>",
+    "PostedDate": "2012-09-11T11:09:20.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911088",
+    "ThreadId": "395125",
+    "Html": "<p>Mmm... THX!!!!!!!!!!</p>\r\n<p>OK, so only tiles saved during a session will be cached, and CancelTileCaching() must be used at form closing, isn't it?&nbsp;</p>",
+    "PostedDate": "2012-09-11T11:32:39.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911094",
+    "ThreadId": "395125",
+    "Html": "<p>..yes, but you lose uncached tiles, so the next time you'll download them again ;}</p>",
+    "PostedDate": "2012-09-11T11:42:26.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911107",
+    "ThreadId": "395125",
+    "Html": "<p>Yes, it&acute;s quite clear... Thank you very very much from Spain!! Great library, great great support!</p>",
+    "PostedDate": "2012-09-11T12:27:34.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "911128",
+    "ThreadId": "395125",
+    "Html": "<p>cheers ;}</p>\r\n<p>p.s. there is spain maps too ;}</p>",
+    "PostedDate": "2012-09-11T12:51:36.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

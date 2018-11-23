@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "it's kind of saves resources by default, you have to use your own new Stroke",
+    "ClosedDate": "2015-06-04T23:13:35.807-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I was trying to figure out why when I changed the color of one of my routes (using route.Stroke.Color = something) all of my routes would change color. When I dug into your code a bit I figured out what's going on. \r\n\r\nOn line 188 of GMapRoute.cs you have\r\n```\r\npublic Pen Stroke = DefaultStroke\r\n```\r\n\r\nThe problem is even though DefaultStroke is readonly if I change any of the properties associated with the stroke of one route it will change the properties of DefaultStroke which will then affect all routes that are using the default.\r\n\r\nChanging line 188 to the following prevents the issue:\r\n```\r\npublic Pen Stroke = DefaultStroke.Clone() as Pen;\r\n```",
+    "LastUpdatedDate": "2015-06-04T23:13:35.807-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-06-04T16:09:06.2-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Route Stroke Issue",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16122
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

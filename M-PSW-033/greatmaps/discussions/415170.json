@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "967222",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>I appreciate you writing this. I donate to projects and I really appreciate this one.</p>\r\n<p>I get a timeout in GMapProvider.cs:line438</p>\r\n<p>When I put the same string in chrome-browser it seems to work, but gives&nbsp;</p>\r\n<p><code>200</code></p>\r\n<p>I also tried my google-maps API key, but they also timeout.</p>\r\n<p>I apologize if I missed an answer in a readme or such.</p>\r\n<p>Any help appreciated.</p>\r\n<p>Jim Pruett</p>\r\n<p>(901) 213 7824</p>\r\n",
+    "PostedDate": "2012-12-21T12:40:58.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967235",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>what do you mean 'timeout' ?</p>\r\n",
+    "PostedDate": "2012-12-21T13:27:52.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967242",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>I am running virgin &nbsp;Demo.WindowsForms in VS10.</p>\r\n<p>&nbsp;status = GeoCoderStatusCode.ExceptionInCode;</p>\r\n<p>url<span> </span>&quot;http://maps.google.com/maps/geo?q=Lithuania,&#43;Vilnius&amp;hl=en&amp;output=kml&amp;key=ABQIAAAAWaQgWiEBF3lW97ifKnAczhRAzBk5Igf8Z5n2W3hNnMT0j2TikxTLtVIGU7hCLLHMAuAMt-BO5UrEWA&quot;<span>\r\n</span>string</p>\r\n<p>Server<span> </span>&quot;google.com&quot;<span> </span>string</p>\r\n<p>manifesto<span> </span>&quot;GMap.NET is great and Powerful, Free, cross platform, open source .NET control.&quot;<span>\r\n</span>string</p>\r\n<p>&#43;<span> </span>[System.Net.WebException]<span> </span>{&quot;The operation has timed out&quot;}<span>\r\n</span>System.Net.WebException</p>\r\n<p>Message<span> </span>&quot;The operation has timed out&quot;<span> </span>string</p>\r\n<p>Source<span> </span>&quot;System&quot;<span> </span>string</p>\r\n<p>StackTrace<span> </span>&quot; &nbsp; at System.Net.HttpWebRequest.GetResponse()\\r\\n &nbsp; at GMap.NET.MapProviders.GMapProvider.GetContentUsingHttp(String url) in C:\\\\greatmaps\\\\greatmaps_de168844db45\\\\GMap.NET.Core\\\\GMap.NET.MapProviders\\\\GMapProvider.cs:line\r\n 438\\r\\n &nbsp; at GMap.NET.MapProviders.GoogleMapProviderBase.GetLatLngFromGeocoderUrl(String url, List`1&amp; pointList) in C:\\\\greatmaps\\\\greatmaps_de168844db45\\\\GMap.NET.Core\\\\GMap.NET.MapProviders\\\\Google\\\\GoogleMapProvider.cs:line 657&quot;<span>\r\n</span>string</p>\r\n<p>&#43;<span> </span>TargetSite<span> </span>{System.Net.WebResponse GetResponse()}<span>\r\n</span>System.Reflection.MethodBase {System.Reflection.RuntimeMethodInfo}</p>\r\n",
+    "PostedDate": "2012-12-21T13:40:32.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967245",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>works fine for me, try increase timeout value</p>\r\n",
+    "PostedDate": "2012-12-21T13:53:00.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967266",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>Q: Does the Demo work &quot;out of the box&quot;?</p>\r\n<p>or do users typically have to &quot;adjust something&quot;. &nbsp;??</p>\r\n<p>&nbsp;</p>\r\n<p>1. I increased timeout to 1 minute and it still timed out.</p>\r\n<p>2. I deleted the entire directory, re-downloaded it, recompiled it and re-ran it and it still gave same timeout.</p>\r\n<p>thanks for helping.</p>\r\n",
+    "PostedDate": "2012-12-21T14:25:49.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981303",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>My timeout is 5 minutes, it might be firewall or something.</p>\r\n<p>I am having trouble on this line:</p>\r\n<p>using(HttpWebResponse response = request.GetResponse() as HttpWebResponse)</p>\r\n<p>The request.address is:</p>\r\n<p>&#43;<span> </span>Address<span> </span>{http://maps.google.com/maps/geo?q=Lithuania,&#43;Vilnius&amp;hl=en&amp;output=kml&amp;key=ABQIAAAAWaQgWiEBF3lW97ifKnAczhRAzBk5Igf8Z5n2W3hNnMT0j2TikxTLtVIGU7hCLLHMAuAMt-BO5UrEWA}<span>\r\n</span>System.Uri</p>\r\n<p>&nbsp;</p>\r\n<p>If I put the same thing (below) in a chrome browser,</p>\r\n<p>http://maps.google.com/maps/geo?q=Lithuania,&#43;Vilnius&amp;hl=en&amp;output=kml&amp;key=ABQIAAAAWaQgWiEBF3lW97ifKnAczhRAzBk5Igf8Z5n2W3hNnMT0j2TikxTLtVIGU7hCLLHMAuAMt-BO5UrEWA</p>\r\n<p>I get this:</p>\r\n<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;&lt;kml xmlns=&quot;http://earth.google.com/kml/2.0&quot;&gt;&lt;Response&gt;&nbsp; &lt;name&gt;Lithuania, Vilnius&lt;/name&gt;&nbsp; &lt;Status&gt;&nbsp; &nbsp;\r\n<code>200</code>&nbsp; &nbsp; &lt;request&gt;geocode&lt;/request&gt;&nbsp; &lt;/Status&gt;&nbsp; &lt;Placemark id=&quot;p1&quot;&gt;&nbsp; &nbsp;</p>\r\n<address>Vilnius, Lithuania</address>\r\n<p>&nbsp; &nbsp; &lt;AddressDetails Accuracy=&quot;4&quot; xmlns=&quot;urn:oasis:names:tc:ciq:xsdschema:xAL:2.0&quot;&gt;&lt;Country&gt;&lt;CountryNameCode&gt;LT&lt;/CountryNameCode&gt;&lt;CountryName&gt;Lithuania&lt;/CountryName&gt;&lt;AdministrativeArea&gt;&lt;AdministrativeAreaName&gt;Vilnius\r\n County&lt;/AdministrativeAreaName&gt;&lt;SubAdministrativeArea&gt;&lt;SubAdministrativeAreaName&gt;Vilniaus miesto savivaldybė&lt;/SubAdministrativeAreaName&gt;&lt;Locality&gt;&lt;LocalityName&gt;Vilnius&lt;/LocalityName&gt;&lt;/Locality&gt;&lt;/SubAdministrativeArea&gt;&lt;/AdministrativeArea&gt;&lt;/Country&gt;&lt;/AddressDetails&gt;&nbsp;\r\n &nbsp; &lt;ExtendedData&gt;&nbsp; &nbsp; &nbsp; &lt;LatLonBox north=&quot;54.8325440&quot; south=&quot;54.5677980&quot; east=&quot;25.4814883&quot; west=&quot;25.0243760&quot; /&gt;&nbsp; &nbsp; &lt;/ExtendedData&gt;&nbsp; &nbsp; &lt;Point&gt;&lt;coordinates&gt;25.2796514,54.6871555,0&lt;/coordinates&gt;&lt;/Point&gt;&nbsp;\r\n &lt;/Placemark&gt;&nbsp; &lt;Placemark id=&quot;p2&quot;&gt;&nbsp; &nbsp;</p>\r\n<address>Vilnius International Airport (VNO), 10A, Vilnius, Lithuania</address>\r\n<p>&nbsp; &nbsp; &lt;AddressDetails Accuracy=&quot;9&quot; xmlns=&quot;urn:oasis:names:tc:ciq:xsdschema:xAL:2.0&quot;&gt;&lt;Country&gt;&lt;CountryNameCode&gt;LT&lt;/CountryNameCode&gt;&lt;CountryName&gt;Lithuania&lt;/CountryName&gt;&lt;AdministrativeArea&gt;&lt;AdministrativeAreaName&gt;Vilnius\r\n County&lt;/AdministrativeAreaName&gt;&lt;SubAdministrativeArea&gt;&lt;SubAdministrativeAreaName&gt;Vilniaus miesto savivaldybė&lt;/SubAdministrativeAreaName&gt;&lt;Locality&gt;&lt;LocalityName&gt;Vilnius&lt;/LocalityName&gt;&lt;Thoroughfare&gt;&lt;ThoroughfareName&gt;10A&lt;/ThoroughfareName&gt;&lt;/Thoroughfare&gt;&lt;AddressLine&gt;Vilnius\r\n International Airport&lt;/AddressLine&gt;&lt;/Locality&gt;&lt;/SubAdministrativeArea&gt;&lt;/AdministrativeArea&gt;&lt;/Country&gt;&lt;/AddressDetails&gt;&nbsp; &nbsp; &lt;ExtendedData&gt;&nbsp; &nbsp; &nbsp; &lt;LatLonBox north=&quot;54.6538331&quot; south=&quot;54.6158331&quot;\r\n east=&quot;25.3034219&quot; west=&quot;25.2723832&quot; /&gt;&nbsp; &nbsp; &lt;/ExtendedData&gt;&nbsp; &nbsp; &lt;Point&gt;&lt;coordinates&gt;25.2877780,54.6369440,0&lt;/coordinates&gt;&lt;/Point&gt;&nbsp; &lt;/Placemark&gt;&lt;/Response&gt;&lt;/kml&gt;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>So I don't know what it is.</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-12-28T07:00:07.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981305",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>do you use some proxy?</p>\r\n",
+    "PostedDate": "2012-12-28T07:09:25.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981309",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>I don't really understand proxies completely. I know what they do, but I have never used a proxy.</p>\r\n<p>In the code it says</p>\r\n<p>request.proxy=&nbsp;GMap.NET.MapProviders.EmptyWebProxy</p>\r\n<p>&nbsp;</p>\r\n<p>Can I use one of your proxies? I am at work, perhaps it is necessary.</p>\r\n",
+    "PostedDate": "2012-12-28T07:12:46.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981312",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>by default all requests bypass proxy, check the Internet settings</p>\r\n",
+    "PostedDate": "2012-12-28T07:19:22.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981318",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>ok, i see a proxy in use in chrome-&gt;internet-&gt;settings</p>\r\n<p>so I guess I better use it in gmap as well...</p>\r\n<p>&nbsp;</p>\r\n<p>Q: How do I put my proxy in your code? &nbsp;which file??</p>\r\n<p>&nbsp;</p>\r\n<p>oops I see it in MainForm.cs</p>\r\n",
+    "PostedDate": "2012-12-28T07:36:03.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981327",
+    "ThreadId": "415170",
+    "Html": "\r\n<p>I tried about 10 variations (for my work location) of &nbsp;</p>\r\n<p>//GMapProvider.WebProxy = new WebProxy(&quot;10.2.0.100&quot;, 8080);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>//GMapProvider.WebProxy.Credentials = new NetworkCredential(&quot;ogrenci@bilgeadam.com&quot;, &quot;bilgeada&quot;);</p>\r\n<p>&nbsp;</p>\r\n<p>Not sure how to tell which piece of credential or webproxy it doesnt like....</p>\r\n<p>Trial and error didnt work. Thats probably a bad way to go about troubleshooting networking....</p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2012-12-28T07:56:58.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981328",
+    "ThreadId": "415170",
+    "Html": "\r\n<p><em>GMapProvider.<strong>WebProxy</strong> = new WebProxy(&quot;10.2.0.100&quot;, 8080);</em></p>\r\n",
+    "PostedDate": "2012-12-28T07:57:36.337-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

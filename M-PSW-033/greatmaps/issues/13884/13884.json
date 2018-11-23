@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "should work perfect now ;}",
+    "ClosedDate": "2009-08-17T04:51:43.703-07:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "Not sure if this is only happening on my compiled version. I just downloaded the source and compiled with VS2008 for x86. Sometimes when I change zoom levels and it has to redraw the entire view, it sends me back to the coordinates specified at the top. It takes me back to Vilnius, unless I've previously put custom coordinates I wanted to go to. I'm right now using the already compiled WPF demo I downloaded from here, and it does the same thing.",
+    "LastUpdatedDate": "2009-08-17T04:51:43.703-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-08-14T11:23:31.497-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "(Bug) Focus changes during zoom level changes.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 13884
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "yes, it zooms to the currentposition, what are you expecting?",
+      "PostedDate": "2009-08-14T11:55:41.6-07:00",
+      "Id": 3132
+    },
+    {
+      "Message": "Well it's clearly not intuitive. Because not everyone manually inputs the coordinates. They start somewhere, pan to another area and then zoom. I don't see why they should be reset back to their \"current position\" as you call it? As in, where they are hovering above (looking at) should be their current position, don't you agree? :)",
+      "PostedDate": "2009-08-14T14:06:21.36-07:00",
+      "Id": 3133
+    },
+    {
+      "Message": "yes, i'll fix it soon",
+      "PostedDate": "2009-08-14T14:34:43.74-07:00",
+      "Id": 3134
+    }
+  ]
+}

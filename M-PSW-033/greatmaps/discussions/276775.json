@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "687663",
+    "ThreadId": "276775",
+    "Html": "\r\n<p>I'm new about GMap.Net and i tried afew solution about running Gmap apps on both platform(x86 and x64) but thats not a answer for me. All problem about SQLite.DLL</p>\r\n<p>And i use this solution and it's WORKED :).</p>\r\n<p><strong><em>Tip : </em></strong>If you use System.Data.SQLite.DLL same name on project you will get problem.</p>\r\n<p>I created 2 folder x86, x64 and i renamed DLLs like it</p>\r\n<ul>\r\n<li>{App_FOLDER}/x86/System.Data.SQLitex64.DLL </li><li>{App_FOLDER}/x64/System.Data.SQLitex64.DLL </li></ul>\r\n<p>Add this code beforede initialize the GMap.</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">string</span> dir = AppDomain.CurrentDomain.BaseDirectory &#43; (IntPtr.Size == 8 ? <span style=\"color:#a31515\">&quot;x64&quot;</span> : <span style=\"color:#a31515\">&quot;x86&quot;</span>) &#43; Path.DirectorySeparatorChar;\r\nFile.Copy((dir &#43; <span style=\"color:#a31515\">&quot;System.Data.SQLite&quot;</span> &#43; (IntPtr.Size == 8 ? <span style=\"color:#a31515\">&quot;x64&quot;</span> : <span style=\"color:#a31515\">&quot;x86&quot;</span>) &#43; <span style=\"color:#a31515\">&quot;.dll&quot;</span>), AppDomain.CurrentDomain.BaseDirectory &#43; <span style=\"color:#a31515\">&quot;System.Data.SQLite.DLL&quot;</span>, <span style=\"color:blue\">true</span>);<br><em><strong></strong></em><br><br>Regards, Cagatay ONCUL<br></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-10-21T14:02:02.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687676",
+    "ThreadId": "276775",
+    "Html": "<p>..to bad it's already solved internally, you don't need to do anything, it's just works, but thanks anyway ;}</p>",
+    "PostedDate": "2011-10-21T14:38:05.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687682",
+    "ThreadId": "276775",
+    "Html": "<p>I downloaded latest version of GMAP but it doesnot work on X86 platforms. I tried to include x86 x64 folders(which is getting with download). Thats only working project when the compiled computers platform. If u use x86 and compile app, it can be running only x86 platform. But if you use x64 platform and compile the project your binary project only working on x64 platform. I search alotof discussion but i found nothing ;) thank you again.</p>",
+    "PostedDate": "2011-10-21T14:46:59.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687684",
+    "ThreadId": "276775",
+    "Html": "<p>;} did you tried AnyCPU? ;}</p>",
+    "PostedDate": "2011-10-21T14:50:30.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687686",
+    "ThreadId": "276775",
+    "Html": "<p>Yes i tried AnyCPU and working. But if you copy your binary project to other platform types , you will get BLUE screen on map. I wasted 4 hours for this problem :)</p>",
+    "PostedDate": "2011-10-21T14:55:38.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687687",
+    "ThreadId": "276775",
+    "Html": "<p>nonsense</p>",
+    "PostedDate": "2011-10-21T14:57:44.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687701",
+    "ThreadId": "276775",
+    "Html": "<p>works fine on any cpu / any target / any framefork version without any configs or recompilation:</p>\r\n<p>&nbsp;<a href=\"https://blufiles.storage.live.com/y1pAR_-yyiW0uI-PwETMgHZz9gZdZHE2XZM3TWMnv_KabJbeKftuG6f8yRcwzxVMHN_qABfZyhRKvs/GMap.NET%20AnyCPU.png?psid=1\"><img src=\"https://blufiles.storage.live.com/y1pAR_-yyiW0uI-PwETMgHZz9gZdZHE2XZM3TWMnv_KabJbeKftuG6f8yRcwzxVMHN_qABfZyhRKvs/GMap.NET%20AnyCPU.png?psid=1\" alt=\"\" width=\"888\" /></a></p>",
+    "PostedDate": "2011-10-21T15:46:45.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

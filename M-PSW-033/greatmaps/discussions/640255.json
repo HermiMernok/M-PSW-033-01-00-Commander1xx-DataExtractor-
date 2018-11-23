@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1431236",
+    "ThreadId": "640255",
+    "Html": "Hi,\r<br />\nUnlike the Google Maps provider, there is no travel time returned from the Open StreetMap routing provider.\r<br />\n<br />\nCan this be added in, perhaps as part of the Name property as in Google Maps provider?\r<br />\n<br />\nThe traveltime data is returned via kml, and I have managed to add it to the Tag property in OpenStreetMapProvider.cs, e.g.:\r<br />\n<br />\n   //kml/Document/traveltime\r<br />\n   var timeNode = xmldoc.SelectSingleNode(&quot;/sm:kml/sm:Document/sm:traveltime&quot;, xmlnsManager);\r<br />\n   Tag = timeNode.InnerText;\r<br />\n<br />\nThanks,\r<br />\nJim.<br />\n",
+    "PostedDate": "2015-06-21T00:45:30.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

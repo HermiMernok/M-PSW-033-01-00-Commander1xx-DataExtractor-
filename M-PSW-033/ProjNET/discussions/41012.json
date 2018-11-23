@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "136063",
+    "ThreadId": "41012",
+    "Html": "Hi all<br>\r\n<br>\r\nI tried to transform coordinates from the swiss coordinate system to the projection used in virtual earth and google maps. Was using the following code to initialize a coordinate transformation:<br>\r\n<br>\r\n<hr>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CoordinateTransformationFactory ctFact = new CoordinateTransformationFactory();<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CoordinateSystemFactory csFact = new CoordinateSystemFactory();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICoordinateSystem csWgs84Sphere = csFact.CreateFromWkt(CS_WGS84_SPHERICAL);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICoordinateSystem csCh1903 = csFact.CreateFromWkt(CS_CH1903_WKT);<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICoordinateTransformation cTrans = ctFact.CreateFromCoordinateSystems(<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; csCh1903, csWgs84Sphere);<br>\r\n<hr>\r\n<br>\r\nThis leads to the NotSupportedException: &quot;Projection Hotine_Oblique_Mercator is not supported.&quot;;<br>\r\n<br>\r\nWhat would be required for proj.net to support transforming coordinates from oblique mercator? Or is there simply an error in the code?<br>\r\n<br>\r\nThanks <br>\r\nOliver<br>\r\n<br>\r\nWKT Representation of the swiss coordinate system I used:<br>\r\n<hr>\r\nPROJCS<br>\r\n[&quot;CH1903_LV03&quot;,GEOGCS[&quot;GCS_CH1903&quot;,<br>\r\nDATUM[&quot;D_CH1903&quot;,SPHEROID[&quot;Bessel_1841&quot;,6377397.155,299.1528128]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.017453292519943295]],<br>\r\nPROJECTION[&quot;Hotine_Oblique_Mercator&quot;],<br>\r\nPARAMETER[&quot;False_Easting&quot;,600000],<br>\r\nPARAMETER[&quot;False_Northing&quot;,200000],<br>\r\nPARAMETER[&quot;Scale_Factor&quot;,1],<br>\r\nPARAMETER[&quot;Azimuth&quot;,90],<br>\r\nPARAMETER[&quot;Longitude_Of_Center&quot;,7.439583333333333],<br>\r\nPARAMETER[&quot;Latitude_Of_Center&quot;,46.95240555555556],<br>\r\nUNIT[&quot;Meter&quot;,1],AUTHORITY[&quot;EPSG&quot;,&quot;21781&quot;]]<br>\r\n",
+    "PostedDate": "2008-11-28T04:40:44.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "136322",
+    "ThreadId": "41012",
+    "Html": "You would have to create a new IMathTransform class the contains the code to transform between geographic and projected coordinates.\r\n",
+    "PostedDate": "2008-11-30T00:18:35.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166292",
+    "ThreadId": "41012",
+    "Html": "I just submitted a patch for review which would implement the Hotine_Oblique_Mercator projection.<br>\r\n",
+    "PostedDate": "2009-03-09T15:52:55.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

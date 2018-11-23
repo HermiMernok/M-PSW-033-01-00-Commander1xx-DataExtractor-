@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1137109",
+    "ThreadId": "474378",
+    "Html": "Hi everyone, I´m having trouble using the library to a proxy connection. How can I set the proxy for the library?.\r<br />\n<br />\nThe sample is working right, so I assume it has something to view with this.\r<br />\n<br />\nThanks in advance.<br />\n",
+    "PostedDate": "2013-12-17T06:17:28.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1137738",
+    "ThreadId": "474378",
+    "Html": "Here is how I do it:<br />\n<pre><code>    GMapProvider.WebProxy = New System.Net.WebProxy(AppHandler.ProxyAddress, AppHandler.ProxyPort)\n    GMapProvider.WebProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials\n\n</code></pre>\n\nAppHandler.ProxyAddress and AppHandler.ProxyPort are set from a configuration file<br />\n",
+    "PostedDate": "2013-12-18T11:46:47.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1144599",
+    "ThreadId": "474378",
+    "Html": "Thanks,, it worked well.<br />\n",
+    "PostedDate": "2014-01-02T05:38:15.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

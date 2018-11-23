@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "540097",
+    "ThreadId": "239460",
+    "Html": "\r\n<p>Hi, im trying to add more strings and integers to a Marker class but I cant seem to do so with this&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> NEWMARKERS\r\n        <span style=\"color:blue\">Inherits</span> GMapMarker\r\n        <span style=\"color:blue\">Public</span> _NAME <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>\r\n        <span style=\"color:blue\">Public</span> _ID <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>\r\n        <span style=\"color:blue\">Public</span> _Street <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>it says that&nbsp;Error<span> </span>6<span> </span>Class 'Dispatch.Form1.NEWMARKERS' must declare a 'Sub New' because its base class 'GMap.NET.WindowsForms.GMapMarker' does not have an accessible 'Sub New' that can be called with no arguments.</p>\r\n<p>How can I inherit this class or add new data types to it?</p>\r\n",
+    "PostedDate": "2010-12-23T15:32:10.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "540100",
+    "ThreadId": "239460",
+    "Html": "\r\n<p>marker constructor should accept PointLatLng param</p>\r\n",
+    "PostedDate": "2010-12-23T15:44:54.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

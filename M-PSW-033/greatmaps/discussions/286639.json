@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "727447",
+    "ThreadId": "286639",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>When I add multiple routes and a route is overlapping a marker (layer) the marker is behind the layer, which is obvious. How Do I set it so every marker is &quot;on top of&quot; all other layers?</p>\r\n",
+    "PostedDate": "2012-01-19T01:34:27.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727452",
+    "ThreadId": "286639",
+    "Html": "<p>add marker layer last, so it will be rendered last</p>",
+    "PostedDate": "2012-01-19T01:40:56.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "728052",
+    "ThreadId": "286639",
+    "Html": "<p>Hi Radioman!</p>\r\n<p>A Z-order (int) property for the GMapOverlay would be cool (lowest value is furthest back) see http://en.wikipedia.org/wiki/Z-order</p>\r\n<p>Cheers</p>\r\n<p>Xandolph</p>",
+    "PostedDate": "2012-01-20T01:59:56.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "728058",
+    "ThreadId": "286639",
+    "Html": "<p>..well ObservableCollection doesn't sorts well</p>",
+    "PostedDate": "2012-01-20T02:14:48.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "738287",
+    "ThreadId": "286639",
+    "Html": "<p>Hi Radioman. It seems I wasn't very clear with my question, or perhaps I don't understand your reply very well (which I doubt), but here's another try. I'm adding routes one by one (manually). Means that the \"old\" (already rendered) marker will be below the new route-layer. Any suggestions?</p>",
+    "PostedDate": "2012-02-03T12:25:32.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "738311",
+    "ThreadId": "286639",
+    "Html": "<p>map.Overlays.Add(o1);<br />map.Overlays.Add(o2);<br />map.Overlays.Add(o3);<br />map.Overlays.Add(o4);</p>\r\n<p>=&gt;</p>\r\n<p>render o1 then o2 then o3 then o4</p>\r\n<ul>\r\n<li>so if your route layer is added later than marker layer, route will be rendered last therefore 'on top'</li>\r\n<li>if you add markers and routes on the same layer, render order is: routes then polygons then markers then tooltips</li>\r\n</ul>\r\n<p>so you can create any order you want by using separate overlays for different object types, etc...</p>",
+    "PostedDate": "2012-02-03T12:42:31.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

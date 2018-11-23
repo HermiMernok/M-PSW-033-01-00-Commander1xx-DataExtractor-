@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1210688",
+    "ThreadId": "532906",
+    "Html": "I developed a C# app that uses the WebBrowser control to loop back on localhost to a page with JavaScript that creates a Google Map. I render the WebBrowser in a Windows Form, scrape that for a bitmap, and I get an image of a map which then gets embedded in a PDF. Just what I want! I moved that into an ASP.NET app and it works great from Visual Studio. But when deployed to IIS it fails because the web server is running as a Service, the control isn't executing script, and I believe there are STA issues.\r<br />\n<br />\nSo I'm changing the toolkit and considering this library, but I have questions related to above:\r<br />\n<br />\n1) Does the GMap WindowsForms library work in an ASP.NET app on IIS on a Windows 2008 server?\r<br />\n<br />\n2) Is there any reason to believe I'll have a problem grabbing the bitmap image from a map if it's generated in IIS?\r<br />\n<br />\n3) Any known thread issues?\r<br />\n<br />\n4) Looking at source for StaticImage.cs, and with little other experience here, it looks like getting an image means getting tiles, pulling them into a manually created image, and then doing our own drawing on it, compared to getting a completed tile with polygons and markers from the map provider and simply capturing that as an image. I hope that's not the case. (?)\r<br />\n<br />\nThanks!!<br />\n",
+    "PostedDate": "2014-02-19T10:36:12.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1211129",
+    "ThreadId": "532906",
+    "Html": "for speed i would use 4, you can render that  and markers and other stuff in the background<br />\n",
+    "PostedDate": "2014-02-20T05:39:17.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

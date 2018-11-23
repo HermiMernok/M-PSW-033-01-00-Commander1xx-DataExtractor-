@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "199277",
+    "ThreadId": "58837",
+    "Html": "<p>I would like to be able to use local icon images in my windows app using the Gmap control but gave not been able to find a way.</p>\r\n<p>Is there any sample code out there please</p>\r\n<p>Regards</p>\r\n<p>&nbsp;</p>\r\n<p>BTW - I LOVE this control</p>",
+    "PostedDate": "2009-06-08T15:39:42.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199305",
+    "ThreadId": "58837",
+    "Html": "<p>Look at the source code in the Markers folder of WindowsForms. The GoogleMakerGreen class is something you can implement yourself really easily, and use your own image or pull it from the Resource cache like the demo does.</p>\r\n<p>If you don't want a Marker but want an actual image ... you could probably do it AS a marker because there would be no difference ...</p>",
+    "PostedDate": "2009-06-08T19:00:57.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "199669",
+    "ThreadId": "58837",
+    "Html": "<p>Thanks Untameable.&nbsp; I finally figured out how to do this also after you tip to check out the Markers folder.</p>",
+    "PostedDate": "2009-06-09T12:48:55.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "200183",
+    "ThreadId": "58837",
+    "Html": "<p>Thanks Untamable - that was a big help</p>\r\n<p>Below is my code for the next guy with issues.....</p>\r\n<p>&nbsp;</p>\r\n<p>Public Class GMapMarker_Custom<br><br>&nbsp;&nbsp;&nbsp; Inherits GMapMarker<br><br>&nbsp;&nbsp;&nbsp; Dim IconPath As String<br>&nbsp;&nbsp;&nbsp; Dim myImage As Image<br><br>&nbsp;&nbsp;&nbsp; Public Sub New(ByVal p As PointLatLng, ByVal Unit_Name As String)<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.New(p)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IconPath = Get_GIS_Icon(Unit_Name)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myImage = Image.FromFile(IconPath)<br><br>&nbsp;&nbsp;&nbsp; End Sub<br><br>&nbsp;&nbsp;&nbsp; Public Overloads Overrides Sub OnRender(ByVal g As Graphics)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawImageUnscaled(myImage, LocalPosition.X - 10, LocalPosition.Y - 34)<br><br>&nbsp;&nbsp;&nbsp; End Sub<br><br>End Class</p>",
+    "PostedDate": "2009-06-10T14:39:38.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "200270",
+    "ThreadId": "58837",
+    "Html": "<p>use Offset and Size instead of (<span style=\"color:#30332d\">- 10, - 34)</span></p>",
+    "PostedDate": "2009-06-10T21:32:41.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495916",
+    "ThreadId": "58837",
+    "Html": "<p>hello&nbsp;</p>\r\n<p>i got some problem when i use my own image based on the&nbsp;GoogleMakerGreen &nbsp;class</p>\r\n<p>g.DrawImageUnscaled(Resources.marker, LocalPosition.X, LocalPosition.Y);</p>\r\n<p>i added my image &nbsp;to Resource&nbsp;and replace&nbsp;Resources.marker in the above line</p>\r\n<p>i can show my own image, but it's only too big than the origin one in&nbsp;GoogleMakerGreen &nbsp;</p>\r\n<p>my image is same size as image in the&nbsp;GoogleMakerGreen &nbsp;class (i just changed the color)</p>\r\n<p>i also tried to fix the size instead of the origin way&nbsp;</p>\r\n<p>from</p>\r\n<p>Size = new System.Drawing.Size(Resources.marker.Width, Resources.marker.Height);</p>\r\n<p>to</p>\r\n<p>Size = new System.Drawing.Size(20,34);</p>\r\n<p>but it still doesn't work</p>\r\n<p>thanks</p>",
+    "PostedDate": "2010-09-20T04:07:18.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495949",
+    "ThreadId": "58837",
+    "Html": "<p>marker.<strong>Size</strong> != Image.<strong>Size, </strong>you can resize the image itself or pass width and height to render function&nbsp;g.DrawImage</p>",
+    "PostedDate": "2010-09-20T05:24:39.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "792076",
+    "ThreadId": "58837",
+    "Html": "<p>I've been giving this a try, but haven't been successful.</p>\n<p>I copied the code kindly posted by neoterra, with a minor amendment to avoid an error because there's no reference to Get_GIS_Icon</p>\n<div style=\"background-color: white; color: black;\">\n<pre>   <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Class</span> GMapMarker_Custom\r\n\r\n        <span style=\"color: blue;\">Inherits</span> GMapMarker\r\n\r\n        <span style=\"color: green;\">'Dim IconPath As String</span>\r\n        <span style=\"color: blue;\">Dim</span> myImage <span style=\"color: blue;\">As</span> Image\r\n\r\n        <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Sub</span> <span style=\"color: blue;\">New</span>(<span style=\"color: blue;\">ByVal</span> p <span style=\"color: blue;\">As</span> GMap.NET.PointLatLng, <span style=\"color: blue;\">ByVal</span> Unit_Name <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>)\r\n\r\n\r\n            <span style=\"color: blue;\">MyBase</span>.<span style=\"color: blue;\">New</span>(p)\r\n            myImage = Image.FromFile(<span style=\"color: #a31515;\">\"C:\\temp1\\test1.tiff\"</span>)\r\n\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n        <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Overloads</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">Sub</span> OnRender(<span style=\"color: blue;\">ByVal</span> g <span style=\"color: blue;\">As</span> Graphics)\r\n\r\n            g.DrawImageUnscaled(myImage, LocalPosition.X - 10, LocalPosition.Y - 34)\r\n\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Class</span>\r\n</pre>\n</div>\n<p>but that doesn't show how or in what order we're supposed to use them- this is what I tried</p>\n<div style=\"color: black; background-color: white;\">\n<pre>        <span style=\"color: blue;\">Dim</span> mapcentre <span style=\"color: blue;\">As</span> GMap.NET.PointLatLng\r\n        <span style=\"color: blue;\">Dim</span> g1 <span style=\"color: blue;\">As</span> Graphics\r\n        <span style=\"color: blue;\">Dim</span> i1 <span style=\"color: blue;\">As</span> Image\r\n        <span style=\"color: blue;\">Dim</span> nm1 <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMapMarker_Custom(mapcentre, <span style=\"color: #a31515;\">\"test\"</span>)\r\n\r\n        mapcentre = <span style=\"color: blue;\">New</span> GMap.NET.PointLatLng(50.8380341400355, -0.777969360351563)\r\n        i1 = Image.FromFile(<span style=\"color: #a31515;\">\"C:\\temp\\test1.tiff\"</span>)\r\n        g1 = Graphics.FromImage(i1)\r\n        nm1.Position = mapcentre\r\n        nm1.OnRender(g1)\r\n        nm1.IsVisible = <span style=\"color: blue;\">True</span>\r\n\r\n        GMapControl1.Position = mapcentre\r\n\r\n        GMapControl1.Refresh()\r\n\r\n</pre>\n</div>\n<p>When I run this, I don't get any errors but nothing happens either.<br />Also, I'm puzzled by how I pass a pre-formed graphics object to OnRender.</p>\n<p>Can anyone tell me where I'm going wrong please?</p>\n<p>Best regards and many thanks for your effors</p>",
+    "PostedDate": "2012-02-21T15:27:59.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794005",
+    "ThreadId": "58837",
+    "Html": "<p>wtf ;/, check the demos source, OnRender is called by the system, just add the marker to your overlay</p>",
+    "PostedDate": "2012-02-21T23:33:47.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794349",
+    "ThreadId": "58837",
+    "Html": "<p>Thanks Radioman - much appreciated</p>",
+    "PostedDate": "2012-02-22T00:57:59.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "681159",
+    "ThreadId": "275072",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>I enjoy your work every day... with Visual Studio. From time to time, I must debug my application on a computer with very little memory and where Visual Studio is simply not usable.</p>\r\n<p>I have tried with SharpDevelop (both 3.2 and 4.1) but the Gmap control cannot be opened and edited.</p>\r\n<p>When I simply open the solution (from source code) and try to run Demo.WindowsForms I have the following errors:</p>\r\n<p>1. ${res:ICSharpCode.Build.CannotFindFxCop}</p>\r\n<p>2. Erreur de g&eacute;n&eacute;ration inconnue, 'MC3074 : la balise 'GMapControlNew' n'existe pas dans l'espace de noms XML 'clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation'. Ligne 7 Position 10.' &nbsp;(MC1000) - C:\\Documents\r\n and Settings\\SE\\Bureau\\VMSmap\\greatmaps_91cea904e3d7\\Testing\\WPF-GMapControlNew\\MainWindow.xaml:7,10</p>\r\n<p>This opens without any problem with VS... any thoughts</p>\r\n<p>Is anyone familiar with SD environment? Maybe a configuration issue...</p>\r\n<p>Thanks for your help.</p>\r\n",
+    "PostedDate": "2011-10-06T23:48:03.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681161",
+    "ThreadId": "275072",
+    "Html": "<p>...you can try remove WPF-GMapControlNew project from solution in visual studio, save, and then try to load it in SharpDevelop</p>",
+    "PostedDate": "2011-10-06T23:55:17.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681171",
+    "ThreadId": "275072",
+    "Html": "<p>Thanks for your quick answer.</p>\r\n<p>Still get the first error:</p>\r\n<p>${res:ICSharpCode.Build.CannotFindFxCop}</p>\r\n<p>What target framework? I tried several possibilities. No change :-(</p>",
+    "PostedDate": "2011-10-07T00:19:40.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681172",
+    "ThreadId": "275072",
+    "Html": "<p>let me try..</p>",
+    "PostedDate": "2011-10-07T00:29:18.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681174",
+    "ThreadId": "275072",
+    "Html": "<p>open properties for&nbsp;BSE.Windows.Forms, goto <em>Code Analysis&nbsp;</em>and uncheck first checkbox</p>",
+    "PostedDate": "2011-10-07T00:37:21.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681178",
+    "ThreadId": "275072",
+    "Html": "<p>fixed, thanks</p>",
+    "PostedDate": "2011-10-07T00:50:06.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681183",
+    "ThreadId": "275072",
+    "Html": "<p>I have 2 checkboxes in \"Code Analysis\" and both are unchecked already.</p>\r\n<p>Have tried to \"Add/Remove rule assembly\" but does not change anything...</p>\r\n<p>Still open, sorry</p>",
+    "PostedDate": "2011-10-07T01:03:45.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681186",
+    "ThreadId": "275072",
+    "Html": "<p>i've removed first checkbox, builds fine on&nbsp;SharpDevelop, get new version and check</p>",
+    "PostedDate": "2011-10-07T01:09:38.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681203",
+    "ThreadId": "275072",
+    "Html": "<p>Now I have the following errors... strange:</p>\r\n<p>L'importation du fichier de cl&eacute; \"MyPFX.pfx\" a &eacute;t&eacute; annul&eacute;e. (MSB3321)</p>\r\n<p>Impossible d'importer le fichier de cl&eacute; suivant : MyPFX.pfx. Le fichier de cl&eacute; est peut-&ecirc;tre prot&eacute;g&eacute; par mot de passe. Pour corriger ce probl&egrave;me, essayez d'importer de nouveau le certificat ou installez manuellement le certificat dans le fournisseur de services de chiffrement de nom fort avec le nom de conteneur de cl&eacute; suivant : VS_KEY_4E74F71058E245D9 (MSB3325)</p>\r\n<p>Erreur de g&eacute;n&eacute;ration inconnue, 'MC3074 : la balise 'GMapControlNew' n'existe pas dans l'espace de noms XML 'clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation'. Ligne 7 Position 10.' &nbsp;(MC1000) - C:\\Documents and Settings\\SE\\Bureau\\VMSmap\\greatmaps_4953ab25be55\\Testing\\WPF-GMapControlNew\\MainWindow.xaml:7,10</p>\r\n<p>;-(</p>",
+    "PostedDate": "2011-10-07T01:49:33.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681241",
+    "ThreadId": "275072",
+    "Html": "<p>just remove&nbsp;'GMapControlNew' and setup projects</p>",
+    "PostedDate": "2011-10-07T03:42:55.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

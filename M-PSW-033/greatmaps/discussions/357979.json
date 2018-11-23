@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "843522",
+    "ThreadId": "357979",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>I&rsquo;m new to Gmap.net, so sorry if I&rsquo;m asking the obvious&hellip;</p>\r\n<p>Anyway, using doubleclick I put a marker on the map which gives me the coordinates in two textboxes &ndash; this works brilliant. However on the next doubleclick I would like to remove that first marker before adding a second one. I can&rsquo;t manage to\r\n get it done. See my code below; Markers.Clear() obviously doesn&rsquo;t work&hellip;</p>\r\n<p>I&rsquo;m using VB.NET in a winform application (VS2010).</p>\r\n<p>Hope you can help!</p>\r\n<p>Many thanks</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:9.5pt; color:blue\">Private</span><span style=\"font-size:9.5pt\">\r\n<span style=\"color:blue\">Sub</span> myMap_DoubleClick(sender <span style=\"color:blue\">\r\nAs</span> System.<span style=\"color:#2b91af\">Object</span>, e <span style=\"color:blue\">\r\nAs</span> System.Windows.Forms.<span style=\"color:#2b91af\">MouseEventArgs</span>)\r\n<span style=\"color:blue\">Handles</span> myMap.DoubleClick</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> mark <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMap.NET.WindowsForms.Markers.<span style=\"color:#2b91af\">GMapMarkerGoogleGreen</span>(myMap.FromLocalToLatLng(e.X, e.Y))</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> xl <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMap.NET.<span style=\"color:#2b91af\">PointLatLng</span></span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xl = mark.Position()</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">\r\nDim</span> overlayOne <span style=\"color:blue\">As</span> <span style=\"color:blue\">\r\nNew</span> <span style=\"color:#2b91af\">GMapOverlay</span>(myMap, <span style=\"color:#a31515\">\r\n&quot;OverlayOne&quot;</span>)</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; overlayOne.Markers.Clear()</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;overlayOne.Markers.Add(mark)</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myMap.Overlays.Add(overlayOne)</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextBox2.Text = (xl.Lat.ToString)</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TextBox3.Text = (xl.Lng.ToString)</span></p>\r\n<p><span style=\"font-size:9.5pt; color:blue\">End</span><span style=\"font-size:9.5pt\">\r\n<span style=\"color:blue\">Sub</span></span></p>\r\n",
+    "PostedDate": "2012-06-01T05:58:36.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843606",
+    "ThreadId": "357979",
+    "Html": "<p>myMap.Overlays.Add(overlayOne) // on each click you add the same overlay, you only need to do this once in the form constructor</p>\r\n<p>p.s. clear/add works perfectly, anyway you can reuse the same marker and just change it's position</p>",
+    "PostedDate": "2012-06-01T09:55:23.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "844044",
+    "ThreadId": "357979",
+    "Html": "<p>thanks Radioman, I hadn't initialized the overlay properly. It's working fine now!</p>",
+    "PostedDate": "2012-06-03T06:16:06.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

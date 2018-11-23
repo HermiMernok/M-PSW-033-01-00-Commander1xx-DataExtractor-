@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "697942",
+    "ThreadId": "279403",
+    "Html": "<p>Hi Radioman!</p>\n<p>Im developing in gmap.net with files 1.5.5.5 (april 26, i think...). Gmap.net.core.dll file size is just 168kb.</p>\n<p>Now, 'cause im having some troubles in routing (routes generated with GetRouteBetweenPoints are irregular/strange) im updating the dlls, but i observe now gmap.net.core now have 2Mb! it is correct? &nbsp;O_o</p>\n<p>Greetings from Venezuela.</p>\n<p>&nbsp;</p>\n<p>BernieSF</p>",
+    "PostedDate": "2011-11-14T09:19:26.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697953",
+    "ThreadId": "279403",
+    "Html": "<p>it's incorrect, latest version size is 2.09 MB, it's because it has embedded sqlite dlls</p>",
+    "PostedDate": "2011-11-14T09:48:46.983-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697954",
+    "ThreadId": "279403",
+    "Html": "<p>I assume then i can&nbsp;remove the system.data.sqlite reference.</p>\n<p>Thanks radioman!</p>",
+    "PostedDate": "2011-11-14T09:50:46.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "697967",
+    "ThreadId": "279403",
+    "Html": "<p>yes, you don't need to reference it, because it's inside anyway</p>",
+    "PostedDate": "2011-11-14T10:08:29.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

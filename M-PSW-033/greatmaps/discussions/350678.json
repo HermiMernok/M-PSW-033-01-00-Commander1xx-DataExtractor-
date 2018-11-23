@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "817891",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p>i have multithread application and i get this error.</p>\r\n<p></p>\r\n<pre>************** Exception Text **************\r\nSystem.InvalidOperationException: Collection was modified; enumeration operation may not execute.\r\n   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)\r\n   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()\r\n   at System.Collections.Generic.List`1.Enumerator.MoveNext()\r\n   at GMap.NET.WindowsForms.GMapOverlay.Render(Graphics g) in C:\\Users\\PATO\\Desktop\\GPS\\WindowsFormsApplication1\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapOverlay.cs:line 329\r\n   at GMap.NET.WindowsForms.GMapControl.OnPaintOverlays(Graphics g) in C:\\Users\\PATO\\Desktop\\GPS\\WindowsFormsApplication1\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 1302\r\n   at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e) in C:\\Users\\PATO\\Desktop\\GPS\\WindowsFormsApplication1\\\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 1192\r\n   at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer, Boolean disposeEventArgs)\r\n   at System.Windows.Forms.Control.WmPaint(Message&amp; m)\r\n   at System.Windows.Forms.Control.WndProc(Message&amp; m)\r\n   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)\r\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)</pre>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>I know <span id=\"result_box\" lang=\"en\"><span>why</span> <span>error occurs,</span></span> because on one thread i read my collection and on another thread i modify collection.<span id=\"result_box\" lang=\"en\"><span>\r\n</span></span><span id=\"result_box\" lang=\"en\"><span>I was thinking to lock first loop but it's not work.</span></span></p>\r\n<p><span lang=\"en\"><span></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">protected</span> <span style=\"color:blue\">virtual</span> <span style=\"color:blue\">void</span> OnPaintOverlays(Graphics g)\r\n      {\r\n<span style=\"color:blue\">#if</span> !PocketPC\r\n         g.SmoothingMode = SmoothingMode.HighQuality;\r\n<span style=\"color:blue\">#endif</span>\r\n\r\n         <span style=\"color:blue\">lock</span> (Overlays)\r\n         {\r\n             <span style=\"color:blue\">foreach</span> (GMapOverlay o <span style=\"color:blue\">in</span> Overlays)\r\n             {\r\n                 <span style=\"color:blue\">if</span> (o.IsVisibile)\r\n                 {\r\n                    o.Render(g);\r\n                 }\r\n             }\r\n         }\r\n...\r\n...\r\n</pre>\r\n</div>\r\n</span></span>\r\n<p></p>\r\n<p><span id=\"result_box\" lang=\"en\"><span>have you</span> <span>ever met</span> <span>\r\nthis problem?</span></span></p>\r\n<p><span lang=\"en\"><span><br>\r\n</span></span></p>\r\n",
+    "PostedDate": "2012-03-30T11:35:51.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "817896",
+    "ThreadId": "350678",
+    "Html": "<p>use backgroundworker or invoke</p>",
+    "PostedDate": "2012-03-30T11:49:52.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955181",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>i use&nbsp;<span>backgroundworker but the&nbsp;error exist</span></p>\r\n",
+    "PostedDate": "2012-12-12T09:10:17.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955222",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>you use it in the wrong way</p>\r\n",
+    "PostedDate": "2012-12-12T10:38:47.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955434",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>the error does not happen always,notes that mistake:</p>\r\n<p>1 application open</p>\r\n<p>2 I click on a button I start the BackgroundWorker</p>\r\n<p>3 The background is now working well, handles well objects without me blocking the application as you showed me you.</p>\r\n<p>bkw the inserts new makers</p>\r\n<p>sometimes it gives me the error other times it really flows</p>\r\n<p>give me some advice where I'm wrong?</p>\r\n<p>maybe I have to wait for a specific event, before making the start of bkw?</p>\r\n<p>&nbsp;</p>\r\n<p>thank you for the support!!!</p>\r\n",
+    "PostedDate": "2012-12-12T23:57:58.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955481",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>insert/add/remove markers only in GUI thread</p>\r\n",
+    "PostedDate": "2012-12-13T01:38:09.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955505",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>What's that? I do not think I understand the operation</p>\r\n",
+    "PostedDate": "2012-12-13T02:58:33.983-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955511",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>I understand I should use in my bkw a delegate</p>\r\n",
+    "PostedDate": "2012-12-13T03:12:14.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955583",
+    "ThreadId": "350678",
+    "Html": "\r\n<p>check the demo code, why you wanna go blind...</p>\r\n",
+    "PostedDate": "2012-12-13T05:54:06.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

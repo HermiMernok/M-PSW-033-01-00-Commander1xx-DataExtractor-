@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "894845",
+    "ThreadId": "390049",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>I have a custom polygon class, and I'm overriding the onredraw method. After trying to use several functions to determine the center of the polygon with &quot;strange&quot; results, I've noticed that, when I zoom in or out, the 0,0 &nbsp;coordinate of the graphis\r\n is the position where the mouse is. For example:</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\"> Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">Sub</span> OnRender(<span style=\"color:blue\">ByVal</span> g <span style=\"color:blue\">As</span> Graphics) \r\n \r\n    <span style=\"color:blue\">MyBase</span>.OnRender(g)\r\n    g.DrawString(<span style=\"color:#a31515\">&quot;MESSAGE&quot;</span>, Font, Brushes.Black, 0, 0)\r\n\r\n <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>That draws &quot;message&quot; on the mouse cursor position when I zoom in or out (when I drag the map the label stays on his relative position).</p>\r\n<p>It's that behavior OK?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n",
+    "PostedDate": "2012-08-02T12:35:40.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894993",
+    "ThreadId": "390049",
+    "Html": "<p>coordinates are shifted in dynamic way, long story...</p>",
+    "PostedDate": "2012-08-02T23:10:21.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895147",
+    "ThreadId": "390049",
+    "Html": "<p>Ok, thanks.</p>\r\n<p>&nbsp;</p>\r\n<p>So, how do I get control coordinates? I mean, I need the local coordinates of the points of the polygons, but the localpoints collection of the polygon seem to work in the same way when I zoom in or out (same way=relative to the mouse position)...</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you</p>",
+    "PostedDate": "2012-08-03T06:09:40.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

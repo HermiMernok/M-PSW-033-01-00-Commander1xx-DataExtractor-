@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "648732",
+    "ThreadId": "266838",
+    "Html": "\r\n<p><span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">There is</span>\r\n<span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">a internal class</span><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\"> (</span></span>\\GMap.NET.Core\\GMap.NET.Internals\\Stuff.cs):</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">internal</span> <span style=\"color:blue\">class</span> Stuff\r\n   {...\r\n</pre>\r\n</div>\r\n<p><span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">And</span>\r\n<span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">it is used</span> <span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">\r\nin another assembly</span><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\"> (</span></span>\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\TilePrefetcher.xaml.cs<span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">)</span></span><span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">,</span>\r\n<span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">here:</span></span></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>Stuff.Shuffle&lt;GPoint&gt;(list);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p><span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">I can not understand</span>\r\n<span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">how</span> <span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">\r\nit is organized</span><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">?</span><br>\r\n<br>\r\n<span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">I know:&nbsp;</span></span><span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\"></span></span>Internal types or members are accessible only within files in\r\n the same assembly.<span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">\r\n</span></span></p>\r\n",
+    "PostedDate": "2011-07-27T21:56:07.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "648789",
+    "ThreadId": "266838",
+    "Html": "<p>you can add some attributes to make internal types visible to other assemblies</p>",
+    "PostedDate": "2011-07-28T01:15:06.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

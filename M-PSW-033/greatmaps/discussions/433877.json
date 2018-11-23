@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1004312",
+    "ThreadId": "433877",
+    "Html": "Hi,\r<br />\n<br />\nMy scenario is a Map Control as background of a MDI Form and I have all my sub-forms showed over map. Inside those sub-forms I have a button to obtain coordinates from Main Map, when I click in that button, my sub-form will be hide, and I need some function to wait for mouse double click over Main Map and dispatch an event to get Screen coordinates. But I can't make this... can someone help me?<br />\n<pre><code>private void butGetCoordinates_Click(object sender, EventArgs e) {\n            this.Hide();\n            MainForm main = new MainForm();\n            PointLatLng coords = main.GetInstance().coordenadas;\n            main.MainMap.MouseDoubleClick += main.MainMap_MouseDoubleClick;\n            \n            /* WHAT SHOULD I PUT HERE TO WAIT MOUSE DOUBLE CLICK??? */\n\n            main.MainMap.MouseDoubleClick -= main.MainMap_MouseDoubleClick;\n            MessageBox.Show(coords.Lat.ToString() + &quot;/&quot; + coords.Lng.ToString());\n            this.Show();\n        }</code></pre>\n\n",
+    "PostedDate": "2013-02-20T16:07:43.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004707",
+    "ThreadId": "433877",
+    "Html": "try using MainMap_MouseDoubleClick with some logic for clicking once<br />\n",
+    "PostedDate": "2013-02-21T07:37:49.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005176",
+    "ThreadId": "433877",
+    "Html": "Any ideia about how to do it?\r<br />\n<br />\nThat logic for wait the mouse click that is missing because the request is coming from a MDI Child Form acting over the Main Form.<br />\n",
+    "PostedDate": "2013-02-22T04:20:43.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

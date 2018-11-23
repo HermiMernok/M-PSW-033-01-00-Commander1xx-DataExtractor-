@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed",
+    "ClosedDate": "2012-03-05T00:36:02.703-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi Folks,\r\nJust ran into this exception when loading a map on Vista SP2:\r\n\r\nA generic error occurred in GDI+.\r\n   at System.Drawing.Graphics.CheckErrorStatus(Int32 status)\r\n   at System.Drawing.Graphics.DrawImage(Image image, Single x, Single y, Single width, Single height)\r\n   at GMap.NET.WindowsForms.GMapControl.DrawMap(Graphics g) in ...GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 545\r\n   at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e) in ...GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs:line 1302\r\n   at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\r\n   at System.Windows.Forms.Control.WmPaint(Message& m)\r\n   at System.Windows.Forms.Control.WndProc(Message& m)\r\n   at System.Windows.Forms.ScrollableControl.WndProc(Message& m)\r\n   at System.Windows.Forms.UserControl.WndProc(Message& m)\r\n   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)\r\n   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)\r\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r\n\r\nBinaries tested fine on Server 2008 and Win7 64.\r\nGoogled this to death, but the possabilities seem endless. Any ideas on why the GDI+ error for DrawImage?\r\n\r\nThanks,\r\n\r\nJack",
+    "LastUpdatedDate": "2012-03-05T00:36:02.703-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-02-06T10:01:48.91-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "System.Runtime.Interopservices.ExternalException",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16026
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

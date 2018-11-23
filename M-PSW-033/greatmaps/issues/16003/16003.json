@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "it works for me:\n\nMainMap.MouseDoubleClick += new MouseEventHandler(MainMap_MouseDoubleClick);\n\nvoid MainMap_MouseDoubleClick(object sender, MouseEventArgs e)\n{\n       Debug.WriteLine(\"MainMap_MouseDoubleClick: \" + e.Button);\n}\n\nprints:\n\nMainMap_MouseDoubleClick: Left\nMainMap_MouseDoubleClick: Right\nMainMap_MouseDoubleClick: Middle",
+    "ClosedDate": "2011-05-05T23:28:42.787-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi Radioman!\r\nI got this strange error: Please look at this code fragment:\r\n\r\nprivate void gMapControlDetail_MouseDoubleClick(object sender, MouseEventArgs e)\r\n        {\r\n            if (e.Button == System.Windows.Forms.MouseButtons.Right)\r\n            {\r\n                currentGPSPosition = mapControl.FromLocalToLatLng(e.X, e.Y);\r\n                currentPositionMarker.Position = currentGPSPosition;\r\n                mapControl.Position = currentGPSPosition;\r\n             }\r\n        }\r\n\r\nThe map does not center on \"currentGPSPosition\".\r\nIf I change the Mouse button to Left or middle it works.\r\nAny ideas?\r\nThanks a lot,\r\nXandolph",
+    "LastUpdatedDate": "2011-05-05T23:28:42.787-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-05-05T10:30:47.26-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "mapControl.Position = ... fails on mouse RIGHT Click",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16003
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

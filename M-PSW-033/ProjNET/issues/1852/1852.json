@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "Projections",
+      "DisplayName": "Projections"
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Both \"WGS 84 / UPS North\" (SRID 32661) and \"WGS 84 / UPS South\" (SRID 32761) use Polar_Stereographic projection which is not supported.\n \nGeoTools project (LGPL/Java) has an implementation that could help as reference. \n \n________________________________________\nOdegaard comment::\nJust a note: This will require heavy clipping of geometries to the horizon of the projection for any non-point geometry (Something none of the current projections do).",
+    "LastUpdatedDate": "2013-02-21T16:06:13.743-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2007-06-13T20:55:50.48-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Implement Polar_Stereographic projection",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 3,
+    "Id": 1852
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

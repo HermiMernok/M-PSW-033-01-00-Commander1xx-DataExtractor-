@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "basically ok",
+    "ClosedDate": "2009-06-21T08:36:12.35-07:00",
+    "CommentCount": 5,
+    "Custom": "",
+    "Description": "include Makers, Polylines, Polygons, Ground Overlays, Tile Overlays, Custom Overlays\nsee http://code.google.com/intl/en/apis/maps/documentation/overlays.html for more info.",
+    "LastUpdatedDate": "2009-06-21T08:36:12.35-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-04-24T06:32:54.76-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Overlay Support",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 13104
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Makers, Polylines are ok. Basicaly by creating custom marker you can get any type of object on the map. Any ideas for improvement?",
+      "PostedDate": "2009-04-26T03:42:35.937-07:00",
+      "Id": 3105
+    },
+    {
+      "Message": "Please also add visualisation properties, including the main map.",
+      "PostedDate": "2009-05-01T01:58:53.443-07:00",
+      "Id": 3106
+    },
+    {
+      "Message": "\"visualisation properties\" ?",
+      "PostedDate": "2009-05-01T09:51:01.04-07:00",
+      "Id": 3107
+    },
+    {
+      "Message": "I was thinking about:\r\n* Opaque level (especially in case you have areas/territories).\r\n* MinZoomLevel and MaxZoomLevel. Eg. Layer is visible between zoomlevel 4 and 12.\r\n* You might think about global marker properties (like size, style, tooltip), that are attached to a layer. But I think the programmer should take care of that.",
+      "PostedDate": "2009-05-04T07:41:05.217-07:00",
+      "Id": 3108
+    },
+    {
+      "Message": "basic overlay suport in windows forms are ok now",
+      "PostedDate": "2009-05-08T12:03:48.98-07:00",
+      "Id": 3109
+    }
+  ]
+}

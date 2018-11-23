@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "use forum, and use googlemap provider",
+    "ClosedDate": "2013-02-07T04:41:35.143-08:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi there,\r\n\r\nI can get Latitude and Longitude of the point where mouse clicks like:\r\n\r\n```\r\nprivate void gm1_MouseDoubleClick(object sender, MouseEventArgs e)\r\n        {\r\n            if (e.Button == System.Windows.Forms.MouseButtons.Left)\r\n            {\r\n                double lat = gm1.FromLocalToLatLng(e.X, e.Y).Lat;\r\n                double lng = gm1.FromLocalToLatLng(e.X, e.Y).Lng;\r\n            }\r\n        }\r\n```\r\n\r\nI want to get the location information of that point i.e Country, City etc.\r\nIs there a way to get those?\r\n\r\nThanx for the help in advance !",
+    "LastUpdatedDate": "2013-02-07T06:59:35.903-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-02-07T03:57:33.323-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "How to get Location of the point where mouse clicks on the map",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16061
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "it would be nice if you post the link of that forum also.",
+      "PostedDate": "2013-02-07T06:37:34.043-08:00",
+      "Id": 88832
+    },
+    {
+      "Message": "open the eyes ;}",
+      "PostedDate": "2013-02-07T06:59:35.903-08:00",
+      "Id": 88833
+    }
+  ]
+}

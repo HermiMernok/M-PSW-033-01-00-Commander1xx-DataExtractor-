@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "563595",
+    "ThreadId": "245353",
+    "Html": "\r\n<p>I have looked through the source files and can't seem to find the code that place the red cross on the maps center point when you recenter the map or adjusts is position. &nbsp;I would like to disable the graphic, is this possible? &nbsp;If so, which .cs\r\n file or code section should I be looking for. &nbsp;I am using Windows Forms.</p>\r\n<p><br>\r\nThanks, Cary</p>\r\n",
+    "PostedDate": "2011-02-09T14:17:57.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "563604",
+    "ThreadId": "245353",
+    "Html": "\r\n<p>it's only in Demo.WindowsForms/MainForm.cs, if you create your own app, there will be no crosses ;}</p>\r\n<p>// map center<br>\r\ncenter = new GMapMarkerCross(MainMap.Position);<br>\r\ntop.Markers.Add(center);</p>\r\n",
+    "PostedDate": "2011-02-09T14:26:59.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

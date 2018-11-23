@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "551250",
+    "ThreadId": "242252",
+    "Html": "\r\n<p>Hello Radioman,</p>\r\n<p>I would like to know if there is a way in the current version to make a clean up of the memory cache and/or the local cache (sqlite)?</p>\r\n<p>thanks,</p>\r\n<p>Have a nice Day</p>\r\n<p>David</p>\r\n",
+    "PostedDate": "2011-01-18T06:55:04.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "551362",
+    "ThreadId": "242252",
+    "Html": "\r\n<p>memory cache clears calling map.ReloadMap(), local cache you can just delete</p>\r\n",
+    "PostedDate": "2011-01-18T09:52:14.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "551400",
+    "ThreadId": "242252",
+    "Html": "\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2011-01-18T11:02:04.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "555219",
+    "ThreadId": "242252",
+    "Html": "\r\n<p>We have been wanting something similar as well for the local cache. &nbsp;We want to prevent the cache from growing indefinitely and we want to ensure that our users have up-to-date tiles. &nbsp;</p>\r\n<p>With this in mind, I have created the TilePurge fork. &nbsp;In the fork, a new method is added to PureImageCache interface. &nbsp;The new method, DeleteOlderThan(TimeSpan timeSpan), takes a timespan object and then deletes all tiles that are older. &nbsp;I\r\n have tested this using a SQLite cache, and it works. &nbsp;I went to finish the implementation for the other cache providers, but I realized that SQLite is the only cache provider with a timestamp field. &nbsp;Without a timestamp field, this cannot be implemented\r\n for the other cache providers.</p>\r\n<p>So as I see it, there are two possible solutions:</p>\r\n<p>1) Change the table definition for the other providers so that a timestamp field is available. &nbsp;This may have backward compatibility issues with existing caches.</p>\r\n<p>2) The DeleteOlderThan() method could be exposed as a public method in the&nbsp;SQLitePureImageCache class -- at this point, the&nbsp;SQLitePureImageCache class would need to become public in order for the provider-specific method to be useful.</p>\r\n<p>Radioman, please feel free to examine the TilePurge fork and share your comments and suggestions regarding this enhancement.</p>\r\n<p>Thanks again for all of your efforts!</p>\r\n",
+    "PostedDate": "2011-01-25T13:09:23.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "555230",
+    "ThreadId": "242252",
+    "Html": "\r\n<p>sounds good, looks great, i'll merge it in ;}</p>\r\n<p>p.s. for ms/my sql maybe it will be possible to alter tables at runtime, i'll do some tests... thanks</p>\r\n",
+    "PostedDate": "2011-01-25T13:29:27.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "555553",
+    "ThreadId": "242252",
+    "Html": "\r\n<p>You da man.</p>\r\n",
+    "PostedDate": "2011-01-26T06:26:47.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "573388",
+    "ThreadId": "242252",
+    "Html": "<p>done, i'll look in other providers some day too ;}</p>",
+    "PostedDate": "2011-02-28T10:45:01.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

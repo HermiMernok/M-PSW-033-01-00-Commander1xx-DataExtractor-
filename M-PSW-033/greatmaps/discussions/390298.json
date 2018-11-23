@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "895610",
+    "ThreadId": "390298",
+    "Html": "\r\n<p>Hello</p>\r\n<p>I can draw traces, marker, but not &nbsp;polygon</p>\r\n<p>Is there any example about using polygons ?</p>\r\n<p>How can I define the color and size of the contour ?<br>\r\nHow can I fill the polygon</p>\r\n<p>Here is my code<br>\r\nThanks for any help</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapCommunes = new GMapOverlay(_MainMap, &quot;Communes&quot;);</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List&lt;PointLatLng&gt; lpo = new List&lt;PointLatLng&gt;();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.07,4.23));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.19, 4.21));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.18, 4.45));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(49.80, 4.45));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.07, 4.23));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapPolygon P = new GMapPolygon(lpo, &quot;AnyCommune&quot;);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P.Stroke = new Pen(Color.Red, 4);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P.Fill = Brushes.Yellow;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P.IsVisible = true;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapCommunes.Polygons.Add(P);</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo = new List&lt;PointLatLng&gt;();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.93, 3.38));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.85, 3.38));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.85, 3.51));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.93, 3.51));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lpo.Add(new PointLatLng(50.93, 3.38));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P = new GMapPolygon(lpo, &quot;Wa&quot;);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P.Stroke = new Pen(Color.Red, 4);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P.Fill = Brushes.Yellow;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P.IsVisible = true;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapCommunes.Polygons.Add(P);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapCommunes.IsVisibile = true</p>\r\n<p><span style=\"font-size:x-small\"></p>\r\n<p>_MainMap.Overlays.Add(GMapCommunes);;</p>\r\n</span>\r\n<p></p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _MainMap.PolygonsEnabled = true;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;EDIT !</p>\r\n<p>Sorry finaly it works</p>\r\n<p>IBut my mistakes comes because there are no example ;-((</p>\r\n<p>My main mistakes were :</p>\r\n<p>1- Forget to check the properties of the polygon itself (Stroke and Fill)<br>\r\n2- Forget to add the layer to the Map</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"width:1px; height:1px; overflow:hidden; top:0px; left:-10000px\">\r\n&#65279;</div>\r\n",
+    "PostedDate": "2012-08-04T15:05:56.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895748",
+    "ThreadId": "390298",
+    "Html": "<p>There are enough examples in the demo. Just download it and check the code :-)</p>",
+    "PostedDate": "2012-08-05T10:30:40.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895760",
+    "ThreadId": "390298",
+    "Html": "<p>Thank You xandolpf</p>\r\n<p>Finaly I find by myself,</p>\r\n<p><br />But I'm using Gmap since a few month and I never find where to download a demo project<br />I'm learning by myself with tries and errors and finding some example by googeling</p>\r\n<p>If &nbsp;I go to the download folder of the current form it just an exe demo or the dll</p>\r\n<p>Also I was hoping to find the source code in an downloadable bundle on some svn : it was just hope</p>\r\n<p>﻿But I'm probably blind or stupid or both !</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-08-05T11:55:51.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895765",
+    "ThreadId": "390298",
+    "Html": "<p>indubitably, sir, indubitably ;}</p>",
+    "PostedDate": "2012-08-05T12:12:25.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895768",
+    "ThreadId": "390298",
+    "Html": "<pre>Try this :-)<br /><br /><br /><br />\r\n<p><img src=\"https://dl.dropbox.com/u/7026787/Screenshots/DownloadGMap.jpg\" alt=\"Gmap Download\" /></p>\r\n</pre>",
+    "PostedDate": "2012-08-05T12:18:47.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895782",
+    "ThreadId": "390298",
+    "Html": "<p>Sorry RadioMan<br />From the stupid blind ;-)</p>\r\n<p>But even without any documentation and example your Product is GREAT !</p>\r\n<p>Thank you Xandolph : I've tryied it several time but it was always cycling on the page<br />But as you conviced me that it may be another issue so&nbsp;I try it from Chrome not IE 8</p>\r\n<p>AND .... it works</p>\r\n<p>So this is an huge step ! : damned IE</p>\r\n<p>And where can I found the example : is it embedded in the sources ?</p>",
+    "PostedDate": "2012-08-05T12:43:26.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895783",
+    "ThreadId": "390298",
+    "Html": "<p>just launch project solution...</p>",
+    "PostedDate": "2012-08-05T12:50:49.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895784",
+    "ThreadId": "390298",
+    "Html": "<p>p.s. if you interested in robot landing on mars today live stream: <a href=\"http://mars.jpl.nasa.gov/msl/participate/\" target=\"_blank\">http://mars.jpl.nasa.gov/msl/participate/</a></p>",
+    "PostedDate": "2012-08-05T12:52:06.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895788",
+    "ThreadId": "390298",
+    "Html": "<p>Great</p>\r\n<p>Thank you RadioMan</p>",
+    "PostedDate": "2012-08-05T13:09:35.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

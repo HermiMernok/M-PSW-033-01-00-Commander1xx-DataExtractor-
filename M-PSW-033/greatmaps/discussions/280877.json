@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "703566",
+    "ThreadId": "280877",
+    "Html": "\r\n<p>not sure if it's normal, but all the public float Bearing in WPF is disabled?</p>\r\n",
+    "PostedDate": "2011-11-25T23:16:16.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703578",
+    "ThreadId": "280877",
+    "Html": "<p>rotation is out of sync this moment, wait or help to fix it ;}</p>",
+    "PostedDate": "2011-11-26T01:00:43.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703580",
+    "ThreadId": "280877",
+    "Html": "<p>oh, hmm okay, I'll try to help, but I'm not sure i'm at your level in C# :)</p>\r\n<p>it is out of sync in winform too?</p>",
+    "PostedDate": "2011-11-26T01:10:42.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703583",
+    "ThreadId": "280877",
+    "Html": "<p>yes ;} but there is no jitter on markers as you drag map, and 'level' in offset land doesn't matter, i don't know how they work exactly anyway ;} basically now render origin is very small, but there is compensation parameter, and when you start rotating it goes to kiber logic, need some time to experiment...</p>",
+    "PostedDate": "2011-11-26T01:23:53.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703756",
+    "ThreadId": "280877",
+    "Html": "<p>wow, hmm, I tried somestuff but I don't have any clue on this one, hope someone will find it</p>",
+    "PostedDate": "2011-11-26T22:34:04.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703804",
+    "ThreadId": "280877",
+    "Html": "<p>do you know a version was working well with the rotation and without theOutOfMemoryException ?</p>",
+    "PostedDate": "2011-11-27T03:18:02.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703831",
+    "ThreadId": "280877",
+    "Html": "<p>latest release</p>",
+    "PostedDate": "2011-11-27T04:37:44.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714608",
+    "ThreadId": "280877",
+    "Html": "<p>Hello Radioman,</p>\r\n<p>Thanks for the great component again. New features are amazing.</p>\r\n<p>Like you mentioned earlier on this post, It seems like that markers position goes out of sync when using bearing. Is there anyway I can help to fix the rotation problem? Do you know exactly in what part of the code the problem is?</p>",
+    "PostedDate": "2011-12-19T21:55:52.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714668",
+    "ThreadId": "280877",
+    "Html": "<p>..as you may know, i reconstructed internal coordinate system, it has to do with Core.<strong>compensationOffset...</strong></p>\r\n<p><strong>&nbsp;</strong></p>",
+    "PostedDate": "2011-12-20T00:50:09.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839491",
+    "ThreadId": "280877",
+    "Html": "<p>Hello, did someone find something for fix the bearing?</p>",
+    "PostedDate": "2012-05-22T09:48:18.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1263177",
+    "ThreadId": "280877",
+    "Html": "Are there any Updates on this Issue?\r<br />\n<br />\nI'd really like to use bearing in my Application and would appreciate if someone got this working.\r<br />\n<br />\nOtherwise i think i have to dig into it.<br />\n",
+    "PostedDate": "2014-07-07T02:05:37.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291118",
+    "ThreadId": "280877",
+    "Html": "AlexKr: Did you ever get this working?<br />\n<br />\nSomeone got it to work for winforms. Perhaps we could reverse engineer his changes to fix the WPF control? I would really like this fixed for wpf also.<br />\n<br />\n<a href=\"https://greatmaps.codeplex.com/workitem/16044\" rel=\"nofollow\">https://greatmaps.codeplex.com/workitem/16044</a><br />\n",
+    "PostedDate": "2014-08-18T10:01:33.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291375",
+    "ThreadId": "280877",
+    "Html": "Hey everyone, \r<br />\nI re-implemented map rotation for WPF and Winforms by using the logic posted above and it seems to work now! \r<br />\n<br />\nFor anyone looking for this fix, the clone URL is:\r<br />\n<a href=\"https://hg.codeplex.com/forks/tpittma2/fixbearingandmaprotation\" rel=\"nofollow\">https://hg.codeplex.com/forks/tpittma2/fixbearingandmaprotation</a>\r<br />\n<br />\nIf anyone finds and/or fixes any problems, please let me know and I'll update.<br />\n",
+    "PostedDate": "2014-08-19T08:07:24.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1341904",
+    "ThreadId": "280877",
+    "Html": "thanks!, i've committed your code<br />\n",
+    "PostedDate": "2015-01-14T11:44:18.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-14T11:49:05.413-08:00"
+  }
+]

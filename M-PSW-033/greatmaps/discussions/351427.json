@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "820751",
+    "ThreadId": "351427",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>Looking to staticimage.cs line 127:&nbsp;</p>\r\n<p>tile = GMaps.Instance.GetImageFrom(tp, p, info.Zoom, out ex) as WindowsFormsImage;</p>\r\n<p>I found it return null when zoom level set to 0. I'm using newest version of gmapnet. Am i missing something? Thank you in advanced</p>\r\n",
+    "PostedDate": "2012-04-06T02:50:57.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820827",
+    "ThreadId": "351427",
+    "Html": "<p>fixed, thanks</p>",
+    "PostedDate": "2012-04-06T07:05:47.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "820998",
+    "ThreadId": "351427",
+    "Html": "<p>Thank, it fixed. However i found another null value from another location and zoom level. Here are some location:</p>\r\n<p>1. Lon&nbsp;= 126.56056264720155, Lat =&nbsp;2.5064564770818833 at zoom level 6</p>\r\n<p>2. Lon =&nbsp;125.7380892668989, Lat =&nbsp;2.2326342326257986 at zoom level 6</p>\r\n<p>3. Lon =&nbsp;92.910914622707068, Lat =&nbsp;2.9322022751695798 at zoom level 5</p>\r\n<p>4. Lon =&nbsp;108.56273702902149, Lat =&nbsp;2.8213324378947604 at zoom level 5</p>\r\n<p>5. Lon =&nbsp;118.33125023707997, Lat =&nbsp;3.4865513025977108 at zoom level 5</p>\r\n<p>6. Lon =&nbsp;129.09881597484858, Lat =&nbsp;2.5995928163271103 at zoom level 5</p>\r\n<p>There is also occasionally error GDI+, what this error mean?</p>",
+    "PostedDate": "2012-04-06T19:32:03.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821071",
+    "ThreadId": "351427",
+    "Html": "<p>works fine to me</p>",
+    "PostedDate": "2012-04-07T02:35:58.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "821960",
+    "ThreadId": "351427",
+    "Html": "<p>OK, Thank.. Just miss a single line, now it work great</p>",
+    "PostedDate": "2012-04-10T06:42:09.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

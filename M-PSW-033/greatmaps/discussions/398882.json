@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "924916",
+    "ThreadId": "398882",
+    "Html": "\r\n<p>For those wanting a faster response out of thier secondary (or primary) MS SQL Server cache provider and have an a ppropriate version of SQL Server then the following script will allow for a faster tile lookup :<br>\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">CREATE</span> <span style=\"color:blue\">VIEW</span> [dbo].[GMAPNETcache_key]\r\n<span style=\"color:blue\">WITH</span> SCHEMABINDING \r\n<span style=\"color:blue\">AS</span>\r\n<span style=\"color:blue\">SELECT</span> <span style=\"color:blue\">Type</span>, Zoom, X, Y\r\n<span style=\"color:blue\">FROM</span>  dbo.GMapNETcache\r\nGO<br><span style=\"color:blue\">CREATE</span> <span style=\"color:blue\">UNIQUE</span> <span style=\"color:blue\">CLUSTERED</span> <span style=\"color:blue\">INDEX</span> [GMAPNETcache_key_UC] <span style=\"color:blue\">ON</span> [dbo].[GMAPNETcache_key] \r\n([Type] <span style=\"color:blue\">ASC</span>, [Zoom] <span style=\"color:blue\">ASC</span>, [X] <span style=\"color:blue\">ASC</span>, [Y] <span style=\"color:blue\">ASC</span>)\r\n<span style=\"color:blue\">WITH</span> (DATA_COMPRESSION = PAGE)\r\nGO\r\n\r\n</pre>\r\n</div>\r\nIf the script runs on your SQL instance (if you get errors it is more likely that your version does not support indexed views) then you will get a virtual lookup table that is efectively the same as an actual table from the perspective of the database engine\r\n and optimisation.\r\n<p></p>\r\n<p>This saves having to create a custom provider, stored procedures and tables to get better performance.</p>\r\n<p>If you want to be able to add in the timestamp data for the tiles then at the moment you have to write your own provider.....</p>\r\n",
+    "PostedDate": "2012-10-10T13:49:23.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "924928",
+    "ThreadId": "398882",
+    "Html": "<p>current provider adds tiles to database, it won't work with view, so just add index to the table</p>",
+    "PostedDate": "2012-10-10T14:07:53.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "924962",
+    "ThreadId": "398882",
+    "Html": "<p>Within SQL Server a clustered indexed view is visible to the base table from the optimisers perspective, when querying the underlying table.That is to say if you have (Table A) with a single key on Column 1 and no other indexes on the table and then create a schema bound indexed view (View 1) on the table using Column 2 the index on Column 2 would be available to the optimiser when you query (Table A). This works well for the SQL Server cache provider instance because the varbinary(max) column is dropped out of the secondary indexed view and the clustered index key lookup to see if a tile exist does not have to look in a 1GB+ table with 600,000+ tiles, rather a 14MB smaller keyset (reduced even more due to the page compression).</p>",
+    "PostedDate": "2012-10-10T15:58:13.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925202",
+    "ThreadId": "398882",
+    "Html": "\r\n<p>current definition is:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">CREATE</span> <span style=\"color:blue\">TABLE</span> [GMapNETcache] ( \n                     [Type] [int]   <span style=\"color:blue\">NOT</span> <span style=\"color:blue\">NULL</span>, \n                     [Zoom] [int]   <span style=\"color:blue\">NOT</span> <span style=\"color:blue\">NULL</span>, \n                     [X]    [int]   <span style=\"color:blue\">NOT</span> <span style=\"color:blue\">NULL</span>, \n                     [Y]    [int]   <span style=\"color:blue\">NOT</span> <span style=\"color:blue\">NULL</span>, \n                     [Tile] [image] <span style=\"color:blue\">NOT</span> <span style=\"color:blue\">NULL</span>, \n                     <span style=\"color:blue\">CONSTRAINT</span> [PK_GMapNETcache] <span style=\"color:blue\">PRIMARY</span> <span style=\"color:blue\">KEY</span> <span style=\"color:blue\">CLUSTERED</span> (<span style=\"color:blue\">Type</span>, Zoom, X, Y))</pre>\r\n</div>\r\n<p>do i need to add 'WITH (DATA_COMPRESSION = PAGE)' or it wont help?</p>\r\n",
+    "PostedDate": "2012-10-11T05:24:37.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925211",
+    "ThreadId": "398882",
+    "Html": "<p>..i can't test it myself in the moment, would be interesting to see the actual execution estimations from sql management studio for tile query, as i remember tile select triggers primary index and executes really fast</p>",
+    "PostedDate": "2012-10-11T05:41:56.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930543",
+    "ThreadId": "398882",
+    "Html": "<p>Use the default schema that is generated with the SQL provider and then run the first script to create the view. The create statement looks correct for the base table, although use varbinary(max) instead of image as MS are trying to drop support for the image type.</p>",
+    "PostedDate": "2012-10-22T09:15:12.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930577",
+    "ThreadId": "398882",
+    "Html": "<p>so is it faster or not ;} where is the evidence?</p>",
+    "PostedDate": "2012-10-22T09:47:55.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

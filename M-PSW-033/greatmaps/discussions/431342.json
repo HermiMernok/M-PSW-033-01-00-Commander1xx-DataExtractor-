@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "993924",
+    "ThreadId": "431342",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>thanks for this real great work.</p>\r\n<p>Just one problem. I am trying to display a route on a GMap and used the current version of Gmap.net.</p>\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"300\">\r\n<tbody>\r\n<tr>\r\n<td width=\"100\" valign=\"bottom\">\r\n<p><span style=\"font-size:13.5pt; color:#6a747e\">current</span></p>\r\n</td>\r\n<td width=\"200\" valign=\"bottom\">\r\n<p><span style=\"font-size:10pt; color:#253340\">1.6 - Power</span></p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td width=\"100\" valign=\"bottom\">\r\n<p><span style=\"font-size:13.5pt; color:#6a747e\">date</span></p>\r\n</td>\r\n<td width=\"200\" valign=\"bottom\">\r\n<p><span style=\"font-size:10pt; color:#253340\">Mon Oct 17, 2011 at 9:00 AM</span></p>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td width=\"100\" valign=\"bottom\">\r\n<p><span style=\"font-size:13.5pt; color:#6a747e\">status</span></p>\r\n</td>\r\n<td width=\"200\" valign=\"bottom\">\r\n<p><span style=\"font-size:10pt; color:#253340\">Stable</span></p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>&nbsp;</p>\r\n<p>But I can not find a definition for the<br>\r\nGMapProviders.GoogleMap.GetRoute(&hellip;) method to create the route.</p>\r\n<p>&nbsp;</p>\r\n<p>GetRouteBetweenPoints is working fine, but showing a straight route (air line) is not what I intended.</p>\r\n<p><span lang=\"EN-US\" style=\"font-size:9.5pt; color:#2b91af\">MapRoute</span><span lang=\"EN-US\" style=\"font-size:9.5pt\"> route =\r\n<span style=\"color:#2b91af\">GMapProviders</span>.GoogleMap.GetRouteBetweenPoints(home, target,\r\n<span style=\"color:blue\">false</span>, <span style=\"color:blue\">false</span>, (<span style=\"color:blue\">int</span>)gMapControl1.Zoom);</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:9.5pt; color:#2b91af\">GMapRoute</span><span lang=\"EN-US\" style=\"font-size:9.5pt\"> r =\r\n<span style=\"color:blue\">new</span> <span style=\"color:#2b91af\">GMapRoute</span>(route.Points,\r\n<span style=\"color:#a31515\">&quot;My Route&quot;</span>);</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:9.5pt; color:#2b91af\">GMapOverlay</span><span lang=\"EN-US\" style=\"font-size:9.5pt\"> overlayRoute =\r\n<span style=\"color:blue\">new</span> <span style=\"color:#2b91af\">GMapOverlay</span>(gMapControl1,\r\n<span style=\"color:#a31515\">&quot;overlayRoute&quot;</span>);</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:9.5pt\">overlayRoute.Routes.Add(r);</span></p>\r\n<p><span lang=\"EN-US\" style=\"font-size:9.5pt\">gMapControl1.Overlays.Add(overlayRoute);</span></p>\r\n<p>&nbsp;</p>\r\n<p>Thanks in advance.</p>\r\n<p>Steffen</p>\r\n",
+    "PostedDate": "2013-01-29T16:41:36.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994167",
+    "ThreadId": "431342",
+    "Html": "\r\n<p>try latest version</p>\r\n",
+    "PostedDate": "2013-01-30T07:03:16.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

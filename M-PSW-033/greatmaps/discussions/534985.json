@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1213990",
+    "ThreadId": "534985",
+    "Html": "I'm doing my own pre-fetch routine. One of the first things I do is get the tile list so I know what to fetch. But, as I'm sure you know, that call can take a very long time if the area is large.\r<br />\n<br />\nIs there a way to gracefully kill the call to that method? I have a cancel button in my UI but if it's sitting on that call then I can't cancel until the method has returned.<br />\n",
+    "PostedDate": "2014-02-24T13:37:39.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1215128",
+    "ThreadId": "534985",
+    "Html": "try call it in the background thread, you can modify the function to cancel it async<br />\n",
+    "PostedDate": "2014-02-26T05:50:32.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

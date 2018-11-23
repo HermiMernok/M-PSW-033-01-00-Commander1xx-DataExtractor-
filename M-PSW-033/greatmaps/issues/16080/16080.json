@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-03-23T01:17:26.877-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "As you can see in the picture below your releases contain 3 folders:\r\n\r\n![Image](http://i.imgur.com/HgaUIKj.png)\r\n\r\nWithin the v2.0 and v4.0 folders the GMap.NET.WindowsForms.dll is present:\r\n\r\n![Image](http://i.imgur.com/bM29uOc.png)\r\n\r\nThe file is missing from the v3.5 folder:\r\n\r\n![Image](http://i.imgur.com/ormyIgm.png)\r\n\r\nI tried to use the v2.0 version in my v3.5 project, but have run into issues:\r\n\r\n![Image](http://i.imgur.com/TPoW5xE.png)\r\n\r\n![Image](http://i.imgur.com/qyabk2Z.png)\r\n\r\nProject References:\r\n\r\n![Image](http://i.imgur.com/YVLN3Vm.png)\r\n\r\nIs there any reason this file isn't included in the v3.5 folder?  Am I doing something wrong?  Any help is appreciated.\r\n\r\nThanks\r\nCharles",
+    "LastUpdatedDate": "2015-03-23T01:17:26.877-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-09-23T11:57:47.323-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing GMap.NET.WindowsForms.dll",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 16080
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "analytics service was removed long ago, do you use latest version?",
+      "PostedDate": "2013-09-23T23:39:56.873-07:00",
+      "Id": 115447
+    },
+    {
+      "Message": "We are upgrading from 1.6 (Jan 2012 build).  Seems in doing so we have lost our controls, and gained the above errors.  Whenever I attempt to drag a new map control to the form in that project I get the SQLite error shown above.  I have the latest 1.7 build from 2013 (Hot Files list), though including the newer dlls seems to create this issue.  When restoring the original dll files the controls come back.  Any Idea on what the problem may be?",
+      "PostedDate": "2013-09-24T13:50:56.957-07:00",
+      "Id": 115536
+    },
+    {
+      "Message": "I've torn my project limb from limb removing references, modifying initialize component with that of another working (brand new) project, but nothing is fixing the issue.  I did see this though:\n\n__Instances Causing the Issue are:__\n\n![Image](http://i.imgur.com/5i7ayg9.png)\n\nI went through modifying Initialize Component hoping that it was just a control definition that was wrong, but apparently it's something a bit deeper than that.  I can verify the new dlls work in a brand new project, but upgrading the existing project is failing.  Not really sure on what to do from this point, but any help would be appreciated.",
+      "PostedDate": "2013-09-24T14:36:50.29-07:00",
+      "Id": 115545
+    },
+    {
+      "Message": "maybe you use old sqlite version",
+      "PostedDate": "2013-09-25T02:49:57.973-07:00",
+      "Id": 115594
+    }
+  ]
+}

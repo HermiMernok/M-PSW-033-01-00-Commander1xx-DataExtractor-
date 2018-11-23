@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1040977",
+    "ThreadId": "442986",
+    "Html": "First of all, big thanks for your great maps! 8)))<br />\nPlease, i need your help:<br />\nWhed adding new route in WPF (also in your example program) routes sometimes disappear from map... Can this cause of ZIndex? Or what? I noticed that the routes are poorly displayed when they cross each other. My opinion, this matters because of wrong &quot;z order&quot;. Maybe i'm doing something wrong?<br />\nMy code:<br />\n<pre><code>private List&lt;PointLatLng&gt; newRoutePoints = new List&lt;PointLatLng&gt;();\nprivate bool creatingNewRoute = false;\nvoid MainMap_MouseLeftButtonDown(object sender,System.Windows.Input.MouseButtonEventArgs e)\n        {\n            RoutingProvider rp = MainMap.MapProvider as RoutingProvider;\n            MapRoute r;\n\n            if (creatingNewRoute)\n            {\n                Point p = e.GetPosition(MainMap);\n                newRoutePoints.Add(MainMap.FromLocalToLatLng((int)p.X, (int)p.Y));\n                GMapMarker m = new GMapMarker(newRoutePoints.Last());\n\n                m.Shape = new CustomMarkerDemo(this, m, GetGeo(m.Position));\n                m.ZIndex = -2;\n                MainMap.Markers.Add(m);\n                //m.Shape\n                //MainMap.Markers.Remove()\n            }\n            else if (!creatingNewRoute &amp;&amp; newRoutePoints.Count &gt;= 2)\n            {\n                r = new MapRoute(newRoutePoints, textBoxNewRouteName.Text);\n         \n                GMapMarker mRoute = new GMapMarker(newRoutePoints[0]);\n                {\n                    mRoute.Route.AddRange(r.Points);\n                    mRoute.RegenerateRouteShape(MainMap);\n                    (mRoute.Shape as System.Windows.Shapes.Path).Stroke = new SolidColorBrush(ColorPicker1.SelectedColor);\n                    (mRoute.Shape as System.Windows.Shapes.Path).Width = 4;\n\n                    mRoute.RegenerateRouteShape(MainMap);\n                    mRoute.ZIndex = -1;\n                }\n                //MainMap.CreateRoutePath(newRoutePoints);\n                MainMap.Markers.Add(new GMapMarker(newRoutePoints.First()));\n                MainMap.Markers.Add(new GMapMarker(newRoutePoints.Last()));\n                MainMap.Markers.Add(mRoute);\n                newRoutePoints.Clear();\n            }\n            else\n            {\n                newRoutePoints.Clear();\n            }\n        }</code></pre>\n\n",
+    "PostedDate": "2013-05-08T10:55:25.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040986",
+    "ThreadId": "442986",
+    "Html": "you have the code, make it work ;}<br />\n",
+    "PostedDate": "2013-05-08T11:11:52.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040991",
+    "ThreadId": "442986",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nyou have the code, make it work ;}<br />\n</blockquote>\nSo, it's bug or feauture? ;)<br />\nDoes Windows Forms Gmap control more powerfull and stable, than WPF version?<br />\n",
+    "PostedDate": "2013-05-08T11:14:51.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1042707",
+    "ThreadId": "442986",
+    "Html": "This is correct code:<br />\n<pre><code>(mRoute.Shape as System.Windows.Shapes.Path).Stroke = new SolidColorBrush(ColorPicker1.SelectedColor);\n(mRoute.Shape as System.Windows.Shapes.Path).Stroke.Thickness= 4; // using Width is incorrect!</code></pre>\n\n",
+    "PostedDate": "2013-05-13T02:41:19.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

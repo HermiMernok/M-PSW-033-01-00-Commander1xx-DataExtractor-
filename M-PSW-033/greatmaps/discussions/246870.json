@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "569464",
+    "ThreadId": "246870",
+    "Html": "\r\n<p>First of all, thanks for the great thing that is called GMap.NET! :)</p>\r\n<p>So I have been toying around with it a bit and so far really liked it! However, I would need to use only locally stored maptiles for this one project that has to work even without an internet connection. I looked around a bit in the code and so far I've\r\n changed the MakeImageUrl -method (to generate URI pointing at a the local files instead). Then, however, I checked from where this was called and realized it wasn't quite that simple.</p>\r\n<p>So basically, what should I do in order to use my locally stored files (under &lt;the folder that contains the binary&gt;/&lt;zoomLevel&gt;/&lt;X&gt;/&lt;Y&gt;.png)? I only have the files for zoom levels 0-5 anyways, and that's all I need. Now I just need\r\n to figure out how to use them :)</p>\r\n",
+    "PostedDate": "2011-02-20T23:59:39.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569542",
+    "ThreadId": "246870",
+    "Html": "<p>I have a win forms app the does</p>\r\n<p>GMaps.Instance.Mode = AccessMode.CacheOnly;&nbsp;&nbsp; or&nbsp;&nbsp; GMaps.Instance.Mode = AccessMode.ServerAndCache;</p>\r\n<p>in its initialisation based on saved settings. I tried running it with my network disabled and it works fine in CacheOnly mode,&nbsp;except that message \"No internet connection available, going to CacheOnly mode.\" is displayed. Maybe this message should not be displayed it it is already in CacheOnly mode.<br />&nbsp;<br />Remeber&nbsp;to&nbsp;fill the cache database with all the all the data you will want when running in CacheOnly mode&nbsp;without getting blacklisted becase you downloaded too much.&nbsp;&nbsp;&nbsp;</p>",
+    "PostedDate": "2011-02-21T04:02:35.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

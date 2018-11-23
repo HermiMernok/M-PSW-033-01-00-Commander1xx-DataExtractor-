@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1417828",
+    "ThreadId": "632938",
+    "Html": "Hey Radioman,<br />\n<br />\nthanks again for all the good work and your time to answer so many questions on this site!<br />\n<br />\nI was wondering if there is an implemented method to bind a marker to a route.<br />\nSo when I drag the marker, the route or the polygon will update as well.<br />\n<br />\nIf not, what would be the best approach to bind the marker to a route or polygon?<br />\nShould I create a class for with all the markers and each marker somehow related to a route?<br />\n<br />\n...<br />\n<br />\nOh, while writing I thought, that I could just keep the marker order and draw a new polygon when marker moved...<br />\n<br />\nor is there a different way?<br />\n<br />\n<br />\nThanks in advance!<br />\n<br />\nHere some pictures for my problem:<br />\n<br />\n<a href=\"http://www.bilder-upload.eu/show.php?file=ea570d-1429950329.png\" rel=\"nofollow\">http://www.bilder-upload.eu/show.php?file=ea570d-1429950329.png</a><br />\n<br />\n<a href=\"http://www.bilder-upload.eu/show.php?file=6f2394-1429950734.png\" rel=\"nofollow\">http://www.bilder-upload.eu/show.php?file=6f2394-1429950734.png</a><br />\n<br />\n<a href=\"http://www.bilder-upload.eu/show.php?file=d84f4a-1429950753.png\" rel=\"nofollow\">http://www.bilder-upload.eu/show.php?file=d84f4a-1429950753.png</a><br />\n",
+    "PostedDate": "2015-04-25T01:24:59.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1417843",
+    "ThreadId": "632938",
+    "Html": "okay, now I tried the polygon update but when I drag my mouse a little faster, the mouse gets dragged out of the marker and looses it.<br />\nIs it because the redraw takes to long? Do you know a more efficient way doing this?:<br />\n<pre><code>private void onMouseMoveEvent(object sender, System.Windows.Input.MouseEventArgs e)\n       {\n           if (e.LeftButton == MouseButtonState.Pressed)\n           {\n\n               // Get Point from gmap \n               System.Windows.Point p = e.GetPosition(_gmap);\n\n               // Get Latitude and Longitude from local map coordinates\n               double lat = _gmap.FromLocalToLatLng((int)p.X, (int)p.Y).Lat;\n               double lng = _gmap.FromLocalToLatLng((int)p.X, (int)p.Y).Lng;\n               PointLatLng pll = new PointLatLng(lat,lng);\n                \n               // name of Marker\n               int name = int.Parse(((TextBlock)sender).Text);\n               \n               // Update Marker and Polygon\n               Globals.marker[name - 1].Position = pll;\n               Globals.polygon[name - 1] = pll;\n\n               // Own Polygon Class\n               Polygon currentPolygon = new Polygon(Globals.polygon, _gmap);\n               \n               // Clear all markers, add, polygon and add markers again\n               _gmap.Markers.Clear();\n               _gmap.Markers.Add(currentPolygon.gmapPolygon);\n               addMarker();\n\n               currentPolygon._gmapPolygon.RegenerateShape(_gmap);\n           }\n       }\n\n       private void addMarker()\n       {\n           for (int k = 0; k &lt; Globals.marker.Count; kpp)\n           {\n               _gmap.Markers.Add(Globals.marker[k]);               \n           }\n       }</code></pre>\n\n",
+    "PostedDate": "2015-04-25T01:43:40.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1418444",
+    "ThreadId": "632938",
+    "Html": "Define fields: bool moveMarker, GMapMarker activeMarker.\r<br />\n<br />\nUse this code as aguideline:<br />\n<pre><code>\n        internal void MarkerLeave(Marker marker)\n        {\n            if (false == bMoveMarker)\n            {\n                activeMarker = null;\n            }\n        }\n\n        internal void MarkerEnter(Marker marker)\n        {\n            if (false == bMoveMarker)\n            {\n                activeMarker = marker;\n            }\n        }\n\n        \n        internal void MouseDown(MouseEventArgs e)\n        {\n            if (e.Button == System.Windows.Forms.MouseButtons.Left &amp;&amp; mainManager.Map.IsMouseOverMarker &amp;&amp; null != activeMarker)\n            {\n                bMoveMarker = true;\n            }\n        }\n\n        internal void MouseMove(System.Windows.Forms.MouseEventArgs e)\n        {\n            if (e.Button == System.Windows.Forms.MouseButtons.Left &amp;&amp; bMoveMarker)\n            {\n                mainManager.Map.HoldInvalidation = true;\n\n                var prevPos = activeMarker.Position;\n\n                activeMarker.Position = mainManager.Map.FromLocalToWebMercator(e.X, e.Y);\n\n                //Set correct position of polygon point:\n\n                for (int i = 0; i &lt; polyline.Points.Count; i++)\n                {\n                    if (polyline.Points[i].Equals(prevPos))\n                    {\n                        polyline.Points[i] = activeMarker.Position;\n                        break;\n                    }\n                }\n                mainManager.Map.UpdateRouteLocalPosition(polyline);\n\n                mainManager.Map.Refresh();\n            }\n        }\n\n        internal void MouseUp(MouseEventArgs e)\n        {\n            if (e.Button == System.Windows.Forms.MouseButtons.Left &amp;&amp; bMoveMarker)\n            {\n                bMoveMarker = false;\n                if (!activeMarker.IsMouseOver)\n                {\n                    activeMarker = null;\n                }\n            }            \n        }</code></pre>\n\n",
+    "PostedDate": "2015-04-26T02:43:48.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-04-26T23:31:30.123-07:00"
+  },
+  {
+    "Id": "1419028",
+    "ThreadId": "632938",
+    "Html": "Hey Xandolph,<br />\n<br />\nthanks for your reply!<br />\n<br />\nAll that makes sense but where do I implement these methods when using a custom marker?<br />\nWhen using:<br />\n<pre><code>internal void MarkerEnter(Marker marker)\n        {\n            if (false == bMoveMarker)\n            {\n                activeMarker = marker;\n            }\n        }</code></pre>\n\nwhere do I get the &quot;marker&quot; from? Do I get it from the &quot;sender&quot; object?<br />\nAnd where do I get the &quot;mainManager.Map.IsMouseOverMarker&quot;?<br />\n<br />\nSorry but this is all quite new to me =)<br />\n",
+    "PostedDate": "2015-04-27T07:34:58.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1419048",
+    "ThreadId": "632938",
+    "Html": "Hi!<br />\n<br />\nJust handle the OnMarkerEnter, OnMarkerLeave etc.. events of the GMapControl:<br />\n<pre><code> this.map.OnMarkerEnter += new GMap.NET.WindowsForms.MarkerEnter(this.map_OnMarkerEnter);</code></pre>\n\nThen cast the GMapMarker of the event handler to your custom marker:<br />\n<pre><code> private void map_OnMarkerEnter(GMap.NET.WindowsForms.GMapMarker item)\n        {\n            switch (MapInteractionMode)\n            {\n                case MapMode.None:\n                case MapMode.PDF:\n                    if (item is PegelMarker)\n                    {\n                        PegelMarkerEnter((PegelMarker)item);\n                    }\n                    else if (item is Kraftwerk.KraftwerkMarker)\n                    {\n                        KraftwerMarkerEnter((Kraftwerk.KraftwerkMarker)item);\n                    }\n                    break;\n                case MapMode.EditFahrrinne:\n                    if (item is FahrrinneMarker)\n                    {\n                        FahrinneMarkerEnter((FahrrinneMarker)item);\n                    }\n                    break;\n                case MapMode.QuerprofilSelection:\n                    if (item is QPMarker)\n                    {\n                        mainManager.QuerProfilManager.QPMarkerEnter((QPMarker)item);\n                    }\n                    break;\n            }\n}</code></pre>\n\n",
+    "PostedDate": "2015-04-27T07:44:10.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1419050",
+    "ThreadId": "632938",
+    "Html": "ah sorry, should have said that I'm using WPF.\r<br />\nHow do I implement the event handler with WPF?<br />\n",
+    "PostedDate": "2015-04-27T07:49:26.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1419063",
+    "ThreadId": "632938",
+    "Html": "Sorry, can't help you there,  I only use Windows Forms...<br />\n",
+    "PostedDate": "2015-04-27T08:05:28.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

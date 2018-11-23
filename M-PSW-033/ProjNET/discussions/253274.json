@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "594798",
+    "ThreadId": "253274",
+    "Html": "\r\n<p>Is there a function in this library that converts long lat to Mercator? Something like this function:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>            <span style=\"color:blue\">private</span> Point Mercator(<span style=\"color:blue\">double</span> lon, <span style=\"color:blue\">double</span> lat) {\r\n                <span style=\"color:green\">/* spherical mercator for Google, VE, Yahoo etc\r\n                 * epsg:900913 R= 6378137\r\n                 * x = long\r\n                 * y= R*ln(tan(pi/4 &#43;lat/2)\r\n                 */</span>\r\n                <span style=\"color:blue\">double</span> x = 6378137.0 * Math.PI / 180.0 * lon;\r\n                <span style=\"color:blue\">double</span> y = 6378137.0 * Math.Log(Math.Tan(Math.PI / 180 * (45 &#43; lat / 2.0)));\r\n                <span style=\"color:blue\">return</span> <span style=\"color:blue\">new</span> Point(x, y);\r\n            }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-04-09T21:45:17.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "594846",
+    "ThreadId": "253274",
+    "Html": "<p><a href=\"http://projnet.codeplex.com/wikipage?title=CreateProjection&amp;referringTitle=FAQ\">http://projnet.codeplex.com/wikipage?title=CreateProjection&amp;referringTitle=FAQ</a>&nbsp;as usual</p>",
+    "PostedDate": "2011-04-10T04:37:31.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

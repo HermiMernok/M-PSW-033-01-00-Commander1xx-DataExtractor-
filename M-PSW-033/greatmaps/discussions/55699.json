@@ -1,0 +1,298 @@
+[
+  {
+    "Id": "188095",
+    "ThreadId": "55699",
+    "Html": "<p>Hi,</p>\r\n<p>I use GMap in my WPF application but I don't know how add marker and create route in maps. Can you help mi ? It is very important for mi.</p>",
+    "PostedDate": "2009-05-08T06:01:34.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188170",
+    "ThreadId": "55699",
+    "Html": "<p>wpf version isn't complete yet, but you can manualy add shapes, draw routes to canvas</p>",
+    "PostedDate": "2009-05-08T08:46:22.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188178",
+    "ThreadId": "55699",
+    "Html": "<p>Can You tell mi how I add routes in canvas ?</p>\r\n<p>It is very important for mi because I wrote main project for study.</p>\r\n<p>Maby I Can help You and together complete faster ?</p>",
+    "PostedDate": "2009-05-08T09:04:16.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188181",
+    "ThreadId": "55699",
+    "Html": "<p>maybe, but why you want to use wpf version instead windows forms?</p>",
+    "PostedDate": "2009-05-08T09:07:06.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188192",
+    "ThreadId": "55699",
+    "Html": "<p>I start wrote my application before I find yours greate application, and WPF application is look better. WPF is future ;)</p>\r\n<p>Can You tell mi how I add some point to map if I have <span style=\"color:#2b91af;font-size:small\"><span style=\"color:#2b91af;font-size:small\">PointLatLng ?</span></span></p>\r\n<p>How You calculate scale ?</p>\r\n<p><span style=\"color:#2b91af;font-size:small\"></span></p>",
+    "PostedDate": "2009-05-08T09:19:09.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188199",
+    "ThreadId": "55699",
+    "Html": "<p>i see, i like some wpf features too! If you noticed wpf demo is with with testing markers, i wanna to make object list thread safe, but with wpf visible objects there is problem, any ideas?</p>",
+    "PostedDate": "2009-05-08T09:36:26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188206",
+    "ThreadId": "55699",
+    "Html": "<p>I found code with add circle (metod worker_DoWork) and it worker for mi. I comment this metod and tray to add marker. I comment line <span style=\"color:#008000;font-size:small\"><span style=\"color:#008000;font-size:small\">\r\n<p>this.ItemsSource = Objects</p>\r\n</span></span></p>\r\n<p>and if&nbsp;add marker I add</p>\r\n<p><span style=\"color:#2b91af;font-size:small\"><span style=\"color:#2b91af;font-size:small\">GMapMarkerCross</span></span><span style=\"font-size:small\"> c = </span><span style=\"color:#0000ff;font-size:small\"><span style=\"color:#0000ff;font-size:small\">new</span></span><span style=\"font-size:small\"> </span><span style=\"color:#2b91af;font-size:small\"><span style=\"color:#2b91af;font-size:small\">GMapMarkerCross</span></span><span style=\"font-size:small\">(</span><span style=\"color:#0000ff;font-size:small\"><span style=\"color:#0000ff;font-size:small\">this</span></span><span style=\"font-size:small\">);</span></p>\r\n<p><span style=\"font-size:small\">CurrentMarker = c;</span>Marker show mi but I don't know how add another marker and how scale it.</p>\r\n<p>\r\n<p><span style=\"font-size:small\">AddMarker(CurrentMarker);</span></p>\r\n</p>\r\n<p><span style=\"font-size:small\">and in metod <span style=\"font-size:small\">GMap_Loaded </span></span><span style=\"font-size:small\"><span style=\"font-size:small\">wrote</span></span></p>\r\n<p><span style=\"font-size:small\"><span style=\"font-size:small\"><span style=\"font-size:small\">\r\n<p>Core.StartSystem();</p>\r\n</span>\r\n<p><span style=\"color:#0000ff;font-size:small\"><span style=\"color:#0000ff;font-size:small\">this</span></span><span style=\"font-size:small\">.Items.Add(Canvas);\r\n<p>worker.RunWorkerAsync();</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n</span>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p>\r\n<p>&nbsp;</p>\r\n</p>",
+    "PostedDate": "2009-05-08T09:50:37.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188235",
+    "ThreadId": "55699",
+    "Html": "<p>markers done! enjoy :}</p>\r\n<p>p.s. routes are comming soon &quot;_^</p>",
+    "PostedDate": "2009-05-08T11:15:59.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188388",
+    "ThreadId": "55699",
+    "Html": "<p>&nbsp;Thank, thank, big thanks for You ;)&nbsp;</p>\r\n<p style=\"margin:0in;font-family:Calibri;font-size:11pt\">I saw you changes and I improved icon for markers. I created object with look similarly to google markers. Insite object I create events MouseEnter and MouseLeave.</p>\r\n<p style=\"margin:0in;font-family:Calibri;font-size:11pt\">&nbsp;</p>\r\n<p style=\"margin:0in;font-family:Calibri;font-size:11pt\">How show You my changes ?</p>\r\n<p style=\"margin:0in;font-family:Calibri;font-size:11pt\">&nbsp;</p>\r\n<p style=\"margin:0in;font-family:Calibri;font-size:11pt\">How I can help you about routes ??</p>",
+    "PostedDate": "2009-05-09T00:56:28.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188401",
+    "ThreadId": "55699",
+    "Html": "<p>if you create or fix something just upload a patch and i'll try to&nbsp;<span>realize</span>&nbsp;it</p>",
+    "PostedDate": "2009-05-09T02:21:01.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188403",
+    "ThreadId": "55699",
+    "Html": "<p>I added my path. Can You look if is ok ? Today I'm improving demo. Add case to add more markers in map.</p>",
+    "PostedDate": "2009-05-09T02:35:32.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188404",
+    "ThreadId": "55699",
+    "Html": "<p>i'm exploring it right now</p>",
+    "PostedDate": "2009-05-09T02:37:25.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188472",
+    "ThreadId": "55699",
+    "Html": "<p>I have one question for You.</p>\r\n<p>Can You tell mi When You planing end a rote ?? This function is very very important for mi. Please ;)</p>",
+    "PostedDate": "2009-05-09T10:06:08.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188475",
+    "ThreadId": "55699",
+    "Html": "<p>;} if it relly is, you can make it yourself, else wait some week or two... ;}</p>",
+    "PostedDate": "2009-05-09T10:19:14.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188478",
+    "ThreadId": "55699",
+    "Html": "<p>I was trying but I don't know how add another object list (route list) to itemSource&nbsp;</p>\r\n<p>\r\n<p><span style=\"color:#0000ff;font-size:small\"><span style=\"color:#0000ff;font-size:small\">this</span></span><span style=\"font-size:small\">.ItemsSource = Markers; </span></p>\r\n<p>Big please</p>\r\n</p>",
+    "PostedDate": "2009-05-09T10:32:11.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188480",
+    "ThreadId": "55699",
+    "Html": "<p>marker and routes are different stuff</p>",
+    "PostedDate": "2009-05-09T10:38:37.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188481",
+    "ThreadId": "55699",
+    "Html": "<p>I know but I don't know how add trace to map object :(&nbsp;</p>\r\n<p>I have point for trace between two point and .... I don't now how show this trace in map :(</p>",
+    "PostedDate": "2009-05-09T10:44:54.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188482",
+    "ThreadId": "55699",
+    "Html": "<p>programming is learning how to do unknow things or waiting for new release ;}</p>",
+    "PostedDate": "2009-05-09T10:46:29.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188483",
+    "ThreadId": "55699",
+    "Html": "<p>please, wrote new release in this working week</p>",
+    "PostedDate": "2009-05-09T10:51:44.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188488",
+    "ThreadId": "55699",
+    "Html": "<p>hi radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>i think i have a similar question.&nbsp; i am using the control in to track vehicles, i would like a way of displaying a 'snail-trail'&nbsp; of the route.&nbsp; it is possible for me to build a route object?&nbsp; i have lists of all the long/lat co-ords and wonder if the route object is simply a collection of these?.</p>\r\n<p>also, i looked at your demo of the WPF screen, it looks interesting, may i ask what the application is you are developing ?</p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>",
+    "PostedDate": "2009-05-09T11:11:53.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188489",
+    "ThreadId": "55699",
+    "Html": "<p>some vehicle tracking application for my company, so as you see routing is working, just need to include some stuff in wpf control</p>",
+    "PostedDate": "2009-05-09T11:16:12.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188490",
+    "ThreadId": "55699",
+    "Html": "<p>now, two peopel waiting for new release ;)</p>",
+    "PostedDate": "2009-05-09T11:16:41.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188495",
+    "ThreadId": "55699",
+    "Html": "<p>well i am using WinForms..&nbsp; pls , how do i construct a route object ? what elements are required.&nbsp; what you are doing is exacly what i need to do also,</p>\r\n<p>&nbsp;</p>\r\n<p>thanks,</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-09T12:13:18.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188496",
+    "ThreadId": "55699",
+    "Html": "<p>there is perfect example in demo, &quot;Add route&quot; button event</p>",
+    "PostedDate": "2009-05-09T12:14:51.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188497",
+    "ThreadId": "55699",
+    "Html": "<p>right thanks,&nbsp; i also just thought,&nbsp; since we have the source code, then i can just see exactly how you plot the route.</p>\r\n<p>thanks again,</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-09T12:23:26.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188499",
+    "ThreadId": "55699",
+    "Html": "<p>yeah, you can even oweride that function if you want draw yourself</p>",
+    "PostedDate": "2009-05-09T12:25:58.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189707",
+    "ThreadId": "55699",
+    "Html": "<p>manual route creation:</p>\r\n<p>\r\n<p>internal Path CreateRoute(List&lt;System.Windows.Point&gt; pl)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp;{</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; // Create a path to draw a geometry with.</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; Path myPath = new Path();</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.Stroke = Brushes.Navy;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.StrokeThickness = 5;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.StrokeLineJoin = PenLineJoin.Round;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.StrokeStartLineCap = PenLineCap.Triangle;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.StrokeEndLineCap = PenLineCap.Square;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.Opacity = 0.6;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; // Create a StreamGeometry to use to specify myPath.</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; StreamGeometry geometry = new StreamGeometry();</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; using(StreamGeometryContext ctx = geometry.Open())</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctx.BeginFigure(pl[0], false, false);</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Draw a line to the next specified point.</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ctx.PolyLineTo(pl, true, true);</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; // Freeze the geometry (make it unmodifiable)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; // for additional performance benefits.</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; geometry.Freeze();</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; // Specify the shape of the Path using the StreamGeometry.</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.Data = geometry;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; BlurEffect ef = new BlurEffect();</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ef.KernelType = KernelType.Gaussian;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ef.Radius = 3.0;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ef.RenderingBias = RenderingBias.Quality;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; }</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; myPath.Effect = ef;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; return myPath;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp;}</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp;internal void SetNewRoute(bool Direction, int ScheduleName)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp;{</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; MainMap.Markers.Remove(currentRoute);</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; lock(Trasos)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;List&lt;System.Windows.Point&gt; pl = new List&lt;System.Windows.Point&gt;();</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var tt = from p in Trasos</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; where p.Direction == Direction &amp;&amp; p.ScheduleName == ScheduleName</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; select p;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var first = tt.FirstOrDefault();</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(first != null)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; currentRoute = null;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; currentRoute = new GMapMarker(MainMap, new PointLatLng(first.Lat, first.Lng));</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var pp = MainMap.FromLatLngToLocal(new PointLatLng(first.Lat, first.Lng));</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foreach(var i in tt)</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var p = MainMap.FromLatLngToLocal(new PointLatLng(i.Lat, i.Lng));</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pl.Add(new System.Windows.Point(p.X - pp.X, p.Y-pp.Y));</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var rt = CreateRoute(pl); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; currentRoute.Shape = rt;&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; }</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; MainMap.Markers.Add(currentRoute);</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; currentDirection = Direction;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; currentScheduleName = ScheduleName;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp;}</p>\r\n</p>",
+    "PostedDate": "2009-05-13T05:21:02.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189800",
+    "ThreadId": "55699",
+    "Html": "<p>Hi radioman</p>\r\n<p>Did you do something about route in WPF ?</p>",
+    "PostedDate": "2009-05-13T08:37:48.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189839",
+    "ThreadId": "55699",
+    "Html": "<p>you can add route as marker</p>",
+    "PostedDate": "2009-05-13T09:46:57.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189856",
+    "ThreadId": "55699",
+    "Html": "<p>I think this solution, is it good way ? I thinking about I create a new shape for markers (it is route) and add in ItemSource. All object is in one sack. What do you think about this metod ?</p>",
+    "PostedDate": "2009-05-13T10:26:04.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189857",
+    "ThreadId": "55699",
+    "Html": "<p>yes, thats what i've tryed to explain ;}</p>",
+    "PostedDate": "2009-05-13T10:28:23.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189865",
+    "ThreadId": "55699",
+    "Html": "<p>Ok, I do it in this week. Thanks ;)</p>",
+    "PostedDate": "2009-05-13T10:59:14.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189866",
+    "ThreadId": "55699",
+    "Html": "<p>i'll do it in 30minutes for demo ;}</p>",
+    "PostedDate": "2009-05-13T11:00:33.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189876",
+    "ThreadId": "55699",
+    "Html": "<p>You are very faster programmer ;)</p>",
+    "PostedDate": "2009-05-13T11:12:57.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189887",
+    "ThreadId": "55699",
+    "Html": "<p>done! ;} thx</p>",
+    "PostedDate": "2009-05-13T11:43:33.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189901",
+    "ThreadId": "55699",
+    "Html": "<p>thank very much</p>",
+    "PostedDate": "2009-05-13T12:25:14.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189906",
+    "ThreadId": "55699",
+    "Html": "<p>welcome! ;}</p>",
+    "PostedDate": "2009-05-13T12:37:51.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

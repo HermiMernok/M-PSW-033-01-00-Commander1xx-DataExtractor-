@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1031901",
+    "ThreadId": "440631",
+    "Html": "Hello,\r<br />\n<br />\nSerializeOverlays Triggers an error:\r<br />\n<br />\n...type GMapMarker_Custom is not marked serializable...\r<br />\n<br />\nFor GMapMarker_Custom i used the source provided here. How do i get this serializable?<br />\n",
+    "PostedDate": "2013-04-17T08:55:20.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031931",
+    "ThreadId": "440631",
+    "Html": "mark it as serializable and implement serialize functions, just like demo markers<br />\n",
+    "PostedDate": "2013-04-17T09:56:46.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1032440",
+    "ThreadId": "440631",
+    "Html": "Hi Radioman,\r<br />\n<br />\nnever serialized any classes before(-;), but it seems to work so far. No errors are thrown. SerializeOverlays writes data in a stream, DeserializeOverlays is processed with no error.\r<br />\n<br />\nBUT after 'DeserializeOverlays' the GMap-Control shows a red cross on a white background.\r<br />\n<br />\nAny idea?<br />\n",
+    "PostedDate": "2013-04-18T06:39:39.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

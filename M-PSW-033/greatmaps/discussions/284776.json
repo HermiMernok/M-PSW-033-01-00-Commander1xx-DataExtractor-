@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "719638",
+    "ThreadId": "284776",
+    "Html": "<div style=\"background-color: white; color: black;\">Hi Radioman, GMAPS is getting better and better, maybe i'll start contributing from a GIS position, if you feel its needed. I noted Paul Meems comments regarding Dot Spacial and can see the releveance between the projects. For those followers who have had questions regarding GIS Shapefiles and its use, i have included a sub that extracts data from the raw shapefile and plots it on the GMAP control. I'm using the Catfood class which can be found here\n<pre><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><p><a href=\"http://www.catfood.net/\">http://www.catfood.net</a></p><p><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\">&nbsp;</span></span></span></p></span></span></span></pre>\nI am working on a class that provides wizard functionality for selecting and extracting data from generic shapefiles, and will look at how that can be forked into GMAP. Note: Reading data from shapefiles can be slow expecially when there are many shapes with many points. The class i am currently looking at will provide functionality for storing the shape metadata in a data file with the related geo points to enable faster drawing of converted shapefiles.SEE SUB LOADSHAPEFILE BELOW\n<pre><span style=\"color: green;\">''' &lt;summary&gt;</span>\r\n    <span style=\"color: green;\">''' Extracts Polygon Points for each barangay in the Selected Municipality passed as String</span>\r\n    <span style=\"color: green;\">''' &lt;/summary&gt;</span>\r\n    <span style=\"color: green;\">''' &lt;param name=\"ShapeMunicipality\"&gt;The selected Municipality Name as Text String&lt;/param&gt;    </span>\r\n    <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Sub</span> LoadShapfile(<span style=\"color: blue;\">ByVal</span> ShapeMunicipality <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>)\r\n        Application.DoEvents()\r\n        <span style=\"color: blue;\">Dim</span> myshapefile <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> Shapefile\r\n        <span style=\"color: blue;\">Dim</span> mypoly <span style=\"color: blue;\">As</span> ShapePolygon\r\n        <span style=\"color: blue;\">Dim</span> ESRIShapepolylat <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Double</span>\r\n        <span style=\"color: blue;\">Dim</span> ESRIShapepolylong <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Double</span>\r\n        <span style=\"color: blue;\">Dim</span> ESRIPolyCount <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span>\r\n        <span style=\"color: blue;\">Dim</span> ESRIShapeName <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>\r\n        <span style=\"color: blue;\">Dim</span> ESRIProvince <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>\r\n        <span style=\"color: blue;\">Dim</span> ESRIMunName <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span>\r\n        <span style=\"color: blue;\">Dim</span> myshapelinecolor <span style=\"color: blue;\">As</span> System.Drawing.Color\r\n        <span style=\"color: blue;\">Dim</span> myshapebrushcolor <span style=\"color: blue;\">As</span> System.Drawing.Brush\r\n        <span style=\"color: blue;\">Dim</span> ESRIShapePolygon <span style=\"color: blue;\">As</span> GMapPolygon\r\n        <span style=\"color: blue;\">Dim</span> ESRIShapeOverlay = <span style=\"color: blue;\">New</span> GMapOverlay(GMapControl2, <span style=\"color: #a31515;\">\"Barangay Shapes\"</span>)\r\n        GMapControl2.Overlays.Add(ESRIShapeOverlay)\r\n        ESRIShapeOverlay.Polygons.Clear()\r\n        <span style=\"color: green;\">' Open the selected shapefile</span>\r\n        myshapefile.Open(System.IO.Directory.GetCurrentDirectory &amp; <span style=\"color: #a31515;\">\"\\GIS Maps\\barangays_reprojected.shp\"</span>)\r\n\r\n        <span style=\"color: green;\">' Shape File may contain many shapes</span>\r\n        <span style=\"color: green;\">' Loop through the shapes in the shapefile retrieving the metadata for each shape</span>\r\n        <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> Shapes <span style=\"color: blue;\">In</span> myshapefile\r\n\r\n            mypoly = myshapefile.Current\r\n            ESRIShapeName = mypoly.GetMetadata(<span style=\"color: #a31515;\">\"NAME_3\"</span>)\r\n            ESRIProvince = mypoly.GetMetadata(<span style=\"color: #a31515;\">\"NAME_1\"</span>)\r\n            ESRIMunName = mypoly.GetMetadata(<span style=\"color: #a31515;\">\"NAME_2\"</span>)\r\n\r\n            <span style=\"color: blue;\">If</span> ESRIMunName.ToUpper &lt;&gt; Trim(ShapeMunicipality) <span style=\"color: blue;\">Then</span>\r\n                <span style=\"color: blue;\">GoTo</span> selectedmunicipalnotfound\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n            <span style=\"color: green;\">' For each shapefile in the shape, extract the latitude, longitude</span>\r\n            <span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> coord <span style=\"color: blue;\">In</span> mypoly.Parts\r\n                ESRIPolyCount = coord.<span style=\"color: blue;\">Count</span>()\r\n                <span style=\"color: blue;\">Try</span>\r\n                    <span style=\"color: blue;\">For</span> i = 0 <span style=\"color: blue;\">To</span> ESRIPolyCount - 1\r\n\r\n                        ESRIShapepolylat = Format(coord.ElementAt(i).Y, <span style=\"color: #a31515;\">\"###.######\"</span>) <span style=\"color: green;\">' Lat and long values reveresed</span>\r\n                        ESRIShapepolylong = Format(coord.ElementAt(i).X, <span style=\"color: #a31515;\">\"###.######\"</span>) <span style=\"color: green;\">' Reveresed in Shapefile</span>\r\n                        <span style=\"color: green;\">' Add the extracted lat,lng to a Generic List of PointLatLng</span>\r\n                        ESRIpolygonPoints.Add(<span style=\"color: blue;\">New</span> GMap.NET.PointLatLng(ESRIShapepolylat, ESRIShapepolylong))\r\n\r\n                    <span style=\"color: blue;\">Next</span> <span style=\"color: green;\">' Loop to next lat,lng coordinates</span>\r\n                <span style=\"color: blue;\">Catch</span> ex <span style=\"color: blue;\">As</span> IndexOutOfRangeException <span style=\"color: green;\">' Catch index out of range exception</span>\r\n                    MessageBox.Show(ex.Message)\r\n                <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Try</span>\r\n                <span style=\"color: green;\">' Draw the polygonshape for the shapefile just iterated</span>\r\n                ESRIShapePolygon = <span style=\"color: blue;\">New</span> GMapPolygon(ESRIpolygonPoints, <span style=\"color: #a31515;\">\"Shapes\"</span>)\r\n                ESRIShapePolygon.Tag = ESRIShapeName\r\n\r\n                myshapelinecolor = System.Drawing.Color.FromArgb(100, System.Drawing.Color.Black)\r\n                myshapebrushcolor = <span style=\"color: blue;\">New</span> SolidBrush(System.Drawing.Color.FromArgb(25, System.Drawing.Color.White))\r\n                ESRIShapePolygon.Stroke.Color = myshapelinecolor\r\n                ESRIShapePolygon.Stroke.Width = 2\r\n                ESRIShapePolygon.Stroke.EndCap = Drawing2D.LineCap.Round\r\n                ESRIShapePolygon.Stroke.LineJoin = Drawing2D.LineJoin.Round\r\n                ESRIShapePolygon.Fill = myshapebrushcolor\r\n\r\n                <span style=\"color: blue;\">Dim</span> m1 <span style=\"color: blue;\">As</span> GMapMarker = <span style=\"color: blue;\">New</span> CSSBarangayGISMarker(ESRIpolygonPoints.First)\r\n                m1.Tag = ESRIShapeName\r\n                m1.ToolTipText = ESRIShapeName\r\n                m1.ToolTipMode = MarkerTooltipMode.OnMouseOver\r\n                ESRIShapeOverlay.Markers.Add(m1)\r\n\r\n                ESRIShapeOverlay.IsVisibile = <span style=\"color: blue;\">True</span>\r\n                ESRIShapeOverlay.Polygons.Add(ESRIShapePolygon)\r\n                GMapControl2.UpdatePolygonLocalPosition(ESRIShapePolygon)\r\n                Application.DoEvents()\r\n            <span style=\"color: blue;\">Next</span>\r\n            ESRIpolygonPoints.Clear() <span style=\"color: green;\">' Clear the Pointlatlng list</span>\r\n\r\nselectedmunicipalnotfound:\r\n        <span style=\"color: blue;\">Next</span> <span style=\"color: green;\">' Retrieve next shape</span>\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n</pre>\n<pre>Happy New Year to all</pre>\n<pre>Mick</pre>\n</div>",
+    "PostedDate": "2012-01-02T20:12:05.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722431",
+    "ThreadId": "284776",
+    "Html": "<p>thanks, i'll add it after testing</p>",
+    "PostedDate": "2012-01-09T05:26:08.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044164",
+    "ThreadId": "284776",
+    "Html": "Hi!\r<br />\nI am very interested in your work. A short bit about me: I am a NOVICE programmer who programs on a regular basis... I am an academic modeler (faculty member) who uses C# to run FORTRAN libraries and DOS box exe programs in a unified environment (surface and groundwater modeling [and policy drivers]  for the Phoenix Metro Area). I just incorporated GMap.NET but now need to incorporate a shape file into my API to use as an interactive interface for my model.\r<br />\n<br />\nMay I ask, what is your progress from this January post?<br />\n",
+    "PostedDate": "2013-05-15T17:12:00.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044252",
+    "ThreadId": "284776",
+    "Html": "have you used shapelib?\r<br />\nIt decodes ESRI <em>.shp, </em>.shx,, shape files..\r<br />\n<a href=\"http://shapelib.maptools.org/\" rel=\"nofollow\">shapelib</a><br />\n",
+    "PostedDate": "2013-05-15T20:57:09.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1045206",
+    "ThreadId": "284776",
+    "Html": "Hi!\r<br />\nNo, I have not used shapelib. I will check it out. Thanks!<br />\n",
+    "PostedDate": "2013-05-17T10:11:16.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1457473",
+    "ThreadId": "284776",
+    "Html": "Anyone knows more about this topic or where I can find information how to read-write shapefiles in Gmaps, i'll post if i find something \r<br />\n<br />\nGreetings and happy new year 2016 to all! <br />\n",
+    "PostedDate": "2015-12-29T15:01:12.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1464840",
+    "ThreadId": "284776",
+    "Html": "really i need this any idea to implement in c#<br />\n",
+    "PostedDate": "2016-02-27T14:16:24.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

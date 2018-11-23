@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "413426",
+    "ThreadId": "203611",
+    "Html": "<p>I am trying to get Proj.Net to transform from NAD27 to WGS84 correctly. I'm using the following code:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> <span style=\"color:Blue\">void</span> doConversion(<span style=\"color:Blue\">object</span> sender, RoutedEventArgs e)\r\n        {\r\n            CoordinateTransformationFactory ctfac = <span style=\"color:Blue\">new</span> CoordinateTransformationFactory();\r\n\r\n            ICoordinateSystem toCS = SridReader.GetCSbyID(4326);\r\n\r\n            ICoordinateSystem fromCS = SridReader.GetCSbyID(32024);\r\n\r\n            ICoordinateTransformation trans = ctfac.CreateFromCoordinateSystems(fromCS, toCS);\r\n\r\n            <span style=\"color:Blue\">double</span>[] fromPoint = <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">double</span>[] { 1551935.4,199319.2 };\r\n            <span style=\"color:Blue\">double</span>[] toPoint = trans.MathTransform.Transform(fromPoint);\r\n\r\n            IMathTransform inversedTransform = trans.MathTransform.Inverse();\r\n            <span style=\"color:Blue\">double</span>[] point = inversedTransform.Transform(toPoint);\r\n\r\n        }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>The resulting point is wrong, off by at least 100 feet: 35.58018, -99.505976 and should be more like: 35.538067, -99.50635.</p>\r\n<p>I've tried creating my own projection string adding in +nadgrids=conus. I've tried adding a shift via +towgs84. Both are ignored. What do I have to do to get this transformation to work correctly?</p>\r\n<p>Janene</p>",
+    "PostedDate": "2010-03-02T16:12:00.15-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

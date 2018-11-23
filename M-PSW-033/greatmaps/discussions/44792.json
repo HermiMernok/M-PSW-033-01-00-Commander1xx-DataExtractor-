@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "149150",
+    "ThreadId": "44792",
+    "Html": "Further to my idea of extents. I am trying to write code that will take the current view, and taking the current min/max lat and min/max long points will<br>\r\nstep the current point between each point for each further zoom in level. therefore causing all the tiles to be loaded and cached.<br>\r\n<br>\r\nbut i am not familiar with the math for the geo-coding to calculate the correct steps for long and lat to make sure each tile is covered<br>\r\nmaybe taking the current control width, and determine the number of tilles in current view , to work out the lat step required ?<br>\r\nif you follow me ?<br>\r\n<br>\r\nthe psudo code is<br>\r\n<br>\r\nfrom&nbsp; current_zoom to 17<br>\r\n&nbsp;&nbsp;&nbsp; from&nbsp;&nbsp; min_lat&nbsp;&nbsp;&nbsp;&nbsp; to&nbsp;&nbsp;&nbsp; max_lat&nbsp;&nbsp; step&nbsp; lat_step<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  from&nbsp; min_long&nbsp;&nbsp;&nbsp;&nbsp; to&nbsp;&nbsp;&nbsp; max_long&nbsp;&nbsp; step&nbsp; long_step<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set current point<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; next<br>\r\n&nbsp;&nbsp; next<br>\r\nnext <br>\r\n<br>\r\nso for example, i can zoom to an area of the UK, then from there, cache each of the required titles for all zoom levels.<br>\r\nIn particular, i have an app that is used in Ghana, west africa and internet connection is not always possible, so being able to<br>\r\nbuild a cache of a town there would be a major breakthrough for me.<br>\r\n<br>\r\nthanks,<br>\r\nPaul.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-21T03:22:34.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149156",
+    "ThreadId": "44792",
+    "Html": "somethink like that, but google use tiles, so in precaching function code:  <div><ol id=false>    <li>we shall use initial value of MainMap.CurrentViewArea</li>    <li>calculate for current_zoom tile matrix, using FromLatLngToPixel -&gt; FromPixelToTileXY with min/max lat/lng</li>    <li>foreach(tile in matrix) { download &amp; cache } - keep in mind google banns mass downloads from one ip, need change proxy from time to time</li>    <li>current_zoom++ &amp; repeat from 1 until zoom is &lt;= max.</li></ol></div>",
+    "PostedDate": "2009-01-21T03:41:21.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149160",
+    "ThreadId": "44792",
+    "Html": "Yes, thats exactly it. <br>\r\nBut my knowlege of working with GEO coding is not good.<br>\r\ni would really apreciate any help you could give me with this when you have time,<br>\r\nThanks,<br>\r\nPaul.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-21T03:45:43.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

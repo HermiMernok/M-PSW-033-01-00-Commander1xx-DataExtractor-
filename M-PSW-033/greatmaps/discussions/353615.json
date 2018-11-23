@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "828647",
+    "ThreadId": "353615",
+    "Html": "<p>Ola,</p>\n<p>Question is not directly related to GMAP, but does anyone know how to import an OV2 and mark the POI's on the map? I've been searching for a solution on how to read/parse the OV2 for a long time. On a point, due to loss of all my hair, to give up. Has anyone  done this before?</p>",
+    "PostedDate": "2012-04-25T14:08:28.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "828650",
+    "ThreadId": "353615",
+    "Html": "<p>ov2 format, http://www.tomtom.com/lib/doc/ttnavsdk3_manual.pdf</p>\r\n<p>it seems, complicated, you can use http://garmin.gps-data-team.com/poi_manager.php to convert ov2 to gpx ant then import it using: &nbsp;map.Manager.DeserializeGPX</p>\r\n<p>or something like that:&nbsp;http://ttov2parser.codeplex.com/</p>",
+    "PostedDate": "2012-04-25T14:23:01.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829088",
+    "ThreadId": "353615",
+    "Html": "<p>Thanks Radioman. The parser on Codeplex seems very likely to what I'm looking for. Reading and writing from and to an OV2. Perhaps you can add this feature to the maps. If interesting obviously. Oh, and also thanks for the tip about the DeserializeGPX. Will come in handy later on.</p>",
+    "PostedDate": "2012-04-26T13:47:04.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

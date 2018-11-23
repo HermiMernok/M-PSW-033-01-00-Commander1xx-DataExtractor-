@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "463136",
+    "ThreadId": "218258",
+    "Html": "<p>Following on from where I've asked before about custom layers.</p>\r\n<p>I'm planning on allowing a user to construct multiple overlays that all overlap each other. I then want them to be able to close down the app, and reload it, opening up the existing overlays. Fairly easy to do with serialization I believe but it seems the classes I'd expect to do this sort of thing (e.g. GMapOverlay) aren't currently marked as serializable? Is there a reason for this?</p>",
+    "PostedDate": "2010-07-03T14:12:15.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463138",
+    "ThreadId": "218258",
+    "Html": "<p>you can create your own:</p>\r\n<p>&nbsp;[serialize...] class MyLayer : GMapOverlay { ... }</p>",
+    "PostedDate": "2010-07-03T14:22:28.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463143",
+    "ThreadId": "218258",
+    "Html": "<p>I believe though that all the base classes need to be serializable too? So actually it would need to be like</p>\r\n<p>[Serializable]</p>\r\n<p>class MyLayer : GMapOverlay {}</p>\r\n<p>[Serializable]</p>\r\n<p>class GMapOverlay{}</p>",
+    "PostedDate": "2010-07-03T14:37:40.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463147",
+    "ThreadId": "218258",
+    "Html": "<p>does it work?</p>",
+    "PostedDate": "2010-07-03T14:49:59.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463422",
+    "ThreadId": "218258",
+    "Html": "radioman,\r\n\r\nI've not had a chance to use GMap.Net to do this. But if you try the following example you'll see it fail with the sort of error I'd expected &quot;Type 'ConsoleApplication1.A' in Assembly 'ConsoleApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' is not marked as serializable.&quot;.\r\n\r\nThis means that overlays and markers need to be serializable for layer saving/loading.\r\n\r\n<p>using System;<br>\r\nusing System.IO;<br>\r\nusing System.Runtime.Serialization.Formatters.Binary;<br></p>\r\n\r\n<p>namespace ConsoleApplication1<br>\r\n{<br>\r\n    class Program<br>\r\n    {<br>\r\n        static void Main(string[] args)<br>\r\n        {<br>\r\n            B b = new B() { Name = &quot;Test&quot;, AnotherName = &quot;AnotherTest&quot; };<br>\r\n            <br>\r\n            MemoryStream ms = new MemoryStream();<br>\r\n            BinaryFormatter bf = new BinaryFormatter();<br>\r\n            bf.Serialize(ms, b);<br>\r\n        }<br>\r\n    }<br>\r\n<br>\r\n    public class A<br>\r\n    {<br>\r\n        public String Name { get; set; }<br>\r\n    }<br>\r\n<br>\r\n    [Serializable]<br>\r\n    public class B : A<br>\r\n    {<br>\r\n        public String AnotherName { get; set; }<br>\r\n    }<br>\r\n}<br>\r\n</p>",
+    "PostedDate": "2010-07-05T04:49:17.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463425",
+    "ThreadId": "218258",
+    "Html": "<p>it's open source, you can make changes anytime, anywhere ;}</p>",
+    "PostedDate": "2010-07-05T05:07:36.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463685",
+    "ThreadId": "218258",
+    "Html": "Do I need to request to join the project to make changes? ",
+    "PostedDate": "2010-07-06T04:13:33.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463692",
+    "ThreadId": "218258",
+    "Html": "Hmm tried connecting to &quot; https://hg01.codeplex.com/greatmaps&quot; and tried creating a fork and connecting to it &quot;https://hg01.codeplex.com/forks/ianwright83/serializableclasses&quot; but I get an error each time :(\r\n\r\n The OPTIONS response did not include the requested activity-collection-set. this often means that the URL is not WebDAV-enabled.",
+    "PostedDate": "2010-07-06T04:41:10.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463725",
+    "ThreadId": "218258",
+    "Html": "<p>i see your fork, but there is no changes in it, please commit and push it</p>",
+    "PostedDate": "2010-07-06T05:53:43.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463841",
+    "ThreadId": "218258",
+    "Html": "radioman, unfortunately I can't make any changes... I can't actually get the source when I try, I get an error.\r\n\r\n&quot;The OPTIONS response did not include the requested activity-collection-set. this often means that the URL is not WebDAV-enabled.&quot;\r\n\r\n",
+    "PostedDate": "2010-07-06T09:30:41.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463847",
+    "ThreadId": "218258",
+    "Html": "<p>works just perfect for me</p>",
+    "PostedDate": "2010-07-06T09:42:06.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

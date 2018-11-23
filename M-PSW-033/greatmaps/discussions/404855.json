@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "948194",
+    "ThreadId": "404855",
+    "Html": "\r\n<p>I tried to change the layout of my project so that the Gmapcontrol was placed onto the MDIparent form always visible as a bottom layer. And then place MDI child form ontop of the mapcontrol when I need the functionality of these forms..</p>\r\n<p>However I cant see the mdiChild forms, I gues that the gmapcontrol is always ontop hiding the childforms..</p>\r\n<p>I am sure someone knows how to deal with this. -Please help !</p>\r\n<p>&nbsp; &nbsp;' Display the new form.&nbsp;&nbsp; &nbsp; &nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">Dim</span> newMDIChild <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> frmImportPOI()\n        <span style=\"color:green\">' Set the Parent Form of the Child window. </span>\n        newMDIChild.MdiParent = <span style=\"color:blue\">Me</span>\n        <span style=\"color:green\">' Display the new form. </span>\n        newMDIChild.TopMost = <span style=\"color:blue\">True</span>\n        newMDIChild.BringToFront()\n        newMDIChild.Show()\n</pre>\r\n</div>\r\n&nbsp;&nbsp;",
+    "PostedDate": "2012-11-28T02:29:43.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948200",
+    "ThreadId": "404855",
+    "Html": "\r\n<p>newMDIChild.TopMost = True // ?</p>\r\n",
+    "PostedDate": "2012-11-28T02:40:06.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948203",
+    "ThreadId": "404855",
+    "Html": "\r\n<p>No it's not working&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-28T02:43:38.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948210",
+    "ThreadId": "404855",
+    "Html": "\r\n<p></p>\r\n<pre>I modified the code a bit, I hide the Gmapcotrol and the mdichild form is revealed, the Gmap is&nbsp;</pre>\r\n<pre>alwas ontop is my conclusion.. Any solution ?</pre>\r\n<pre><br></pre>\r\n<pre>  &nbsp;</pre>\r\n<pre>Dim newMDIChild As New frmImportPOI()\r\n        ' Set the Parent Form of the Child window. \r\n        newMDIChild.MdiParent = Me\r\n        ' Display the new form. \r\n        'newMDIChild.TopMost = True\r\n        newMDIChild.BringToFront()\r\n        newMDIChild.Show()\r\n       <span style=\"color:#ff0000\"><strong> GMap1.Visible = False</strong></span></pre>\r\n<pre><br></pre>\r\n<p></p>\r\n",
+    "PostedDate": "2012-11-28T02:57:39.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948217",
+    "ThreadId": "404855",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p><span>I have drawn controls on the MDI parent. , its not a good idea i found out,. Controls are always placed on MDI children excluding status bar, menu bar etc... So working with the map on a mdiChild form it's working good. &nbsp;-Thanks for your answer radioman</span></p>\r\n",
+    "PostedDate": "2012-11-28T03:16:53.337-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948218",
+    "ThreadId": "404855",
+    "Html": "\r\n<p>it's not gmap related, it can be any other control</p>\r\n",
+    "PostedDate": "2012-11-28T03:16:59.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

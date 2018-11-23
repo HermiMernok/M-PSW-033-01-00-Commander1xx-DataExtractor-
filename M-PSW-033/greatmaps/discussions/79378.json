@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "271746",
+    "ThreadId": "79378",
+    "Html": "<p>Hi.</p>\r\n<p>Is it possible to show a specific area? Like a country?In my application I just want to show my country.</p>\r\n<p>Sorry if this question it's a repost.</p>\r\n<p>Tks a lot.</p>",
+    "PostedDate": "2009-12-30T09:23:44.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "271930",
+    "ThreadId": "79378",
+    "Html": "<p>Like demo, you just show Lithuania. How do you do that?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-31T02:05:27.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "272001",
+    "ThreadId": "79378",
+    "Html": "<p>well Lithuania has its own map, but if you use google/etc you should use functon <span style=\"text-decoration:underline\"><strong>public bool SetZoomToFitRect(RectLatLng rect)</strong></span>, and pass your country boundaries in coordinates. You can also set boundaries for map with <strong>public RectLatLng? BoundsOfMap.</strong> So user can drag map only in that area.</p>",
+    "PostedDate": "2009-12-31T08:37:18.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

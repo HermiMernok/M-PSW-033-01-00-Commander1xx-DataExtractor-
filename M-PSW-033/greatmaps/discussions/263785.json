@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "636879",
+    "ThreadId": "263785",
+    "Html": "\r\n<p>hello,</p>\r\n<p>thank you again and again for your great control :)</p>\r\n<p>in MainMap_MouseMove&nbsp;event i add function to move marker with holding mouse&nbsp;left click and move.</p>\r\n<p>its hard to move the marker,&nbsp;and the cursor lose the marker some times when speed up the movement of mouse.</p>\r\n<p>how to solve this issue?</p>\r\n<p>thank you&nbsp;in advance ;)</p>\r\n",
+    "PostedDate": "2011-07-04T02:04:32.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636887",
+    "ThreadId": "263785",
+    "Html": "<p>// move current marker with left holding<br /> void MainMap_MouseMove(object sender, MouseEventArgs e)<br /> {<br />&nbsp; if(e.Button == MouseButtons.Left &amp;&amp; isMouseDown)<br />&nbsp; {<br />&nbsp; &nbsp; if(selectedMarker.IsVisible)<br />&nbsp; &nbsp; {<br />&nbsp; &nbsp; &nbsp; &nbsp;selectedMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);<br />&nbsp; &nbsp; }<br />&nbsp; }<br /> }</p>\r\n<p>all you need ensure is selectedMarker instance</p>",
+    "PostedDate": "2011-07-04T02:17:02.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636947",
+    "ThreadId": "263785",
+    "Html": "<p>i face the problem when move CurentRectMarker</p>\r\n<p>the code:</p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // move rect marker</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;</span><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PointLatLng pnew = MainMap.FromLocalToLatLng(e.X, e.Y);</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int? pIndex = (int?)CurentMarker.Tag;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (pIndex.HasValue)</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (pIndex &lt; polygon.Points.Count)</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polygon.Points[pIndex.Value] = pnew;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.UpdatePolygonLocalPosition(polygon);</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (currentMarker.IsVisible)</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentMarker.Position = pnew;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CurentMarker.Position = pnew;</span></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (CurentMarker.InnerMarker != null)</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;CurentMarker.InnerMarker.Position = pnew;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;</span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-04T04:21:58.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636950",
+    "ThreadId": "263785",
+    "Html": "<p>CurentMarker equivalent to CurentRectMarker</p>\r\n<p>:))</p>",
+    "PostedDate": "2011-07-04T04:25:16.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636991",
+    "ThreadId": "263785",
+    "Html": "<p>that's not essential part of code, it's just for demo, i recommend to make your own custom logic</p>",
+    "PostedDate": "2011-07-04T05:27:11.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636998",
+    "ThreadId": "263785",
+    "Html": "<p><span style=\"font-size: 12pt;\" lang=\"TR\">i just try this code, the problem still appear,&nbsp;the mouse lose the rect Marker when speed up the movement&nbsp;of mouse</span><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">void MainMap_MouseMove(object sender, MouseEventArgs e)<br />{</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp; if (e.Button == MouseButtons.Left &amp;&amp; isMouseDown)</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp; </span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (CurentMarker == null)</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (currentMarker.IsVisible)</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else // move rect marker</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CurentRectMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;</span></p>\r\n<p><span style=\"font-size: 12pt;\" lang=\"TR\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>",
+    "PostedDate": "2011-07-04T05:46:31.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "637001",
+    "ThreadId": "263785",
+    "Html": "<p>i know, so don't speed up ;}</p>",
+    "PostedDate": "2011-07-04T05:51:30.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "637273",
+    "ThreadId": "263785",
+    "Html": "<p>:)</p>",
+    "PostedDate": "2011-07-04T22:51:54.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1046083",
+    "ThreadId": "263785",
+    "Html": "Hello Radioman \r<br />\n<br />\nThere is something strange with the code you propose\r<br />\n<br />\n1-  isMouseDown is always false, so I remove this test\r<br />\n2- I use OnMarkerEnter and OnMarkerLeave event to set the selectedMarker\r<br />\n<br />\nBUT\r<br />\nWhen I click on a marker it automaticaly jump a few pixel up without moving the mouse !\r<br />\nAnd it is quite impossible that way to move the marker\r<br />\n<br />\nFor now I'm trying to understand that behaviour\r<br />\nAny other suggestion ?<br />\n<pre><code>   // ********************************************************************************\n    // move current marker with left holding\n    void MainMap_MouseMove(object sender, MouseEventArgs e)\n    {\n      if (selectedMarker == null)\n      {\n        return;\n      }\n      if (e.Button == MouseButtons.Left ) // &amp;&amp; isMouseDown)\n      {\n        if (selectedMarker.IsVisible)\n        {\n          selectedMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);\n        }\n      }\n    }\n    // ********************************************************************************\n    private void MainMap_OnMarkerEnter(GMapMarker item)\n    {\n      selectedMarker = item;\n    }\n    // ********************************************************************************\n    private void MainMap_OnMarkerLeave(GMapMarker item)\n    {\n      selectedMarker = null;\n    }</code></pre>\n\n",
+    "PostedDate": "2013-05-20T09:35:05.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090548",
+    "ThreadId": "263785",
+    "Html": "Hello there. I'm new here, but i really like this GMap.NET project. I want to offer my solution of moving markers, where they don't jump a few pixel without moving mouse. It works just how you want it to work. Position changes by as much as you move mouse.<br />\n<pre><code>        private Point _mouseDownPosition = new Point(0, 0);\n        private GPoint _markerStartPosition = new GPoint(0, 0);\n\n        private void GmapBoxOnMouseDown(object sender, MouseButtonEventArgs mouseButtonEventArgs)\n        {\n            if (_selectedMarker == null)\n            {\n                return;\n            }\n            _mouseDownPosition = Mouse.GetPosition(GmapBox);\n            _markerStartPosition = GmapBox.FromLatLngToLocal(_selectedMarker.Position);\n        }\n\n        private void GmapBoxOnMouseMove(object sender, MouseEventArgs mouseEventArgs)\n        {\n            if (_selectedMarker == null)\n            {\n                return;\n            }\n            if (mouseEventArgs.LeftButton ==  MouseButtonState.Pressed)\n            {\n                if (_selectedMarker.Shape.Visibility == Visibility.Visible)\n                {\n                    var p = Mouse.GetPosition(GmapBox);\n                    var dx = p.X - _mouseDownPosition.X;\n                    var dy = p.Y - _mouseDownPosition.Y;\n\n                    _selectedMarker.Position = GmapBox.FromLocalToLatLng((int)(_markerStartPosition.X + dx), (int)(_markerStartPosition.Y + dy));\n                    \n                }\n            }\n        }</code></pre>\n\nGmapBox is my Gmap control.<br />\nDon't use Enter and Leave events if you don't want mouse to loose marker. Use MouseDown and MouseUp:<br />\n<pre><code>                marker.Shape.MouseDown += (sender, args) =&gt;\n                    {\n                        _selectedMarker = marker;\n                    };\n                marker.Shape.MouseUp += (sender, args) =&gt;\n                    {\n                        _selectedMarker = null;\n                    };</code></pre>\n\n",
+    "PostedDate": "2013-09-10T02:49:00.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

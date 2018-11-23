@@ -1,0 +1,274 @@
+[
+  {
+    "Id": "467848",
+    "ThreadId": "219603",
+    "Html": "Hi, \r\n\r\nJust try to use this grate library but all time catch my self on idea about not &quot;right&quot; Markers work :(\r\n\r\nPresent such grate thing like Filter for ICollectionView to use as DataContext.\r\n\r\nUsing it no need make data dublications (one collection for program and onother in Markers), easy work with filtering, etc.\r\n\r\nP.S. Maybe I lost somthing and it's all already work but over Demo project I can't see this :(",
+    "PostedDate": "2010-07-15T08:24:52.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468031",
+    "ThreadId": "219603",
+    "Html": "<p>// set filter<br> ListCollectionView View = CollectionViewSource.GetDefaultView(MainMap.Markers) as ListCollectionView;<br>View.Filter = FilterOutMarkers;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">bool</span> FilterOutMarkers(<span style=\"color:blue\">object</span> item)\r\n{\r\n         <span style=\"color:blue\">var</span> vl = item <span style=\"color:blue\">as</span> GMapMarker;\r\n\r\n         <span style=\"color:blue\">if</span>(vl == <span style=\"color:blue\">null</span>)\r\n            <span style=\"color:blue\">return</span> <span style=\"color:blue\">false</span>;\r\n\r\n         <span style=\"color:blue\">return</span> <span style=\"color:blue\">true</span>;\r\n}<br><br>..you can use your own collection instead of MainMap.Markers too<br>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-15T20:03:41.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468121",
+    "ThreadId": "219603",
+    "Html": "<p>Thank you,</p>\r\n<p>But it's left us with GMapMarker. And keep require dublication of data.</p>\r\n<p>In real projects goelocation data it's only small part of data related to object / overlay.</p>\r\n<p>Even in your demo you made saparate lists for data and markers : trolleybus, trolleybusMarkers.</p>\r\n<p>More &quot;right&quot; will be use interfase and require list of interfaces. So no need dublicate data and handle 2 separate lists.</p>",
+    "PostedDate": "2010-07-16T01:08:24.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468147",
+    "ThreadId": "219603",
+    "Html": "<p>be welcome to provide me nice fork with 'right' interfaces ;}</p>",
+    "PostedDate": "2010-07-16T03:04:23.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468154",
+    "ThreadId": "219603",
+    "Html": "<p>Sorry if you feal I try teach you :(</p>\r\n<p>In current implementation you can't move out from GMapMarker :(</p>\r\n<p>As I can see you use it not only to hold data but also to make some internal calculations.</p>\r\n<p>I find older discussion about markers bindning, maybe in current state it's really more simple to extending GMapMarker.</p>",
+    "PostedDate": "2010-07-16T03:15:58.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468203",
+    "ThreadId": "219603",
+    "Html": "<p>well if you have better idea, please share ;}</p>",
+    "PostedDate": "2010-07-16T06:35:29.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468526",
+    "ThreadId": "219603",
+    "Html": "<p>Change GMapMarker to somthing like:</p>\r\n<p><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">\r\n<p>&nbsp;&nbsp; public interface IGMapMarker : INotifyPropertyChanged<br>&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public UIElement Shape {get; set;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public PointLatLng Position {get; set;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public System.Windows.Point Offset {get; set;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public int ZIndex {get; set;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public List&lt;PointLatLng&gt; Route = {get;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public&nbsp;List&lt;PointLatLng&gt; Polygon = {get;}<br>&nbsp;&nbsp; }</p>\r\n</span></span></span><span style=\"font-family:Consolas;font-size:x-small\"></span></span></span></span></p>\r\n<p><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">Move UpdateLocalPosition and other &quot;calculation&quot; methods from it to GMapControl or another&nbsp;internal marker handler.</span></span></span></span></span></p>",
+    "PostedDate": "2010-07-17T09:09:59.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468538",
+    "ThreadId": "219603",
+    "Html": "<p>and what exactly of improvement is it?</p>",
+    "PostedDate": "2010-07-17T10:07:55.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468688",
+    "ThreadId": "219603",
+    "Html": "<p>As you know in C# you can extend only 1 parent class but implement many interfaces.</p>\r\n<p>In my project goe data transfer over WCF , json, http. PC program is small part of it so I try unificate classes as more as possible. Extend your class make some limitations and additional code for now.</p>",
+    "PostedDate": "2010-07-18T06:31:10.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468693",
+    "ThreadId": "219603",
+    "Html": "<p>but isn't it simpler to keep markers in different list?</p>",
+    "PostedDate": "2010-07-18T06:47:02.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468705",
+    "ThreadId": "219603",
+    "Html": "<p>Sorry but not, in and of all one of team member forgot about separate list and problems comes up.</p>",
+    "PostedDate": "2010-07-18T07:36:19.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468712",
+    "ThreadId": "219603",
+    "Html": "<p>..so how do you suppose it can work only with interfaces? How to update local position when geo position changes?</p>",
+    "PostedDate": "2010-07-18T08:40:12.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468714",
+    "ThreadId": "219603",
+    "Html": "<p>One of next:</p>\r\n<p>1. Add more fields in interface.</p>\r\n<p>2. Create internal list of positions.</p>\r\n<p>Sorry but as usual all &quot;content&quot; related to control must be inside control. It will be strange if in datagrid information about column width save in data field.</p>\r\n<p>Ofcourse it's only my dreams of better world and you can stay with your vision :) it already work :)</p>",
+    "PostedDate": "2010-07-18T08:52:45.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468719",
+    "ThreadId": "219603",
+    "Html": "<p>it has nothing to do with visions ;] can you make working fork using interfaces?</p>",
+    "PostedDate": "2010-07-18T09:13:08.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468907",
+    "ThreadId": "219603",
+    "Html": "<p>Somthing like that (it's just simple class for just replace current GMapMarker for use interface):</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>    <span style=\"color:blue\">public</span> <span style=\"color:blue\">interface</span> IGMapMarker : INotifyPropertyChanged\r\n    {\r\n        UIElement Shape { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n        PointLatLng Position { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n        System.Windows.Point Offset { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n        <span style=\"color:blue\">int</span> ZIndex { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n        List&lt;PointLatLng&gt; Route { <span style=\"color:blue\">get</span>; }\r\n        List&lt;PointLatLng&gt; Polygon { <span style=\"color:blue\">get</span>; }\r\n    }\r\n\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> NewGMapMarker : IGMapMarker\r\n    {\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">event</span> PropertyChangedEventHandler PropertyChanged;\r\n        <span style=\"color:blue\">void</span> OnPropertyChanged(<span style=\"color:blue\">string</span> name)\r\n        {\r\n            <span style=\"color:blue\">if</span> (PropertyChanged != <span style=\"color:blue\">null</span>)\r\n            {\r\n                PropertyChanged(<span style=\"color:blue\">this</span>, <span style=\"color:blue\">new</span> PropertyChangedEventArgs(name));\r\n            }\r\n        }\r\n\r\n\r\n        UIElement shape;\r\n        <span style=\"color:blue\">public</span> UIElement Shape\r\n        {\r\n            <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> shape; }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (shape != value)\r\n                {\r\n                    shape = value;\r\n                    OnPropertyChanged(<span style=\"color:#a31515\">&quot;Shape&quot;</span>);\r\n                }\r\n            }\r\n        }\r\n\r\n        PointLatLng position;\r\n        <span style=\"color:blue\">public</span> PointLatLng Position\r\n        {\r\n            <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> position; }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (position != value)\r\n                {\r\n                    position = value;\r\n                    OnPropertyChanged(<span style=\"color:#a31515\">&quot;Position&quot;</span>);\r\n                }\r\n            }\r\n        }\r\n\r\n        System.Windows.Point offset;\r\n        <span style=\"color:blue\">public</span> System.Windows.Point Offset\r\n        {\r\n            <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> offset; }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (offset != value)\r\n                {\r\n                    offset = value;\r\n                    OnPropertyChanged(<span style=\"color:#a31515\">&quot;Offset&quot;</span>);\r\n                }\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">int</span> zIndex;\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">int</span> ZIndex\r\n        {\r\n            <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> zIndex; }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (zIndex != value)\r\n                {\r\n                    zIndex = value;\r\n                    OnPropertyChanged(<span style=\"color:#a31515\">&quot;ZIndex&quot;</span>);\r\n                }\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> List&lt;PointLatLng&gt; Route { <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> <span style=\"color:blue\">null</span>; } }\r\n        <span style=\"color:blue\">public</span> List&lt;PointLatLng&gt; Polygon { <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> <span style=\"color:blue\">null</span>; } }\r\n    }\r\n\r\nOfcourse it will not work in current state. It will require to change controll, add internal Marker manager to calculate position, etc. Sorry monday havy day here :(</pre>\r\n</div>",
+    "PostedDate": "2010-07-19T02:06:02.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468923",
+    "ThreadId": "219603",
+    "Html": "<p>how to update local position?</p>",
+    "PostedDate": "2010-07-19T03:00:52.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468929",
+    "ThreadId": "219603",
+    "Html": "<p>Update can be done on property change event by internal control&nbsp;code that handle this event.</p>\r\n<p>To save position you can add 2 fields into interface and save position here. Or you can create internal list fo save positions here.</p>",
+    "PostedDate": "2010-07-19T03:21:41.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468935",
+    "ThreadId": "219603",
+    "Html": "<p>how to handle position changed event?</p>",
+    "PostedDate": "2010-07-19T03:27:53.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "468960",
+    "ThreadId": "219603",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre>Work well with previouse code.</pre>\r\n<pre>And YES, need extend standard ObservableCollection</pre>\r\n<pre>    <span style=\"color:blue\">class</span> Class1\r\n    {\r\n        myObservableCollection&lt;NewGMapMarker&gt; tt = <span style=\"color:blue\">new</span> myObservableCollection&lt;NewGMapMarker&gt;();\r\n        <span style=\"color:blue\">public</span> Class1()\r\n        {\r\n            tt.CollectionChanged += <span style=\"color:blue\">new</span> System.Collections.Specialized.NotifyCollectionChangedEventHandler(tt_CollectionChanged);\r\n            tt.ItemPropertyChanged += <span style=\"color:blue\">new</span> PropertyChangedEventHandler(tt_ItemPropertyChanged);\r\n            tt.Add(<span style=\"color:blue\">new</span> NewGMapMarker());\r\n            tt[0].ZIndex = 100;\r\n            tt[0].ZIndex = 200;\r\n            NewGMapMarker tr = tt[0];\r\n            tt.RemoveAt(0);\r\n            tr.ZIndex = 300;\r\n            tt.Clear();\r\n        }\r\n\r\n        <span style=\"color:blue\">void</span> tt_ItemPropertyChanged(<span style=\"color:blue\">object</span> sender, PropertyChangedEventArgs e)\r\n        {\r\n        }\r\n\r\n        <span style=\"color:blue\">void</span> tt_CollectionChanged(<span style=\"color:blue\">object</span> sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)\r\n        {\r\n\r\n        }\r\n    }\r\n\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> myObservableCollection&lt;T&gt; : ObservableCollection&lt;T&gt;\r\n    {\r\n\t\t<span style=\"color:blue\">public</span> myObservableCollection() : <span style=\"color:blue\">base</span>() { }\r\n\r\n\t\t<span style=\"color:blue\">public</span> myObservableCollection(IEnumerable&lt;T&gt; data) : <span style=\"color:blue\">base</span>(data) { }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">event</span> PropertyChangedEventHandler ItemPropertyChanged;\r\n\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> InsertItem(<span style=\"color:blue\">int</span> index, T item)\r\n        {\r\n            <span style=\"color:blue\">base</span>.InsertItem(index, item);\r\n\r\n            (item <span style=\"color:blue\">as</span> INotifyPropertyChanged).PropertyChanged += <span style=\"color:blue\">new</span> PropertyChangedEventHandler(myObservableCollection_PropertyChanged);\r\n        }\r\n\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> RemoveItem(<span style=\"color:blue\">int</span> index)\r\n        {\r\n            (<span style=\"color:blue\">this</span>[index] <span style=\"color:blue\">as</span> INotifyPropertyChanged).PropertyChanged -= myObservableCollection_PropertyChanged;\r\n            <span style=\"color:blue\">base</span>.RemoveItem(index);\r\n        }\r\n\r\n        <span style=\"color:blue\">void</span> myObservableCollection_PropertyChanged(<span style=\"color:blue\">object</span> sender, PropertyChangedEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">if</span> (ItemPropertyChanged != <span style=\"color:blue\">null</span>)\r\n            {\r\n                ItemPropertyChanged(sender, e);\r\n            }\r\n        }\r\n    }\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-07-19T04:45:45.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469113",
+    "ThreadId": "219603",
+    "Html": "<p>but users can set heir own collections, map.ItemSource = theirCoolCollection</p>\r\n<p>so how do we handle <em>that</em>? ;}</p>",
+    "PostedDate": "2010-07-19T10:22:52.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469124",
+    "ThreadId": "219603",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre><div style=\"color:black;background-color:white\"><pre>Inicialize any collection with</pre>\r\n<pre>&nbsp;</pre>\r\n<pre><div style=\"color:black;background-color:white\"><pre>            <span style=\"color:blue\">if</span> (tt <span style=\"color:blue\">is</span> INotifyCollectionChanged)\r\n            {\r\n                tt.CollectionChanged += <span style=\"color:blue\">new</span> System.Collections.Specialized.NotifyCollectionChangedEventHandler(tt_CollectionChanged);\r\n            }\r\n\r\n</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n</pre>\r\n<pre>        <span style=\"color:blue\">void</span> tt_CollectionChanged(<span style=\"color:blue\">object</span> sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">if</span> (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)\r\n            {\r\n                <span style=\"color:blue\">foreach</span> (INotifyPropertyChanged item <span style=\"color:blue\">in</span> e.NewItems)\r\n                {\r\n                    item.PropertyChanged += <span style=\"color:blue\">new</span> PropertyChangedEventHandler(tt_ItemPropertyChanged);\r\n                }\r\n            }\r\n            <span style=\"color:blue\">if</span> (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)\r\n            {\r\n                <span style=\"color:blue\">foreach</span> (INotifyPropertyChanged item <span style=\"color:blue\">in</span> e.OldItems)\r\n                {\r\n                    item.PropertyChanged -= tt_ItemPropertyChanged;\r\n                }\r\n            }\r\n        }\r\n\r\nNot require custom collection class. And if user try use not ObservableCollection - control will not work in new way or in old way.</pre>\r\n</div>",
+    "PostedDate": "2010-07-19T10:43:02.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469375",
+    "ThreadId": "219603",
+    "Html": "<p>hm.. ok, now wondering how to update&nbsp;LocalPosition{XY} ?</p>",
+    "PostedDate": "2010-07-19T23:16:08.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469422",
+    "ThreadId": "219603",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>dmytyar wrote:</strong><br><p>One of next:</p>\r\n<p>1. Add more fields in interface.</p>\r\n<p>2. Create internal list of positions.</p>\r\n</blockquote><p></p>\r\n\r\nI was already write this. ",
+    "PostedDate": "2010-07-20T00:36:37.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469437",
+    "ThreadId": "219603",
+    "Html": "<p>just localposition should be internal...</p>",
+    "PostedDate": "2010-07-20T00:56:36.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469448",
+    "ThreadId": "219603",
+    "Html": "<p>Under internal I mean in your control not in client data.</p>",
+    "PostedDate": "2010-07-20T01:22:07.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1068115",
+    "ThreadId": "219603",
+    "Html": "Hi radioman,\r<br />\n<br />\nAny progress regarding dmytyar's great advice on interfacing markers?\r<br />\n<br />\nFor the past few weeks I've been implementing &quot;custom&quot; markers which aren't a &quot;Route&quot; nor &quot;Polygon&quot;.\r<br />\nOverriding RegeneratePolygonShape/RegenerateRouteShape is a nasty hack :) Also found myself separating data and markers (e.g. trolleybus, trolleybusMarkers).\r<br />\n<br />\nI think we/you must do this right, meaning IGMapMarker which the map will know and use, plus GMapMarkerRoute and GMapMarkerPolygon implementing IGMapMarker for &quot;backward&quot; compatibility and/or basic usage.\r<br />\n<br />\nI'll try catching you via IRC tomorrow, thanks.\r<br />\n<br />\nSuperware<br />\n",
+    "PostedDate": "2013-07-14T13:00:39.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1068237",
+    "ThreadId": "219603",
+    "Html": "nop ;/<br />\n",
+    "PostedDate": "2013-07-15T00:22:09.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1068338",
+    "ThreadId": "219603",
+    "Html": "dymtyar, how did you solve this?<br />\n",
+    "PostedDate": "2013-07-15T04:53:10.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1071204",
+    "ThreadId": "219603",
+    "Html": "radioman, I'm looking for you in #gmap.net for days :)<br />\n",
+    "PostedDate": "2013-07-22T04:16:53.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1071211",
+    "ThreadId": "219603",
+    "Html": "i'm there ;}<br />\n",
+    "PostedDate": "2013-07-22T04:25:27.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084093",
+    "ThreadId": "219603",
+    "Html": "I also think it's a real pain to create your own custom markers. Maybe the IGMapMarker-way is a good idea!\r<br />\nIs there already any progression on this?<br />\n",
+    "PostedDate": "2013-08-23T04:09:07.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084128",
+    "ThreadId": "219603",
+    "Html": "unimplemented ideas doesn't work ;}<br />\n",
+    "PostedDate": "2013-08-23T05:30:13.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084133",
+    "ThreadId": "219603",
+    "Html": "Radioman, hi, can you please join #gmap.net on IRC? angelag1, you too :)\r<br />\nI have a constructive suggestion.<br />\n",
+    "PostedDate": "2013-08-23T05:37:18.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085359",
+    "ThreadId": "219603",
+    "Html": "Hi radioman, angelag1 and myself are there waiting for you, it would be great if you join #gmap.net :)<br />\n",
+    "PostedDate": "2013-08-27T06:03:22.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

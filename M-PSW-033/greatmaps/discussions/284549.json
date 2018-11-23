@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "718573",
+    "ThreadId": "284549",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>This work is awesome ! Thank You very much.</p>\r\n<p>I have some questions : It is possible to use disk to buffer map in offline mode? If it is possible, could you give me a clue where to start searching?</p>\r\n<p>Thank You in advance.</p>\r\n<p>&nbsp;</p>\r\n<p>Wong</p>\r\n",
+    "PostedDate": "2011-12-29T23:52:49.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722395",
+    "ThreadId": "284549",
+    "Html": "<p>it's automatically cached to local database, you don't need to do anything unless you have tile images already and you want to use them, then you need to create custom cache provider to load bytes from disk</p>",
+    "PostedDate": "2012-01-09T04:52:09.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

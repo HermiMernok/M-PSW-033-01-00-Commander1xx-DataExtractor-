@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "543551",
+    "ThreadId": "240365",
+    "Html": "\r\n<p>hi</p>\r\n<p>how can I create animated marker or</p>\r\n<p>how can I create refresh() property add marker</p>\r\n<p>I need animated marker please</p>\r\n<p>tnks,</p>\r\n",
+    "PostedDate": "2011-01-04T00:07:28.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543741",
+    "ThreadId": "240365",
+    "Html": "\r\n<p>..hm, you can call in timer marker animation function and then MainMap.Invalidate(currentMarker.LocalArea); this should repaint your marker thus creating animation effect, i didn't test it myself, but that would be my start</p>\r\n",
+    "PostedDate": "2011-01-04T07:28:31.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543891",
+    "ThreadId": "240365",
+    "Html": "\r\n<p>thank you radioman</p>\r\n<p>must we&nbsp; call onrender &#65279;function in wich we had made&nbsp;the&nbsp;animation function ?</p>\r\n<p>must be the&nbsp;animation function in the marker?</p>\r\n<p>thanks for answers.</p>\r\n",
+    "PostedDate": "2011-01-04T12:15:54.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "544211",
+    "ThreadId": "240365",
+    "Html": "\r\n<p>See this code find in internet if can help.</p>\r\n<p>&nbsp;</p>\r\n<h2><span style=\"font-size:18px; font-weight:bold\">The Code - An Animated GIF Class</span></h2>\r\n<p style=\"font-family:Arial,Helvetica,sans-serif; font-size:13px\">Let's apply all of the concepts into one easy-to-use C# class:</p>\r\n<pre><span>public</span> <span>class</span> GifImage\r\n{\r\n     <span>private</span> <span>Image</span> gifImage;\r\n     <span>private</span> <span>FrameDimension</span> dimension;\r\n     <span>private</span> <span>int</span> frameCount;\r\n     <span>private</span> <span>int</span> currentFrame = -1;\r\n     <span>private</span> <span>bool</span> reverse;\r\n     <span>private</span> <span>int</span> step = 1;<br><br>     <span>public</span> GifImage(<span>string</span> path)\r\n     {\r\n          gifImage = <span>Image</span>.FromFile(path); <span>//initialize</span>\r\n\r\n          dimension = <span>new</span> <span>FrameDimension</span>(gifImage.FrameDimensionsList[0]); <span>//gets the GUID</span>\r\n          frameCount = gifImage.GetFrameCount(dimension); <span>//total frames in the animation</span>\r\n     }<br><br>     <span>public</span> <span>bool</span> ReverseAtEnd <span>//whether the gif should play backwards when it reaches the end</span>\r\n\r\n     {\r\n          <span>get</span> { <span>return</span> reverse; }\r\n          <span>set</span> { reverse = <span>value</span>; }\r\n     }<br><br>     <span>public</span> <span>Image</span> GetNextFrame()\r\n     {<br>\r\n\r\n          currentFrame &#43;= step;<br><br>          <span><span>//if the animation reaches a boundary...</span>\r\n          if</span> (currentFrame &gt;= frameCount || currentFrame &lt; 1)\r\n          {\r\n               <span>if</span> (reverse)\r\n               {\r\n                    step *= -1; <span>//...reverse the count</span>\r\n\r\n                    currentFrame &#43;= step; <span>//apply it</span>\r\n               }\r\n               <span>else</span>\r\n                    currentFrame = 0; <span>//...or start over</span>\r\n          }\r\n          <span>return</span> GetFrame(currentFrame);\r\n     }<br><br>     <span>public</span> <span>Image</span> GetFrame(<span>int</span> index)\r\n     {\r\n          gifImage.SelectActiveFrame(dimension, index); <span>//find the frame</span>\r\n\r\n          <span>return</span> (<span>Image</span>)gifImage.Clone(); <span>//return a copy of it</span>\r\n     }\r\n}</pre>\r\n",
+    "PostedDate": "2011-01-05T02:41:42.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "544544",
+    "ThreadId": "240365",
+    "Html": "\r\n<p>thank for answer azar</p>\r\n",
+    "PostedDate": "2011-01-05T14:03:47.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1142272",
+    "ThreadId": "240365",
+    "Html": "Hi，are you solved?I use above code as gif class，and  put it in onrender of GMarker，when  it run ，the marker is a static picture in map，why？thanks for answers.<br />\n",
+    "PostedDate": "2013-12-25T23:34:59.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

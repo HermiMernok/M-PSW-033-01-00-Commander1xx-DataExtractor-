@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "235911",
+    "ThreadId": "69343",
+    "Html": "<p>Hi</p>\r\n<p>Cool Control in Windows Presentation.</p>\r\n<p>I'v tried to draw a Route with 55 Points. All seams ok, but i don't see the Route.</p>\r\n<p>The Map Control is on a Dialog Form.</p>\r\n<p>code:</p>\r\n<p><span style=\"color:#008000;font-size:x-small\"><span style=\"color:#008000;font-size:x-small\">\r\n<p>//Center Map</p>\r\n<p>if (rteDef.RoutePoints.Count &gt; 0)</p>\r\n<p>{</p>\r\n<p>PointLatLng pt = new PointLatLng(rteDef.RoutePoints[0].Latitude, rteDef.RoutePoints[0].Longitude);</p>\r\n<p>MainMap.CurrentPosition = pt;</p>\r\n<p>}</p>\r\n<p>//Draw the route</p>\r\n<p>List&lt;PointLatLng&gt; lst = new List&lt;PointLatLng&gt;();</p>\r\n<p>foreach (RoutePoints rtP in rteDef.RoutePoints)</p>\r\n<p>{</p>\r\n<p>lst.Add(new PointLatLng(rtP.Latitude, rtP.Longitude));</p>\r\n<p>}</p>\r\n<p>var localPath = new List&lt;System.Windows.Point&gt;();</p>\r\n<p>var offset = MainMap.FromLatLngToLocal(lst[0]);</p>\r\n<p>foreach (var i in lst)</p>\r\n<p>{</p>\r\n<p>var p = MainMap.FromLatLngToLocal(new PointLatLng(i.Lat, i.Lng));</p>\r\n<p>localPath.Add(new System.Windows.Point(p.X - offset.X, p.Y - offset.Y));</p>\r\n<p>}</p>\r\n<p>Brush before = new SolidColorBrush(Colors.Black);</p>\r\n<p>&nbsp;</p>\r\n<p>this.shape = MainMap.CreateRoutePath(localPath);</p>\r\n<p>if (before != null)</p>\r\n<p>{</p>\r\n<p>(this.shape as Path).Stroke = before;</p>\r\n<p>}</p>\r\n&lt;font size=&quot;2&quot; color=&quot;#008000&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#008000&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#008000&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small\">Why i don't see the Route on the Map?</span></p>\r\n<p>Thanks</p>\r\n</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-18T00:07:11.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "235940",
+    "ThreadId": "69343",
+    "Html": "<p>why you don't see demos source ;}</p>",
+    "PostedDate": "2009-09-18T01:37:19.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

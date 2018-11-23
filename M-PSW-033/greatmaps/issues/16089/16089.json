@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "it's old version",
+    "ClosedDate": "2013-11-19T00:39:18.687-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "See the end of this message for details on invoking \r\njust-in-time (JIT) debugging instead of this dialog box.\r\n\r\n************** Exception Text **************\r\nSystem.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.\r\n   at System.Drawing.Graphics.CheckErrorStatus(Int32 status)\r\n   at System.Drawing.Graphics.DrawImage(Image image, Int32 x, Int32 y, Int32 width, Int32 height)\r\n   at GMap.NET.WindowsForms.GMapControl.DrawMapGDIplus(Graphics g)\r\n   at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\r\n   at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\r\n   at System.Windows.Forms.Control.WmPaint(Message& m)\r\n   at System.Windows.Forms.Control.WndProc(Message& m)\r\n   at System.Windows.Forms.ScrollableControl.WndProc(Message& m)\r\n   at System.Windows.Forms.UserControl.WndProc(Message& m)\r\n   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)\r\n   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)\r\n   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r\n\r\n\r\n************** Loaded Assemblies **************\r\nmscorlib\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1008 (RTMGDR.030319-1000)\r\n    CodeBase: file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/mscorlib.dll\r\n----------------------------------------\r\nGoogle Lead\r\n    Assembly Version: 1.0.0.0\r\n    Win32 Version: 1.0.0.0\r\n    CodeBase: file:///Z:/Tool/Google%20Lead/Google%20Lead.exe\r\n----------------------------------------\r\nSystem.Windows.Forms\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1002 built by: RTMGDR\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Windows.Forms/v4.0_4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll\r\n----------------------------------------\r\nSystem.Drawing\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1001 built by: RTMGDR\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Drawing/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll\r\n----------------------------------------\r\nSystem\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1001 built by: RTMGDR\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System/v4.0_4.0.0.0__b77a5c561934e089/System.dll\r\n----------------------------------------\r\nlog4net\r\n    Assembly Version: 1.2.11.0\r\n    Win32 Version: 1.2.11.0\r\n    CodeBase: file:///Z:/Tool/Google%20Lead/log4net.DLL\r\n----------------------------------------\r\nSystem.Configuration\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1009 (RTMGDR.030319-1000)\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Configuration/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll\r\n----------------------------------------\r\nSystem.Xml\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1009 built by: RTMGDR\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Xml/v4.0_4.0.0.0__b77a5c561934e089/System.Xml.dll\r\n----------------------------------------\r\nGMap.NET.WindowsForms\r\n    Assembly Version: 1.5.5.5\r\n    Win32 Version: 1.5.5.5\r\n    CodeBase: file:///Z:/Tool/Google%20Lead/GMap.NET.WindowsForms.DLL\r\n----------------------------------------\r\nGMap.NET.Core\r\n    Assembly Version: 1.5.5.5\r\n    Win32 Version: 1.5.5.5\r\n    CodeBase: file:///Z:/Tool/Google%20Lead/GMap.NET.Core.DLL\r\n----------------------------------------\r\nSystem.Data.SQLite\r\n    Assembly Version: 1.0.74.0\r\n    Win32 Version: 1.0.74.0\r\n    CodeBase: file:///C:/Users/bnthach/AppData/Local/GMap.NET/DllCache/SQLite_v74_NET4_x86/System.Data.SQLite.DLL\r\n----------------------------------------\r\nSystem.Data\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.237 (RTMGDR.030319-2300)\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Data/v4.0_4.0.0.0__b77a5c561934e089/System.Data.dll\r\n----------------------------------------\r\nSystem.Core\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.233 built by: RTMGDR\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Core/v4.0_4.0.0.0__b77a5c561934e089/System.Core.dll\r\n----------------------------------------\r\nSystem.Transactions\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1 (RTMRel.030319-0100)\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Transactions/v4.0_4.0.0.0__b77a5c561934e089/System.Transactions.dll\r\n----------------------------------------\r\nSystem.Web.Services\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1 (RTMRel.030319-0100)\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Web.Services/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll\r\n----------------------------------------\r\nSystem.EnterpriseServices\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.1 (RTMRel.030319-0100)\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.EnterpriseServices/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll\r\n----------------------------------------\r\nSystem.Web.Extensions\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.272\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Web.Extensions/v4.0_4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll\r\n----------------------------------------\r\nSystem.Web\r\n    Assembly Version: 4.0.0.0\r\n    Win32 Version: 4.0.30319.272 built by: RTMGDR\r\n    CodeBase: file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Web/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Web.dll\r\n----------------------------------------\r\n\r\n************** JIT Debugging **************\r\nTo enable just-in-time (JIT) debugging, the .config file for this\r\napplication or computer (machine.config) must have the\r\njitDebugging value set in the system.windows.forms section.\r\nThe application must also be compiled with debugging\r\nenabled.\r\n\r\nFor example:\r\n\r\n<configuration>\r\n    <system.windows.forms jitDebugging=\"true\" />\r\n</configuration>\r\n\r\nWhen JIT debugging is enabled, any unhandled exception\r\nwill be sent to the JIT debugger registered on the computer\r\nrather than be handled by this dialog box.\r\n\r\n",
+    "LastUpdatedDate": "2013-11-19T00:39:18.687-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-11-17T22:54:32.483-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "A generic error occurred in GDI+",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16089
+  },
+  "FileAttachments": [
+    {
+      "FileId": 759182,
+      "FileName": "11-18-13 8-17-15 AM.png",
+      "DownloadUrl": ".\\759182"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "448847",
+    "ThreadId": "214250",
+    "Html": "Hey, <br>\r\n<br>\r\nTwo things really. Firstly, is there a demo project for vb.net? I am not farmiliar with C++ or C#, and cannot seem to find one! <br>\r\n<br>\r\nThe second issue is that I cannot get routes working with vb.net. The following is my code. Basically, the user has a predefined adress, and enters another address. Then it calculates the route between the two. <br>\r\n<br>\r\n Dim g1 As GMap.NET.PointLatLng<br>\r\n        g1 = Me.CurrentMarker.Position<br>\r\n        map.CurrentPosition = g1<br>\r\n<br>\r\n<br>\r\n        Dim code As GMap.NET.GeoCoderStatusCode = map.SetCurrentPositionByKeywords(variables.address1.Text & &quot;, &quot; & variables.city.Text & &quot;, &quot; & variables.postcode.Text & &quot;,United Kingdom&quot;)<br>\r\n        'Gestione Current Marker<br>\r\n        Me.CurrentMarker = New GMap.NET.WindowsForms.Markers.GMapMarkerGoogleRed( _<br>\r\n            Me.map.CurrentPosition)<br>\r\n<br>\r\n        'Me.currentMarker.TooltipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always<br>\r\n        Me.CurrentMarker.ToolTipText = variables.clubname.Text<br>\r\n        Me.TopOverlay.Markers.Add(Me.CurrentMarker)<br>\r\n<br>\r\n        Dim g2 As GMap.NET.PointLatLng = Me.CurrentMarker.Position<br>\r\n        'Dim route As MapRoute<br>\r\n        Dim route As GMap.NET.MapRoute<br>\r\n        Dim r As GMap.NET.WindowsForms.GMapRoute<br>\r\n        Dim routes As GMap.NET.WindowsForms.GMapOverlay<br>\r\n        route.Points.Add(g1)<br>\r\n        route.Points.Add(g2)<br>\r\n<br>\r\n        r.Points.AddRange(route.Points)<br>\r\n<br>\r\n        Me.TopOverlay.Routes.Add(r)<br>",
+    "PostedDate": "2010-05-28T13:23:04.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448864",
+    "ThreadId": "214250",
+    "Html": "<p>is ir really so hard to view demo in reflector and change language to vb? ;}</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> button3_Click(<span style=\"color:blue\">ByVal</span> sender <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span>, <span style=\"color:blue\">ByVal</span> e <span style=\"color:blue\">As</span> EventArgs)\r\n    <span style=\"color:blue\">Dim</span> route <span style=\"color:blue\">As</span> MapRoute = Singleton(Of GMaps).Instance.GetRouteBetweenPoints(<span style=\"color:blue\">Me</span>.start, <span style=\"color:blue\">Me</span>.<span style=\"color:blue\">end</span>, <span style=\"color:blue\">False</span>, <span style=\"color:blue\">CInt</span>(<span style=\"color:blue\">Me</span>.MainMap.Zoom))\r\n    <span style=\"color:blue\">If</span> (<span style=\"color:blue\">Not</span> route <span style=\"color:blue\">Is</span> <span style=\"color:blue\">Nothing</span>) <span style=\"color:blue\">Then</span>\r\n        <span style=\"color:blue\">Dim</span> item <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> GMapRoute(route.Points, route.Name)\r\n        <span style=\"color:blue\">Me</span>.routes.Routes.Add(item)\r\n        <span style=\"color:blue\">Dim</span> marker <span style=\"color:blue\">As</span> GMapMarker = <span style=\"color:blue\">New</span> GMapMarkerGoogleRed(<span style=\"color:blue\">Me</span>.start) { _\r\n            .ToolTipText = (<span style=\"color:#a31515\">&quot;Start: &quot;</span> &amp; route.Name), _\r\n            .ToolTipMode = MarkerTooltipMode.Always _\r\n        }\r\n        <span style=\"color:blue\">Dim</span> marker2 <span style=\"color:blue\">As</span> GMapMarker = <span style=\"color:blue\">New</span> GMapMarkerGoogleGreen(<span style=\"color:blue\">Me</span>.<span style=\"color:blue\">end</span>) { _\r\n            .ToolTipText = (<span style=\"color:#a31515\">&quot;End: &quot;</span> &amp; <span style=\"color:blue\">Me</span>.<span style=\"color:blue\">end</span>.ToString), _\r\n            .ToolTipMode = MarkerTooltipMode.Always _\r\n        }\r\n        <span style=\"color:blue\">Me</span>.objects.Markers.Add(marker)\r\n        <span style=\"color:blue\">Me</span>.objects.Markers.Add(marker2)\r\n        <span style=\"color:blue\">Me</span>.MainMap.ZoomAndCenterRoute(item)\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-28T14:10:59.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448868",
+    "ThreadId": "214250",
+    "Html": "Hey, Thanks for the reply! \r\n\r\nI think I have some issue in declaring the actual variables. As in all the exmaples I have found, the code says &quot; Dim x as MapRoute&quot;  However I always have to add the &quot;Global.Gmap.Net.&quot; or &quot;Global.Gmap.Net.WindowsForms&quot; beforehand. \r\n\r\nSo in the example you have given me there,  Singleton(Of GMaps) the singleton isn't declared and neither is the GMaps. And I cna't find any way to append them with the &quot;Global.GMap.Net&quot; string. \r\n\r\nThanks for your reply though! I love the software",
+    "PostedDate": "2010-05-28T14:20:59.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448873",
+    "ThreadId": "214250",
+    "Html": "<p>i;ve just copied translation, i can't guarantee it's good, i'm not really vb expert ;}</p>",
+    "PostedDate": "2010-05-28T14:32:24.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448966",
+    "ThreadId": "214250",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>adamlonsdale wrote:</strong><br>Hey, <br>\r\n<br>\r\nTwo things really. Firstly, is there a demo project for vb.net? I am not farmiliar with C++ or C#, and cannot seem to find one! <br>\r\n<br>\r\nThe second issue is that I cannot get routes working with vb.net. The following is my code. Basically, the user has a predefined adress, and enters another address. Then it calculates the route between the two. <br>\r\n<br>\r\n Dim g1 As GMap.NET.PointLatLng<br>\r\n        g1 = Me.CurrentMarker.Position<br>\r\n        map.CurrentPosition = g1<br>\r\n<br>\r\n<br>\r\n        Dim code As GMap.NET.GeoCoderStatusCode = map.SetCurrentPositionByKeywords(variables.address1.Text & &quot;, &quot; & variables.city.Text & &quot;, &quot; & variables.postcode.Text & &quot;,United Kingdom&quot;)<br>\r\n        'Gestione Current Marker<br>\r\n        Me.CurrentMarker = New GMap.NET.WindowsForms.Markers.GMapMarkerGoogleRed( _<br>\r\n            Me.map.CurrentPosition)<br>\r\n<br>\r\n        'Me.currentMarker.TooltipMode = GMap.NET.WindowsForms.MarkerTooltipMode.Always<br>\r\n        Me.CurrentMarker.ToolTipText = variables.clubname.Text<br>\r\n        Me.TopOverlay.Markers.Add(Me.CurrentMarker)<br>\r\n<br>\r\n        Dim g2 As GMap.NET.PointLatLng = Me.CurrentMarker.Position<br>\r\n        'Dim route As MapRoute<br>\r\n        Dim route As GMap.NET.MapRoute<br>\r\n        Dim r As GMap.NET.WindowsForms.GMapRoute<br>\r\n        Dim routes As GMap.NET.WindowsForms.GMapOverlay<br>\r\n        route.Points.Add(g1)<br>\r\n        route.Points.Add(g2)<br>\r\n<br>\r\n        r.Points.AddRange(route.Points)<br>\r\n<br>\r\n        Me.TopOverlay.Routes.Add(r)<br></blockquote><p></p>\r\n\r\nHi.As you can see here http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=214099 i have the same problem with routes in vb.The routes works fine in a small c# project i have made but in vb i cannot find the way to calculate route.If you find any solution i appreciate if you share it with me.Thanks ",
+    "PostedDate": "2010-05-28T23:48:58.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449014",
+    "ThreadId": "214250",
+    "Html": "<p><a href=\"http://norvig.com/21-days.html\">Teach Yourself Programming in Ten Years</a> ;}</p>",
+    "PostedDate": "2010-05-29T07:02:57.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629532",
+    "ThreadId": "214250",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>Now I read all about Routes between 2 points in the discussion and it seem I have the same problem as other VB 2010 user.</p>\r\n<p>I opend your Demo in C# and translated all code that I think \" GetRouteBetweenPoints \" needs from C# to VB</p>\r\n<p>In your Demo the routes work perfect from the C# code on the same PC as I try the VB.Net code.</p>\r\n<p>I am using VB.net Express and C# Express</p>\r\n<p>When I run the line:</p>\r\n<p>Dim route As MapRoute = GMaps.Instance.GetRouteBetweenPoints(r_start, r_end, False, CInt(GMapControl1.Zoom))</p>\r\n<p>route always retuns nothing. r_start and r_end gets xy coordinates from 2 points by click on the map like in your Demo.</p>\r\n<p>r_start = {Lat=-23,5111078191942, Lng=-47,4746704101563}</p>\r\n<p>r_end = {Lat=-23,3372121665012, Lng=-47,8482055664063}</p>\r\n<p>False = False</p>\r\n<p>CInt(GMapControl1.Zoom) = 9</p>\r\n<p>Returns:</p>\r\n<p>route = Nothing</p>\r\n<p>Debuging step by step I get a message in the direct window but no error.</p>\r\n<p>Einzelschritt: Nichtbenutzercode \"GMap.NET.Singleton&lt;GMap.NET.GMaps&gt;.Instance.get\" wird &uuml;bersprungen.<br />Einzelschritt: Nichtbenutzercode \"WindowsApplication1.Form1.GMapControl1.get\" wird &uuml;bersprungen.</p>\r\n<p>Something like: Step: Nonusercode \"......\" <a>Skipped</a></p>\r\n<p>Here my code, please have a look if you find out what I an doing wrong.</p>\r\n<p>Thank you</p>\r\n<p>Thomas</p>\r\n<p>\r\n<pre>Declaration<div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">Imports</span> GMap.NET.WindowsForms <span style=\"color: blue;\"><br />Imports</span> GMap.NET.WindowsForms.Markers <span style=\"color: blue;\"><br />Imports</span> GMap.NET.WindowsForms.ToolTips\r\n</pre>\r\n</div>\r\nForm1\r\n<pre><span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Class</span> Form1\r\n    <span style=\"color: blue;\">Dim</span> objects <span style=\"color: blue;\">As</span> GMapOverlay\r\n    <span style=\"color: blue;\">Dim</span> routes <span style=\"color: blue;\">As</span> GMapOverlay\r\n    <span style=\"color: blue;\">Dim</span> topo <span style=\"color: blue;\">As</span> GMapOverlay\r\n    <span style=\"color: blue;\">Dim</span> r_start <span style=\"color: blue;\">As</span> PointLatLng\r\n    <span style=\"color: blue;\">Dim</span> r_end <span style=\"color: blue;\">As</span> PointLatLng\r\n    <span style=\"color: blue;\">Dim</span> currentMarker <span style=\"color: blue;\">As</span> GMapMarker\r\n    <span style=\"color: green;\">'Dim CurentRectMarker As GMapMarkerRect = Nothing</span>\r\n    <span style=\"color: blue;\">Dim</span> center <span style=\"color: blue;\">As</span> GMapMarker\r\n    <span style=\"color: blue;\">Dim</span> isMouseDown <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Boolean</span> = <span style=\"color: blue;\">False</span>\r\n</pre>\r\n<br />Load\r\n<pre><span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> Form1_Load(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> System.Object, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> <span style=\"color: blue;\">MyBase</span>.Load\r\n        <span style=\"color: blue;\">Me</span>.ComboBoxMapType.DataSource = [<span style=\"color: blue;\">Enum</span>].GetValues(<span style=\"color: blue;\">GetType</span>(MapType))\r\n        ComboBoxMapType.SelectedIndex = 11\r\n        routes = <span style=\"color: blue;\">New</span> GMapOverlay(GMapControl1, <span style=\"color: #a31515;\">\"routes\"</span>)\r\n        GMapControl1.Overlays.Add(routes)\r\n        objects = <span style=\"color: blue;\">New</span> GMapOverlay(GMapControl1, <span style=\"color: #a31515;\">\"objects\"</span>)\r\n        GMapControl1.Overlays.Add(objects)\r\n        topo = <span style=\"color: blue;\">New</span> GMapOverlay(GMapControl1, <span style=\"color: #a31515;\">\"topo\"</span>)\r\n        GMapControl1.Overlays.Add(topo)\r\n        \r\n      \r\n        <span style=\"color: green;\">' set current marker</span>\r\n        currentMarker = <span style=\"color: blue;\">New</span> GMapMarkerGoogleRed(GMapControl1.Position)\r\n        currentMarker.IsHitTestVisible = <span style=\"color: blue;\">False</span>\r\n        topo.Markers.Add(currentMarker)\r\n\r\n        <span style=\"color: green;\">' map center</span>\r\n        center = <span style=\"color: blue;\">New</span> GMapMarkerCross(GMapControl1.Position)\r\n        topo.Markers.Add(center)\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n</pre>\r\n<br />\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> Button1_Click(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> System.Object, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> Button1.Click\r\n\r\n\r\n        <span style=\"color: blue;\">Dim</span> route <span style=\"color: blue;\">As</span> MapRoute = GMaps.Instance.GetRouteBetweenPoints(r_start, r_end, <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">CInt</span>(GMapControl1.Zoom))\r\n\r\n        <span style=\"color: blue;\">If</span> route <span style=\"color: blue;\">IsNot</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">Then</span>\r\n            <span style=\"color: green;\">' add route</span>\r\n            <span style=\"color: blue;\">Dim</span> r <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMapRoute(route.Points, route.Name)\r\n            routes.Routes.Add(r)\r\n\r\n            <span style=\"color: green;\">' add route start/end marks</span>\r\n            <span style=\"color: blue;\">Dim</span> m1 <span style=\"color: blue;\">As</span> GMapMarker = <span style=\"color: blue;\">New</span> GMapMarkerGoogleRed(r_start)\r\n            m1.ToolTipText = <span style=\"color: #a31515;\">\"Start: \"</span> + route.Name\r\n            m1.ToolTipMode = MarkerTooltipMode.Always\r\n\r\n            <span style=\"color: blue;\">Dim</span> m2 <span style=\"color: blue;\">As</span> GMapMarker = <span style=\"color: blue;\">New</span> GMapMarkerGoogleGreen(r_end)\r\n            m2.ToolTipText = <span style=\"color: #a31515;\">\"End: \"</span> &amp; r_end.ToString()\r\n            m2.ToolTipMode = MarkerTooltipMode.Always\r\n\r\n            objects.Markers.Add(m1)\r\n            objects.Markers.Add(m2)\r\n\r\n            GMapControl1.ZoomAndCenterRoute(r)\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n\r\n\r\n    <span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> Button2_Click(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> System.Object, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> Button2.Click\r\n        r_start = currentMarker.Position\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n    <span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> Button3_Click(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> System.Object, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> Button3.Click\r\n        r_end = currentMarker.Position\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n    <span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> GMapControl1_MouseUp(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Object</span>, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.Windows.Forms.MouseEventArgs) <span style=\"color: blue;\">Handles</span> GMapControl1.MouseUp\r\n        <span style=\"color: blue;\">If</span> e.Button = MouseButtons.Left <span style=\"color: blue;\">Then</span>\r\n            isMouseDown = <span style=\"color: blue;\">False</span>\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n<div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> GMapControl1_MouseDown(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Object</span>, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.Windows.Forms.MouseEventArgs) <span style=\"color: blue;\">Handles</span> GMapControl1.MouseDown\r\n        <span style=\"color: blue;\">If</span> e.Button = MouseButtons.Left <span style=\"color: blue;\">Then</span>\r\n            isMouseDown = <span style=\"color: blue;\">True</span>\r\n\r\n            <span style=\"color: blue;\">If</span> currentMarker.IsVisible <span style=\"color: blue;\">Then</span>\r\n                currentMarker.Position = GMapControl1.FromLocalToLatLng(e.X, e.Y)\r\n\r\n                <span style=\"color: blue;\">Dim</span> px = GMapControl1.Projection.FromLatLngToPixel(currentMarker.Position.Lat, currentMarker.Position.Lng, <span style=\"color: blue;\">CInt</span>(GMapControl1.Zoom))\r\n                <span style=\"color: blue;\">Dim</span> tile = GMapControl1.Projection.FromPixelToTileXY(px)\r\n\r\n                <br />            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n</pre>\r\n</div>\r\n<span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> GMapControl1_OnCurrentPositionChanged1(<span style=\"color: blue;\">ByVal</span> point <span style=\"color: blue;\">As</span> GMap.NET.PointLatLng) <span style=\"color: blue;\">Handles</span> GMapControl1.OnCurrentPositionChanged         center.Position = point              <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> GMapControl1_MouseEnter(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Object</span>, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> GMapControl1.MouseEnter\r\n        GMapControl1.Focus()\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n    <span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> GMapControl1_MouseMove(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> System.Object, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.Windows.Forms.MouseEventArgs) <span style=\"color: blue;\">Handles</span> GMapControl1.MouseMove\r\n\r\n        <span style=\"color: blue;\">Dim</span> statusOSM <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Object</span>\r\n        <span style=\"color: blue;\">Try</span>\r\n            statusOSM = GMapControl1.FromLocalToLatLng(e.X, e.Y)\r\n\r\n            ToolStripStatusLabel1.Text = statusOSM.ToString\r\n        <span style=\"color: blue;\">Catch</span> ex <span style=\"color: blue;\">As</span> Exception\r\n\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Try</span>\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n</pre>\r\n</p>",
+    "PostedDate": "2011-06-18T05:50:39.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629541",
+    "ThreadId": "214250",
+    "Html": "<p>tried debug?</p>",
+    "PostedDate": "2011-06-18T06:26:32.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629542",
+    "ThreadId": "214250",
+    "Html": "<p>Dim route As MapRoute = Singleton(Of GMaps).Instance.GetRouteBetweenPoints(Me.start, Me.end, False, CInt(Me.MainMap.Zoom))<br /> <strong>If (Not route Is Nothing) Then</strong></p>",
+    "PostedDate": "2011-06-18T06:28:15.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629545",
+    "ThreadId": "214250",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I changed my code to</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Dim</span> route <span style=\"color: blue;\">As</span> MapRoute = Singleton(Of GMaps).Instance.GetRouteBetweenPoints(r_start, r_end, <span style=\"color: blue;\">False</span>, <span style=\"color: blue;\">CInt</span>(GMapControl1.Zoom))\r\n\r\n<span style=\"color: blue;\">If</span> (<span style=\"color: blue;\">Not</span> route <span style=\"color: blue;\">Is</span> <span style=\"color: blue;\">Nothing</span>) <span style=\"color: blue;\">Then</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>The result is the same :-(&nbsp;</p>\r\n<p>route = Nothing</p>\r\n<p>What can be different between C# and VB.net in this call?</p>",
+    "PostedDate": "2011-06-18T06:42:12.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629547",
+    "ThreadId": "214250",
+    "Html": "<p>maybe in that location google routing isn't available, try other locations</p>",
+    "PostedDate": "2011-06-18T06:52:14.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629549",
+    "ThreadId": "214250",
+    "Html": "<p>I changed to Germany set start and end on the Highways, the same result, I tried google, OSM, Bing...</p>\r\n<p>route = Nothing</p>\r\n<p>Your Demo works routing small roads in the jungle of Brazil on OSM, and Google&nbsp; :-)</p>",
+    "PostedDate": "2011-06-18T07:02:38.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629550",
+    "ThreadId": "214250",
+    "Html": "<p>can you do step by step in debug mode?</p>",
+    "PostedDate": "2011-06-18T07:07:19.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629553",
+    "ThreadId": "214250",
+    "Html": "<p>Here some screenshots step by step</p>\r\n<p>http://www.ambiente.com.br/zero-race/index.php?level=album&amp;id=6</p>\r\n<p>In the direct window this messages.</p>\r\n<p>Einzelschritt: Nichtbenutzercode \"GMap.NET.Singleton&lt;GMap.NET.GMaps&gt;.Instance.get\" wird &uuml;bersprungen.<br />Einzelschritt: Nichtbenutzercode \"WindowsApplication1.Form1.GMapControl1.get\" wird &uuml;bersprungen.</p>\r\n<p>Something like: SingleStep: Nonusercode \"......\" <a>Skipped</a></p>",
+    "PostedDate": "2011-06-18T07:34:36.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629555",
+    "ThreadId": "214250",
+    "Html": "<p>i mean deeper into this function...</p>",
+    "PostedDate": "2011-06-18T07:50:23.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629619",
+    "ThreadId": "214250",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I got the error, I forgot to add the System.Data.SQLite.DLL to my references.</p>\r\n<p>Now it works perfect like in your Demo.</p>\r\n<p>Thank you for your assistance.</p>\r\n<p>Thomas</p>",
+    "PostedDate": "2011-06-18T15:42:16.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

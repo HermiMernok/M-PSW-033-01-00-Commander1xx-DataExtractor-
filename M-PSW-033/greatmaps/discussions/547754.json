@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1253660",
+    "ThreadId": "547754",
+    "Html": "here's a list of more map providers;<br />\n<br />\n<a href=\"https://developer.here.com/rest-apis/documentation/enterprise-map-image/topics/quick-start.html\" rel=\"nofollow\">https://developer.here.com/rest-apis/documentation/enterprise-map-image/topics/quick-start.html</a><br />\n<a href=\"https://developer.here.com/rest-apis/documentation/enterprise-map-tile\" rel=\"nofollow\">https://developer.here.com/rest-apis/documentation/enterprise-map-tile</a><br />\n<br />\nmapbox:<br />\n<br />\n<a href=\"https://www.mapbox.com/developers/api/maps/#tiles\" rel=\"nofollow\">https://www.mapbox.com/developers/api/maps/#tiles</a><br />\n<br />\nopenspace<br />\n<br />\n<a href=\"http://www.ordnancesurvey.co.uk/innovate/innovate-with-open-space.html\" rel=\"nofollow\">http://www.ordnancesurvey.co.uk/innovate/innovate-with-open-space.html</a><br />\n<br />\nmore:<br />\n<ul>\n<li><a href=\"http://bcdcspatial.blogspot.com.tr/2012/01/onlineoffline-mapping-map-tiles-and.html\" rel=\"nofollow\">http://bcdcspatial.blogspot.com.tr/2012/01/onlineoffline-mapping-map-tiles-and.html</a></li>\n<li><a href=\"http://www.neongeo.com/wiki/doku.php?id=map_servers\" rel=\"nofollow\">http://www.neongeo.com/wiki/doku.php?id=map_servers</a></li>\n<li><a href=\"http://wiki.openstreetmap.org/wiki/TMS\" rel=\"nofollow\">http://wiki.openstreetmap.org/wiki/TMS</a></li>\n<li><a href=\"http://wiki.openstreetmap.org/wiki/Tile_servers\" rel=\"nofollow\">http://wiki.openstreetmap.org/wiki/Tile_servers</a></li>\n</ul>\n",
+    "PostedDate": "2014-06-06T04:04:02.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253691",
+    "ThreadId": "547754",
+    "Html": "here.com<br />\n<pre><code>        protected static readonly string UrlServerLetters = &quot;1234&quot;;\n\n string MakeTileImageUrl(GPoint pos, int zoom, string language)\n        {\n            // http://1.base.maps.cit.api.here.com/maptile/2.1/maptile/newest/normal.day/13/4400/2686/256/png8\n\n            return string.Format(UrlFormat, UrlServerLetters[GetServerNum(pos, 4)], zoom, pos.X, pos.Y);\n        }\n\n        static readonly string UrlFormat = &quot;http://{0}.base.maps.cit.api.here.com/maptile/2.1/maptile/newest/normal.day/{1}/{2}/{3}/256/png8?app_id=APP_ID&amp;app_code=APP_CODE&quot;;</code></pre>\n\n",
+    "PostedDate": "2014-06-06T06:03:04.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

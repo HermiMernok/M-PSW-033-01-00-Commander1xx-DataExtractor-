@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "720762",
+    "ThreadId": "285075",
+    "Html": "\r\n<p>Hi everybody.</p>\r\n<p>&nbsp;</p>\r\n<p>I'm facing a bit of a pickle, mostly because I'm new to GMap.NET.</p>\r\n<p>I have a GIS spatial database in Sql Server, with all the data I need (region shapes, roads, etc.) and instead of using a map provider as google maps or bing maps, I am trying to find a way to render a map using this data (like Sql Server Management Studio\r\n is able to do in the &quot;Spatial Results&quot; tab), so I can build a WPF or Windows Forms app on top.</p>\r\n<p>I'd really appreciate some help.</p>\r\n<p>&nbsp;</p>\r\n<p>Best regards,</p>\r\n<p>Pedro.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-01-05T04:34:05.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722410",
+    "ThreadId": "285075",
+    "Html": "<p>you need manually create routes/polygons from your data</p>",
+    "PostedDate": "2012-01-09T05:07:06.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723614",
+    "ThreadId": "285075",
+    "Html": "<p>Thanks for the reply.</p>\r\n<p>I ended up using a server (Geoserver) linked to the Sql Server database to retrieve the data and render images.</p>\r\n<p>Works like a charm.</p>\r\n<p>&nbsp;</p>\r\n<p>Best regards, and thanks for all the hard work,</p>\r\n<p>Pedro.</p>",
+    "PostedDate": "2012-01-11T04:51:12.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723616",
+    "ThreadId": "285075",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2012-01-11T04:54:44.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

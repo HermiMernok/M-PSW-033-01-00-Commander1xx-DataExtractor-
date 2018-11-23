@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "465297",
+    "ThreadId": "218888",
+    "Html": "I am doing this:\r\n\r\n1. Create markers in layer.\r\n2. Setting visibility of markers to false.\r\n3. Change zoom level\r\n4. Setting visibility of markers to true.\r\n\r\nThe markers stay in the position they were from the old zoom level.\r\n\r\nThe only way to get them to update is to change zoom level while they are visible.\r\n\r\nI have tried called Update and Refresh, but this does not make the markers refresh while invisible.\r\n\r\nThanks",
+    "PostedDate": "2010-07-09T02:45:06.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465335",
+    "ThreadId": "218888",
+    "Html": "<p>fixed, should be ok, changing visibility now automatically updates positions</p>",
+    "PostedDate": "2010-07-09T04:42:04.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465338",
+    "ThreadId": "218888",
+    "Html": "Thanks, Radioman",
+    "PostedDate": "2010-07-09T04:49:27.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

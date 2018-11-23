@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "149856",
+    "ThreadId": "44967",
+    "Html": "I plan on using this controll on some Window Mobile (.Net Compact Framework 3.5 and 4.0 to be precise). How have you determined that your Control is indeed cross platform?<br>\r\n<br>\r\nThe only real definitave way is to develop the control as a Compact Framework Library (or is it Control - i forget) project type, the compiler is smart enough to know the target framework and will only present objects, properties, and methods that are available on CF.<br>\r\n<br>\r\nIf you develop the control this way you _know_ it is CF Compatabe, and because of <em>assembly redirection</em> (i cant remember its proper name, but the CLR will see that its a NETCF library and redrirect all calls to the Desktop .NET Framework) you can use the same code on the Desktop.<br>\r\n<br>\r\nthe only cavet is that you must not use any specific Mobile libraries or namespaces; and unless you are doing something very wierd you wont hit this problem.<br>\r\n<br>\r\nif you have any problems or questions, email me OTL, I have done mobile development for years, and will be happy to help.<br>\r\n",
+    "PostedDate": "2009-01-22T11:17:32.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149879",
+    "ThreadId": "44967",
+    "Html": "Great idea! By cross platform i mean linux/macos with mono2 support. I'll try to see what i can to do with CF.",
+    "PostedDate": "2009-01-22T11:49:03.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149888",
+    "ThreadId": "44967",
+    "Html": "sweet, keep me in the loop because at looking at the source code myself it doesnt seem to be a completely insurmountable obstacle to drop the code in a CF project and get it compiling<br>\r\n",
+    "PostedDate": "2009-01-22T12:11:24.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149891",
+    "ThreadId": "44967",
+    "Html": "What current parts of control doesn't build on CF? Is there some differences/limitations with the effect of uercontrol? Does CF support native dll functions import?",
+    "PostedDate": "2009-01-22T12:19:10.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149894",
+    "ThreadId": "44967",
+    "Html": "hm..<div><br></div><div><div>Things notably missing from Windows Mobile version of GDI+ are:</div><div>Text support</div><div>World Transform support. In general transforms are only supported on a Path object</div><div>Many image operations.</div><div><br></div><div><span><a href=\"http://community.opennetcf.com/articles/cf/archive/2007/10/31/using-gdi-on-windows-mobile.aspx\">http://community.opennetcf.com/articles/cf/archive/2007/10/31/using-gdi-on-windows-mobile.aspx</a></span><br></div></div>",
+    "PostedDate": "2009-01-22T12:23:21.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149906",
+    "ThreadId": "44967",
+    "Html": "I havent attempted to build the control in cf just yet (I intend on doing this when I get home from work), I dont anticipate much that will fail, one ovious thing is threadding (cf doesnt implement a lot of 'higher level' thread sync objects).<br>\r\n<br>\r\nas long as you are using System.Drawing (S.D) &amp; System.Drawing.Imaging (S.D.I) and are not pinvoking graphics api's yourself (S.D &amp; S.D.I wrap these api's iirc) then there may be not much of an issue.<br>\r\n<br>\r\nto answer your questions, CF supports p/invoke, and a lot of image functions.<br>\r\n<br>\r\na while ago I had a go at writing a similar control for Live Maps, it worked fine, I got the basics working (creating a URL from a gps point, downloading a set of tiles, drawing them, navigating, zooming etc...). I used S.D &amp; S.D.I to do this and had no issues.<br>\r\n",
+    "PostedDate": "2009-01-22T12:44:58.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "149924",
+    "ThreadId": "44967",
+    "Html": "Its just occurred to me, how do you intend on supporting mono2 while you are doing a decent amount of DllImport (p/Invoke) as you cannot distribute gdi32 nor msimg32 (NativeMethods.cs) with your application. these are <em>platform specific</em> libraries that you are only ever going to find on the Windows platoform.<br>\r\n<br>\r\nYou seem to be using PInvoke mainly for graphics operations - please consider using what is available in System.Drawing | System.Drawing.Imaging - is there anything specific that these two namespaces dont do that you really need ?<br>\r\n",
+    "PostedDate": "2009-01-22T13:22:46.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150066",
+    "ThreadId": "44967",
+    "Html": "look at: MainMap.<span style=\"font-weight:bold\">RenderMode</span> = GMapRenderMode.<span style=\"font-weight:bold\">GDI_PLUS</span>;<div><br></div><div>GDI is just for for faster drawing only on windows.</div>",
+    "PostedDate": "2009-01-22T21:30:07.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150593",
+    "ThreadId": "44967",
+    "Html": "..hm ijust tested building on CF, and it's not so easy, a lot missing functions, need to redone some part.. I'l try to split logic &amp; presentation in separate dll, maybe something can work then easyer..",
+    "PostedDate": "2009-01-24T15:05:50.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150621",
+    "ThreadId": "44967",
+    "Html": "ok, so I have just dropped it in a cf project to see what happens and it does indeed look like there would need to be some major architectual changes to make this work.<br>\r\n<br>\r\nnothing bad on your part, just 'high level things' like the background worker class dont exist on CF - to do the same thing you use a Thread.<br>\r\n<br>\r\nanyhow, your project on Google Maps has freshed my taste for my own very similar project for Live Maps (nothing is released yet, its still on my hard-drive).<br>\r\n<br>\r\ni do like the way you have done parts of your control, its quite simple which is always good. if the moons allign properly mabye we can join heads to port your control to CF<br>\r\n",
+    "PostedDate": "2009-01-24T18:04:33.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150625",
+    "ThreadId": "44967",
+    "Html": "<span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">background worker/EventWaitHandle is ported by http://www.danielmoth.com/Blog/2004/12/backgroundworker-for-cf-10.html</span><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\"><br></span></div><div><span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">...i'll keep on 'major architectual changes' and if i can manage that with wpf, CF should work too</span></div>",
+    "PostedDate": "2009-01-24T18:48:44.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "270402",
+    "ThreadId": "44967",
+    "Html": "<p>on progress:</p>\r\n<p>more info <a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=71318\">http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=71318&nbsp;</a></p>",
+    "PostedDate": "2009-12-23T12:24:18.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

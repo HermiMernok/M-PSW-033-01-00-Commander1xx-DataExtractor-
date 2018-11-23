@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "648532",
+    "ThreadId": "266791",
+    "Html": "\r\n<p>Which is the correct assignment</p>\r\n<p>&nbsp;&nbsp; Dim ch As New MsSQLPureImageCache()<br>\r\n&nbsp;&nbsp; ch.ConnectionString = &quot;myConnectionString&quot;<br>\r\n&nbsp;&nbsp; GMaps.Instance.ImageCacheSecond = ch<br>\r\n<br>\r\nor</p>\r\n<p>&nbsp;&nbsp; Dim ch As New MsSQLPureImageCache()<br>\r\n&nbsp;&nbsp; ch.ConnectionString = &quot;myConnectionString&quot;<br>\r\n&nbsp;&nbsp; myMapControl.Manager.ImageCacheSecond = ch</p>\r\n<p>&nbsp;</p>\r\n<p>Also, is there&nbsp; a way to confirm of the ImageCacheSecond is being used?</p>\r\n",
+    "PostedDate": "2011-07-27T13:23:44.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "648542",
+    "ThreadId": "266791",
+    "Html": "<p>both are correct, try to debug, and see</p>",
+    "PostedDate": "2011-07-27T13:32:35.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

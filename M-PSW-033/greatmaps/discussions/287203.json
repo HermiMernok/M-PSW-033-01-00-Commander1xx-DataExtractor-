@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "729821",
+    "ThreadId": "287203",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I am having some problems in configuring map to none.&nbsp;</p>\r\n<p>For instance, to configure map for OpenStreetMaps we do:</p>\r\n<p><em>MainMap.<strong>MapProvider</strong>&nbsp;= GMapProviders.OpenStreetMap;</em></p>\r\n<p><em>and so on...</em></p>\r\n<p><em>How to configure for none? I tried &nbsp;null but an exception is thrown...</em></p>\r\n<p><em>Reading GMapProviders.cs i can not see any definition for none.</em></p>\r\n<p><em>Thank you</em></p>\r\n<p><em>Alan</em></p>\r\n",
+    "PostedDate": "2012-01-24T02:58:51.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "729856",
+    "ThreadId": "287203",
+    "Html": "<p>MainMap.MapProvider = GMapProviders.<strong>EmptyProvider</strong>;</p>",
+    "PostedDate": "2012-01-24T04:19:02.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "Id": "218106",
+    "ThreadId": "64142",
+    "Html": "<p>I have this problem when I used the control.</p>\r\n<p>The zoom value keep on changing back to 0 even though I had changed the zoom value to 10</p>\r\n<p>Screenshot below..</p>\r\n<p>[IMG]http://i28.tinypic.com/30vhoo9.png[/IMG]</p>\r\n<p>When I deploy my application the map was not zoomed in..</p>\r\n<p>So I try to zoom into the map by code when the form loads</p>\r\n<pre>  Private Sub frmGMap_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load<br>        Dim g1 As GMap.NET.PointLatLng = New PointLatLng(1.3044493872729939, 103.83293509483337)<br>        MainMap.CurrentPosition = g1<br><br><br>        MainMap.Zoom = 10<br>        MainMap.MapType = MapType.GoogleMap<br><br>        MainMap.ReloadMap()<br>    End Sub</pre>\r\n<p>Screenshot below</p>\r\n<p>[IMG]http://i32.tinypic.com/atu3oz.png[/IMG]</p>\r\n<p>Is there any wrong with my code?</p>\r\n<p>How come I see a non zoom in version even though I changed the zoom value?</p>\r\n<p>The strange thing was I did a breakpoint, I found out that the zoom value return to 0</p>\r\n<p>Screenshot as below..</p>\r\n<p>[IMG]http://i29.tinypic.com/2ajnbyc.png[/IMG]</p>\r\n<p>Can anyone help me? :)</p>\r\n<p>\r\n<pre>  <br></pre>\r\n</p>",
+    "PostedDate": "2009-07-31T10:48:38.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218114",
+    "ThreadId": "64142",
+    "Html": "<p>&nbsp; MainMap.MapType = MapType.ArcGIS_MapsLT_Map;<br><strong>&nbsp;           MainMap.MaxZoom = 12;<br>&nbsp;           MainMap.MinZoom = 3;</strong><br>&nbsp;           MainMap.Zoom = MainMap.MinZoom;<br>&nbsp;           MainMap.CurrentPosition = new PointLatLng(54.6961334816182, 25.2985095977783);</p>\r\n<p>These are important ones ;}</p>",
+    "PostedDate": "2009-07-31T11:16:42.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218116",
+    "ThreadId": "64142",
+    "Html": "<p>p.s. do not use&nbsp;MainMap.ReloadMap() ;} it's quite <strong>un</strong>neeeded</p>",
+    "PostedDate": "2009-07-31T11:17:33.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218232",
+    "ThreadId": "64142",
+    "Html": "<p>OMG Dude..</p>\r\n<p>It worked! Thanks alot..</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-07-31T20:49:13.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218281",
+    "ThreadId": "64142",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2009-08-01T05:05:07.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218285",
+    "ThreadId": "64142",
+    "Html": "<p>Sorry to trouble you again..</p>\r\n<p>How do I like draw a route between 2 points?</p>\r\n<p>Example : A route from g1 to g2</p>\r\n<p>Dim g1 As GMap.NET.PointLatLng = New PointLatLng(txtLat.Text, txtLong.Text)</p>\r\n<p>Dim g2 As GMap.NET.PointLatLng = New PointLatLng(txtLat1.Text, txtLong1.Text)</p>\r\n<p>I tried using GMaps.Instance.GetRouteBetweenPoints(g1, g2, True, 5) and nothing happen?</p>\r\n<p>Can you show me how to do it?</p>\r\n<p>I take a look at your demos in the trunk..</p>\r\n<p>However they are in c# and I have no experience with them.<br>I am familiar with VB.Net. Do you have any VB.Net examples?</p>",
+    "PostedDate": "2009-08-01T05:20:52.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218286",
+    "ThreadId": "64142",
+    "Html": "<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Green\">// add test route</span>\r\n      <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">void</span> button3_Click(<span style=\"color:Blue\">object</span> sender, EventArgs e)\r\n      {\r\n         MapRoute route = GMaps.Instance.GetRouteBetweenPoints(start, end, <span style=\"color:Blue\">false</span>, MainMap.Zoom);\r<span style=\"color:Blue\">if</span>(route != <span style=\"color:Blue\">null</span>)\r\n         {\r<span style=\"color:Green\">// add route</span>\r\n            GMapRoute r = <span style=\"color:Blue\">new</span> GMapRoute(route.Points, route.Name);\r\n            r.Color = Color.Blue;\r\n            routes.Routes.Add(r);\r<span style=\"color:Green\">// add route start/end marks</span>\r\n            GMapMarker m1 = <span style=\"color:Blue\">new</span> GMapMarkerGoogleRed(start);\r\n            m1.ToolTipText = <span style=\"color:#A31515\">&quot;Start: &quot;</span> + route.Name;\r\n            m1.TooltipMode = MarkerTooltipMode.Always;\r\n\r\n            GMapMarker m2 = <span style=\"color:Blue\">new</span> GMapMarkerGoogleGreen(end);\r\n            m2.ToolTipText = <span style=\"color:#A31515\">&quot;End: &quot;</span> + end.ToString();\r\n            m2.TooltipMode = MarkerTooltipMode.Always;\r\n\r\n            objects.Markers.Add(m1);\r\n            objects.Markers.Add(m2);\r\n\r\n            MainMap.ZoomAndCenterRoute(r);\r<span style=\"color:Green\">// testing kml support</span>\r\n            KmlType info = GMaps.Instance.GetRouteBetweenPointsKml(start, end, <span style=\"color:Blue\">false</span>);\r<span style=\"color:Blue\">if</span>(info != <span style=\"color:Blue\">null</span>)\r\n            {\r\n\r\n            }\r\n         }\r\n      }\r</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2009-08-01T05:24:51.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218287",
+    "ThreadId": "64142",
+    "Html": "<p>p.s.</p>\r\n<p>GMapOverlay routes = new GMapOverlay(MainMap, &quot;routes&quot;);<br>MainMap.Overlays.Add(routes);<br><br></p>",
+    "PostedDate": "2009-08-01T05:26:38.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218290",
+    "ThreadId": "64142",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Green\">// add test route</span>\r\n      <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">void</span> button3_Click(<span style=\"color:Blue\">object</span> sender, EventArgs e)<br>      {<br>         MapRoute route = GMaps.Instance.GetRouteBetweenPoints(start, end, <span style=\"color:Blue\">false</span>, MainMap.Zoom);<br><span style=\"color:Blue\">if</span>(route != <span style=\"color:Blue\">null</span>)<br>         {<br><span style=\"color:Green\">// add route</span>\r\n            GMapRoute r = <span style=\"color:Blue\">new</span> GMapRoute(route.Points, route.Name);<br>            r.Color = Color.Blue;<br>            routes.Routes.Add(r);<br><span style=\"color:Green\"><br></span></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n</blockquote>\r\n<pre><span style=\"color:Green\">Let start with one by one<br>Your code is in C# so I converted them to VB.Net<br><br>In the button click event<br><br></span>Dim g1 As GMap.NET.PointLatLng = New PointLatLng(txtLat.Text, txtLong.Text)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.CurrentPosition = g1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim g2 As GMap.NET.PointLatLng = New PointLatLng(txtLat1.Text, txtLong1.Text)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Dim route As MapRoute<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim route As MapRoute<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim r As GMapRoute<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim routes As GMapOverlay<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; route = GMaps.Instance.GetRouteBetweenPoints(g1, g2, False, MainMap.Zoom)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r = New GMapRoute(route.Points, route.Name)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r.Color = Color.Blue<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routes = New GMapOverlay(MainMap, &quot;routes&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Overlays.Add(routes)<br><br>Is there anything wrong with the codes?<br>I click on the button and nothing happen?</pre>",
+    "PostedDate": "2009-08-01T05:52:46.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218292",
+    "ThreadId": "64142",
+    "Html": "<p>add to form load event or constructor:</p>\r\n<p>GMapOverlay routes = New GMapOverlay(MainMap, &quot;routes&quot;)<br>MainMap.Overlays.Add(routes)<br>-----</p>\r\n<p>and in button event you miss: &nbsp;routes.Routes.Add(r);</p>",
+    "PostedDate": "2009-08-01T05:58:33.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218294",
+    "ThreadId": "64142",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Green\">&nbsp;</span><br><span style=\"color:Green\">// add route start/end marks</span><br>            GMapMarker m1 = <span style=\"color:Blue\">new</span> GMapMarkerGoogleRed(start);<br>            m1.ToolTipText = <span style=\"color:#A31515\">&quot;Start: &quot;</span> + route.Name;<br>            m1.TooltipMode = MarkerTooltipMode.Always;<br><br>            GMapMarker m2 = <span style=\"color:Blue\">new</span> GMapMarkerGoogleGreen(end);<br>            m2.ToolTipText = <span style=\"color:#A31515\">&quot;End: &quot;</span> + end.ToString();<br>            m2.TooltipMode = MarkerTooltipMode.Always;<br><br>            objects.Markers.Add(m1);<br>            objects.Markers.Add(m2);<br><br>            MainMap.ZoomAndCenterRoute(r);<br><span style=\"color:Green\">&nbsp;</span><br></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n</blockquote>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ok. Thanks alot. I managed to get the route part working..</p>\r\n<p>Now for the marker part..</p>\r\n<p>I converted your code to VB.Net</p>\r\n<p>Dim m1 As GMapMarkerGoogleRed<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim m2 As GMapMarkerGoogleGreen<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.ToolTipText = &quot;Start: &quot; + route.Name<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.TooltipMode = MarkerTooltipMode.Always<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m2.ToolTipText = &quot;End: &quot; + g2.ToString()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m2.TooltipMode = MarkerTooltipMode.Always<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><span style=\"text-decoration:underline\">objects</span></strong>.Markers.Add(m1)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><span style=\"text-decoration:underline\">objects</span></strong>.Markers.Add(m2)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.ZoomAndCenterRoute(r)</p>\r\n<p>&nbsp;</p>\r\n<p>I got this error which is objects is not declare..</p>\r\n<p>How should I declare the objects?</p>",
+    "PostedDate": "2009-08-01T06:10:42.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218298",
+    "ThreadId": "64142",
+    "Html": "<p>the same as route layer,</p>\r\n<p>GMapOverlay objects =&nbsp;new GMapOverlay(MainMap, &quot;objects&quot;);<br>MainMap.Overlays.Add(objects);<br><br></p>",
+    "PostedDate": "2009-08-01T06:30:41.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218300",
+    "ThreadId": "64142",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Green\">&nbsp;</span>            KmlType info = GMaps.Instance.GetRouteBetweenPointsKml(start, end, <span style=\"color:Blue\">false</span>);\r\n<span style=\"color:Blue\">&nbsp;</span></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n</blockquote>\r\n<p>OMG.. Dude thanks it worked..</p>\r\n<p>I have 1 question</p>\r\n<p>m1.ToolTipText = &quot;Start: &quot; + route.Name</p>\r\n<p>what does the route.Name contains?</p>\r\n<p>The following display at the starting marker</p>\r\n<p>Start: <strong>(5.1/x26#160;km/9mins)</strong></p>\r\n<p>What does the bold part means?</p>\r\n<p>Mind explaining it to me?</p>\r\n<p>For the last part on the directions..</p>\r\n<p>I converted ur code to VB.Net and I got this</p>\r\n<p>Dim info As KmlType<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; info = GMaps.Instance.GetRouteBetweenPointsKml(g1, g2, False)</p>\r\n<p>This get route between points kml is to show the directions right?</p>\r\n<p>Is it suppose to be something like that right?</p>\r\n<p>Turn left at A</p>\r\n<p>Drive 2km ahead</p>\r\n<p>Turn right at B</p>\r\n<p>....</p>\r\n<p>How do i display the information out?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-01T06:42:38.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218302",
+    "ThreadId": "64142",
+    "Html": "<p>GetRouteBetweenPoints<strong>Kml&nbsp;</strong>does not work ;}</p>",
+    "PostedDate": "2009-08-01T06:51:56.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218303",
+    "ThreadId": "64142",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>GetRouteBetweenPoints<strong>Kml&nbsp;</strong>does not work ;}</p>\r\n</blockquote>\r\n<p>Oh..</p>\r\n<p>It has not been implemented?</p>\r\n<p>So there is no way for me to display the driving directions out yet?</p>",
+    "PostedDate": "2009-08-01T06:53:58.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218304",
+    "ThreadId": "64142",
+    "Html": "<p>as you see it is implemented, but deserialisation just don't work ;} any ideas?</p>",
+    "PostedDate": "2009-08-01T06:56:05.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218305",
+    "ThreadId": "64142",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>as you see it is implemented, but deserialisation just don't work ;} any ideas?</p>\r\n</blockquote>\r\n<p>oh..</p>\r\n<p>Thanks alot for the help man.. =D</p>\r\n<p>I really appreciate the help given..</p>",
+    "PostedDate": "2009-08-01T07:00:24.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "218307",
+    "ThreadId": "64142",
+    "Html": "<p>you're welcome ;}</p>",
+    "PostedDate": "2009-08-01T07:05:22.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

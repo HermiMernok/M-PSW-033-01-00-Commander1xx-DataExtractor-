@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1341864",
+    "ThreadId": "577706",
+    "Html": "Version: 1.7.0.0  -  C#  -  Winforms  - Visual Studio 2012<br />\n<br />\nI'm having problems drawing circles on my gMapControl1.<br />\n<br />\nI found this: [<a href=\"http://greatmaps.codeplex.com/discussions/220983]\" rel=\"nofollow\">http://greatmaps.codeplex.com/discussions/220983]</a> but Visual Studio does not like:<br />\n<br />\nOverlay.Control.<strong>Core</strong>.Projection.GetGroundResolution(Overlay.Control.Zoom, Position.Lat)) * 2;<br />\n<br />\nIt does not know about &quot;Core&quot;<br />\n<br />\nI need to draw several circles 50 miles, 100 miles, etc. out from a certain position.<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-01-14T09:37:26.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1341895",
+    "ThreadId": "577706",
+    "Html": "try Overlay.Control.<strong>MapProvider</strong>.Projection.GetGroundResolution\r<br />\n<br />\ncheck <strong>GMapMarkerCircle</strong> in Demo.WindowsForms<br />\n",
+    "PostedDate": "2015-01-14T11:17:32.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-14T11:17:40.28-08:00"
+  },
+  {
+    "Id": "1342173",
+    "ThreadId": "577706",
+    "Html": "I had to cast (int)Overlay.Control.zoom to an int:<br />\n<br />\nint R = (int)((Radius) / Overlay.Control.MapProvider.Projection.GetGroundResolution((int)Overlay.Control.Zoom, Position.Lat)) * 2;<br />\n<br />\nBut Visual Studio is now happy. Next I'll test it and if I have problems I'll post them here.<br />\n<br />\nThanks radioman - I'm a long time fan<br />\n",
+    "PostedDate": "2015-01-15T05:43:18.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342181",
+    "ThreadId": "577706",
+    "Html": "Sorry, I need some help with the syntax. Here is what I have:<br />\n<pre><code>        gMapControl1.Position = new PointLatLng(30.748917348442, -88.150520324707);\n\n        GMapMarkerCircle gmc = new GMapMarkerCircle(gMapControl1.Position);\n        gmc.Radius = 100;\n        gmc.IsVisible = true;\n</code></pre>\n\nBut nothing shows up on the gMapControl1<br />\n",
+    "PostedDate": "2015-01-15T05:57:28.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342189",
+    "ThreadId": "577706",
+    "Html": "zoom to city level, it's small\r<br />\n<br />\nand add it to overlay<br />\n",
+    "PostedDate": "2015-01-15T06:37:27.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342907",
+    "ThreadId": "577706",
+    "Html": "That works radioman - Thank you.\r<br />\n<br />\nOne last question please. What radius would I use for 100 miles?\r<br />\n<br />\nThanks again.<br />\n",
+    "PostedDate": "2015-01-17T08:03:08.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342922",
+    "ThreadId": "577706",
+    "Html": "100 miles = <strong>160934</strong>.4 meters<br />\n",
+    "PostedDate": "2015-01-17T08:53:00.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

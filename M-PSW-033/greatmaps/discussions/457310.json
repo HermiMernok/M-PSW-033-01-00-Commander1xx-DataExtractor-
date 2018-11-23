@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1094066",
+    "ThreadId": "457310",
+    "Html": "I am somewhat new to c#, and to GMap.net.  I'd like to set things up so that there is a dynamic location shown on the map wherever the mouse is, without having to click anywhere.  However, it only appears to work so long as the mouse is NOT on the map.  I've got a OnMouseMove method set up, but am I putting it in the wrong place?  Below is my very simple code.<br />\n<pre><code>    public partial class Form1 : Form\n    {\n        protected override void OnMouseMove(System.Windows.Forms.MouseEventArgs e)\n        {\n            base.OnMouseMove(e);\n\n            double X = mapexplr.FromLocalToLatLng(e.X, e.Y).Lng;\n            double Y = mapexplr.FromLocalToLatLng(e.X, e.Y).Lat;\n\n            string longitude = X.ToString();\n            string latitude = Y.ToString();\n            LongStrip.Text = longitude;  //add this to a status strip\n            LatStrip.Text = latitude;       //add this to a status strip\n        }\n\n        GMapOverlay overlayOne;\n\n        public Form1()\n        {\n            InitializeComponent();\n        }\n\n        private void mapexplr_Load(object sender, EventArgs e)\n        {\n            //initialisation de notre map\n            mapexplr.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;\n            mapexplr.Position = new PointLatLng(35.571458, -85.547961);\n\n            mapexplr.DragButton = MouseButtons.Left;\n            mapexplr.SetCurrentPositionByKeywords(&quot;Tunisia&quot;);\n            mapexplr.MapProvider = GMapProviders.BingMap;\n            mapexplr.MinZoom = 3;\n            mapexplr.MaxZoom = 17;\n            mapexplr.Zoom = 5;\n            mapexplr.Manager.Mode = AccessMode.ServerAndCache;\n            //ajout des overlay\n            overlayOne = new GMapOverlay(mapexplr, &quot;OverlayOne&quot;);\n            //ajout de Markers\n            overlayOne.Markers.Add(new GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(new PointLatLng(36.657403, 10.327148)));\n            //ajout de overlay à la map\n            mapexplr.Overlays.Add(overlayOne);\n\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2013-09-18T08:28:28.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1094331",
+    "ThreadId": "457310",
+    "Html": "try latest version<br />\n",
+    "PostedDate": "2013-09-18T23:56:43.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

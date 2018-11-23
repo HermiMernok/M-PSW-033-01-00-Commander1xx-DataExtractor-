@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "762602",
+    "ThreadId": "312025",
+    "Html": "<p>Hallo everybody,</p>\n<p>firsly thanks for all for this project, great job :)</p>\n<p>I have problems with the GMarkerGoogle. I have integrated the whole GMarkerGoogle Resources to my VisualStudio.</p>\n<p>When iam starting the project, its all right and OK the currentmarker,</p>\n<p>currentMarker = new GMarkerGoogle(MainMap.Position, GMarkerGoogleType.green_small</p>\n<p>&nbsp;is showing gree_small. That is OK.</p>\n<p>&nbsp;</p>\n<p>But now to the Problem i want to show the Route with this code</p>\n<p>GMapMarker m1 = new GMarkerGoogle(start, GMarkerGoogleType.green_big_go);<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var m3 = GMapProviders.GoogleMap.GetPlacemark(currentMarker.Position, out status);</p>\n<p>&nbsp;</p>\n<p>but if i am click start route, than iam getting a NullReferenceException on LoadBitmap() on class GMarkerControl.</p>\n<p>Size =&nbsp; new System.Drawing.Size (Bitmap.Width, Bitmap.Height); &lt;--- NullReferenceException</p>\n<p>I dont know, why??</p>",
+    "PostedDate": "2012-02-14T03:33:03.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "762685",
+    "ThreadId": "312025",
+    "Html": "<p>'integrated&nbsp;Resources' wtf ;/</p>",
+    "PostedDate": "2012-02-14T03:55:22.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "763588",
+    "ThreadId": "312025",
+    "Html": "<p>I want to have other new images as marker, so i have added new Recources to my project designer with Recources.resx!</p>\n<p>and now i have a NullReferenceException on start route with this marker, do you understand my problem??&nbsp; :)</p>",
+    "PostedDate": "2012-02-14T08:06:05.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "764052",
+    "ThreadId": "312025",
+    "Html": "<p>it's easy, use your brain ;}</p>",
+    "PostedDate": "2012-02-14T09:55:34.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "764764",
+    "ThreadId": "312025",
+    "Html": "<p>sorry i use my brain, but i still get a NullReferenceException :)</p>",
+    "PostedDate": "2012-02-14T12:44:21.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "767066",
+    "ThreadId": "312025",
+    "Html": "<p>..just debug, find what object is null, all internal bitmaps are ok</p>",
+    "PostedDate": "2012-02-15T00:44:52.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "767124",
+    "ThreadId": "312025",
+    "Html": "<p>Size =&nbsp; new System.Drawing.Size (Bitmap.Width, Bitmap.Height) is null</p>\r\n<p>on LoadBitmap() on class GMarkerControl.</p>",
+    "PostedDate": "2012-02-15T01:28:52.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "767137",
+    "ThreadId": "312025",
+    "Html": "<p>not for me ;}</p>",
+    "PostedDate": "2012-02-15T01:36:49.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "767452",
+    "ThreadId": "312025",
+    "Html": "<p>The problem is solved, the name of resources was wrong, painful :)<strong><br /></strong></p>",
+    "PostedDate": "2012-02-15T05:11:29.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

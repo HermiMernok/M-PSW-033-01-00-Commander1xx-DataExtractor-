@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1291338",
+    "ThreadId": "561573",
+    "Html": "Hi,\r<br />\nI want to use GMap.Net in offline mode. My research's results is :\r<br />\n<br />\n&quot;GMap.NET requires an internet connection to function properly. However, if no connection is available, you can still use cached information (if available) to show your maps. To do this, do:\r<br />\nGMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.CacheOnly;&quot;\r<br />\n<br />\nCan you help me and give me a simple example or description steps that I have do them?<br />\n",
+    "PostedDate": "2014-08-19T05:52:02.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291387",
+    "ThreadId": "561573",
+    "Html": "There's an example of using the cache mode in the demos. Simply check for an internet connection by either pinging your server or a reliable server (like Google or Pingtest) or using a wininet.dll import.<br />\n",
+    "PostedDate": "2014-08-19T08:32:31.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291447",
+    "ThreadId": "561573",
+    "Html": "Where to get the source code of the demos? \r<br />\nI need to solve my problem about using offline GMap.Net earlier. \r<br />\nIf you give me an example of the source code that advise me to use GMap.Net offline, I am very grateful. \r<br />\nExcuse me for my bad English.<br />\n",
+    "PostedDate": "2014-08-19T11:23:07.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291677",
+    "ThreadId": "561573",
+    "Html": "The demos are included in the source code:\r<br />\n<a href=\"https://greatmaps.codeplex.com/SourceControl/latest\" rel=\"nofollow\">https://greatmaps.codeplex.com/SourceControl/latest</a>\r<br />\n<br />\nCheck the internet connection periodically and set GMap.NET.GMaps.Instance.Mode accordingly.\r<br />\n<br />\nFYI you will need the map tiles cached locally or else offline mode will not work (obviously), so If you'll always be offline then you'll need to pre-fetch the tiles.<br />\n",
+    "PostedDate": "2014-08-20T06:09:19.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291748",
+    "ThreadId": "561573",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div>\r\n<div>Hi,<br>\r\nI can check the internet connection in my project and use <a href=\"http://gmap.net\">\r\ngmap.net</a> in online mode if internet is connected. What is the next step?<br>\r\nDo have I get .gmdb file from cash part of demo when the internet is connected and then use this file for offline mode in my project?<br>\r\n</div>\r\nIf yes, how can use the .gmdb file in my project?<br>\r\n</div>\r\nIf no, what am I do after check the internet connection ?<br>\r\n<div>\r\n<div>\r\n<div>\r\n<div><br>\r\n</div>\r\n<div>My project's test do in the desert and I have not use internet (it is a rule), but I can download the maps and add to my project and then use them in my project in the steps of my project's test in the desert.<br>\r\n</div>\r\n<div><br>\r\n</div>\r\n<div>Thank you.<br>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n<div><br>\r\n<br>\r\n<div></div>\r\n</div>\r\n",
+    "PostedDate": "2014-08-20T08:57:30.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1299677",
+    "ThreadId": "561573",
+    "Html": "If you can download the map tiles to your offline storage, you can use a custom provider to read the tiles from your computer.<br />\n<pre><code> string MakeTileImageUrl(GPoint pos, int zoom, string language) {\n\n            long x = pos.X;\n            int num = 1 &lt;&lt; (zoom &amp; 31);\n            long y = (long)num - pos.Y - (long)1;\n            string str = string.Format(LocalFileProvider.UrlFormat, zoom, x, y);\n            if (System.IO.File.Exists(str)) {\n                return str;\n            }\n            return &quot;maptilesofflinefolder/empty.png&quot;;\n        }\n\n        static readonly string UrlFormat = &quot;/maptilesofflinefolder/{0}/{1}/{2}.jpg&quot;;</code></pre>\n\n",
+    "PostedDate": "2014-09-05T06:22:10.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1299688",
+    "ThreadId": "561573",
+    "Html": "Thanks to everyone,\r<br />\nThis problem is solved.\r<br />\nAfter adding the dll files to the project, using this code :<br />\n<pre><code>            gMap_NormalMap.Manager.Mode = GMap.NET.AccessMode.CacheOnly;\n            gMap_NormalMap.MapProvider = GMapProviders.BingMap;\n            gMap_NormalMap.Position = new PointLatLng(21.422500, 39.826160);\n            gMap_NormalMap.MinZoom = 1;\n            gMap_NormalMap.MaxZoom = 24;\n            gMap_NormalMap.Zoom = 1;</code></pre>\n\n",
+    "PostedDate": "2014-09-05T06:47:23.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343852",
+    "ThreadId": "561573",
+    "Html": "can you tell me how can i download the map tiles? <br />\n",
+    "PostedDate": "2015-01-21T09:16:42.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

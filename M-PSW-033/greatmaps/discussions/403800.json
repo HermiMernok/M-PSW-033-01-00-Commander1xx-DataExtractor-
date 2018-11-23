@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "943967",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>Hey radioman. Thanks again for this control - I discover new elements I can use almost weekly.</p>\r\n<p>I have two issues. &nbsp;First, I am receiving data from a GPS and want to update my location each time I get a new position. &nbsp;I thought the right way to do this is..</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>CurrentGPS.Position = <span style=\"color:blue\">new</span> PointLatLng(lat, png);\r\nMainMap.UpdateMarkerLocalPosition(CurrentGPS);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>But this is not working. I have to call MainMap.Invalidate(false) to see the marker move.</p>\r\n<p>Second issue, related to the first. I use a GMapRoute to draw a bearing on the map. And it updates multiple times a second (approximately every 200 ms). I thought the right way to do this is...</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>BearingRoute.Points.Clear();\r\nBearingRoute.Points.InsertRange(0, <span style=\"color:blue\">new</span> PointLatLng[] { p1, p2 });\r\nMainMap.UpdateRouteLocalPosition(BearingRoute);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>But this is not working either. I also have to call MainMap.Invalidate(false) to see the bearing update.</p>\r\n<p>The issue is that I update the GPS position and this GMapRoute often and the action of invalidating the map is effecting the responsiveness of the UI.</p>\r\n<p>What is the correct way to do this without having to invalidate the control?</p>\r\n",
+    "PostedDate": "2012-11-19T06:50:00.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943982",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>changing one marker.<strong>Position</strong>&nbsp;automatically updates and invalidates the position</p>\r\n<p>..if you have many markers suspend invalidation:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>MainMap.<strong>HoldInvalidation</strong> = <span style=\"color:blue\">true</span>;\n{\n  marker1.Position =  ..\n  marker2.Position = ...\n  ...\n  marker100.Position = ...\n}\nMainMap.<strong>Refresh</strong>();</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-11-19T07:07:13.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-06-04T15:48:19.327-07:00"
+  },
+  {
+    "Id": "944114",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>Ah yes I see that now.&nbsp; Regarding routes, do I have no choice but to call Invalidate?</p>\r\n",
+    "PostedDate": "2012-11-19T10:01:13.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944124",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>well why do you need bearing, maybe you can show it somewhere else, not on the map? or just change 200ms to 1000ms ;}{</p>\r\n",
+    "PostedDate": "2012-11-19T10:12:18.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944766",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>In my case, it has to be on the map.&nbsp; That's the entire purpose of the application.</p>\r\n<p>Instead of using a GMapRoute structure for the line-of-bearing, I changed it over to a GMapMarker.&nbsp; So the marker is just a straight line and I rotate it arround based on what line-of-bearing&nbsp;I pass it.</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n{\r\n    g.RotateTransform(Convert.ToSingle(Bearing));\r\n    g.TranslateTransform(LocalPosition.X, LocalPosition.Y, System.Drawing.Drawing2D.MatrixOrder.Append);\r\n    g.DrawLine(<span style=\"color:blue\">new</span> Pen(Color.DodgerBlue, 4F), <span style=\"color:blue\">new</span> Point(0, 0), <span style=\"color:blue\">new</span> Point(0, -length));\r\n    g.ResetTransform();\r\n}\r\n</pre>\r\n</div>\r\n<p>In the above code, Bearing is a property that I can update.&nbsp; Of course even THIS doesn't help me because I am not actually moving the marker (so it doesn't repaint)&nbsp;- I am only updating a property that the OnRender function is dependant on.&nbsp; So this doesn't\r\n help either.</p>\r\n<p><strong>Is there is a way to tell the marker to repaint?</strong></p>\r\n",
+    "PostedDate": "2012-11-20T12:06:02.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944779",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>you cant avoid invalidation, all you can do is minimize the count</p>\r\n<p>..or you can try wpf version, then you can invalidate single marker but not the others or the map itself</p>\r\n",
+    "PostedDate": "2012-11-20T12:24:59.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944804",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>Okay. That's what&nbsp;I thought - just wanted to confirm with you.</p>\r\n<p>Does it make a difference if I call MainMap.Invalidate() vs MainMap.Invalidate(false)?</p>\r\n<p>The first refers to your Invalidate method which triggers the Reset in GMapControl.Core.&nbsp; The second is the base method for a Control.</p>\r\n<p>In a simple test I did, the base MainMap.Invalidate(false) seems to be alot faster and smoother for the UI but it looks like your custom method is threading. Just not clear on the best approach.</p>\r\n",
+    "PostedDate": "2012-11-20T13:18:34.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "944814",
+    "ThreadId": "403800",
+    "Html": "\r\n<p><em>Invalidate(false) / Refresh</em> is the standard gdi+ invalidation</p>\r\n<p><strong>Invalidate()</strong> is async invalidation, meaning it doesn't invalidate instantly, you can continuously call it many times but real invalidation only occur each 0.111&nbsp;seconds</p>\r\n<p>I've 'invented' it for internal issues, because when background threads loads the tiles, map needs invalidation and it irritates the user if he is trying to move the map at the same time and scrolling jitters. Therefore internal invalidation is canceled\r\n if user itself triggers invalidation.</p>\r\n<p>So the difference is you get instant invalidation or delayed if nothing else do invalidation.</p>\r\n<p>marker.<strong>Position</strong>&nbsp;= new ... // is async, meaning you request invalidation and you shall get it soon, but not instantly</p>\r\n",
+    "PostedDate": "2012-11-20T13:50:48.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947056",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>That really clears things up. Thanks a lot.&nbsp; I appreciate you taking the time to explain that and help me out.</p>\r\n",
+    "PostedDate": "2012-11-26T07:57:07.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947060",
+    "ThreadId": "403800",
+    "Html": "\r\n<p>if you'll find a better way, please share ;}</p>\r\n",
+    "PostedDate": "2012-11-26T08:02:48.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085241",
+    "ThreadId": "403800",
+    "Html": "Would jitter equal a route appearing as a zigzag line instead of a straight line? I have a timer which clears a routes overlay every second then it adds a new position to the routes list and redraws the route. I am noticing that when going in a straight line, the line is not straight or smooth. It appears as a zigzag line.<br />\n<br />\nWhat is causing the issues? The fact that I am clearing the overlay every second and redrawing the route?<br />\n",
+    "PostedDate": "2013-08-26T23:35:48.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

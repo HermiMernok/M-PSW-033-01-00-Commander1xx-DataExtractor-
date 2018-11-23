@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In converting WGS84_UTM Zone 18N to WGS_84 I am supplying the following input:\n\n307821.867 4219306.387\n\nIt is coming out of the transform as: -77.191748384445773 38.100463291796331\n\nHowever both spatialite and http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html give this as the result: -77.19176883027627 38.101147434053615\n\nSpatialite:\nspatialite> select astext(st_transform(MakePoint(307821.867, 4219306.387, 32618), 4326));\nPOINT(-77.191769 38.101147)\n\nThe conversion is off by many meters rendering the result unusable.",
+    "LastUpdatedDate": "2013-02-21T16:06:05.707-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2013-01-11T08:10:31.127-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WGS_84UTM to WGS_84 is inaccurate",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 23773
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

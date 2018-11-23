@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "248723",
+    "ThreadId": "72823",
+    "Html": "<p>Hi,</p>\r\n<p>I know that .NET has issues loading 32-bit DLLs from a 64-bit process. &nbsp;My application is built for 64-bit processors, however it can't load the GMap.NET assembly because it's 32-bit. &nbsp;Any chance you could do a a 64-bit build of the library? &nbsp;:)</p>\r\n<p>&nbsp;</p>\r\n<p>Otherwise I have to change my app to a 32-bit build. &nbsp;(or if anyone knows a workaround for this, please let me know).</p>\r\n<p>&nbsp;</p>\r\n<p>The Exception is BadImageFormatException. ... seen it before with a similar situation.</p>\r\n<p>thanks,</p>\r\n<p>Jon</p>",
+    "PostedDate": "2009-10-22T12:01:14.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248724",
+    "ThreadId": "72823",
+    "Html": "<p>hey, just build project using x64 sqlite reference, it is included in svn</p>",
+    "PostedDate": "2009-10-22T12:04:27.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248726",
+    "ThreadId": "72823",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\">Thanks for the quick response.</span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\"> </span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\">Any idea how to use this control, there is no documentation?</span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\"> </span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\">Just want to add a few markers on a map for several addresses. \r\nShould I use GMap.Overlays.Add(…)?</span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:11.0pt;font-family:'Calibri','sans-serif';color:#1F497D\"> </span></p>\r\n\r\n<div>\r\n\r\n<div style=\"border:none;border-top:solid #B5C4DF 1.0pt;padding:3.0pt 0in 0in 0in\">\r\n\r\n<p class=MsoNormal><b><span style=\"font-size:10.0pt;font-family:'Tahoma','sans-serif'\">From:</span></b><span style=\"font-size:10.0pt;font-family:'Tahoma','sans-serif'\"> radioman\r\n[mailto:notifications@codeplex.com] <br>\r\n<b>Sent:</b> Thursday, October 22, 2009 3:05 PM<br>\r\n<b>To:</b> Jon Hunt<br>\r\n<b>Subject:</b> Re: GMap 64-bit DLL [greatmaps:72823]</span></p>\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n<p class=MsoNormal> </p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif'\">From:\r\nradioman</span></p>\r\n\r\n<div style=\"margin-bottom:24.0pt\" id=ThreadNotificationPostBody>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif'\">hey, just\r\nbuild project using x64 sqlite reference, it is included in svn</span></p>\r\n\r\n</div>\r\n\r\n<div style=\"border:none;border-top:solid #CCCCCC 1.0pt;padding:0in 0in 0in 0in\" id=ThreadNotificationFooter>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">Read\r\nthe <a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=72823&ANCHOR#Post248724\">full\r\ndiscussion online</a>.</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">To\r\nadd a post to this discussion, reply to this email (<a href=\"mailto:greatmaps@discussions.codeplex.com?subject=[greatmaps:72823]\">greatmaps@discussions.codeplex.com</a>)</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">To\r\nstart a new discussion for this project, email <a href=\"mailto:greatmaps@discussions.codeplex.com\">greatmaps@discussions.codeplex.com</a></span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">You\r\nare receiving this email because you subscribed to this discussion on CodePlex.\r\nYou can <a href=\"http://www.codeplex.com/site/discussions/thread/unsubscribe/72823\">unsubscribe</a>\r\non codePlex.com.</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:'Verdana','sans-serif';color:gray\">Please\r\nnote: Images and attachments will be removed from emails. Any posts to this\r\ndiscussion will also be available online at codeplex.com</span></p>\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-10-22T12:07:50.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "248728",
+    "ThreadId": "72823",
+    "Html": "<p>just check demos ;}</p>",
+    "PostedDate": "2009-10-22T12:15:52.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,55 @@
+<div class="wikidoc"><h3>Loading a projection by Spatial Reference ID (SRID)</h3>Proj.NET doesn&#39;t have an embedded Spatial Reference ID database like the <a href="http://www.epsg.org/Geodetic.html">EPSG database</a>, so there is no default logic for loading a spatial reference by ID.<br />However Proj.NET does ship with a comma-separated file with EPSG codes, and you can easily iterate through these to load a specific ID. This is not as efficient as loading the data from an indexed database, but it&#39;s simple and easy to deploy.<br /><br />Below is a simple class for loading a coordinate system by SRID.<br /><br /><pre>
+using System;
+using System.Collections.Generic;
+using System.Text;
+using SharpMap.CoordinateSystems;
+public class SridReader
+{
+	private static string filename = &quot;SRID.csv&quot;; //Change this to point to the SRID.CSV file.
+
+	public struct WKTstring {
+		/// &lt;summary&gt;Well-known ID&lt;/summary&gt;
+		public int WKID;
+		/// &lt;summary&gt;Well-known Text&lt;/summary&gt;
+		public string WKT;
+	}
+
+	/// &lt;summary&gt;Enumerates all SRID&#39;s in the SRID.csv file.&lt;/summary&gt;
+	/// &lt;returns&gt;Enumerator&lt;/returns&gt;
+	public static IEnumerable&lt;WKTstring&gt; GetSRIDs()
+	{
+		using (System.IO.StreamReader sr = System.IO.File.OpenText(filename))
+		{
+			while (!sr.EndOfStream)
+			{
+				string line = sr.ReadLine();
+				int split = line.IndexOf(&#39;;&#39;);
+				if (split &gt; -1)
+				{
+					WKTstring wkt = new WKTstring();
+					wkt.WKID = int.Parse(line.Substring(0, split));
+					wkt.WKT = line.Substring(split + 1);
+					yield return wkt;
+				}
+			}
+			sr.Close();
+		}
+	}
+	/// &lt;summary&gt;Gets a coordinate system from the SRID.csv file&lt;/summary&gt;
+	/// &lt;param name=&quot;id&quot;&gt;EPSG ID&lt;/param&gt;
+	/// &lt;returns&gt;Coordinate system, or null if SRID was not found.&lt;/returns&gt;
+	public static ICoordinateSystem GetCSbyID(int id)
+	{
+		foreach (SridReader.WKTstring wkt in SridReader.GetSRIDs())
+		{
+			if (wkt.WKID == id) //We found it!
+			{
+				return SharpMap.Converters.WellKnownText.CoordinateSystemWktReader.Parse(wkt.WKT) as ICoordinateSystem;
+			}
+		}
+		return null;
+	}
+}
+</pre><br /><br />Loading a CS by ID is then as simple as:<br /><pre>
+ICoordinateSystem cs = SridReader.GetCSbyID(4326);
+</pre><br /><br />The demo website also shows how to use this approach.<br /><br />For better performance I would recommend changing the &quot;GetCSbyID()&quot; method to connect to a database and query for the WKT by SRID. The .CSV file should be fairly easy to import into the database.</div><div class="ClearBoth"></div>

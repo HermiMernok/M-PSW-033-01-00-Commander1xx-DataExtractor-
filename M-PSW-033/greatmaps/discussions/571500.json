@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1319918",
+    "ThreadId": "571500",
+    "Html": "I'm trying to implement a custom marker, and a peculiarity with how FromLatLngToLocal() is behaving in the marker's OnRender() is throwing me off.\r<br />\n<br />\nAs a very simple example:<br />\n<pre><code>public class GMapGroundImg : GMapMarker\n{\n    public override void OnRender(Graphics g)\n    {\n        var coord = this.Overlay.Control.FromLatLngToLocal(this.Position);\n        Log(&quot;Local: &quot; + LocalPosition.X + &quot;, &quot; + LocalPosition.Y + &quot;; Coord: &quot; + coord.X + &quot;, &quot; + coord.Y);\n    }\n}\n</code></pre>\n\nIn the above snippet, &quot;coord&quot; does <em>not</em> match LocalPosition; if I render something at LocalPosition it behaves as it should (its location is fixed on the map), but if I render something at coord, it seems to behave erratically.  Here's a quick screen capture to illustrate the behavior; &quot;LP&quot; (and the flag) is rendered at LocalPosition, while the red jumble of characters is at coord: <a href=\"http://screencast.com/t/XjLWPDtY4y\" rel=\"nofollow\">http://screencast.com/t/XjLWPDtY4y</a>\r<br />\n<br />\nMy understanding FromLatLngToLocal() was that calling FromLatLngToLocal with the position...should return LocalPosition.  Any ideas why it isn't - or more importantly, how to rectify it?\r<br />\n<br />\n(Note: I'm not actually trying to use FromLatLngToLocal on the position itself, of course - the final code is much more complicated, but the fact that FromLatLngToLocal() is returning unexpected results in OnRender - regardless of what I pass it - is what's throwing me off.)\r<br />\n<br />\nThanks very much in advance :)<br />\n",
+    "PostedDate": "2014-11-07T00:41:51.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323739",
+    "ThreadId": "571500",
+    "Html": "currently objects LocalPosition isn't related to controls point of origin (0, 0)<br />\n",
+    "PostedDate": "2014-11-19T03:14:58.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323919",
+    "ThreadId": "571500",
+    "Html": "...If that's the case, what's the appropriate way to render a known (lat,lng) on the map in a custom marker type?  As per the video linked above, FromLatLngToLocal() doesn't seem to yield a reliable render position if the map is dragged/zoomed...<br />\n",
+    "PostedDate": "2014-11-19T11:37:35.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323927",
+    "ThreadId": "571500",
+    "Html": "position setting is internal, you don't need to do anything, add marker, set coordinates, done<br />\n",
+    "PostedDate": "2014-11-19T11:46:05.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323928",
+    "ThreadId": "571500",
+    "Html": "metal450, could you have a look at GMapControl.UpdateMarkerLocalPosition ?\r<br />\n<br />\nI've used this and I believe it might be what you are looking for.<br />\n",
+    "PostedDate": "2014-11-19T11:52:33.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323933",
+    "ThreadId": "571500",
+    "Html": "I had, &amp; that's exactly why I assumed LocalPosition should reflect what FromLatLngToLocal returns; <br />\n<pre><code>public void UpdateMarkerLocalPosition(GMapMarker marker)\n  {\n     GPoint p = FromLatLngToLocal(marker.Position);\n     {\n        var f = new System.Drawing.Point((int)(p.X + marker.Offset.X), (int)(p.Y + marker.Offset.Y));\n        marker.LocalPosition = f;\n     }\n  }</code></pre>\n\n",
+    "PostedDate": "2014-11-19T12:08:33.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

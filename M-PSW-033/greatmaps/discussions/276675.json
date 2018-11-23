@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "687258",
+    "ThreadId": "276675",
+    "Html": "\r\n<p>Dim route As MapRoute = GMaps.Instance.GetRouteBetweenPoints(myStart, myEnd, False, map_zoom.Value). Seems this doesn't work any more. What is the new/correct way to add the route?</p>\r\n",
+    "PostedDate": "2011-10-21T00:03:47.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687276",
+    "ThreadId": "276675",
+    "Html": "<p>GMapProviders.GoogleMap.GetRouteBetweenPoint</p>\r\n<p>GMapProviders.OpenStreetMap.GetRouteBetweenPoints</p>\r\n<p>GMapProviders.CloudMadeMap.GetRouteBetweenPoints</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-10-21T00:37:35.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687277",
+    "ThreadId": "276675",
+    "Html": "<p>Thanks for the info ;)</p>",
+    "PostedDate": "2011-10-21T00:38:37.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "873907",
+    "ThreadId": "276675",
+    "Html": "<p>in earlier version it was possible to get km and time by route.name</p>\r\n<p>I have found route.distance</p>\r\n<p>was is about the time?</p>",
+    "PostedDate": "2012-07-18T09:15:32.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "874020",
+    "ThreadId": "276675",
+    "Html": "<p>t = s / v;</p>",
+    "PostedDate": "2012-07-18T10:02:56.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930358",
+    "ThreadId": "276675",
+    "Html": "\r\n<p>I got it, thanks</p>\r\n",
+    "PostedDate": "2012-10-22T03:32:59.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "674740",
+    "ThreadId": "273326",
+    "Html": "\r\n<p>Hello, first of all excuse my English, I got help from Google, and before that compliments the excellent work, introduce the provider for the maps was a great idea, especially thinking back to the attitude of Google.<br>\r\nI come to my problem, for a mere exercise (unfortunately my business work is primarily web based) I'm trying to make your control more MVVM friendly.<br>\r\nWith GMapControl I had no problems, I created my own inherited control and added various DependencyProperty.<br>\r\nWith the Marker instead I just can not find a solution. After several attempts, I came to the conclusion that the GMapMarker must inherit from FrameworkElement.<br>\r\nInitially I tried DependencyObject, the Shape is rendered, but the bindings from XAML does not work. Inherited from FrameworkElement does bind, however, the Shape is not rendered.<br>\r\nI believe that the origin of the problem is the call to VisualTreeHelper.GetParent in the get of Map property that always returns null, which of course does not happen if the class inherits from DependencyObject or Object. I suppose that FrameworkElement changes\r\n the VisualTree, I also tried LogicalTreeHelper, but I get the same result.<br>\r\nMy current knowledge of WPF does not allow me to figure out exactly how to get around the problem, you can give me some suggestions on this?</p>\r\n<p>thanks in advance<br>\r\nFP</p>\r\n",
+    "PostedDate": "2011-09-21T07:54:53.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675088",
+    "ThreadId": "273326",
+    "Html": "<p>..thats complicated ;}</p>",
+    "PostedDate": "2011-09-21T23:22:01.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "731152",
+    "ThreadId": "273326",
+    "Html": "<p>That was resolved in the fork&nbsp;http://greatmaps.codeplex.com/SourceControl/network/Forks/rog1039/WPFMVVM&nbsp;</p>",
+    "PostedDate": "2012-01-26T08:59:48.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

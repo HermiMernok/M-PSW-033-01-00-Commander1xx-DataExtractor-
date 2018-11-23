@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1296969",
+    "ThreadId": "564321",
+    "Html": "Hi,\r<br />\n How can I use two gmapControl with different GMapProviders (for example BingMap and BingSatelliteMap) inside together that have same events.\r<br />\nI mean when I zoom in or zoom out on gmapControl1, it will zoom in or zoom out on gmapControl2 too.\r<br />\n<br />\nlike this :\r<br />\n<img src=\"http://www.codeproject.com/KB/scripting/737250/GoogleEarthMap.jpg\" alt=\"Image\" /> <br />\n",
+    "PostedDate": "2014-08-31T00:27:55.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338766",
+    "ThreadId": "564321",
+    "Html": "you have to subscribe to zoom event from both controls and set zoom level to the same value<br />\n",
+    "PostedDate": "2015-01-03T12:03:14.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338849",
+    "ThreadId": "564321",
+    "Html": "I've created this discussion is about 4 months ago. At the time, I needed for the answer.\r<br />\n<br />\nHowever, I used your today's answer at the time, but I did not receive my wishes.\r<br />\n<br />\nThe problem is that in addition to the zoom level, the point where it will zoom in on the maps, must be one in both.<br />\n",
+    "PostedDate": "2015-01-04T06:11:19.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338857",
+    "ThreadId": "564321",
+    "Html": "map2.Position = map.Position;\r<br />\nmap2.Zoom = map1.Zoom;\r<br />\n<br />\nand vice versus for map2 events\r<br />\n<br />\nsorry for delay, many requests and only a few helpers here ;}<br />\n",
+    "PostedDate": "2015-01-04T06:57:34.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338884",
+    "ThreadId": "564321",
+    "Html": "Thanks for your guide.<br />\n",
+    "PostedDate": "2015-01-04T09:04:46.24-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

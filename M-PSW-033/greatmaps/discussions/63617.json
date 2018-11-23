@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "216334",
+    "ThreadId": "63617",
+    "Html": "<p>Hi radioman</p>\r\n<p>I have a piece of code like this in a WCF Service:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">byte</span>[] GetImage(ImageCriteria criteria)\r\n        {\r\n            GMaps map = Singleton&lt;GMaps&gt;.Instance;\r\n            Point point = map.<span style=\"color:#ff0000\">FromLatLngToPixel</span>(criteria.Lat, criteria.Lng, criteria.Zoom);\r\n            point = map.<span style=\"color:#ff0000\">FromPixelToTileXY</span>(point);\r\n            <span style=\"color:Blue\">var</span> image = map.GetImageFrom((MapType)criteria.MapType, point, criteria.Zoom) <span style=\"color:Blue\">as</span> GMapImage;\r\n            <span style=\"color:Blue\">if</span> (image != <span style=\"color:Blue\">null</span>)\r\n            {\r\n                <span style=\"color:Blue\">var</span> memoryStream = <span style=\"color:Blue\">new</span> MemoryStream();\r\n                map.ImageProxy.Save(memoryStream, image);\r\n                <span style=\"color:Blue\">return</span> memoryStream.ToArray();\r\n            }\r\n\r\n            <span style=\"color:Blue\">return</span> <span style=\"color:Blue\">null</span>;\r\n        }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>This is not compiling anymore since&nbsp;FromLatLngToPixel and&nbsp;<span><span style=\"color:#000000\">FromPixelToTileXY methods are moved to&nbsp;GMap.NET.Internals.Core which is internal.</span></span></p>\r\n<p><span><span style=\"color:#000000\">Is it possible to uninternalize these methods? ty</span></span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-07-27T04:46:45.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "216338",
+    "ThreadId": "63617",
+    "Html": "<p>check <strong>BigMapMaker-ConsoleApplication</strong>, its something like that:</p>\r\n<pre><div style=\"color:Black;background-color:White\"><pre>         GMaps.Instance.Mode = AccessMode.ServerAndCache;\r\n         GMaps.Instance.ImageProxy = <span style=\"color:Blue\">new</span> WindowsFormsImageProxy();\r\n\r\n         MapType type = MapType.GoogleMap;\r\n         PureProjection pr = <span style=\"color:Blue\">new</span> MercatorProjection(); \r\n         <span style=\"color:Blue\">int</span> zoom = 12;\r\n         RectLatLng area = RectLatLng.FromLTRB(25.013809204101563, 54.832138557519563, 25.506134033203125, 54.615623046071839);\r\n         \r\n<span style=\"color:Blue\">         using</span>(Bitmap bmpDestination = <span style=\"color:Blue\">new</span> Bitmap(pxDeltaA.X, pxDeltaA.Y))\r\n         {\r\n               <span style=\"color:Green\">// get tiles &amp; combine into one</span>\r\n               <span style=\"color:Blue\">foreach</span>(<span style=\"color:Blue\">var</span> p <span style=\"color:Blue\">in</span> tileArea)\r\n               {\r\n                  Console.WriteLine(<span style=\"color:#A31515\">&quot;Downloading[&quot;</span> + p + <span style=\"color:#A31515\">&quot;]: &quot;</span> + tileArea.IndexOf(p) + <span style=\"color:#A31515\">&quot; of &quot;</span> + tileArea.Count);\r\n\r\n                  WindowsFormsImage tile = GMaps.Instance.GetImageFrom(type, p, zoom) <span style=\"color:Blue\">as</span> WindowsFormsImage;\r\n                  <span style=\"color:Blue\">if</span>(tile != <span style=\"color:Blue\">null</span>)\r\n                  {\r\n                     <span style=\"color:Blue\">using</span>(tile)\r\n                     {\r\n                        <span style=\"color:Blue\">using</span>(Graphics gfx = Graphics.FromImage(bmpDestination))\r\n                        {\r\n                           gfx.DrawImage(tile.Img, (p.X - minX)*pr.TileSize.Width, (p.Y - minY)*pr.TileSize.Width);\r\n                        }\r\n                     }\r\n                  }\r\n               }\r\n       }</pre>\r\n</div>\r\n</pre>",
+    "PostedDate": "2009-07-27T05:03:13.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706249",
+    "ThreadId": "63617",
+    "Html": "<p><span class=\"hps\">how</span>&nbsp;<span class=\"hps\">to get</span>&nbsp;<span class=\"hps\">from here</span>&nbsp;<span class=\"hps\">on &nbsp;</span>&nbsp;<span class=\"hps\">drawing</span>&nbsp;<span class=\"hps\">with markers and</span>&nbsp;<span class=\"hps\">routs?&nbsp;</span></p>",
+    "PostedDate": "2011-12-01T21:49:27.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706267",
+    "ThreadId": "63617",
+    "Html": "<p>check static image maker in windows forms demo</p>",
+    "PostedDate": "2011-12-01T23:34:38.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706361",
+    "ThreadId": "63617",
+    "Html": "<p><span class=\"hps\">without form</span><span>, I have</span>&nbsp;<span class=\"hps\">in console mode</span></p>",
+    "PostedDate": "2011-12-02T02:42:37.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706363",
+    "ThreadId": "63617",
+    "Html": "<p>there is no difference</p>",
+    "PostedDate": "2011-12-02T02:48:46.58-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707092",
+    "ThreadId": "63617",
+    "Html": "<p>&nbsp;</p>\r\n<p>Hello radioman,</p>\r\n<p>&nbsp; i want to make a \"static Map\" Screenshot in size 640x480.</p>\r\n<p><span class=\"hps\">how to get the</span>&nbsp;<span class=\"hps\">images</span>&nbsp;<span class=\"hps\">to size</span></p>",
+    "PostedDate": "2011-12-04T00:12:11.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707096",
+    "ThreadId": "63617",
+    "Html": "<p>?</p>",
+    "PostedDate": "2011-12-04T00:50:02.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707100",
+    "ThreadId": "63617",
+    "Html": "<p><span class=\"hps\">All</span>&nbsp;<span class=\"hps\">the images</span>&nbsp;<span class=\"hps\">were the same size</span><span>, such as 640x480</span>&nbsp;<span class=\"hps\">or</span>&nbsp;<span class=\"hps\">800x600.</span>&nbsp;<span class=\"hps\">and</span>&nbsp;<span class=\"hps\">with</span>&nbsp;<span class=\"hps\">all </span><span class=\"hps\">markers and</span>&nbsp;<span class=\"hps\">roads</span></p>",
+    "PostedDate": "2011-12-04T01:19:00.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707102",
+    "ThreadId": "63617",
+    "Html": "<p>so whats the problem?</p>",
+    "PostedDate": "2011-12-04T01:39:02.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707109",
+    "ThreadId": "63617",
+    "Html": "<p>&nbsp;</p>\r\n<p><span class=\"hps\">how to do it</span><span>, tell me please</span></p>",
+    "PostedDate": "2011-12-04T02:11:10.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707113",
+    "ThreadId": "63617",
+    "Html": "<p>by coding ;} there is no 'official' static map api for now, check the demos and modify for your own needs</p>",
+    "PostedDate": "2011-12-04T02:13:24.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

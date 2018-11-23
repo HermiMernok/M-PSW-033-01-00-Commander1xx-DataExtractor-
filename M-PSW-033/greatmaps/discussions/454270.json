@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1083839",
+    "ThreadId": "454270",
+    "Html": "Hello all,<br />\n<br />\nI am using a 32x32 pixels image for a custom marker but I need the marker to be placed in the CENTER of the icon and not in the corner. How can I set an offset so that the bitmap's center is on the marker's location?<br />\n<br />\nThanks for any help!<br />\n",
+    "PostedDate": "2013-08-22T13:50:23.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083842",
+    "ThreadId": "454270",
+    "Html": "When working with Google Maps online, this can be done via this code:\r<br />\n<br />\nanchor: new google.maps.Point(16, 34)\r<br />\n<br />\nIs there a similar function in GMap.NET?<br />\n",
+    "PostedDate": "2013-08-22T14:05:12.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083939",
+    "ThreadId": "454270",
+    "Html": "Figured it out...<br />\n<br />\nHere it is for those that might have the same issue:<br />\n<br />\nflightTrackerMarker.Offset = new System.Drawing.Point(-16, -16);<br />\n",
+    "PostedDate": "2013-08-22T21:44:59.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

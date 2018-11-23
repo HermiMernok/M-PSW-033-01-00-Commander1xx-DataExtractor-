@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "628987",
+    "ThreadId": "261711",
+    "Html": "\r\n<p>I am doing some operations with various tile cache files (.gmdb).</p>\r\n<p>I find that GMap tends to hold SQLite files in a locked state. Sometimes this may be reasonable, but other times perhaps not. It seems this lock perhaps does release after some minutes.</p>\r\n<p>Anyhow an example is this, i made a call to this function, to operate on a file separate from the folder where tiles are being used for the map drawing.</p>\r\n<p style=\"padding-left:30px\">SQLitePureImageCache.VacuumDb</p>\r\n<p>When i made this call i can see (using procexp.exe) the file open. It does not close however.</p>\r\n<p>In reading up on SQLite it sounds like this parameter will cause the file to stay open.</p>\r\n<p style=\"padding-left:30px\">;Pooling=True</p>\r\n<p>I also found out that there is a function that might be helpful to close in this case, but i am not sure where the connection is that i would use for this call.</p>\r\n<p style=\"padding-left:30px\">SQLiteConnection.ClearAllPools()</p>\r\n<p>I'm wondering if there is a fix or workaround for this. It appears that maybe import/export functions may have the same issue.</p>\r\n<p>I may also wish to find a way to flush out the connections associated with the tile cache used for the display also so if there are ideas on that too it would be great.</p>\r\n",
+    "PostedDate": "2011-06-16T16:36:45.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629004",
+    "ThreadId": "261711",
+    "Html": "<p>database file is locked when new tile is saved, stop browsing the map and it should be lock free, anyway i haven't done intense testing on these issues yet...</p>",
+    "PostedDate": "2011-06-16T17:59:41.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629042",
+    "ThreadId": "261711",
+    "Html": "<p>Thanks for your comments,</p>\r\n<p>So i recompiled it sometimes seems to be faster about releasing, perhaps 10 sec. The vacuum does seem to release eventually. Strangely if i happen to access another gmdb in the same application, it seems to cause the the file i just optimized to release.</p>\r\n<p>I changed the VacuumDb, just removed the pooling, seems to run ok and the lock goes right after the optimize is done.</p>\r\n<p>I can guess that connection pooling might be important in the main map drawing/caching stuff. From what i read it sounds like pooling helps when doing a lot of open/close - i presume the tiles do lots of this.</p>\r\n<p>I'm less certain if it is useful in utility functions like import/export/optimize/createdb etc.</p>\r\n<p>Anyhow i'll do some more testing here as i get time, just thought i'd see if there was already some knowledge out there on this.</p>",
+    "PostedDate": "2011-06-16T21:34:31.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629083",
+    "ThreadId": "261711",
+    "Html": "<p>i see, i'll remove pooling options from utility functions, thanks for testing!</p>",
+    "PostedDate": "2011-06-17T00:10:28.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

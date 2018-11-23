@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "898008",
+    "ThreadId": "390987",
+    "Html": "\r\n<p>Hello</p>\r\n<p>has anybody an idea how</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>MainMap.Manager.OnTileCacheProgress &#43;= <span style=\"color:blue\">new</span> TileCacheProgress(OnTileCacheProgress);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>can be translated in VB.net?</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">AddHandler</span> MainMap.Manager.OnTileCacheProgress, <span style=\"color:blue\">New</span> TileCacheProgress(<span style=\"color:blue\">AddressOf</span> <span style=\"color:blue\">Me</span>.OnTileCacheProgress)\r\n</pre>\r\n</div>\r\ndo not work. Error: OnTileCacheProgress is not an event of GMap.NET.GMaps\r\n<p></p>\r\n<p>Thx for help:)</p>\r\n<p>Bye EDE</p>\r\n",
+    "PostedDate": "2012-08-10T05:19:44.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898015",
+    "ThreadId": "390987",
+    "Html": "<p><a href=\"http://codeconverter.sharpdevelop.net/SnippetConverter.aspx\" target=\"_blank\">http://codeconverter.sharpdevelop.net/SnippetConverter.aspx</a></p>",
+    "PostedDate": "2012-08-10T05:28:02.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898019",
+    "ThreadId": "390987",
+    "Html": "<p>Thats one thing the translater does not translate correct, adding handlers ;-)</p>\r\n<p>&nbsp;</p>\r\n<p>And I think, you cannot tranlate it to vb. But you may try:</p>\r\n<p>AddHandler Mainmap.Manager.OnTileCacheProgress, AddressOf OnTileCacheProgress or if that is not working something like:</p>\r\n<p>Dim Manager = Mainmap.Manager</p>\r\n<p>AddHandler Manager.OnTileCacheProgress, AddressOf OnTileCacheProgress</p>\r\n<p>&nbsp;</p>\r\n<p>Michael</p>",
+    "PostedDate": "2012-08-10T05:40:28.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898048",
+    "ThreadId": "390987",
+    "Html": "<p>it does not work. Same Error message. But do not really understand why, because</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">AddHandler</span> <span style=\"color: blue;\">Me</span>.MainMap.OnTileLoadStart, <span style=\"color: blue;\">New</span> TileLoadStart(<span style=\"color: blue;\">AddressOf</span> <span style=\"color: blue;\">Me</span>.On_TileLoadStart)\r\n        <span style=\"color: blue;\">AddHandler</span> <span style=\"color: blue;\">Me</span>.MainMap.OnTileLoadComplete, <span style=\"color: blue;\">New</span> TileLoadComplete(<span style=\"color: blue;\">AddressOf</span> <span style=\"color: blue;\">Me</span>.On_TileLoadComplete)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>this works and they are also delegates like</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>   <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">delegate</span> <span style=\"color: blue;\">void</span> TileLoadComplete(<span style=\"color: blue;\">long</span> ElapsedMilliseconds);\r\n   <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">delegate</span> <span style=\"color: blue;\">void</span> TileLoadStart();\r\n\r\n   <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">delegate</span> <span style=\"color: blue;\">void</span> TileCacheProgress(<span style=\"color: blue;\">int</span> tilesLeft);\r\n</pre>\r\n</div>\r\n</p>\r\n<p>only the events in MainMap.Manager are not working. I can't see the difference.</p>\r\n<p>thx for help...</p>",
+    "PostedDate": "2012-08-10T06:45:01.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898062",
+    "ThreadId": "390987",
+    "Html": "\r\n<p>Last try:</p>\r\n<p>Locally define</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">WithEvents</span> m_Manager\n\n<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>\n\nm_manager = MainMap.Manager\n<span style=\"color:blue\">Addhandler</span> m_manager.OnTileCacheProgress, <span style=\"color:blue\">New</span> TileCacheProgress(<span style=\"color:blue\">AddressOf</span> OnTileCacheProgress)\n\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">New</span>\n\n\n</pre>\r\n</div>\r\n<p>Michael</p>\r\n",
+    "PostedDate": "2012-08-10T07:08:30.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898092",
+    "ThreadId": "390987",
+    "Html": "<p>hmm does not work. Thx for your support. I am going to try to make a public event for this delegate, if this helps, i'll post it.</p>\r\n<p>bye n thx Ede</p>",
+    "PostedDate": "2012-08-10T08:17:11.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898123",
+    "ThreadId": "390987",
+    "Html": "<p>vb sucks, i can't add fuckin event too ;D</p>",
+    "PostedDate": "2012-08-10T09:19:06.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

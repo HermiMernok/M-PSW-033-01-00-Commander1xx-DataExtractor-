@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I have made an ActiveX component using GMap.Net which in general works really well, but has one problem I cannot understand. \r\nAll markers on all overlays are displayed correctly. I van see them using the IsMouseOver functionality, etc, so they seem to be correctly created etc. \r\nHowever, when I use the ZoomAndCentre function the entire application shuts down unexplicably. \r\nI cannot reproduce this if I use the code directly from a Visual C# application, only when I use the COM component. \r\nDoes anyone perhaps have experience in creating COM components based on GMao.NET? Is there anything \"special\" I should be doing? Any ideas would help.",
+    "LastUpdatedDate": "2014-02-20T07:06:08.087-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-01-27T10:15:40.657-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMap.NET Active X Component Shuts down",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16094
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "how do you debug it?",
+      "PostedDate": "2014-01-28T01:10:41.063-08:00",
+      "Id": 131860
+    },
+    {
+      "Message": "That is the difficult part as there is no real means to \"debug\" it. I basically use the ActiveX Component from a BorlandC++ Application and when I call the specific method that uses the ZoomAndCentre function, the application shuts down. ",
+      "PostedDate": "2014-02-05T08:06:13.69-08:00",
+      "Id": 132693
+    },
+    {
+      "Message": "Since there seems to be no feedback to this yet, I was wondering - have you found a way around it perhaps?\nWe might be facing a similar problem.\n",
+      "PostedDate": "2014-02-19T02:40:18.983-08:00",
+      "Id": 134051
+    },
+    {
+      "Message": "I've created an ActiveX component that wraps GMap.net that I use from a VB6 application. As well I call my unwrapped GMap.Net directly from C# and it behaves the same.. I did nothing special that I recall.\n\nMy first suspicion would be that you do not have the correct interface registered for your ActiveX control. Often when you change the interface and it does not get registered correctly the consuming app will crash when it attempts to make a call to the wrong DispID or Interface.\n\nYou should be able to debug the issue from both sides quite easily. You can attach to your Borland C++ app from Visual Studio to debug it from GMap side. Or you can attach the Visual Studio debugger to your Borland C++ debug environment (not sure how this works as I haven't used Borland C++ in 20 years), put a breakpoint on each side of the call to the routine that does the ZoomAndCenter and step in. If it never his the C# breakpoint then the ActiveX interface is your problem.",
+      "PostedDate": "2014-02-19T06:23:37.073-08:00",
+      "Id": 134066
+    },
+    {
+      "Message": "To respond to NananaBatman - I have worked around it - by creating my own function which computes the extent of the rectangle containing the markers, and then uses the GMap functionSetZoomToFitRect to do the zoom and centre using the supplied rectangle. The problem thus seems to come in the call to \n\nTo respond to CadenceK - unfortunately I am sure that the interface is registered correctly. If I edit the ZoomAndCenterMarkers function in GMapControl.cs and hardcode the values for the rectangle, then the problem goes away. I can see the zoom etc working using my hardcoded rectangle. So the interface is definitely working - and the problem appears to be caused by the call to GetRectOfAllMarkers. I however cannot see what is this function could possibly go so horribly wrong.",
+      "PostedDate": "2014-02-20T07:06:08.087-08:00",
+      "Id": 134206
+    }
+  ]
+}

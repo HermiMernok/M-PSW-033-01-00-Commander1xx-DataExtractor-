@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "432677",
+    "ThreadId": "209771",
+    "Html": "<p>Hello,</p>\r\n<p><br>I'm wondering if I can OnClick get something like local coordinates and transform them into LatLng in Mobile app, like in WindowsForms. I'm trying to get placemark from geocoder on click. I know about the FromLocalToLatLng method, but there is no MouseEventArgs passed to the MainMap_Click.</p>\r\n<p>I've made changes to GetPlacemarkFromGeocoderUrl to make it work on win mobile and I'll fork them later =]</p>",
+    "PostedDate": "2010-04-19T05:14:51.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432695",
+    "ThreadId": "209771",
+    "Html": "<p>the point is, that mobile has no mouse ;} am, did you tried MouseUp?</p>",
+    "PostedDate": "2010-04-19T06:11:27.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432843",
+    "ThreadId": "209771",
+    "Html": "<p>oh god, you're right =] however I'll try your way and I'll do my best to achieve the functionality tomorrow.. I promise :)</p>",
+    "PostedDate": "2010-04-19T12:41:52.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433503",
+    "ThreadId": "209771",
+    "Html": "<p>OK, I've achieved the functionality I wanted, I just inherit the GMapControl and override some functions...</p>\r\n<p>Thanks for the tip, anyway!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-21T00:37:40.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

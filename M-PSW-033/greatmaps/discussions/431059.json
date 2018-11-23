@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "992867",
+    "ThreadId": "431059",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am making a new overlay similar to</p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"></span></span><span style=\"font-family:Consolas; font-size:xx-small\">thanks,</span></p>\r\n<p>GetVilniusTransportData()</p>\r\n<p>Inside that function, how do I get the current lat,lon of the edges of the entire screen?</p>\r\n<p>I am new to c# and I can't quite figure it out.</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-family:Consolas; font-size:xx-small\">cellurl<a></a></span>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-27T20:15:50.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992992",
+    "ThreadId": "431059",
+    "Html": "\r\n<p>get min/max values</p>\r\n",
+    "PostedDate": "2013-01-28T03:31:13.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993060",
+    "ThreadId": "431059",
+    "Html": "\r\n<p>I don't understand.</p>\r\n",
+    "PostedDate": "2013-01-28T06:34:50.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "993064",
+    "ThreadId": "431059",
+    "Html": "\r\n<p>do you mean map.<strong>ViewArea</strong> ?</p>\r\n",
+    "PostedDate": "2013-01-28T06:40:11.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1002589",
+    "ThreadId": "431059",
+    "Html": "I am in a function like this one:\r<br />\n<br />\nDemoStuff.cs:<br />\n<pre><code>  public static void GetFlightRadarData(List&lt;FlightRadarData&gt; ret, PointLatLng location, int zoom, bool resetSession)\n</code></pre>\n\nInside a function like that, how would I get the map view corners?\r<br />\n<br />\nI could estimate it using ZOOM somehow, but I think I am missing something easy...\r<br />\n<br />\nThanks!\r<br />\njim<br />\n",
+    "PostedDate": "2013-02-17T20:08:25.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1002757",
+    "ThreadId": "431059",
+    "Html": "just find min/max coordinates, why do you need that, it's probably whole planet anyway ;}<br />\n",
+    "PostedDate": "2013-02-18T03:30:05.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "656422",
+    "ThreadId": "268679",
+    "Html": "\r\n<p>Hi there!</p>\r\n<p>First of all, i'd like to congratulate you for the excellent work you have done, and to thank you for letting people learn from you giving access to your source code.</p>\r\n<p>I've have downloaded from the http://greatmaps.codeplex.com/SourceControl/list/changesets page the\r\n<a id=\"ChangeSetLink1\" title=\"View change set aae170acdd8d\" href=\"../SourceControl/changeset/changes/aae170acdd8d\" style=\"font-weight:bold\">\r\naae170acdd8d</a> version. I have unzipped on my hard disk and i have oppened the <br>\r\n&quot;GMap.NET vs10.sln&quot; solution with my VS 2010 4.0 .NET Framework.</p>\r\n<p>I have tried to build the solution to create the executable file, but i have 3 errors on the build:</p>\r\n<p>* \\Testing\\WPF-GMapControlNew\\MainWindow.xaml file, 7th line : GMapControlNew does not exist on the namespace\r\n<br>\r\n* The import of the key file MyPFX.pfx has been cancelled<br>\r\n* \\Testing\\WPF-GMapControlNew\\MainWindow.xaml file, 7th line : the GMapControlNew type can't be found</p>\r\n<p>Could you please tell me what should i change on the project so the build can be succesfull??</p>\r\n<p>Thank you very much for your time and help and congratulations again!</p>\r\n<p>Natxo</p>\r\n",
+    "PostedDate": "2011-08-11T03:31:41.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656433",
+    "ThreadId": "268679",
+    "Html": "<p>just simply unload <em>Testing</em> and <em>Setup</em>&nbsp;projects...</p>",
+    "PostedDate": "2011-08-11T03:56:18.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656525",
+    "ThreadId": "268679",
+    "Html": "<p>Thank you very much for your quick (very quick!) answer! it's working now!</p>",
+    "PostedDate": "2011-08-11T06:42:20.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

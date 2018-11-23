@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "471549",
+    "ThreadId": "220966",
+    "Html": "<p>Hi,</p>\r\n<p><span>Map server can set up local networks to work elsewhere.&nbsp;</span><span>Map server for that address should change dynamically.&nbsp;</span><span>But the method of the addresses are internal.&nbsp;</span><span>Is it possible for us to override that?</span></p>",
+    "PostedDate": "2010-07-23T04:24:52.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "471551",
+    "ThreadId": "220966",
+    "Html": "<p>what server? Global servers do not change, if you have your own server, then the only option is to change code</p>",
+    "PostedDate": "2010-07-23T04:29:58.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "472766",
+    "ThreadId": "220966",
+    "Html": "<p>I see.&nbsp;<span>I did override, but it did not work.&nbsp;</span><span>How do I override this function?&nbsp;<span>Maps server's address is dynamically.&nbsp;</span><span>For many customers we have established a map server.</span><br></span></p>",
+    "PostedDate": "2010-07-26T11:19:12.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473355",
+    "ThreadId": "220966",
+    "Html": "..you can't just override, you need to add new MapType, adjust projection and servers url, if they are public i can integrate them",
+    "PostedDate": "2010-07-27T13:38:54.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473572",
+    "ThreadId": "220966",
+    "Html": "<p>Map type already exists(Pergo Map).&nbsp;But the web address can be different.&nbsp;For example, some customers are working the internal network, no internet.&nbsp;<span>Therefore, there are two options.<br></span><span>1) Each customer will need to compile a different dll.&nbsp;</span><span>But this is not required because the automatic update problem.<br></span><span>2) Override will have to do.&nbsp;</span><span>I needed to override things I do every time.&nbsp;</span><span>You do not need to change.&nbsp;</span><span>I'll be glad if you could help on how to do.</span><br><br><br></p>",
+    "PostedDate": "2010-07-28T02:31:52.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473770",
+    "ThreadId": "220966",
+    "Html": "no internet == CacheOnly mode, so just prepare cache and use it",
+    "PostedDate": "2010-07-28T09:35:44.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473800",
+    "ThreadId": "220966",
+    "Html": "<p>Hi radioman,</p>\r\n<p>I think I can not explain my problem.</p>\r\n<p>No Internet but for example Map server IP adress is 192.168.1.120. And I don't use &quot;maps.pergo.com.tr&quot; allready, for example, I want to use &quot;192.168.1.120&quot;. So I must be override. How can be override? Cache and maptype doesnt solution for me.<br><br></p>",
+    "PostedDate": "2010-07-28T10:43:30.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474178",
+    "ThreadId": "220966",
+    "Html": "<p>Hi radioman,</p>\r\n<p>Do not have a way to do this?</p>\r\n<p>Thanks.</p>\r\n<p>Ramazan ULU&Ccedil;AY</p>",
+    "PostedDate": "2010-07-29T04:18:01.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474663",
+    "ThreadId": "220966",
+    "Html": "<p>hm...</p>",
+    "PostedDate": "2010-07-30T03:10:41.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474988",
+    "ThreadId": "220966",
+    "Html": "<p>Hi radioman,</p>\r\n<p>what do you think this about?&nbsp;</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-07-31T01:25:57.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475072",
+    "ThreadId": "220966",
+    "Html": "<p>Well, now you can add some code yourself to provide server name dynamically, i'll include that functionality after my short holidays ;}</p>",
+    "PostedDate": "2010-07-31T13:38:46.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475171",
+    "ThreadId": "220966",
+    "Html": "<p><span id=\"result_box\"><span>Good holidays :) </span></span><span id=\"result_box\"><span>I look forward to.</span></span></p>",
+    "PostedDate": "2010-08-01T08:29:29.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475314",
+    "ThreadId": "220966",
+    "Html": "<p>Or you can Alter the code to access XXX.somedomain.com inside the DLL code.</p>\r\n<p>and on the customer machine you alter the Hosts file and&nbsp;connect the above&nbsp;domain with the IP</p>\r\n<p>Best regards,</p>\r\n<p>&nbsp;</p>\r\n<p>Blaz</p>",
+    "PostedDate": "2010-08-01T23:58:44.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475472",
+    "ThreadId": "220966",
+    "Html": "<p>Hi krneki99</p>\r\n<p>Thanks for isue. <span id=\"result_box\"><span>I thought changing the host file, but I think </span></span><span id=\"result_box\"><span>the dynamic address is </span></span><span id=\"result_box\"><span>better solution.</span></span></p>\r\n<p>Best regards,</p>\r\n<p>Ramazan</p>",
+    "PostedDate": "2010-08-02T08:29:33.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478764",
+    "ThreadId": "220966",
+    "Html": "<p>- added Server_PergoTurkeyMap to change server address dynamically in manager</p>",
+    "PostedDate": "2010-08-10T12:33:07.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

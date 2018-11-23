@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "829981",
+    "ThreadId": "353967",
+    "Html": "\r\n<p>Ola,</p>\r\n<p>How do I check if there isn't a marker on let's say: pointlatlong(0,0) ?</p>\r\n",
+    "PostedDate": "2012-04-29T14:45:01.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829983",
+    "ThreadId": "353967",
+    "Html": "<p>compare all existing markers to that point?</p>",
+    "PostedDate": "2012-04-29T14:51:57.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829985",
+    "ThreadId": "353967",
+    "Html": "<p>Yes I understand, but how?</p>\n<pre>for each xmarker as .... ??? in mymap...???\n....???\nNext</pre>",
+    "PostedDate": "2012-04-29T15:20:01.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829991",
+    "ThreadId": "353967",
+    "Html": "<p>in overlay.Markers</p>",
+    "PostedDate": "2012-04-29T16:29:59.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830063",
+    "ThreadId": "353967",
+    "Html": "<p>Hmmm... can't get it to work:</p>\r\n<p>&nbsp;For Each xOverlay As GMapOverlay In overlayOne.Markers&nbsp; &lt;--&nbsp; Value of type 'GMap.NET.WindowsForms.GMapMarker' cannot be converted to 'GMap.NET.WindowsForms.GMapOverlay'</p>\r\n<p>Besides that how do I continue...</p>",
+    "PostedDate": "2012-04-30T00:29:55.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830081",
+    "ThreadId": "353967",
+    "Html": "<p>marker is marker, overlay is overlay...</p>",
+    "PostedDate": "2012-04-30T01:38:24.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830121",
+    "ThreadId": "353967",
+    "Html": "<p>Now that was just plain stupid. Sorry.</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> xMark <span style=\"color: blue;\">As</span> GMapMarker <span style=\"color: blue;\">In</span> overlay.Markers\n   <span style=\"color: blue;\">If</span> xMark.Position = myPoint <span style=\"color: blue;\">Then</span>\n</pre>\n</div>\n<p>Nothing seems to happen.</p>\n<p>EDIT: Code won't work. Anyone with a working example?</p>",
+    "PostedDate": "2012-04-30T03:39:57.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832750",
+    "ThreadId": "353967",
+    "Html": "<p>http://www.wikisecurityinfo.com/how-to-manually-remove-trojanwin32sirefef-ag-completely/</p>",
+    "PostedDate": "2012-05-06T14:15:03.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832752",
+    "ThreadId": "353967",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>Timlovely wrote:</strong><br />\r\n<p>http://www.wikisecurityinfo.com/how-to-manually-remove-trojanwin32sirefef-ag-completely/</p>\r\n</blockquote>\r\n<p>lost in the woods? ;]</p>",
+    "PostedDate": "2012-05-06T14:20:56.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

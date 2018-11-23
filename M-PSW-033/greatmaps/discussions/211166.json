@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "437633",
+    "ThreadId": "211166",
+    "Html": "<p>Hello,</p>\r\n<p>I am trying to load tiles from WMS server, which are in WGS84 projection. I'm modifying the</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>MakeImageUrl(MapType type, Point pos, <span style=\"color:blue\">int</span> zoom, <span style=\"color:blue\">string</span> language)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>function. I succeed getting some coordinates from the tile number through this code:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>                     Point tilePoint = <span style=\"color:blue\">new</span> Point(pos.X * 256, pos.Y * 256);\r\n \r\n                     <span style=\"color:blue\">int</span> pixelsPerRow = 256 * (<span style=\"color:blue\">int</span>)Math.Pow((<span style=\"color:blue\">double</span>)2.0, (<span style=\"color:blue\">double</span>)zoom);\r\n\r\n                     <span style=\"color:blue\">double</span> resX = (<span style=\"color:blue\">double</span>)(360 / (<span style=\"color:blue\">double</span>)pixelsPerRow);\r\n                     <span style=\"color:blue\">double</span> resY = (<span style=\"color:blue\">double</span>)(180 / (<span style=\"color:blue\">double</span>)pixelsPerRow);\r\n                 \r\n                     PointLatLng pntLatLng1 = <span style=\"color:blue\">new</span> PointLatLng(tilePoint.X * resX - 180, 90 - ((tilePoint.Y * resY) + (256 * resY)));\r\n                     PointLatLng pntLatLng2 = <span style=\"color:blue\">new</span> PointLatLng(tilePoint.X * resX - 180 + 256 * resX, 90 - tilePoint.Y * resY);\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>I'll try to explain. First, we have 256x256px tiles and through tilePoint we get the top-left position of the tile. After that, we get the overall number of pixels according to the Zoom level (pixelsPerRow = pixelsPerColumn, because it's map 256x256px tiles and the number of tiles are (4^zoom) for each zoom level, (2^zoom) number of tiles on a row/column, starting from 0).</p>\r\n<p>Then we make resolution doubles, resX, resY and we get the number of degrees for each pixel.</p>\r\n<p>Then, for WMS (official documentation) we need bottom-left and top-right points of the tile, to extract the information from the server, in Lat/Lng. So, we make pntLatLng1 (bottom-left) and pntLatLng2 (top-right) points. I'm sure the code is generating right points, but the tile I get is not very &quot;well-shaped&quot;. I mean, it is a little &quot;<span id=\"result_box\"><span style=\"background-color:#ffffff;color:#000000\">elongated&quot; to the poles. I think it's something to do with the &quot;geoidic&quot; shape of the earth. =]</span></span></p>\r\n<p><span><span style=\"background-color:#ffffff;color:#000000\">Am I correct, and can someone give directions, how to make the code &quot;right&quot;.</span></span></p>\r\n<p><span><span style=\"background-color:#ffffff;color:#000000\">These are the WGS84 settings:</span></span></p>\r\n<p>radius <em>a</em> = 6,378,137&nbsp;m at the equator</p>\r\n<p>minor (<em>conjugate</em>) radius <em>b</em> = 6,356,752.314 245&nbsp;m at the poles</p>\r\n<p>flattening of 21.384 685 755&nbsp;km, or 1/298.257 223 563 &asymp; 0.335%</p>\r\n<p>Thanks in advance!</p>\r\n<p>Many thanks for the great project! =]</p>",
+    "PostedDate": "2010-04-30T10:44:40.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437790",
+    "ThreadId": "211166",
+    "Html": "<p>hm..</p>",
+    "PostedDate": "2010-05-01T02:19:47.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438216",
+    "ThreadId": "211166",
+    "Html": "<p>Hello again,</p>\r\n<p>I know why that was happening - it's because the pixels are 256x256, and the degrees are 360x180, so the wms server is giving me transformed jpeg, much flattened and the markers aren't where they have to be. From zoom level 1, where I have 2x2 tiles, I can render the world on the top 2 tiles, but what projection should I use, and has anyone had similar problem?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-03T00:44:27.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438226",
+    "ThreadId": "211166",
+    "Html": "<p>there are few projections, each map provider use different, so which is yours?</p>",
+    "PostedDate": "2010-05-03T01:18:01.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438232",
+    "ThreadId": "211166",
+    "Html": "<p>It's WGS 84. I can give you URL to see what exactly happens.</p>\r\n<p>On the GMaps, it shows like this:</p>\r\n<p><a href=\"http://img191.imageshack.us/img191/8396/test1rd.jpg\">http://img191.imageshack.us/img191/8396/test1rd.jpg</a></p>\r\n<p>while it should be like this:</p>\r\n<p><a href=\"http://img696.imageshack.us/img696/1536/test2bu.jpg\">http://img696.imageshack.us/img696/1536/test2bu.jpg</a></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>EDIT: Hm, I'll try to add a new projection class with tile size 512x256. =]</p>",
+    "PostedDate": "2010-05-03T01:33:05.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438283",
+    "ThreadId": "211166",
+    "Html": "<p>mm, so the there is error in calculating pixels somewhere... Can you make fork with something you already done?</p>",
+    "PostedDate": "2010-05-03T04:42:11.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438739",
+    "ThreadId": "211166",
+    "Html": "<p>yes, in a minute</p>\r\n<p>&nbsp;</p>\r\n<p>EDIT: <a rel=nofollow href=\"https://hg01.codeplex.com/forks/closerbg/wmsfork\">https://hg01.codeplex.com/forks/closerbg/wmsfork</a></p>\r\n<p>Heres a fork to test the changes.</p>",
+    "PostedDate": "2010-05-04T03:14:06.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438786",
+    "ThreadId": "211166",
+    "Html": "<p>i see, well there is projection mismatch, i think you use really&nbsp;<strong><em>PlateCarreeProjection</em></strong><em>,</em> like ArcGIS, on free minute i'll try to figure it out ;}</p>\r\n<p>p.s. i almost got it</p>",
+    "PostedDate": "2010-05-04T06:03:00.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438830",
+    "ThreadId": "211166",
+    "Html": "<p>you were right about the first thing, modifying the code like this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>                     Point tilePoint = <span style=\"color:blue\">new</span> Point(pos.X * 256, pos.Y * 256);\r\n \r\n                     <span style=\"color:blue\">int</span> pixelsPerRow = 256 * (<span style=\"color:blue\">int</span>)Math.Pow((<span style=\"color:blue\">double</span>)2.0, (<span style=\"color:blue\">double</span>)zoom);\r\n\r\n                     <span style=\"color:blue\">double</span> resX = (<span style=\"color:blue\">double</span>)(360 / (<span style=\"color:blue\">double</span>)pixelsPerRow);\r\n                     <span style=\"color:green\">//double resY = (double)(180 / (double)pixelsPerRow);</span>\r\n                 \r\n                     PointLatLng pntLatLng1 = <span style=\"color:blue\">new</span> PointLatLng((<span style=\"color:blue\">double</span>)((<span style=\"color:blue\">double</span>)tilePoint.X * resX - (<span style=\"color:blue\">double</span>)180), 180 - ((tilePoint.Y * resX) + (256 * resX)));\r\n                     PointLatLng pntLatLng2 = <span style=\"color:blue\">new</span> PointLatLng(tilePoint.X * resX - 180 + 256 * resX, 180 - tilePoint.Y * resX);\r\n\r\n                     <span style=\"color:blue\">return</span> <span style=\"color:blue\">string</span>.Format(<span style=\"color:#a31515\">&quot;http://localhost:8081/geoserver/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=Test Workspace:world&amp;styles=&amp;bbox={0},{1},{2},{3}&amp;width=256&amp;height=256&amp;srs=EPSG:4326&amp;format=image/jpeg&quot;</span>, pntLatLng1.Lat.ToString(CultureInfo.InvariantCulture), pntLatLng1.Lng.ToString(CultureInfo.InvariantCulture), pntLatLng2.Lat.ToString(CultureInfo.InvariantCulture), pntLatLng2.Lng.ToString(CultureInfo.InvariantCulture));\r\n\r\n</pre>\r\n</div>\r\n<p>i.e. now it's calculating pixels the right way =] thanks alot for the clue.. but it still isn't the right <em>projection</em></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-04T07:16:54.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438929",
+    "ThreadId": "211166",
+    "Html": "<p>;}} few touches and it runs <em><span>effing </span></em><strong>Great</strong>&nbsp;!!</p>\r\n<p><img src=\"http://wn6aqw.blu.livefilestore.com/y1pcZihz5Jp0k1ht-VqH0Jr4EgC64roPc9JkS289TlcoBL5saPj3PNXMDmBycfyIShR8FawonzTgDwQQ5I6pZVOhZ5S7yUgreuX/gmapnet on wms perfectly.png\" alt=\"\" width=888></p>\r\n<div style=\"color:black;background-color:white\">\r\n<p>&nbsp; Projections.MercatorProjection ProjectionForWMS = <span style=\"color:blue\">new</span> Projections.MercatorProjection();<br><br>&nbsp; <span style=\"color:green\">//&nbsp;Engage &amp; enjoy ;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">case</span> MapType.WMSdemo:\r\n{\r\n   <span style=\"color:blue\">var</span> px1 = ProjectionForWMS.FromTileXYToPixel(pos);\r\n   <span style=\"color:blue\">var</span> px2 = px1;\r\n\r\n   px1.Offset(0, ProjectionForWMS.TileSize.Height);\r\n   PointLatLng p1 = ProjectionForWMS.FromPixelToLatLng(px1, zoom);\r\n\r\n   px2.Offset(ProjectionForWMS.TileSize.Width, 0);\r\n   PointLatLng p2 = ProjectionForWMS.FromPixelToLatLng(px2, zoom);\r\n\r\n   <span style=\"color:blue\">var</span> ret = <span style=\"color:blue\">string</span>.Format(CultureInfo.InvariantCulture, <span style=\"color:#a31515\">&quot;http://mapbender.wheregroup.com/cgi-bin/mapserv?map=/data/umn/osm/osm_basic.map&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;SERVICE=WMS&amp;LAYERS=OSM_Basic&amp;styles=&amp;bbox={0},{1},{2},{3}&amp;width={4}&amp;height={5}&amp;srs=EPSG:4326&amp;format=image/png&quot;</span>, p1.Lng, p1.Lat, p2.Lng, p2.Lat, ProjectionForWMS.TileSize.Width, ProjectionForWMS.TileSize.Height);\r\n\r\n   <span style=\"color:blue\">return</span> ret;\r\n}</pre>\r\n</div>\r\n</p>\r\n</div>",
+    "PostedDate": "2010-05-04T11:35:40.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439125",
+    "ThreadId": "211166",
+    "Html": "<p>It's beautiful... Easy and clean! =] Very grateful for the code... Now working on the rest ideas =] Thanks Thanks Thanks!</p>\r\n<p>&nbsp;</p>\r\n<p>EDIT:</p>\r\n<p>Heres a nice server: (heres a <a href=\"http://osm.wheregroup.com/demo/frames/index.php?&gui_id=osm_basic\">demo</a>)</p>\r\n<p>http://mapbender.wheregroup.com/cgi-bin/mapserv?map=/data/umn/osm/osm_basic.map&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;SERVICE=WMS&amp;LAYERS=OSM_Basic&amp;styles=&amp;bbox={0},{1},{2},{3}&amp;width={4}&amp;height={5}&amp;srs=EPSG:4326&amp;format=image/png</p>",
+    "PostedDate": "2010-05-04T23:22:14.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439137",
+    "ThreadId": "211166",
+    "Html": "<p>perfect, i've changed it to MercatorProjection, looks even better ;}</p>",
+    "PostedDate": "2010-05-05T00:29:10.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

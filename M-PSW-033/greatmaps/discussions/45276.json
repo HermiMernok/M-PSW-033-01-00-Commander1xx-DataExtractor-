@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "150972",
+    "ThreadId": "45276",
+    "Html": "Radioman, I found the solution to returning multiple address when using the geocoder.<br>\r\n<br>\r\ninstead of using the csv output format I tried xml, and ther it was:<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">public</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">static</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> MakeGeocoderListUrl(</span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> keywords)<br>\r\n{<br>\r\n    </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\"> key = keywords.Replace(</span><span style=\"font-size:13px;color:#a31515\">' '</span><span style=\"font-size:13px\">, </span><span style=\"font-size:13px;color:#a31515\">'+'</span><span style=\"font-size:13px\">);<br>\r\n    </span><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">string</span><span style=\"font-size:13px\">.Format(</span><span style=\"font-size:13px;color:#a31515\">&quot;http://maps.google.com/maps/geo?q={0}&amp;output=xml&quot;</span><span style=\"font-size:13px\">, key);<br>\r\n}<br>\r\n<br>\r\nfor eaxample if I pass &quot;gare paris&quot; as keywords I get a response containing 5 placemark objects.<br>\r\n<br>\r\nFor implementation I suggest adding  new methods:<br>\r\n<br>\r\n    public static string MakeGeoCoderListUrl(string keywords)<br>\r\n    public static GeoCoderResponse GetResponseFromGeoCoderUrl(...)<br>\r\n    <br>\r\n<br>\r\nthe response is all in xml and I've written a few classes to deserialize it into something usefull.  To save you much work is there some way for me send ou the code?<br>\r\n<br>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-26T08:14:58.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150978",
+    "ThreadId": "45276",
+    "Html": "upload patch system in source section",
+    "PostedDate": "2009-01-26T08:32:31.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150988",
+    "ThreadId": "45276",
+    "Html": "Ok done uploading code.<br>\r\n<br>\r\nIn my gPoint class a copy/paste generated an error<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> GMapNET.</span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\">(</span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\">.Parse(coords[1], </span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture), </span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\">.Parse(coords[1], </span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture));<br>\r\n<br>\r\nshould be<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#0000ff\">return</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> GMapNET.</span><span style=\"font-size:13px;color:#2b91af\">PointLatLng</span><span style=\"font-size:13px\">(</span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\">.Parse(coords[1], </span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture), </span><span style=\"font-size:13px;color:#0000ff\">double</span><span style=\"font-size:13px\">.Parse(coords[0], </span><span style=\"font-size:13px;color:#2b91af\">CultureInfo</span><span style=\"font-size:13px\">.InvariantCulture));\r\n<p>&nbsp;</p>\r\n</span></p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-01-26T09:05:05.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150989",
+    "ThreadId": "45276",
+    "Html": "Another point, a function to test wether a point is in the Viewed  area would be great to avoid relaoding the maps when unneccesary when changing the currentPosition<br>\r\n<br>\r\nThanks\r\n",
+    "PostedDate": "2009-01-26T09:07:45.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150990",
+    "ThreadId": "45276",
+    "Html": "ok, ..and its not reloading",
+    "PostedDate": "2009-01-26T09:13:14.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

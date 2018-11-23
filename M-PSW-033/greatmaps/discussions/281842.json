@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "707522",
+    "ThreadId": "281842",
+    "Html": "\r\n<p>I am trying to get the GMap.Net working for my Windows mobile (6.1 and 6.5). How to get the list of markers nearest to the position where an user clicked? And also can I try to open a context menu on clicking a marker.</p>\r\n",
+    "PostedDate": "2011-12-05T06:48:06.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707536",
+    "ThreadId": "281842",
+    "Html": "<p><em>var objectsInArea = from p in objects</em><br /><em> where MainMap.MapProvider.Projection.GetDistance(<strong>center</strong>, p.Point) &lt;= areaRadius</em><br /><em> select new</em><br /><em> {</em><br /><em>&nbsp; &nbsp;Obj = p,</em><br /><em>&nbsp; &nbsp;Dist = MainMap.MapProvider.Projection.GetDistance(<strong>center</strong>, p.Point)</em><br /><em> };<br /></em><br /><em>if(objectsInArea.Any())</em><br /><em>{</em><br /><em>&nbsp;...&nbsp;</em></p>\r\n<p><em>..and for context menu, use <strong>OnMouseOver</strong> event&nbsp;</em></p>",
+    "PostedDate": "2011-12-05T07:03:47.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707551",
+    "ThreadId": "281842",
+    "Html": "<p>Thank you for the instant reply. Before that what even handler method should I use to get the click event and get the lat long where the user clicked. I tried map.Click. But I couldnt get the lat and long from the event args.</p>",
+    "PostedDate": "2011-12-05T07:21:16.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707553",
+    "ThreadId": "281842",
+    "Html": "<p>..well just check demo source, all basic functionality are used</p>",
+    "PostedDate": "2011-12-05T07:23:06.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707570",
+    "ThreadId": "281842",
+    "Html": "<p>I tried to use&nbsp;OnMarkerClick event method in Windows Mobile project, but that method is not available for a smart<span style=\"white-space: pre;\"> </span>device project. It is available only for Windows version. Is there any other alternate method for Windows mobile?</p>",
+    "PostedDate": "2011-12-05T07:40:27.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707642",
+    "ThreadId": "281842",
+    "Html": "<p>\"..and for context menu, use OnMouseOver event \"</p>",
+    "PostedDate": "2011-12-05T09:24:34.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707647",
+    "ThreadId": "281842",
+    "Html": "<p>I just checked again, OnMouseOver and OnMarkerClick events are not available in \"GMap.NET.WindowsMobile\" dll. I think for mobile project, the dll I should refer is&nbsp;GMap.NET.WindowsMobile. Let me know can I reference \"GMap.NET.WindowsForms.dll\" in a smart device project.</p>",
+    "PostedDate": "2011-12-05T09:31:17.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707660",
+    "ThreadId": "281842",
+    "Html": "<p><strong>OnMouseOver</strong> is avaible, in the last changeset it should work again</p>",
+    "PostedDate": "2011-12-05T10:01:53.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "833272",
+    "ThreadId": "354880",
+    "Html": "\r\n<p>Hi guys am using this control in one of my projects n it works fine,</p>\r\n<p>but sometimes when i start the application the Map control wont load fully&nbsp;</p>\r\n<p>here is the code i use to initialize the map</p>\r\n<p>With myGMap <br>\r\n.CanDragMap = True <br>\r\n.MinZoom = 0 <br>\r\n.MaxZoom = 25 <br>\r\n.Manager.Mode = AccessMode.ServerOnly <br>\r\n.DragButton = Windows.Forms.MouseButtons.Left <br>\r\n.MouseWheelZoomType = False End With</p>\r\n<p>Try <br>\r\nmyMapProvider = GMapProviders.GoogleMap <br>\r\nmyGMap.Cursor = Cursors.WaitCursor <br>\r\nmyGMap.MapProvider = myMapProvider <br>\r\nmyGMap.Cursor = Cursors.Hand <br>\r\nmyMapOverLay = New GMapOverlay(myGMap, &quot;myMapOverLay&quot;) <br>\r\nmyGMap.Overlays.Add(myMapOverLay) <br>\r\nmyGMap.Zoom = curr_zoom <br>\r\nmyGMap.Position = New PointLatLng(8.879814, 76.605248) <br>\r\nCatch ex As Exception <br>\r\nEnd Try</p>\r\n<p>here is the screen shot</p>\r\n<p><img src=\"http://s13.postimage.org/6kt74hg47/dissc.png\" alt=\"scree shot\"></p>\r\n<p>The region in red box is were the full map should have loaded</p>\r\n<p>Need help <strong>Many Thanks</strong></p>\r\n",
+    "PostedDate": "2012-05-08T00:20:07.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833286",
+    "ThreadId": "354880",
+    "Html": "<p>set map properties before form is loaded: minzoom, maxzoom, zoom, position, provider</p>\r\n<p>in form constructor</p>",
+    "PostedDate": "2012-05-08T00:59:23.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833296",
+    "ThreadId": "354880",
+    "Html": "<p>WOW it worked tanxxxxxxx a lot&nbsp;</p>\r\n<p>man u rock</p>",
+    "PostedDate": "2012-05-08T01:21:53.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833297",
+    "ThreadId": "354880",
+    "Html": "<p>tnx a lot u rock man am loving this control</p>",
+    "PostedDate": "2012-05-08T01:22:21.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833304",
+    "ThreadId": "354880",
+    "Html": "<p>;} thanks, if you have a problem, just call</p>",
+    "PostedDate": "2012-05-08T01:27:46.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833309",
+    "ThreadId": "354880",
+    "Html": "<p>is der any way to remove the delay in loading the map while debugging&nbsp;</p>",
+    "PostedDate": "2012-05-08T01:32:30.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833310",
+    "ThreadId": "354880",
+    "Html": "<p>why do you use debug build? Use release build</p>",
+    "PostedDate": "2012-05-08T01:36:15.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833325",
+    "ThreadId": "354880",
+    "Html": "<p>while debugging even if i use release buid it takes time to load :(</p>",
+    "PostedDate": "2012-05-08T02:16:50.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833329",
+    "ThreadId": "354880",
+    "Html": "<p>few milliseconds?</p>",
+    "PostedDate": "2012-05-08T02:23:52.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833335",
+    "ThreadId": "354880",
+    "Html": "<p>yea but while running the release build as stand alone there is no delay :) i guess u put that delay while debugging for some&nbsp;purpose</p>",
+    "PostedDate": "2012-05-08T02:37:08.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833338",
+    "ThreadId": "354880",
+    "Html": "<p>yes, debug build is for debugging, it's slow, no reason to use it</p>\r\n<p>..anyway you can still debug your application while using release build from gmap.net</p>",
+    "PostedDate": "2012-05-08T02:40:47.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833340",
+    "ThreadId": "354880",
+    "Html": "<p>tanx a lot for dis control its simply AWESOM!!!!!!!!!!</p>",
+    "PostedDate": "2012-05-08T02:48:06.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

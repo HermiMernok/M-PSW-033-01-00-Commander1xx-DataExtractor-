@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "805555",
+    "ThreadId": "347351",
+    "Html": "\r\n<p>I'm trying to print the map (with markers overlaid) using the standard</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>            PrintDialog printDlg = <span style=\"color:blue\">new</span> PrintDialog();\r\n            printDlg.PrintVisual(MainMap, <span style=\"color:#a31515\">&quot;Map Printing.&quot;</span>);\r\n\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>but it fails with the infamous &quot;the calling thread cannot access this object because a different thread owns it.&quot; error.&nbsp;</p>\r\n<p>There was a brief discussion of this issue over a year ago (in the Windows Forms section, strangely), but no solution was forthcoming at that time. So has this been resolved, or can you please suggest a way to print the map in WPF?</p>\r\n",
+    "PostedDate": "2012-03-05T07:00:28.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805594",
+    "ThreadId": "347351",
+    "Html": "<p>tried?</p>\r\n<p>var img = map.<strong>ToImageSource</strong>();<br />PrintDialog printDlg = new PrintDialog();<br />printDlg.PrintVisual(img, \"Map Printing.\");</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-05T08:00:44.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806099",
+    "ThreadId": "347351",
+    "Html": "<p>Ah, just the job. Thanks :)</p>",
+    "PostedDate": "2012-03-06T02:33:34.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946777",
+    "ThreadId": "347351",
+    "Html": "\r\n<p>Hello Radioman</p>\r\n<p>I'm also interested by printing map, but on my version of the dll 1.6.0.0 there is no ToImageSource() method but just ToImage()</p>\r\n<p>Is it the same ?<br>\r\nDo I make a mistake somewhere ?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-25T14:54:27.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946859",
+    "ThreadId": "347351",
+    "Html": "\r\n<p>it's the same</p>\r\n",
+    "PostedDate": "2012-11-25T23:40:24.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947235",
+    "ThreadId": "347351",
+    "Html": "\r\n<p>Hello Radioman</p>\r\n<p>Now I see some&nbsp;issues&nbsp; with map.ToImage()</p>\r\n<p>- It is not really a ToImage() from backround map, but a ToImage from the viewPort, as a PrintScreen embedding everything Visible on the screen</p>\r\n<p>- My Idea was to change zoom and Size to print a readeable map on a full A4 page centered on the visible map on the screen, but what I get is just a kind of PrintScreen of the viewport</p>\r\n<p>- Is there any other way to Get the map displayed or even better get a map for defined Area in order to print or save the image ?</p>\r\n<p>- Obviously I can dive into the code but do you provide some other way to get a map for Printing or Image saving purpose ?</p>\r\n<p>Thank for your help</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-26T12:54:01.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "947243",
+    "ThreadId": "347351",
+    "Html": "\r\n<p>check windows forms demo, 'Get static' button</p>\r\n<p>or <a href=\"http://greatmaps.codeplex.com/SourceControl/changeset/view/a8a1508fe247#Testing%2fBigMapMaker%2fProgram.cs\" target=\"_blank\">\r\nhttp://greatmaps.codeplex.com/SourceControl/changeset/view/a8a1508fe247#Testing%2fBigMapMaker%2fProgram.cs&nbsp;</a></p>\r\n",
+    "PostedDate": "2012-11-26T13:12:30.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed",
+    "ClosedDate": "2011-09-20T11:22:18.79-07:00",
+    "CommentCount": 9,
+    "Custom": null,
+    "Description": "Hi, I got an issue of GMapControl. When I put a GMapControl to a form, set dock to Fill and run the program, initially, only 1 tile is viewed. If I re-size the form (at run time) then another tiles are loaded OK, but if I leave the size unchanged, only 1 tile is viewed ever. \r\n\r\nAnyone can replicate the issue by modifying the Demo.WindowsForms project. In the MainForm.cs rem out the row \"WindowState = FormWindowState.Minimized;\" in the Form construction, and set the WindowState of the form to normal.\r\n\r\nAny idea why it happens? (I am running windows 7 and using VS2010)\r\n\r\nThank you very much\r\n",
+    "LastUpdatedDate": "2011-09-20T11:22:18.79-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-06-24T12:02:59.053-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMapControl only view 1 tile initially unless the control is resized\r\n",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 16009
+  },
+  "FileAttachments": [
+    {
+      "FileId": 252501,
+      "FileName": "gmap.net_issue.png",
+      "DownloadUrl": ".\\252501"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "is it ok now?",
+      "PostedDate": "2011-07-02T07:51:38.293-07:00",
+      "Id": 38733
+    },
+    {
+      "Message": "same here...\nJust downloaded the current source code, compiled the dlls, made a small test application and having the same issue.\nI am using VC#2010 Express on Windows 7 Pro 64bit.",
+      "PostedDate": "2011-07-08T14:00:44.76-07:00",
+      "Id": 39119
+    },
+    {
+      "Message": "No, I download the new source and the problem still persists. By the way, the recent source update has problem when switching MapProvider. It took about 30 seconds (initially) to switch from one provider to another provider. Any idea?",
+      "PostedDate": "2011-07-13T11:10:40.6-07:00",
+      "Id": 39675
+    },
+    {
+      "Message": "if you switch to google/bing it tries to get correct version first, ..and do you set position zoom, min/max zoom in test app?",
+      "PostedDate": "2011-07-21T14:39:49.95-07:00",
+      "Id": 40230
+    },
+    {
+      "Message": "Having the same problem with the tiling.",
+      "PostedDate": "2011-07-26T16:54:34.96-07:00",
+      "Id": 40475
+    },
+    {
+      "Message": "If I set these properties just after InitializeComponent on the form (as in the demo) it's OK:\n\n            GMaps.Instance.Mode = AccessMode.ServerAndCache;\n            MainMap.DragButton = MouseButtons.Left;\n            MainMap.MapProvider = GMapProviders.GoogleMap;\n            MainMap.Position = new PointLatLng(-27.3612, 152.98312);\n            MainMap.MinZoom = 1;\n            MainMap.MaxZoom = 20;\n            MainMap.Zoom = 12;",
+      "PostedDate": "2011-07-26T17:00:48.883-07:00",
+      "Id": 40476
+    },
+    {
+      "Message": "Getting the same problem again with a smaller map on another form. Can't fix it.",
+      "PostedDate": "2011-07-30T22:42:44.36-07:00",
+      "Id": 40939
+    },
+    {
+      "Message": "Hi radioman!\nThis is still not working correctly, any ideas?\nI'm using the latest build 91cea904e3d7 from 06.08.2011.\nThanks!",
+      "PostedDate": "2011-08-12T14:31:20.13-07:00",
+      "Id": 42592
+    },
+    {
+      "Message": "should be fine now, can anyone confirm?",
+      "PostedDate": "2011-08-13T08:01:07.737-07:00",
+      "Id": 42615
+    }
+  ]
+}

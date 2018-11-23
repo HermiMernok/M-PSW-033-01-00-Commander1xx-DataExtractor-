@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "677554",
+    "ThreadId": "274074",
+    "Html": "\r\n<p>MapRoute route = Singleton&lt;GMaps&gt;.Instance.GetRouteBetweenPoints(start, end, false, (int)MainMap.Zoom);<br>\r\nif (route != null)<br>\r\n{<br>\r\n// add route<br>\r\nGMapRoute r = new GMapRoute(route.Points, route.Name);<br>\r\nroutes.Routes.Add(r);<br>\r\nMainMap.ZoomAndCenterRoute(r);<br>\r\n}</p>\r\n<p>why the route value is null?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-09-28T00:10:19.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677556",
+    "ThreadId": "274074",
+    "Html": "<p>old version doesn't support this function in windows mobile, update to the latest, check hot build, last one at the bottom</p>",
+    "PostedDate": "2011-09-28T00:25:05.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677567",
+    "ThreadId": "274074",
+    "Html": "<p>it means I should&nbsp;&nbsp;deploy the new SQLite.Interop.074.dll as content and&nbsp;System.Data.SQLite.dll as reference again?</p>\r\n<p>But i don't find function GetRouteBetweenPoints() in the demo.windows.mobile code.</p>\r\n<p>i'm downloading the last one slowly,then try it .Hope it works.</p>",
+    "PostedDate": "2011-09-28T01:12:10.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677568",
+    "ThreadId": "274074",
+    "Html": "<p>..sorry, i forget you use mobile version, you have to build it yourself, hot build is for desktop, check the demo source for changes</p>",
+    "PostedDate": "2011-09-28T01:17:27.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677585",
+    "ThreadId": "274074",
+    "Html": "<p>Oh,no...:(&nbsp;</p>\r\n<p>i download the source code,but it needs code.</p>\r\n<p>how can i add this function?</p>",
+    "PostedDate": "2011-09-28T02:04:32.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677589",
+    "ThreadId": "274074",
+    "Html": "<p>no, it's just that function is moved to map provider:</p>\r\n<p><em>var p1 = new PointLatLng(54.6961334816182, 25.2985095977782);</em><br /><em>var p2 = new PointLatLng(54.7061334816182, 25.3085095977783);</em><br /><em> var route = GMapProviders.OpenStreetMap.<strong>GetRouteBetweenPoints</strong>(p1, p2, false, false, 10);</em></p>",
+    "PostedDate": "2011-09-28T02:12:18.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677592",
+    "ThreadId": "274074",
+    "Html": "<p>thx a lot.I have found.haha.</p>\r\n<p>happy. thank u very very much..</p>",
+    "PostedDate": "2011-09-28T02:21:50.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

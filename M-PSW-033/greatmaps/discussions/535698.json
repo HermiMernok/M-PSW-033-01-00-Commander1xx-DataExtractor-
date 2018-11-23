@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1215330",
+    "ThreadId": "535698",
+    "Html": "Hi<br />\n<br />\nI am having the following issue:<br />\n-I add some markers to an overlay.<br />\n-I add the overlay to the mainMap.<br />\n-I hover the mouse over a marker, and OnMarkerEnter fires.<br />\n-I remove that overlay from the map (the mouse has not moved off the marker) and replace it with an updated overlay with markers in new positions.<br />\n-OnMarkerLeave does not fire, and therefore I can no longer drag or zoom the map! (unless I hover over a new marker and then quickly move the mouse away as to cause OnMarkerLeave to fire)<br />\n<br />\nIs there a way to force OnMarkerLeave to fire? Or can I force the focus within the map control to revert to the map rather than a marker within the map?<br />\n<br />\nI am really struggling with this one. Thanks in advance!<br />\n",
+    "PostedDate": "2014-02-26T13:20:36.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1215675",
+    "ThreadId": "535698",
+    "Html": "you don't need to remove overlay to update markers<br />\n",
+    "PostedDate": "2014-02-27T07:46:13.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1215725",
+    "ThreadId": "535698",
+    "Html": "Replacing the markers within the overlay rather than removing and replacing the overlay does not work. Simply changing the position of the markers and never removing them from the overlay also does not work. These solutions don't effect the problem because the IsMouseOverMarker property is still true in the scenario I described when the markers move.<br />\n<br />\nThe solution (for anyone else having this problem) that worked for me was to modify the source code (GMapControl.cs) by removing the check for IsMouseOverMarker on the OnMouseDown method. I'm not sure if this defeats any logic to handle clicking on markers, but since I only care about marker tooltips and dont need to click on markers, this solution is right for me.<br />\n<br />\nThanks for the response radio man and thanks for this tool which has saved me unimaginable amounts of coding time.<br />\n",
+    "PostedDate": "2014-02-27T09:31:01.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-02-27T09:43:34.297-08:00"
+  }
+]

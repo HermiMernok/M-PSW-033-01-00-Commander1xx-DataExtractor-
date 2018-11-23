@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "it's demo, it has nothing to do with 'issues' ;}",
+    "ClosedDate": "2011-12-17T13:23:56.09-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "WFP demo:\r\n      // clear all markers\r\n      private void button10_Click(object sender, RoutedEventArgs e)\r\n      {\r\n         var clear = MainMap.Markers.Where(p => p != null && p != currentMarker);\r\n         if(clear != null)\r\n         {\r\n            for(int i = 0; i < clear.Count(); i++)\r\n            {\r\n               MainMap.Markers.Remove(clear.ElementAt(i));\r\n               i--;\r\n            }\r\n         }....\r\n\r\nIt would be much better for performance:\r\n          MainMap.Markers.Clear();\r\n          MainMap.Markers.Add(currentMarker);\r\n\r\nP.S. There is no sense to check \"clear\" for null (it is empty at worst)",
+    "LastUpdatedDate": "2011-12-17T13:23:56.09-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-12-17T12:52:41.28-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"Clear all marker\" performance improving",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16020
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

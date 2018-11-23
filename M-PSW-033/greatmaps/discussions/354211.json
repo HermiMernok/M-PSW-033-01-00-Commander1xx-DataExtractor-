@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "830992",
+    "ThreadId": "354211",
+    "Html": "<p>I am getting Lock violation exeption ...</p>\n<p>I am using Suse 12.1 and Mono 2.10.6 installed mono Winforms</p>\n<p>Any suggests ?</p>\n<p>Thnks.</p>\n<p>&nbsp;</p>\n<p>Unhandled Exception: System.IO.IOException: Lock violation on path /home/mkan/Desktop/s/TileDBv5/en/Data.gmdb<br /> &nbsp; at System.IO.FileStream.Lock (Int64 position, Int64 length) [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CheckPreAllocation () [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.Internals.Cache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.Internals.Cache..ctor () [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (System.Reflection.MonoCMethod,object,object[],System.Exception&amp;)<br /> &nbsp; at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in &lt;filename unknown&gt;:0 <br /> [ERROR] FATAL UNHANDLED EXCEPTION: System.IO.IOException: Lock violation on path /home/mkan/Desktop/s/TileDBv5/en/Data.gmdb<br /> &nbsp; at System.IO.FileStream.Lock (Int64 position, Int64 length) [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.CheckPreAllocation () [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.Internals.Cache.set_CacheLocation (System.String value) [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at GMap.NET.Internals.Cache..ctor () [0x00000] in &lt;filename unknown&gt;:0 <br /> &nbsp; at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (System.Reflection.MonoCMethod,object,object[],System.Exception&amp;)<br /> &nbsp; at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] in &lt;filename unknown&gt;:0</p>",
+    "PostedDate": "2012-05-02T01:54:00.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830996",
+    "ThreadId": "354211",
+    "Html": "<p>it's fixed in last changeset, SQLitePureImageCache.CheckPreAllocation:</p>\r\n<p><em>#if (!PocketPC &amp;&amp; !MONO)</em><br /><em> dbf.Lock(16, 2);</em><br /><em> dbf.Read(pageSizeBytes, 0, 2);</em><br /><em> dbf.Unlock(16, 2);</em><br /><br /><em> dbf.Seek(36, SeekOrigin.Begin);</em><br /><br /><em> dbf.Lock(36, 4);</em><br /><em> dbf.Read(freePagesBytes, 0, 4);</em><br /><em> dbf.Unlock(36, 4);</em><br /><em>#else</em><br /><em> dbf.Read(pageSizeBytes, 0, 2);</em><br /><em> dbf.Seek(36, SeekOrigin.Begin);</em><br /><em> dbf.Read(freePagesBytes, 0, 4);</em><br /><em>#endif&nbsp;</em></p>",
+    "PostedDate": "2012-05-02T02:03:28.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831615",
+    "ThreadId": "354211",
+    "Html": "<p>Ok.</p>\r\n<p>I will give a try immediately.</p>\r\n<p>Thanks&nbsp;</p>\r\n<p>Mk.</p>",
+    "PostedDate": "2012-05-03T06:40:15.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831622",
+    "ThreadId": "354211",
+    "Html": "<p>and change MONO_disabled to MONO in compilation symbols</p>",
+    "PostedDate": "2012-05-03T06:48:56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "858869",
+    "ThreadId": "354211",
+    "Html": "<p>hi</p>\r\n<p>Coordinator,</p>\r\n<p>I also face with same problem like that in linux suse:</p>\r\n<p>Unhandled Exception: System.IO.IOException: Lock violation on path /home/mkan/Desktop/s/TileDBv5/en/Data.gmdb</p>\r\n<p>i've tried as u said (changed MONO_disabled to MONO in GMap.NET.WindowsForms but still same error occured. how can i do?</p>\r\n<p>pls help me</p>\r\n<p>thx</p>\r\n<p>mm</p>",
+    "PostedDate": "2012-07-08T09:06:40.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "859794",
+    "ThreadId": "354211",
+    "Html": "<p>The Solution is <br />1. in Demo.WindowsForm I changed the compilation value \"MONO_disabled\" to \"MONO\".&nbsp; <br /><br />2. In GMap.Net.Core, I changed the compilation value \"MONO_disabled\" to \"MONO\" aslo.<br />&nbsp;&nbsp; Then error occoured \"The name 'busy' does not exist in the current context....\".<br />&nbsp;<br />3. I changed the two variables <br />&nbsp;&nbsp;&nbsp; Int32 busy = 0;<br />&nbsp;&nbsp;&nbsp; Int32 readCount = 0;<br />&nbsp;as global declaration in \"FastReaderWriterLock.cs\"<br />&nbsp;then compiled the solution again.<br />4. Run the Demo.WindowsForms.exe in folder bin then it works on Linux.</p>\r\n<p>but i got another problem</p>\r\n<p>Another problem is no data for map type provider in combo<br />1. I comment in MainForm.cs not to check the condition <br />&nbsp;&nbsp;&nbsp; #if !MONO<br />&nbsp;&nbsp;&nbsp; #endif</p>\r\n<p>then I compiled and run on Linux. When I run the executable file, it doesn't work and some errors occurs :</p>\r\n<p>System.InvalidCastException: Cannot cast from source type to destination type.<br />&nbsp; at (wrapper managed-to-native) object:__icall_wrapper_mono_object_castclass (object,intptr)<br />&nbsp; at System.Reflection.MonoProperty.GetterAdapterFrame[EmptyProvider,String] (System.Reflection.Getter`2 getter, System.Object obj) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Reflection.MonoProperty.GetValue (System.Object obj, System.Object[] index) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.ComponentModel.ReflectionPropertyDescriptor.GetValue (System.Object component) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.ListControl.FilterItemOnProperty (System.Object item, System.String field) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.ListControl.GetItemText (System.Object item) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at (wrapper remoting-invoke-with-check) System.Windows.Forms.ListControl:GetItemText (object)<br />&nbsp; at System.Windows.Forms.ThemeWin32Classic.DrawComboBoxItem (System.Windows.Forms.ComboBox ctrl, System.Windows.Forms.DrawItemEventArgs e) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.ComboBox.HandleDrawItem (System.Windows.Forms.DrawItemEventArgs e) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.ComboBox.Draw (Rectangle clip, System.Drawing.Graphics dc) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.ComboBox.OnPaintInternal (System.Windows.Forms.PaintEventArgs pevent) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.Control.WmPaint (System.Windows.Forms.Message&amp; m) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.Control.WndProc (System.Windows.Forms.Message&amp; m) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.ComboBox.WndProc (System.Windows.Forms.Message&amp; m) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.Control+ControlWindowTarget.OnMessage (System.Windows.Forms.Message&amp; m) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.Control+ControlNativeWindow.WndProc (System.Windows.Forms.Message&amp; m) [0x00000] in &lt;filename unknown&gt;:0<br />&nbsp; at System.Windows.Forms.NativeWindow.WndProc (IntPtr hWnd, Msg msg, IntPtr wParam, IntPtr lParam) [0x00000] in &lt;filename unknown&gt;:0</p>\r\n<p>&nbsp;</p>\r\n<p>so psl guide me how to solve this</p>\r\n<p>thx</p>\r\n<p>mm</p>",
+    "PostedDate": "2012-07-10T10:18:23.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869744",
+    "ThreadId": "354211",
+    "Html": "<p>i guess mono team still hasn't fixed this</p>",
+    "PostedDate": "2012-07-16T08:40:08.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

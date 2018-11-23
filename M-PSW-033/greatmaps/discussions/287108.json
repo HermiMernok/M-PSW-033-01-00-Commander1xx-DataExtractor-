@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "729351",
+    "ThreadId": "287108",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I have been asked to pull in maps from&nbsp;<a href=\"http://www.darb.ae/ArcGIS/rest/services/BaseMaps\">http://www.darb.ae/ArcGIS/rest/services/BaseMaps</a>&nbsp;</p>\r\n<p>I have create a custom&nbsp;MapProvider as seen below but can't get the map files to load, I very much suspect that I need to do some sort of coordinate conversion (the projection is GCS - WGS84). Thanks in advance for any help.</p>\r\n<p></p>\r\n<pre>Public Class AbuDhabi_Q2_2011_NAVTQ_Eng_V5_MapProvider</pre>\r\n<pre>    Inherits ArcGISMapPlateCarreeProviderBase\r\n\r\n    Public Shared ReadOnly Instance As AbuDhabi_Q2_2011_NAVTQ_Eng_V5_MapProvider\r\n\r\n    Private Sub New()\r\n    End Sub\r\n\r\n    Shared Sub New()\r\n        Instance = New AbuDhabi_Q2_2011_NAVTQ_Eng_V5_MapProvider()\r\n    End Sub\r\n\r\n'#region GMapProvider Members\r\n\r\n\r\n    Private Function MakeTileImageUrl(ByVal pos As GPoint, ByVal zoom As Integer, ByVal language As String) As String\r\n        Return String.Format(UrlFormat, zoom, pos.Y, pos.X)\r\n    End Function\r\n\r\n    Shared ReadOnly UrlFormat As String = &quot;http://www.darb.ae/ArcGIS/rest/services/BaseMaps/Q2_2011_NAVTQ_Eng_V5/MapServer/tile/{0}/{1}/{2}&quot;\r\n</pre>\r\n<p></p>\r\n",
+    "PostedDate": "2012-01-23T08:19:07.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "729530",
+    "ThreadId": "287108",
+    "Html": "<p>set unique Id, Name, and projection like all the other arcgis providers</p>",
+    "PostedDate": "2012-01-23T13:20:22.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "729809",
+    "ThreadId": "287108",
+    "Html": "<p>Hi Radioman</p>\r\n<p>Thanks for the quick reply. Sorry I ommited the id bit and name bit from the code, its in the&nbsp;'#region GMapProvider Members bit:</p>\r\n<p>\r\n<pre>    Private m_id As Object = Nothing\r\n    Public Overrides ReadOnly Property Id() As Guid\r\n        Get\r\n            If m_id Is Nothing Then\r\n                m_id = New Guid(\"A5430308-5FEF-431C-B1A3-18785A8BAC0A\")\r\n            End If\r\n            Return m_id\r\n        End Get\r\n    End Property\r\n\r\n    ReadOnly m_name As String = \"ArcGIS_AbuDhabi_Q2_2011_NAVTQ_Eng_V5\"\r\n    Public Overrides ReadOnly Property Name() As String\r\n        Get\r\n            Return m_name\r\n        End Get\r\n    End Property</pre>\r\n</p>\r\n<p>So it is exactly the same as the&nbsp;ArcGIS_Imagery_World_2D_MapProvider (except in VB and a different name and id). I have tried changing the class to inherit from ArcGISMapMercatorProviderBase or ArcGISMapPlateCarreeProviderBase. Unless I put an error trap in GetTileImage I get \"The remote server returned an error: (404) Not Found.\", an example of the sort of URL it is looking for is: \"http://www.darb.ae/ArcGIS/rest/services/BaseMaps/Q2_2011_NAVTQ_Eng_V5/MapServer/tile/11/439/667\", &nbsp;Any ideas.?</p>\r\n<p>Cheers</p>\r\n<p>Will</p>",
+    "PostedDate": "2012-01-24T02:42:40.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "729853",
+    "ThreadId": "287108",
+    "Html": "<p>i guess it's not standart projection</p>",
+    "PostedDate": "2012-01-24T04:17:59.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730375",
+    "ThreadId": "287108",
+    "Html": "<p>done, works perfectly</p>",
+    "PostedDate": "2012-01-25T02:05:43.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730377",
+    "ThreadId": "287108",
+    "Html": "<p>Hi radioman</p>\r\n<p>Nice one, when you say done, do you mean there is a new build or something?</p>\r\n<p>Cheers, WIll</p>",
+    "PostedDate": "2012-01-25T02:09:11.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730405",
+    "ThreadId": "287108",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2012-01-25T03:52:44.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "730413",
+    "ThreadId": "287108",
+    "Html": "<p>Outstanding, just downloaded the latest and it works a treat. Thanks radioman</p>",
+    "PostedDate": "2012-01-25T04:08:19.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

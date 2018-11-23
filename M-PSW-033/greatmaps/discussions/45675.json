@@ -1,0 +1,210 @@
+[
+  {
+    "Id": "152440",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n           Marker m = new Marker(PointLatLng, MarkerType.Medium, MarkerColor.Blue);<br>\r\n          m.Color= MarkerColor.Red; [ Here only 4 colors are available i.e, Blue, green, Red and Yellow ]<br>\r\n<br>\r\nwhen i am using like this<br>\r\n<br>\r\n       m.Color = Color.Aqua but it displaying the error message like &quot;<strong>cannot convert System.Drawing.Color to GMapNET.MarkerColor&quot;<br>\r\n<br>\r\n  </strong>and how to change the size  of marker. <br>\r\n<br>\r\n<br>\r\nThanks &amp; regards<br>\r\nAsif Basha.D\r\n",
+    "PostedDate": "2009-01-30T01:11:24.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "152446",
+    "ThreadId": "45675",
+    "Html": "currently markers are predefined images from google, if you want other colors, you must make custom image and use it: <span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">MarkerType.Custom &amp;&amp; Marker.CustomMarker = new Image(...)...</span>",
+    "PostedDate": "2009-01-30T01:24:18.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153187",
+    "ThreadId": "45675",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n        <span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\"> m = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Marker</span><span style=\"font-size:13px\">(point, </span><span style=\"font-size:13px;color:#008080\">MarkerType</span><span style=\"font-size:13px\">.Custom , </span><span style=\"font-size:13px;color:#008080\">MarkerColor</span><span style=\"font-size:13px\">.Blue);\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008000\"> m.CustomMarker = new Image(@&quot;C:\\Documents and Settings\\E453528\\My Documents\\My Pictures\\swami vivekananda.bmp&quot;);<br>\r\n<br>\r\n               I am using the above code for displaying custom marker but it displays an error like &quot; Cannot create an instance of the abstract class or interface 'System.Drawing.Image&quot;. can u explain regarding this....<br>\r\n<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif\r\n<p>&nbsp;</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-02-01T22:19:26.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153191",
+    "ThreadId": "45675",
+    "Html": "<span><a href=\"http://www.java2s.com/Code/CSharp/2D-Graphics/LoadImagefromanimagefilewithExceptionhandler.htm\">http://www.java2s.com/Code/CSharp/2D-Graphics/LoadImagefromanimagefilewithExceptionhandler.htm</a></span><br>",
+    "PostedDate": "2009-02-01T22:44:32.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153223",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n            Thank you and i got custom marker on the map one more problem is on top of marker how can i display an image instead of text. i.e.,<br>\r\n  <br>\r\n          Marker m = new Marker( point, MarkerType.Medium, MarkerColor.Red);<br>\r\n          m.Text = &quot; hi&quot;;  instead of this text can i display an image like m.Image= Image.FromFile(&quot; ... &quot;);<br>\r\n<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-02-02T00:50:54.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153229",
+    "ThreadId": "45675",
+    "Html": "<span style=\"color:rgb(48, 51, 45);font-family:'segoe ui';font-size:13px\">m.Text = &quot;&quot;;</span>",
+    "PostedDate": "2009-02-02T01:08:57.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153275",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n          Thanks for reply and i have not understood about <strong>m.Text=&quot;&quot;;</strong> My question is whenever i move mouse cursor over the marker, it needs to display an image. Is it possible to display an image?<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-02-02T03:27:31.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153286",
+    "ThreadId": "45675",
+    "Html": "mm.. tooltip with image inside, not yet, i'll keep this in mind, i'm reconstructing all system, so its take some time",
+    "PostedDate": "2009-02-02T04:16:50.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153297",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n          Thank you .....<br>\r\n<br>\r\n<br>\r\nRegards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-02-02T04:54:40.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "156115",
+    "ThreadId": "45675",
+    "Html": "<div id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl18_BodyDiv\">Hi radioman,<br>\r\n<br>\r\n               Is it possible too use GMapNET.dll in ASP.NET? <br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif </div>\r\n<div id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl18_ReplyContentDiv\" style=\"display:none\"></div>\r\n",
+    "PostedDate": "2009-02-09T21:19:34.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "156170",
+    "ThreadId": "45675",
+    "Html": "it was created to not use browser ;}",
+    "PostedDate": "2009-02-10T02:21:37.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157996",
+    "ThreadId": "45675",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n              My database table consists of Cellno,lat,lng fields. for example (9000443392,17.4617668590876,78.3348798751831),(9000443392,17.4629796342197,78.335223197937) i read frm database talbe and displayed markers. My problem is i need to connect same CellNo markers with a route. My database talbe consists of 1000 records of different cellno's. Can u give me suggestion regarding this issue.<br>\r\n<br>\r\nExample:-<br>\r\n<br>\r\nif cellno 9000443392  consists of  20records then i need to connect these 20 markers with on route.<br>\r\nif cellno 9966342208 consists of 40 records then i need to connect 40 markers with another route.<br>\r\n.<br>\r\n.<br>\r\n..<br>\r\nThanks &amp; Regards<br>\r\nAsif Basha.Dodem\r\n",
+    "PostedDate": "2009-02-16T02:52:13.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "158015",
+    "ThreadId": "45675",
+    "Html": "?",
+    "PostedDate": "2009-02-16T04:17:08.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "158506",
+    "ThreadId": "45675",
+    "Html": "Hi Radioman,<br>\r\n<br>\r\n         <br>\r\n     I am using <strong>&quot;<span style=\"font-size:13px\">GetRouteBetweenPoints</span>&quot;, </strong>its<strong> </strong>not working for india(Hyderabad) map but it is working for u.s maps. can u give some suggestions regarding this issue.<br>\r\n<br>\r\nThanks &amp; regards<br>\r\nAsif \r\n",
+    "PostedDate": "2009-02-17T07:33:08.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "158590",
+    "ThreadId": "45675",
+    "Html": "are you sure it really don't work?",
+    "PostedDate": "2009-02-17T10:58:13.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "158802",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n               Its sure and its not working on India(Hyderabad) Map. The bellow are several latitudes and longitudes of India(Hyderabad), use GetRouteBetweenPoints with lats&amp;lons of India(Hyderabad) then you know about it.\r\n<p>Panjagutta - 17.4268538975045,78.4523928165436</p>\r\n<p>Ameerpet - 17.4371309368567,78.4436058998108</p>\r\n<p>SR Nagar - 17.4426172467335,78.4409773349762</p>\r\n<p>Moosapet - 17.4699439797779,78.4273195266724</p>\r\n<p>Moosapet X Roads- 17.4756646756515,78.4235966205597</p>\r\n<p>JNTU   - 17.4958340661996,78.3944571018219<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif</p>\r\n",
+    "PostedDate": "2009-02-17T20:22:07.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "158820",
+    "ThreadId": "45675",
+    "Html": "..i'l try to test it as soon as i can",
+    "PostedDate": "2009-02-17T21:33:15.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "158822",
+    "ThreadId": "45675",
+    "Html": "Hi Radioman,<br>\r\n <br>\r\n        Thank you.......<br>\r\n",
+    "PostedDate": "2009-02-17T22:03:23.757-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "159258",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n             Can i use the GMapNET.dll for deploying the applications in Gps Enabled handheld device(dolphin 7900, WinCE OS). <br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-02-18T21:02:03.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "159280",
+    "ThreadId": "45675",
+    "Html": "mobile version don't work yet ;{",
+    "PostedDate": "2009-02-18T23:23:32.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "160090",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n                I need to display adds in several places on gmap but while loading the map from server these adds are also come along with map. how it is possible? Is this service is free or i need to take license from google? <br>\r\n<br>\r\nThanks &amp; regards<br>\r\nAsif\r\n",
+    "PostedDate": "2009-02-20T03:06:39.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "160209",
+    "ThreadId": "45675",
+    "Html": "gmap control is free, i don't care about any license ;}",
+    "PostedDate": "2009-02-20T09:22:49.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "162172",
+    "ThreadId": "45675",
+    "Html": "<div id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl26_BodyDiv\">Hi Radioman,<br>\r\n<br>\r\n         <br>\r\n     I am using <strong>&quot;<span style=\"font-size:13px\">GetRouteBetweenPoints</span>&quot;, </strong>its<strong> </strong>not working for india(Hyderabad) map but it is working for u.s maps. can u give some suggestions regarding this issue.<br>\r\n<br>\r\nThanks &amp; regards<br>\r\nAsif </div>\r\n",
+    "PostedDate": "2009-02-25T22:52:41.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "162298",
+    "ThreadId": "45675",
+    "Html": "ask google ;}",
+    "PostedDate": "2009-02-26T06:00:44.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "170107",
+    "ThreadId": "45675",
+    "Html": "Hi radioman,<br>\r\n<br>\r\n          Using the following code i am setting the route color for a specified route, my question is how can i decrease the thickness of route color??<br>\r\n                    <span style=\"font-size:13px;color:#008080\">\r\n<p>Route</p>\r\n</span>\r\n<p><span style=\"font-size:13px\"> r = </span><span style=\"font-size:13px;color:#0000ff\">new</span><span style=\"font-size:13px\"> </span><span style=\"font-size:13px;color:#008080\">Route</span><span style=\"font-size:13px\">(route, &quot;first&quot;</span><span style=\"font-size:13px\">);\r\n<p>&nbsp;</p>\r\n<p>r.Color = </p>\r\n</span></p>\r\n<p><span style=\"font-size:13px;color:#008080\">Color</span><span style=\"font-size:13px\">.Pink;                                              // here i am setting the route color,\r\n<p>&nbsp;</p>\r\n<p>gMapControl1.AddRoute(r);<br>\r\n<br>\r\nThanks &amp; Regards<br>\r\nAsif Basha.Dodem</p>\r\n</span></p>\r\n",
+    "PostedDate": "2009-03-19T23:04:36.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "170138",
+    "ThreadId": "45675",
+    "Html": "custom routes are in progress..",
+    "PostedDate": "2009-03-20T03:02:13.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

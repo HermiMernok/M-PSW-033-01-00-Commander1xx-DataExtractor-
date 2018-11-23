@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1421011",
+    "ThreadId": "635591",
+    "Html": "Hi, Radioman!<br />\n<br />\nThanks for your cool gmap.net =)<br />\nOn windows i'm successfully using gmap.net, but when i started porting my app to linux, i had some troubles...<br />\n <br />\nI'v got this message: <strong>&quot;Could not load file or assembly 'Mono.Data.SqliteClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756' or one of its dependencies.&quot;</strong>, while trying run mono version form GMap.NET.WindowsForms.Mono.tar archive.<br />\n<br />\nWhere i can find Mono.Data.SqliteClient? System.Data.SQLite.dll doesn't working :(<br />\n<br />\nOS is Ubuntu 15.04.<br />\n",
+    "PostedDate": "2015-04-29T00:08:09.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421070",
+    "ThreadId": "635591",
+    "Html": "checked <a href=\"http://greatmaps.codeplex.com/wikipage?title=MONO%20support\" rel=\"nofollow\">http://greatmaps.codeplex.com/wikipage?title=MONO%20support</a> ?<br />\n",
+    "PostedDate": "2015-04-29T00:36:22.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421085",
+    "ThreadId": "635591",
+    "Html": "Yes, libmono-winforms2.0-cil is checked and installed (installed mono complete).<br />\nI'm running mono version of Gmap.Net Demo, compiled by you, form <em>GMap.NET.WindowsForms.Mono.tar</em> archive from this site.<br />\nAlso installed libmono-sqlite2.0-cil &amp; libmono-sqlite4.0-cil<br />\n",
+    "PostedDate": "2015-04-29T00:45:06.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421477",
+    "ThreadId": "635591",
+    "Html": "i've updated mono libs, it's fine now, build the latest version<br />\n",
+    "PostedDate": "2015-04-29T09:26:40.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-04-29T11:27:39.927-07:00"
+  },
+  {
+    "Id": "1421517",
+    "ThreadId": "635591",
+    "Html": "Thanks, i will try and report result!<br />\n",
+    "PostedDate": "2015-04-29T11:47:48.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421551",
+    "ThreadId": "635591",
+    "Html": "Now all working fine! <strong>But map type can not be changed (can't even open dropdown list).</strong><br />\n",
+    "PostedDate": "2015-04-29T13:17:32.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

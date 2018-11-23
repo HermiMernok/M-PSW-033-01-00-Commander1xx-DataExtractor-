@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "474215",
+    "ThreadId": "221836",
+    "Html": "<p><span style=\"color:black\"><span style=\"font-size:small\">Hi,</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">we using gmap.net in our project, in this we have the minium latitude and longitude as</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">MinLongitude=-180 and</span></span></p>\r\n<p><span style=\"color:black\"><br><span style=\"font-size:small\">MinLongitude=-180</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">we need to change this value. on loading the markers on map. we not able to get the markers place seen.</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">we have set the currentmarker.position ;</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">even though we not able to see the loaded marker position.</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">can we change the minlatitude and minlongitude. it does not have setter property.</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">any way to change the default values of minlatitude and minlongitude</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">can any one kindly help with a solution.</span></span></p>\r\n<p><span style=\"color:black\"><span style=\"font-size:small\">&nbsp;</span></span></p>\r\n<p><span style=\"font-size:small;font-family:Times New Roman\">&nbsp;</span></p>",
+    "PostedDate": "2010-07-29T05:27:46.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474673",
+    "ThreadId": "221836",
+    "Html": "<p>you can edit files in GMap.NET.Projections, current configuration is:\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">const</span> <span style=\"color:blue\">double</span> MinLatitude = -85.05112878;\r\n<span style=\"color:blue\">const</span> <span style=\"color:blue\">double</span> MaxLatitude = 85.05112878;\r\n<span style=\"color:blue\">const</span> <span style=\"color:blue\">double</span> MinLongitude = -177;\r\n<span style=\"color:blue\">const</span> <span style=\"color:blue\">double</span> MaxLongitude = 177;\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-07-30T03:21:24.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478760",
+    "ThreadId": "221836",
+    "Html": "<p>p.s. fixed</p>",
+    "PostedDate": "2010-08-10T12:30:34.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622042",
+    "ThreadId": "221836",
+    "Html": "<p>Hi</p>\r\n<p>&nbsp;</p>\r\n<p>I am looking for a solution to show the <span class=\"CodePlexPageHeader\">Current Map View area of gmap.net depending from the zoom area of an other vector map mapping component.</span></p>\r\n<p><span class=\"CodePlexPageHeader\">From this component (</span>DotSpatial.net) <span class=\"CodePlexPageHeader\">I can get the current positon lat / lon as </span></p>\r\n<p>Map1.ViewExtents.MaxX<br />Map1.ViewExtents.MaxY<br />Map1.ViewExtents.MinX<br />Map1.ViewExtents.MinY</p>\r\n<p>Now I want to sincronize the zoom area of the vector map component with the <span class=\"CodePlexPageHeader\">Current Map View area of gmap.net .</span></p>\r\n<p><span class=\"CodePlexPageHeader\">Any idea how I can do this in VB.net?</span></p>\r\n<p>Thanks</p>\r\n<p>Thomas</p>\r\n<p><span class=\"CodePlexPageHeader\"><br /></span></p>\r\n<p>&nbsp;</p>\r\n<p><span class=\"CodePlexPageHeader\"><br /></span></p>",
+    "PostedDate": "2011-06-02T09:37:25.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622076",
+    "ThreadId": "221836",
+    "Html": "<p>nice font ;} ..anyway what do you mean&nbsp;<em>'synchronize'</em>&nbsp;?</p>",
+    "PostedDate": "2011-06-02T10:53:09.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622159",
+    "ThreadId": "221836",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>Sorry for this font error, I made a copy - paste from the page header.....</p>\r\n<p><br />I am writing an application where I show a vector map using a GIS component.</p>\r\n<p>The user can format this map with a thematic shading, add point and line layers...</p>\r\n<p>One feature I want to add is to show the same area displayed on the vector map in a second tab or window as an Open Street Map.</p>\r\n<p>Zooming in or out at the vector map the Open Street Map zoom in or out too.</p>\r\n<p>This I mean with <em>synchronize</em></p>\r\n<p>The lat/lon values min and max from the vector map rectangle I can get with the ViewExtents function from this component.</p>\r\n<p>At the gmap I only found CurrentPosition or now Position where I can enter one set of lat/long values and zoomlevel.</p>\r\n<p>I am looking for something like this where I can pass the actual settings from the vector map rectangle to gmap.</p>\r\n<pre>gmap1.MinLatitude = -85.05112878<br />gmap1.MaxLatitude = 85.05112878<br />gmap1.MinLongitude = -177<br />gmap1.MaxLongitude = 177<br /><br />Thank you<br /><br />Thomas</pre>",
+    "PostedDate": "2011-06-02T13:09:59.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622354",
+    "ThreadId": "221836",
+    "Html": "<p>try map.<strong>SetZoomToFitRect</strong></p>",
+    "PostedDate": "2011-06-02T23:34:28.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622801",
+    "ThreadId": "221836",
+    "Html": "<p>Thank you this works perfect !</p>",
+    "PostedDate": "2011-06-03T14:51:01.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

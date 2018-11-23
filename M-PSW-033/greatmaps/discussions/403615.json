@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "943313",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>Hello</p>\r\n<p>I'm trying to find out hoy to calculate the zoom level to fit a polygon on map</p>\r\n<p>To center it, I calculate the centroid of the polygon an then apply it to the GmapControl Position</p>\r\n<p>But I don't know how to set the Zoom Ratio</p>\r\n<p>Can I found that in some demo ?</p>\r\n<p>Thank for your Help</p>\r\n",
+    "PostedDate": "2012-11-17T12:14:48.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943340",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>map.<strong>SetZoomToFitRect</strong></p>\r\n",
+    "PostedDate": "2012-11-17T13:48:48.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943460",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>Thank a lot RadioMan</p>\r\n<p>I should have browse better the different Map Methods ...</p>\r\n<p>It works fine But I still have a little problem : The first call to SetZoomToFitRect&nbsp; after initialising the Map doesn't give the correct Zoom</p>\r\n<p>I probably miss some event to watch but I dont know which ?</p>\r\n<p>Eplanation : From a form (Frm1), &nbsp;I <span id=\"result_box\" lang=\"en\"><span>instantiate</span></span> the MapForm (Frm2) which contain the GmapControl on which a Polygon Overlay is Added.<br>\r\nAfter calling&nbsp;Show() of the MapForm from Frm1, I call a method to add a Polygon to the Polygon overlay and SetZoomToFitRect for that polygon</p>\r\n<p>But this time (First call) the zoom cover an area 10 times greater to the expected one !<br>\r\nHowever, any subsequent call to the method to add and zoom polygon gives the good result !</p>\r\n<p>What can be wrong for the first call ?</p>\r\n<p>Thanks for your help</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-18T01:44:57.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943480",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>add your markers/polygons in constructor, and&nbsp;call&nbsp;SetZoomToFitRect in&nbsp;MainForm_<strong>Load</strong> event</p>\r\n",
+    "PostedDate": "2012-11-18T02:45:17.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943487",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>Thank for your help&nbsp;RadioMan</p>\r\n<p>I understand but&nbsp; I&nbsp; think it will be a bit more complicate to fix it&nbsp; because my design is some different</p>\r\n<p>1- In a main Application form it is possible to select some area (Polygon) and display it on&nbsp;a &nbsp;Map, but the Map Form is not open before&nbsp;the first&nbsp;request<br>\r\n2- There are +/- 600 Polygon than can be selected but only a few need to be selected / displayed in one session<br>\r\n3- So at the first request, I Instantiate the MapForm then call a method to add the polygon (in a Dictionary) and zoom on it<br>\r\n4- For any subsequent request the form is already instanciated&nbsp; so I just call the method to add a polygon and zoom on It<br>\r\n5- If the polygon is already in the Dictionary I just zoom on it</p>\r\n<p>So the problem is probably because a the first call the Zoom Occurs before the Map is already Displayed and fixing that in such design can be a bit tricky or messy</p>\r\n",
+    "PostedDate": "2012-11-18T03:40:57.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943491",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>i'm welcome for solution, the thing is that map size is unknown before it's open</p>\r\n",
+    "PostedDate": "2012-11-18T03:49:42.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943515",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>Hello Radioman</p>\r\n<p>I've found&nbsp; a&nbsp;solution !</p>\r\n<p>Basicaly I use :</p>\r\n<p>1- A stack of RectLatLng needed for Zoom<br>\r\n2- A flag set when Map Form is Shown<br>\r\n3- A method Calling SetZoomToFitRect&nbsp; with condition (IsShown Set and Stack not empty)</p>\r\n<p>So I call this Method after each new Polygon and on after Shown Event</p>\r\n<p>Here is some details</p>\r\n<p>// Definition of the stack and flag</p>\r\n<p>&nbsp;&nbsp;&nbsp; Stack&lt;RectLatLng&gt; stkZoom = new Stack&lt;RectLatLng&gt;();<br>\r\n&nbsp;&nbsp;&nbsp; public bool IsShown = false;<br>\r\n<br>\r\n// Method to Zoom</p>\r\n<p>&nbsp;&nbsp;&nbsp; public void ZoomStack()<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!this.IsShown)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RectLatLng R = stkZoom.Pop();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.SetZoomToFitRect(R);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stkZoom.Clear();<br>\r\n&nbsp;&nbsp;&nbsp; }</p>\r\n<p><br>\r\nSo when Adding a new Polygon I do :</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stkZoom.Push(Poly.Bound);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZoomStack();</p>\r\n<p>And on the Swhown envent of the MapForm I do :</p>\r\n<p>&nbsp;&nbsp;&nbsp; private void FrmMapGoogle_Shown(object sender, EventArgs e)<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MapManager.IsShown = true;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MapManager.ZoomStack();<br>\r\n&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;NB : I've created a derivated&nbsp;C_GMapPolyGon class including Bound property</p>\r\n<p>It Would be nice to have a Shown event or flag on the GMap control</p>\r\n",
+    "PostedDate": "2012-11-18T05:11:24.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943519",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>yeah, that the way, but it doen't solve internal problem..</p>\r\n",
+    "PostedDate": "2012-11-18T05:23:25.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943528",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>Hello Radioman</p>\r\n<p>What do you mean by&nbsp; &quot;internal problem&quot;</p>\r\n",
+    "PostedDate": "2012-11-18T05:58:28.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943605",
+    "ThreadId": "403615",
+    "Html": "\r\n<p>well i finally fixed it, basically it's the same technique, but inside control</p>\r\n<p>meaning you can call <strong>SetZoomToFitRect</strong>&nbsp;before map is loaded</p>\r\n",
+    "PostedDate": "2012-11-18T10:14:29.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

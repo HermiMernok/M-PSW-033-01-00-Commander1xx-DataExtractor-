@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "907961",
+    "ThreadId": "394280",
+    "Html": "\r\n<p>I hope all of you are having a great day. I'm wondering if &iquest; anyone here can help me or guide me through the process of making a &quot;info window&quot; in&nbsp;WINFORMS gmap.net api ?</p>\r\n<p>I've been searching all around and found nothing and i really need that soon.</p>\r\n<p>Any help would be appreciated.</p>\r\n",
+    "PostedDate": "2012-09-03T14:30:16.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907988",
+    "ThreadId": "394280",
+    "Html": "\r\n<p><img src=\"http://www.cybergps.net/images/local.jpg\" alt=\"\" width=\"582\" height=\"309\"></p>\r\n<p>&nbsp;</p>\r\n<p><img src=\"http://www.cybergps.net/images/info.jpg\" alt=\"\" width=\"582\" height=\"309\"></p>\r\n<p>Is this you want !</p>\r\n<p>First was a control showing with mouse events!</p>\r\n<p>Second was draw something with events!</p>\r\n",
+    "PostedDate": "2012-09-03T17:42:24.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907991",
+    "ThreadId": "394280",
+    "Html": "<p>Yeah it was exactly what&nbsp;I asked for :D, thanks. I'll try to do that because i thought that there could be a method or something to perform that action easily. I'll ask you for some advise if&nbsp;I need to. Thanks you.</p>",
+    "PostedDate": "2012-09-03T18:03:32.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907992",
+    "ThreadId": "394280",
+    "Html": "<div id=\"trans-result-content\">\r\n<p><span>Not at all</span><span>,</span><span> what is the problem about this&nbsp;we</span><span> can explore together!</span></p>\r\n</div>",
+    "PostedDate": "2012-09-03T18:10:25.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "908218",
+    "ThreadId": "394280",
+    "Html": "<p>Thanks for your help benlee, i actually did the info window type balloon pretty easy :)... I was just wondering if you could help me with something else: i'm trying to rotate the map so that it remains rotated 90 or -90 degrees, perhaps you know how can i do that? I've seen complex ways by doing powerfull overloads to graphics methods but i don't really know.</p>\r\n<p>I appreciate you help :).</p>",
+    "PostedDate": "2012-09-04T07:49:00.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "908419",
+    "ThreadId": "394280",
+    "Html": "<p>Your <span class=\"enfont\"><span class=\"highlight\"><span class=\"enfont\">want </span></span></span>rotate the map or rotate marker? I nerver do it about Rotate the map,I just rotate the marker.</p>\r\n<p>If you want rotate the marker you can try this code.</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>  <span style=\"color: green;\">''' &lt;summary&gt;</span>\r\n    <span style=\"color: green;\">''' 图片旋转</span>\r\n    <span style=\"color: green;\">''' &lt;/summary&gt;</span>\r\n    <span style=\"color: green;\">''' &lt;param name=\"b\"&gt;&lt;/param&gt;</span>\r\n    <span style=\"color: green;\">''' &lt;param name=\"angle\"&gt;&lt;/param&gt;</span>\r\n    <span style=\"color: green;\">''' &lt;returns&gt;&lt;/returns&gt;</span>\r\n    <span style=\"color: green;\">''' &lt;remarks&gt;&lt;/remarks&gt;</span>\r\n    <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Function</span> RotateImg(<span style=\"color: blue;\">ByVal</span> b <span style=\"color: blue;\">As</span> Image, <span style=\"color: blue;\">ByVal</span> angle <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span>) <span style=\"color: blue;\">As</span> Image\r\n        <span style=\"color: blue;\">Dim</span> Result <span style=\"color: blue;\">As</span> Image = <span style=\"color: blue;\">Nothing</span>\r\n        <span style=\"color: blue;\">Try</span>\r\n            angle = angle <span style=\"color: blue;\">Mod</span> 360\r\n            <span style=\"color: green;\">'弧度转换</span>\r\n            <span style=\"color: blue;\">Dim</span> radian <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Double</span> = angle * Math.PI / 180.0\r\n            <span style=\"color: blue;\">Dim</span> cos <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Double</span> = Math.Cos(radian)\r\n            <span style=\"color: blue;\">Dim</span> sin <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Double</span> = Math.Sin(radian)\r\n            <span style=\"color: green;\">'原图的宽和高</span>\r\n            <span style=\"color: blue;\">Dim</span> w <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span> = b.Width\r\n            <span style=\"color: blue;\">Dim</span> h <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span> = b.Height\r\n            <span style=\"color: blue;\">Dim</span> wt <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span> = <span style=\"color: blue;\">CInt</span>(Math.<span style=\"color: blue;\">Max</span>(Math.Abs(w * cos - h * sin), Math.Abs(w * cos + h * sin)))\r\n            <span style=\"color: blue;\">Dim</span> ht <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span> = <span style=\"color: blue;\">CInt</span>(Math.<span style=\"color: blue;\">Max</span>(Math.Abs(w * sin - h * cos), Math.Abs(w * sin + h * cos)))\r\n            <span style=\"color: green;\">'目标位图</span>\r\n            <span style=\"color: blue;\">Dim</span> dsImage <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> Bitmap(wt, ht)\r\n            <span style=\"color: blue;\">Dim</span> g <span style=\"color: blue;\">As</span> Graphics = Graphics.FromImage(dsImage)\r\n            g.InterpolationMode = Drawing2D.InterpolationMode.Bilinear\r\n            g.SmoothingMode = Drawing2D.SmoothingMode.HighQuality\r\n            <span style=\"color: green;\">'计算偏移量</span>\r\n            <span style=\"color: blue;\">Dim</span> Offset <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.Point((wt - w) / 2, (ht - h) / 2)\r\n            <span style=\"color: green;\">'构造图像显示区域：让图像的中心与窗口的中心点一致</span>\r\n            <span style=\"color: blue;\">Dim</span> rect <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> RectangleF(Offset.X, Offset.Y, w, h)\r\n            <span style=\"color: blue;\">Dim</span> center <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMap.NET.Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2)\r\n            g.TranslateTransform(center.X, center.Y)\r\n            g.RotateTransform(angle)\r\n            <span style=\"color: green;\">'恢复图像在水平和垂直方向的平移</span>\r\n            g.TranslateTransform(-center.X, -center.Y)\r\n            g.DrawImage(b, rect)\r\n            <span style=\"color: green;\">'重至绘图的所有变换</span>\r\n            g.ResetTransform()\r\n            g.Save()\r\n            g.Dispose()\r\n            Result = dsImage\r\n        <span style=\"color: blue;\">Catch</span> ex <span style=\"color: blue;\">As</span> Exception\r\n            Debug.WriteLine(ex.ToString)\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Try</span>\r\n        <span style=\"color: blue;\">Return</span> Result\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Function</span>\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-09-04T18:03:38.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "908792",
+    "ThreadId": "394280",
+    "Html": "<p>I need to rotate the map, but i'll keep in mind what you just replied :). If u know how to rotate the map i would appreciate your help. :D</p>",
+    "PostedDate": "2012-09-05T10:18:51.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "908796",
+    "ThreadId": "394280",
+    "Html": "<p>rotation works in last stable release</p>",
+    "PostedDate": "2012-09-05T10:25:32.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909782",
+    "ThreadId": "394280",
+    "Html": "<p>Maybe you know where i can find an example for doing the rotation i asked?</p>",
+    "PostedDate": "2012-09-07T13:25:04.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909803",
+    "ThreadId": "394280",
+    "Html": "<p>map.<strong>Bearing</strong> = -10;</p>",
+    "PostedDate": "2012-09-07T14:13:10.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909808",
+    "ThreadId": "394280",
+    "Html": "<p>Thank you very much Radioman :) that worked just like wonders.</p>",
+    "PostedDate": "2012-09-07T14:26:09.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913520",
+    "ThreadId": "394280",
+    "Html": "<p>Hi,</p>\r\n<p>I would like to know if there is anything available for putting a &nbsp;Info Window on the Marker?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2012-09-17T05:27:00.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913608",
+    "ThreadId": "394280",
+    "Html": "<p>Like other people helped me with ideas about&nbsp;of how to do that,&nbsp;I have created a custom user control and used it every time&nbsp;I clicked a marker.</p>\r\n<p>Hope that idea work for you too.</p>",
+    "PostedDate": "2012-09-17T08:33:47.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914483",
+    "ThreadId": "394280",
+    "Html": "<p>Hi</p>\r\n<p>I want to change bearing but value not changed and returned to 0; why?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2012-09-19T01:32:18.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "921287",
+    "ThreadId": "394280",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>benlee_wx_js wrote:</strong><br />\r\n<p><img src=\"http://www.cybergps.net/images/local.jpg\" alt=\"\" width=\"582\" height=\"309\" /></p>\r\n<p>&nbsp;</p>\r\n<p><img src=\"http://www.cybergps.net/images/info.jpg\" alt=\"\" width=\"582\" height=\"309\" /></p>\r\n<p>Is this you want !</p>\r\n<p>First was a control showing with mouse events!</p>\r\n<p>Second was draw something with events!</p>\r\n</blockquote>\r\n<p>you can say to me code info on header marker\"</p>\r\n<p>thanks</p>\r\n<p>i used gmap.net.dll and c#</p>",
+    "PostedDate": "2012-10-03T07:58:58.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126368",
+    "ThreadId": "394280",
+    "Html": "<strong>benlee_wx_js wrote:</strong><br />\n<blockquote>\n&nbsp;  Is this you want ! First was a control showing with mouse events! Second was draw something with events!<br />\n</blockquote>\nhi, may i ask how did you guys do this? thanks<br />\n",
+    "PostedDate": "2013-11-18T22:41:28.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

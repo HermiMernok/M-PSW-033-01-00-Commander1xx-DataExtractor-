@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "716664",
+    "ThreadId": "284036",
+    "Html": "\r\n<p>Hi radioman!</p>\r\n<p>In&nbsp;GMap.NET.WindowsForms.GMapOverlay class, the setter for IsVisible property should go from this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> IsVisibile\r\n      {\r\n         <span style=\"color:blue\">get</span>\r\n         {\r\n            <span style=\"color:blue\">return</span> isVisibile;\r\n         }\r\n         <span style=\"color:blue\">set</span>\r\n         {\r\n            <span style=\"color:blue\">if</span>(value != isVisibile)\r\n            {\r\n               isVisibile = value;\r\n               <span style=\"color:blue\">if</span>(isVisibile)\r\n               {\r\n                  Control.HoldInvalidation = <span style=\"color:blue\">true</span>;\r\n                  ForceUpdate();\r\n                  Control.Refresh();\r\n               }\r\n               <span style=\"color:blue\">else</span>\r\n               {\r\n                  <span style=\"color:blue\">if</span>(!Control.HoldInvalidation)\r\n                  {\r\n                     Control.Core.Refresh.Set();\r\n                  }\r\n               }\r\n            }\r\n         }\r\n      }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>... to this (just added null check for Control property):</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> IsVisibile\r\n      {\r\n         <span style=\"color:blue\">get</span>\r\n         {\r\n            <span style=\"color:blue\">return</span> isVisibile;\r\n         }\r\n         <span style=\"color:blue\">set</span>\r\n         {\r\n            <span style=\"color:blue\">if</span>(value != isVisibile)\r\n            {\r\n               isVisibile = value;\r\n               <span style=\"color:blue\">if</span> (Control != <span style=\"color:blue\">null</span>)\r\n               {\r\n                   <span style=\"color:blue\">if</span> (isVisibile)\r\n                   {\r\n                       Control.HoldInvalidation = <span style=\"color:blue\">true</span>;\r\n                       ForceUpdate();\r\n                       Control.Refresh();\r\n                   }\r\n                   <span style=\"color:blue\">else</span>\r\n                   {\r\n                       <span style=\"color:blue\">if</span> (!Control.HoldInvalidation)\r\n                       {\r\n                           Control.Core.Refresh.Set();\r\n                       }\r\n                   }\r\n               }\r\n            }\r\n         }\r\n      }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Didn't think this minor change needed a fork so posted here, but if you want, tell me so.</p>\r\n<p>Thanks!<br>\r\nGuillermo</p>\r\n",
+    "PostedDate": "2011-12-23T08:40:47.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722364",
+    "ThreadId": "284036",
+    "Html": "<p>thanks! fixed</p>",
+    "PostedDate": "2012-01-09T03:45:05.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

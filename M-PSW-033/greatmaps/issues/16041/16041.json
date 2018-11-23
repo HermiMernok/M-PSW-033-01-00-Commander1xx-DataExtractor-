@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Hi radioman,\r\n\r\nI'm currently using your great GMap.Net control. It's also great that the source code is provided too. I myself a professional C# developer hate it to have no source code when something is not working as expected (unfortunately most times the reason for that is me ;-) )\r\nAnyway, while working I found some bugs and made some improvements. Maybe you want to commit some of them in the main code line\r\n(1) Zooming to max zoom is not possible when a map provider has set a max zoom value. Instead the tile of previous zoom level is just stretched.\r\nResponsible are lines 896/898 in Core.cs. There the two comparisons should be:\r\ntask.Value.Zoom <= provider.MaxZoom\r\ntask.Value.Zoom <= skipOverZoom\r\ninstead of\r\ntask.Value.Zoom < provider.MaxZoom\r\ntask.Value.Zoom < skipOverZoom\r\n\r\n(2) Same file: MapZoomChanged event is only raised when IsStarted is true. This is not good if an external zoom controller is used, because there is no event when IsStarted gets true and one can rely on the MapZoom event. Imho the vent should be raised, independent from IsStarted state.\r\n\r\n(3) I created a very custom tooltip and recognized, that the GMapToolTip class creates a lot of objects which are not necessary. Since its a base class, only really necessary things should be declared there. So I splitted it up and converted GMapToolTip into a real base class and created an intermediate class for the GMap integrated Tooltips.\r\n\r\n(4) Once again Tooltips: showing of Tooltips should not depend on an existing ToolTipText property, but only if a Tooltip object is assigned.\r\nGMapOverlay line 292: check for empty ToolTipText removed\r\nGmapMarker line 169: reset Tooltip when TooltipText is set to null to avoid showing of tooltip\r\n\r\n(5) Last time Tooltips:\r\nto avoid showing of multiple tooltips at the same time in case that markers are overlaying each other, the test for markers at mouse position should be canceled after the first marker was found (GMapOverlay line 294).\r\n\r\n(6) last but not least I added an additional osm map provider and extended the PointLatLong class by output of different coordinate formatting.\r\n\r\nEverything is attached as zip file.\r\n\r\nRegards and keep on mapping\r\nmartin",
+    "LastUpdatedDate": "2012-11-18T10:26:06.69-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-05-10T13:48:44.597-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Several bug fixes and improvements",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 16041
+  },
+  "FileAttachments": [
+    {
+      "FileId": 377553,
+      "FileName": "commit.zip",
+      "DownloadUrl": ".\\377553"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "thanks for you fixes, but it's great pain to search changes in these attached files ;} it's preferred to use fork system, keep issue tracker for small stuff",
+      "PostedDate": "2012-05-11T02:30:57.857-07:00",
+      "Id": 65464
+    },
+    {
+      "Message": "I'm sorry. I'm using SVN as version control. I didn't know about the public use of Mercury here. So please let me know if I should create a fork for the mentioned additions/fixes. Otherwise I will create a fork next time...",
+      "PostedDate": "2012-05-11T13:50:43.817-07:00",
+      "Id": 65528
+    },
+    {
+      "Message": "Please verify your construcor \n\" public PointLatLng(double lat, double lng) \"\n\nyou declare a local variable \"NotEmpy\" and the class variable \"NotEmpy\" is not\nassigned as intended\n\n",
+      "PostedDate": "2012-06-07T05:30:55.84-07:00",
+      "Id": 67521
+    },
+    {
+      "Message": "its ok",
+      "PostedDate": "2012-06-07T06:22:11.26-07:00",
+      "Id": 67527
+    },
+    {
+      "Message": "zoom bug in core fixed, thx",
+      "PostedDate": "2012-11-18T10:26:06.69-08:00",
+      "Id": 82675
+    }
+  ]
+}

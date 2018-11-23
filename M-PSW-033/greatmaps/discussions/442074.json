@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1037620",
+    "ThreadId": "442074",
+    "Html": "I need to create a route line... around the route line I need to have a larger boundary area.. this boundary area  needs to stay a constant size ( Example: 100 feet) so if you zoom out, it should get smaller.<br />\n<br />\nI am using Gmap for Winforms<br />\n<br />\n<br />\nThis is a picture i made in paint.net of what i need.<br />\n<img src=\"http://img.photobucket.com/albums/v727/iifuzz/examplegmap_zpsd89e0861.jpg\" alt=\"Image\" />'<br />\n<br />\nThanks ahead of time for any help!<br />\n",
+    "PostedDate": "2013-04-30T06:14:35.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037666",
+    "ThreadId": "442074",
+    "Html": "Nevermind, figured it out with clipperlib!<br />\n",
+    "PostedDate": "2013-04-30T07:53:11.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037993",
+    "ThreadId": "442074",
+    "Html": "Could you please share your solution?<br />\n",
+    "PostedDate": "2013-05-01T01:10:06.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1038085",
+    "ThreadId": "442074",
+    "Html": "Xandolph,\r<br />\n<br />\nThe following code is actually for silverlight maps, not GMaps, but it is very similar.\r<br />\n<br />\nConst Scale As Double = 1000000000.0 'Convert Lat Lng to Int128\r<br />\n<br />\n<br />\n'Generate a Polygon from the line string.<br />\n<pre><code>        For Each Location In traj.Polyline.Locations\n            points.Add(New IntPoint(Location.Longitude * Scale, Location.Latitude * Scale))\n        Next\n\n        points.Reverse()\n        points.Remove(points.First)\n\n\n        For Each Location In traj.Polyline.Locations\n            points.Add(New IntPoint(Location.Longitude * Scale, Location.Latitude * Scale))\n        Next\n</code></pre>\n\n' This is needed for ClipperLib<br />\n<pre><code>        If Clipper.Orientation(points) &lt;&gt; True Then\n            points.Reverse()\n        End If\n\n        polygons.Add(points)\n</code></pre>\n\n' First polygon returned is the boundary, following polygons returned are holes in the polygon.<br />\n<pre><code>        outpolygon = Clipper.OffsetPolygons(polygons, offset * Scale, JoinType.jtSquare, 100, True)\n\n\n\n        Dim first As Boolean = True\n\n        For Each oPoly In outpolygon\n\n\n            Dim poly As New MapPolygon\n\n            Dim polyColor As Color\n\n            If first Then\n                polyColor = Color.FromArgb(45, 0, 200, 20)\n            Else\n                polyColor = Color.FromArgb(45, 255, 20, 20)\n            End If\n\n            Dim polyBrush As New SolidColorBrush(polyColor)\n\n            Dim polyBorder As Color = Colors.White\n            Dim polyBorderBrush As New SolidColorBrush(polyBorder)\n\n            poly.Locations = New LocationCollection()\n            poly.Stroke = polyBorderBrush\n            poly.Opacity = 1.0\n            poly.StrokeThickness = 2.0\n            poly.Fill = polyBrush\n\n            For Each opoint In oPoly\n\n                Dim lng As Double = opoint.X / Scale\n                Dim lat As Double = opoint.Y / Scale\n\n                poly.Locations.Add(New Location(lat, lng))\n            Next\n\n            poly.Locations = CollectionExtensions.VertexReduction(poly.Locations, 0.0001) ' Optimization, not needed.\n\n            TrajectoryCoverage.Children.Add(poly) ' Add to overlay.\n\n            first = False\n        Next</code></pre>\n\n",
+    "PostedDate": "2013-05-01T06:41:19.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

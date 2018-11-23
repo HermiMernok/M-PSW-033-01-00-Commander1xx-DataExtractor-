@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "705727",
+    "ThreadId": "281418",
+    "Html": "\r\n<p><span>how to get</span>&nbsp;<span>Staticimage in WPF Windos and save to file&nbsp;</span></p>\r\n",
+    "PostedDate": "2011-12-01T02:01:03.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705731",
+    "ThreadId": "281418",
+    "Html": "<p>you mean static map image, the one that is implemented in windows forms demo?</p>",
+    "PostedDate": "2011-12-01T02:08:40.943-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705768",
+    "ThreadId": "281418",
+    "Html": "<p>&nbsp;<span class=\"hps\">Yes,</span>&nbsp;<span class=\"hps\">and</span>&nbsp;<span class=\"hps\">how to implement it</span>&nbsp;<span class=\"hps\">in</span>&nbsp;<span class=\"hps\">WpF</span></p>",
+    "PostedDate": "2011-12-01T03:09:10.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705775",
+    "ThreadId": "281418",
+    "Html": "<p>well you can use the same code anyway, whats the point use specific wpf functionality?</p>",
+    "PostedDate": "2011-12-01T03:34:15.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705789",
+    "ThreadId": "281418",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><div style=\"color: black; background-color: white;\"><pre>Next code <span class=\"hps\">generated</span>&nbsp;<span class=\"hps\">an empty file</span><span>, please</span>&nbsp;<span class=\"hps\">specify</span>&nbsp;<span class=\"hps\">how to</span>&nbsp;<span class=\"hps\">retrieve the file</span><span>.</span>&nbsp;<span class=\"hps\">I am a young </span><span class=\"hps\">programmer</span></pre>\r\n<pre>&nbsp;</pre>\r\n<pre> <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> bg_DoWork(<span style=\"color: blue;\">object</span> sender, DoWorkEventArgs e)\r\n        {\r\n            MapInfo info = (MapInfo)e.Argument;\r\n            <span style=\"color: blue;\">if</span> (!info.Area.IsEmpty)\r\n            {\r\n                <span style=\"color: green;\">//var types = GMaps.Instance.GetAllLayersOfType(info.Type);</span>\r\n\r\n                <span style=\"color: blue;\">string</span> bigImage = <span style=\"color: #a31515;\">@\"c:\\temp\\\"</span> + <span style=\"color: #a31515;\">\"GMap at zoom \"</span> + info.Zoom + <span style=\"color: #a31515;\">\" - \"</span> + info.Type + <span style=\"color: #a31515;\">\"-\"</span> +\r\n                                  DateTime.Now.Ticks + <span style=\"color: #a31515;\">\".png\"</span>;\r\n                e.Result = bigImage;\r\n\r\n                <span style=\"color: green;\">// current area</span>\r\n                GPoint topLeftPx = info.Type.Projection.FromLatLngToPixel(info.Area.LocationTopLeft, info.Zoom);\r\n                GPoint rightButtomPx = info.Type.Projection.FromLatLngToPixel(info.Area.Bottom, info.Area.Right,\r\n                                                                              info.Zoom);\r\n                GPoint pxDelta = <span style=\"color: blue;\">new</span> GPoint(rightButtomPx.X - topLeftPx.X, rightButtomPx.Y - topLeftPx.Y);\r\n                GMap.NET.GSize maxOfTiles = info.Type.Projection.GetTileMatrixMaxXY(info.Zoom);\r\n\r\n                <span style=\"color: blue;\">int</span> padding = info.MakeWorldFile ? 0 : 22;\r\n                {\r\n                    RenderTargetBitmap bmpDestination = <span style=\"color: blue;\">new</span> RenderTargetBitmap(\r\n                        200, 200, 96, 96, PixelFormats.Pbgra32);\r\n\r\n                    <span style=\"color: green;\">//using (Bitmap bmpDestination = new Bitmap(pxDelta.X + padding*2, pxDelta.Y + padding*2))</span>\r\n\r\n                    DrawingVisual drawingVisual = <span style=\"color: blue;\">new</span> DrawingVisual();\r\n\r\n                    <span style=\"color: blue;\">using</span> (DrawingContext gfx = drawingVisual.RenderOpen())\r\n                    {\r\n\r\n                        <span style=\"color: blue;\">int</span> i = 0;\r\n\r\n                        <span style=\"color: green;\">// get tiles &amp; combine into one</span>\r\n                        <span style=\"color: blue;\">lock</span> (tileArea)\r\n                        {\r\n                            <span style=\"color: blue;\">foreach</span> (<span style=\"color: blue;\">var</span> p <span style=\"color: blue;\">in</span> tileArea)\r\n                            {\r\n                                <span style=\"color: blue;\">if</span> (bg.CancellationPending)\r\n                                {\r\n                                    e.Cancel = <span style=\"color: blue;\">true</span>;\r\n                                    <span style=\"color: blue;\">return</span>;\r\n                                }\r\n\r\n                                <span style=\"color: blue;\">int</span> pc = (<span style=\"color: blue;\">int</span>)(((<span style=\"color: blue;\">double</span>)++i / tileArea.Count) * 100);\r\n                                bg.ReportProgress(pc, p);\r\n\r\n                                <span style=\"color: blue;\">foreach</span> (<span style=\"color: blue;\">var</span> tp <span style=\"color: blue;\">in</span> info.Type.Overlays)\r\n                                {\r\n                                    Exception ex;\r\n                                    WindowsPresentationImage tile;\r\n\r\n                                    tile =\r\n                                        GMaps.Instance.GetImageFrom(tp, p, info.Zoom, <span style=\"color: blue;\">out</span> ex) <span style=\"color: blue;\">as</span>\r\n                                        WindowsPresentationImage;\r\n\r\n\r\n                                    <span style=\"color: blue;\">if</span> (tile != <span style=\"color: blue;\">null</span>)\r\n                                    {\r\n                                        <span style=\"color: blue;\">using</span> (tile)\r\n                                        {\r\n                                            <span style=\"color: blue;\">int</span> x = p.X * info.Type.Projection.TileSize.Width - topLeftPx.X + padding;\r\n                                            <span style=\"color: blue;\">int</span> y = p.Y * info.Type.Projection.TileSize.Width - topLeftPx.Y + padding;\r\n                                            {\r\n                                                gfx.DrawImage(tile.Img,\r\n                                                              <span style=\"color: blue;\">new</span> Rect(x, y, info.Type.Projection.TileSize.Width,\r\n                                                                       info.Type.Projection.TileSize.Height));\r\n                                            }\r\n                                        }\r\n                                    }\r\n                                }\r\n                            }\r\n                            <span style=\"color: green;\">// draw routes</span>\r\n\r\n\r\n                            <span style=\"color: green;\">// draw polygons</span>\r\n\r\n                            <span style=\"color: green;\">// draw markers</span>\r\n\r\n                            <span style=\"color: blue;\">foreach</span> (GMapMarker r <span style=\"color: blue;\">in</span> gMapControl.Markers)\r\n                            {\r\n                                <span style=\"color: blue;\">var</span> pr = r.Position;\r\n                                GPoint px = info.Type.Projection.FromLatLngToPixel(pr.Lat, pr.Lng, info.Zoom);\r\n                                px.Offset(padding, padding);\r\n                                px.Offset(-topLeftPx.X, -topLeftPx.Y);\r\n                                px.Offset(Convert.ToInt32(r.LocalPositionX), Convert.ToInt32(r.LocalPositionY));\r\n                                r.Offset = <span style=\"color: blue;\">new</span> System.Windows.Point(px.X, px.Y);\r\n                            }\r\n                        }\r\n\r\n                        bmpDestination.Render(drawingVisual); <span style=\"color: green;\">// Save(bigImage, ImageFormat.Png);</span>\r\n                        PngBitmapEncoder en = <span style=\"color: blue;\">new</span> PngBitmapEncoder();\r\n                        en.Frames.Add(BitmapFrame.Create(bmpDestination <span style=\"color: blue;\">as</span> BitmapSource));\r\n<span style=\"white-space: pre;\">\t\t</span>         <span style=\"color: blue;\">using</span> (System.IO.Stream st = System.IO.File.OpenWrite(<span style=\"color: #a31515;\">@\"c:\\temp\\image2.png\"</span>))\r\n                        {\r\n                            en.Save(st);\r\n                        }\r\n\r\n                    }\r\n\r\n\r\n                     <span style=\"color: blue;\">if</span> (info.MakeWorldFile)\r\n                    {\r\n                        <span style=\"color: blue;\">string</span> wf = bigImage + <span style=\"color: #a31515;\">\"w\"</span>;\r\n                        <span style=\"color: blue;\">using</span> (StreamWriter world = File.CreateText(wf))\r\n                        {\r\n                            world.WriteLine(<span style=\"color: #a31515;\">\"{0:0.000000000000}\"</span>, (info.Area.WidthLng / pxDelta.X));\r\n                            world.WriteLine(<span style=\"color: #a31515;\">\"0.0000000\"</span>);\r\n                            world.WriteLine(<span style=\"color: #a31515;\">\"0.0000000\"</span>);\r\n                            world.WriteLine(<span style=\"color: #a31515;\">\"{0:0.000000000000}\"</span>, (-info.Area.HeightLat / pxDelta.Y));\r\n                            world.WriteLine(<span style=\"color: #a31515;\">\"{0:0.000000000000}\"</span>, info.Area.Left);\r\n                            world.WriteLine(<span style=\"color: #a31515;\">\"{0:0.000000000000}\"</span>, info.Area.Top);\r\n                            world.Close();\r\n                        }\r\n                    }\r\n                }\r\n\r\n            }\r\n        }\r\n\r\n        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">readonly</span> List&lt;PointLatLng&gt; GpxRoute = <span style=\"color: blue;\">new</span> List&lt;PointLatLng&gt;();\r\n        <span style=\"color: blue;\">private</span> RectLatLng AreaGpx = RectLatLng.Empty;\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> butSave()\r\n        {\r\n            RectLatLng? area = <span style=\"color: blue;\">null</span>;\r\n\r\n           \r\n            gMapControl.ZoomAndCenterMarkers(<span style=\"color: blue;\">null</span>);\r\n            area = gMapControl.SelectedArea;\r\n            <span style=\"color: green;\">//area = Main.MainMap.SelectedArea;</span>\r\n            <span style=\"color: blue;\">if</span> (area.Value.IsEmpty)\r\n            {\r\n                MessageBox.Show(<span style=\"color: #a31515;\">\"Select map area holding ALT\"</span>);\r\n\r\n                <span style=\"color: blue;\">return</span>;\r\n            }\r\n\r\n\r\n            <span style=\"color: blue;\">if</span> (!bg.IsBusy)\r\n            {\r\n                <span style=\"color: blue;\">lock</span> (tileArea)\r\n                {\r\n                    tileArea.Clear();\r\n                    tileArea.AddRange(gMapControl.MapProvider.Projection.GetAreaTileList(area.Value,\r\n                                                                                          10, 1));\r\n                    tileArea.TrimExcess();\r\n                }\r\n\r\n\r\n                bg.RunWorkerAsync(<span style=\"color: blue;\">new</span> MapInfo(area.Value, (<span style=\"color: blue;\">int</span>)10, gMapControl.MapProvider,\r\n                                              <span style=\"color: blue;\">true</span>));\r\n            }\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> butCansel(<span style=\"color: blue;\">object</span> sender, EventArgs e)\r\n        {\r\n            <span style=\"color: blue;\">if</span> (bg.IsBusy)\r\n            {\r\n                bg.CancelAsync();\r\n            }\r\n        }\r\n    }\r\n\r\n</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-12-01T04:01:17.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705807",
+    "ThreadId": "281418",
+    "Html": "<p>i see, you want render markers too, i'll check it later</p>",
+    "PostedDate": "2011-12-01T04:47:25.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705819",
+    "ThreadId": "281418",
+    "Html": "<p>p.s. try.:&nbsp;drawingContext.Close(); before&nbsp;bmpDestination.Render(drawingVisual);</p>",
+    "PostedDate": "2011-12-01T05:08:04.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706061",
+    "ThreadId": "281418",
+    "Html": "<p>thanks, very good project&nbsp;</p>",
+    "PostedDate": "2011-12-01T12:40:09.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

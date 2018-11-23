@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": ";",
+    "ClosedDate": "2010-09-03T11:26:47.477-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "If I set mapControl.ForceDoubleBuffer = true; and then minimze my Form (I use Windows.Forms) I get following Exception:\r\n\r\n   bei System.Drawing.Bitmap..ctor(Int32 width, Int32 height, PixelFormat format)\r\n   bei System.Drawing.Bitmap..ctor(Int32 width, Int32 height)\r\n   bei GMap.NET.WindowsForms.GMapControl.OnSizeChanged(EventArgs e)\r\n   bei System.Windows.Forms.Control.UpdateBounds(Int32 x, Int32 y, Int32 width, Int32 height, Int32 clientWidth, Int32 clientHeight)\r\n   bei System.Windows.Forms.Control.UpdateBounds()\r\n   bei System.Windows.Forms.Control.WmWindowPosChanged(Message& m)\r\n   bei System.Windows.Forms.Control.WndProc(Message& m)\r\n   bei System.Windows.Forms.ScrollableControl.WndProc(Message& m)\r\n   bei System.Windows.Forms.ContainerControl.WndProc(Message& m)\r\n   bei System.Windows.Forms.UserControl.WndProc(Message& m)\r\n   bei System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)\r\n   bei System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)\r\n   bei System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r\n   bei System.Windows.Forms.SafeNativeMethods.SetWindowPos(HandleRef hWnd, HandleRef hWndInsertAfter, Int32 x, Int32 y, Int32 cx, Int32 cy, Int32 flags)\r\n\r\nIs tehre any way to correct this error?\r\nthanks a lot!\r\nXandolph",
+    "LastUpdatedDate": "2010-09-03T11:26:47.477-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-09-03T05:58:31.527-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "System.Argument Exception with  ForceDoubleBuffer = true on Window minimze",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15985
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "works perfectly for me, just remember that you can enable it(i wonder why ;/) ..anyway only once in constructor",
+      "PostedDate": "2010-09-03T11:25:37.977-07:00",
+      "Id": 15675
+    }
+  ]
+}

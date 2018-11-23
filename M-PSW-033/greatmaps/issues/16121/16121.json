@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "using GMap.NET;\nusing GMap.NET.WindowsForms;",
+    "ClosedDate": "2015-05-20T10:51:27.613-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi.\r\nI have a problem\r\nWhen i try to build my application i  receive the following error:\r\n\r\n\r\n__Error\t40\t'NET' is not a member of 'GMap.NET.WindowsForms.GMapControl'.__\t\r\nat\r\nGMap.NET.WindowsForms.HelperLineOptions.DontShow\r\nand\r\nGMap.NET.MouseWheelZoomType.MousePositionWithoutCenter\r\nand\r\nGMap.NET.WindowsForms.ScaleModes.[Integer]\r\nin designer\r\n\r\nWhen i put Global like this Global.GMap.NET.WindowsForms.HelperLineOptions.DontShow\r\neverything is ok until next time when i try to build the application.\r\nPlease help.",
+    "LastUpdatedDate": "2015-05-20T23:34:12.147-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-05-19T08:18:51.573-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "'NET' is not a member of 'GMap.NET.WindowsForms.GMapControl",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16121
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi. \nThank you.\nMy code is in vb.net.\nI use:\nImports GMap.NET\nImports GMap.NET.WindowsForms\non form with gmap control.\nAnd error still exist.\nWhen i put Global everything work until i change some property of gmap example MouseWheelZoomType.\n",
+      "PostedDate": "2015-05-20T23:34:12.147-07:00",
+      "Id": 184626
+    }
+  ]
+}

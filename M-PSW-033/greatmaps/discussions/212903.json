@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "443802",
+    "ThreadId": "212903",
+    "Html": "<p>Hi!</p>\r\n<p>I'm developing a windows mobile application and when I change the zoom level quickly I obtain a mscorlib exception and the image doesn't appear. Do you know what it can be?</p>\r\n<p>The output messages are:</p>\r\n<p>A first chance exception of type 'System.SystemException' occurred in mscorlib.dll<br>A first chance exception of type 'System.IO.IOException' occurred in mscorlib.dll<br>A first chance exception of type 'System.SystemException' occurred in mscorlib.dll<br><br></p>\r\n<p>Thanks,<br>BemDisposto</p>",
+    "PostedDate": "2010-05-17T07:33:27.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443866",
+    "ThreadId": "212903",
+    "Html": "<p>try latest changeset, i decreased some values</p>",
+    "PostedDate": "2010-05-17T09:26:14.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444040",
+    "ThreadId": "212903",
+    "Html": "<p>I tried with the lastest changeset and it's still happening. I think the problem is when I make two requests in a short period of time, the program crashes. After a long period of time (like 3 or 4 minutes), the map is reloaded, I don't know why.</p>\r\n<p>Thank you!</p>",
+    "PostedDate": "2010-05-17T16:39:44.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444123",
+    "ThreadId": "212903",
+    "Html": "<p>strange, whats your mobile? Did you tried to debug it?</p>",
+    "PostedDate": "2010-05-17T23:01:27.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444292",
+    "ThreadId": "212903",
+    "Html": "<p>I have a HTC Touch2. As I said in the first post, I get:</p>\r\n<p>A first chance exception of type 'System.SystemException' occurred in  mscorlib.dll<br>A first chance exception of type 'System.IO.IOException'  occurred in mscorlib.dll<br>A first chance exception of type  'System.SystemException' occurred in mscorlib.dll</p>\r\n<p>This occurred after pressing the zoom button 2 times.</p>\r\n<p>That button has the following code:</p>\r\n<pre><div style=\"color:black;background-color:white\"><pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> zoomInButt_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)<br>{<br>   <span style=\"color:blue\">if</span> (mapCenter.Zoom &lt; map.MaxZoom)<br>   {<br>      map.Zoom = (<span style=\"color:blue\">int</span>) (map.Zoom) + 1;<br>   }<br>}</pre>\r\n</div>\r\n</pre>\r\n<p>Should I do anything different??</p>",
+    "PostedDate": "2010-05-18T06:01:37.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444298",
+    "ThreadId": "212903",
+    "Html": "<p>hm..</p>",
+    "PostedDate": "2010-05-18T06:13:33.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444373",
+    "ThreadId": "212903",
+    "Html": "<div style=\"color:black;background-color:white\">Hi,</div>\r\n<div style=\"color:black;background-color:white\">What is the&nbsp;mapCenter? And Can you try this?</div>\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> zoomInButt_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n{\r\n   <span style=\"color:blue\">if</span> (map.Zoom &lt; map.MaxZoom)\r\n   {\r\n      map.Zoom = (<span style=\"color:blue\">int</span>) (map.Zoom) + 1;\r\n   }\r\n}\r\n</pre>",
+    "PostedDate": "2010-05-18T08:08:07.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444378",
+    "ThreadId": "212903",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>ramazanulucay wrote:</strong><br></blockquote>\r\n<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\">\r\n<div style=\"color:black;background-color:white\">Hi,</div>\r\n<div style=\"color:black;background-color:white\">What is the&nbsp;mapCenter? And Can you try this?</div>\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> zoomInButt_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n{\r\n   <span style=\"color:blue\">if</span> (map.Zoom &lt; map.MaxZoom)\r\n   {\r\n      map.Zoom = (<span style=\"color:blue\">int</span>) (map.Zoom) + 1;\r\n   }\r\n}\r\n</pre>\r\n</blockquote>\r\n<p>mapCenter was a variable where I saved the coordinates and the the zoom  level of the map. Currently, I'm not using that and my code is exactly what  you wrote. I still have the problem...</p>",
+    "PostedDate": "2010-05-18T08:15:05.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444389",
+    "ThreadId": "212903",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre>I see. I don't use for mobile application. Do you use the Cache? </pre>\r\n<pre><span style=\"color:blue\">map</span>.Manager.Mode = AccessMode.ServerOnly</pre>\r\n</div>",
+    "PostedDate": "2010-05-18T08:32:48.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444395",
+    "ThreadId": "212903",
+    "Html": "<p>Yes, I'm using server and cache mode.</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>map.Manager.Mode = AccessMode.ServerAndCache;\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-05-18T08:36:14.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444397",
+    "ThreadId": "212903",
+    "Html": "<p>Can you try to change it?</p>",
+    "PostedDate": "2010-05-18T08:38:13.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444399",
+    "ThreadId": "212903",
+    "Html": "<p>yes, I already try with serverOnly.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-18T08:39:36.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444456",
+    "ThreadId": "212903",
+    "Html": "<p>but you need <strong>CacheOnly</strong> ;]</p>",
+    "PostedDate": "2010-05-18T10:39:14.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

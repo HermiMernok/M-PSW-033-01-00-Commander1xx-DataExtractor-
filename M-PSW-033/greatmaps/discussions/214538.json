@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "449861",
+    "ThreadId": "214538",
+    "Html": "I try to use the control in my HD2 phone.The problem i have is if i set the height of the control larger of the screen.height/2 no map appears.If i set the height smaller of screen.height/2 everything is ok.The problem exists also with the demo projects. ",
+    "PostedDate": "2010-06-01T00:41:48.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449865",
+    "ThreadId": "214538",
+    "Html": "<p>?</p>",
+    "PostedDate": "2010-06-01T00:46:06.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449876",
+    "ThreadId": "214538",
+    "Html": "I forgot to write that the problem appears when i use the server mode not the cache mode ",
+    "PostedDate": "2010-06-01T01:06:09.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449877",
+    "ThreadId": "214538",
+    "Html": "<p>server mode is slow, i can't fix that ;}</p>",
+    "PostedDate": "2010-06-01T01:08:41.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449882",
+    "ThreadId": "214538",
+    "Html": "But why when i decrease the height of the control the map appears almost instantly;Also i set the height of the control equal to the form height i wait 10 minutes but nothing.  ",
+    "PostedDate": "2010-06-01T01:14:49.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449888",
+    "ThreadId": "214538",
+    "Html": "<p>any debug log?</p>",
+    "PostedDate": "2010-06-01T01:29:37.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449893",
+    "ThreadId": "214538",
+    "Html": "Do you mean errors in debug log;",
+    "PostedDate": "2010-06-01T01:42:22.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449904",
+    "ThreadId": "214538",
+    "Html": "<p>yeah, anything to identify the problem</p>",
+    "PostedDate": "2010-06-01T01:50:49.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449905",
+    "ThreadId": "214538",
+    "Html": "No everything seems ok.",
+    "PostedDate": "2010-06-01T01:52:34.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449906",
+    "ThreadId": "214538",
+    "Html": "<p>hm ok.. well it's still possible, that sometimes internal stuff hangs on deadlock..</p>",
+    "PostedDate": "2010-06-01T01:54:54.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450183",
+    "ThreadId": "214538",
+    "Html": "You initial statement about screen.height/2 caught my eye.\r\nThe 'HD' devices I've been developing for (480x800 pixels) are using a double-density LCD with 192x192 DPI vs more standard 96x96DPI.\r\nThe Windows Mobile 6+ OS will autoscale windows/controls by 2x so the resulting physical size (not 'pixel') is the same if it thinks they are designed at 96x96DPI.\r\n\r\nIn general you design at 96x96, then at runtime the form and controls are scaled up on a HD display.\r\nYou can/should also use Dock/Anchors controls to deal with landscape/portrait switches.\r\nThis all gets a bit ugly if you are doing layout tasks in code with absolute positioning/sizing.\r\n\r\nCheck Visual Studio-&gt;Options-&gt;Device Tools-&gt;Form Factors\r\nNOTE:  Changing a project's selected form factor will in general SCREW UP YOUR LAYOUT!  Everything will try to auto-scale (incorrectly) and go offscreen/double-width/etc.\r\n\r\nA couple links:\r\nhttp://msdn.microsoft.com/en-us/library/bb431852.aspx\r\nhttp://msdn.microsoft.com/en-us/library/bb416656(v=MSDN.10).aspx",
+    "PostedDate": "2010-06-01T10:53:38.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450186",
+    "ThreadId": "214538",
+    "Html": "<p>but control itself should be Dock.Fill, so it doesn't matter</p>",
+    "PostedDate": "2010-06-01T11:02:34.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

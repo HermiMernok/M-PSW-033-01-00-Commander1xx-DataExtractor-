@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "993726",
+    "ThreadId": "431294",
+    "Html": "\r\n<p>Dear radioman and All GMap.net developers.</p>\r\n<p>Few months ago, Google Korea server has changed.<br>\r\nUnfortunately, old hybrid tile servers are unstable now.<br>\r\nPlease update GMap.NET with following URLs.</p>\r\n<p>New URLs are:</p>\r\n<ul>\r\n<li>Plain Map: http://mt0.google.com/vt/lyrs=m@206000000&hl=ko<strong>&gl=KR</strong>&src=app&x=3500&y=1623&z=12&s=Gal\r\n</li><li>Satellite Map: http://khm1.google.co.kr/kh/v=124&src=app&x=3501&y=1625&z=12&s=\r\n</li><li>Hybrid Map: http://mt0.google.com/vt/lyrs=h@206000000&hl=ko<strong>&gl=KR</strong>&src=app&x=3502&y=1625&z=12&s=Gal\r\n</li></ul>\r\n<p>I think Google merged Korea maps to their global server and identify each request by gl=KR parameter.</p>\r\n<p>I'd tested with new url, all things are fine except one that hybrid map's max zoom level set as 15. So, If zoom level set to larger than 15, tile downloads will be failed.</p>\r\n<p>To avoid this issue, I'd use this code <em>GoogleKoreaHybridMapProvier.MaxZoom = 15</em>. But this code drops quality of background satellite images via over-zooming. Without this, 16 and 17 levels had no hybrid overlays such as roads, POI labels.</p>\r\n<p>Is there any ways to solve this issue? Sorry, I had no idea :(</p>\r\n<p>Thank you for your great works, again.</p>\r\n",
+    "PostedDate": "2013-01-29T08:55:21.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "499385",
+    "ThreadId": "228836",
+    "Html": "<p><span style=\"font-size:10pt\" lang=EN-US>First &hellip;..Congratulation for this magnify project.</span></p>\r\n<p><span style=\"font-size:10pt\" lang=EN-US>I&rsquo;m evaluating Gmap to routing fire trucks in a google map.</span></p>\r\n<p><span style=\"font-size:10pt\" lang=EN-US>The gps truck use old UTM coordinates, Zone 30, ed50, <span style=\"color:#1f497d\">EPSG:23030.</span></span></p>\r\n<p><span style=\"font-size:10pt;color:#1f497d\" lang=EN-US>How can I convert this coordinates to Google coordinates WGS84.</span></p>\r\n<p><span style=\"font-size:10pt;color:#1f497d\" lang=EN-US>Something like this: </span></p>\r\n<p><span style=\"font-size:10pt;color:#1f497d\" lang=EN-US>283539, 4821745, 30  &gt;-----&gt; 43.65456565, -5.6787878</span></p>\r\n<p><span style=\"font-size:10pt;color:#1f497d\" lang=EN-US>&nbsp;</span><span style=\"color:#1f497d\">I try to adapt this code but fail:</span></p>\r\n<p><span style=\"font-size:10pt;color:blue\" lang=EN-US>&nbsp;</span><span style=\"font-size:10pt;color:blue\" lang=EN-US>public</span><span style=\"font-size:10pt\" lang=EN-US> <span style=\"color:blue\">void</span> FromCartesianTGeodetic(<span style=\"color:blue\">double</span> X, <span style=\"color:blue\">double</span> Y, <span style=\"color:blue\">double</span> Z, <span style=\"color:blue\">out</span> <span style=\"color:blue\">double</span> Lat, <span style=\"color:blue\">out</span> <span style=\"color:blue\">double</span> Lng)</span></p>\r\n<p><span style=\"font-size:10pt\" lang=EN-US>&nbsp;</span>Is possible using gmap library?</p>\r\n<p><span style=\"font-size:10pt\" lang=EN-US>Many thanks and sorry for my bad English.</span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-28T03:02:13.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499429",
+    "ThreadId": "228836",
+    "Html": "<p>you can use&nbsp;<a href=\"http://dotspatial.codeplex.com/wikipage?title=DotSpatial.Projections&referringTitle=Home\">http://dotspatial.codeplex.com/wikipage?title=DotSpatial.Projections&amp;referringTitle=Home</a> to convert coordinates from <em>any to any</em> system</p>",
+    "PostedDate": "2010-09-28T04:45:42.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512081",
+    "ThreadId": "228836",
+    "Html": "\r\n<p>Hi jcferalva.<br>\r\n<br>\r\nI have tried the dotspatial library but my region (Cape Town,&nbsp;South Africa) &nbsp;doesn't transform well.<br>\r\nThe zones for my convertion is Hartebeesthoek 1994 ( EPSG: 2048) to WGS 1984 (EPSG: 4326).</p>\r\n<p>I tried everything but found nothing that works.<br>\r\nI stubled apon a company eye4software that has a GPS toolkit made&nbsp;especially&nbsp;for this.<br>\r\nIt costs&nbsp;EUR 149 and it can even read a GPS unit for its info.<br>\r\n<br>\r\nPM me if you need code samples.</p>\r\n",
+    "PostedDate": "2010-10-25T05:23:50.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

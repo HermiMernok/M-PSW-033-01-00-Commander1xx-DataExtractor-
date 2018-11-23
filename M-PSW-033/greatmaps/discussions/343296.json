@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "797573",
+    "ThreadId": "343296",
+    "Html": "<p>Hi Radioman,</p>\n<p>I use following code</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>MainMap.Manager.Mode = AccessMode.ServerAndCache;\nGMap.NET.CacheProviders.MsSQLPureImageCache ch = <span style=\"color: blue;\">new</span> GMap.NET.CacheProviders.MsSQLPureImageCache();\nch.ConnectionString = <span style=\"color: #a31515;\">@\"Data Source=.\\SQLEXPRESS; AttachDbFilename=\"</span> + Application.StartupPath + <span style=\"color: #a31515;\">\"\\\\ariarmandb.mdf; Integrated Security=True; Connect Timeout=30; User Instance=True\"</span>;\nMainMap.Manager.SecondaryCache = ch;\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>i can't use&nbsp;MsSQLCePureImageCache.</p>\n<p>but this eeror occurs in Singleton.cs at line 29;</p>\n<p><strong>Could not find file 'C:\\Users\\Hamid\\AppData\\Local\\GMap.NET\\TileDBv5\\en\\Data.gmdb'.</strong></p>\n<p>how i solve this error?</p>\n<p>thanks ;}</p>",
+    "PostedDate": "2012-02-23T06:07:51.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797599",
+    "ThreadId": "343296",
+    "Html": "<p>works fine for me</p>",
+    "PostedDate": "2012-02-23T06:22:46.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797606",
+    "ThreadId": "343296",
+    "Html": "<p>how can i use sql express 2005 for cache tiles ?</p>",
+    "PostedDate": "2012-02-23T06:26:53.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797621",
+    "ThreadId": "343296",
+    "Html": "<p>set connection string and thats it</p>",
+    "PostedDate": "2012-02-23T06:34:27.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797633",
+    "ThreadId": "343296",
+    "Html": "<p>i run demo with my connection string and then my project is run correct.</p>\r\n<p>why?</p>\r\n<p>it's fuuny;</p>\r\n<p>thanks.</p>",
+    "PostedDate": "2012-02-23T06:42:44.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797644",
+    "ThreadId": "343296",
+    "Html": "<p>i've no idea what exactly are you doing ;}</p>",
+    "PostedDate": "2012-02-23T06:47:53.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

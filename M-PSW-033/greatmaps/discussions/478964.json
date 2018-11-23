@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1143511",
+    "ThreadId": "478964",
+    "Html": "<pre><code>Private Sub GMapControl1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles MyBase.MouseMove\n\n    Dim X As Double = GMapControl1.FromLocalToLatLng(e.X, e.Y).Lng\n    Dim Y As Double = GMapControl1.FromLocalToLatLng(e.X, e.Y).Lat\n\n    Dim longitude As String = X.ToString()\n    Dim latitude As String = Y.ToString()\n    Label1.Text = longitude\n    Label2.Text = latitude\nEnd Sub\n</code></pre>\n\nthis works only inside the form , when i move the mouse inside the gmapcontrol nothing happen<br />\n",
+    "PostedDate": "2013-12-28T08:20:52.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

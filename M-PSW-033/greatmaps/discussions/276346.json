@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "685945",
+    "ThreadId": "276346",
+    "Html": "\r\n<p>Ola,</p>\r\n<p>Facing small issue here. I just started to use gmap in a project again and it seems there are a lot of new features. Had to figure how to implement it though. No documentation available. No problems, it works, but,.... When I start my app I see only one\r\n tile. Only when I resize the map I see all the tiles.</p>\r\n<p>Imports GMap.NET<br>\r\nImports GMap.NET.CacheProviders<br>\r\nImports GMap.NET.MapProviders<br>\r\n<br>\r\nWith map_control<br>\r\n&nbsp;&nbsp; .Manager.Mode = AccessMode.ServerAndCache<br>\r\n&nbsp;&nbsp; .MapProvider = GMapProviders.OpenStreetMap<br>\r\n&nbsp;&nbsp; .MinZoom = 1<br>\r\n&nbsp;&nbsp; .MaxZoom = 18<br>\r\n&nbsp;&nbsp; .Zoom = 12<br>\r\n&nbsp;&nbsp; .Position = New PointLatLng(53.219514, 5.483869)<br>\r\n&nbsp;&nbsp; .DragButton = Windows.Forms.MouseButtons.Left<br>\r\nEnd With</p>\r\n<p>Anything that I'm missing? Thanks for the help in advance.</p>\r\n",
+    "PostedDate": "2011-10-18T11:59:42.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685951",
+    "ThreadId": "276346",
+    "Html": "<p>hay ;}</p>\r\n<p>..again, vb stuff o.O ..well you just need to set up parameters in forms constructor</p>",
+    "PostedDate": "2011-10-18T12:08:35.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685955",
+    "ThreadId": "276346",
+    "Html": "<p>Thanks for the reply. What parameters are you talking about?</p>",
+    "PostedDate": "2011-10-18T12:15:00.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685958",
+    "ThreadId": "276346",
+    "Html": "<p>the ones you just posted ;}</p>",
+    "PostedDate": "2011-10-18T12:23:23.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685990",
+    "ThreadId": "276346",
+    "Html": "<p>Hahahaha. OKay. The weird thing is that I never had to do this in the older versions. Is this new behavior? I only referenced \"Core\" and \"Windowsforms\" btw.</p>",
+    "PostedDate": "2011-10-18T13:02:57.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "685996",
+    "ThreadId": "276346",
+    "Html": "<p>Here's something I just figured out: When I add the code in the map_load-handler it works fine. I create a sub. It works fine now. Thanks.</p>",
+    "PostedDate": "2011-10-18T13:07:03.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

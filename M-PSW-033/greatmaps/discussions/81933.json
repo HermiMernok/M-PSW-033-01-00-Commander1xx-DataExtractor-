@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "281408",
+    "ThreadId": "81933",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>it is me again, with my rectangle :) . In my project, i tried to&nbsp;get&nbsp;drew&nbsp;rectangle boundry features at runtime like Lat, Lon, HeightLat, WidthLng...etc.&nbsp; to save to a database, and i want to use that features to draw that rectangle on to the map with a button event, later.</p>\r\n<p>I use this code,</p>\r\n<p>RectLatLng rectangle = MainMap.SelectedArea;</p>\r\n<p>but i think this code is not&nbsp;suitable with my purpose, and it is draw rectangle at wrong location. Is there any other code to get drew rectangle features?&nbsp;</p>",
+    "PostedDate": "2010-01-25T06:47:51.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281446",
+    "ThreadId": "81933",
+    "Html": "<p>there is red rectangle marker in demo</p>\r\n<p>-&gt; <a href=\"http://greatmaps.codeplex.com/wikipage?title=custom marker&referringTitle=GMap.NET.WindowsForms\">http://greatmaps.codeplex.com/wikipage?title=custom%20marker&amp;referringTitle=GMap.NET.WindowsForms</a></p>",
+    "PostedDate": "2010-01-25T08:03:58.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281712",
+    "ThreadId": "81933",
+    "Html": "<p>But I&nbsp; want to&nbsp;draw&nbsp;a rectangle with alt keyboard button + mouse, and i want to save that rectangle to the database, with its size and location.</p>",
+    "PostedDate": "2010-01-25T23:22:19.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281720",
+    "ThreadId": "81933",
+    "Html": "<p>ahh, well then just save it, and use 4 columns in your table</p>\r\n<p>RectLatLng(double lat, double lng, double widthLng, double heightLat);</p>",
+    "PostedDate": "2010-01-25T23:53:52.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281736",
+    "ThreadId": "81933",
+    "Html": "<p>I wrote to a database,&nbsp;and&nbsp;i&nbsp;draw a rectangle according to&nbsp;that data(Lat, Lng, widthLng, heightLat) on to the map&nbsp; with reading my database, but it&nbsp;accepts the&nbsp;starting point of&nbsp;the rectangle as its center, however the data belongs to the rectangle's starting point, not center.</p>",
+    "PostedDate": "2010-01-26T00:55:50.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281779",
+    "ThreadId": "81933",
+    "Html": "<p>so whats the problem?</p>",
+    "PostedDate": "2010-01-26T03:39:10.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281798",
+    "ThreadId": "81933",
+    "Html": "<p>The problem is that,&nbsp;it is drawn at wrong location. The Lat-Long which is my Top-Left Corner point of the rectangle, is&nbsp;based as center of the rectangle.&nbsp;The Lat-Long is my top-left point, not center.&nbsp;</p>",
+    "PostedDate": "2010-01-26T04:19:42.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281810",
+    "ThreadId": "81933",
+    "Html": "<p>so why can't you add Offset(-width/2, -height/2) ?</p>",
+    "PostedDate": "2010-01-26T04:45:30.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "281836",
+    "ThreadId": "81933",
+    "Html": "<p>I can get&nbsp;&nbsp;HeightLat and WidthLng, but I think it is not equal to rectangle width and height. How can I get width and height of rectangle?</p>\r\n<p><span style=\"font-family:Consolas;font-size:small\"><span style=\"font-family:Consolas;font-size:small\">&lt;font face=&quot;Consolas&quot; size=&quot;3&quot;&gt;&lt;font face=&quot;Consolas&quot; size=&quot;3&quot;&gt;\r\n<p>\r\n<p>&nbsp;</p>\r\n</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font face=&quot;Consolas&quot; size=&quot;3&quot;&gt;\r\n<p>\r\n<p>&nbsp;</p>\r\n</p>\r\n&lt;/font&gt;</span></p>\r\n<p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-family:Consolas;color:#2b91af;font-size:small\"><span style=\"font-family:Consolas;color:#2b91af;font-size:small\"><span style=\"font-family:Consolas;color:#2b91af;font-size:small\">PointLatLng</span></span></span><span style=\"font-family:Consolas;font-size:small\"><span style=\"font-family:Consolas;font-size:small\"> pLL = Rectangle.Size.ToPointLatLng();</span></span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-26T05:59:24.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "282701",
+    "ThreadId": "81933",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I solved that rectangle issue.</p>\r\n<p>1- ) Decleration of generic list,</p>\r\n<p>List&lt;RectLatLng&gt; rect = new List&lt;RectLatLng&gt;();</p>\r\n<p>2- )&nbsp;Get selected area of rectangle,</p>\r\n<p>RectLatLng selectedArea = MainMap.SelectedArea;</p>\r\n<p>3 -)Save the rectangle area into the generic list,</p>\r\n<p>rect.Add(selectedArea);</p>\r\n<p>4-)And get the saved rectangle area</p>\r\n<p>MainMap.SelectedArea = rect[0];</p>\r\n<p>Thank you for your help...</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-28T04:16:29.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "282720",
+    "ThreadId": "81933",
+    "Html": "<p>..can you explain more about what are you coding?</p>",
+    "PostedDate": "2010-01-28T05:23:45.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "282779",
+    "ThreadId": "81933",
+    "Html": "<p>The aim is Vehicle Tracing Project. I must trace vehicle whether it is inside of a rectangle or outside of a rectangle. For testing, i create rectangle which is pinned on to the map(above codes are doing&nbsp;this pin job). When user clicks inside of&nbsp;drawn rectangle it return true, otherwise false.&nbsp;&nbsp;Because of that, at runtime, the rectangle have to&nbsp;be visible.&nbsp;</p>",
+    "PostedDate": "2010-01-28T07:50:12.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

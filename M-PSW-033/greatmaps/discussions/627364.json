@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1410747",
+    "ThreadId": "627364",
+    "Html": "Hey radioman,<br />\n<br />\nI was wondering if it is possible to import and export the tiles which are currently loaded in the cache so if I use the software without Internet, I'll be able to import the tiles I need?<br />\n<br />\nI saw something in your Demo:<br />\n<pre><code>  // export\n  private void button6_Click(object sender, RoutedEventArgs e)\n  {\n     MainMap.ShowExportDialog();\n  }\n\n  // import\n  private void button5_Click(object sender, RoutedEventArgs e)\n  {\n     MainMap.ShowImportDialog();\n  }\n</code></pre>\n\nDoes the created file *.gmdb have all the information about that and I just export this file when zoomed at a specific region and import it when needed?<br />\n<br />\n<br />\nThank you in advance!!<br />\nGeoGecco<br />\n",
+    "PostedDate": "2015-04-14T05:03:44.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1411253",
+    "ThreadId": "627364",
+    "Html": "<ul>\n<li>\nexport function exports ALL tiles from default database(PrimaryCache) to a new fresh database, OR adds new tiles to existing database, nothing is overridden then.<br />\n</li>\n<li>\nimport function just do export into default database(PrimaryCache).<br />\n</li>\n</ul>\np.s. you can manually manage tiles using <a href=\"sqlitespy\" rel=\"nofollow\">http://www.yunqa.de/delphi/doku.php/products/sqlitespy/index</a><br />\n",
+    "PostedDate": "2015-04-14T07:24:52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1411382",
+    "ThreadId": "627364",
+    "Html": "sorry I don't quite get it.\r<br />\nSo you mean when exporting, the current PrimaryCache is saved to a file and when I change location on map and export again, the db file appends the new location?\r<br />\nCan I somehow add the current view of the map to the cache and use export and import to load the map when offline?\r<br />\n<br />\nSorry for missunderstanding but all this is quite new to me =)<br />\n",
+    "PostedDate": "2015-04-14T08:04:28.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1411722",
+    "ThreadId": "627364",
+    "Html": "if you see the map it's already in the cache, yes you can export anytime, experiment ;}<br />\n",
+    "PostedDate": "2015-04-14T09:38:10.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

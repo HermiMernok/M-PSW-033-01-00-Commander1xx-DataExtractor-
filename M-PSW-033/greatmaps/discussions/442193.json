@@ -1,0 +1,162 @@
+[
+  {
+    "Id": "1038005",
+    "ThreadId": "442193",
+    "Html": "hi\r<br />\nwhen the main form is loading it takes so much time to load\r<br />\nwhy?\r<br />\nwhen i switch to another map type it takes so much time for the first time\r<br />\nwhat should i do?\r<br />\nthanks<br />\n",
+    "PostedDate": "2013-05-01T02:01:24.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1038006",
+    "ThreadId": "442193",
+    "Html": "you probably use debug build<br />\n",
+    "PostedDate": "2013-05-01T02:17:26.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1038014",
+    "ThreadId": "442193",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nyou probably use debug build<br />\n</blockquote>\nno\r<br />\ni have used release build\r<br />\nand my map database is about 2 gb with 2 map type of google map and google hybrid<br />\n",
+    "PostedDate": "2013-05-01T02:40:14.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1038016",
+    "ThreadId": "442193",
+    "Html": "witch cache it loads instantly, i don't know what are you doing there...<br />\n",
+    "PostedDate": "2013-05-01T02:47:37.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1038032",
+    "ThreadId": "442193",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nwitch cache it loads instantly, i don't know what are you doing there...<br />\n</blockquote>\nI'm just using a simple winform form with gmapcontrol on it<br />\n",
+    "PostedDate": "2013-05-01T03:55:45.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039285",
+    "ThreadId": "442193",
+    "Html": "Isn't it because of the size of cache map file ?<br />\n",
+    "PostedDate": "2013-05-03T23:57:05.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039525",
+    "ThreadId": "442193",
+    "Html": "nop<br />\n",
+    "PostedDate": "2013-05-05T06:35:18.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039819",
+    "ThreadId": "442193",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nnop<br />\n</blockquote>\nso why this happens?\r<br />\n<br />\nit happens just when i assign the GOOGLEMAP like below code  at the beginning of form initialization \r<br />\n gMapControl1.MapProvider = GMapProviders.GoogleMap;<br />\n",
+    "PostedDate": "2013-05-06T04:51:12.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039829",
+    "ThreadId": "442193",
+    "Html": "i tested the demo application with the 2 GB map database\r<br />\nand the result is that demo applications takes times to load (about 20 seconds)\r<br />\nwhat should i do?<br />\n",
+    "PostedDate": "2013-05-06T05:11:37.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1039858",
+    "ThreadId": "442193",
+    "Html": "you use debug build, use release build<br />\n",
+    "PostedDate": "2013-05-06T06:06:26.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040244",
+    "ThreadId": "442193",
+    "Html": "used release build\r<br />\nbut the problem is happening<br />\n",
+    "PostedDate": "2013-05-07T00:23:05.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040245",
+    "ThreadId": "442193",
+    "Html": "what version do you use?<br />\n",
+    "PostedDate": "2013-05-07T00:24:49.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040299",
+    "ThreadId": "442193",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nwhat version do you use?<br />\n</blockquote>\ngreatmaps-5f3f706f71e8<br />\n",
+    "PostedDate": "2013-05-07T02:41:05.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054324",
+    "ThreadId": "442193",
+    "Html": "did you fix the problem?<br />\n",
+    "PostedDate": "2013-06-08T03:35:54.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054803",
+    "ThreadId": "442193",
+    "Html": "there is no problem<br />\n",
+    "PostedDate": "2013-06-10T04:50:01.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054848",
+    "ThreadId": "442193",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nthere is no problem<br />\n</blockquote>\nso, why it takes too much time to change the map source from google map to google hybrid map?<br />\n",
+    "PostedDate": "2013-06-10T06:28:01.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054853",
+    "ThreadId": "442193",
+    "Html": "investigate, do some debugging, maybe it's system specific<br />\n",
+    "PostedDate": "2013-06-10T06:36:30.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054992",
+    "ThreadId": "442193",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\ninvestigate, do some debugging, maybe it's system specific<br />\n</blockquote>\ni have tested it on 4 different system.\r<br />\nbut all of them takes some times to load.\r<br />\nmy gmdb is around 2.3 GB\r<br />\nand it takes 30 seconds to load the application\r<br />\nis it normal?<br />\n",
+    "PostedDate": "2013-06-10T10:47:45.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055017",
+    "ThreadId": "442193",
+    "Html": "turn the freaking debugger on ;}<br />\n",
+    "PostedDate": "2013-06-10T11:41:39.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055026",
+    "ThreadId": "442193",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nturn the freaking debugger on ;}<br />\n</blockquote>\nwhat it means?\r<br />\ni don't know how to do that\r<br />\ncould you please explain more?\r<br />\nthanks<br />\n",
+    "PostedDate": "2013-06-10T12:07:50.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

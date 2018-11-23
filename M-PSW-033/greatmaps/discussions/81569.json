@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "280033",
+    "ThreadId": "81569",
+    "Html": "<p>I would like to display a polygon defined in a KML string on my GMap.&nbsp; Is there any built in way to do this?&nbsp; The KML could come from a local source or a network location.&nbsp; Thanks for putting out this control, it is a life safer!&nbsp; I also think it's great you've spent the time doing it in WPF.</p>\r\n<p>&nbsp;</p>\r\n<p>-Tom</p>",
+    "PostedDate": "2010-01-21T06:41:20.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280053",
+    "ThreadId": "81569",
+    "Html": "<ol>\r\n<li>first you need a kml parser, or parse manualy, <a href=\"http://sourceforge.net/projects/ge-kml/\">http://sourceforge.net/projects/ge-kml/</a></li>\r\n<li>create custom marker, and draw your polygon&nbsp;using&nbsp;coordinates, <a href=\"http://greatmaps.codeplex.com/wikipage?title=custom marker&referringTitle=GMap.NET.WindowsForms\">http://greatmaps.codeplex.com/wikipage?title=custom%20marker&amp;referringTitle=GMap.NET.WindowsForms</a></li>\r\n</ol>",
+    "PostedDate": "2010-01-21T07:31:29.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280060",
+    "ThreadId": "81569",
+    "Html": "<p>Thanks Radioman for the quick response!&nbsp; When using WPF to create markers, how would you recommend I create more complex polygons.&nbsp; Polygons, for instance, with curves and straight lines.&nbsp; Will Paths work for this scenario?&nbsp; Thanks again!</p>",
+    "PostedDate": "2010-01-21T07:43:47.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280063",
+    "ThreadId": "81569",
+    "Html": "<p>for best performance <a href=\"http://msdn.microsoft.com/en-us/magazine/dd483292.aspx#id0180138\">http://msdn.microsoft.com/en-us/magazine/dd483292.aspx#id0180138</a></p>",
+    "PostedDate": "2010-01-21T07:47:28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280555",
+    "ThreadId": "81569",
+    "Html": "<p>Thanks for the links.&nbsp; They are certainly setting me in the right direction.&nbsp; Do you have a function built into the GMaps API that will convert real world coordinates or distances into WPF Path pixels?&nbsp; It seems like GMap places markers and then to draw a polygon from there it is a 0,0 coordinate system.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks again!</p>",
+    "PostedDate": "2010-01-22T05:55:54.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "280572",
+    "ThreadId": "81569",
+    "Html": "<p>check GMap.NET.WindowsPresentation.RegenerateRouteShape. It's&nbsp;something&nbsp;like that. But there are many ways to do the same things. And i'm looking for the best ;}</p>",
+    "PostedDate": "2010-01-22T06:37:12.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

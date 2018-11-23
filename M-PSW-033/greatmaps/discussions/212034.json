@@ -1,0 +1,170 @@
+[
+  {
+    "Id": "440718",
+    "ThreadId": "212034",
+    "Html": "<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>I'm evaluating GMap for a commercial product.</p>\r\n<p>One of our requirements is to support map rotation based on the angle of the direction the user is going to (bearing).</p>\r\n<p>I've seen in one discussion (http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=78708) this was being tested, but I can't find it in the source code available for download.</p>\r\n<p>&nbsp;</p>\r\n<p>Any idea on what I am doing wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!</p>\r\n<p>Joao</p>",
+    "PostedDate": "2010-05-08T17:15:24.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440782",
+    "ThreadId": "212034",
+    "Html": "<p>check your link, i've posted there link with successful build &amp; source, the wish is noted, but it's not my top priority to make it happen</p>",
+    "PostedDate": "2010-05-09T04:24:17.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440812",
+    "ThreadId": "212034",
+    "Html": "<p>What I meant was that it wasn't available in the official source.</p>\r\n<p>Is there a problem in it for not being yet released?</p>",
+    "PostedDate": "2010-05-09T08:28:30.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440817",
+    "ThreadId": "212034",
+    "Html": "<p>'official' version is waiting volunteers for fork ;}</p>",
+    "PostedDate": "2010-05-09T08:42:59.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440818",
+    "ThreadId": "212034",
+    "Html": "<p>I'm sorry, but what do you mean?</p>\r\n<p>Volunteers to test and apply the demo you published in the source?</p>",
+    "PostedDate": "2010-05-09T08:51:39.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440830",
+    "ThreadId": "212034",
+    "Html": "<p>..just kidding ;} ..there is code for rotation in wpf version, but there is no in windows forms version, and because in cf you can't do transformations, i wonder how we make it?</p>",
+    "PostedDate": "2010-05-09T09:31:09.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490578",
+    "ThreadId": "212034",
+    "Html": "<p>ok,&nbsp;windows forms now has integrated rotation</p>",
+    "PostedDate": "2010-09-08T02:58:57.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692620",
+    "ThreadId": "212034",
+    "Html": "<p>Does it solve the rotation problem on Windows Mobile? I have exactly the same problem as&nbsp;<a class=\"UserProfileLink\" href=\"http://www.codeplex.com/site/users/view/jsantos98\">jsantos98</a>&nbsp;and don't really know how to solve it. I saw your code for Windowf Forms but can it be used in Mobile ?</p>",
+    "PostedDate": "2011-11-02T03:14:31.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692661",
+    "ThreadId": "212034",
+    "Html": "<p>compact framework doesn't support transformations, no easy fix</p>",
+    "PostedDate": "2011-11-02T04:25:41.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692663",
+    "ThreadId": "212034",
+    "Html": "<p>Any idea or tip how to solve it? Would it be to expensive for mobile processor if I wrote my own function to rotate screenshot of the map (some matrix calculations, I suppose) ?</p>",
+    "PostedDate": "2011-11-02T04:34:05.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "692668",
+    "ThreadId": "212034",
+    "Html": "<p>i've no idea ;/</p>",
+    "PostedDate": "2011-11-02T04:40:19.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708614",
+    "ThreadId": "212034",
+    "Html": "<p>http://www.philippewechsler.ch/Tigre.php <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">this</span> <span class=\"hps\">may be</span> <span class=\"hps\">help <br /></span></span></p>",
+    "PostedDate": "2011-12-06T23:47:22.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708624",
+    "ThreadId": "212034",
+    "Html": "<p>actually there is better one&nbsp;<a href=\"http://www.isquaredsoftware.com/XrossOneGDIPlus.php\" target=\"_blank\">http://www.isquaredsoftware.com/XrossOneGDIPlus.php</a></p>\r\n<p>but i never tried it, need some spare time to test it</p>",
+    "PostedDate": "2011-12-07T00:06:12.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708634",
+    "ThreadId": "212034",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">XrossOne</span> <span class=\"hps\"> limited</span> <span class=\"hps\">2D</span> <span class=\"hps\">transformation</span><span>, now all&nbsp; modern</span> <span class=\"hps\">navigational</span> <span class=\"hps\">systems work</span> <span class=\"hps\"> in</span> <span class=\"hps\">3D and</span> <span class=\"hps\">uses</span> <span class=\"hps\"> OpenGL ES </span></span>http://nokiagadgets.com/2011/12/04/cloudgps-google-maps-google-satellite-virtual-earth-openstreetmap-video/&nbsp; ,http://www.youtube.com/watch?v=bFUoBQgMdSc</p>",
+    "PostedDate": "2011-12-07T00:24:30.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708639",
+    "ThreadId": "212034",
+    "Html": "<p>go ahead, make it so ;}</p>",
+    "PostedDate": "2011-12-07T00:31:36.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708640",
+    "ThreadId": "212034",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">I'll try to</span> <span class=\"hps\">do it:)</span></span></p>",
+    "PostedDate": "2011-12-07T00:36:20.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708843",
+    "ThreadId": "212034",
+    "Html": "<p>&nbsp;<span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">here my </span> </span><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">progress</span></span><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span>:) </span></span>http://www.4shared.com/file/TMdFRFkS/3D_online.html</p>",
+    "PostedDate": "2011-12-07T07:37:20.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "708846",
+    "ThreadId": "212034",
+    "Html": "<p>to bad i can't manage to download it, use&nbsp;http://www.4shared.com/ or whatever..</p>",
+    "PostedDate": "2011-12-07T07:47:02.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710283",
+    "ThreadId": "212034",
+    "Html": "<p>http://www.flashcomponents.net/component/christmas-3d-google-map-v2/preview/7736.html</p>",
+    "PostedDate": "2011-12-10T08:24:58.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710290",
+    "ThreadId": "212034",
+    "Html": "<p>what it has to do with mobile?</p>",
+    "PostedDate": "2011-12-10T08:46:13.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1444521",
+    "ThreadId": "212034",
+    "Html": "Hi, still no rotation for mobile?<br />\n",
+    "PostedDate": "2015-09-15T11:38:02.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

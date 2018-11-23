@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "When the visible map is displayed and the provider is changed before all of the tiles have been recieved (not out of cache) some of the map tiles remain and corrupt the cache in the newer provider dispaly. This is a particular issue if you have a slow provider and switch between providers as the subsequent map diaplay can end up with several corrupt tiles, which are all re-scaled tiles from a lower map zoom level (lower number).",
+    "LastUpdatedDate": "2013-04-30T13:08:15.713-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-10-10T09:22:14.083-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Map tile error - invalid tiles being cached",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 16051
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "The specific case that this seems to occur is where an initial map provider is selected and all tiles are recieved, the map is zoomed so that the initial tiles are displayed as re-scaled images and then before all of the newer tiles are recieved it is the re-scaled tiles that can persist.",
+      "PostedDate": "2012-10-10T09:28:11.64-07:00",
+      "Id": 79330
+    },
+    {
+      "Message": "tiles and cache never gets corrupted, it's just display issue, some day it will be fixed",
+      "PostedDate": "2012-11-15T12:17:50.703-08:00",
+      "Id": 82560
+    }
+  ]
+}

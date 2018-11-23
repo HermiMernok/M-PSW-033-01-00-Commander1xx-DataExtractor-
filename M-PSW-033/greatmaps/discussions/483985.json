@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1150532",
+    "ThreadId": "483985",
+    "Html": "I'd would like to know if a method to obtain elevation at a given LatLng point can be implemented in the GMap control. I will gladly donate to this website if this can be done.\r<br />\n<br />\nPlease let me know if this is possible.<br />\n",
+    "PostedDate": "2014-01-07T10:12:16.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1151262",
+    "ThreadId": "483985",
+    "Html": "How i solve this problem\r<br />\nyou must use Newtonsoft.Json;.dll. download from internet is free for use\r<br />\n<br />\n public static double visineSaGoogla(double lat, double lng)<br />\n<pre><code>    {\n        WebResponse response = null;\n        StreamReader reader = null;\n        string result = null;\n            string url = CreateRequest(&quot;&quot; + lat + &quot;,&quot; + lng);\n            //try\n            //{\n                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);\n                System.Threading.Thread.Sleep(1001);\n                request.Method = &quot;GET&quot;;\n                response = request.GetResponse();\n                reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);\n                result = reader.ReadToEnd();\n                dynamic m = JsonConvert.DeserializeObject&lt;object&gt;(result);\n                dynamic elev = m.results[0];\n                //staDaje.Add(url + result);\n                double visinaRutaTacke = elev.elevation;\n                //visineRuteSaGoogla.Add(visinaRutaTacke);\n                return visinaRutaTacke;\n            //}\n            //catch (Exception ex)\n            //{\n            //    MessageBox.Show(ex.Message);\n            //}\n            //finally\n            //{\n            //    if (reader != null)\n            //        reader.Close();\n            //    if (response != null)\n            //        response.Close();\n            //}\n    }</code></pre>\n\n",
+    "PostedDate": "2014-01-09T02:21:09.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

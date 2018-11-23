@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "649353",
+    "ThreadId": "267016",
+    "Html": "\r\n<p><span id=\"result_box\"><span title=\"В кэше (значит и в файле БД) &#1084;ожет быть &#1084;ного разных карт, хорошо бы и&#1084;еть воз&#1084;ожность получить состояние кэша/БД, напри&#1084;ер: сколько карт и&#1084;еется, сколько плиток для каждой карты и&#1084;еется.\" style=\"background-color:#ffffff\">The\r\n cache (and hence in the file database) can be a lot of different cards would be nice to be able to get the state of the cache / database, for example, how many cards there are, how many tiles of each card there.\r\n</span><span title=\"Какие идеи?\" style=\"background-color:#ffffff\">Any ideas?</span></span></p>\r\n",
+    "PostedDate": "2011-07-28T21:54:17.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649626",
+    "ThreadId": "267016",
+    "Html": "<p>yes, it would be nice ;} any volunteers?</p>",
+    "PostedDate": "2011-07-29T09:42:48.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649644",
+    "ThreadId": "267016",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">If the owner</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">of the project</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">in the near future</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">in this direction</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">is not going to</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">do anything</span><span title=\"Нажмите, чтобы увидеть альтернативный перевод\">, you have to</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">do it)</span><span title=\"Нажмите, чтобы увидеть альтернативный перевод\">).</span><br /><br /> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">What information</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">must be obtained</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">as</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">Cache / DB?</span><br /> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">For example:</span><br /> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">- The names of</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">cards</span><br /> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">- The number</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">of tiles</span> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">for every card</span><br /><br /> <span class=\"hps\" title=\"Нажмите, чтобы увидеть альтернативный перевод\">any ideas?</span></span></p>",
+    "PostedDate": "2011-07-29T10:17:11.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649656",
+    "ThreadId": "267016",
+    "Html": "<p>anything you want, create fork, experiment ;}</p>",
+    "PostedDate": "2011-07-29T10:40:10.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "657679",
+    "ThreadId": "267016",
+    "Html": "<p><span id=\"result_box\" class=\"long_text\"><span style=\"background-color: #ffffff;\" title=\"Вот что у меня получилось:\">That's what I got:</span></span><span id=\"result_box\" class=\"long_text\"><span style=\"background-color: #ffffff;\" title=\"Вот что у меня получилось:\"><br />\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> CachInfo\n    {\n        <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">readonly</span> <span style=\"color: blue;\">string</span> singleSqlSelect = <span style=\"color: #a31515;\">\"select Type, count(Type) from Tiles group by Type\"</span>;\n\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> Dictionary&lt;Int64, Int64&gt; GetInfo(<span style=\"color: blue;\">string</span> db)\n        {\n            <span style=\"color: blue;\">var</span> res = <span style=\"color: blue;\">new</span> Dictionary&lt;Int64, Int64&gt;();\n\n            <span style=\"color: blue;\">string</span> ConnectionString = <span style=\"color: blue;\">string</span>.Format(<span style=\"color: #a31515;\">\"Data Source=\\\"{0}\\\";Page Size=32768;Pooling=True\"</span>, db);\n\n            <span style=\"color: blue;\">using</span> (SQLiteConnection cn = <span style=\"color: blue;\">new</span> SQLiteConnection())\n            {\n                cn.ConnectionString = ConnectionString;\n                cn.Open();\n                {\n                    <span style=\"color: blue;\">try</span>\n                    {\n                        <span style=\"color: blue;\">using</span> (DbCommand cmd = cn.CreateCommand())\n                        {   \n                            cmd.CommandText = singleSqlSelect;\n\n                            <span style=\"color: green;\">// Retrieve the data.</span>\n                            DbDataReader reader = cmd.ExecuteReader();\n                            <span style=\"color: blue;\">while</span> (reader.Read())\n                            {\n                                res.Add((Int64)reader[0], (Int64)reader[1]);\n                            }\n                        }\n                    }\n                    <span style=\"color: blue;\">catch</span> (Exception ex)\n                    {\n                        Debug.WriteLine(ex.Message);\n                    }\n                }\n                cn.Close();\n            }\n            <span style=\"color: blue;\">return</span> res;\n        }\n    }\n</pre>\n</div>\n</span><span style=\"background-color: #ebeff9;\" title=\"На основе этой информации можно автоматически выбрать тип карты, выбирая тип карты с наибольшим количеством плиток.\">Based on this information, you can automatically select the type of card, choosing the  type of card with the highest count tiles. <br /> </span><span style=\"background-color: #ffffff;\" title=\"Я еще хочу сделать автоматический выбор типа карты, по известным текущим координатам, чтобы долго не ковыряться в коде, я задам вопрос:\">I still want to make the automatic selection of the type of card, the  known current position, so long poking around in the code, I will ask the question: <br /> </span><span style=\"background-color: #ffffff;\" title=\"1) Есть ли событие, когда для видимой плитки не находится картинки в Кэше, в аргументе должна быть информация о отсутствующей плитке, такое есть?\">1) Is there an event when the visible tiles are not images  in the cache, the argument should be an information about a missing tile, is there? <br /> </span><span style=\"background-color: #ffffff;\" title=\"2) Как я могу получить адрес используемого файла БД в ядре?\">2) How can I get the address of the database file in the kernel? <br /> <br /> </span><span style=\"background-color: #ffffff;\" title=\"Еще, почему автор не выполняет правило &quot;имя интерфейса начинать с символа &quot;I&quot;&quot;?\">Still, why the author does not rule, \"the interface name starting with an \"I\"\"?</span></span></p>",
+    "PostedDate": "2011-08-13T07:10:04.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "657709",
+    "ThreadId": "267016",
+    "Html": "<p>because ;}</p>",
+    "PostedDate": "2011-08-13T07:58:51.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

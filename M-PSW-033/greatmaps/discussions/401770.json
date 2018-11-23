@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "936083",
+    "ThreadId": "401770",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>i want to zoom in and out when the cursor is on a marker</p>\r\n<p>how can i do that?</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2012-11-03T09:46:00.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936103",
+    "ThreadId": "401770",
+    "Html": "\r\n<p>use OnMarkerEnter/Leave events</p>\r\n",
+    "PostedDate": "2012-11-03T11:27:31.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936104",
+    "ThreadId": "401770",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>use OnMarkerEnter/Leave events</p>\r\n</blockquote>\r\n<p>&nbsp;</p>\r\n<p>i mean by scrolling mouse wheel when cursor is on marker</p>",
+    "PostedDate": "2012-11-03T11:29:20.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936108",
+    "ThreadId": "401770",
+    "Html": "\r\n<p>map.<strong>IgnoreMarkerOnMouseWheel</strong> = true;</p>\r\n",
+    "PostedDate": "2012-11-03T11:35:35.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936109",
+    "ThreadId": "401770",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>map.<strong>IgnoreMarkerOnMouseWheel</strong> = true;</p>\r\n</blockquote>\r\n<p>thanks</p>",
+    "PostedDate": "2012-11-03T11:36:09.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

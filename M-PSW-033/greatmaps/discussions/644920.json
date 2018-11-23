@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1444247",
+    "ThreadId": "644920",
+    "Html": "Hi\r<br />\nHow can I display all markers I have added on the map in single view. I am using GMap with Win Forms\r<br />\n<br />\nHere is how I am adding the markers which adds fine but I need all to show at the same time in view<br />\n<pre><code>            var currentPositionsOverylay = new GMapOverlay(&quot;CurrentPositionsOverylay&quot;);\n            currentPositionsOverylay.Markers.Add(new GMap.NET.WindowsForms.Markers.GMarkerGoogle(new PointLatLng(-36.880149, 174.598825), GMarkerGoogleType.green));\n            currentPositionsOverylay.Markers.Add(new GMap.NET.WindowsForms.Markers.GMarkerGoogle(new PointLatLng(-36.863942, 174.761985), GMarkerGoogleType.blue));\n            gmapMain.Overlays.Add(currentPositionsOverylay);</code></pre>\n\n",
+    "PostedDate": "2015-09-13T21:20:20.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1444400",
+    "ThreadId": "644920",
+    "Html": "I found the answer - gmapMain.ZoomAndCenterMarkers(&quot;CurrentPositionsOverylay&quot;);<br />\n",
+    "PostedDate": "2015-09-14T15:46:28.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-09-14T15:46:32.48-07:00"
+  }
+]

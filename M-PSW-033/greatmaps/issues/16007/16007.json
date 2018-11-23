@@ -1,0 +1,106 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 10,
+    "Custom": null,
+    "Description": "Hi Radioman,\r\n\r\nThere seems to be an issue while grabbing WMS contents - tile edges do not fit perfectly, there's a 1-pixel gap between them. Please take a look at the following image/link:\r\nhttp://wn6aqw.blu.livefilestore.com/y1pcZihz5Jp0k1ht-VqH0Jr4EgC64roPc9JkS289TlcoBL5saPj3PNXMDmBycfyIShR8FawonzTgDwQQ5I6pZVOhZ5S7yUgreuX/gmapnet%20on%20wms%20perfectly.png\r\n\r\nThat's the same image from the thread: http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=211166\r\n\r\nHow do I remove these gaps? I'm using \"standard\" way of getting WMS tiles (GMaps.cs)\r\n\r\nvar px1 = ProjectionForWMS.FromTileXYToPixel(pos);\r\nvar px2 = px1;\r\n\r\npx1.Offset(0, ProjectionForWMS.TileSize.Height);\r\nPointLatLng p1 = ProjectionForWMS.FromPixelToLatLng(px1, zoom);\r\n\r\npx2.Offset(ProjectionForWMS.TileSize.Width, 0);\r\nPointLatLng p2 = ProjectionForWMS.FromPixelToLatLng(px2, zoom);\r\n\r\nvar ret = \"...WMS URL...\";\r\n\r\nRegards,\r\nMax.",
+    "LastUpdatedDate": "2013-01-18T05:05:26.813-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-05-31T13:06:56.523-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WMS issues",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16007
+  },
+  "FileAttachments": [
+    {
+      "FileId": 246026,
+      "FileName": "TilesWithGap.png",
+      "DownloadUrl": ".\\246026"
+    },
+    {
+      "FileId": 246032,
+      "FileName": "TilesWithGapsDemo.png",
+      "DownloadUrl": ".\\246032"
+    },
+    {
+      "FileId": 246057,
+      "FileName": "TilesWithGapsAndOffset.png",
+      "DownloadUrl": ".\\246057"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "in the image, it's not the gaps, it's grid enabled",
+      "PostedDate": "2011-05-31T23:49:52.22-07:00",
+      "Id": 36736
+    },
+    {
+      "Message": "Huh, didn't notice it's grid :-) But I still keep experiencing the problem, and it's definately not grid lines. Please find attached results with a nasty 1 pixel (or something) gaps between tiles. Funny thing is that this happens only to WMS services, everything else is just fine. I'm using exactly the same code you've been using for MapBenderWMS in GMaps.cs.",
+      "PostedDate": "2011-06-01T00:19:02.387-07:00",
+      "Id": 36738
+    },
+    {
+      "Message": "well it can be precision issue, you can try increase tile size",
+      "PostedDate": "2011-06-01T01:02:38.227-07:00",
+      "Id": 36739
+    },
+    {
+      "Message": "I'm trying to prefetch WMS tiles via StaticImage class. Even if I set tile size to 512x512 there's still 1 pixel gap between them. The same thing in your WinForms demo app - please find attached a screenshot, notice horizontal white strips (there's also vertical ones visible when you zoom in to e.g. level 18 and higher). Don't know why, but this happens to all WMS services providing larger zoom scales. Maybe if you set InterpolationMode to Low and also SmoothingMode to None, you'd be able to spot this issue on larger scales as well (maybe tile post-processing during stitching \"blurs\" this omission, so you can't spot it on larger scales).",
+      "PostedDate": "2011-06-01T02:41:23.777-07:00",
+      "Id": 36744
+    },
+    {
+      "Message": "tried adjust pixel offset?",
+      "PostedDate": "2011-06-01T03:31:58.467-07:00",
+      "Id": 36746
+    },
+    {
+      "Message": "You mean within code block below? :-) Sorry, but I'm not sure which part to change.\n\nvar px1 = ProjectionForWMS.FromTileXYToPixel(pos);\nvar px2 = px1;\n\npx1.Offset(0, ProjectionForWMS.TileSize.Height);\nPointLatLng p1 = ProjectionForWMS.FromPixelToLatLng(px1, zoom);\n\npx2.Offset(ProjectionForWMS.TileSize.Width, 0);\nPointLatLng p2 = ProjectionForWMS.FromPixelToLatLng(px2, zoom);\n\nvar ret = \"\";",
+      "PostedDate": "2011-06-01T03:48:10.707-07:00",
+      "Id": 36747
+    },
+    {
+      "Message": "try:\npx1.Offset(0, ProjectionForWMS.TileSize.Height + 1);\npx2.Offset(ProjectionForW​MS.TileSize.Width + 1, 0);",
+      "PostedDate": "2011-06-01T04:27:13.773-07:00",
+      "Id": 36750
+    },
+    {
+      "Message": "Hm, offset didn't help either. Please see attached results with 1 px offset, as you suggested.",
+      "PostedDate": "2011-06-01T04:56:36.447-07:00",
+      "Id": 36752
+    },
+    {
+      "Message": "try increase/decrease more pixels...",
+      "PostedDate": "2011-06-01T05:22:59.013-07:00",
+      "Id": 36757
+    },
+    {
+      "Message": "does the issue persists with the latest build?",
+      "PostedDate": "2013-01-18T05:05:26.813-08:00",
+      "Id": 86471
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "538227",
+    "ThreadId": "238990",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I have been using GMap just for a few days - so far - really GREAT JOB! Because of some missing documentation and missing exampleCode (I can't find it right now... - if you could post direct link - this would be superb!) I have some questions! Any help will\r\n be appreciated!</p>\r\n<p>I am using OpenStreetMap with a gmdb file of Vienna (AUT), CacheOnlyMode</p>\r\n<p>&nbsp;</p>\r\n<p>* how can I refresh the map</p>\r\n<p>the user may &quot;paint&quot; a polygon. so on map_click I am going to add a new point to a polygon. but this new point is not shown on the map, even if I call Refresh() or ReloadMap() ... so right now I manually set zoom-- and zoom&#43;&#43;</p>\r\n<p>&nbsp;</p>\r\n<p>* I do not get an emptyTileError when showing a part of the map</p>\r\n<p>As I am using CacheOnlyMode I'd like to show a messageBox when the user scrolls to a part of the map not in cache (map shows emptyTile).</p>\r\n<p>Unfortunately there no EmptyTileError event will be thrown??</p>\r\n<p>&nbsp;</p>\r\n<p>* Working in Offline-Mode (CacheOnly)</p>\r\n<p>I tried to scroll around an saved (export) the gmdb file. Right now I tried to zoom in to Vienna and scrolled around, around around around and afterwards exported the gmdb.</p>\r\n<p>Is there any easier way to export the whole map (or region e.g. europe, austria anything else) for all zoom levels? and yes, I am aware of the fact, that this file may be HUGE.</p>\r\n<p>&nbsp;</p>\r\n<p>Any answers would be great! Thanks in advance</p>\r\n<p>Franz</p>\r\n",
+    "PostedDate": "2010-12-20T04:37:59.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "538238",
+    "ThreadId": "238990",
+    "Html": "\r\n<ul>\r\n<li>as in demo source, you must call&nbsp;<strong>UpdatePolygonLocalPosition</strong>&nbsp;if you change some point in polygon, so the local coordinates will be recalculated, then you can call simple\r\n<strong>Invalidate</strong> </li><li>i'll check&nbsp;EmptyTileError later... ;} </li><li>'scrolling around' doesn't guarantee that you get all tiles, use integrated prefetcher as in demos, select area using alt, and hit prefetch, after process you simply copy cache file and use it wherever you want to, and one city cached on all levels gives\r\n you ~1GB db. </li></ul>\r\n",
+    "PostedDate": "2010-12-20T05:10:06.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "538252",
+    "ThreadId": "238990",
+    "Html": "\r\n<p>Thanks for your prompt answer!&nbsp;</p>\r\n<p>* UpdatePolygon - thx</p>\r\n<p>* scrolling around &amp; demos&nbsp;- thx - Is there a chance to get the sourceCode of your demoProject?</p>\r\n<p>&nbsp;</p>\r\n<p>once again - really GREAT work!</p>\r\n",
+    "PostedDate": "2010-12-20T05:38:21.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "538254",
+    "ThreadId": "238990",
+    "Html": "\r\n<p>all projects are in the same solution, shared here ;}</p>\r\n",
+    "PostedDate": "2010-12-20T05:40:19.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "914953",
+    "ThreadId": "396180",
+    "Html": "\r\n<p>How can I add marker into gmap in WPF?</p>\r\n<p>This is how I did it in winforms:</p>\r\n<pre style=\"background-color:white; color:black\"><pre>GMapOverlay\r\nmarker = <span style=\"color:blue\">new</span> GMapOverlay(gMapLocation, <span style=\"color:#a31515\">&quot;marker&quot;</span> \r\n); \r\nmarker.Markers.Add(\r\n<span style=\"color:blue\">new</span> GMapMarkerGoogleRed(<span style=\"color:blue\">new</span> PointLatLng \r\n(Lat, Lng))); \r\ngMapLocation.Overlays.Add(marker);\r\n</pre>\n</pre>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">To clear the marker:</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>gMapLocation.Overlays.Clear();\r\n\r\n</pre>\r\n</div>\r\n</span></span>\r\n<p></p>\r\n",
+    "PostedDate": "2012-09-19T20:10:35.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914981",
+    "ThreadId": "396180",
+    "Html": "<p>map.Markers.Clear();</p>",
+    "PostedDate": "2012-09-19T23:24:36.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915006",
+    "ThreadId": "396180",
+    "Html": "<p>Any place I can refer to add GMapMarkerGoogleRed to the map for wpf?</p>",
+    "PostedDate": "2012-09-20T00:39:20.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915009",
+    "ThreadId": "396180",
+    "Html": "<p>there is no such marker in wpf, but any UIElement can be it, just add the image, use it as the shape</p>",
+    "PostedDate": "2012-09-20T00:56:09.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915010",
+    "ThreadId": "396180",
+    "Html": "<p>I thought there is comething like <span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">GMapMarker?</span></span></span></p>",
+    "PostedDate": "2012-09-20T01:02:52.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915031",
+    "ThreadId": "396180",
+    "Html": "<p>Now there is a default + sign on the location. How can I change it to ﻿﻿﻿﻿GMapMarkerGoogleRed?</p>\r\n<p>Please help.</p>",
+    "PostedDate": "2012-09-20T02:36:06.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915082",
+    "ThreadId": "396180",
+    "Html": "<p>map.<strong>ShowCenter</strong> = false;</p>\r\n<p>and render your own ;}</p>",
+    "PostedDate": "2012-09-20T04:13:27.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

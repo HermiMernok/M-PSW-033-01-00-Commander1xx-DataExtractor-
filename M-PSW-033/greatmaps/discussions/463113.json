@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1110501",
+    "ThreadId": "463113",
+    "Html": "Adding a map control to a form gives the follow error.\r<br />\n<br />\nSame if trying to open the winforms demo in the designer.\r<br />\n<br />\nWindows 7 with VS2012\r<br />\n<br />\n<img src=\"http://prx.sytes.net/Designer_Error.jpg\" alt=\"Image\" />\r<br />\n<br />\nCheers.<br />\n",
+    "PostedDate": "2013-10-22T05:16:50.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110510",
+    "ThreadId": "463113",
+    "Html": "it's known issue<br />\n",
+    "PostedDate": "2013-10-22T05:37:33.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110515",
+    "ThreadId": "463113",
+    "Html": "I assume this is a designer issue.\r<br />\n<br />\nDo you have some ideas as to the root cause so I can work on a fix.\r<br />\n<br />\nIn the mean time a quick work around would be to add the map control to a container in code.\r<br />\n<br />\nCheers.<br />\n",
+    "PostedDate": "2013-10-22T05:43:57.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110572",
+    "ThreadId": "463113",
+    "Html": "it should work now, check the latest changeset<br />\n",
+    "PostedDate": "2013-10-22T07:42:04.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110610",
+    "ThreadId": "463113",
+    "Html": "Sweet, works like a charm now.\r<br />\n<br />\nJust an off topic question as I have been away from here for a few years:-\r<br />\n<br />\nI notice that the sqlite dll's are now embedded, what is the reason for that?\r<br />\n<br />\nCheers.<br />\n",
+    "PostedDate": "2013-10-22T08:25:51.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110674",
+    "ThreadId": "463113",
+    "Html": "no issues selecting correct sqlite version, it's automatic, any cpu, any target, any framework runtime<br />\n",
+    "PostedDate": "2013-10-22T09:52:47.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110910",
+    "ThreadId": "463113",
+    "Html": "I figured as much.\r<br />\n<br />\nSeems quite an overhead in terms of file size etc, but I guess it's better than getting lots of 'it does not work' posts.\r<br />\n<br />\nCheers.<br />\n",
+    "PostedDate": "2013-10-23T00:32:07.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110912",
+    "ThreadId": "463113",
+    "Html": "indeed ;}<br />\n",
+    "PostedDate": "2013-10-23T00:51:46.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

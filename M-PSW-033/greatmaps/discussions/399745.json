@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "928052",
+    "ThreadId": "399745",
+    "Html": "\r\n<p>Hello! I need your help.</p>\r\n<p>I have much more coordinats in database. I reading it and paint on my gMapControl to use GMarker.</p>\r\n<p>I do it by this way:&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>point.Lat = Convert.ToDouble(finish_lat);\r\npoint.Lng = Convert.ToDouble(finish_lng);\r\nPointLatLng(point.Lat, point.Lng);\r\nBitmap btmp = <span style=\"color:blue\">new</span> Bitmap(<span style=\"color:#a31515\">&quot;point.jpg&quot;</span>);\r\nGMarkerGoogle ReadedPoint = <span style=\"color:blue\">new</span> GMarkerGoogle(point, btmp);\r\noverlayOne.Markers.Add(ReadedPoint);     \r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>It works in a cycle abot 8000 times. This a very long time.</p>\r\n<p>Maybe there are special methods that quickly draw the path to the coordinates? Or components that are more easily added to the map? Help me please!&nbsp;</p>\r\n<p>Thanks in advance!</p>\r\n",
+    "PostedDate": "2012-10-17T07:23:34.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928069",
+    "ThreadId": "399745",
+    "Html": "<p>just add the GMapRoute ;}</p>",
+    "PostedDate": "2012-10-17T07:56:55.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

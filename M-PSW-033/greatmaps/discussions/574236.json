@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1329476",
+    "ThreadId": "574236",
+    "Html": "Hi radioman!\r<br />\n<br />\nIn my application I frequently add lots of markers (20000+) to the map and remove them again with\r<br />\n<br />\noverlay.Markers.Clear();\r<br />\n<br />\nDoes this call Dispose() on each marker? If not, what is the correct way to release memory?\r<br />\n<br />\nThanks a lot!<br />\n",
+    "PostedDate": "2014-12-07T01:11:32.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1329514",
+    "ThreadId": "574236",
+    "Html": "It doesn't, but the best method is to reuse objects, there is no real clearing of the memory in .net anyway.\r<br />\n<br />\n..yeah i gues if you don't intend to reuse the marker, call dispose for it.<br />\n",
+    "PostedDate": "2014-12-07T05:37:29.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

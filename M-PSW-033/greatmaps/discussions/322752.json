@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "774702",
+    "ThreadId": "322752",
+    "Html": "\r\n<p>Change Set: greatmaps_f93232fdfe6f, Files: GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControl.cs, Line: 169</p>\r\n<p>Was:</p>\r\n<p>double scaleValue = remainder &#43; 1;</p>\r\n<p>The relationship between zoom and resolution is not linear. Each time zoom is incremented by 1, resolution (m/pix) is halved.</p>\r\n<p>Should be:</p>\r\n<p>double scaleValue = Math.Pow(2d, remainder);</p>\r\n<p>&nbsp;Agree?</p>\r\n<p>&nbsp;Great project. Thanks.</p>\r\n<p><span style=\"font-family:Consolas; color:#008000; font-size:x-small\"><span style=\"font-family:Consolas; color:#008000; font-size:x-small\"><span style=\"font-family:Consolas; color:#008000; font-size:x-small\">&nbsp;</span></span></span></p>\r\n",
+    "PostedDate": "2012-02-17T05:21:05.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "775070",
+    "ThreadId": "322752",
+    "Html": "<p>I don't see the big difference? ;/</p>\r\n<p>scaleValue1: 1,0298584966896<br /><em>scaleValue: 1,02091198707321</em><br /><br /><em>scaleValue1: 1,0597169933792</em><br /><em>scaleValue: 1,04226128534976</em><br /><br /><em>scaleValue1: 1,0895754900688</em><br /><em>scaleValue: 1,0640570398759</em><br /><br /><em>scaleValue1: 1,11943398675841</em><br /><em>scaleValue: 1,08630858693894</em><br /><br /><em>scaleValue1: 1,14929248344801</em><br /><em>scaleValue: 1,10902545806652</em><br /><br /><em>scaleValue1: 1,17915098013761</em><br /><em>scaleValue: 1,13221738410946</em><br /><br /><em>scaleValue1: 1,20900947682721</em><br /><em>scaleValue: 1,15589429941002</em><br /><br /><em>scaleValue1: 1,23886797351681</em><br /><em>scaleValue: 1,18006634605727</em><br /><br /><em>scaleValue1: 1,26872647020641</em><br /><em>scaleValue: 1,20474387823155</em><br /><br /><em>scaleValue1: 1,29858496689602</em><br /><em>scaleValue: 1,22993746663965</em><br /><br /><em>scaleValue1: 1,29858496689601</em><br /><em>scaleValue: 1,22993746663965</em><br /><br /><em>scaleValue1: 1,29858496689601</em><br /><em>scaleValue: 1,22993746663965</em><br /><br /><em>scaleValue1: 1,32844346358561</em><br /><em>scaleValue: 1,25565790304287</em><br /><br /><em>scaleValue1: 1,35830196027522</em><br /><em>scaleValue: 1,28191620487967</em><br /><br /><em>scaleValue1: 1,38816045696482</em><br /><em>scaleValue: 1,30872361998505</em><br /><br /><em>scaleValue1: 1,41801895365442</em><br /><em>scaleValue: 1,33609163140858</em><br /><br /><em>scaleValue1: 1,44787745034402</em><br /><em>scaleValue: 1,36403196233321</em><br /><br /><em>scaleValue1: 1,47773594703362</em><br /><em>scaleValue: 1,39255658109696</em><br /><br /><em>scaleValue1: 1,50759444372322</em><br /><em>scaleValue: 1,42167770631957</em><br /><br /><em>scaleValue1: 1,53745294041283</em><br /><em>scaleValue: 1,45140781213639</em><br /><br /><em>scaleValue1: 1,56731143710243</em><br /><em>scaleValue: 1,48175963354174</em><br /><br /><em>scaleValue1: 1,59716993379203</em><br /><em>scaleValue: 1,51274617184396</em><br /><br /><em>scaleValue1: 1,62702843048163</em><br /><em>scaleValue: 1,5443807002346</em><br /><br /><em>scaleValue1: 1,65688692717123</em><br /><em>scaleValue: 1,57667676947402</em><br /><br /><em>scaleValue1: 1,68674542386083</em><br /><em>scaleValue: 1,60964821369588</em><br /><br /><em>scaleValue1: 1,71660392055044</em><br /><em>scaleValue: 1,6433091563331</em><br /><br /><em>scaleValue1: 1,74646241724004</em><br /><em>scaleValue: 1,67767401616762</em><br /><br /><em>scaleValue1: 1,77632091392964</em><br /><em>scaleValue: 1,71275751350677</em><br /><br /><em>scaleValue1: 1,80617941061924</em><br /><em>scaleValue: 1,74857467648876</em><br /><br /><em>scaleValue1: 1,83603790730884</em><br /><em>scaleValue: 1,78514084752003</em><br /><br /><em>scaleValue1: 1,86589640399844</em><br /><em>scaleValue: 1,82247168984722</em><br /><br /><em>scaleValue1: 1,89575490068805</em><br /><em>scaleValue: 1,86058319426659</em><br /><br /><em>scaleValue1: 1,92561339737765</em><br /><em>scaleValue: 1,89949168597372</em><br /><br /><em>scaleValue1: 1,95547189406725</em><br /><em>scaleValue: 1,93921383155646</em><br /><br /><em>scaleValue1: 1,95547189406724</em><br /><em>scaleValue: 1,93921383155646</em><br /><br /><em>scaleValue1: 1,98533039075684</em><br /><em>scaleValue: 1,97976664613415</em><br /><br /><em>scaleValue1: 1,01518888744645</em><br /><em>scaleValue: 1,01058375032304</em><br /><br /><em>scaleValue1: 1,04504738413605</em><br /><em>scaleValue: 1,03171706464618</em><br /><br /><em>scaleValue1: 1,07490588082565</em><br /><em>scaleValue: 1,05329231856527</em></p>",
+    "PostedDate": "2012-02-17T06:58:18.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "775135",
+    "ThreadId": "322752",
+    "Html": "<p>to be exact, what difference does it really make?</p>\r\n<p><img src=\"https://public.blu.livefilestore.com/y1pE1lyasz67QPpzREfa3RWrs1-7ms5dexkvbr2--4D1TfVDIuMGsk37_YgawoiGaeOHJzPueBHmproOf0OuMACSQ/gmap%20scale.png?psid=1\" alt=\"\" /></p>",
+    "PostedDate": "2012-02-17T07:13:28.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "776672",
+    "ThreadId": "322752",
+    "Html": "<p>Are You calling me pedantic (-:</p>\n<p>I am using GMap as a base map module in a GIS app. That means that additional layers and overlays are not rendered by GMap. The GMap layer was off by a noticeable amount, making the module unusable.</p>\n<p>Using your data above</p>\n<p>scaleValue1: 1,50759444372322<br />scaleValue: 1,42167770631957</p>\n<p>At the corner of my screen running in full HD this amounts to an error of 93 pixels</p>\n<p>(1,50759444372322 - 1,42167770631957)*sqrt((1920/2)^2+(1080/2)^2)=93.87</p>\n<p>I have the source, so I can fix it (thanks again for that). It took me a while to figure out what the problem was. Just thought it would be nice to save the next bloke the hassle.</p>\n<p>There is a few other things I need to fix to make GMap suitable as a layer, but they are more feature requests not actually bugs. More on that later.</p>",
+    "PostedDate": "2012-02-17T18:51:39.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "777261",
+    "ThreadId": "322752",
+    "Html": "<p>i see, will be fixed</p>",
+    "PostedDate": "2012-02-18T03:30:58.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "554416",
+    "ThreadId": "243061",
+    "Html": "\r\n<p>Has anyone used this component with a GEE Server and if so, is there any details on what the URL should be formatted to look like?</p>\r\n<p>Thanks for your help and great product!</p>\r\n",
+    "PostedDate": "2011-01-24T07:36:46.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554430",
+    "ThreadId": "243061",
+    "Html": "\r\n<p>you can use Fiddler to trace network urls</p>\r\n",
+    "PostedDate": "2011-01-24T07:51:12.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554436",
+    "ThreadId": "243061",
+    "Html": "Thanks I'll give it a try!<br>\r\n<br>\r\nOn 24/01/2011 10:51 AM, radioman wrote:\r\n<blockquote type=\"cite\">\r\n<p>From: radioman</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>you can use Fiddler to trace network urls</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-01-24T08:08:29.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554441",
+    "ThreadId": "243061",
+    "Html": "Out of interest, how easy would it be to load a KML file and display it within the component?<br>\r\n<br>\r\nOn 24/01/2011 10:51 AM, radioman wrote:\r\n<blockquote type=\"cite\">\r\n<p>From: radioman</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>you can use Fiddler to trace network urls</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-01-24T08:18:59.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554841",
+    "ThreadId": "243061",
+    "Html": "\r\n<p>depends of what exactly do you want to dislay</p>\r\n",
+    "PostedDate": "2011-01-24T23:51:40.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "555043",
+    "ThreadId": "243061",
+    "Html": "Hi radioman,<br>\r\n<br>\r\nJust used wireshark to find out the HTTP packets sent to a GEE server. For your info it is:<br>\r\n<br>\r\n<a href=\"http://\">http://</a>&lt;servername&gt;/default_map/query?request=ImageryMaps&level=11&row=769&col=589&channel=1007&version=62<br>\r\n<br>\r\nI assume all I need to change is the following:<br>\r\n<br>\r\nlevel= zoom number<br>\r\nrow = x<br>\r\ncol = y<br>\r\n<br>\r\nI believe channel can be any string.<br>\r\n<br>\r\nCheers,<br>\r\n<br>\r\nAndy<br>\r\n<br>\r\nOn 25/01/2011 2:51 AM, radioman wrote:\r\n<blockquote type=\"cite\">\r\n<p>From: radioman</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>depends of what exactly do you want to dislay</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-01-25T07:23:09.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "555065",
+    "ThreadId": "243061",
+    "Html": "My mistake, row=y, col=x...<br>\r\n<br>\r\nOn 25/01/2011 10:25 AM, Andy Shutler wrote:\r\n<blockquote type=\"cite\">Hi radioman,<br>\r\n<br>\r\nJust used wireshark to find out the HTTP packets sent to a GEE server. For your info it is:<br>\r\n<br>\r\n<a href=\"http://\">http://</a>&lt;servername&gt;/default_map/query?request=ImageryMaps&level=11&row=769&col=589&channel=1007&version=62<br>\r\n<br>\r\nI assume all I need to change is the following:<br>\r\n<br>\r\nlevel= zoom number<br>\r\nrow = x<br>\r\ncol = y<br>\r\n<br>\r\nI believe channel can be any string.<br>\r\n<br>\r\nCheers,<br>\r\n<br>\r\nAndy<br>\r\n<br>\r\nOn 25/01/2011 2:51 AM, radioman wrote:\r\n<blockquote type=\"cite\">\r\n<p>From: radioman</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>depends of what exactly do you want to dislay</p>\r\n</div>\r\n</blockquote>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-01-25T07:50:29.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

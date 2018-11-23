@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "952908",
+    "ThreadId": "405965",
+    "Html": "\r\n<p>Radioman, first let me say thank you for such a great project :)&nbsp; Your effort is being used to help catch criminals and prevent crime, so please feel good about what you have done :)</p>\r\n<p>&nbsp;</p>\r\n<p>My project (using vb.net) is being used to interface into the police system we developed.&nbsp; It takes addresses from past incidents, translates them into lat./long and then puts markers on the map.&nbsp; They can then change criteria of what sort of crimes\r\n to show on this map and I will then incorporate GPS as well so that when they are in their cars it will show realtime past incidents at locations near them.</p>\r\n<p>My question is, I want to be able to have the police click on a marker and then show the incidents that happened at that marker.&nbsp; My problem is, how do I add an unique identifier to a marker and then retrieve that information when they click on that\r\n marker?&nbsp; I was looking to use a dictionary but I am stuck.</p>\r\n<p>Can you give me an example on how to do this?&nbsp; I searched for an answer but have not found anything that I could use.&nbsp; Thanks!</p>\r\n",
+    "PostedDate": "2012-12-07T05:58:09.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952936",
+    "ThreadId": "405965",
+    "Html": "\r\n<p>incident id perhaps, i suppose they are listed in some database with some id?</p>\r\n",
+    "PostedDate": "2012-12-07T06:40:53.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952939",
+    "ThreadId": "405965",
+    "Html": "\r\n<p>Yes we have an unique ID called 'Incno'.&nbsp; However there will be multiple incidents per location.&nbsp; I'm just not sure how to do this.</p>\r\n",
+    "PostedDate": "2012-12-07T06:45:01.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952963",
+    "ThreadId": "405965",
+    "Html": "\r\n<p>Here is how I handle this:</p>\r\n<p>I create a class, call it Cluster, that has an integer for its ID, a PointLatLng, and also has a List(of Integer). The list contains image IDs, but in your case it could be incident IDs.</p>\r\n<p>When someone picks on the screen. I get the closest Cluster, from a List(of Cluster), to the location picked. This gives me my list of image IDs.</p>\r\n<p>I then query a database with the list of image IDs and get the paths to all the images that were taken at that marker and serve them up to the user in a form(s).</p>\r\n",
+    "PostedDate": "2012-12-07T07:13:02.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952975",
+    "ThreadId": "405965",
+    "Html": "\r\n<p>Thanks for the replies..&nbsp; I have it working, though it's not completely finished.&nbsp; This is what I have so far.&nbsp; It basically takes the address from the database, converts it to long/lat, puts the marker on the map and then put it into a dictionary.&nbsp;\r\n When a user clicks on a marker it then goes through to find the appropirate marker.&nbsp; Sorry I know the code is a little messy, I still have to clean it up some.</p>\r\n<p><span style=\"color:blue\"></span></p>\r\n<pre>Public Function RunSqlNonQuery(SqlCode As String) As Boolean\r\n        On Error GoTo HandleErrors\r\n\r\n        Dim bResult As Boolean\r\n        Dim cmd As OleDb.OleDbCommand\r\n        Dim i As Long = 0\r\n\r\n        ' Create the OLEDB Command object\r\n        cmd = New OleDb.OleDbCommand(SqlCode)\r\n\r\n        ' Open the Connection\r\n        cmd.Connection = New OleDb.OleDbConnection(GetConnectionString())\r\n        cmd.Connection.Open()\r\n        Dim dr As OleDb.OleDbDataReader = cmd.ExecuteReader\r\n\r\n        bResult = True\r\n\r\n        While dr.Read\r\n            Dim temp As Object\r\n            Dim tempPosition As Integer\r\n            Dim tempLat, tempLong As Object\r\n            Dim tempLatX, tempLongY As Double\r\n            Dim Incno As String\r\n\r\n            Incno = dr.Item(0).ToString\r\n            temp = GetGeoCoords(dr.Item(1).ToString, 1)\r\n            tempPosition = InStr(temp.ToString, &quot;,&quot;)\r\n            tempLat = Microsoft.VisualBasic.Left(temp.ToString, tempPosition - 1)\r\n            tempLong = Microsoft.VisualBasic.Mid(temp.ToString, tempPosition &#43; 1)\r\n            tempLatX = Convert.ToDouble(tempLat)\r\n            tempLongY = Convert.ToDouble(tempLong)\r\n\r\n            If tempPosition &gt; 0 Then\r\n                overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(tempLongY, tempLatX), Markers.GMarkerGoogleType.green))\r\n                overlayOne.Markers(i).Tag = Incno.ToString\r\n                dictionary.Add(Incno, overlayOne.Markers(i))\r\n                i = i &#43; 1\r\n            End If\r\n\r\n        End While\r\n        MainMap.Overlays.Add(overlayOne)\r\n        MainMap.ZoomAndCenterMarkers(overlayOne.Id)\r\n        dr.Close()\r\n\r\nExitFunction:\r\n\r\n        ' Close the connection\r\n        If (Not IsNothing(cmd.Connection)) Then\r\n            If (cmd.Connection.State &lt;&gt; ConnectionState.Closed) Then\r\n                cmd.Connection.Close()\r\n            End If\r\n        End If\r\n\r\n        ' Return the result and exit\r\n        RunSqlNonQuery = bResult\r\n        Exit Function\r\n\r\nHandleErrors:\r\n\r\n        ' Handle any errors here...\r\n        MsgBox(&quot;An error was raised!&quot; &amp; vbNewLine &amp; &quot;Message: &quot; &amp; Err.Description, MsgBoxStyle.Critical, &quot;Error&quot;)\r\n        Err.Clear()\r\n        bResult = False ' Return failure\r\n        Resume ExitFunction\r\n\r\n    End Function</pre>\r\n<p>&#65279;&nbsp;</p>\r\n<pre>    Private Sub MainMap_OnMarkerClick(item As GMap.NET.WindowsForms.GMapMarker, e As System.Windows.Forms.MouseEventArgs) Handles MainMap.OnMarkerClick\r\n        Dim i As Long\r\n        'item.ToolTipText = item.Tag\r\n        Dim pair As KeyValuePair(Of String, GMap.NET.WindowsForms.GMapMarker)\r\n        For Each pair In dictionary\r\n            ' Display Key and Value.\r\n            'Console.WriteLine(&quot;{0}, {1}&quot;, pair.Key, pair.Value)\r\n            If item.Tag = pair.Key.ToString Then\r\n                MessageBox.Show(pair.Key.ToString)\r\n            End If\r\n        Next\r\n\r\n    End Sub</pre>\r\n<pre style=\"font-family:Consolas; background:white; color:black; font-size:13px\">\r\n</pre>\r\n<p></p>\r\n&nbsp;",
+    "PostedDate": "2012-12-07T07:32:15.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "832464",
+    "ThreadId": "354617",
+    "Html": "\r\n<p>Hi there,</p>\r\n<p>Is the GetDistance in Km and in a straight line?</p>\r\n",
+    "PostedDate": "2012-05-05T01:58:11.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832471",
+    "ThreadId": "354617",
+    "Html": "<p>map.Projection.GetDistance</p>",
+    "PostedDate": "2012-05-05T02:20:15.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832679",
+    "ThreadId": "354617",
+    "Html": "<p>uuuuuuh.... ??? lol</p>\r\n<p>I asked if the Getdistance is in Km and in a straight line ;)</p>",
+    "PostedDate": "2012-05-06T07:06:34.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832680",
+    "ThreadId": "354617",
+    "Html": "<p>/// &lt;summary&gt;<br /> /// distance (in km) between two points specified by latitude/longitude<br /> /// <strong>The Haversine formula</strong>, <a href=\"http://www.movable-type.co.uk/scripts/latlong.html\" target=\"_blank\">http://www.movable-type.co.uk/scripts/latlong.html</a><br /> /// &lt;/summary&gt;<br />public double <em>GetDistance</em>(PointLatLng p1, PointLatLng p2)</p>",
+    "PostedDate": "2012-05-06T07:15:14.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832683",
+    "ThreadId": "354617",
+    "Html": "<p>Thanks. The link is very interesting by the way. Thank you for providing that ;)</p>\n<p>Is the distance in a straight line or the real route?</p>",
+    "PostedDate": "2012-05-06T07:31:59.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "832685",
+    "ThreadId": "354617",
+    "Html": "<p>All these formul&aelig; are for calculations on the basis of a spherical earth (ignoring ellipsoidal effects) &ndash; which is accurate enough* for most purposes&hellip; [In fact, the earth is very slightly ellipsoidal; using a spherical model gives errors typically up to 0.3% &ndash; see notes for further details]</p>\r\n<p>This uses the &lsquo;haversine&rsquo; formula to calculate the great-circle distance between two points &ndash; that is, the shortest distance over the earth&rsquo;s surface &ndash; giving an &lsquo;as-the-crow-flies&rsquo; distance between the points (ignoring any hills, of course!).</p>\r\n<p>The haversine formula1 &lsquo;remains particularly well-conditioned for numerical computation even at small distances&rsquo; &ndash; unlike calculations based on the spherical law of cosines. The &lsquo;versed sine&rsquo; is 1-cos&theta;, and the &lsquo;half-versed-sine&rsquo; (1-cos&theta;)/2 = sin&sup2;(&theta;/2) as used above. It was published by R W Sinnott in Sky and Telescope, 1984, though known about for much longer by navigators. (For the curious, c is the angular distance in radians, and a is the square of half the chord length between the points). A (surprisingly marginal) performance improvement can be obtained, of course, by factoring out the terms which get squared.</p>",
+    "PostedDate": "2012-05-06T07:42:05.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

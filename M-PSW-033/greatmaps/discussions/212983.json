@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "444171",
+    "ThreadId": "212983",
+    "Html": "Hi,\r\n\r\nI want to creating marker from font. For example &quot;Ý&quot; char for Wingdings font type. How can I do? I tried but I have a two problems.\r\n\r\n1) Marker edges are cut after the marker rotated\r\n2) The place of markers seems at different place on the map.(http://img443.imageshack.us/img443/8595/markerov.png)\r\n\r\nBest Regards",
+    "PostedDate": "2010-05-18T01:10:22.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444184",
+    "ThreadId": "212983",
+    "Html": "<p>&quot;Marker edges are cut after the marker rotated' ?</p>",
+    "PostedDate": "2010-05-18T01:46:05.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444195",
+    "ThreadId": "212983",
+    "Html": "For example http://img80.imageshack.us/img80/5176/35837125.png",
+    "PostedDate": "2010-05-18T02:06:51.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444215",
+    "ThreadId": "212983",
+    "Html": "<p>and what's wrong with that?</p>",
+    "PostedDate": "2010-05-18T03:02:07.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444252",
+    "ThreadId": "212983",
+    "Html": "If you look at the first picture you can see the markers  completly but at the second picture you cann't see the completly. You can see just some parts of marker.",
+    "PostedDate": "2010-05-18T04:34:43.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444255",
+    "ThreadId": "212983",
+    "Html": "<p>mm. a green circle ;} so how do you rotate it?</p>",
+    "PostedDate": "2010-05-18T04:40:53.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444259",
+    "ThreadId": "212983",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">public</span> Bitmap CreateMarker(<span style=\"color:blue\">string</span> MarkerFont, <span style=\"color:blue\">float</span> MarkerFontSize, <span style=\"color:blue\">string</span> MarkerChar, <span style=\"color:blue\">float</span> Angle)\r\n        {\r\n            Bitmap objBmpImage = <span style=\"color:blue\">new</span> Bitmap(1, 1);\r\n            GraphicsPath pth = <span style=\"color:blue\">new</span> GraphicsPath();\r\n            Graphics objGraphics = Graphics.FromImage(objBmpImage);\r\n            objBmpImage = <span style=\"color:blue\">new</span> Bitmap(objBmpImage, <span style=\"color:blue\">new</span> System.Drawing.Size(Width, Height));\r\n            objGraphics = Graphics.FromImage(objBmpImage);\r\n            <span style=\"color:green\">//Calculation to size</span>\r\n            Font objFont = <span style=\"color:blue\">new</span> Font(MarkerFont, MarkerFontSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);\r\n            Width = (<span style=\"color:blue\">int</span>)(objGraphics.MeasureString(MarkerChar, objFont).Height * Math.Abs(Math.Sin(Angle)) + objGraphics.MeasureString(MarkerChar, objFont).Width * Math.Abs(Math.Cos(Angle)));\r\n            Height = (<span style=\"color:blue\">int</span>)(objGraphics.MeasureString(MarkerChar, objFont).Height * Math.Abs(Math.Cos(Angle)) + objGraphics.MeasureString(MarkerChar, objFont).Width * Math.Abs(Math.Sin(Angle)));\r\n            <span style=\"color:blue\">this</span>.Size = <span style=\"color:blue\">new</span> System.Drawing.Size(Width, Height);\r\n\r\n            pth.AddString(MarkerChar, <span style=\"color:blue\">new</span> FontFamily(MarkerFont), (<span style=\"color:blue\">int</span>)FontStyle.Regular, MarkerFontSize, <span style=\"color:blue\">new</span> System.Drawing.Point(0, 0), StringFormat.GenericDefault);\r\n            objGraphics.SmoothingMode = SmoothingMode.AntiAlias;\r\n            objGraphics.TextRenderingHint = TextRenderingHint.AntiAlias;\r\n\r\n            objGraphics.TranslateTransform(Width / 2, Height / 2);\r\n            objGraphics.RotateTransform(Angle);\r\n            objGraphics.TranslateTransform(-Width / 2, -Height / 2);\r\n            <span style=\"color:green\">//Halo</span>\r\n            Pen p = <span style=\"color:blue\">new</span> Pen(Color.Transparent, 5);\r\n            objGraphics.DrawPath(p, pth);\r\n            objGraphics.FillPath(Brushes.DarkGreen, pth);\r\n            objGraphics.Dispose();\r\n            <span style=\"color:blue\">return</span> objBmpImage;\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n        {\r\n            Bitmap MarkerBitmap = CreateMarker(<span style=\"color:#a31515\">&quot;Wingdings&quot;</span>, 25, <span style=\"color:#a31515\">&quot;&Yacute;&quot;</span>, 230);\r\n            <span style=\"color:green\">//Bitmap MarkerBitmap = CreateMarker(Pair.Value.MarkerFont,Pair.Value.MarkerFontSize,Pair.Value.Marker,Ang);</span>\r\n            g.DrawImageUnscaled(MarkerBitmap, LocalPosition.X, LocalPosition.Y);\r\n        }\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-05-18T04:58:32.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444285",
+    "ThreadId": "212983",
+    "Html": "<p>creating new bitmap each frame is quite insane and kill for memory ;}</p>\r\n<p>just transform onrender:</p>\r\n<p><em>g.TranslateTransform(Width / 2, Height / 2);</em></p>\r\n<p><em>g.RotateTransform(Angle);</em></p>\r\n<p><em>g.DrawImageUnscaled(MarkerBitmap, LocalPosition.X, LocalPosition.Y);</em></p>\r\n<p><em>g.ResetTransform();</em></p>",
+    "PostedDate": "2010-05-18T05:46:59.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444293",
+    "ThreadId": "212983",
+    "Html": "<p>I&nbsp;have allready known&nbsp;what you told&nbsp;but can you explain me is there another way to do this? I want use a&nbsp;character as a marker. Also I tried the code what you gave me, but the markers doesnt seem at real place and when the change center of the map, the places of the markers change at the same time.</p>",
+    "PostedDate": "2010-05-18T06:03:00.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444297",
+    "ThreadId": "212983",
+    "Html": "<p>let me experiment on this...</p>",
+    "PostedDate": "2010-05-18T06:12:52.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444464",
+    "ThreadId": "212983",
+    "Html": "<p>check transport demo, i've added bearing with rotation</p>",
+    "PostedDate": "2010-05-18T10:56:06.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445306",
+    "ThreadId": "212983",
+    "Html": "Sorry, for late feedback. First of all, thank you. I will do feedback, after reviewing detailed. ",
+    "PostedDate": "2010-05-20T01:57:37.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

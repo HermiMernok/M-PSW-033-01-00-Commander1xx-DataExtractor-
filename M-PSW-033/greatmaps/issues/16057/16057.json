@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "override and return true or do some custom checking for custom provider",
+    "ClosedDate": "2012-12-19T08:52:14.813-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Here is the implementation of orginal function:\r\nprotected virtual bool CheckTileImageHttpResponse(HttpWebResponse response)\r\n      {\r\n         //Debug.WriteLine(response.StatusCode + \"/\" + response.StatusDescription + \"/\" + response.ContentType + \" -> \" + response.ResponseUri);\r\n          return response.ContentType.Contains(responseContentType);\r\n      }\r\n\r\nIt only check the contenttype contains \"image\". But it is not compact with any other map provider.\r\nFor example, the second largest map in China: http://map.sogou.com. The tile url is:http://p1.go2map.com/seamless1/0/174/723/0/0/10_2.png. But the contentType is \"text/plain\", and it will\r\nlead the CheckTileImageHttpResponse return false.\r\n\r\nSuggest:\r\nprotected virtual bool CheckTileImageHttpResponse(HttpWebResponse response)\r\n      {\r\n         //Debug.WriteLine(response.StatusCode + \"/\" + response.StatusDescription + \"/\" + response.ContentType + \" -> \" + response.ResponseUri);\r\n          return response.ContentType.Contains(responseContentType) || response.ResponseUri.AbsoluteUri.EndsWith(\".png\");\r\n      }",
+    "LastUpdatedDate": "2012-12-19T08:52:14.813-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-12-19T08:25:08.103-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CheckTileImageHttpResponse Issue",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16057
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

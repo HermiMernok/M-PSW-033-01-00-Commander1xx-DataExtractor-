@@ -1,0 +1,346 @@
+[
+  {
+    "Id": "698088",
+    "ThreadId": "279437",
+    "Html": "\r\n<p>Hi radioman... its me... again... :p</p>\r\n<p>I have two questions (may you can help me): first -- I contacted google, asking for a way to add elements to maps (new streets, and some POIs). They respond saying that northamerica, europe and developed countries are attended by Tele Atlas, so, this company\r\n makes maps and routing data. For southamerica, all of this data are generated via &quot;Google Map Maker&quot; for users itself. I logged to GMM,&nbsp;added some streets missing in my city map, and a couple of POIs,&nbsp;and was accepted. That was two weeks ago. But,\r\n i see that still dont appear in my application nor the new steets and POIs. If a log again in GMM, the changes are made. My question is: Gmap.net uses different sources/servers for google map tiles? i dont know how works this.</p>\r\n<p>-- second: I updated my gmap.net from 1.5.5.5 (april 2011) to 1.6.0.0 (last hot build). Routing is workings in the same way. Here (in venezuela maps) generates erratic routes, and (if i have... lets say.. 700 latlng points in a list) the routing are painful\r\n slow. I observed you replaced GetRouteBetweenPoints and GetWalkingRouteBetweenPoints for a unique GetRoute. One of the parameteres are WalkingMode. If i pass &quot;false&quot; for walkingmode, the route shows many inconsistencies, but, if i pass &quot;true&quot;, the route improves.\r\n I can do anything to get a proper route? i missing something?</p>\r\n<p>If you like, i can post a bitmap showing the routes that generate gmap.net.</p>\r\n<p>Thanks a million for your time and support. Priceless.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-11-14T13:56:39.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698250",
+    "ThreadId": "279437",
+    "Html": "<p>hey ;} well i think you see old tiles from the cache, you can clear it by calling:&nbsp;GMaps.Instance.PrimaryCache.<strong>DeleteOlderThan</strong>(DateTime.Now, GMapProviders.GoogleMap.DbId);</p>",
+    "PostedDate": "2011-11-14T23:54:02.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698375",
+    "ThreadId": "279437",
+    "Html": "<p>Im back Radioman...</p>\r\n<p>I tried GMaps.Instance.PrimaryCache.<strong>DeleteOlderThan</strong>(DateTime.Now, GMapProviders.GoogleMap.DbId), nothing.</p>\r\n<p>I tried <span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">MapControl.Manager.Mode =</span></span></span><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">AccessMode.ServerOnly, nothing.</span></span></span></p>\r\n<p><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\"><span style=\"font-family: Consolas; color: #2b91af; font-size: x-small;\">I installed my application in a brand-new machine, just unboxed, never touched, and the tiles are the same of the dev pc.</span></span></span></p>\r\n<p>Still obtaining tiles without the new POIs and streets. But, i logged in <a href=\"http://www.google.com/mapmaker?hl=es\">http://www.google.com/mapmaker?hl=es</a>&nbsp; and the changes are there. &nbsp;O_o</p>\r\n<p>I.E.: I added a new street cross at 10.267765, -67.58678. The modification appears in GMM, but isn't loaded in Gmap.net.</p>\r\n<p>More ideas?</p>\r\n<p>Thanks RM</p>",
+    "PostedDate": "2011-11-15T05:57:17.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698382",
+    "ThreadId": "279437",
+    "Html": "<p>tiles are the same as&nbsp;http://maps.google.com/ if you see different view, you use different source and need update url request or maybe google doesn't update tiles instantly.. i don't know</p>",
+    "PostedDate": "2011-11-15T06:11:30.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698390",
+    "ThreadId": "279437",
+    "Html": "<p>I just look in <a href=\"http://maps.google.com\">http://maps.google.com</a>, the street cross appears at given location. :'(</p>\r\n<p>update url request? how can i do that?</p>",
+    "PostedDate": "2011-11-15T06:20:49.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698399",
+    "ThreadId": "279437",
+    "Html": "<p>can you tell me the coordinates?</p>",
+    "PostedDate": "2011-11-15T06:32:18.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698410",
+    "ThreadId": "279437",
+    "Html": "<p>10.267765, -67.58678</p>\r\n<p>thats are the coords</p>",
+    "PostedDate": "2011-11-15T06:37:32.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698441",
+    "ThreadId": "279437",
+    "Html": "<p>control version:<br />&nbsp;<a href=\"http://mt0.google.com/vt/lyrs=m@163000000&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga\">http://mt0.google.com/vt/lyrs=m@163000000&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga</a></p>\n<p><img src=\"http://mt0.google.com/vt/lyrs=m@163000000&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga\" alt=\"\" /></p>\n<p>&nbsp;google version:<br /><a href=\"http://mt0.google.com/vt/lyrs=m@163317509&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga\">http://mt0.google.com/vt/lyrs=m@163317509&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga</a></p>\n<p><img src=\"http://mt0.google.com/vt/lyrs=m@163317509&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga\" alt=\"\" /></p>\n<p>test&nbsp;version:<br /><a href=\"http://mt0.google.com/vt/lyrs=m@163317509&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga\">http://mt0.google.com/vt/lyrs=m@163999999&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga</a></p>\n<p><img src=\"http://mt0.google.com/vt/lyrs=m@163999999&amp;hl=en&amp;x=81856&amp;y=123554&amp;z=18&amp;s=Ga\" alt=\"\" /></p>\n<p>..it seems, adding 999999 instead 000000 after number 163 uses latest data</p>",
+    "PostedDate": "2011-11-15T07:30:59.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698446",
+    "ThreadId": "279437",
+    "Html": "<p>Oh My!</p>\r\n<p>I think even this is the source of problem on my routing issue. The control are taking very older routing data, and affects in consequence the generation of routes. I will wait then.</p>\r\n<p>Kudos for you, radio!</p>",
+    "PostedDate": "2011-11-15T07:37:19.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698872",
+    "ThreadId": "279437",
+    "Html": "<p>..do you remember on what day you made the changes, maybe these numbers encode the day? And can you try make other changes, the number should change or increase if i'm right</p>",
+    "PostedDate": "2011-11-16T03:22:04.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698938",
+    "ThreadId": "279437",
+    "Html": "<p>Hi Radioman...</p>\n<p>I checked MapMaker, and the modifications was made in 03 November 2011 at 16:04. You need to make more modifications? let me know.</p>\n<p>Thanks RM!</p>\n<p>P.S.: I replaced the 163000000 with 163999999 (3 ocurrences in project), rebuilded entire solution, but no luck obtaining the lastest data&nbsp; :'(</p>",
+    "PostedDate": "2011-11-16T05:48:26.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700435",
+    "ThreadId": "279437",
+    "Html": "<p>Hi radio... any update respect of map version? any advice how can i accomplish the control use a newer version?</p>\r\n<p>Sorry.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-11-18T13:59:17.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700438",
+    "ThreadId": "279437",
+    "Html": "<p>well just increase the version number, i don't know what they mean and what system they use, so i'm not changing it right now</p>",
+    "PostedDate": "2011-11-18T14:03:05.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700439",
+    "ThreadId": "279437",
+    "Html": "<p>I find in the whole control project the value \"163000000\" and replaced with \"163999999\" (3 ocurrences in project), but no luck. the demo shows the old data. I deleted all dlls before rebuilded entire project... i missing something?</p>",
+    "PostedDate": "2011-11-18T14:06:04.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700442",
+    "ThreadId": "279437",
+    "Html": "<p>turn off automatic version update</p>",
+    "PostedDate": "2011-11-18T14:11:20.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700444",
+    "ThreadId": "279437",
+    "Html": "<p>Oki doki. I will try that. Sorry for disturbing you.</p>\n<p>Just as a comment, i already added a GeoFence routine to my project. its quite simple, and maybe is a good idea to add to your control. Since you already have the polygons, one function \"PointIsInsidePolygon\" can be interesting. If you like i post the function.</p>\n<p>Kudos!</p>",
+    "PostedDate": "2011-11-18T14:16:16.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700447",
+    "ThreadId": "279437",
+    "Html": "<p>definitely, good idea</p>",
+    "PostedDate": "2011-11-18T14:24:38.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700449",
+    "ThreadId": "279437",
+    "Html": "<p>public bool PointsIntoPolygon(List&lt;PointLatLng&gt; Polypuntos, PointLatLng punto)<br />{<br />&nbsp;if (Polypuntos.Count == 0) {<br />&nbsp;&nbsp;return false;<br />&nbsp;}<br />&nbsp;List&lt;PointLatLng&gt; retorno = new List&lt;PointLatLng&gt;();<br />&nbsp;Polypuntos.Add(Polypuntos(0));</p>\r\n<p>&nbsp;int x = 0;<br />&nbsp;int valor = 0;<br />&nbsp;x = 0;<br />&nbsp;valor = 0;<br />&nbsp;while (x + 1 &lt; Polypuntos.Count) {<br />&nbsp;&nbsp;if (IsOnRigth(Polypuntos(x), Polypuntos(x + 1), punto)) {<br />&nbsp;&nbsp;&nbsp;valor += 1;<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;x += 1;<br />&nbsp;}</p>\r\n<p>&nbsp;//si es impar entonces esta dentro de punto. <br />&nbsp;if ((valor % 2) != 0) {<br />&nbsp;&nbsp;return true;<br />&nbsp;}<br />&nbsp;return false;<br />}</p>\r\n<p><br />private Boolean IsOnRigth(PointLatLng PolyPointA, PointLatLng PolyPointB, PointLatLng point)<br />{<br />&nbsp;//x = Long<br />&nbsp;//y = Lat<br />&nbsp;double M = 0;<br />&nbsp;double LngInFunction = 0;<br />&nbsp;//Si el punto esta entre la Lat de los dos puntos<br />&nbsp;if ((PolyPointA.lat &gt;= point.lat &amp;&amp; PolyPointB.lat &lt;= point.lat) || (PolyPointB.lat &gt;= point.lat &amp;&amp; PolyPointA.lat &lt;= point.lat)) {<br />&nbsp;&nbsp;M = (PolyPointA.lat - PolyPointB.lat) / (PolyPointA.lng - PolyPointB.lng);<br />&nbsp;&nbsp;LngInFunction = ((point.lat - PolyPointA.lat) / M) + PolyPointA.lng;<br />&nbsp;&nbsp;//si esta a la derecha, sumo uno, sino no hago nada. <br />&nbsp;&nbsp;if (LngInFunction &lt;= point.lng) {<br />&nbsp;&nbsp;&nbsp;return true;<br />&nbsp;&nbsp;}<br />&nbsp;}<br />&nbsp;return false;<br />}</p>\r\n<p>&nbsp;</p>\r\n<p>I hope this helps. Just call PointIntoPolygon and pass two parameters. The first is a List of PointLatLng, filled with the points of the polygon, the second parameter is the point to compare, in PointLatLng format, too. See'ya later Radio! thanks 4 all the help!</p>",
+    "PostedDate": "2011-11-18T14:33:53.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700604",
+    "ThreadId": "279437",
+    "Html": "<p>Its me again, Radio.</p>\n<p>I didnt find the \"automatic version update\" in VS. I turned off the \"increment revision number with each publication\" checkbox in the publish tab of project properties (all that i find), but still i dont have nothing. (is the same as you told me?)</p>\n<p>Thanks.</p>\n<p>Bernardo Salazar</p>\n<p>Venezuela</p>",
+    "PostedDate": "2011-11-19T09:29:26.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700607",
+    "ThreadId": "279437",
+    "Html": "<p>\"automatic version update\", i mean automatic google/bing <strong>version number update, </strong>you can assign it yourself and disable the 'update':</p>\r\n<p><em>GMapProviders.GoogleMap.Version = \"m@164000000\";</em><br /><em> GMapProviders.GoogleMap.<strong>TryCorrectVersion</strong> = false;&nbsp;</em></p>",
+    "PostedDate": "2011-11-19T09:43:54.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700613",
+    "ThreadId": "279437",
+    "Html": "<p>Hehehe... i recognize, im still a newbie.</p>\r\n<p>VB Code:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleMap.Version = \"<a href=\"mailto:m@164999999\">m@164999999</a>\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleMap.TryCorrectVersion = False<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Main.MapControl.MapProvider = MapProviders.GoogleMapProvider.Instance<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MiniMapControl.MapProvider = MapProviders.GoogleMapProvider.Instance</p>\r\n<p>I got it. Shows the last data. Works fine in steet \"GoogleMap\" view, but dont work properly in Hybrid. I can see the last data only at 18 level zoom, and the screen is composed by half \"satellite\" tiles, and the other half with street \"googlemap\" tiles...</p>",
+    "PostedDate": "2011-11-19T10:10:21.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700615",
+    "ThreadId": "279437",
+    "Html": "<p>Look this printscreen</p>\n<p><a href=\"https://skydrive.live.com/redir.aspx?cid=c44ce38e2baa217b&amp;resid=C44CE38E2BAA217B!585\">https://skydrive.live.com/redir.aspx?cid=c44ce38e2baa217b&amp;resid=C44CE38E2BAA217B!585</a></p>\n<p>The last street data appear only at 18 level zoom. if a change zoom to 17, shows old data. but at 18 zoom, the tiles are composed in a strange way as you can see in the image posted</p>",
+    "PostedDate": "2011-11-19T10:15:38.633-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700619",
+    "ThreadId": "279437",
+    "Html": "<p>o.O tried clear cache before experimenting? or try ServerOnly mode</p>",
+    "PostedDate": "2011-11-19T10:21:25.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700626",
+    "ThreadId": "279437",
+    "Html": "<p>cleared cache via&nbsp;&nbsp;GMaps.Instance.PrimaryCache.<strong>DeleteOlderThan</strong>(DateTime.Now, GMapProviders.GoogleMap.DbId)</p>\n<p>tried also MapControl.Manager.Mode = AccessMode.ServerOnly, nothing....</p>\n<p>Another side effect (a good one), is that the loading of tiles was getting sooo slow when i used \"<a href=\"mailto:m@1630000\">m@1630000</a>00\", but when i changed to <a href=\"mailto:m@164999999\">m@164999999</a> the load are really fast. (google dudes are doing something to getting slow the control?)</p>\n<p><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;</span></p>",
+    "PostedDate": "2011-11-19T10:28:48.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700630",
+    "ThreadId": "279437",
+    "Html": "<p>i guess only the latest data is cached in their servers, old versions are removed</p>",
+    "PostedDate": "2011-11-19T10:36:05.72-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700631",
+    "ThreadId": "279437",
+    "Html": "<p>hummm... maybe...</p>\r\n<p>Meanwhile, i will start to dig in the control, looking for the source of half/half tiles thing. Maybe with my small knowledge i can resolve. I write again if i found something.</p>\r\n<p>Greetings from Venezuela to all Lituanians!</p>",
+    "PostedDate": "2011-11-19T10:39:19.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700639",
+    "ThreadId": "279437",
+    "Html": "<p>Ok... i figured out. Just i missing to get GmapProviders.&lt;MapType&gt;.Version according the type of map.</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleMap.Version = \"<a href=\"mailto:m@164999999\">m@164999999</a>\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleMap.TryCorrectVersion = False</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleHybridMap.Version = \"<a href=\"mailto:h@164999999\">h@164999999</a>\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleHybridMap.TryCorrectVersion = False</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleTerrainMap.Version = \"<a href=\"mailto:t@127,r@164999999\">t@127,r@164999999</a>\"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleTerrainMap.TryCorrectVersion = False</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleSatelliteMap.Version = \"99\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;---- this dont have a letter suffix (m:map,&nbsp;h:hybrid, t:terrain)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapProviders.GoogleSatelliteMap.TryCorrectVersion = False</p>\r\n<p>Now working all like a charm. A zillion of thanks Radio!</p>",
+    "PostedDate": "2011-11-19T11:51:54.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700641",
+    "ThreadId": "279437",
+    "Html": "<p>cheers ;}</p>\n<p>p.s. you can make code smaller by removing GMapProviders.[GoogleHybridMap/GoogleTerrainMap/GoogleTerrainMap].TryCorrectVersion, because they use the same base class, setting it once is enough and version for satellite is ok</p>",
+    "PostedDate": "2011-11-19T11:59:49.19-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703456",
+    "ThreadId": "279437",
+    "Html": "<p>p.s.&nbsp;<strong>PointsIntoPolygon</strong> doesn't work correctly ;/</p>",
+    "PostedDate": "2011-11-25T10:51:33.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703458",
+    "ThreadId": "279437",
+    "Html": "<p>O_o</p>\r\n<p>My code is writed in VB, i take it and converted via telerik's VB to C converter, and pasted. My app code is this:</p>\r\n<p>&nbsp;&nbsp;&nbsp; Public Function IsIntoPolygon(Polypuntos As List(Of PointLatLng), punto As PointLatLng) As Boolean<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Polypuntos.Count = 0 Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return False<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim retorno As New List(Of PointLatLng)()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Polypuntos.Add(Polypuntos(0))</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim x As Integer = 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim valor As Integer = 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; valor = 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; While x + 1 &lt; Polypuntos.Count<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If IsOnRigth(Polypuntos(x), Polypuntos(x + 1), punto) Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; valor += 1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x += 1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End While</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'si es impar entonces esta dentro de punto. <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If (valor Mod 2) &lt;&gt; 0 Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return True<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return False<br />&nbsp;&nbsp;&nbsp; End Function</p>\r\n<p>&nbsp;&nbsp;&nbsp; Private Function IsOnRigth(PolyPointA As PointLatLng, PolyPointB As PointLatLng, point As PointLatLng) As [Boolean]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'x = Long, y = Lat<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim M As Double = 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim LngInFunction As Double = 0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Si el punto esta entre la Lat de los dos puntos<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If (PolyPointA.Lat &gt;= point.Lat AndAlso PolyPointB.Lat &lt;= point.Lat) OrElse (PolyPointB.Lat &gt;= point.Lat AndAlso PolyPointA.Lat &lt;= point.Lat) Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M = (PolyPointA.Lat - PolyPointB.Lat) / (PolyPointA.Lng - PolyPointB.Lng)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LngInFunction = ((point.Lat - PolyPointA.Lat) / M) + PolyPointA.Lng<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'si esta a la derecha, sumo uno, sino no hago nada. <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If LngInFunction &lt;= point.Lng Then<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return True<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return False<br />&nbsp;&nbsp;&nbsp; End Function</p>\r\n<p>&nbsp;</p>\r\n<p>I adapted this functions from the C example found in <a href=\"http://en.googlemaps.subgurim.net/Galeria-codigo/code-2221.aspx\">http://en.googlemaps.subgurim.net/Galeria-codigo/code-2221.aspx</a></p>\r\n<p>Currently, until i see, its working here. (returns true or false if a PointLatLng is inside a List Of PointLatLng). Are returning an error in your project?</p>",
+    "PostedDate": "2011-11-25T11:01:18.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703463",
+    "ThreadId": "279437",
+    "Html": "<p>i've just commited code, function return true even point isn't in the polygon, try move mouse around demo area and you see...</p>",
+    "PostedDate": "2011-11-25T11:22:36.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703465",
+    "ThreadId": "279437",
+    "Html": "<p>First i have a List of Pointlatlng, and populate with the points that composes the polygon.</p>\r\n<p>I have a timer, every 30 seconds i consult each marker.position in layer.markers, then i call IsIntoPolygon(List of Points, marker.position), and this returns true or false.</p>\r\n<p>Are you invoking function from a MouseHover event?</p>",
+    "PostedDate": "2011-11-25T11:30:47.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703466",
+    "ThreadId": "279437",
+    "Html": "<p>i downloading the changeset. let me see..</p>",
+    "PostedDate": "2011-11-25T11:33:18.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703468",
+    "ThreadId": "279437",
+    "Html": "<p>function fixed, and Polypuntos.Add(Polypuntos(0)) isn't very good idea, each time you add starting point to your list</p>",
+    "PostedDate": "2011-11-25T11:34:17.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703469",
+    "ThreadId": "279437",
+    "Html": "<p>I dont know why the original code (the subgurim guy) do that. I imagine that is emulating the polygon function that comes in sql2008 (when you add a polygon with the new datatype \"geography\", you need to \"close\" the polygon adding again the first point)... i guess...</p>",
+    "PostedDate": "2011-11-25T11:37:03.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703471",
+    "ThreadId": "279437",
+    "Html": "<p>anyway it works, i'll add mouse events and cursor changes later, thanks</p>",
+    "PostedDate": "2011-11-25T11:43:59.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "703472",
+    "ThreadId": "279437",
+    "Html": "<p>No problem Radio. My pleasure. Greetings from Venezuela.</p>",
+    "PostedDate": "2011-11-25T11:45:51.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814555",
+    "ThreadId": "279437",
+    "Html": "<p>// ﻿﻿﻿﻿Still error exists. so I replaced IsInside() in GmapPolygon.cs as follows and tested with&nbsp;various polygons&nbsp;serveral times successfully.</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">bool</span> IsInside(PointLatLng p)\r\n      {\r\n          <span style=\"color: blue;\">bool</span> result = <span style=\"color: blue;\">false</span>;\r\n          <span style=\"color: blue;\">int</span> j = Points.Count - 1;\r\n          <span style=\"color: blue;\">for</span> (<span style=\"color: blue;\">int</span> i = 0; i &lt; Points.Count; i++)\r\n          {\r\n              <span style=\"color: blue;\">if</span> (Points[i].Lat &lt; p.Lat &amp;&amp; Points[j].Lat &gt;= p.Lat || Points[j].Lat &lt; p.Lat &amp;&amp; Points[i].Lat &gt;= p.Lat)\r\n              {\r\n                  <span style=\"color: blue;\">if</span> (Points[i].Lng + (p.Lat - Points[i].Lat) / (Points[j].Lat - Points[i].Lat) * (Points[j].Lng - Points[i].Lng) &lt; p.Lng)\r\n                  {\r\n                      result = !result;\r\n                  }\r\n              }\r\n              j = i;\r\n          }\r\n          <span style=\"color: blue;\">return</span> result;\r\n      }\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-03-23T03:49:05.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839314",
+    "ThreadId": "279437",
+    "Html": "<p>The current IsInside is indeed broken.</p>\r\n<p>An exampel: In Demo.WindowsForms.MainForm I hardcoded RegeneratePolygon to use these points:</p>\r\n<p>List&lt;PointLatLng&gt; polygonPoints = new List&lt;PointLatLng&gt;();<br />polygonPoints.Add(new PointLatLng { Lat = 51.583043275846457, Lng = 1.385650634765625 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.605224573352459, Lng = 1.347198486328125 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.668296682663851, Lng = 1.452941894531250 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.704055353325900, Lng = 1.498260498046875 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.761040492729521, Lng = 1.560058593750000 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.752539809336511, Lng = 1.630096435546875 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.701502099204141, Lng = 1.663055419921875 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.655518883310300, Lng = 1.664428710937500 });<br />polygonPoints.Add(new PointLatLng { Lat = 51.568534262690960, Lng = 1.566925048828125 });</p>\r\n<p>Zoom in on the polygon and move the mouse around it. On the eastern side it will trigger OnPolygonEnter in a number of locations.</p>\r\n<p>Testing with kodraco's method worked.</p>",
+    "PostedDate": "2012-05-22T04:15:41.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897482",
+    "ThreadId": "279437",
+    "Html": "<p>ping? It would be really nice to have a reliable IsInside function. I have tested kodraco's method and it does not show the same bugs as the current code.</p>",
+    "PostedDate": "2012-08-09T04:35:08.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897499",
+    "ThreadId": "279437",
+    "Html": "<p>fixed</p>",
+    "PostedDate": "2012-08-09T05:03:09.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897659",
+    "ThreadId": "279437",
+    "Html": "<p>Sorry, but the proposed algorithm for IsInside does not work if the polygon contains points that have the same latitude (e.g. case of a square)</p>\r\n<p>As it is, location of point p will not be tested with respect to polygon vertices having same lat.</p>\r\n<p>&nbsp;</p>\r\n<p>Note- the problem also existed in IsOnRight function.</p>\r\n<p>Unfortunately, I do not have at once a solution in mind.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-08-09T10:09:46.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "897671",
+    "ThreadId": "279437",
+    "Html": "\r\n<p>Hello</p>\r\n<p>The good algorithm to chevk if a point is inside a polygon is</p>\r\n<p>1- Test if the point is in the outside rectangle of the polygon</p>\r\n<p>2- If yes check&nbsp;the count of intersection of a virtual line&nbsp;crossing&nbsp;your point&nbsp;&nbsp;and the polygon segment</p>\r\n<p>If the count is odd the point is outside the polygon</p>\r\n<div style=\"word-wrap:break-word; white-space:pre-wrap\">The approch of <a href=\"http://www.codeplex.com/site/users/view/berniesf\">\r\nberniesf</a>&nbsp;seems to be good</div>\r\n<div style=\"word-wrap:break-word; white-space:pre-wrap\">Here is mine in cSharp (with some optimisation)</div>\r\n<div style=\"word-wrap:break-word; white-space:pre-wrap\">&nbsp;</div>\r\n<div style=\"word-wrap:break-word; white-space:pre-wrap\">NB : I&nbsp;try to use the Code Snipset but&nbsp;it seems to not work (or I don't know how to use it)&nbsp;I</div>\r\n<div style=\"word-wrap:break-word; white-space:pre-wrap\">I will try something manually</div>\r\n<div style=\"word-wrap:break-word; white-space:pre-wrap\">&lt;code&gt;</div>\r\n<div style=\"word-wrap:break-word; white-space:pre-wrap\">\r\n<p>&nbsp;&nbsp;&nbsp; // ********************************************************************************************<br>\r\n&nbsp;&nbsp;&nbsp; // Verification si le segment p1,p2 est sequant avec la demi droite horizontale px,-&gt;(infini)</p>\r\n<p>&nbsp;&nbsp;&nbsp; static int isRightCrossing(PointF p1, PointF p2, PointF px)<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double X;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ///<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #region Equation<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bool isVertical = false;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double Ea;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double Eb;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ea = (double)(p1.X - p2.X);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Ea == 0)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eb = p1.X;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; isVertical = true;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // evite division par zero<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ea = (double)(p1.Y - p2.Y) / Ea;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eb = p1.Y - (p1.X * Ea);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #endregion<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ///<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (isVertical)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (px.X &lt;= Eb)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 1;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X = (px.Y - Eb) / Ea;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (X &gt;= px.X)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // sequant<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // pas sequant<br>\r\n&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;&nbsp;&nbsp; // ********************************************************************************************<br>\r\n&nbsp;&nbsp;&nbsp; // Verification si le point p est interne ou externe au polygone</p>\r\n<p>&nbsp;&nbsp;&nbsp; static public int isPointInPol(PointF p, PointF[] Pts)<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // on considere un segment S d'equation Y=p(y) et d'origine p(x,y)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // pour chaque segment sp (Pts[n],Pts[n&#43;1]) du polygone, on verifie si le segment S<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // est s&eacute;quant avec le segment sp<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // on compte les segments sequants<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // si Pair ou zero : point est externe<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // si impair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : point est interne</p>\r\n<p><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int step = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int Obase = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int oneUp = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int oneDown = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int inter = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int nbPts = Pts.Length;</p>\r\n<p><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Si non le point est forc&eacute;ment en dessous du polygone<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Si oui le point doit se projeter entre ce point du polygone et le pr&eacute;c&eacute;dent</p>\r\n<p><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (step = Obase; step &lt; nbPts; step&#43;&#43;)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oneUp = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // on suppose tous les points du polygone en dessous<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (; step &lt; nbPts; step&#43;&#43;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // recherche si un Y du Pol est &gt; ou egal au y du point<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Pts[step].Y &gt;= p.Y)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oneUp = 1;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (oneUp == 0) break;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((step &gt; 0) &amp;&amp; (step &gt;= Obase))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inter &#43;= isRightCrossing(Pts[step - 1], Pts[step], p);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; step&#43;&#43;;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oneDown = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (; step &lt; nbPts; step&#43;&#43;)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Pts[step].Y &lt;= p.Y)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oneDown = 1;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (oneDown == 0) break;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((step &gt; 0) &amp;&amp; (step &gt;= Obase))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inter &#43;= isRightCrossing(Pts[step - 1], Pts[step], p);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (inter &amp; 1);<br>\r\n&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;&lt;/code&gt;</p>\r\n<p>&nbsp;</p>\r\n</div>\r\n",
+    "PostedDate": "2012-08-09T10:27:00.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

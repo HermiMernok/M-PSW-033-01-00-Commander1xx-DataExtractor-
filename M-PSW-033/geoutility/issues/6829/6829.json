@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "See new revision. Hope this solves the problem.",
+    "ClosedDate": "2010-06-10T01:56:35.74-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi there,\n \nI tested the new patch, and still the error when converting higher than 55N/55S coordinates is there. Maybe I'm missing something.\n \nJust an example\n \nLat=80N\nLon=80E\n \nUTM = 44X 480615.20 8881752.42\nMGRS = 44XMP 80615 81752\n \nIf I try those values for a conversion from MGRS to UTM or GEO the UTM and GEO are quite wrong.\n \nPlease, could you check or tell me where to find the new corrected cored?\n \nI checked Definitions.cs and MGRTM.cs and I still got the same issue.\n \nThanks!",
+    "LastUpdatedDate": "2013-05-15T22:07:20.627-07:00",
+    "PlannedForRelease": "GeoUtility Library 3.1.7.5",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "geoutility",
+    "ReportedDate": "2010-06-06T20:36:35.563-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MGRS errors",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6829
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

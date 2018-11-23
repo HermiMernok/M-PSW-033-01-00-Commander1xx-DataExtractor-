@@ -1,0 +1,178 @@
+[
+  {
+    "Id": "646342",
+    "ThreadId": "266265",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Im using VS2010, with target set to .NET v2 &nbsp;and Platform x86 &nbsp;(Im using some old DLL's and OCX's in this project so i can't upgrade to .NET 4)</p>\r\n<p>Ive been using this control for almost 2 years now, but have just upgraded to the very latest version which 'auto detects' the required</p>\r\n<p>SQLite. &nbsp;The app run fine in the IDE but when i deploy, i see the SQLite.dll installed, but the app throughs an exception saying&nbsp;</p>\r\n<p>'could not load assembly System.Data.SQLite. v1.0.073.0</p>\r\n<p>I looked at previous posts and also tried to create the 2 folders and put the x86 and x64 dlls in there, but still the error.</p>\r\n<p>Ive migrated all my projects into VS2010 from VS2005 and this is the only thing stopping me rolling out the upgrades.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Paul.</p>\r\n",
+    "PostedDate": "2011-07-22T15:11:09.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646444",
+    "ThreadId": "266265",
+    "Html": "<p>please share you test project, i'll check whats really wrong with it, ..you shouldn't see SQLite.dll installed, because it's deep somewhere in local app directory.. maybe you still added reference, remove it</p>",
+    "PostedDate": "2011-07-23T03:29:16.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646474",
+    "ThreadId": "266265",
+    "Html": "<p>I've removed all references to SQLite , built and deployed, this time there is no SQLite.dll in the app's folder and yes, it has created a hidden folder v73_NET2_x86 with the DLL in it.</p>\r\n<p>But still my app says can't load assembly . System.Data.SQLite</p>\r\n<p>I have only added references to GMap.NET.Core &nbsp; and GMap.NET.WindowsForms, &nbsp;thats all.</p>\r\n<p>&nbsp;</p>\r\n<p>My project is very large, maybe i have to cut it down and try and share, its also in 2 parts, a 'runtime' app that installs all my common dll's etc etc and then</p>\r\n<p>a simple single .EXE app.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>",
+    "PostedDate": "2011-07-23T06:13:51.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646481",
+    "ThreadId": "266265",
+    "Html": "<p>did you tried debug build, what exception it prints?</p>",
+    "PostedDate": "2011-07-23T06:53:32.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646487",
+    "ThreadId": "266265",
+    "Html": "<p>Yes, its a debug build.</p>\r\n<p>the exception is the usual &nbsp; &nbsp; :</p>\r\n<p>&nbsp;</p>\r\n<p>Unhandled exception,</p>\r\n<p>Could not load file or assembley &nbsp; 'System.Data.SQLite, Version=1.0.73.0 '</p>\r\n<p>i see the DLL in the Local settings\\application data\\GMap.Net\\DLLCache\\v73_NET2_x86 folder</p>",
+    "PostedDate": "2011-07-23T07:21:41.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646495",
+    "ThreadId": "266265",
+    "Html": "<p>i mean debug output log..</p>",
+    "PostedDate": "2011-07-23T07:36:46.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646497",
+    "ThreadId": "266265",
+    "Html": "<p>The machine i am installing on dos'nt have VS2010 installed. &nbsp; Where/How can i get the debug output log ?</p>",
+    "PostedDate": "2011-07-23T07:41:18.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646499",
+    "ThreadId": "266265",
+    "Html": "<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>See the end of this message for details on invoking&nbsp;just-in-time (JIT) debugging instead of this dialog box.<br />************** Exception Text **************System.IO.FileLoadException: Could not load file or assembly 'System.Data.SQLite, Version=1.0.73.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. This application has failed to start because the application configuration is incorrect. Reinstalling the application may fix this problem. (Exception from HRESULT: 0x800736B1)File name: 'System.Data.SQLite, Version=1.0.73.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' ---&gt; System.IO.FileLoadException: Could not load file or assembly 'System.Data.SQLite, Version=1.0.73.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. This application has failed to start because the application configuration is incorrect. Reinstalling the application may fix this problem. (Exception from HRESULT: 0x800736B1)File name: 'System.Data.SQLite, Version=1.0.73.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' ---&gt; System.Runtime.InteropServices.COMException (0x800736B1): This application has failed to start because the application configuration is incorrect. Reinstalling the application may fix this problem. (Exception from HRESULT: 0x800736B1)&nbsp; &nbsp;at System.Reflection.Assembly.nLoadFile(String path, Evidence evidence)&nbsp; &nbsp;at System.Reflection.Assembly.LoadFile(String path)&nbsp; &nbsp;at GMap.NET.CacheProviders.SQLitePureImageCache.CurrentDomain_AssemblyResolve(Object sender, ResolveEventArgs args)&nbsp; &nbsp;at System.AppDomain.OnAssemblyResolveEvent(String assemblyFullName)<br /><br />&nbsp; &nbsp;at GMap.NET.Singleton`1.get_Instance()&nbsp; &nbsp;at GMap.NET.WindowsForms.GMapControl.set_CacheLocation(String value)&nbsp; &nbsp;at ApplicationProject.Map..ctor()&nbsp; &nbsp;at ApplicationProject.frmCoreAccounting_Accounts.InitializeComponent()&nbsp; &nbsp;at ApplicationProject.frmCoreAccounting_Accounts..ctor()&nbsp; &nbsp;at ApplicationProject.frmSalesLedger_Core_Customer..ctor()&nbsp; &nbsp;at ApplicationProject.frmSalesLedger_Customer..ctor()&nbsp; &nbsp;at ApplicationProject.Module_SalesLedger.RunProgram(String Key, String FullKey, Boolean&amp; KeyFound)&nbsp; &nbsp;at ApplicationProject.BSL.Module_RunProgram(String Program, String FullKey)&nbsp; &nbsp;at ApplicationProject.App.fApplicationForm_RunProgram(String Program, String FullKey)&nbsp; &nbsp;at ApplicationProject.frmCore_MainMenu.uebSubMenu_ItemClick(Object sender, ItemEventArgs e)&nbsp; &nbsp;at Infragistics.Win.UltraWinExplorerBar.UltraExplorerBar.OnItemClick(ItemEventArgs e)&nbsp; &nbsp;at Infragistics.Win.UltraWinExplorerBar.UltraExplorerBar.FireEvent(UltraExplorerBarEventIds id, EventArgs e)&nbsp; &nbsp;at Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem.DoClick()&nbsp; &nbsp;at Infragistics.Win.UltraWinExplorerBar.UltraExplorerBar.Infragistics.Win.ISelectionManager.OnMouseUp(MouseMessageInfo&amp; msginfo)&nbsp; &nbsp;at Infragistics.Win.SelectionStrategySingle.OnMouseMessage(ISelectableItem item, MouseMessageInfo&amp; msginfo)&nbsp; &nbsp;at Infragistics.Win.ControlUIElementBase.ProcessMouseUp(Object sender, MouseEventArgs e)&nbsp; &nbsp;at System.Windows.Forms.Control.OnMouseUp(MouseEventArgs e)&nbsp; &nbsp;at Infragistics.Win.UltraWinExplorerBar.UltraExplorerBar.OnMouseUp(MouseEventArgs e)&nbsp; &nbsp;at System.Windows.Forms.Control.WmMouseUp(Message&amp; m, MouseButtons button, Int32 clicks)&nbsp; &nbsp;at System.Windows.Forms.Control.WndProc(Message&amp; m)&nbsp; &nbsp;at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)&nbsp; &nbsp;at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)&nbsp; &nbsp;at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)<br /><br /><br /><br />************** Loaded Assemblies **************mscorlib&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/Microsoft.NET/Framework/v2.0.50727/mscorlib.dll----------------------------------------ApplicationProject&nbsp; &nbsp; Assembly Version: 1.0.0.0&nbsp; &nbsp; Win32 Version: 1.0.0.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/ApplicationProject.exe----------------------------------------System.Drawing&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Drawing/2.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll----------------------------------------System&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System/2.0.0.0__b77a5c561934e089/System.dll----------------------------------------GMap.NET.Core&nbsp; &nbsp; Assembly Version: 1.5.5.5&nbsp; &nbsp; Win32 Version: 1.5.5.5&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/GMap.NET.Core.DLL----------------------------------------System.Windows.Forms&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Windows.Forms/2.0.0.0__b77a5c561934e089/System.Windows.Forms.dll----------------------------------------Microsoft.VisualBasic&nbsp; &nbsp; Assembly Version: 8.0.0.0&nbsp; &nbsp; Win32 Version: 8.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/Microsoft.VisualBasic/8.0.0.0__b03f5f7f11d50a3a/Microsoft.VisualBasic.dll----------------------------------------Infragistics.Win.UltraWinMaskedEdit.v3.2&nbsp; &nbsp; Assembly Version: 3.2.20042.1111&nbsp; &nbsp; Win32 Version: 3.2.20042.1111&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/Infragistics.Win.UltraWinMaskedEdit.v3.2.DLL----------------------------------------Infragistics.Win.v3.2&nbsp; &nbsp; Assembly Version: 3.2.20042.1111&nbsp; &nbsp; Win32 Version: 3.2.20042.1111&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/Infragistics.Win.v3.2.DLL----------------------------------------Infragistics.Shared.v3.2&nbsp; &nbsp; Assembly Version: 3.2.20042.1111&nbsp; &nbsp; Win32 Version: 3.2.20042.1111&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/Infragistics.Shared.v3.2.DLL----------------------------------------DevExpress.Data.v11.1&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.Data.v11.1.DLL----------------------------------------DevExpress.XtraEditors.v11.1&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.XtraEditors.v11.1.DLL----------------------------------------DevExpress.Utils.v11.1&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.Utils.v11.1.DLL----------------------------------------DevExpress.XtraGrid.v11.1&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.XtraGrid.v11.1.DLL----------------------------------------DevExpress.Printing.v11.1.Core&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.Printing.v11.1.Core.DLL----------------------------------------System.Data&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_32/System.Data/2.0.0.0__b77a5c561934e089/System.Data.dll----------------------------------------System.Xml&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Xml/2.0.0.0__b77a5c561934e089/System.Xml.dll----------------------------------------ADODB&nbsp; &nbsp; Assembly Version: 7.0.3300.0&nbsp; &nbsp; Win32 Version: 7.10.6070&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/ADODB.DLL----------------------------------------Infragistics.Win.UltraWinGrid.v3.2&nbsp; &nbsp; Assembly Version: 3.2.20042.1111&nbsp; &nbsp; Win32 Version: 3.2.20042.1111&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/Infragistics.Win.UltraWinGrid.v3.2.DLL----------------------------------------Infragistics.Win.UltraWinExplorerBar.v3.2&nbsp; &nbsp; Assembly Version: 3.2.20042.1111&nbsp; &nbsp; Win32 Version: 3.2.20042.1111&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/Infragistics.Win.UltraWinExplorerBar.v3.2.DLL----------------------------------------Accessibility&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/Accessibility/2.0.0.0__b03f5f7f11d50a3a/Accessibility.dll----------------------------------------System.Configuration&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Configuration/2.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll----------------------------------------CrystalDecisions.CrystalReports.Engine&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.CrystalReports.Engine/13.0.2000.0__692fbea5521e1304/CrystalDecisions.CrystalReports.Engine.dll----------------------------------------CrystalDecisions.Shared&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.Shared/13.0.2000.0__692fbea5521e1304/CrystalDecisions.Shared.dll----------------------------------------CrystalDecisions.ReportAppServer.CommLayer&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.ReportAppServer.CommLayer/13.0.2000.0__692fbea5521e1304/CrystalDecisions.ReportAppServer.CommLayer.dll----------------------------------------CrystalDecisions.ReportAppServer.ClientDoc&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.ReportAppServer.ClientDoc/13.0.2000.0__692fbea5521e1304/CrystalDecisions.ReportAppServer.ClientDoc.dll----------------------------------------CrystalDecisions.ReportAppServer.Controllers&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.ReportAppServer.Controllers/13.0.2000.0__692fbea5521e1304/CrystalDecisions.ReportAppServer.Controllers.dll----------------------------------------CrystalDecisions.ReportAppServer.DataDefModel&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.ReportAppServer.DataDefModel/13.0.2000.0__692fbea5521e1304/CrystalDecisions.ReportAppServer.DataDefModel.dll----------------------------------------CrystalDecisions.ReportAppServer.DataSetConversion&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.ReportAppServer.DataSetConversion/13.0.2000.0__692fbea5521e1304/CrystalDecisions.ReportAppServer.DataSetConversion.dll----------------------------------------CrystalDecisions.ReportAppServer.CubeDefModel&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.ReportAppServer.CubeDefModel/13.0.2000.0__692fbea5521e1304/CrystalDecisions.ReportAppServer.CubeDefModel.dll----------------------------------------CrystalDecisions.ReportAppServer.ReportDefModel&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.ReportAppServer.ReportDefModel/13.0.2000.0__692fbea5521e1304/CrystalDecisions.ReportAppServer.ReportDefModel.dll----------------------------------------log4net&nbsp; &nbsp; Assembly Version: 1.2.10.0&nbsp; &nbsp; Win32 Version: 1.2.10.0&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_32/log4net/1.2.10.0__692fbea5521e1304/log4net.dll----------------------------------------System.Web&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_32/System.Web/2.0.0.0__b03f5f7f11d50a3a/System.Web.dll----------------------------------------CrystalDecisions.Shared.resources&nbsp; &nbsp; Assembly Version: 13.0.2000.0&nbsp; &nbsp; Win32 Version: 13.0.1.220&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/CrystalDecisions.Shared.resources/13.0.2000.0_en_692fbea5521e1304/CrystalDecisions.Shared.resources.dll----------------------------------------DevExpress.XtraCharts.v11.1&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.XtraCharts.v11.1.DLL----------------------------------------DevExpress.PivotGrid.v11.1.Core&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.PivotGrid.v11.1.Core.DLL----------------------------------------System.Management&nbsp; &nbsp; Assembly Version: 2.0.0.0&nbsp; &nbsp; Win32 Version: 2.0.50727.42 (RTM.050727-4200)&nbsp; &nbsp; CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Management/2.0.0.0__b03f5f7f11d50a3a/System.Management.dll----------------------------------------DevExpress.XtraScheduler.v11.1.Core&nbsp; &nbsp; Assembly Version: 11.1.6.0&nbsp; &nbsp; Win32 Version: 11.1.6.0&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/DevExpress.XtraScheduler.v11.1.Core.DLL----------------------------------------GMap.NET.WindowsForms&nbsp; &nbsp; Assembly Version: 1.5.5.5&nbsp; &nbsp; Win32 Version: 1.5.5.5&nbsp; &nbsp; CodeBase: file:///C:/Program%20Files/BSL%20Complete/BSL%20Complete%20Runtime%206/GMap.NET.WindowsForms.DLL----------------------------------------<br />************** JIT Debugging **************To enable just-in-time (JIT) debugging, the .config file for thisapplication or computer (machine.config) must have thejitDebugging value set in the system.windows.forms section.The application must also be compiled with debuggingenabled.<br />For example:<br />&lt;configuration&gt;&nbsp; &nbsp; &lt;system.windows.forms jitDebugging=\"true\" /&gt;&lt;/configuration&gt;<br />When JIT debugging is enabled, any unhandled exceptionwill be sent to the JIT debugger registered on the computerrather than be handled by this dialog box.<br /><br /></p>",
+    "PostedDate": "2011-07-23T07:47:16.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646503",
+    "ThreadId": "266265",
+    "Html": "<p>hm, can you try make a test app and only call System.Reflection.Assembly.LoadFile(\"c:\\..\\\\..\\..........\\v73_NET2_x86\\System.Data.SQLite.dll\");</p>",
+    "PostedDate": "2011-07-23T07:54:13.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646527",
+    "ThreadId": "266265",
+    "Html": "<p>Where should that go ? in the &nbsp;SQLitePureImageCache.cs</p>",
+    "PostedDate": "2011-07-23T09:04:36.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646530",
+    "ThreadId": "266265",
+    "Html": "<p>no in your test app, called ConsoleApplication, void Main { try{ Assembly.LoadFile(..); } catch(Exception e) { Console.WriteLine(\"error: \" + e); Console.ReadLine(); } }</p>",
+    "PostedDate": "2011-07-23T09:12:04.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646555",
+    "ThreadId": "266265",
+    "Html": "<p>Sorry, am back now.</p>\r\n<p>I created the test console app. It works fine on my development machine, but when i deploy this</p>\r\n<p>is the exception :</p>\r\n<p>&nbsp;</p>\r\n<p>Request for the permission of type 'System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken = b77a5c561934e089' failed.</p>\r\n<p>&nbsp;</p>\r\n<p>The deployment machine is simply an empty VM machine, XP SP3, NET 2, NET 4</p>",
+    "PostedDate": "2011-07-23T12:10:11.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646556",
+    "ThreadId": "266265",
+    "Html": "<p>hm, can you try add this before loading dll:</p>\r\n<p>FileIOPermission filePerm = new FileIOPermission(FileIOPermissionAccess.Read, \"C:\\...........\\System.Data.SQLite.dll\");<br />filePerm.Assert();</p>",
+    "PostedDate": "2011-07-23T12:23:50.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646562",
+    "ThreadId": "266265",
+    "Html": "<p>Yes, i thought of that also, but Still no joy,</p>\r\n<p>this is the console app :</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp; &nbsp; &nbsp; Console.WriteLine(\"setting permissions\")</p>\r\n<p>&nbsp; &nbsp; &nbsp; Try&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>Dim fileperm As New System.Security.Permissions.FileIOPermission(System.Security.Permissions.FileIOPermissionAccess.Read, \"C:\\Documents and Settings\\Administrator\\Local Settings\\Application <span style=\"white-space: pre;\"> </span>Data\\GMap.NET\\DllCache\\v73_NET2_x86\\System.Data.SQLite.dll\")&nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>&nbsp; &nbsp; &nbsp; &nbsp;fileperm.Assert()</p>\r\n<p>&nbsp; &nbsp; &nbsp; Catch ex As Exception&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>Console.WriteLine(\"error setting read permissions \" &amp; ex.Message.ToString)&nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>End Try&nbsp; &nbsp; &nbsp; Console.WriteLine(\"permissions set\")</p>\r\n<p><br /><span style=\"white-space: pre;\"> </span>&nbsp; &nbsp; &nbsp; Console.WriteLine(\"loading assembly\")&nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>Try&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;System.Reflection.Assembly.LoadFile(\"C:\\Documents and Settings\\Administrator\\Local Settings\\Application Data\\GMap.NET\\DllCache\\v73_NET2_x86\\System.Data.SQLite.dll\")&nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>Catch ex As Exception&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>Console.WriteLine(\"error \" &amp; ex.Message.ToString)&nbsp; &nbsp; &nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>End Try&nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>Console.WriteLine(\"loaded\")</p>\r\n<p>&nbsp; &nbsp; &nbsp; MsgBox(\"done\")</p>\r\n<p>&nbsp;</p>\r\n<p>This is the result :</p>\r\n<p>&nbsp;</p>\r\n<p>setting permissions</p>\r\n<p>permissions set</p>\r\n<p>loading assembly</p>\r\n<p>error Could not load file or assembly 'System.Data.SQLite, Version=1.0.73.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. This application has failed to start because the application configuration is incorrect. Reinstalling the application may fix this problem. (Exception from HRESULT: 0x800736B1)</p>\r\n<p>loaded</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-07-23T12:46:51.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646566",
+    "ThreadId": "266265",
+    "Html": "<p>tried&nbsp;FileIOPermissionAccess.Unrestricted ?</p>",
+    "PostedDate": "2011-07-23T12:58:28.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646567",
+    "ThreadId": "266265",
+    "Html": "<p>no,</p>\r\n<p>&nbsp;</p>\r\n<p>But i looking in the events and in the system tab there are these 3 entries :</p>\r\n<p>&nbsp;</p>\r\n<p>Generate Activation Context failed for C:\\Documents and Settings\\Administrator\\Local Settings\\Application Data\\GMap.NET\\DllCache\\v73_NET2_x86\\System.Data.SQLite.dll. Reference error message: The operation completed successfully.</p>\r\n<p>&nbsp;</p>\r\n<p>Dependent Assembly Microsoft.VC90.CRT could not be found and Last Error was The referenced assembly is not installed on your system.</p>\r\n<p>&nbsp;</p>\r\n<p>Resolve Partial Assembly failed for Microsoft.VC90.CRT. Reference error message: The referenced assembly is not installed on your system.</p>",
+    "PostedDate": "2011-07-23T13:09:24.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646568",
+    "ThreadId": "266265",
+    "Html": "<p>sorry, yes, i did try &nbsp; AllAccess, &nbsp;i don't have &nbsp; Unrestricted (NET 2 ?????)</p>\r\n<p>the error is still there</p>\r\n<p>are you able to distribute the console app on a virgin machine?</p>",
+    "PostedDate": "2011-07-23T13:14:54.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646570",
+    "ThreadId": "266265",
+    "Html": "<p>try install this on your test machine http://www.microsoft.com/download/en/details.aspx?id=5582</p>",
+    "PostedDate": "2011-07-23T13:21:52.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646571",
+    "ThreadId": "266265",
+    "Html": "<p>I got it working by installing this on the deployment machine .....</p>\r\n<h2>Microsoft Visual C++ 2008 SP1 Redistributable Package (x86)</h2>\r\n<p>But its another package to be loaded onto all machines now it seems. &nbsp;This wasn't the case</p>\r\n<p>before with your previous builds.</p>\r\n<p>But at least it is working now,</p>\r\n<p>Thanks again for your help.</p>",
+    "PostedDate": "2011-07-23T13:32:45.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646575",
+    "ThreadId": "266265",
+    "Html": "<p>i wonder if it's the same with .NET4, i'll try to experiment and include required additional dlls by default or get rid of them somehow ;}, thanks for identifying the issue!</p>",
+    "PostedDate": "2011-07-23T13:52:08.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "647291",
+    "ThreadId": "266265",
+    "Html": "<p>done, should work anywhere without any configs</p>",
+    "PostedDate": "2011-07-25T12:01:31.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "647831",
+    "ThreadId": "266265",
+    "Html": "<p>Yes, can confirm is now working without the need for MS Visual C++ Package,</p>\r\n<p>Good work.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2011-07-26T09:51:00.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "485377",
+    "ThreadId": "224990",
+    "Html": "<p>Ola,</p>\r\n<p>I have a list of addresses (over 2000) in a combobox. Each time I change the value of the combobox a new CurrentPosition = New PointLatLng(... , ...) is set. The map &quot;navigates&quot; to the correponding PontLatLng perfectly. Now I want to add a marker to the addresses. I found a way to add markers using the overlay, but I need 7 lines of code for each address.</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> Layer_Markers <span style=\"color:blue\">As</span> GMapOverlay\r\n<span style=\"color:blue\">Private</span> CurrentMarker <span style=\"color:blue\">As</span> GMapMarker\r\n<span style=\"color:blue\">Private</span> TempPoint <span style=\"color:blue\">As</span> PointLatLng\r\n<span style=\"color:blue\">Private</span> TempMarker <span style=\"color:blue\">As</span> GMapMarker\r\n\r\n<span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> load_map()\r\n    TempPoint = <span style=\"color:blue\">New</span> PointLatLng(53.219514, 5.483869)\r\n    TempMarker = <span style=\"color:blue\">New</span> GMapMarkerGoogleGreen(TempPoint)\r\n    Layer_Markers = <span style=\"color:blue\">New</span> GMapOverlay(map, <span style=\"color:#a31515\">&quot;Layer_One&quot;</span>)\r\n\r\n    Layer_Markers.Markers.Add(TempMarker)\r\n    map.Overlays.Add(Layer_Markers)\r\n    CurrentMarker = TempMarker\r\n    map.ZoomAndCenterMarkers(<span style=\"color:#a31515\">&quot;Layer_One&quot;</span>)\r\n</pre>\r\n</div>\r\n<p>I use the Combobox-SelectedIndexChanged_event to set the PointLatLng</p>\r\n<pre><pre><span style=\"color:blue\">Select</span> <span style=\"color:blue\">Case</span> myCombobox.Text\r\n    <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;blabla&quot;</span>\r\n       gMap.CurrentPosition = <span style=\"color:blue\">New</span> PointLatLng(..., ...)\r\n    <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;more_blabla&quot;</span>\r\n       gMap.CurrentPosition = <span style=\"color:blue\">New</span> PointLatLng(..., ...)\r\n    .... etc (<span style=\"color:blue\">for</span> more <span style=\"color:blue\">then</span> 2000 times\r\n</pre>\r\n</pre>\r\n<p>I guess you can understand that I don't want to add all the lines on every &quot;Case&quot;. So I was wondering if there was a quicker way or perhaps that could be implemented:</p>\r\n<p>something simple like:</p>\r\n<pre><pre>gMap.CurrentPosition = <span style=\"color:blue\">New</span> PointLatLng(..., ...)<br>gMap.Markers.Add(gMap.CurrentPosition)   '  one line only to add the marker</pre>\r\n</pre>\r\n<p>Thanks for the help in advance.</p>",
+    "PostedDate": "2010-08-26T13:30:45.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485394",
+    "ThreadId": "224990",
+    "Html": "<p>create a function, use it ;}</p>",
+    "PostedDate": "2010-08-26T14:08:11.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485519",
+    "ThreadId": "224990",
+    "Html": "<p>Good point there. Didn't think of it. But wondering if it's possible to implement it in the dll.</p>",
+    "PostedDate": "2010-08-26T22:53:53.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485543",
+    "ThreadId": "224990",
+    "Html": "<p>yes but i need to know how it looks, and you can easily create extension method, so it looks that function is 'inside' dll, later i can put it there really</p>",
+    "PostedDate": "2010-08-27T00:07:21.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485551",
+    "ThreadId": "224990",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> PlaatsMarker(<span style=\"color:blue\">ByVal</span> myPos <span style=\"color:blue\">As</span> Windows.Point)\r\n        myMarker = <span style=\"color:blue\">New</span> GMap.NET.WindowsPresentation.GMapMarker(GMapControl1.FromLocalToLatLng(<span style=\"color:blue\">CInt</span>(myPos.X), <span style=\"color:blue\">CInt</span>(myPos.Y)))\r\n        <span style=\"color:blue\">Dim</span> myMemoryStream <span style=\"color:blue\">As</span> MemoryStream = <span style=\"color:blue\">New</span> MemoryStream\r\n        <span style=\"color:blue\">Dim</span> strFile <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = strGraphicsPath &amp; <span style=\"color:#a31515\">&quot;Down_16.png&quot;</span>\r\n        <span style=\"color:blue\">Dim</span> myFileStream <span style=\"color:blue\">As</span> FileStream = <span style=\"color:blue\">New</span> FileStream(strFile, FileMode.Open, FileAccess.Read)\r\n        myMemoryStream.SetLength(myFileStream.Length)\r\n        myFileStream.Read(myMemoryStream.GetBuffer(), 0, <span style=\"color:blue\">CInt</span>(myFileStream.Length))\r\n        <span style=\"color:blue\">Dim</span> mySource <span style=\"color:blue\">As</span> BitmapImage = <span style=\"color:blue\">New</span> BitmapImage()\r\n        myMemoryStream.Flush()\r\n        myFileStream.Close()\r\n        mySource.BeginInit()\r\n        mySource.StreamSource = myMemoryStream\r\n        mySource.EndInit()\r\n        <span style=\"color:blue\">Dim</span> myImage <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> Image\r\n        myImage.Source = mySource\r\n        myImage.Stretch = Stretch.None\r\n        <span style=\"color:blue\">Dim</span> myOffsetX <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span> = Math.Round(mySource.Width)\r\n        <span style=\"color:blue\">Dim</span> myOffSetY <span style=\"color:blue\">As</span> <span style=\"color:blue\">Double</span> = Math.Round(mySource.Height)\r\n\r\n        myMarker.Offset = <span style=\"color:blue\">New</span> System.Windows.Point(-myOffsetX, -myOffSetY)\r\n        myMarker.ForceUpdateLocalPosition(GMapControl1)\r\n        myMarker.Shape = myImage\r\n        GMapControl1.Markers.Add(myMarker)\r\n\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n<pre> </pre>\r\n</div>",
+    "PostedDate": "2010-08-27T00:25:03.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485556",
+    "ThreadId": "224990",
+    "Html": "<p>hm.. are you using old version&nbsp;ForceUpdateLocalPosition is internal now, no need to call</p>",
+    "PostedDate": "2010-08-27T00:39:45.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485562",
+    "ThreadId": "224990",
+    "Html": "<p>Radioman,</p>\r\n<p>Yes, i use older verion (1.4.92). In newer version my polygons doesn't work any more. (WPF)</p>\r\n<p>We had a discussion about this before. But i couldn't resolve this. So i still use older version.</p>\r\n<p>But the code i gave works quick and fine.</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-08-27T00:53:28.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485563",
+    "ThreadId": "224990",
+    "Html": "<p>hm..</p>",
+    "PostedDate": "2010-08-27T00:55:00.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485571",
+    "ThreadId": "224990",
+    "Html": "<p>Thanks Heru. First need to try to understand your code. Seems there is a lot I don't need to add the marker.</p>\r\n<p>EDIT: Won't work, 'cause I need to work with &quot;overlay&quot;. But mucho thanks for thinking with me.</p>",
+    "PostedDate": "2010-08-27T01:24:02.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

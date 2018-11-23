@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "723684",
+    "ThreadId": "285765",
+    "Html": "<p>Hello,</p>\n<p>I need&nbsp;to put a&nbsp;label&nbsp;in&nbsp;the center of each&nbsp;polygon.&nbsp;As&nbsp;I can&nbsp;do  this?</p>\n<p>Thanks.</p>",
+    "PostedDate": "2012-01-11T07:19:36.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723687",
+    "ThreadId": "285765",
+    "Html": "<p>create custom polygon and override&nbsp;OnRender</p>",
+    "PostedDate": "2012-01-11T07:28:34.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723721",
+    "ThreadId": "285765",
+    "Html": "<p><span class=\"hps\">You could</span>&nbsp;<span class=\"hps\">give me an example</span>&nbsp;<span class=\"hps\">of the above</span>?</p>",
+    "PostedDate": "2012-01-11T08:15:07.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723764",
+    "ThreadId": "285765",
+    "Html": "<p><em>class myPlogon : GMapPolygon</em><br /><em>{</em><br /><em>&nbsp;public override void OnRender()</em><br /><em>&nbsp;{</em><br /><em>&nbsp; &nbsp;...</em><br /><em>&nbsp;}</em><br /><em>}&nbsp;</em></p>",
+    "PostedDate": "2012-01-11T09:16:29.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723797",
+    "ThreadId": "285765",
+    "Html": "<p>But the OnRender() method don't exist :S.</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">class</span> CustomPolygon : GMapPolygon\r\n    {\r\n        <span style=\"color: blue;\">public</span> CustomPolygon(List&lt;PointLatLng&gt; points, <span style=\"color: blue;\">string</span> name)\r\n            : <span style=\"color: blue;\">base</span>(points, name)\r\n        {\r\n            \r\n        }\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> OnRender(System.Drawing.Graphics g)\r\n        {\r\n            g.DrawString(<span style=\"color: #a31515;\">\"Custom Text\"</span>, <span style=\"color: blue;\">new</span> Font(<span style=\"color: #a31515;\">\"Segoe UI\"</span>, 10, GraphicsUnit.Pixel), <span style=\"color: blue;\">new</span> SolidBrush(Color.Red), 0, 0);\r\n        }\r\n    }\r\n</pre>\r\n</div>\r\n</p>\r\n<p><span class=\"hps\">In \"</span>public override void OnRender(System.Drawing.Graphics g)<span class=\"hps\">\" is presented</span>&nbsp;<span class=\"hps\">in</span>&nbsp;<span class=\"hps\">an error</span>: Could not find&nbsp;<span class=\"hps\">any</span>&nbsp;<span class=\"hps\">appropriate member</span>&nbsp;<span class=\"hps\">to override.</span></p>\r\n<p>The .dll file version is&nbsp;1.6.0.0.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2012-01-11T10:05:06.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723807",
+    "ThreadId": "285765",
+    "Html": "<p>try latest changeset</p>",
+    "PostedDate": "2012-01-11T10:21:54.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988884",
+    "ThreadId": "285765",
+    "Html": "\r\n<p>I Tried This Code But always draws Label At the center of the map, how do you calculate the centroid of the Polygon??&nbsp;</p>\r\n<p>Tks</p>\r\n",
+    "PostedDate": "2013-01-18T11:27:17.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1088179",
+    "ThreadId": "285765",
+    "Html": "PointLatLng calculaCentroPoligono(List&lt;PointLatLng&gt; PuntosPoligono)<br />\n<pre><code>    {\n        PointLatLng Centroide= new PointLatLng();\n        int suma = 0;\n        double Lat = 0;\n        double Lng = 0;\n        foreach (PointLatLng Punto in PuntosPoligono)\n        {\n            suma++;\n            Lat += Punto.Lat;\n            Lng += Punto.Lng;\n\n        }\n        Lat = Lat/suma;\n        Lng = Lng/suma;\n\n        Centroide.Lat=Lat;\n        Centroide.Lng=Lng;\n\n        return Centroide;\n    }</code></pre>\n\n",
+    "PostedDate": "2013-09-04T04:29:36.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

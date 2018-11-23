@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1361279",
+    "ThreadId": "585278",
+    "Html": "I have an application with an embedded GMapControl with a bunch of timers. The map is created only once, and there are a bunch of routes and overlays drawn only once in the form constructor. \r<br />\nThe only repetitive action happening related to the GMapControl is the hiding and displaying of the routes (they have already been drawn once at load). \r<br />\n<br />\nOnce the application runs continuously for about 8 minutes, 10000 window handlers are created and the application crashes. A win32.exe error is thrown saying &quot;Error creating window handles&quot;. Is there perhaps a Dispose() method that needs to be explicitly called for certain controls in GMap.NET? Is there another possibility?<br />\n",
+    "PostedDate": "2015-03-09T06:42:42.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

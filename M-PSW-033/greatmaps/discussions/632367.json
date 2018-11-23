@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1417016",
+    "ThreadId": "632367",
+    "Html": "Is there a reason why GMapRoute.Stroke is marked as NonSerialized?\r<br />\n<br />\nI'm attempting to save/restore user-drawn routes by serializing their containing GMapOverlays, and while the route positions come out fine, they all lose their style info - which I'm pretty sure is due to Stroke not serializing with the rest of other info about the routes...?  I also see that the &quot;stroke&quot; line is commented out in GMapRoute(SerializationInfo info, StreamingContext context) constructor...<br />\n",
+    "PostedDate": "2015-04-22T22:01:30.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1417019",
+    "ThreadId": "632367",
+    "Html": "...I see why, because Pen/Color aren't serializable.  Better solution:\r<br />\n<br />\nSerialize like:<br />\n<pre><code>info.AddValue(&quot;StrokeColor&quot;, ColorTranslator.ToHtml(this.Stroke.Color));\ninfo.AddValue(&quot;StrokeWidth&quot;, this.Stroke.Width);\n</code></pre>\n\nDeserialize like:<br />\n<pre><code>float strokeWidth = Extensions.GetStruct&lt;float&gt;(info, &quot;StrokeWidth&quot;, 1);\nColor strokeColor = ColorTranslator.FromHtml(Extensions.GetValue&lt;string&gt;(info, &quot;StrokeColor&quot;, &quot;&quot;));\nthis.Stroke = new Pen(strokeColor, strokeWidth);\n</code></pre>\n\nWorks fine :)<br />\n",
+    "PostedDate": "2015-04-22T22:18:21.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

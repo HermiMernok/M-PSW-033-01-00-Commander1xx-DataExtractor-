@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "936834",
+    "ThreadId": "401981",
+    "Html": "At first, BIG thanks everyone on this GreatMap project, especially <a href=\"http://www.codeplex.com/site/users/view/radioman\" rel=\"nofollow\">radioman</a>!!! <br />\nI have two question: <br />\n<br />\n1). How check is marker (my current location from gps) in some specify circle or square area? <br />\nTo explain, I want to check is car on marked parking or not. Parking can be a another marker (10m radius) or square polygon <a href=\"http://imageshack.us/a/img696/7245/areau.jpg\" rel=\"nofollow\">Image1</a><br />\n<br />\n2). How remove blue cross from map control? <a href=\"http://imageshack.us/a/img842/693/bluecross.jpg\" rel=\"nofollow\">Image2</a><br />\n<br />\nRegards.<br />\n",
+    "PostedDate": "2012-11-05T09:59:24.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936842",
+    "ThreadId": "401981",
+    "Html": "<p>if(map.MapProvider.Projection.<strong>GetDistance</strong> &lt; X) { ..</p>\r\n<p>..you use debug build, so you get the blue cross for debugging, in release build there is red center marker, you can turn it off too, map.<em>ShowCenter</em> = false;</p>",
+    "PostedDate": "2012-11-05T10:11:34.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936869",
+    "ThreadId": "401981",
+    "Html": "\r\n<p>Many THANKS radioman for quick answer, works like a charm ;)</p>\r\n",
+    "PostedDate": "2012-11-05T10:56:22.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1002181",
+    "ThreadId": "401981",
+    "Html": "To check if is inside a polygon you can use below code; call it with desired point and a list containing polyngon points (always using Lat/Long coordinates) and will be returned a bool result indicanting if it is inside or not.\r<br />\n<br />\nask if you have any dificult :<br />\n<pre><code>  public bool FindPoint(double pointLat, double pointLng, List&lt;PointLatLng&gt; PontosPolig)\n    {//                             X               y               \n        int sides = PontosPolig.Count();\n        int j = sides - 1;\n        bool pointStatus = false;\n\n        for (int i = 0; i &lt; sides; i++)\n        {\n            if (PontosPolig[i].Lng &lt; pointLng &amp;&amp; PontosPolig[j].Lng &gt;= pointLng ||\n                PontosPolig[j].Lng &lt; pointLng &amp;&amp; PontosPolig[i].Lng &gt;= pointLng)\n            {\n                if (PontosPolig[i].Lat + (pointLng - PontosPolig[i].Lng) /\n                    (PontosPolig[j].Lng - PontosPolig[i].Lng) * (PontosPolig[j].Lat - PontosPolig[i].Lat) &lt; pointLat)\n                {\n                    pointStatus = !pointStatus;\n                }\n            }\n            j = i;\n        }\n        return pointStatus;\n    }\n</code></pre>\n\nregards,\r<br />\n<br />\nmarcelo<br />\n",
+    "PostedDate": "2013-02-16T06:00:44.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025019",
+    "ThreadId": "401981",
+    "Html": "How does it work? Is sorting or Clock-wise-ness required?\r<br />\nIs it on wikipedia or such??\r<br />\nI just ran it and it seems too good to be true.<br />\n<pre><code>\n        static void Main(string[] args)\n        {\n            List&lt;PointLatLng&gt; PontosPolig = new List&lt;PointLatLng&gt;();\n\n            PointLatLng p1 = new PointLatLng(0, 0);\n            PointLatLng p2 = new PointLatLng(2, 0);\n            PointLatLng p3 = new PointLatLng(2, 2);\n            PointLatLng p4 = new PointLatLng(0, 2);\n\n            PontosPolig.Add(p1);\n            PontosPolig.Add(p2);\n            PontosPolig.Add(p3);\n            PontosPolig.Add(p4);\n\n            bool retval = false;\n\n            retval= FindPoint(1.0, 1.0, PontosPolig);\n            retval = FindPoint(10.0, 10.0, PontosPolig);\n            retval = FindPoint(0.0, 0.0, PontosPolig);\n            retval = FindPoint(-1.0, -1.0, PontosPolig);\n\n            retval = FindPoint(2.01, 1.0, PontosPolig);\n            retval = FindPoint(1.0, 2.01, PontosPolig);\n\n            retval = FindPoint(0.7, 0.7, PontosPolig);\n            retval = FindPoint(0.01, 0.01, PontosPolig);\n            retval = FindPoint(1.99, 1.99, PontosPolig);\n            retval = FindPoint(0.001, 1.999, PontosPolig);\n\n            retval = FindPoint(1.0, 2.01, PontosPolig);\n        }\n\n        public static bool FindPoint(double pointLat, double pointLng, List&lt;PointLatLng&gt; PontosPolig)\n        {//                             X               y               \n            int sides = PontosPolig.Count();\n            int j = sides - 1;\n            bool pointStatus = false;\n\n            for (int i = 0; i &lt; sides; i++)\n            {\n                if (PontosPolig[i].Lng &lt; pointLng &amp;&amp; PontosPolig[j].Lng &gt;= pointLng ||\n                    PontosPolig[j].Lng &lt; pointLng &amp;&amp; PontosPolig[i].Lng &gt;= pointLng)\n                {\n                    if (PontosPolig[i].Lat + (pointLng - PontosPolig[i].Lng) /\n                        (PontosPolig[j].Lng - PontosPolig[i].Lng) * (PontosPolig[j].Lat - PontosPolig[i].Lat) &lt; pointLat)\n                    {\n                        pointStatus = !pointStatus;\n                    }\n                }\n                j = i;\n            }\n            return pointStatus;\n        }\n\n\n\n\n    }\n}\n</code></pre>\n\n",
+    "PostedDate": "2013-04-03T11:17:49.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025387",
+    "ThreadId": "401981",
+    "Html": "p.s.  check GMapPolygon.<strong>IsInside</strong><br />\n",
+    "PostedDate": "2013-04-04T06:58:17.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1009922",
+    "ThreadId": "435292",
+    "Html": "Hello again.\r<br />\nMy problem is that those 5 TileLoader threads keep hanging in memory even after i close the control. Furtheremore if i reopen the control - i get 10 TileLoader threads. If i close it and open again - its 15. Obvious memory leak. \r<br />\nSo i was wondering if there is a method which disposes of GMapControl correctly terminating associated threads. I cant seem to find any. \r<br />\nCheers.<br />\n",
+    "PostedDate": "2013-03-04T05:51:59.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009936",
+    "ThreadId": "435292",
+    "Html": "how do you 'open'/'close' it?<br />\n",
+    "PostedDate": "2013-03-04T06:21:23.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1010360",
+    "ThreadId": "435292",
+    "Html": "By &quot;open&quot; i mean creating a new instance of GMapControl. By &quot;close&quot; i mean unloading this instance from logical tree.<br />\n",
+    "PostedDate": "2013-03-04T21:43:18.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1010423",
+    "ThreadId": "435292",
+    "Html": "Disposing is invoked by Dispatcher.ShutdownStarted, you can manually call map.Dispose() to be sure<br />\n",
+    "PostedDate": "2013-03-05T01:18:40.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1010468",
+    "ThreadId": "435292",
+    "Html": "Oh. Fore some reason i failed to see the Dispose method -_- Thx.<br />\n",
+    "PostedDate": "2013-03-05T03:00:09.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1259767",
+    "ThreadId": "549668",
+    "Html": "I am trying to update positions on the map (that are changing) in Windows forms. I have tried to do this by having a timer fire every second and reload the new markers. It works but when I try to move or zoom the map it freezes and the program has to be restarted. I have tried to stop the timer when a zoom or a move is started but I cannot find a way of detecting when the map is ready to receive updates again. I have tried waiting until the onTileLoadComplete but that does not seem to work as I think it fires before all tiles are reloaded.\r<br />\n<br />\nWhat is the best way to do this?\r<br />\n<br />\nThank you in advance.\r<br />\n<br />\nAlan <br />\n",
+    "PostedDate": "2014-06-25T10:03:16.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1262077",
+    "ThreadId": "549668",
+    "Html": "check demo source, there are few demos using vehicles and planes for real time data display<br />\n",
+    "PostedDate": "2014-07-02T11:11:50.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

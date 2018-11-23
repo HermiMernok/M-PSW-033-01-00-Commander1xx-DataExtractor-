@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "it's only for demos, and preview builds therefore if that file exists it always contains string 'License', delete that file it's unnecessary anyway ;}",
+    "ClosedDate": "2013-01-03T13:49:52.183-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In MainForm.CS of the demo in the comboBoxMapType_DropDownClosed(...) function it checks for the existence of a text file called \"License.txt\"\n\nIf \"License.txt\" is present it then attempts to read it looking for term \"License\" if this term is not present li = -1 and when used as an array index will throw an \"ArgumentOutOfRangeException\" \n\nI propose changing it to look for if li < 0:\n\nif(li <0)\n{\n\n}\nelse\n{\n     txt = ctn.Substring(li);\n}\n",
+    "LastUpdatedDate": "2013-01-03T13:49:52.183-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-12-14T06:11:16.43-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unstable License File Code",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16056
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

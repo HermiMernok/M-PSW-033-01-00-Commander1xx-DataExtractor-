@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "just do not use debug version",
+    "ClosedDate": "2012-07-16T08:29:45.94-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "It appears that the program becomes unstable and crashes when using any of the Google maps.\r\n\r\nIf you switch the maps to any of the Google maps the application appears to hang up. Not responding appears in the title bar. When you go to close the program it then crashes. The information given when I force close the program is given. I will try to acquire more information and post it as I gather it. \r\n\r\nRight now it appears to be in a blocking operation until the maps loads.\r\n\r\nInformation from the error reporting is given:\r\n\r\nszAppName : Demo.WindowsForms.vshost.exe     szAppVer : 10.0.30319.1     \r\nszModName : hungapp     szModVer : 0.0.0.0     offset : 00000000\r\n\r\nC:\\DOCUME~1\\trueb\\LOCALS~1\\Temp\\WERd6d9.dir00\\Demo.WindowsForms.vshost.exe.mdmp\r\nC:\\DOCUME~1\\trueb\\LOCALS~1\\Temp\\WERd6d9.dir00\\appcompat.txt  ",
+    "LastUpdatedDate": "2012-07-16T08:29:45.94-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-07-06T13:13:19.457-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unstable Google Maps",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 16043
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have the same issue. App locks until map loads. This is new, i have using the control over a year. Coogle is blocking access?",
+      "PostedDate": "2012-07-14T15:46:18.58-07:00",
+      "Id": 70146
+    }
+  ]
+}

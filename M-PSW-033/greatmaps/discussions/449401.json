@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1065980",
+    "ThreadId": "449401",
+    "Html": "I have a datagridview which have client name lat,long. I am able to point out all markers on map from datagridview but I want to display client name on marker tootltip text from datagridview.<br />\n<pre><code> while (myReader.Read())\n                {\n                    string Latitude = myReader[&quot;Latitude&quot;].ToString();\n                    string Longitude = myReader[&quot;Longitude&quot;].ToString();\n                    gMapControl1.Position = new PointLatLng(float.Parse(Latitude), float.Parse(Longitude));\n                    GMarkerGoogle marker = new GMarkerGoogle(gMapControl1.Position, GMarkerGoogleType.red);\n                    markersOverlay.Markers.Add(marker);\n                    gMapControl1.Overlays.Add(markersOverlay);\n                    marker.ToolTip = new GMapRoundedToolTip(marker);\n                   marker.ToolTipText = this.dataGridView1.Columns[4].ToString;\n\n                }\n            }</code></pre>\n\n",
+    "PostedDate": "2013-07-09T01:41:04.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067163",
+    "ThreadId": "449401",
+    "Html": "and?<br />\n",
+    "PostedDate": "2013-07-11T11:04:12.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067429",
+    "ThreadId": "449401",
+    "Html": "Radio man, you are star.. I like this Gmap Its been very useful for me as this is my first project  Its really getting interesting  to learn new things. Now  its time  to play with some animations in gmap.net like zooming to markers automatically  and is there anyway to display all markers to the nearest zoom level when it loads.\r<br />\nYou are brilliant........MY 5............<br />\n",
+    "PostedDate": "2013-07-12T02:04:30.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067440",
+    "ThreadId": "449401",
+    "Html": "map.<strong>ZoomAndCenterMarkers</strong><br />\n",
+    "PostedDate": "2013-07-12T02:36:33.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1067449",
+    "ThreadId": "449401",
+    "Html": "thanks radioman..\r<br />\n<br />\nI have the following error now..when using hybrid maps\r<br />\n<br />\nThe type or namespace name 'GoogleHybridMap' does not exist in the namespace 'GMap.NET.MapProviders' (are you missing an assembly reference?)\t<br />\n",
+    "PostedDate": "2013-07-12T02:54:54.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

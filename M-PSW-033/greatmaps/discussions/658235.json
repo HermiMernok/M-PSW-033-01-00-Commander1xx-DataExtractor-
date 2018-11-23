@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1484596",
+    "ThreadId": "658235",
+    "Html": "Hi,\r<br />\nFirst, thanks for the great control, Gmap.Net.\r<br />\nI'm using Gmap.Net on windows form, I want to draw track of an object when I receive its position, I use Routes for this. When I add points to a route, no line is seen on the map, but when I change the zoom of the map, they appear on the map. Also when I set the position of the map after adding a point to the route (gMapControl1.Position = new PointLatLng(...)), it works correctly and I see the route lines on the map, any idea? My code is like below.\r<br />\n<br />\nvoid NewDataReceived(DeviceInfo deviceinf)\r<br />\n{<br />\n<pre><code>//---some codes\n//----For the first time I add layer and route \nif (deviceOverLay == null)\n{\n    deviceOverLay = new GMapOverlay(deviceinf.DeviceId.ToString());\n    gMapControl1.Overlays.Add(deviceOverLay);\n    deviceRoute = new GMapRoute(new List&lt;PointLatLng&gt;(), deviceinf.DeviceName);\n    deviceOverLay.Routes.Add(deviceRoute);\n    //Add all your points here\n    deviceRoute.Points.Add(new PointLatLng(deviceinf.Latitude, deviceinf.Longitude));\n    deviceRoute.Tag = deviceinf;\n}\nelse\n{\n    deviceOverLay.Routes[0].Points.Add(new PointLatLng(deviceinf.Latitude, deviceinf.Longitude));\n}\n\n//if I call this line it works, but I don't want it\n// gMapControl1.Position = new PointLatLng(deviceinf.Latitude, deviceinf.Longitude);  \n//---some codes</code></pre>\n\n}<br />\n",
+    "PostedDate": "2016-09-24T23:27:03.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484607",
+    "ThreadId": "658235",
+    "Html": "replace last line:<br />\n<pre><code>gMapControl1.Invalidate();</code></pre>\n\n",
+    "PostedDate": "2016-09-25T07:11:57.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484639",
+    "ThreadId": "658235",
+    "Html": "radioman, I tried Invalidate but it <strong>doesn't solve</strong> the problem, any other idea? I used the gmapcontrol inside a windows form that this form is used as a dockable windows , can tthis cause the problem?<br />\n",
+    "PostedDate": "2016-09-25T23:01:25.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484709",
+    "ThreadId": "658235",
+    "Html": "it does<br />\n",
+    "PostedDate": "2016-09-26T14:15:29.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484766",
+    "ThreadId": "658235",
+    "Html": "Hi,<br />\nI changed my project to simple one, now the map control is on the main form of my application , <strong>still the bug exists</strong>.<br />\nThere are two notes to consider about this code: <br />\nFirst, points are added to the path, one by one.<br />\nSecond, adding points to the path is called from another thread, then cross thread code is used( I mean calling <strong>InvokeRequired</strong> check and ... )<br />\nAny idea about the bug?<br />\nthanks in advance.<br />\n",
+    "PostedDate": "2016-09-27T05:10:23.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484861",
+    "ThreadId": "658235",
+    "Html": "Hi,\r<br />\nSomeone in stackoverflow  helped me in solving the issue, the final solution is calling below methods together:<br />\n<pre><code>gMapControl1.Invalidate();\ngMapControl1.UpdateRouteLocalPosition(deviceRoute);\n//----in my code deviceRoute is deviceOverLay.Routes[0]</code></pre>\n\n<a href=\"http://stackoverflow.com/questions/39470378/no-line-between-points-in-gmap-net-route\" rel=\"nofollow\">here is the link of the answer in stackoverflow</a><br />\n",
+    "PostedDate": "2016-09-28T06:23:45.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-09-28T06:23:53.227-07:00"
+  }
+]

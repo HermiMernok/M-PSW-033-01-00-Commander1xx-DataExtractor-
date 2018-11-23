@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "568798",
+    "ThreadId": "246691",
+    "Html": "<p>I have a .CSV POI file which I download, parse and convert to collection of POI objects, about 2000 of them (Starbucks locations all over US)<br />All that works fine, untill I start adding the objects to the layer as markers (including MouseOver tooltip for each).</p>\n<p>The adding process takes quite a while (few minutes) after which any and all performance of the map makes it unusable - any opration such as drag the map, zooming, etc, takes 30-60 seconds each...<br />My collection of POI objects is an array of objects... Do you think this is because it is an array vs (Hashtable for example) or it is intrinsic performance issue of the GMap.NET due to large number of markers?</p>\n<p>&nbsp;Also it seems that the app memory consumption shot up to 1.2GB RAM from a \"normal\" of 100MB-200MB...</p>",
+    "PostedDate": "2011-02-18T15:40:18.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "568812",
+    "ThreadId": "246691",
+    "Html": "<p>can you fix it? ;} ..anyway why do you need such many markers, and what version do you use, wpf?</p>",
+    "PostedDate": "2011-02-18T16:24:01.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "568824",
+    "ThreadId": "246691",
+    "Html": "<p>Well, it a mapping app, isn't it? so I use free&nbsp;POI files, such as Starbucks in US, Shell gas stations, Department stores, etc, for source of data. They sometimes contain several thousands locations in the form of Lat,Lng,Name,address.<br />So I parse .csv file into C# objects that I create and add to Dictionary. Then I loop through the dictionary and for every location I create a marker with a toolip and add it to the layer...</p>\n<p>Fix it? well, I wish I know at this point where this performance hit is coming from. It does not look that it is my processing... since after the initial display I have issues in any operation on the map - like tooltip is displayed after 30 seconds. In addition I see some disk activity... may it be markers caching?</p>\n<p>I use WinForms, NOT WPF...</p>\n<p>I guess at this point I will start from 100 points and start incrementing it by 100 every new run... how would you suggest detecting where the bottleneck is?</p>\n<p>UPDATE:&nbsp; when performance is sometime more acceptable I am also getting force break in <span style=\"font-size: x-small;\">GetImageFrom function</span>:</p>\n<pre><pre>            if(UseMemoryCache)\r\n            {\r\n               MemoryStream m = GetTileFromMemoryCache(new RawTile(type, pos, zoom));\r\n               if(m != null)\r\n               {\r\n                  if(GMaps.Instance.ImageProxy != null)\r\n                  {\r\n                     ret = GMaps.Instance.ImageProxy.FromStream(m);\r\n                     if(ret == null)\r\n                     {\r\n#if DEBUG\r\n                        Debug.WriteLine(\"Image disposed in MemoryCache o.O, should never happen ;} \" + new RawTile(type, pos, zoom));\r\n                        if(Debugger.IsAttached)\r\n                        {\r\n                           <span style=\"color: #ff0000;\"><strong>Debugger.Break();\r\n</strong></span>                        }\r\n#endif\r\n\r\n#if !PocketPC\r\n                        m.Dispose();\r\n#else\r\n                        (m as IDisposable).Dispose();\r\n#endif\r\n                     }\r\n                  }\r\n               }\r\n</pre>\n</pre>",
+    "PostedDate": "2011-02-18T17:01:25.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "568929",
+    "ThreadId": "246691",
+    "Html": "<p>i see, what changeset do you use?</p>\r\n<p>The issue is that current version recalculate markers position when you drag, so if you have 1000 objects, there will be 1000 calculations for each pixel, i have another version in optimization branch which doesn't do that, but simply changes render offset without recalculation, but ;] it has some limitations so i have create virtual center for each 100k px, because gdi/wpf use damn float precision and the tiles renders overlapped, and it isn't complete yet ;/</p>\r\n<p>Also there is floating idea about clustering the markers, so it displays only some portion of all markers for current zoom level, zero progress on this so far ;}</p>",
+    "PostedDate": "2011-02-19T04:17:52.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569013",
+    "ThreadId": "246691",
+    "Html": "<p>I am not sure, the assembly version of the Core is 1.5.3.3</p>\r\n<p>I guess I am out of luck... my only consolation is that the problem is not in my code....so&nbsp;I am limited probably to a few hundred markers...the only solution in this case is for the user to indicate first the local area where he/she wants the data to show up...</p>\r\n<p>clustering markers sounds ok....I'd take the visible area and add the width/height from all 4 sides of the view and would recalc everything there - that is recalculating only the visible area....although sometimes it could be quite a lot if it is zoomed out...</p>",
+    "PostedDate": "2011-02-19T09:57:26.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "572840",
+    "ThreadId": "246691",
+    "Html": "<p>Although its not a true answer the way i get around the same problem is that i do a distance check to the current marker and only show those markers within range</p>\r\n<p>I dont reeay&nbsp; need to kno if theres a starbucks 200miles from my current position just the one within 10 miles (:</p>",
+    "PostedDate": "2011-02-27T10:04:28.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "572937",
+    "ThreadId": "246691",
+    "Html": "<p>I agree that as a workaround it is ok (based on the distance), however it is not ok for scenarios where the user is not looking the immediate vicinity, but for a global picture...<br />In my particular case I am trying to display many different categories of info. So, starbuck is propbably relevant to immediate vicinity of the user but if I am trying to display info for demographic purposes then i need to see all 6,000 point thourghout the US...bummer!</p>\n<p>Or say you trying to plan a trip and display all resting areas for big RVs... or some other info thrught US.<br />what bothers me is that it gets into Debugger.Break() - how would I know the number of points to limit myself? trial and error? what if some other machine has less memory?</p>",
+    "PostedDate": "2011-02-27T15:31:04.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

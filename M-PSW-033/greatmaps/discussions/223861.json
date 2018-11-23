@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "481522",
+    "ThreadId": "223861",
+    "Html": "<p>Hi,</p>\r\n<p>When I want to do reverse geocode, the response for GetPlacemarkFromGeocoder is null even when: there is no valid address for that position OR when the server is unreachable (maybe a firewall, no internet connection, etc.). But how can I detect if I can connect or not to the server (and then I will now if the &quot;null&quot; that returns is from a CONNECTION ERROR and not because of the invalid position)?</p>\r\n<p>When&nbsp;I have&nbsp;only a few positions and there is a problem with connection it&acute;s ok, but when I have more positions to convert, then my app will freeze until it gets a timeot for EVERY position.</p>\r\n<p>I can check for the &quot;null&quot; and skip the verification of the other positions, but what if the &quot;null&quot; is from a invalid position instead of a timeout?</p>\r\n<p>Thank you!</p>\r\n<p>P.S.: Congratulations for your excelent work!!!</p>\r\n<p>Rudolf Gutlich</p>",
+    "PostedDate": "2010-08-17T11:27:50.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "481674",
+    "ThreadId": "223861",
+    "Html": "<p>hey,</p>\r\n<p>good point!, usual geocoding has response status, maybe i can add this there too, let's try</p>\r\n<p>thx for the tip</p>",
+    "PostedDate": "2010-08-17T21:38:07.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484186",
+    "ThreadId": "223861",
+    "Html": "<p>Hi, there is any news on this topic?</p>\r\n<p>Besides that, I want to know if there is a way on using GetPlacemarkFromGeocoder and return an object with all structure filled i.e. Address, City etc.</p>\r\n<p>I have to parse the string that returns and it isn&acute;t always easy to do.</p>\r\n<p>Sometimes there is no ZIP Code, sometimes there is no Country. It will help if it includes the information also splitted in many properties, like in the XML in this link: <a href=\"http://code.google.com/intl/pt-BR/apis/maps/documentation/geocoding/index.html\">http://code.google.com/intl/pt-BR/apis/maps/documentation/geocoding/index.html</a></p>\r\n<p>Thank you,</p>\r\n<p>Rudolf Gutlich</p>",
+    "PostedDate": "2010-08-24T08:13:53.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484198",
+    "ThreadId": "223861",
+    "Html": "<p>nop</p>",
+    "PostedDate": "2010-08-24T08:34:22.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "498213",
+    "ThreadId": "223861",
+    "Html": "<p>Hi!!!</p>\r\n<p>There is any progress in detecting if the null indicates a invalid position a problem with the connection?<br><br>Thanks!!!</p>",
+    "PostedDate": "2010-09-24T12:26:22.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "498217",
+    "ThreadId": "223861",
+    "Html": "<p>check the source, i changed function to use xml, so now it contains all data and status, but code is incomplete as far as i remember ;}</p>",
+    "PostedDate": "2010-09-24T12:46:53.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "498219",
+    "ThreadId": "223861",
+    "Html": "<p>Ok, I will check it!</p>\r\n<p>If I have any improvements, I&acute;ll let you know!</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2010-09-24T12:49:15.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

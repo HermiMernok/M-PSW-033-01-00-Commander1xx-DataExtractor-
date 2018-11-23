@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1089904",
+    "ThreadId": "456159",
+    "Html": "Hello radioman,\r<br />\n<br />\nThanks for your product. This is great.\r<br />\n<br />\nThere is one problem regarding distance calculation i think.\r<br />\nI noticed you use haversine formula, <a href=\"http://www.movable-type.co.uk/scripts/latlong.html\" rel=\"nofollow\">http://www.movable-type.co.uk/scripts/latlong.html</a> for it. But you use semi-major axis of ellipsoid as &quot;Axis&quot; parameter instead Earth average radius. This will give more precision on equatorial places, but more calculation error as distance from the equator. I think should be use R = 6371210 m. Or need use more complex calculations ( semi-major axis of ellipsoid,  semi-minor axis of ellipsoid and calculate Earth radius for middle point between start point and end point). \r<br />\n<br />\nBest regards.<br />\n",
+    "PostedDate": "2013-09-08T10:57:11.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

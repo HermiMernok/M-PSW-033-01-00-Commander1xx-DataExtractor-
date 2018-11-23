@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "747562",
+    "ThreadId": "299101",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>First of all thanks alot RADIOMAN for your work and all of those who are involved in this project with you supporting the world, I am totally new in the world of maping and geo stuff but after spending a day I am quiet comfortable with your component and\r\n able to build a small prototyp.</p>\r\n<p>so once again THANK YOU</p>\r\n<p>Now I want to clck on a certain point and able to draw a circle by dragging the mouse, can you guide me how can I do this and after that when I complete the drawing i want to get its complete information like radius, distance from the point where I clicked\r\n etc... in miles</p>\r\n<p>&nbsp;</p>\r\n<p>Sorry if I wrote too much text but i tried to clarify things better.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-02-08T10:27:04.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748164",
+    "ThreadId": "299101",
+    "Html": "<p>create custom marker,&nbsp;http://greatmaps.codeplex.com/discussions/294144#post743561</p>\r\n<p>for information, check map.MapProvider.Projection.<strong>GetGroundResolution</strong></p>",
+    "PostedDate": "2012-02-08T23:19:10.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748182",
+    "ThreadId": "299101",
+    "Html": "<p>Thanks for the reply, i have already seen this post( http://greatmaps.codeplex.com/discussions/294144#post743561) but i am confused with the <strong>CircleDiameter</strong> property. How can I find out the diamter of that circle and gets the exact information which I am looking for.</p>\r\n<p>In the mean time i am looking into map.MapProvider.Projection.<strong>GetGroundResolution</strong></p>\r\n<p><br />Thanks</p>",
+    "PostedDate": "2012-02-09T00:13:03.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748193",
+    "ThreadId": "299101",
+    "Html": "<p>meters = GetGroundResolution() * circleDiameterInPixels</p>",
+    "PostedDate": "2012-02-09T00:32:35.337-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748799",
+    "ThreadId": "299101",
+    "Html": "<p>NO radioman, I am sorry man i am bugging you alot, but since morning I am trying but couldn't succeed. I want is to select any place on the map click it and while the left mouse button is down by dragging the mouse I want to draw a cricle in the area and get its info, like radius(Miles or KM) long and lat etc...</p>\r\n<p>Now I tried since your last post but couldn't succeed. If you kindly help me by pasting some code to achive this. I tried to achived this functinality in MouseDown event.</p>\r\n<p>There is one class already available in the WinForms Demo with the name of <strong>GMapMarkerCircle</strong>, do I need to override that class with the one posted at this link</p>\r\n<p>http://greatmaps.codeplex.com/discussions/294144#post743561.</p>\r\n<p>&nbsp;</p>\r\n<p>Sorry to bother you alot.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-02-09T08:32:54.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "751544",
+    "ThreadId": "299101",
+    "Html": "<p>Use this code for the Marker: http://greatmaps.codeplex.com/discussions/294144</p>\n<p>You probably have to change it, to allow to set the diameter in meters/kilometers instead of pixels, so it works for all zoom levels.</p>\n<p>If you only want to display a circle, set fill brush to transparent.</p>\n<p>1) in MouseDown event, you get the start PointLatLng, save that point, set marker there with standard diameter.</p>\n<p>2) in MouseMove event, check if MouseButton is pressed, get the PointLatLng, calculate distance to startpoint from step 1, this is your radius, now just set 2x its value as new Diameter for the marker.</p>",
+    "PostedDate": "2012-02-10T01:48:30.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

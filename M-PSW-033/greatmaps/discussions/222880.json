@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "477922",
+    "ThreadId": "222880",
+    "Html": "<p>Hi,</p>\r\n<p>- Using GMap ver 23f575a70f8d</p>\r\n<p>-&nbsp;Wrote my own cache routine (so I can remove SQLite reference)(uploaded for&nbsp;1 week&nbsp;at <a href=\"http://www.cvs.si/DiskTC.zip\">http://www.cvs.si/DiskTC.zip</a>)</p>\r\n<p>-&nbsp;Developer computer WinXP sp3 - latest fixes</p>\r\n<p>- Test computer Windows 2008 Server R2 x64</p>\r\n<p>-&nbsp;Removed SQLite reference</p>\r\n<p>1. Compiled targeted for x86 (works great on both machines WinXP and Win2008).</p>\r\n<p>2. Compiled targeted for Any CPU (works great on WinXP but not on Win2008): Program opens, load from 10-20 tiles than it looks like&nbsp;the tile fetching routing hangs up. No new tiles are loaded.</p>\r\n<p>3. Compiled targeted for x64 (doesn't work on Win2008): same as before</p>\r\n<p>Any idea?</p>\r\n<p>&nbsp;</p>\r\n<p>Best Regards,</p>\r\n<p>Blaz</p>",
+    "PostedDate": "2010-08-08T23:44:33.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "477945",
+    "ThreadId": "222880",
+    "Html": "<p>hey ;}</p>\r\n<p>i love this issue ;] ..again, sqlite works perfect on both targets(just use x86 sqlite dll{it's by default} and set x86 target -&gt; works on any machines, or use x64 dll and set target to x64 -&gt; works on x64 machines),</p>\r\n<p>but if you don't need it's kiberspeed(<strong>it's sad decision ;/</strong>), then you can remove 'SQLite' from conditional symbol and the engine will use MSsqlCE and it works on AnyCPU target</p>",
+    "PostedDate": "2010-08-09T00:55:56.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "477998",
+    "ThreadId": "222880",
+    "Html": "<p>Hi,</p>\r\n<p>I did kill it, but still got problems ;)</p>\r\n<p>My cache routine (my test shows same speed), removed SQLite, ... still no luck.</p>\r\n<p>Any ideas ?</p>\r\n<p>Blaz</p>",
+    "PostedDate": "2010-08-09T02:36:23.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478163",
+    "ThreadId": "222880",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2010-08-09T08:33:29.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

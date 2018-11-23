@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": "",
+    "Description": "I tested it with cities in the Netherlands, works perfect. Canvas size is dependent of the zoomlevel, but I had problems with zoom 0 (Black canvas) and zoom 5 (\"System.OutOfMemoryException\"), so I didn't use them.\n\nI also created a check if there is enough memory for a particularly zoom level, because the program uses huge amounts of it, and made a check if there is StreetView available on the adress in the first place.\n\nCreated some public properties, and made a UserControl dll. Also added copyrighttext, cachefolder, and loading bar.",
+    "LastUpdatedDate": "2014-04-06T11:38:15.933-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-08-09T03:48:59.15-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "StreetView, memory overload",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 13830
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106841,
+      "FileName": "StreetView.zip",
+      "DownloadUrl": ".\\106841"
+    },
+    {
+      "FileId": 106842,
+      "FileName": "StreetView.zip",
+      "DownloadUrl": ".\\106842"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "great!, i'll include it in demo after memory isue will be solved",
+      "PostedDate": "2009-08-09T08:11:41.36-07:00",
+      "Id": 3129
+    },
+    {
+      "Message": "Max 220MBs ram use right now. Also made a few other minor adjustments.",
+      "PostedDate": "2009-08-10T07:31:52.62-07:00",
+      "Id": 3130
+    },
+    {
+      "Message": "still too much i supose",
+      "PostedDate": "2009-08-10T08:28:00.127-07:00",
+      "Id": 3131
+    },
+    {
+      "Message": "Hello, I tried in my WPF project the attachment streetview on this page and I will work perfectly. Now I would like more information about the usercontrol, where can I find an online guide? I need to move through streetview. thanks",
+      "PostedDate": "2014-04-06T11:38:15.933-07:00",
+      "Id": 140734
+    }
+  ]
+}

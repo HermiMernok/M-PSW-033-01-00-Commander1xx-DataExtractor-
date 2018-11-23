@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1057417",
+    "ThreadId": "447203",
+    "Html": "How to realize this thing?\r<br />\nI need to create route with intermediate points.\r<br />\nI can create few routes with structure like, as start to end to start, but it so stupid.\r<br />\nBecause I must create many object  GMapRoute with different name<br />\n",
+    "PostedDate": "2013-06-16T08:37:20.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1057576",
+    "ThreadId": "447203",
+    "Html": "you can try to use: GetDirections(out GDirections direction, string start, <strong>IEnumerable&lt;string&gt; wayPoints</strong><br />\n",
+    "PostedDate": "2013-06-17T00:18:22.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

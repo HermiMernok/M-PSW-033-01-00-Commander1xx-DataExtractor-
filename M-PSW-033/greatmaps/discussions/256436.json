@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "607566",
+    "ThreadId": "256436",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I just found this GMap and this is a great projects.</p>\r\n<p>And now I want to used my own satellite images (tiff) as the sources for the map.</p>\r\n<p>My idea was to export the map into the cache. Any suggestion on how to do it?&nbsp;</p>\r\n",
+    "PostedDate": "2011-05-04T22:34:26.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "607666",
+    "ThreadId": "256436",
+    "Html": "<p>do it ;}</p>",
+    "PostedDate": "2011-05-05T02:27:01.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024268",
+    "ThreadId": "256436",
+    "Html": "Howsit Radioman,\r<br />\n<br />\nIs it possible to use your own tiff images, rasters and vectors as layers on the map?<br />\n",
+    "PostedDate": "2013-04-02T06:59:10.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024351",
+    "ThreadId": "256436",
+    "Html": "'sort of'..<br />\n",
+    "PostedDate": "2013-04-02T09:43:30.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024676",
+    "ThreadId": "256436",
+    "Html": "hmmm...\r<br />\nSo what do i need to do to get it going? Where do i start, is there an example i can look at?\r<br />\n<br />\nI am excited to try and get this going :)<br />\n",
+    "PostedDate": "2013-04-03T01:54:34.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024702",
+    "ThreadId": "256436",
+    "Html": "i mean, there is no built-in functionality, but you can render basically whatever you want on top of the map<br />\n",
+    "PostedDate": "2013-04-03T02:43:08.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027020",
+    "ThreadId": "256436",
+    "Html": "Or you could write your own map provider, like I did. Generate tiles from your images with Maperative and host the tiles in IIS.<br />\n",
+    "PostedDate": "2013-04-08T00:22:50.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1027028",
+    "ThreadId": "256436",
+    "Html": "you don't even really need iis, your provider can read tiles directly from disk/etc, File.ReadAllBytes(...)...<br />\n",
+    "PostedDate": "2013-04-08T00:27:57.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\r\nI found that GMapControl raise several marker click event if the markers are in different overlays and superimposed.\r\n\r\nIn order to avoid this behaviour, the program has to stop the loop which is scanning all the overlays when he has raised the OnMarkerClick event. \r\n\r\nTo do so, please add i=0; after the raise of OnMarkerClick in OnMouseClick (or OnClick in WM version) function of the GMapControl class.\r\n\r\nHope this remark can help somebody.\r\n",
+    "LastUpdatedDate": "2014-03-15T09:00:02.65-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-02-04T08:48:56.237-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Multiple Marker Click event with superimposed markers",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 16095
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

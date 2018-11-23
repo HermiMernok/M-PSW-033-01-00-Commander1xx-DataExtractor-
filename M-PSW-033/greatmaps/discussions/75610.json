@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "258701",
+    "ThreadId": "75610",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>When a user wants to move a marker, the marker will be moved when you click on it (and no mouse move was performed). It looks like the following change fixes more or less this behaviour:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">void</span> CustomMarkerDemo_MouseMove(<span style=\"color:Blue\">object</span> sender, MouseEventArgs e)<br>      {<br>         <span style=\"color:Blue\">if</span>(e.LeftButton == MouseButtonState.Pressed &amp;&amp; IsMouseCaptured)<br>         {<br>            Point p = e.GetPosition(MainWindow.MainMap);<br>            <span style=\"color:Green\">//Marker.Position = MainWindow.MainMap.FromLocalToLatLng((int) p.X, (int) p.Y);</span><br>            Marker.Position = MainWindow.MainMap.FromLocalToLatLng((<span style=\"color:Blue\">int</span>)p.X, (<span style=\"color:Blue\">int</span>)(p.Y + (Height / 2)));<br>         }<br>      }<br></pre>\r\n</div>\r\n<p>Frank.</p>\r\n<p>Edit: Sorry, but that wasn't good either</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-19T07:46:41.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

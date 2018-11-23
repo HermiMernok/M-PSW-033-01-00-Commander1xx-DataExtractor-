@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "814904",
+    "ThreadId": "349849",
+    "Html": "<p>Hi,<br /> <br /> i am using vista x64. In my project i using SQLite.dll (x64) and when i starting application it takes about 25s to run application. If i try to use SQLite.dll (x86) it works immediately, but on some functionality gives me error so i can't use this....<br /> <br /> What do you recommend me to fix this inconvenience.</p>",
+    "PostedDate": "2012-03-23T16:09:17.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814951",
+    "ThreadId": "349849",
+    "Html": "<p>because GMap.NET control has sqlite dll already embedded, you must set on this reference:&nbsp;<strong>Copy to Output: <em>False</em></strong></p>",
+    "PostedDate": "2012-03-24T00:22:28.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814979",
+    "ThreadId": "349849",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">I told you</span> <span class=\"hps\">wrong</span></span>... this SQLite i use in GMap.Net.Core and not in my project</p>",
+    "PostedDate": "2012-03-24T06:56:54.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814980",
+    "ThreadId": "349849",
+    "Html": "<p>so whats the problem?</p>",
+    "PostedDate": "2012-03-24T06:58:46.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814996",
+    "ThreadId": "349849",
+    "Html": "<p>debuging of my project <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">is taking so long...<br /></span></span></p>",
+    "PostedDate": "2012-03-24T08:47:27.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814997",
+    "ThreadId": "349849",
+    "Html": "<p>use release version</p>",
+    "PostedDate": "2012-03-24T08:52:18.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "815147",
+    "ThreadId": "349849",
+    "Html": "<p>i use <strong><a id=\"ReleaseLinkStable1\" class=\"SelectedRelease\" title=\"Recommended Release: 1.6 - Power\">1.6 - Power</a><span id=\"releaseListReleaseDateStable1\" class=\"smartDate dateOnlyNoShort\"> ,Oct 17 2011</span>,                  Stable</strong></p>",
+    "PostedDate": "2012-03-25T02:56:43.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "815151",
+    "ThreadId": "349849",
+    "Html": "<p>try hot build</p>",
+    "PostedDate": "2012-03-25T03:33:49.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

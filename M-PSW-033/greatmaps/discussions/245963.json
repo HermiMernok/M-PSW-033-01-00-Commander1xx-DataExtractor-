@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "565927",
+    "ThreadId": "245963",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p>GMap is a great piece of work. The caching engine and the API are really great. However, I've look pretty deep in the code and I believe there is some coupling and architecture problem in the solution.</p>\r\n<p>For example, in the very important class named : GMap.Net.GMaps (which is un GMap.Net.Core assembly), there is a method named: GetVilniusTransportData. This as nothing to do with Core functionnalities but with a demo code.</p>\r\n<p>Instead of hardcoding supported map types, you could use an extension pattern (see MEF from Microsoft) to make your Core functionnalities more generic.<br>\r\nSo the hardcoded URLs from maps.google.com in GMaps class would be supplied by a losely coupled assembly named something like GMap.Net.GoogleMap with a class named something like GMap.Net.GoogleMap.URLProvider.<br>\r\nYou could supply abstract base class in the Core assembly to help building providers.</p>\r\n<p>All the styling (in Winforms at least) is hardcoded&nbsp;in the GMapNet.Core assembly. You could create styles classes for key objects like markers, lines, polygons, etc.</p>\r\n<p>Once again, it is a really good project but for a large scale application, its architecture should be lifted up a little bit :-)</p>\r\n<p>Jean<br>\r\nQu&eacute;bec, Canada</p>\r\n",
+    "PostedDate": "2011-02-14T08:31:07.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "565947",
+    "ThreadId": "245963",
+    "Html": "<p>hey,</p>\r\n<p>i'm gladly accept any improvements using forks ;} empty <span class=\"HW\">criticism</span> has no value</p>",
+    "PostedDate": "2011-02-14T09:03:02.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571482",
+    "ThreadId": "245963",
+    "Html": "<p>i've reviewed your fork, and idea is nice, what about double layers, satellite+labels on top?</p>",
+    "PostedDate": "2011-02-24T05:43:50.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571856",
+    "ThreadId": "245963",
+    "Html": "<p>Not yet completed.. I've checkin because I changed computer. I'll be able to check-in soon my support for maps with overlays like Google Hybrid Maps.</p>\r\n<p>Give me until middle of next week. I do not expect any impediments!</p>\r\n<p>Thanks for reviewing by the way! ;-)</p>\r\n<p>Jean</p>",
+    "PostedDate": "2011-02-24T16:14:48.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "571865",
+    "ThreadId": "245963",
+    "Html": "<p>i see, thanks</p>",
+    "PostedDate": "2011-02-24T16:46:09.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "573393",
+    "ThreadId": "245963",
+    "Html": "<p>Hi radioman,</p>\r\n<p>I've pushed my changes for my loosely coupled mapping data providers. I've included all major supported data providers: Google, Bing, Yahoo, ArcGIS and OpenStreet.</p>\r\n<p>The remaining Todos are the other providers that supply maps only in specific area on earth. I'll let you (or someone else) implement them.</p>\r\n<p>I also want to apply the same pattern for the Caching providers. Right now, caching providers are set using condition compilation. I'd like to do just like what I've did with the Data Providers. I'll move actual caching providers in other assemblies so that the GMap.NET.Core assembly will no longer have to know the caching providers classes. I'll change also the Kiber cache provider so that it implements the same interface than any other caching provider.</p>\r\n<p>Please let me know any comment/review you have. Do you have an idea when you'd merge my fork in the main branch ?</p>\r\n<p>Jean</p>",
+    "PostedDate": "2011-02-28T10:53:59.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "573411",
+    "ThreadId": "245963",
+    "Html": "<p>hey,</p>\r\n<p>data providers looks great, and idea to apply the same strategy to&nbsp;caching providers sounds, brilliant! ;}</p>\r\n<p>&nbsp;I'll do some testing/fixing and put everything in main, thanks for your effort</p>",
+    "PostedDate": "2011-02-28T11:19:52.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "577762",
+    "ThreadId": "245963",
+    "Html": "<p>Hi radioman,</p>\r\n<p>I'll be starting developping the Cache providers refactoring on the same fork. Are you merge it right now ?? If not than wait for my Cache providers to be checked-in. If yes, what is the best way to do it, use same fork or create a new one ?</p>",
+    "PostedDate": "2011-03-09T07:00:26.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "577887",
+    "ThreadId": "245963",
+    "Html": "<p>great, you can push it to the same fork, i haven't much time for coding, and it need some redesign, specially for url making functions, because different providers use different output, so we need different parsing functions too, i guess on this weekend i'll try to experiment on this... thanks</p>",
+    "PostedDate": "2011-03-09T09:35:50.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578431",
+    "ThreadId": "245963",
+    "Html": "<p>While starting developpement for Cache Providers, I've try to solve the problem with the whole x64 thing with SQLite assembly. That part is now working with a modification to the csproj file. But I came accros the SEHException of the SRWLock because now I'm running the true x64 application (with AnyCPU config). You're using DLLImport over Kernel32.dll to take advantage of these R/W locks... problem is, in x64 it's not working as you already know. So I've searched on the internet and I found that the SRWLock does exist in .NET natively but only from FW 3.5. Is there any reason to build GMap Core assemblies in FW 2.0 ??</p>",
+    "PostedDate": "2011-03-10T06:36:14.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578470",
+    "ThreadId": "245963",
+    "Html": "<p>I've change all assemblies that was targetting FW 2.0 to FW 3.5 and remove the native calls to SRWLock using ReaderWriterLockSlim class instead. It's working just great and it's as fast as it was. Now it's fully working in 64 bit mode. No more WOW64.</p>\r\n<p>I got a little further down Cache providers and I came accros export &amp; import methods for SQLite. For self contain database system like SQLite or SQLCe, importing or exporting is very simple indeed. But for MSSQL or MySQL or PostGreSQL, importing or exporting data is a little bit more complicated.</p>\r\n<p>I was wondering why would the GMaps class offer any support for exporting or importing caching data ?</p>\r\n<p>I cannot add the Export and Import method to the CacheProvider Interface because I would not really be able to implement it for MSSQL and MySQL. What I'm gonna do is add another interface called something like ISupportExportImport that simple cache providers could implement while others don't. This way, I'll preserve current \"feature\" of GMap.NET Demos but only for SQLite and MSSQLCe.</p>",
+    "PostedDate": "2011-03-10T07:56:23.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578536",
+    "ThreadId": "245963",
+    "Html": "<p>hm...</p>",
+    "PostedDate": "2011-03-10T09:50:37.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "632188",
+    "ThreadId": "245963",
+    "Html": "<p>i've noticed your fork is gone ;/ anyway your code helped to implement some features, and i still have a local clone, thanks!</p>\r\n<p>p.s. ..anyway the fork might have some value to others too, &nbsp;don't be rush to discard your ideas ;}</p>",
+    "PostedDate": "2011-06-23T16:42:05.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

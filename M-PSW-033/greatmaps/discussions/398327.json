@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "922893",
+    "ThreadId": "398327",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>First of all, thanks a lot for the awesome gmap.net library, it is what I have been looking for for a while now.</p>\r\n<p>I have a question which has come up before, but I didn't find the answer I'm looking for yet unfortunately.</p>\r\n<p>I'm looking for a way to use the gmap.net control in Visual Basic 2010 so that it would use a downloaded .osm (openstreetmap) file rather than having to pre-cache the area where I will be working. On this page: http://planet.openstreetmap.org/ it is listed\r\n that several 3th party websites offer an .osm file for individual countries. In my example, I have downloaded the file for Belgium which is around 170Mb in size.</p>\r\n<p>I would like to include this file with my published .NET project so that at no stage an internet connection is required on the PC that will run the application. I have seen on this forum before people that have precached an area while having an internet\r\n connection, and than copy the cache folder to the end users computer as well. This seems a bit clumpsy to mee as the complete files are already available.</p>\r\n<p>I might obviously be missing something as I have just recently started reading into Gmap.</p>\r\n<p>Any help is greatly appreciated!</p>\r\n<p>Thx,</p>\r\n<p>Jens</p>\r\n",
+    "PostedDate": "2012-10-06T11:52:28.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "922895",
+    "ThreadId": "398327",
+    "Html": "<p>it's possible to generate map tiles from osm file, someone has to use code from this project:</p>\r\n<p><a href=\"http://wiki.openstreetmap.org/wiki/Maperitive\" target=\"_blank\">http://wiki.openstreetmap.org/wiki/Maperitive&nbsp;</a></p>\r\n<p>..any volunteers? ;}</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-10-06T12:02:59.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925365",
+    "ThreadId": "398327",
+    "Html": "\r\n<p>@jensvanhoof: To clarify, the osm files do not contain any imagary - they contain the raw information needed&nbsp;to create the imagery. GMaps is designed to work with pre-compiled imagry. So to go from an osm file to GMaps you need to do the intermediate\r\n step of transforming that raw osm data into mapping tiles.</p>\r\n<p>Most people opt to simply use the pre-fetcher that radioman has included with GMap to pre-fetch imagery for an area and then include it in their application. Exactly as you said. Note that it will be significantly larger than 170MB.</p>\r\n",
+    "PostedDate": "2012-10-11T10:11:31.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

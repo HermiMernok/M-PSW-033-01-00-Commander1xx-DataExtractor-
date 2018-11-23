@@ -1,0 +1,210 @@
+[
+  {
+    "Id": "718246",
+    "ThreadId": "284459",
+    "Html": "<p>I have an issue where I am populating my map with records from a database. And in many cases I have multiple records at a single latitude/longitude pair. So I may have upwards of 10 markers right on top of each other. Using the built-in GMap marker tooltips, when the user mouses over this cluster of markers, they only see the tooltip for the front-most marker.</p>\n<p>I'd like to instead show one tooltip with a button for the user to cycle through the various tooltips.&nbsp; I have alot of what I need done already completed and working:</p>\n<p>-&nbsp;First I&nbsp;disable the built-in GMap tooltips.<br />-&nbsp;On the mouse-enter event of each marker I&nbsp;add the marker to a list of currently &ldquo;mouse-overed&rdquo; markers.<br />-&nbsp;On the mouse-leave event of each marker I remove the marker from that list.<br />-&nbsp;Anytime I add or remove a marker from the list I&nbsp;do a check against the list.&nbsp; The check&nbsp;sees if there is at least one marker in the list.</p>\n<p>Here is where I have stopped.&nbsp; If the list is not empty, I need to display a custom tooltip at the location of the first marker in the list.&nbsp; It will display the tooltip information associated with the first marker and offer a button to scroll through the tooltips for each other marker in the list.</p>\n<p>The look I&rsquo;m going for is similar to what Google does when they have clustered markers.&nbsp;</p>\n<p>Has anyone here done anything along the lines of this?&nbsp; If not, I&rsquo;m comfortable attempting it on my own.&nbsp; I&rsquo;m unsure about&nbsp;how to make the custom tooltip.&nbsp; Any suggestions on what classes I can inherit and how to draw the tooltip to the map?</p>\n<p>Radioman, is there any chance of getting something like this built in?&nbsp; Thanks again.</p>",
+    "PostedDate": "2011-12-29T04:32:44.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "718328",
+    "ThreadId": "284459",
+    "Html": "<p>For anyone interested, this is how I solved the problem:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">private</span> List&lt;GMapMarker&gt; mouseOveredMarkers = <span style=\"color: blue;\">new</span> List&lt;GMapMarker&gt;();\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_OnMarkerEnter(GMapMarker item)\r\n{\r\n    mouseOveredMarkers.Add(item);\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> MainMap_OnMarkerLeave(GMapMarker item)\r\n{\r\n    mouseOveredMarkers.Remove(item);\r\n}\r\n\r\n<span style=\"color: blue;\">void</span> MainMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)\r\n{\r\n    <span style=\"color: blue;\">if</span> (mouseOveredMarkers.Contains(item))\r\n    {\r\n        <span style=\"color: blue;\">if</span> (mouseOveredMarkers.Count &gt;= 1)\r\n        {\r\n            ToolTipContents ttc = <span style=\"color: blue;\">new</span> ToolTipContents(mouseOveredMarkers);\r\n            PoperContainer ttcContainer = <span style=\"color: blue;\">new</span> PoperContainer(ttc);\r\n\r\n            GMap.NET.GPoint p = MainMap.FromLatLngToLocal(item.Position);\r\n            p.Offset(0, (-1 * ttc.Height) - 34);\r\n            ttcContainer.Show(<span style=\"color: blue;\">this</span>, <span style=\"color: blue;\">new</span> System.Drawing.Point(p.X, p.Y));\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>So I have my tooltips setup to show&nbsp;on the OnMarkerClick event.&nbsp; I utilized the SuperContextMenu control&nbsp;from CodeProject to&nbsp;serve as the tooltip rather than creating my own&nbsp;inherited tooltip.&nbsp; I used SuperContextMenu because it allows you to setup a your own custom control which will act as a context menu.&nbsp; For my purposes, a context menu worked great because when the use clicks on the marker, the context menu appears and will not dissapear until the user clicks elsewhere.&nbsp; So my ToolTipContents control takes the list of markers that have been clicked on and then displays the information as I want it (like a tooltip).&nbsp; I also have controls in it to move to the next or previous marker in the list.</p>\r\n<p>The&nbsp;SuperContextMenu can be found here:&nbsp; <a href=\"http://www.codeproject.com/KB/menus/SuperContextMenu.aspx\">http://www.codeproject.com/KB/menus/SuperContextMenu.aspx</a>&nbsp;</p>",
+    "PostedDate": "2011-12-29T07:50:25.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722428",
+    "ThreadId": "284459",
+    "Html": "<p>thats one way to do it, i didn't manage to do it with internally rendered tooltips</p>",
+    "PostedDate": "2012-01-09T05:24:34.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722668",
+    "ThreadId": "284459",
+    "Html": "<p>I like the idea of using a context menu in place of the internal tooltips for one reason in particular.&nbsp; The context menu floats above the map.&nbsp; So there is never a situation with a marker close to the edge of the map where it's tooltip gets cut off.&nbsp;</p>\r\n<p>However, I'm sure for some applications that would not be a desired behavior.</p>",
+    "PostedDate": "2012-01-09T11:07:40.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928754",
+    "ThreadId": "284459",
+    "Html": "<p>Hi Mike are you still There?</p>\r\n<p>would you post Tooltipcontents Control Also?</p>\r\n<p>Tks</p>\r\n<p>HN</p>",
+    "PostedDate": "2012-10-18T06:58:55.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928783",
+    "ThreadId": "284459",
+    "Html": "\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System;\r\n<span style=\"color:blue\">using</span> System.Collections.Generic;\r\n<span style=\"color:blue\">using</span> System.Windows.Forms;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms;\r\n\r\n<span style=\"color:blue\">namespace</span> FAA.Spectrum.DirectionFinder.Markers\r\n{\r\n    <span style=\"color:blue\">internal</span> <span style=\"color:blue\">partial</span> <span style=\"color:blue\">class</span> ToolTipContent : SuperContextMenu.PopedContainer\r\n    {\r\n        <span style=\"color:blue\">private</span> List&lt;GMapMarker&gt; markers = <span style=\"color:blue\">new</span> List&lt;GMapMarker&gt;();\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">int</span> _shownMarker = 0;\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">int</span> ShownMarker\r\n        {\r\n            <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> _shownMarker; }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (value &lt; 0)\r\n                    value = markers.Count - 1;\r\n                <span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (value &gt;= markers.Count)\r\n                    value = 0;\r\n\r\n                _shownMarker = value;\r\n\r\n                labelTitle.Text = <span style=\"color:#a31515\">&quot;Put your title here&quot;</span>;\r\n                labelText.Text = markers[_shownMarker].ToolTipText;\r\n                \r\n                labelCounter.Text = (_shownMarker &#43; 1).ToString() &#43; <span style=\"color:#a31515\">&quot; of &quot;</span> &#43; markers.Count;\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> ToolTipContent(List&lt;GMapMarker&gt; Markers)\r\n        {\r\n            InitializeComponent();\r\n\r\n            <span style=\"color:blue\">if</span> (Markers.Count == 0)\r\n                <span style=\"color:blue\">return</span>;\r\n\r\n            <span style=\"color:green\">// Assign the list of markers</span>\r\n            <span style=\"color:blue\">this</span>.markers = Markers;\r\n\r\n            <span style=\"color:green\">// Sort the list of markers if you want to</span>\r\n            <span style=\"color:green\">// Exclude this if you dont care about order</span>\r\n            markers.Sort(\r\n                <span style=\"color:blue\">delegate</span>(GMapMarker m1, GMapMarker m2)\r\n                {\r\n                    <span style=\"color:green\">// Do your sorting method for ordering the markers</span>\r\n                    <span style=\"color:blue\">return</span> 0;\r\n                }\r\n            );\r\n\r\n            <span style=\"color:green\">// Show the first marker</span>\r\n            buttonBack.Enabled = buttonNext.Enabled = (markers.Count != 1);\r\n            ShownMarker = 0;\r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> buttonBack_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            ShownMarker--;\r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> buttonNext_Click(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            ShownMarker&#43;&#43;;\r\n        }\r\n    }\r\n}\r\n\r\n</pre>\r\n</div>\r\n<p>There is a stripped won version of mm TollTipContent control. As you can see (and as I said in my post), my tooltip inherits from a SuperContextMenu.</p>\r\n<p>In addition to that code, my ToolTipContent contol has a three labels on it. On for the title, one for the tolltip text, and one that is a counter in the style of &quot;1 of 3&quot;. I also for a next and back button. I have a picture of it but unfortunately CodePlex\r\n doesn't have a built-in method for uploading pictures.</p>\r\n",
+    "PostedDate": "2012-10-18T08:01:02.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928813",
+    "ThreadId": "284459",
+    "Html": "<p>p.s. click html, and add &lt;img src=\"... tag</p>",
+    "PostedDate": "2012-10-18T08:42:53.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928904",
+    "ThreadId": "284459",
+    "Html": "<p>Thanks radioman. I was aware of that - I simply don't have a repository online where I can upload a publicly accessable image.</p>",
+    "PostedDate": "2012-10-18T10:50:10.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928905",
+    "ThreadId": "284459",
+    "Html": "<p><a href=\"http://imageshack.us\" target=\"_blank\">http://imageshack.us</a> works just fine ;}</p>",
+    "PostedDate": "2012-10-18T10:52:45.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928916",
+    "ThreadId": "284459",
+    "Html": "<p><img src=\"http://s11.postimage.org/xpi4wvntf/Misc_Custom_Markers.png\" alt=\"\" /></p>\r\n<p>Here is a simple example of the end result. Here I am showing a tooltip for a custom Gmap marker class that I created which had additional information fields in it beyond just the ToolTipText property. My point is that you can make this tooltip as pretty or ugly as you like. Just use the framework I provided.</p>",
+    "PostedDate": "2012-10-18T11:12:40.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928926",
+    "ThreadId": "284459",
+    "Html": "<p>nice! rf triangulation? ;}</p>",
+    "PostedDate": "2012-10-18T11:23:14.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928928",
+    "ThreadId": "284459",
+    "Html": "<p>Yes.&nbsp; For the Federal Aviation Administration.&nbsp; You're mapping control is helping keep the National Airspace System safe.</p>",
+    "PostedDate": "2012-10-18T11:26:23.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928957",
+    "ThreadId": "284459",
+    "Html": "\r\n<p><img src=\"http://s7.postimage.org/fvqg5ad63/SC1.png\" alt=\"\"></p>\r\n<p>(http://s7.postimage.org/fvqg5ad63/SC1.png)</p>\r\n<p>Here's an example of the program in use. User sees a map of where they are via GPS (custom green circle GMapMarker). GPS history track shown in red (GMapRoute). Computer is talking to some radio equipment over USB/ethernet to get an instantaneous bearing\r\n towards a transmitter and see what the power spectrum looks like for that frequency (Bearing is shown in blue using GMapRoute which constantly updates). I wrote an algorithm to geo-locate the transmitter based on signal strength and bearing measurements and\r\n display the probability cloud over the map. That is the red and yellow cloud you are seeing in the center. Tells the user exactly where to drive to find the transmitter. I'm using a GMapImage for that. I'm made a bunch of different custom markers (in red)\r\n for displaying all licensed transmitters in the area. The user can also add marker their own markers (in green) which allows the user to add custom commentary or notes (and assign a custom letter to the marker). &nbsp;Records all the data and can be used for\r\n playing back the information as well.</p>\r\n<p>FAA uses it to find interference on their frequencies.</p>\r\n<p>I had a previous version written in C where I created the map myself using a graphics canvas and mapping tiles from OSM and Google. It was very time consuming figuring out how to draw the tiles and logic for navigating the map. It was very primitive although\r\n it allowed panning, zooming, and switching from satellite to street view. But using your control in C# has been a huge improvement. As you already know, it's packed with features and allows me to focus on the purpose of the software rather than focusing on\r\n getting the map to work. It's been a blessing. So thank you again.</p>\r\n",
+    "PostedDate": "2012-10-18T12:17:22.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928973",
+    "ThreadId": "284459",
+    "Html": "<p>Cool man! Great work, thanks for sharing</p>",
+    "PostedDate": "2012-10-18T12:37:37.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003431",
+    "ThreadId": "284459",
+    "Html": "Hello mike_mankus,\r<br />\n<br />\nI would like to know how did u created those red and yellow clouds using GmapImage.\r<br />\nis it possible to change their image during runtime?<br />\n",
+    "PostedDate": "2013-02-19T06:34:29.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003449",
+    "ThreadId": "284459",
+    "Html": "<strong>softprogen wrote:</strong><br />\n<blockquote>\nHello mike_mankus,<br />\n<br />\nI would like to know how did u created those red and yellow clouds using GmapImage.<br />\nis it possible to change their image during runtime?<br />\n</blockquote>\nIt's quite easy to update the GMapImage during runtime. In the example below, gmImage is my GMapImage and MainMap is my GMapControl.<br />\n<pre><code>// Assign the bitmap\ngmImage.Image = (your bitmap here); \n\n// Passing PointLatLng of top left (TL) corner of where to plot image\nvar tl = MainMap.FromLatLngToLocal(gmImageTL);\n \n// Passing PointLatLng of bottom right (BR) corner of where to plot image\nvar br = MainMap.FromLatLngToLocal(gmImageBR); \n\n// Setting the GMapImage position based on the top left corner\ngmImage.Position = gmImageTL; \n\n// Setting the GMapImage size based on the top left and bottom right corner\ngmImage.Size = new System.Drawing.Size(br.X - tl.X, br.Y - tl.Y); \n\n// Telling the map to redraw\nMainMap.Invalidate(); </code></pre>\n\nI'm assigning the Position and Size of the GMapImage each time because in my application it can be moved at anytime. If your position is fixed, you can skip those steps and simply resign the Image property of the GMapImage and then invalidate the GMapControl.<br />\n<br />\nAs for the red and yellow heatmap, I wrote a complex algorithm that generates that image every second based on the data I'm receiving from my instruments. It's a 1000x1000 pixel bitmap. I set the alpha characteristics to acheive the transparency. I'm not going to publish that algorithm. But as you can see from my code sample, it doesn't take much to have the image be updated in real-time once you have your image.<br />\n",
+    "PostedDate": "2013-02-19T07:01:23.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003473",
+    "ThreadId": "284459",
+    "Html": "I'm doing something quite a bit different, but here is a good link on creating heatmap type images:<br />\n<br />\n<a href=\"http://dylanvester.com/post/Creating-Heat-Maps-with-NET-20-(C-Sharp).aspx\" rel=\"nofollow\">http://dylanvester.com/post/Creating-Heat-Maps-with-NET-20-(C-Sharp).aspx</a><br />\n<br />\nObviously it's usefulness to you is dependant on what you're trying to do. But it should get you started.<br />\n",
+    "PostedDate": "2013-02-19T07:40:51.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003516",
+    "ThreadId": "284459",
+    "Html": "Thank you for the reply,\r<br />\n<br />\nI was searching heatmap kind of image for my application, and your link and ideas seems quite useful for me.<br />\n",
+    "PostedDate": "2013-02-19T08:53:33.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004167",
+    "ThreadId": "284459",
+    "Html": "Hello Mike,\r<br />\n<br />\nI tried to create an image, but i am not able to get that transparency level as in your application.\r<br />\nIt completely hides the part of my map where the image is positioned. \r<br />\nCan u tell me how your did that, or if possible can u share or image.<br />\n",
+    "PostedDate": "2013-02-20T11:21:26.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005666",
+    "ThreadId": "284459",
+    "Html": "<strong>mike_mankus wrote:</strong><br />\n<blockquote>\nI'm doing something quite a bit different, but here is a good link on creating heatmap type images:<br />\n<br />\n<a href=\"http://dylanvester.com/post/Creating-Heat-Maps-with-NET-20-(C-Sharp).aspx\" rel=\"nofollow\">http://dylanvester.com/post/Creating-Heat-Maps-with-NET-20-(C-Sharp).aspx</a><br />\n<br />\nObviously it's usefulness to you is dependant on what you're trying to do. But it should get you started.<br />\n</blockquote>\nHello Mike,\r<br />\n<br />\nI placed a picturebox over my GMap control to test if i get correct results, and i am getting it correct.\r<br />\nand now i am trying to get the images over my map\r<br />\nbut i have a problem with GMapImage, it gives me an error as\r<br />\n'The type or namespace GMapImage could not be found are you missing a using directive or assembly reference '.\r<br />\nhow should i correct this error? am i missing something?<br />\n",
+    "PostedDate": "2013-02-23T08:21:01.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007117",
+    "ThreadId": "284459",
+    "Html": "Sorry about that.  I created GMapImage for myself by inheriting from GMapMarker. See below:<br />\n<pre><code>using System.Drawing;\nusing GMap.NET.WindowsForms;\n\nnamespace XXXXXX\n{\n    public class GMapImage : GMapMarker\n    {\n        private Image image;\n        public Image Image\n        {\n            get\n            {\n                return image;\n            }\n            set\n            {\n                image = value;\n                if (image != null)\n                {\n                    this.Size = new Size(image.Width, image.Height);\n                }\n            }\n        }\n\n        public GMapImage(GMap.NET.PointLatLng p)\n            : base(p)\n        {\n            DisableRegionCheck = true;\n            IsHitTestVisible = false;\n        }\n\n        public override void OnRender(Graphics g)\n        {\n            if (image == null)\n                return;\n            \n            Pen pen = new Pen(Brushes.Red, 2);\n            Rectangle rect = new Rectangle(LocalPosition.X, LocalPosition.Y, Size.Width, Size.Height);\n            g.DrawImage(image, rect);\n            g.DrawRectangle(pen, rect);    \n        }\n    }\n}</code></pre>\n\nI opted to put a red box as a border around my image. You could easily remove that.<br />\n",
+    "PostedDate": "2013-02-26T10:34:55.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007123",
+    "ThreadId": "284459",
+    "Html": "As for transparency... You need to make sure that the image colors have an alpha characteristic set. You have a few options.\r<br />\n<br />\nIf you have a color you want to be completely transparent, this is easy.  For example, say your image has a white background and in all the white areas, you want the image to be totally transparent.<br />\n<pre><code>myBitmap.MakeTransparent(Color.White);</code></pre>\n\nYou can also add an alpha characteristic to areas of the image so that they are partially transparent. I do not know who you are creating your image, but here is an example. Say I want to color a pixel in my image to be Red, but I also want it to be semi-transparent.<br />\n<pre><code>int alpha = 200; // Any number between 0 and 255 to set the alpha byte\nmyBitmap.SetPixel(xCoord, yCoord, Color.FromArgb(alpha, 255, 0, 0));</code></pre>\n\nThe above code sets that pixel to red with an alpha characteristic of 200 out of 255, meaning about 21% transparent. you could do this for each pixel in the image.<br />\n",
+    "PostedDate": "2013-02-26T10:42:59.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007167",
+    "ThreadId": "284459",
+    "Html": "i recommend to make Pen static or using(Pen pen = new Pen(Brushes.Red, 2)) { ..\r<br />\n..because rendering is done many times per second, if you move the map, you'll get huge memory leak..<br />\n",
+    "PostedDate": "2013-02-26T11:42:43.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007549",
+    "ThreadId": "284459",
+    "Html": "Excellent catch. I have a bad habit of this with my pens and brushes.<br />\n",
+    "PostedDate": "2013-02-27T04:57:26.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126834",
+    "ThreadId": "284459",
+    "Html": "hello mike_mankus. hope you are still there\r<br />\n<br />\ni am working on a program in which i need to map markers and put an onClick event that will show camera live feeds.\r<br />\nas of now, i know how to put a click event on a custom image marker.\r<br />\nmy problem is how to put something inside the &quot;tooltip&quot;\r<br />\n<br />\nsomething like the one picture you posted, with textbox and buttons. i use C# and i have an activex control for that camera. i just need it to put on something which is i think it is possible inside the tooltip, and after i saw your post, it gave me hope. i am not native to C#, i just use it because that is gmaps' language, so i need every bit of help in understanding your code. i am hoping for your reply, i think i really need a hands-on tutorial on this :)\r<br />\nis this ok? add me on skype : jeanpaderes\r<br />\nthanks in advance!<br />\n",
+    "PostedDate": "2013-11-19T18:11:29.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1465014",
+    "ThreadId": "284459",
+    "Html": "<strong>mike_mankus wrote:</strong><br />\n<blockquote>\nFor anyone interested, this is how I solved the problem:  private List&lt;GMapMarker&gt; mouseOveredMarkers = new List&lt;GMapMarker&gt;(); private void MainMap_OnMarkerEnter(GMapMarker item) { mouseOveredMarkers.Add(item); } private void MainMap_OnMarkerLeave(GMapMarker item) { mouseOveredMarkers.Remove(item); } void MainMap_OnMarkerClick(GMapMarker item, MouseEventArgs e) { if (mouseOveredMarkers.Contains(item)) { if (mouseOveredMarkers.Count &gt;= 1) { ToolTipContents ttc = new ToolTipContents(mouseOveredMarkers); PoperContainer ttcContainer = new PoperContainer(ttc); GMap.NET.GPoint p = MainMap.FromLatLngToLocal(item.Position); p.Offset(0, (-1 * ttc.Height) - 34); ttcContainer.Show(this, new System.Drawing.Point(p.X, p.Y)); } } }   So I have my tooltips setup to show&nbsp;on the OnMarkerClick event.&nbsp; I utilized the SuperContextMenu control&nbsp;from CodeProject to&nbsp;serve as the tooltip rather than creating my own&nbsp;inherited tooltip.&nbsp; I used SuperContextMenu because it allows you to setup a your own custom control which will act as a context menu.&nbsp; For my purposes, a context menu worked great because when the use clicks on the marker, the context menu appears and will not dissapear until the user clicks elsewhere.&nbsp; So my ToolTipContents control takes the list of markers that have been clicked on and then displays the information as I want it (like a tooltip).&nbsp; I also have controls in it to move to the next or previous marker in the list. The&nbsp;SuperContextMenu can be found here:&nbsp; <a href=\"http://www.codeproject.com/KB/menus/SuperContextMenu.aspx&nbsp;\" rel=\"nofollow\">http://www.codeproject.com/KB/menus/SuperContextMenu.aspx&nbsp;</a><br />\n</blockquote>\nThank you mike_mankus.\r<br />\n<br />\nI simplified the &quot;on marker click&quot; part with a simple loop and a messagebox which fills my needs. \r<br />\n<br />\nNotice I started the loop at 1 to skip the top most tooltip.<br />\n<pre><code>if (mouseOveredMarkers.Count &gt; 1)\n{\n     for (int i = 1; i &lt; mouseOveredMarkers.Count; ++i)\n     {\n          GMapMarker tt = mouseOveredMarkers[i];\n          MessageBox.Show(tt.ToolTipText , &quot; Hidden Text&quot;);\n     }\n}</code></pre>\n\n",
+    "PostedDate": "2016-02-29T08:42:14.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "229983",
+    "ThreadId": "67658",
+    "Html": "<p>Hi There</p>\r\n<p>Is there a function to clear out all cache..</p>\r\n<p>I am testing creating a loading progress, but its running from cache now, so its hard to test.</p>\r\n<p>&nbsp;</p>\r\n<p>Nick</p>",
+    "PostedDate": "2009-09-01T18:43:33.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "230021",
+    "ThreadId": "67658",
+    "Html": "<p>just delete the cache directory:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><div style=\"color:Black;background-color:White\"><pre>Directory.Delete(MainMap.CacheLocation);\r\n</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-01T22:30:21.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "230022",
+    "ThreadId": "67658",
+    "Html": "<p>..anyway, the tests should be made in cache mode, first time loading isn't very important</p>",
+    "PostedDate": "2009-09-01T22:31:32.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

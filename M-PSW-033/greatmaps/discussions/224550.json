@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "483727",
+    "ThreadId": "224550",
+    "Html": "<p>Hi there!</p>\r\n<p>First of all, this is a great project! Keep up the good work!<br>However, I have some problems creating a first application with it.</p>\r\n<p>Can you please tell me what I am doing wrong?</p>\r\n<ul>\r\n<li>creating a new C# WPF 4.0 app in VS 2010 on x64 CPU.</li>\r\n<li>adding references to GMap.NET.Core.dll, GMap.NET.WindowsPresentation.dll, System.Data.SQLite.DLL</li>\r\n<li>trying to add the control via Toolbox -&gt; Choose Element -&gt; WPF Components -&gt; point to GMap.NET.WindowsPresentation.dll:<br>Then it says (translated):<br>&quot;The assembly &quot;GMap.NET.WindowsPresentation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef&quot; could not be loaded. Maybe this assembly was downloaded, see http://go.microsoft.com/fwlink/?LinkId=179545&quot;</li>\r\n</ul>\r\n<p>Opening the sample projects does not work too. After the conversion to VS 2010 there are two errors concerning the OutputPath (which is set to x86). Additionally there are two warnings, where it says that it can't find GMap.NET.WindowsPresentation and GMap.NET.Core.<br>Do you have any ideas what I am doing wrong?</p>\r\n<p>Thank you in advantage!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-08-23T11:57:43.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "483976",
+    "ThreadId": "224550",
+    "Html": "<p>set target to x64 and use sqlite dll version&nbsp; of x64, (GMap.NET\\References\\Windows\\x64)</p>",
+    "PostedDate": "2010-08-24T01:02:55.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "483991",
+    "ThreadId": "224550",
+    "Html": "<p>Thank you for your fast response!</p>\r\n<p>I set target to x64 and included the x64 sqlite, but I encounter some problems, i.e. after that (or in your demo projects as well) i can not add any other reference because the window is not loading in VS 2010. It is very strange. I were not able to get the control to the toolbar because of that. Neither I could build the WPF demo apps myself.<br>What the hell am I doing wrong?? :(</p>",
+    "PostedDate": "2010-08-24T01:37:13.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484000",
+    "ThreadId": "224550",
+    "Html": "<p>;} i've no idea, but check <a href=\"http://greatmaps.codeplex.com/documentation\">http://greatmaps.codeplex.com/documentation</a></p>",
+    "PostedDate": "2010-08-24T01:59:22.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484003",
+    "ThreadId": "224550",
+    "Html": "<p>Thank you again!</p>\r\n<p>I tried what I could from the documentation concerning x64 :(</p>\r\n<p>Is there a x64 WPF VS 2010 Sample from anyone that I just can ... launch maybe?</p>",
+    "PostedDate": "2010-08-24T02:06:29.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484020",
+    "ThreadId": "224550",
+    "Html": "<p>did you set config file, target? There is nothing more, it just works</p>",
+    "PostedDate": "2010-08-24T03:08:15.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484029",
+    "ThreadId": "224550",
+    "Html": "<p>I set the config file again, it was discarded, I don't know why.</p>\r\n<p>But it is all the time saying:<br>&quot;The assembly &quot;GMap.NET.WindowsPresentation, Version=1.0.0.0,  Culture=neutral, PublicKeyToken=b85b9027b614afef&quot; could not be loaded.  Maybe this assembly was downloaded, see  http://go.microsoft.com/fwlink/?LinkId=179545&quot;</p>\r\n<p>Thank you for your patience!</p>",
+    "PostedDate": "2010-08-24T03:39:35.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484033",
+    "ThreadId": "224550",
+    "Html": "<p>what is your cpu target?</p>",
+    "PostedDate": "2010-08-24T03:47:33.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484035",
+    "ThreadId": "224550",
+    "Html": "<p>In Project Properties it is set to x64 and I use the sqlite x64 dll as suggested!<br>Is that wrong? :/</p>",
+    "PostedDate": "2010-08-24T03:50:09.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484038",
+    "ThreadId": "224550",
+    "Html": "<p>Project Properties?</p>",
+    "PostedDate": "2010-08-24T03:52:27.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484039",
+    "ThreadId": "224550",
+    "Html": "<p>when you click on Project in the menubar and then Properties -&gt; Build -&gt; Target Plattform)!</p>",
+    "PostedDate": "2010-08-24T03:54:15.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484041",
+    "ThreadId": "224550",
+    "Html": "<p>is it the same target as next to green debug arrow?</p>",
+    "PostedDate": "2010-08-24T03:58:49.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484048",
+    "ThreadId": "224550",
+    "Html": "<p>I switched my VS layout to c# development so I now have this arrow. I said in there target: x64 copy from: x86. No change in behaviour after that :(</p>",
+    "PostedDate": "2010-08-24T04:21:51.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484053",
+    "ThreadId": "224550",
+    "Html": "<p>does the demos even run?</p>",
+    "PostedDate": "2010-08-24T04:28:36.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484055",
+    "ThreadId": "224550",
+    "Html": "<p>Your Demo.WindowsPresentation.exe does run fine! Out of the IDE - no :(</p>",
+    "PostedDate": "2010-08-24T04:30:58.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484076",
+    "ThreadId": "224550",
+    "Html": "<p>in demo you must set target to x86, thats the default configuration</p>",
+    "PostedDate": "2010-08-24T05:26:54.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485797",
+    "ThreadId": "224550",
+    "Html": "<p>ShadowMare, locate the Gmap.Net dlls you downloaded and are referencing, right-click on them and check to see if there is a security warning at the bottom. You'll have to click the &quot;Unblock&quot; button.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-08-27T12:15:45.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

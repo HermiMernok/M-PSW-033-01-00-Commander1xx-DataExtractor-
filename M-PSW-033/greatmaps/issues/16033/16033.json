@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "added your rest version, thanks",
+    "ClosedDate": "2012-12-06T07:29:39.017-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi Radioman,\r\n\r\nFirst of all thanks for this great piece of work! \r\n\r\nI would like to donate a working piece of code to implement the IRoutingProvide on the BingMapProvideBase class. \r\nSince the caching only seems to be able to cache strings and we get an object from the Bing routing service I managed to use serialisation to save the calculated routes in a similar way. \r\n\r\nAlthough I only use startpoint and endpoint as a key to the route I do not know what all the other parameters mean of the function GetRoutePoints. AvoidHighways could not be implemented with the Bing Map API. (maybe it is better to convert parameters to an RouteOptions object because of the diversity each provider has?)\r\n\r\nOf course to be able to use this function you will have to provide your Bing ClientKey in the ClientKey parameter of the bing mapprovider class.\r\n\r\n1.\r\nFirst of all add a webservice reference to: \"http://dev.virtualearth.net/webservices/v1/metadata/routeservice/routeservice.wsdl\"\r\n\r\n2.\r\nAdd these namespaces to the class:\r\n   using GMap.NET.Internals;\r\n   using GMap.NET.net.virtualearth.dev;\r\n   using System.Xml.Serialization;\r\n\r\n3.\r\nPaste this code into the class.\r\n\r\n      #region RoutingProvider Members\r\n\r\n      public MapRoute GetRoute(PointLatLng start, PointLatLng end, bool avoidHighways, bool walkingMode, int Zoom)\r\n      {\r\n          string tooltip;\r\n          int numLevels;\r\n          int zoomFactor;\r\n          MapRoute ret = null;\r\n          List<PointLatLng> points = GetRoutePoints(start, end, Zoom, out tooltip, out numLevels, out zoomFactor);\r\n          if (points != null)\r\n          {\r\n              ret = new MapRoute(points, tooltip);\r\n          }\r\n          return ret;\r\n      }\r\n\r\n      public MapRoute GetRoute(string start, string end, bool avoidHighways, bool walkingMode, int Zoom)\r\n      {\r\n          throw new NotImplementedException();\r\n      }\r\n\r\n      #region -- internals --\r\n\r\n      List<PointLatLng> GetRoutePoints(PointLatLng start, PointLatLng end, int zoom, out string tooltipHtml, out int numLevel, out int zoomFactor)\r\n      {\r\n          tooltipHtml = string.Empty;\r\n          numLevel = -1;\r\n          zoomFactor = -1;\r\n\r\n          try\r\n          {\r\n              string url = \"bingroutingservice_\" +\r\n                           start.Lat.ToString() + \"_\" +\r\n                           start.Lng.ToString() + \"_\" +\r\n                           end.Lat.ToString() + \"_\" +\r\n                           end.Lng.ToString();\r\n\r\n              string route = GMaps.Instance.UseRouteCache ? Cache.Instance.GetContent(url, CacheType.RouteCache) : string.Empty;\r\n              RouteResponse rs = null;\r\n\r\n              if (string.IsNullOrEmpty(route))\r\n              {\r\n                  rs = CalculateRoute(start, end);\r\n                  if (rs != null)\r\n                      if (GMaps.Instance.UseRouteCache)\r\n                          Cache.Instance.SaveContent(url, CacheType.RouteCache, SerializeToString(rs));\r\n              }\r\n              else\r\n                  rs = SerializeFromString<RouteResponse>(route);\r\n\r\n              List<PointLatLng> result = new List<PointLatLng>();\r\n              foreach (Location l in rs.Result.RoutePath.Points)\r\n                  result.Add(new PointLatLng(l.Latitude, l.Longitude));\r\n\r\n              return result;\r\n          }\r\n          catch (Exception ex)\r\n          {\r\n              Debug.WriteLine(\"GetRoutePoints: \" + ex);\r\n          }\r\n          \r\n          return null;\r\n      }\r\n\r\n      private string SerializeToString(object obj)\r\n      {\r\n          XmlSerializer serializer = new XmlSerializer(obj.GetType());\r\n          using (StringWriter writer = new StringWriter())\r\n          {\r\n              serializer.Serialize(writer, obj);\r\n              return writer.ToString();\r\n          }\r\n      }\r\n\r\n      private T SerializeFromString<T>(string xml)\r\n      {\r\n          XmlSerializer serializer = new XmlSerializer(typeof(T));\r\n          using (StringReader reader = new StringReader(xml))\r\n              return (T)serializer.Deserialize(reader);\r\n      }\r\n\r\n      // This method makes the initial CalculateRoute asynchronous request using the results of the Geocode Service.\r\n      private RouteResponse CalculateRoute(PointLatLng start, PointLatLng end)\r\n      {\r\n          // Set the credentials.\r\n          RouteRequest routeRequest = new RouteRequest();\r\n          routeRequest.Credentials = new Credentials();\r\n          routeRequest.Credentials.ApplicationId = ClientKey;\r\n          \r\n          routeRequest.Options = new RouteOptions();\r\n          routeRequest.Options.RoutePathType = RoutePathType.Points;\r\n          routeRequest.Options.RoutePathTypeSpecified = true;\r\n          routeRequest.Options.Optimization = RouteOptimization.MinimizeTime;\r\n          routeRequest.Options.OptimizationSpecified = true;\r\n          routeRequest.Options.Mode = TravelMode.Driving;\r\n\r\n          Waypoint[] waypoints = new Waypoint[2];\r\n          waypoints[0] = LongitudeLatitudeToWaypoint(start.Lng, start.Lat);\r\n          waypoints[1] = LongitudeLatitudeToWaypoint(end.Lng, end.Lat);\r\n          routeRequest.Waypoints = waypoints;\r\n\r\n          RouteService r = new RouteService();\r\n          return r.CalculateRoute(routeRequest);\r\n      }\r\n\r\n      private Waypoint LongitudeLatitudeToWaypoint(double Longitude, double Latitude)\r\n      {\r\n          Waypoint waypoint = new Waypoint();\r\n          waypoint.Description = \"LON \" + Longitude.ToString() + \"LAT \" + Latitude.ToString();\r\n          waypoint.Location = new Location();\r\n          waypoint.Location.Latitude = Latitude;\r\n          waypoint.Location.Longitude = Longitude;\r\n          waypoint.Location.LongitudeSpecified = true;\r\n          waypoint.Location.LatitudeSpecified = true;\r\n          return waypoint;\r\n      }\r\n\r\n      #endregion\r\n      #endregion\r\n\r\n",
+    "LastUpdatedDate": "2012-12-06T07:29:39.017-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-03-04T06:45:01.8-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Bing Maps Routing Provider",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 16033
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

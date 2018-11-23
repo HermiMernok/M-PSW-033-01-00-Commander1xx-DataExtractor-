@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "250725",
+    "ThreadId": "73371",
+    "Html": "<p>Hi,</p>\r\n<p>Am changing default mouse drag button as follows:</p>\r\n<p><span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>gMap.DragButton =</p>\r\n&lt;/font&gt;</span>\r\n<p><span style=\"color:#2b91af;font-size:x-small\"><span style=\"color:#2b91af;font-size:x-small\">MouseButtons</span></span><span style=\"font-size:x-small\">.Left;</span></p>\r\n</p>\r\n<p>That works great. However, nothing in the&nbsp;<span style=\"font-size:x-small\">MouseDoubleClick event will fire (trying this:</span></p>\r\n<p><span style=\"font-size:x-small\">\r\n<p>gMap.Zoom = gMap.MaxZoom;</p>\r\n<p>and I noticed even the On MarkerClick has an issue as well - sample code:&nbsp;<span style=\"font-size:x-small\">\r\n<p>gMap.CurrentPosition = item.Position;</p>\r\n</span></p>\r\n&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p><span style=\"font-size:x-small\">I think the map is watching the left click for drag now and blocking everything else that listens to it... I mean, the events fire, but nothing happens. Anyone have a solution?</span></p>",
+    "PostedDate": "2009-10-28T08:43:58.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

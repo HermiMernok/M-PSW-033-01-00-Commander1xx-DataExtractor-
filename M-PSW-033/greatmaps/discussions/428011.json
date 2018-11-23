@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "981670",
+    "ThreadId": "428011",
+    "Html": "\r\n<p>When I declare the GMapControl in either XAML or programmatically there's an error with Zoom property.</p>\r\n<p>I used the DLL's from the latest build and yet I keep getting that 'Object not set to an instance of an object' error which is caused by setting the Zoom property. Well it would run perfectly despite the error, but then you can't work on design mode properly.\r\n You could omit the Zoom property and get no errors which would free your design mode, but you won't be able to see the map either way.</p>\r\n<p>I'm talking about the WPF version only, no idea how's it going on Windows Forms</p>\r\n",
+    "PostedDate": "2012-12-29T13:47:13.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983715",
+    "ThreadId": "428011",
+    "Html": "\r\n<p>thanks, fixed</p>\r\n",
+    "PostedDate": "2013-01-07T04:31:45.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055351",
+    "ThreadId": "428011",
+    "Html": "Do you see the map content at design time after this fix? I only get a blank rectangle. The error regarding the Zoom property is however gone.<br />\n",
+    "PostedDate": "2013-06-11T05:52:56.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056199",
+    "ThreadId": "428011",
+    "Html": "there is no need to see the map in design mode<br />\n",
+    "PostedDate": "2013-06-13T00:06:03.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

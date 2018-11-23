@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "create your own version to generate the shape, by default it has slight blure added",
+    "ClosedDate": "2011-10-23T10:27:07.683-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "When i added 5 paths with near 1000 points each, i have slightly performance decrease while navigating on map.\r\nIf i hide paths (visible = false) no performance drop detected.\r\n\r\nI use WPF but in WinForms via Host.\r\nI don't know how i can workaround that..",
+    "LastUpdatedDate": "2011-10-23T10:27:07.683-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-10-23T07:44:37.563-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "[WPF] A bunch of Paths (~1000 points) affect performance slightly",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16016
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Reason - fancy blur effects apllied on path. \n\n//BlurEffect ef = new BlurEffect();\n//{\n//   ef.KernelType = KernelType.Gaussian;\n//   ef.Radius = 3.0;\n//   ef.RenderingBias = RenderingBias.Quality;\n//}\n\n//myPath.Effect = ef;\nI think it will be nice to add some option to disable \"fancy effects\"",
+      "PostedDate": "2011-10-23T08:32:16.44-07:00",
+      "Id": 47576
+    }
+  ]
+}

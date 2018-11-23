@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "1000511",
+    "ThreadId": "432950",
+    "Html": "Hello,\r<br />\nI am using Gmap.net for my windows form application.\r<br />\nI have to visualize my GIS data gathered from vehicles. my task is to animate the route of the vehicle, so the user understands in what direction vehicle is travelling. \r<br />\nsomething like this\r<br />\n<a href=\"http://econym.org.uk/gmap/example_cartrip3.htm\" rel=\"nofollow\">http://econym.org.uk/gmap/example_cartrip3.htm</a>\r<br />\n<br />\nfor the moment i have used a simple marker as my vehicle....but i donno how can i give motion to it according to co-ordinates in my database..\r<br />\nDoes gmap.net support such features??\r<br />\n<br />\nplease help me for this, its really important for my project<br />\n",
+    "PostedDate": "2013-02-13T04:06:56.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000520",
+    "ThreadId": "432950",
+    "Html": "just update markers position in timer<br />\n",
+    "PostedDate": "2013-02-13T04:26:18.703-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000584",
+    "ThreadId": "432950",
+    "Html": "can u give me an example code for this, i am not well versed with timers<br />\n",
+    "PostedDate": "2013-02-13T06:30:52.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000586",
+    "ThreadId": "432950",
+    "Html": "The source code.\r<br />\nDemo.WindowsForms/Mainform.cs  look for TIMER<br />\n",
+    "PostedDate": "2013-02-13T06:37:19.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000720",
+    "ThreadId": "432950",
+    "Html": "i tried to do this\r<br />\n<br />\nprivate void OnTimerEvent(object sender, EventArgs e)<br />\n<pre><code>    {\n\n        for (int i = 0; i &lt;= 1000; i++)\n        {\n            var pos = new PointLatLng(TLat[i], TLong[i]);\n            m = new GMapMarkerGoogleGreen(pos);\n            transmarkers.Markers.Add(m);\n        }\n\n    }\n</code></pre>\n\ni have stored all the transmitter coordinates in TLat and TLong, and i am starting the timer on a button click event.\r<br />\nBut i dont see any output on my map, instead map becomes invisible for sometime.\r<br />\n<br />\nwhat should i do?<br />\n",
+    "PostedDate": "2013-02-13T10:46:45.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000730",
+    "ThreadId": "432950",
+    "Html": "just <em>update markers position in timer</em><br />\n",
+    "PostedDate": "2013-02-13T10:57:29.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000747",
+    "ThreadId": "432950",
+    "Html": "u mean on timer_tick() event rite?\r<br />\nbut how can i pass my coordinates to it?<br />\n",
+    "PostedDate": "2013-02-13T11:18:52.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000758",
+    "ThreadId": "432950",
+    "Html": ";} how is the question, because is the answer<br />\n",
+    "PostedDate": "2013-02-13T11:32:38.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000762",
+    "ThreadId": "432950",
+    "Html": "Okk, i tried it, but it is not giving any motion to marker, just placing a marker at random intervals.\r<br />\nplease tell me what should i do its really important for me<br />\n",
+    "PostedDate": "2013-02-13T11:45:34.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1000772",
+    "ThreadId": "432950",
+    "Html": "place the marker at short intervals and you'll get motion illusion<br />\n",
+    "PostedDate": "2013-02-13T12:07:26.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012660",
+    "ThreadId": "432950",
+    "Html": "Since right-click moves the screen, you might be able to simulate a right-click and move the map around.\r<br />\nBTW: I need a map that travels along as well and I don't want to do it in Javascript....\r<br />\nFile: gmapcontrol.cs \r<br />\nhas this:  <br />\nprotected override void OnMouseMove(MouseEventArgs e)\r<br />\n<br />\n<br />\nAlso, it wouldn't hurt to ask Mike\r<br />\n<a href=\"http://www.econym.demon.co.uk/\" rel=\"nofollow\">http://www.econym.demon.co.uk/</a><br />\n",
+    "PostedDate": "2013-03-08T21:32:15.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

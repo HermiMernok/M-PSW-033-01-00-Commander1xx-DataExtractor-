@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "928892",
+    "ThreadId": "399942",
+    "Html": "\r\n<p>Hello, i have got problem. I want to draw 2 routes in map, but i need that first route will be red and second will be blue. Routes are OK but both are blue. Please help me. Many thanks. There is my code:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>GMapRoute r1 = <span style=\"color:blue\">new</span> GMapRoute(route1, <span style=\"color:#a31515\">&quot;Route1&quot;</span>);\nGMapRoute r2 = <span style=\"color:blue\">new</span> GMapRoute(route2, <span style=\"color:#a31515\">&quot;Route2&quot;</span>);\nr1.Stroke.Width = 3;\nr1.Stroke.Color = Color.Red;\nr2.Stroke.Width = 3;\nr2.Stroke.Color = Color.Blue;\noverlayOne.Routes.Add(r1);\noverlayOne.Routes.Add(r2);\ngMapControl1.Overlays.Add(overlayOne);</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-10-18T10:30:16.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928900",
+    "ThreadId": "399942",
+    "Html": "\r\n<p>your code is correct, one route is red, another is blue</p>\r\n",
+    "PostedDate": "2012-10-18T10:42:08.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928906",
+    "ThreadId": "399942",
+    "Html": "\r\n<p>When I insert first route, it's red, ok..but when I insert second route, it's all blue..even in properties it is OK, first is red, second is blue. But on map it's still blue.. I am desperate. I attach screenshots.</p>\r\n<p><a href=\"http://boris008.wz.cz/mapa1.jpg\">http://boris008.wz.cz/mapa1.jpg</a>&nbsp;- I draw first route, ok, red</p>\r\n<p><a href=\"http://boris008.wz.cz/mapa2.jpg\">http://boris008.wz.cz/mapa2.jpg</a>&nbsp;- I draw second route, not ok, all is blue.. :-(</p>\r\n",
+    "PostedDate": "2012-10-18T10:53:59.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928912",
+    "ThreadId": "399942",
+    "Html": "<p>works fine for me ;}</p>\r\n<p><img src=\"http://imageshack.us/a/img716/275/gmapdemoroute2.png\" alt=\"\" />&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>{\r\n            List&lt;PointLatLng&gt; list = <span style=\"color: blue;\">new</span> List&lt;PointLatLng&gt;();\r\n\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.710525233333, 51.709773683333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711725983333, 51.704725066667));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712161566667, 51.7016886));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.71156525, 51.700573083333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711619183333, 51.697707483333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711683333333, 51.693647033333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713998866667, 51.69232));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.716209366667, 51.69141195));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.716029866667, 51.6902065));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.715211833333, 51.687279733333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.714487533333, 51.684649283333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.7138501, 51.682203766667));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713188, 51.6800163));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712567716667, 51.677681383333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712951733333, 51.676638066667));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.71328285, 51.675441133333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713514866667, 51.67297225));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713735066667, 51.670455));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713785566667, 51.66982365));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713969216667, 51.6673657));\r\n\r\n            GMapRoute r = <span style=\"color: blue;\">new</span> GMapRoute(list, <span style=\"color: #a31515;\">\"my route\"</span>);\r\n            r.Stroke.Width = 22;\r\n            r.Stroke.Color = Color.Red;\r\n\r\n            routes.Routes.Add(r);\r\n         }\r\n\r\n         {\r\n            List&lt;PointLatLng&gt; list = <span style=\"color: blue;\">new</span> List&lt;PointLatLng&gt;();\r\n\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.710525233333-0.003, 51.709773683333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711725983333-0.003, 51.704725066667));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712161566667-0.003, 51.7016886));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.71156525-0.003, 51.700573083333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711619183333-0.003, 51.697707483333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.711683333333-0.003, 51.693647033333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713998866667-0.003, 51.69232));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.716209366667-0.003, 51.69141195));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.716029866667-0.003, 51.6902065));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.715211833333-0.003, 51.687279733333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.714487533333-0.003, 51.684649283333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.7138501-0.003, 51.682203766667));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713188-0.003, 51.6800163));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712567716667-0.003, 51.677681383333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.712951733333-0.003, 51.676638066667));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.71328285-0.003, 51.675441133333));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713514866667-0.003, 51.67297225));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713735066667-0.003, 51.670455));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713785566667-0.003, 51.66982365));\r\n            list.Add(<span style=\"color: blue;\">new</span> PointLatLng(32.713969216667-0.003, 51.6673657));\r\n\r\n            GMapRoute r = <span style=\"color: blue;\">new</span> GMapRoute(list, <span style=\"color: #a31515;\">\"my 2 route\"</span>);\r\n            r.Stroke.Width = 22;\r\n            r.Stroke.Color = Color.Blue;\r\n\r\n            routes.Routes.Add(r);\r\n         }\r\n\r\n         MainMap.ZoomAndCenterRoutes(<span style=\"color: blue;\">null</span>);\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-10-18T11:08:59.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928917",
+    "ThreadId": "399942",
+    "Html": "<p>I will try it ;-)</p>",
+    "PostedDate": "2012-10-18T11:12:54.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928925",
+    "ThreadId": "399942",
+    "Html": "<p>I'm so sorry for my mistake, error was before this good code.. Thanks :-)</p>",
+    "PostedDate": "2012-10-18T11:22:25.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928927",
+    "ThreadId": "399942",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2012-10-18T11:25:23.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

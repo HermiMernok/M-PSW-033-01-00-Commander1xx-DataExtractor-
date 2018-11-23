@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1447100",
+    "ThreadId": "645821",
+    "Html": "Hi, I would like to add some markers on a map based on openStreetMap. <br />\n<br />\nI am working on WPF C# VS2013. <br />\n<br />\nThis is the C# code, but why no map show up ? <br />\n<br />\nAny hwelp would be appreciated. <br />\n<br />\nMainWindow.xaml.cs : <br />\n<pre><code> using System;\n using System.Collections.Generic;\n using System.Linq;\n using System.Text;\n using System.Threading.Tasks;\n using System.Windows;\n using System.Windows.Controls;\n using System.Windows.Data;\n using System.Windows.Documents;\n using System.Windows.Input;\n using System.Windows.Media;\n using System.Windows.Media.Imaging;\n using System.Windows.Navigation;\n using System.Windows.Shapes;\n using GMap.NET;\n using GMap.NET.WindowsPresentation;\n using GMap.NET.MapProviders;\n\n namespace try_gmap_wpf\n{\n /// &lt;summary&gt;\n /// Interaction logic for MainWindow.xaml\n /// &lt;/summary&gt;\n public partial class MainWindow : Window\n {\n    public MainWindow()\n    {\n        InitializeComponent();\n\n        GMapControl gMapControl1 = new GMapControl();\n        gMapControl1.MapProvider = OpenStreetMapProvider.Instance;\n\n        gMapControl1.SetPositionByKeywords(&quot;USA&quot;);\n        //get tiles from server only\n        gMapControl1.Manager.Mode = AccessMode.ServerOnly;\n        //not use proxy\n        GMapProvider.WebProxy = null;\n        //center map on moscow\n        gMapControl1.Position = new PointLatLng(55.755786121111, 37.617633343333);\n\n        //zoom min/max; default both = 2\n        gMapControl1.MinZoom = 1;\n        gMapControl1.MaxZoom = 16;\n        //set zoom\n        gMapControl1.Zoom = 0;\n\n     }\n }</code></pre>\n\n}<br />\n<pre><code> MainWindow.xaml : \n\n &lt;Window x:Class=&quot;try_gmap_wpf.MainWindow&quot;\n    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;\n    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;\n    xmlns:m=&quot;clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation&quot; \n    Title=&quot;MainWindowDJX&quot; Height=&quot;300&quot; Width=&quot;500&quot;&gt;\n&lt;Grid&gt;\n    &lt;m:GMapControl Zoom=&quot;0&quot; x:Name=&quot;myMap&quot; \n           /&gt;\n&lt;/Grid&gt;\n&lt;/Window&gt;\n</code></pre>\n\n",
+    "PostedDate": "2015-10-05T08:37:01.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447323",
+    "ThreadId": "645821",
+    "Html": "if you define map using xaml, use <strong>myMap</strong> instead of gMapControl1<br />\n",
+    "PostedDate": "2015-10-06T10:45:20.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

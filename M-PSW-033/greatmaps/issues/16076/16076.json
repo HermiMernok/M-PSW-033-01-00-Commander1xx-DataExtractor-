@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "latest version use default references common for all, if you want multiply routes with different colors, use: r.Stroke = new Pen(...);",
+    "ClosedDate": "2013-07-08T00:55:16.05-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nFirstly thank you for such a great tool!\r\n\r\nPlease can you help me with the following issue. I have multiple routes that I would like to display in different colors. \r\n\r\nMy code is as follows:\r\n\r\n                            GMapRoute r = new GMapRoute(points, selectedRoute); \r\n                            r.Stroke.Width = 3;\r\n                            r.Stroke.Color = Color.FromArgb(Utils.randomNumber(0, 255), Utils.randomNumber(0, 255), Utils.randomNumber(0, 255));\r\n                            routes.Routes.Add(r);\r\n\r\n                            routemap.gmap.ZoomAndCenterRoutes(depotID);\r\n                            routemap.gmap.Zoom = 15;\r\n                            routemap.gmap.Overlays.Add(routes);\r\nI can see that routes contains a list of all my routes with the correct properties. However, the Stroke is set to the color of the last route for all routes.\r\n\r\nPlease could you assist?\r\n\r\nThank you.",
+    "LastUpdatedDate": "2013-07-08T01:09:53.533-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-07-08T00:23:17.327-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Multiple routes with different colors",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16076
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks :)",
+      "PostedDate": "2013-07-08T01:09:53.533-07:00",
+      "Id": 105367
+    }
+  ]
+}

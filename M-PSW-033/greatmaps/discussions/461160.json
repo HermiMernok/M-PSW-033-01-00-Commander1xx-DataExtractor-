@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1103643",
+    "ThreadId": "461160",
+    "Html": "In version 1.5.3.3, I was able to use the default proxy for geocoding with no special settings in your wonderful control.  In 1.7 beta, I have to change settings to avoid bypassing the default proxy.<br />\n<pre><code>// only code required in GMaps.NET 1.5.5.3 to use default proxy \n// (fiddler or real proxy)\nvar latLng = GMaps.Instance.GetLatLngFromGeocoder(addrQuery, out result);</code></pre>\n\nIn the 1.7 beta, the default proxy is bypassed unless I change the proxy and cache settings.  Fiddler doesn't even see the web requests unless these changes are made:<br />\n<pre><code>//code required in 1.7 beta hot-build to use proxy\nGMapProvider.WebProxy = WebRequest.DefaultWebProxy;\n// or, GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();\nGMaps.Instance.UseGeocoderCache = false;\nvar latLng = GMapProviders.GoogleMap.GetPoint(addrQuery, out result);</code></pre>\n\nIf I explicitly tell GMaps to use the default web proxy, and force caching to be disabled, fiddler or another proxy can be used.  If I leave either of these lines out of my code, the request bypasses the default/system proxy.  Is this intentional, or perhaps a bug?<br />\n\r<br />\nI have only tested this with Geocoding via google so far.  By the way, thanks for quickly updating to the google API v3.\r<br />\n<br />\nThanks in advance for any help, \r<br />\n<br />\nShane Torsell<br />\n",
+    "PostedDate": "2013-10-04T07:43:38.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1103645",
+    "ThreadId": "461160",
+    "Html": "by default it doesn't use any proxy, and for the same request cached response is returned, unless you disable the caching<br />\n",
+    "PostedDate": "2013-10-04T07:47:36.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1103729",
+    "ThreadId": "461160",
+    "Html": "Thanks for the quick reply, radioman.\r<br />\n<br />\nI completely underestimated the cache implementation.  I must have an SQLite file somewhere on my machine with quite a few entries in it.  By ensuring my request was &quot;new,&quot; I was able to see the request in Fiddler.  I am going to keep the cache enabled once I debug my other issue.\r<br />\n<br />\nRegarding the default proxy, was this an intentional change in recent releases?  All of the other network connections in my application use the proxy settings for the user based on settings in the app.config.  It was not until I upgraded to 1.7 beta (I must have skipped 1.6) that I had to force GMaps back to using the default proxy settings.<br />\n\r<br />\nIn 1.5.5.3, these app.config settings were enough to make my entire application share proxy settings.  Will I now have to extract the proxy configuration from the configuration file to propagate the configuration to GMaps (in case the app.config is customized with specific proxy settings)?  I will see if I can extract the WebProxy property from some other network-aware object in my application.<br />\n<pre><code> &lt;configuration&gt;\n   &lt;system.net&gt;\n     &lt;defaultProxy enabled=&quot;true&quot; useDefaultCredentials=&quot;true&quot;&gt;\n     &lt;/defaultProxy&gt;\n   &lt;/system.net&gt;\n &lt;/configuration&gt;</code></pre>\n\nThanks again,\r<br />\nShane Torsell<br />\n",
+    "PostedDate": "2013-10-04T10:08:13.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,178 @@
+[
+  {
+    "Id": "456494",
+    "ThreadId": "216319",
+    "Html": "Hi, \r\nFiest of all: Thats just THE project i was looking for! THank you a million times!\r\n\r\n\r\nNow the harder stuff ;0) \r\nI have written a small Application on WinMobile that works fine when Internet is connected, yet when i want to switch to cache only i only get blank tiles (or rather blue ones with an exception overlaying the message that no tile could be loaded). Is there maye a step by step example on how to load caches on mobile? It seems as if Desktop has ShowImportDialog() as method which the Mobile lacks and hence i have to rely on CacheLocation and so on - which obviously does not work..\r\n\r\nMight be someone friendly enough to help me? ",
+    "PostedDate": "2010-06-16T23:26:47.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456499",
+    "ThreadId": "216319",
+    "Html": "<p>hey, ...what's the&nbsp;exception?</p>",
+    "PostedDate": "2010-06-16T23:34:35.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456507",
+    "ThreadId": "216319",
+    "Html": "Over the text that says i wouldnt have the needed imagery for that zoom level is a second message that tells me that there is an exception yet no text for it is available.. sorry for that.\r\n\r\nBtw, i just see that there might be a slight problem with my cache file. Is it right, that a cache of about 20MB in the windows program is exported roughly 4MB large?",
+    "PostedDate": "2010-06-16T23:49:12.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456510",
+    "ThreadId": "216319",
+    "Html": "Aha, after i added System.SR.dll as reference to the project (there seems to be a bug with the Windows Mobile 6 SDKs Erroir messages) i can now read the exception:\r\n\r\n&quot;Exception: No data in local tile cache...&quot;",
+    "PostedDate": "2010-06-17T00:02:18.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456513",
+    "ThreadId": "216319",
+    "Html": "<p>try just copy all database to mobile, do not use export</p>",
+    "PostedDate": "2010-06-17T00:03:55.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456917",
+    "ThreadId": "216319",
+    "Html": "ok, i found it in the roaming directory.. but same error (though i only copied the Data.gmdb file)\r\n\r\nI try to load it with the following code:\r\n\r\n            MapWindow.MapType = GMap.NET.MapType.GoogleTerrain;\r\n            MapWindow.CurrentPosition = new GMap.NET.PointLatLng(position.Latitude, position.Longitude);\r\n            MapWindow.Zoom = 15;\r\n            MapWindow.CacheLocation = tbMap.Text;\r\n            \r\n            MapWindow.Manager.Mode = AccessMode.CacheOnly;\r\n            MapWindow.ReloadMap();\r\n\r\nfilename is correct..",
+    "PostedDate": "2010-06-17T13:13:01.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456951",
+    "ThreadId": "216319",
+    "Html": "<p>?</p>",
+    "PostedDate": "2010-06-17T14:28:17.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456954",
+    "ThreadId": "216319",
+    "Html": "Ah.. i see the last message was malformated. The last part was the code i used to load the datafile. Basically i just set leocation and cachelocation with two variables and then refresh the mapview control. Yet to no avail although i use the cache file i found in the roaming directory. ",
+    "PostedDate": "2010-06-17T14:30:23.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457064",
+    "ThreadId": "216319",
+    "Html": "<p>why do you change&nbsp;cache location?</p>",
+    "PostedDate": "2010-06-17T22:09:04.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457073",
+    "ThreadId": "216319",
+    "Html": "<p>first of all because i didnt know there was a defalt path for it and secondly because i would like to have several cache files for different purposes.</p>",
+    "PostedDate": "2010-06-17T23:04:36.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457077",
+    "ThreadId": "216319",
+    "Html": "<p>i see, do does it work as expected?</p>",
+    "PostedDate": "2010-06-17T23:24:20.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457078",
+    "ThreadId": "216319",
+    "Html": "<p>It still doesnt. Although i use the Datafile from the Roaming directory on windows, having now about 40MB after prefetching GoogleMaps, Terrain and OSM. I just copied this one big file to the mobile and loaded it via CacheLocation and ReloadMap(). Yet this only leads to the 'blue boxes' which give me the exception that i wouldnt have any tiles for that location on my local cahce..&nbsp; Could you maybe sumarise how to do this? Maybe a simple step by step? I tried to follow the MobileDemo - yet this relies on ServerAndCache and i would lo go on Cache only, preferably on Cache at my own location..</p>",
+    "PostedDate": "2010-06-17T23:28:29.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457089",
+    "ThreadId": "216319",
+    "Html": "<p>can you try put it in default location?</p>",
+    "PostedDate": "2010-06-17T23:54:08.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457091",
+    "ThreadId": "216319",
+    "Html": "<p>Without touching the location and putting the database into the default directory i get the &quot;No data in local tile cahce..&quot; exception on the map again. With all three tried Maps.</p>",
+    "PostedDate": "2010-06-18T00:03:01.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457100",
+    "ThreadId": "216319",
+    "Html": "<p>and where do you put it? On Mobile, if you have sd card, it's there</p>",
+    "PostedDate": "2010-06-18T00:32:27.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457101",
+    "ThreadId": "216319",
+    "Html": "<p>It is in &quot;\\Speicherkarte\\GMap.NET\\TileDBv3\\en&quot; Maybe there is a language problem? My phone has a german version hence 'Speicherkarte' instead of Storage Card.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-18T00:36:49.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457108",
+    "ThreadId": "216319",
+    "Html": "<p>it should find it, but anyway, can you debug it?</p>\r\n<p>add breakpoint in GMap.NET.Internals\\Cache.cs constructor, then go step by step</p>",
+    "PostedDate": "2010-06-18T00:47:22.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457118",
+    "ThreadId": "216319",
+    "Html": "<p>I will do that later when i am on the machine again that i have the source on. I just tried with the sample program for mobile you provide and there the cache works...</p>\r\n<p>Interestering enough - so i guess its somewhere in my implementation :0(</p>",
+    "PostedDate": "2010-06-18T00:55:33.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457130",
+    "ThreadId": "216319",
+    "Html": "<p>it's possible, but let me know what was causing it, if you will figure it out</p>",
+    "PostedDate": "2010-06-18T01:21:15.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457168",
+    "ThreadId": "216319",
+    "Html": "<p>i guess i will completely rewrite my program.. it seems as if some of my objects are conflicting with yours hence it doesnt work. Now after playing with your demo program i am convinced that it is my implementation yet i dont really see where exactly i went wrong..</p>\r\n<p>anyway as time is a pressing issue at the moment i will completely rewrite my program now.. i hope it works then. If i find time i will try to modify my old code till it works, but first of all i need my program to run ;0)</p>",
+    "PostedDate": "2010-06-18T02:38:26.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457198",
+    "ThreadId": "216319",
+    "Html": "<p>When i was redoing your work, trying to imitate as much as possible i found the problem: Its almost a shame, but i didnt copy the interop.dll for sqlite by default.. it was not added to the project and now everything works finde.</p>\r\n<p>&nbsp;</p>\r\n<p>Could kick my own but at the moment..</p>",
+    "PostedDate": "2010-06-18T04:04:02.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457204",
+    "ThreadId": "216319",
+    "Html": "<p>i see ;} good</p>",
+    "PostedDate": "2010-06-18T04:25:51.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

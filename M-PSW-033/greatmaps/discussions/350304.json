@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "816497",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>How to anchor a object on map. I am using c#.</p>\r\n<p>My created map:</p>\r\n<p>GMapControl MainMap = new GMapControl();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.MapProvider = GMapProviders.GoogleMap;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.Position = new GMap.NET.PointLatLng(48.019324, 102.700195);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.MinZoom = 1;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.MaxZoom = 17;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.Zoom = 8;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.Dock = DockStyle.Fill;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.DragButton = MouseButtons.Left;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>this.gpBoxShowMap.Controls.Add(MainMap);</p>\r\n",
+    "PostedDate": "2012-03-28T05:00:26.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816614",
+    "ThreadId": "350304",
+    "Html": "<p>Anchor?</p>",
+    "PostedDate": "2012-03-28T08:05:17.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943183",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>Dear Radioman,</p>\r\n<p>it is possible to add an image or any other things instead of googlemarker, for instance a small car, bus or bike picture</p>\r\n<p>thanks alot</p>\r\n",
+    "PostedDate": "2012-11-17T02:15:49.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943185",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>googlemarker just renders custom image, you can use your own if you want to</p>\r\n",
+    "PostedDate": "2012-11-17T02:24:07.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943189",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>Dear Radioman,</p>\r\n<p>how can I do it, could you give me a hint,</p>\r\n<p>thanks a lot</p>\r\n",
+    "PostedDate": "2012-11-17T02:49:36.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943191",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>check the source</p>\r\n",
+    "PostedDate": "2012-11-17T02:50:45.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943193",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>thanx</p>\r\n",
+    "PostedDate": "2012-11-17T02:56:56.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945023",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Dear Radioman,</p>\r\n<p>I am so sorry, but I can not find the source that how I can add image instead of google marker, could you show me some line of code.</p>\r\n<p>thanks a lot</p>\r\n",
+    "PostedDate": "2012-11-21T02:03:58.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945044",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>google marker has overloaded parameter for bitmap</p>\r\n",
+    "PostedDate": "2012-11-21T02:54:01.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945244",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>Dear Radioman,</p>\r\n<p>still I can not :(</p>\r\n",
+    "PostedDate": "2012-11-21T09:21:56.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945248",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>var mark = new GMarkerGoogle(map.Position, Properties.Resources.MyImage);<br>\r\n<br>\r\n</p>\r\n",
+    "PostedDate": "2012-11-21T09:26:36.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945250",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>your are very kind man :)</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2012-11-21T09:29:33.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945263",
+    "ThreadId": "350304",
+    "Html": "\r\n<p>Ok, now ,I understand my problem that is I can not declare a variable its type is&nbsp;GMarkerGoogle, I can just declare&nbsp;GMapMarker, dear Radioman, you have an idea,</p>\r\n<p>&nbsp;</p>\r\n<p>Also I have added&nbsp;GMarkerGoogle.cs &nbsp;class to my project (I have taken it from your demo project) ALso I still have &nbsp;problem.</p>\r\n<p>thanks a lot.</p>\r\n",
+    "PostedDate": "2012-11-21T09:46:25.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

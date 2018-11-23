@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "727583",
+    "ThreadId": "286679",
+    "Html": "\r\n<p>Firstly, Thanks for this great library !&nbsp;</p>\r\n<p>The issue is:</p>\r\n<p>I use the GMapControl following way:</p>\r\n<p>1) GMapControl control is created and added to a form upon form initialization</p>\r\n<p>2) That form is not shown initially, but somewhere in the app, by button click</p>\r\n<p>3) Upon first (only) form show event I initialize a new MapProvider and assign it to the map instance, so that any following &quot;form.show&quot; has the map ready and running. I found out that by simply closing the form, it disposes all it's managed ressources causing\r\n an Exception upon a subsequential &quot;show&quot;-call. Fixed that by showing the form as a dialog (closing it does not make a call to the &quot;dispose&quot; method by default).&nbsp;</p>\r\n<p>However, another type of NullReference exception still occures:</p>\r\n<p>In Core.gs:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>tileDrawingListLock.AcquireWriterLock()\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>tileDrawingListLock is null</p>\r\n<p>Tried only hiding the form, instead of closing it, same thing.</p>\r\n<p>I guess, there is still something that is being internally disposed by the GMap instance itself upon it's parent form close/hide.</p>\r\n",
+    "PostedDate": "2012-01-19T06:20:39.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727592",
+    "ThreadId": "286679",
+    "Html": "<p>windows forms or wpf?</p>",
+    "PostedDate": "2012-01-19T06:31:08.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727614",
+    "ThreadId": "286679",
+    "Html": "<p>windows forms</p>",
+    "PostedDate": "2012-01-19T06:54:26.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727620",
+    "ThreadId": "286679",
+    "Html": "<p>control is disposed after&nbsp;OnHandleDestroyed is called, and that is when you close form, i don't know about hiding, need some testing...</p>",
+    "PostedDate": "2012-01-19T07:08:32.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "727625",
+    "ThreadId": "286679",
+    "Html": "<p>works perfectly, form2 contains map, and&nbsp;<strong>hiding doesn't dispose anything</strong></p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">partial</span> <span style=\"color: blue;\">class</span> Form1 : Form\r\n{\r\nForm2 form2;\r\n\r\n<span style=\"color: blue;\">public</span> Form1()\r\n{\r\nInitializeComponent();\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> button1_Click(<span style=\"color: blue;\">object</span> sender, EventArgs e)\r\n{\r\n<span style=\"color: blue;\">if</span>(form2 == <span style=\"color: blue;\">null</span>)\r\n{\r\nform2 = <span style=\"color: blue;\">new</span> Form2();\r\n}\r\nform2.Show();\r\n}\r\n\r\n<span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> button2_Click(<span style=\"color: blue;\">object</span> sender, EventArgs e)\r\n{\r\n<span style=\"color: blue;\">if</span>(form2 != <span style=\"color: blue;\">null</span>)\r\n{\r\nform2.Hide();\r\n}\r\n}\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-01-19T07:16:56.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "747105",
+    "ThreadId": "286679",
+    "Html": "<p>I have similar problem, WPF</p>\r\n<p>I have 2 maps on two tabs. I can switch between tabs without map without any problem. I can only once visit tab with map (one time each tab contains map), when I back to this tab second time aplication goes into deadlock.</p>\r\n<p>I've tried knightlie's solution from <a href=\"http://greatmaps.codeplex.com/discussions/263250\" target=\"_blank\">here</a>, but it didn't help.</p>\r\n<p>NullReferenceException was unhandled</p>\r\n<p>Core.cs, UpdateBounds()</p>\r\n<p>tileDrawingListLock.AcquireWriterLock();</p>\r\n<p>&gt;<span> </span>GMap.NET.Core.dll!GMap.NET.Internals.Core.UpdateBounds() Line 1188<span> </span>C#&nbsp;<span> </span>GMap.NET.Core.dll!GMap.NET.Internals.Core.Drag(GMap.NET.GPoint pt) Line 865 + 0x8 bytes<span> </span>C#&nbsp;<span> </span>GMap.NET.Core.dll!GMap.NET.Internals.Core.GoToCurrentPosition() Line 773 + 0x22 bytes<span> </span>C#&nbsp;<span> </span>GMap.NET.Core.dll!GMap.NET.Internals.Core.OnMapOpen() Line 397 + 0x8 bytes<span> </span>C#&nbsp;<span> </span>GMap.NET.WindowsPresentation.dll!GMap.NET.WindowsPresentation.GMapControl.GMapControl_Loaded(object sender, System.Windows.RoutedEventArgs e) Line 606 + 0x10 bytes<span> </span>C#&nbsp;<span> </span>[External Code]<span> </span></p>",
+    "PostedDate": "2012-02-08T05:38:39.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "747126",
+    "ThreadId": "286679",
+    "Html": "<p>it's fixed</p>",
+    "PostedDate": "2012-02-08T05:51:52.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

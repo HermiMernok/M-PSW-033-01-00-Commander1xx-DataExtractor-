@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "853373",
+    "ThreadId": "360871",
+    "Html": "\r\n<p>Hi everyone.</p>\r\n<p>I'm trying to create an image from a map and it's markers at runtime off-screen reporting for Winforms. So I need the &quot;Get Static&quot; button functionality.</p>\r\n<p>Being <strong>bg </strong>a background worker, the intruction calls MainMap (a gMapControl) Projection member (PureProjection Class). Sadly, it doesn't work anymore. Was there a change?&nbsp;</p>\r\n<p><strong>bg</strong>.RunWorkerAsync(new MapInfo(<strong>MainMap.Projection</strong>, area, (int)numericUpDown1.Value, MainMap.MapType));</p>\r\n<p>So does MapType, a member of the class MapInfo by the way but I suppose it's related to GMapProvider as well when Point needs to be changed to GPoint at some lines.</p>\r\n<p>I hope to simplify the map to image export, but without this PureProjection I can't even get started.</p>\r\n<p>I got the code from here:</p>\r\n<p><a href=\"http://navigational.googlecode.com/svn/Legacy/Gmap.NET/Demo.WindowsForms/Forms/StaticImage.cs\">http://navigational.googlecode.com/svn/Legacy/Gmap.NET/Demo.WindowsForms/Forms/StaticImage.cs</a></p>\r\n<p>&nbsp;</p>\r\n<p>I'm desperate... really. Well, thanks a lot.</p>\r\n<p>&nbsp;</p>\r\n<hr>\r\n<p>&nbsp;</p>\r\n<p>Found out that that code was old, sorry. Even son the code source seems diferent from the single application provided. So, I'm checking out the code source and found it =)</p>\r\n<p><br>\r\n&nbsp;<strong>bg</strong>.RunWorkerAsync(new MapInfo(<strong>area.Value</strong>, (int)numericUpDown1.Value,\r\n<strong>Main.MainMap.MapProvider</strong>, checkBoxWorldFile.Checked));</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot anyway for this f#&quot;$&quot;# great stuff.</p>\r\n",
+    "PostedDate": "2012-06-25T13:57:01.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869784",
+    "ThreadId": "360871",
+    "Html": "<p>..well it's a realy old code, can't help much</p>",
+    "PostedDate": "2012-07-16T09:00:28.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

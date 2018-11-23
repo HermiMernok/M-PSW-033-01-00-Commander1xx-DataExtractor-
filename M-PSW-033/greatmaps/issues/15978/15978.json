@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": ";}",
+    "ClosedDate": "2010-07-11T07:38:55.343-07:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "How do you get this to work through a corporate proxy server?\r\nIs there a way to enter the webproxy username and password etc?",
+    "LastUpdatedDate": "2013-09-07T08:16:57.993-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-07-09T00:56:09.9-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Usage through Proxy Server",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15978
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "MainMap.Manager.Proxy = new WebProxy(\"10.2.0.100\", 8080);\nMainMap.Manager.Proxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeada\");\n\r\n\r** Closed by radioman 07/09/2010 2:57AM",
+      "PostedDate": "2010-07-09T02:57:31.873-07:00",
+      "Id": 14445
+    },
+    {
+      "Message": "MainMap.Manager.Proxy = new WebProxy(\"10.2.0.100\", 8080);\nMainMap.Manager.Proxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeada\");",
+      "PostedDate": "2010-07-09T02:57:33.09-07:00",
+      "Id": 14446
+    },
+    {
+      "Message": "Hi .....\n\nHow do you connect the Gmap.NET via a proxy server....?\n\nI tried many things like modifying the config file...etc...etc... but no luck\n\nAs mentioned in the previous response for the same query, there is no MainMap.Manager.Proxy where i can provide those details. Any help is highly appreciated.\n\nThanks....\n",
+      "PostedDate": "2013-09-07T08:16:57.993-07:00",
+      "Id": 112766
+    }
+  ]
+}

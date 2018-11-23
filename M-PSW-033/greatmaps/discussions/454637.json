@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1085315",
+    "ThreadId": "454637",
+    "Html": "Dear Radioman,\r<br />\n<br />\nFor example Google Map doesn't show completely at (lat=32.67, lng=51.32 , ZoomLevel=14) .\r<br />\n<br />\nother example : (lat=34.66, lng = 50.90 , ZoomLevel=11)<br />\n\r<br />\nSwitching to ServerOnly or ServerAndCache doesn't effect the result;\r<br />\nIs it Google? or a bug?\r<br />\n<br />\nRegards, Saeed<br />\n",
+    "PostedDate": "2013-08-27T02:55:55.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085729",
+    "ThreadId": "454637",
+    "Html": "Hello,\r<br />\n<br />\nI have a same problems. For GoogleSatteliteMap from Zoom 3-8 and 14-17 has exception : The remote server returned an error: (404) Not Found.\r<br />\n<br />\nOther zoom works fine. \r<br />\n<br />\nI have searched the URL which is used (generated from gmap) and post into webbroswer and this is ok (zoom 13) : \r<br />\n<a href=\"http://khm2.google.com/kh/v=92&amp;hl=en&amp;x=4425&amp;y=2775&amp;z=13&amp;s=Gal\" rel=\"nofollow\">http://khm2.google.com/kh/v=92&hl=en&x=4425&y=2775&z=13&s=Gal</a>\r<br />\nbut this isnt work (zoom 14) :\r<br />\n<a href=\"http://khm2.google.com/kh/v=92&amp;hl=en&amp;x=8852&amp;y=5549&amp;z=14&amp;s=G\" rel=\"nofollow\">http://khm2.google.com/kh/v=92&hl=en&x=8852&y=5549&z=14&s=G</a>\r<br />\n<a href=\"http://khm2.google.com/kh/v=92&amp;hl=en&amp;x=8852&amp;y=5549&amp;z=14\" rel=\"nofollow\">http://khm2.google.com/kh/v=92&hl=en&x=8852&y=5549&z=14</a>\r<br />\n<a href=\"http://khm2.google.com/kh/v=30&amp;hl=en&amp;x=8852&amp;y=5549&amp;z=14\" rel=\"nofollow\">http://khm2.google.com/kh/v=30&hl=en&x=8852&y=5549&z=14</a>\r<br />\n<a href=\"http://khm2.google.com/kh/v=20&amp;hl=en&amp;x=8852&amp;y=5549&amp;z=14\" rel=\"nofollow\">http://khm2.google.com/kh/v=20&hl=en&x=8852&y=5549&z=14</a>\r<br />\n<br />\nI have tried it from other machine (IPs) and it doesnt work.\r<br />\n<br />\nI guess, there is problem with : \r<br />\n1, Bad url format (google has changed format to newer and I use deprecated. I tried find it, but without success).\r<br />\n2, Google delete this tiles or dont support or anything else :)<br />\n",
+    "PostedDate": "2013-08-28T04:52:22.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085786",
+    "ThreadId": "454637",
+    "Html": "(lat=32.67, lng=51.32 , ZoomLevel=14) looks good:\r<br />\n<img src=\"http://img713.imageshack.us/img713/1417/n5h4.jpg\" alt=\"Image\" />\r<br />\n<br />\n<a href=\"http://mt2.google.com/vt/lyrs=m@228000000&amp;hl=en&amp;x=8852&amp;y=5549&amp;z=14&amp;s=G\" rel=\"nofollow\">http://mt2.google.com/vt/lyrs=m@228000000&hl=en&x=8852&y=5549&z=14&s=G</a>\r<br />\n<img src=\"http://mt2.google.com/vt/lyrs=m@228000000&amp;hl=en&amp;x=8852&amp;y=5549&amp;z=14&amp;s=G\" alt=\"Image\" />\r<br />\n<br />\nworks fine, update to the latest version<br />\n",
+    "PostedDate": "2013-08-28T07:01:47.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085811",
+    "ThreadId": "454637",
+    "Html": "Hi, thanks for response.\r<br />\n<br />\nI have download GMap.NET.WindowsForms.zip v 1.6 from this site Downloads.Recomended download and try it.\r<br />\n<br />\nOn this first pict, there is GoogleSatteliteMap, serverOnly coor.  54.7 25.3\r<br />\n<img src=\"http://2i.cz/2i/i/521e20c8/f7d9fff597ab183fa953685400033b06/b496a78d5e.f.png\" alt=\"Image\" />\r<br />\n<br />\nOn this first pict, there is GoogleHybridMap, serverOnly coor.  54.7 25.3 and surface still isnt\r<br />\n<img src=\"http://2i.cz/2i/i/521e2062/ed12c318a62b1e2782aad62a22526ba4/c3e1d0fa29.f.png\" alt=\"Image\" />\r<br />\n<br />\nMaybe pict missing only at some coordinates or downloaded application use the old way url format? I see, that your second pict use mt2.google.com server.\r<br />\n<br />\nCan you check it, please?<br />\n",
+    "PostedDate": "2013-08-28T08:17:32.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085872",
+    "ThreadId": "454637",
+    "Html": "1.6 is old enough<br />\n",
+    "PostedDate": "2013-08-28T10:50:56.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1086094",
+    "ThreadId": "454637",
+    "Html": "I tried newer version and the problem disappeared, \r<br />\n<br />\nthanks for your time.<br />\n",
+    "PostedDate": "2013-08-29T03:56:07.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1086206",
+    "ThreadId": "454637",
+    "Html": "google increase version numbers from time to time, for that there is detection procedure, but it was outdated too ;}<br />\n",
+    "PostedDate": "2013-08-29T07:47:34.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090463",
+    "ThreadId": "454637",
+    "Html": "I'm facing the same problem here. some times zoom works fine between 9-13 in hybrid maps and sometimes doesn't work at all. I need maximum zoom in hybridmaps for my application. Drago88, plz tell me which update version worked for you??<br />\n",
+    "PostedDate": "2013-09-09T23:56:43.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090471",
+    "ThreadId": "454637",
+    "Html": "<strong>naveedshr wrote:</strong><br />\n<blockquote>\nI'm facing the same problem here. some times zoom works fine between 9-13 in hybrid maps and sometimes doesn't work at all. I need maximum zoom in hybridmaps for my application. Drago88, plz tell me which update version worked for you??<br />\n</blockquote>\nHi, I used source code. On this site, click menu : Source code - Download. This version is ok. If you are using a different method how implemented gMap, then try search last version.<br />\n",
+    "PostedDate": "2013-09-10T00:09:58.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090611",
+    "ThreadId": "454637",
+    "Html": "Drago88, Many thanks for quick response. Source code worked!!!<br />\n",
+    "PostedDate": "2013-09-10T05:35:36.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

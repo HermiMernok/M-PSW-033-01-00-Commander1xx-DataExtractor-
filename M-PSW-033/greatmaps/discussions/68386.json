@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "232610",
+    "ThreadId": "68386",
+    "Html": "<p>How can we add the Live traffic overlay to the Google Maps?</p>\r\n<p>This is very good feature to the cutomer for checking the Live traffic conditions.</p>\r\n<p>Please suggest...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-09T03:42:58.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232611",
+    "ThreadId": "68386",
+    "Html": "<p>the real question is: where to get data about live traffic?</p>",
+    "PostedDate": "2009-09-09T03:46:29.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232634",
+    "ThreadId": "68386",
+    "Html": "<p>Google provides the Live Traffic data. When you bowse cities in USA, you can see Live traffic by clicking on the button Live Traffic just beside the Map in the maps.google.com.</p>\r\n<p>The java script method is</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Green\">// The GTrafficOverlay is unique in that only one object of that type // should be added to a map. Adding multiple traffic overlays produces// no added benefit.</span>\r\n\r\n<span style=\"color:Blue\">var</span> map;<span style=\"color:Blue\">var</span> trafficInfo;</pre>\r\n<pre><span style=\"color:Blue\">function</span> initialize()</pre>\r\n<pre> {  map = <span style=\"color:Blue\">new</span> GMap2(document.getElementById(<span style=\"color:#A31515\">&quot;map_canvas&quot;</span>));   </pre>\r\n<pre>map.setCenter(<span style=\"color:Blue\">new</span> GLatLng(49.496675,-102.65625), 3);   </pre>\r\n<pre><span style=\"color:Blue\">var</span> trafficOptions = {incidents:<span style=\"color:Blue\">true</span>};  </pre>\r\n<pre>trafficInfo = <span style=\"color:Blue\">new</span> GTrafficOverlay(trafficOptions); </pre>\r\n<pre> map.addOverlay(trafficInfo);</pre>\r\n<pre>} \r\n</pre>\r\n<pre><a href=\"http://code.google.com/apis/maps/documentation/services.html#Traffic_Overlays\">http://code.google.com/apis/maps/documentation/services.html#Traffic_Overlays</a></pre>\r\n<pre>And one more good feature is weather display</pre>\r\n<pre><a href=\"http://code.google.com/apis/ajax/playground/?exp=maps#map_weather_map\">http://code.google.com/apis/ajax/playground/?exp=maps#map_weather_map</a></pre>\r\n</div>",
+    "PostedDate": "2009-09-09T05:03:30.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232636",
+    "ThreadId": "68386",
+    "Html": "<p>..and yes, how you we can use API out of browser?</p>",
+    "PostedDate": "2009-09-09T05:07:03.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232638",
+    "ThreadId": "68386",
+    "Html": "<p>good question,&nbsp;i have no clue how to use......</p>\r\n<p>It could be great if API works with google maps in windows application.</p>",
+    "PostedDate": "2009-09-09T05:13:38.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232724",
+    "ThreadId": "68386",
+    "Html": "<p>definitely, maybe google needs help in that area</p>",
+    "PostedDate": "2009-09-09T08:39:16.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "234995",
+    "ThreadId": "68386",
+    "Html": "<p>Did you find any information about the Live traffic?</p>",
+    "PostedDate": "2009-09-15T21:58:59.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "235111",
+    "ThreadId": "68386",
+    "Html": "<p>nop</p>",
+    "PostedDate": "2009-09-16T05:10:38.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "235379",
+    "ThreadId": "68386",
+    "Html": "<p>I have never bothered to study what google does (buggars constantly change their url's)&nbsp;but Bing maps does this&nbsp;:</p>\r\n<p>static Uri buildUrl(int tileX, int tileY, int zoomLevel, MapTypes mapStyle)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;string quadKey = tileToQuadKey(tileX, tileY, zoomLevel);</p>\r\n<p>&nbsp;&nbsp;&nbsp;string fileExtension = &quot;&quot;;<br>&nbsp;&nbsp;&nbsp;string terrain = &quot;&quot;;<br>&nbsp;&nbsp;&nbsp;string versionNumber = &quot;244&quot;;<br>&nbsp;&nbsp;&nbsp;string market = &quot;&amp;mkt=en-us&quot;;<br>&nbsp;&nbsp;&nbsp;char mapStyleCharacter = 'x';</p>\r\n<p><br>&nbsp;&nbsp;&nbsp;switch (mapStyle)<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;case MapTypes.HybridSateliteLabels:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileExtension = &quot;.jpeg&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStyleCharacter = 'h';<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case MapTypes.Map:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileExtension = &quot;.png&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStyleCharacter = 'r';<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case MapTypes.Terrain:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileExtension = &quot;.png&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStyleCharacter = 'r';<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terrain = &quot;&amp;shading=hill&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case MapTypes.Satellite:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileExtension = &quot;.jpeg&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStyleCharacter = 'a';<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case MapTypes.Traffic:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fileExtension = &quot;.png&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapStyleCharacter = 't';<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;default:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;}</p>\r\n<p>&nbsp;&nbsp;&nbsp;if (mapStyle != MapTypes.Traffic)<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;return new Uri(String.Concat(new object[] { &quot;http://&quot;, mapStyleCharacter, quadKey[quadKey.Length - 1], &quot;.ortho.tiles.virtualearth.net/tiles/&quot;, mapStyleCharacter, quadKey, fileExtension, &quot;?g=&quot;, versionNumber, market, terrain }));<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;return new Uri(String.Concat(new object[] { &quot;http://&quot;, mapStyleCharacter, tileX &amp; 1, &quot;.traffic.virtualearth.net/Flow/&quot;, mapStyleCharacter, quadKey, fileExtension }));<br>&nbsp;&nbsp;}</p>",
+    "PostedDate": "2009-09-16T17:34:42.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

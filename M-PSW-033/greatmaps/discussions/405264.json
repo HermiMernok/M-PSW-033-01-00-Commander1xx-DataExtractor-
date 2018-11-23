@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "950007",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>Whenever I have a form with a GMapControl it will display once but if I try opening a new instance of the form the GMapControl just loads a red &quot;X&quot; across the rectangle with a white background. All other functions besides clicking on markers that\r\n are loaded work (such as clicking to grab the lat/lng coordinate). Also, if I create another modal form from the form with the map and then come back to the parent form and try to do anything with the map (like clicking on it) it does the 'red-X' thing.</p>\r\n<p>This is the piece of my code that loads the map:</p>\r\n<p></p>\r\n<pre> private void GMapView_Load(object sender, EventArgs e)\r\n        {\r\n            GMapView.SetCurrentPositionByKeywords(&quot;Stevens Point, WI&quot;);\r\n            GMapView.MapProvider = GMapProviders.GoogleMap;\r\n            GMapView.MinZoom = 3;\r\n            GMapView.MaxZoom = 17;\r\n            GMapView.Zoom = 14;\r\n            GMapView.MarkersEnabled = true;\r\n            GMapView.EmptyMapBackground = Color.Azure;\r\n            GMapView.Manager.Mode = AccessMode.ServerAndCache;\r\n            GMapOverlay overlayOne = new GMapOverlay(&quot;OverlayOne&quot;);\r\n            GMapView.Overlays.Add(overlayOne);\r\n            \r\n            foreach (POI poi in tour.PoiList)\r\n            {\r\n                double lat = Convert.ToDouble(poi.Coordinate.Latitude);\r\n                double lng = Convert.ToDouble(poi.Coordinate.Longitude);\r\n                GMapView.Overlays[0].Markers.Add(new GMarkerGoogle(new PointLatLng(lat, lng), GMarkerGoogleType.white_small)); \r\n            }\r\n        }</pre>\r\n<p></p>\r\n",
+    "PostedDate": "2012-12-01T12:11:10.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "950010",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>does it make a difference if you put the code in form constructor?</p>\r\n",
+    "PostedDate": "2012-12-01T12:18:38.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "950015",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>I'm afraid not. :\\</p>\r\n",
+    "PostedDate": "2012-12-01T12:26:15.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "950016",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>hm, what version do you use?</p>\r\n",
+    "PostedDate": "2012-12-01T12:30:50.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "950020",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>.Net Framework 4</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;I'm not sure what version of GMaps. I got it from&nbsp;http://greatmaps.codeplex.com/downloads/get/336069 which said it was the newest version?</p>\r\n",
+    "PostedDate": "2012-12-01T12:37:47.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "950027",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>so after a little more experimentation I've come up with a little more detail of the problem.<br>\r\n<br>\r\n<br>\r\nIf I set the child forms to be non-modal: as long as I do not close any of them, the parent form will create the child forms with the maps working (even if they're different locations).</p>\r\n<p>As soon as I close any of the child forms and try to create/show a new child form from the parent form, that child form's map loads the 'red x of doom'.&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-01T13:07:52.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "950040",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>Used the recomended download of &quot;GMap.NET.WindowsForms.zip&quot; from the following link instead and re-installed it into my program. Works fine now. :)</p>\r\n<p>http://greatmaps.codeplex.com/releases/view/20235</p>\r\n",
+    "PostedDate": "2012-12-01T14:29:54.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "950057",
+    "ThreadId": "405264",
+    "Html": "\r\n<p>newest is&nbsp;<a href=\"http://greatmaps.codeplex.com/downloads/get/557245\" target=\"_blank\">http://greatmaps.codeplex.com/downloads/get/557245</a></p>\r\n",
+    "PostedDate": "2012-12-01T15:33:51.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092041",
+    "ThreadId": "405264",
+    "Html": "If i use the newest  i will get the same problem as axeljlarsen mentioned. \r<br />\n<br />\nIs this a bug in newest? Is there a way to solve it?<br />\n",
+    "PostedDate": "2013-09-12T18:08:04.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

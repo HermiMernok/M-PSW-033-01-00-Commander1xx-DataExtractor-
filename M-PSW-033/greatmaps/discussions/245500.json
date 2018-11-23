@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "564157",
+    "ThreadId": "245500",
+    "Html": "\r\n<p>I am using a Google Enterprise server to serve maps in the GMap application.&nbsp; It all visually looks good, however have noticed that the Latitude value for the centre of the map is incorrect.</p>\r\n<p>When I paste the Lat/Long given to me by the info panel in GMap into Google Maps within my browser (also pointing to the Google Enterprise server), it centres in a different place.</p>\r\n<p>Is this a projection problem?&nbsp; Only latitude seems to be incorrect.</p>\r\n",
+    "PostedDate": "2011-02-10T11:58:57.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564169",
+    "ThreadId": "245500",
+    "Html": "\r\n<p>hm, maybe it uses slightly different projection, how much does it differs?</p>\r\n",
+    "PostedDate": "2011-02-10T12:25:55.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564187",
+    "ThreadId": "245500",
+    "Html": "OK, there is definately a projection difference. It looks like it is using a mercator projection...<br>\r\n<br>\r\n(see attached screenshots)<br>\r\n<br>\r\n<br>\r\nOn 10/02/2011 3:26 PM, radioman wrote:\r\n<blockquote type=\"cite\">\r\n<p>From: radioman</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>hm, maybe it uses slightly different projection, how much does it differs?</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-02-10T13:00:33.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564195",
+    "ThreadId": "245500",
+    "Html": "\r\n<p>p.s. you can't post answer on forum <em>with images</em> using email attachments, post directly:&nbsp;http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=245500&amp;ANCHOR</p>\r\n",
+    "PostedDate": "2011-02-10T13:25:55.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

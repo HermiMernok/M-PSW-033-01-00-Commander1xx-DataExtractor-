@@ -1,0 +1,162 @@
+[
+  {
+    "Id": "469282",
+    "ThreadId": "219972",
+    "Html": "<p>Hello all,</p>\r\n<p>I'm kind of new to this so please&nbsp;excuse me if I'm asking a questions that has been asked before.&nbsp;</p>\r\n<p>Is there a way in code to specify a location for the Data.gmdb other than the default</p>\r\n<p>C:\\Documents and Settings\\&lt;user&gt;\\Local Settings\\Application Data\\GMap.NET\\TileDBv3\\en</p>\r\n<p>I'd like to put the data file in a location so that all users on a pc access the same file.</p>\r\n<p>Thanks and thanks for making such a great control</p>",
+    "PostedDate": "2010-07-19T16:01:51.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469354",
+    "ThreadId": "219972",
+    "Html": "<p>MainMap.<strong>CacheLocation</strong> = @&quot;C:\\GMapCache\\&quot;;</p>",
+    "PostedDate": "2010-07-19T21:51:27.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469434",
+    "ThreadId": "219972",
+    "Html": "<p>Any posibility to change file system read / write buffer size?</p>\r\n<p>Right now it's 1024 bytes but google tile for example have 256x256 image size and 23405 byte size.</p>\r\n<p>My system disk is SSD so I not notie how many GMap.net work with it. But just using CacheLocation to regular HDD and ...........</p>",
+    "PostedDate": "2010-07-20T00:51:22.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469454",
+    "ThreadId": "219972",
+    "Html": "<p>tiles are stored in sqlite db, all buffers are internal</p>",
+    "PostedDate": "2010-07-20T01:35:56.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469759",
+    "ThreadId": "219972",
+    "Html": "<p>how do you know it reads in 1K chunks?</p>",
+    "PostedDate": "2010-07-20T08:57:23.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469787",
+    "ThreadId": "219972",
+    "Html": "<p>p.s. i've increased page size for sqlite, can you confirm that it change something?</p>",
+    "PostedDate": "2010-07-20T09:44:54.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469816",
+    "ThreadId": "219972",
+    "Html": "<p>When I specify</p>\r\n<p>\r\n<div><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<p>gMapControl1.CacheLocation = <span style=\"font-size:x-small;color:#a31515\"><span style=\"font-size:x-small;color:#a31515\">@&quot;C:\\GMapCache\\&quot;</span></span><span style=\"font-size:x-small\">;</span></p>\r\n</span></span></span></span></span></span></div>\r\n</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p><span style=\"font-size:x-small\">and run the application a folder is created at C:\\GMapCache\\TileDBv3\\en and a new Data.gmdb of 6kb is created and put there.&nbsp; The original file C:\\GMapCache\\Data.gmdb is 55,000 kb.&nbsp; Also, the application shows blue tiles which say &quot;Exception: No data in local tile cache...&quot;</span></p>\r\n<p><span style=\"font-size:x-small\">I am using&nbsp;<span style=\"font-size:x-small\">\r\n<p>gMapControl1.Manager.Mode = <span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">AccessMode</span></span><span style=\"font-size:x-small\">.CacheOnly;</span></p>\r\n</span></span></p>\r\n</span>\r\n<p><span style=\"font-size:x-small\">Thanks for creating and sharing such a great product.</span></p>\r\n</p>\r\n<p><span style=\"font-size:x-small\">&nbsp;</span></p>\r\n<p><a></a></p>",
+    "PostedDate": "2010-07-20T10:33:22.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469843",
+    "ThreadId": "219972",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>p.s. i've increased page size for sqlite, can you confirm that it change something?</p>\r\n</blockquote>\r\n<p>&nbsp;</p>\r\n<p>Program working with HDD less.</p>\r\n<p>But tile loading slower :( on first loading (from server)</p>\r\n<p>for test was use new and 3 build ago sources.</p>",
+    "PostedDate": "2010-07-20T11:34:57.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469849",
+    "ThreadId": "219972",
+    "Html": "<p>did you test it on the same database or fresh?</p>\r\n<p>p.s. i've just tested latest and before changing size, timing pretty the same ~800ms for windows forms demo in debug mode</p>\r\n<p>..maybe it's different on ssd, can't test, whats your averange timing?</p>\r\n<p>&nbsp;</p>\r\n<p>update to newest version and set:</p>\r\n<p>set MainMap.CacheLocation = @&quot;Q:\\Tmp\\&quot;;</p>\r\n<p>load few times Demo.WindowsForms, just execute, wait for load complete and close, look at tile loading time in debug trace</p>\r\n<p>&nbsp;</p>\r\n<p>then update to one version before and repeat the same, and does numbers really different?</p>",
+    "PostedDate": "2010-07-20T11:47:31.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470101",
+    "ThreadId": "219972",
+    "Html": "<p>I test all on empty folders on regular HDD.&nbsp;All tests was done in&nbsp;WPF demo project.</p>\r\n<p>Old version&nbsp;6e4b902bd621 not have OnTimeLoadedComplete record in debug output.</p>\r\n<p>Last version have next record</p>\r\n<p>\r\n<p>Thread[15] - OnTileLoadComplete: 9200ms, MemoryCacheSize: 0.905835151672363MB</p>\r\n</p>\r\n<p>Also I take SQLitePureImageCache.cs from old source into new and got next result:</p>\r\n<p>\r\n<p>Thread[13] - OnTileLoadComplete: 12735ms, MemoryCacheSize: 1.80849742889404MB</p>\r\n<p>&nbsp;</p>\r\n</p>\r\n<p>So look like problem not in last update but in previouse updates. My screen resoulution 1600x1200 so many tile for load. But even visuly it's big differentce in load (beatween 6e4b902bd621 and new version) somthing list in 3-5 times longer.</p>\r\n<p>&nbsp;</p>\r\n<p>P.S. to check HDD activity - I use Process Monitor.</p>\r\n<p>P.S.S. maybe 32 kb too many as for buffer size?</p>",
+    "PostedDate": "2010-07-21T00:54:43.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470102",
+    "ThreadId": "219972",
+    "Html": "<p>thats first time load from server, you need to run it few times to get hdd cache times, they are about 1s, can you repeat test once again? ;}</p>",
+    "PostedDate": "2010-07-21T01:00:26.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470107",
+    "ThreadId": "219972",
+    "Html": "<p>you right, but I was write that problem with first load.</p>\r\n<p>New version and old version show different time in first&nbsp;load (from server).</p>\r\n<p>Old version load full screen in 3 - 4 seconds. And new need more then 10.</p>",
+    "PostedDate": "2010-07-21T01:05:31.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470108",
+    "ThreadId": "219972",
+    "Html": "<p>hm.. but that not the case ;} ..anyway does that timing keeps on all maps?</p>",
+    "PostedDate": "2010-07-21T01:09:03.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470110",
+    "ThreadId": "219972",
+    "Html": "<p>yes, I write that problem not in last update.</p>\r\n<p>and yes - difference present&nbsp;for all map providers.</p>\r\n<p>you was done tile loading thread optimization after 6e4b902bd621 update. Maybe here some problems?</p>",
+    "PostedDate": "2010-07-21T01:15:08.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470112",
+    "ThreadId": "219972",
+    "Html": "<p>does previous version loads always faster?</p>",
+    "PostedDate": "2010-07-21T01:21:10.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470113",
+    "ThreadId": "219972",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2010-07-21T01:23:37.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470115",
+    "ThreadId": "219972",
+    "Html": "<p>can you show me timings? Did you tested it in ServerOnly mode?</p>",
+    "PostedDate": "2010-07-21T01:30:08.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470121",
+    "ThreadId": "219972",
+    "Html": "<p>Yes, server only test show same result.</p>\r\n<p>I was show you timing for new version&nbsp;9 - 12 sec.</p>\r\n<p>Sorry just find in old version debug log:</p>\r\n<p>\r\n<p>OnTileLoadComplete: 2601ms, MemoryCacheSize: 1.46893501281738MB</p>\r\n</p>\r\n<p>OnTileLoadComplete: 2149ms, MemoryCacheSize: 1.79831981658936MB</p>",
+    "PostedDate": "2010-07-21T01:49:35.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470124",
+    "ThreadId": "219972",
+    "Html": "<p>And new version:</p>\r\n<p>\r\n<p>Thread[14] - OnTileLoadComplete: 5241ms, MemoryCacheSize: 1.10212135314941MB</p>\r\n</p>\r\n<p>\r\n<p>\r\n<p>Thread[14] - OnTileLoadComplete: 4497ms, MemoryCacheSize: 1.58907318115234MB</p>\r\n<p>Thread[13] - OnTileLoadComplete: 4254ms, MemoryCacheSize: 1.9487771987915MB</p>\r\n</p>\r\n</p>",
+    "PostedDate": "2010-07-21T01:55:38.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470125",
+    "ThreadId": "219972",
+    "Html": "<p>Test in ServerCache mode with empty cash:</p>\r\n<p>1. Old version</p>\r\n<p>\r\n<p>OnTileLoadComplete: 2968ms, MemoryCacheSize: 0.403403282165527MB</p>\r\n</p>\r\n<p>\r\n<p>\r\n<p>OnTileLoadComplete: 2308ms, MemoryCacheSize: 1.25774478912354MB</p>\r\n<p>2. New version:</p>\r\n</p>\r\n<p>Thread[14] - OnTileLoadComplete: 6211ms, MemoryCacheSize: 0.905904769897461MB</p>\r\n</p>\r\n<p>\r\n<p>Thread[14] - OnTileLoadComplete: 6314ms, MemoryCacheSize: 1.37711906433105MB</p>\r\n</p>",
+    "PostedDate": "2010-07-21T01:59:34.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1447935",
+    "ThreadId": "646039",
+    "Html": "This question is related to my previous question. Currently, I just need to show a map with some less points of a heatmap on a map based on OpenStreetMap (OSM) . <br />\n<br />\nI have created a heatmap as a bitmap image by GHEAT.NET control lib <a href=\"http://www.codeproject.com/Articles/88956/GHeat-NET\" rel=\"nofollow\">http://www.codeproject.com/Articles/88956/GHeat-NET</a>. <br />\n<br />\nI would like to add the heatmap image to a map based on OSM so that the points on the heatmap can be shown on the correct locations by latitude/longitude on the map of OSM. <br />\n<br />\nI am working on C# VS2013 WPF. In my C# code, I used OSM control lib GMAP.NET at:<br />\n<br />\n<a href=\"http://greatmaps.codeplex.com/\" rel=\"nofollow\">http://greatmaps.codeplex.com/</a> <br />\n<br />\nThis is my C# code: <br />\n<pre><code>System.Drawing.Bitmap myCanvasImage = new System.Drawing.Bitmap(12 * 256 - (2 * 256), 15 * 256 - (5 * 256),          \n System.Drawing.Imaging.PixelFormat.Format32bppArgb)\n System.Drawing.Graphics g = Graphics.FromImage(myCanvasImage);\n gheat.PointManager myPoints = new gheat.PointManager();\n var xrange = Enumerable.Range(2, 12);\n var yrange = Enumerable.Range(5, 15);\nforeach (int x in xrange)\n{\n   foreach (int y in yrange)\n   {\n     System.Drawing.Bitmap tempImage = gheat.GHeat.GetTile(myPoints, &quot;classic&quot;, zoom, x, y);\n     g.DrawImage(tempImage, new System.Drawing.PointF(x * 256 - (2* 256), y * 256 - (5 * 256)));\n   }\n}\n</code></pre>\n\nI need to add the &quot;myCanvasImage&quot; to a map based on OSM. <br />\n<br />\nI have checked this<br />\n<br />\n<a href=\"http://www.independent-software.com/gmap-net-tutorial-maps-markers-and-polygons/\" rel=\"nofollow\">http://www.independent-software.com/gmap-net-tutorial-maps-markers-and-polygons/</a><br />\n<br />\nBut, there is no &quot;GMapOverLayer&quot; class in GMAP.NET WPF.<br />\n<br />\nAny help would be appreciated. <br />\n__<br />\n",
+    "PostedDate": "2015-10-09T14:18:30.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

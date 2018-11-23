@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "222142",
+    "ThreadId": "65221",
+    "Html": "<p>I have a suggestion!</p>\r\n<p>Maybe it was possible that the versions of the maps could be increased when there was loading error.</p>\r\n<p>Thus it would be necessary to launch a new version of the component always the versions of the map change.</p>\r\n<p>Cristiano</p>",
+    "PostedDate": "2009-08-11T11:44:38.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "222146",
+    "ThreadId": "65221",
+    "Html": "<p>hm... interesting idea</p>",
+    "PostedDate": "2009-08-11T11:50:54.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "222156",
+    "ThreadId": "65221",
+    "Html": "<p>..but they support some time old numbers too, so there is no practicul way to know if thay change numbersreally ;/</p>",
+    "PostedDate": "2009-08-11T11:58:42.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "222168",
+    "ThreadId": "65221",
+    "Html": "<p>interesting lines i javascript from start url:&nbsp;<a href=\"http://maps.google.com\">http://maps.google.com</a><br>-----</p>\r\n<p>insertTiles(e(<span style=\"color:#A31515\">&quot;inlineTiles&quot;</span>),{w: e(<span style=\"color:#A31515\">&quot;map&quot;</span>).offsetWidth,h: e(<span style=\"color:#A31515\">&quot;map&quot;</span>).offsetHeight},37.062500,-95.677068,zoom,[<span style=\"color:#A31515\">&quot;http://mt0.google.com/vt/v=w2.103&amp;hl=lt&amp;&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt1.google.com/vt/v=w2.103&amp;hl=lt&amp;&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt2.google.com/vt/v=w2.103&amp;hl=lt&amp;&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt3.google.com/vt/v=w2.103&amp;hl=lt&amp;&quot;</span>]);</p>\r\n<p>-----</p>\r\n<p>..i think i'll made automatic version detection by these lines soon! eureka!</p>",
+    "PostedDate": "2009-08-11T12:15:24.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "222174",
+    "ThreadId": "65221",
+    "Html": "<p>but what about sattelite/terrain version? ;/</p>",
+    "PostedDate": "2009-08-11T12:24:30.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "222183",
+    "ThreadId": "65221",
+    "Html": "<p>yes, i found it!</p>\r\n<p>apiCallback([<span style=\"color:#A31515\">&quot;http://mt0.google.com/vt/v\\x3dw2.103\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt1.google.com/vt/v\\x3dw2.103\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt2.google.com/vt/v\\x3dw2.103\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt3.google.com/vt/v\\x3dw2.103\\x26hl\\x3dlt\\x26&quot;</span>], [<span style=\"color:#A31515\">&quot;http://khm0.google.com/kh/v\\x3d42\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://khm1.google.com/kh/v\\x3d42\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://khm2.google.com/kh/v\\x3d42\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://khm3.google.com/kh/v\\x3d42\\x26&quot;</span>], [<span style=\"color:#A31515\">&quot;http://mt0.google.com/vt/v\\x3dw2t.103\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt1.google.com/vt/v\\x3dw2t.103\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt2.google.com/vt/v\\x3dw2t.103\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt3.google.com/vt/v\\x3dw2t.103\\x26hl\\x3dlt\\x26&quot;</span>],<span style=\"color:#A31515\">&quot;&quot;</span>,<span style=\"color:#A31515\">&quot;&quot;</span>,<span style=\"color:#A31515\">&quot;&quot;</span>,<span style=\"color:Blue\">false</span>,<span style=\"color:#A31515\">&quot;G&quot;</span>,opts,[<span style=\"color:#A31515\">&quot;http://mt0.google.com/mt/v\\x3dw2p.87\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt1.google.com/mt/v\\x3dw2p.87\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt2.google.com/mt/v\\x3dw2p.87\\x26hl\\x3dlt\\x26&quot;</span>,<span style=\"color:#A31515\">&quot;http://mt3.google.com/mt/v\\x3dw2p.87\\x26hl\\x3dlt\\x26&quot;</span>],jslinker,pageArgs)</p>",
+    "PostedDate": "2009-08-11T12:47:29.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "222680",
+    "ThreadId": "65221",
+    "Html": "<p>You are so fast!</p>",
+    "PostedDate": "2009-08-12T12:37:31.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232677",
+    "ThreadId": "65221",
+    "Html": "<p>Hi</p>\r\n<p>Have you found a way to implement this feature? With the recent Google Maps version update, some of the tiles in my cache were on the old version while others were downloaded using the new version. This made the output look quite strange (unfortunately I don't know a good way of showing you the result in this forum).</p>\r\n<p>If this mechanism is put in place, surely it would be easy to trigger a purge of the cache if a new map version is detected?</p>\r\n<p>Do you have any thoughts on this problem?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-09T07:14:46.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232726",
+    "ThreadId": "65221",
+    "Html": "<p>i have done nothing on that question, but i will ;}</p>",
+    "PostedDate": "2009-09-09T08:42:16.457-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "233874",
+    "ThreadId": "65221",
+    "Html": "<p>version detection done! any ideas on purging? ;}</p>",
+    "PostedDate": "2009-09-12T08:00:49.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "235556",
+    "ThreadId": "65221",
+    "Html": "<p>How about inserting a DateTime and/or a version number in the database for each tile and provide methods to scrub the cache for entries before a particular date or version? What do you think?</p>",
+    "PostedDate": "2009-09-17T06:10:15.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "235686",
+    "ThreadId": "65221",
+    "Html": "<p>sounds simple, ok</p>",
+    "PostedDate": "2009-09-17T10:29:34.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

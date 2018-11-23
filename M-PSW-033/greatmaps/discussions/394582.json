@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "908990",
+    "ThreadId": "394582",
+    "Html": "\r\n<p>Hallo, I use GeoServer a data from shp file by OpenStreetMaps. I can't to have connect to Internet. How Can I create routes between two points? Now I use this code in WPF:</p>\r\n<p>List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;(); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>\r\npoints.Add(new PointLatLng(49.222979, 17.659786)); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>\r\npoints.Add(new PointLatLng(49.223736, 17.66878)); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>\r\npoints.Add(new PointLatLng(49.225649, 17.668707));</p>\r\n<p>MapRoute r = GMapProviders.OpenStreetMap.GetRouteBetweenPoints(points[0], points[2], false, false, 15); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>GMapMarker route = new GMapMarker(points[0]); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>\r\nroute.Route.AddRange(r.Points); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>\r\nroute.RegenerateRouteShape(this); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>\r\nroute.ZIndex = -1; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br>\r\nthis.Markers.Add(route);</p>\r\n<p>This line is problem:<br>\r\nMapRoute r = GMapProviders.OpenStreetMap.GetRouteBetweenPoints(points[0], points[2], false, false, 15);&nbsp;It's only ok, when I connect to Internet.</p>\r\n<p>Can you help me? Thanks. Lada</p>\r\n",
+    "PostedDate": "2012-09-05T23:30:34.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909015",
+    "ThreadId": "394582",
+    "Html": "<p>routing services are on servers, you can't use them offline unless you have cached results</p>",
+    "PostedDate": "2012-09-06T00:44:53.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909022",
+    "ThreadId": "394582",
+    "Html": "\r\n<p>I haven't got cached results. GeoServer is server with geo data and runs on local computer. I connect to it as WMS provider. I think, I need somethink as GMapProviders.GeoServer.GetRouteBetweenPoints(.....?</p>\r\n",
+    "PostedDate": "2012-09-06T01:09:25.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "152163",
+    "ThreadId": "45600",
+    "Html": "Hi list,<br>\r\nI'm developing a Shapefile To KML conversion program with SharMap 2.0 and Proj.Net 1.1.<br>\r\nI'm using the latest SVN revision (http://sharpmapv2.googlecode.com/svn/trunk/)<br>\r\nBasically, I need to reproject all my shapes to WGS84. <br>\r\nHowever, I'm having some alignment issues when I try to open my KML files with Google Earth or Google Maps.<br>\r\n<br>\r\nFor example, take a look at this Google Maps screenshot:<br>\r\n<a href=\"http://img218.imageshack.us/img218/9364/cesenadatitraslati2sq8.jpg\">http://img218.imageshack.us/img218/9364/cesenadatitraslati2sq8.jpg</a><br>\r\n<br>\r\nHere's the code I'm using for reading reprojected shapefiles: <br>\r\n<br>\r\n<em>GeometryServices gs = new GeometryServices();<br>\r\nShapeFileProvider sf = new ShapeFileProvider(path, gs.DefaultGeometryFactory, gs.CoordinateSystemFactory);<br>\r\nsf.Open(false);<br>\r\n....<br>\r\nICoordinateSystem srs = gs.CoordinateSystemFactory.CreateFromWkt(wktSrs);<br>\r\nICoordinateSystem dst = gs.CoordinateSystemFactory.CreateFromWkt(wktDst);&nbsp; // WGS84 WKT<br>\r\nICoordinateTransformation ics = gs.CoordinateTransformationFactory.CreateFromCoordinateSystems(srs, dst);<br>\r\nsf.CoordinateTransformation = ics;<br>\r\n....<br>\r\nsf.Close();<br>\r\n</em><br>\r\nHow can I fix the realignment?<br>\r\n<br>\r\nBest regards,<br>\r\n<br>\r\nPaolo\r\n",
+    "PostedDate": "2009-01-29T06:10:47.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "161267",
+    "ThreadId": "45600",
+    "Html": "Judging from the size of the error, you are missing the correct datum transform parameters. Proj.NET doesn't automatically provide the datum transform parameter. Basically if you transform data in one datum to something in a different datum, specifying the TOWGS84 parameter is required.\r\n",
+    "PostedDate": "2009-02-23T22:25:50.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "192401",
+    "ThreadId": "45600",
+    "Html": "<p>I'm having the same problem converting shapefiles from SRID 2276&nbsp;to 4326 (WGS84/ Virtual Earth). My shapes are aligned 40 to 50 feet too far to the north. I'm using the same versions of SharpMap and Proj.net mentioned above. Here's an example screen shot of my VirtualEarth map:&nbsp;&nbsp; <a href=\"http://sharpmap.codeplex.com/Thread/View.aspx?ThreadId=55756&ANCHOR#Post192295\">http://sharpmap.codeplex.com/Thread/View.aspx?ThreadId=55756&amp;ANCHOR#Post192295</a></p>\r\n<p>I've been&nbsp;converting the CoordinateSystems using both the srs SRID's and the WKT files, but the alignment&nbsp;is off with either approach. I've read in&nbsp;some places that&nbsp;VE uses SRID 900913, but more often I've read that it uses 4326. I've tried both with the same results. In fact, yesterday I read from a chapter of Alisair Atchison's book that&nbsp;VE uses EPSG::3785 to display data:<br><br><em>&quot;...Virtual Earth actually uses two spatial reference systems:<br>- When</em> displaying <em>projected data, Virtual Earth uses a Mercator projection based on the WGS 84 datum, but applied to a sphere. This is the EPSG::3785 just described.</em>&nbsp;</p>\r\n<p><em>- When</em> accessing&nbsp; <em>data programmatically through the API methods, however, Virtual Earth uses (unprojected) geographic longitude/latitude coordinates based on the standard WGS 84 system - that is, EPSG::4326.&quot;</em></p>\r\n<p><a href=\"http://books.google.com/books?id=bceM3BTzbzAC&pg=PA132&lpg=PA132&dq=spatial+reference+system+of+virtual+earth&source=bl&ots=8bY94cTvA9&sig=7mhykjv0df1h6r3LQxihluQy-38&hl=en&ei=TwsTSu6sLsafmAe_3Y3jAw&sa=X&oi=book_result&ct=result&resnum=3#PPA134,M1\">http://books.google.com/books?id=bceM3BTzbzAC&amp;pg=PA132&amp;lpg=PA132&amp;dq=spatial+reference+system+of+virtual+earth&amp;source=bl&amp;ots=8bY94cTvA9&amp;sig=7mhykjv0df1h6r3LQxihluQy-38&amp;hl=en&amp;ei=TwsTSu6sLsafmAe_3Y3jAw&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=3#PPA134,M1</a></p>\r\n<p>I'm&nbsp;not sure&nbsp;what he means by accessing versus displaying the data.&nbsp;I loaded my shape files into SQL Server 2008,&nbsp;reprojected in 4326. Should I transform my geometry to 3785 before passing the shapes back to Virtual Earth?</p>\r\n<p>Any idea how to fix my problem? Could you please provide an example of how and where to pass the TOWGS84 parameter if you think it applies to my situation as well?</p>\r\n<p>Much thanks,</p>\r\n<p>Brad</p>",
+    "PostedDate": "2009-05-20T08:03:41.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193080",
+    "ThreadId": "45600",
+    "Html": "<p>For more information on the spatial reference used in VE see these posts (considering&nbsp;Alisairs&nbsp;choice of words it looks like he pretty much copied the text from the following posts):</p>\r\n<p>http://www.sharpgis.net/post/2007/07/27/The-Microsoft-Live-Maps-and-Google-Maps-projection.aspx<br>http://www.sharpgis.net/post/2008/05/15/SphericalWeb-Mercator-EPSG-code-3785.aspx</p>\r\n<p>The 900913 is a code someone came up with. The number spells &quot;Google&quot; where 9=9, 3=e etc. Not really fair considering it was Microsoft who came up with this projection and google who copied it :-).</p>\r\n<p>Whether you need to transform to 3785 or not depends on how you are planning on using your data. If you are rendering image tiles, then yes you need to reproject it, but if you are adding data using the javascript API, then you need to provide the data in 4326.</p>\r\n<p>For the TOWGS84 parameter, you would have to ask USGS, Texas or whoever is responsible for that spatial reference for the correct values for your area. It varies from place to place, or get a professional tool that supports Datum transforms and convert the data first using that.</p>",
+    "PostedDate": "2009-05-21T22:51:57.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193289",
+    "ThreadId": "45600",
+    "Html": "<p>My shapefiles are all vector data, no image tiles at all.</p>\r\n<p>Today I found a solution! It may not be the best solution but it worked. I converted my shapefile using the WKT provided (parcels2008.prj ) to SRID 4326 (which I'd done about 50 times already), but this time I changed the <span style=\"font-size:x-small;color:#a31515\"><span style=\"color:#000000\">False_Northing parameter in parcels2008.prj and it worked! I&nbsp;added 54, changing it from 6561666 to 6561720 and it moved all my shapes south by about 50 feet, putting them almost perfectly in line. Something tells me there is a better way of accomplishing this, but at this point I'm tired of messing around with it. </span></span></p>\r\n<p><span style=\"font-size:x-small;color:#a31515\"><span style=\"color:#000000\">Thanks for your reply,</span></span></p>\r\n<p><span style=\"font-size:x-small;color:#a31515\"><span style=\"color:#000000\">Brad</span></span></p>",
+    "PostedDate": "2009-05-22T09:27:41.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

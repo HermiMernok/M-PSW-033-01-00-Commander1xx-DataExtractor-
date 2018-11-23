@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1475388",
+    "ThreadId": "655325",
+    "Html": "Hey everyone. New to mapping and mostly new to programming. I am attempting to build a small application that will allow the office to plot weekly delivery routes more effectively.\r<br />\n<br />\nI'm not sure what I am doing wrong. I am using Visual Studio 2015 Community Edition. I have added the GMap.NET.WidowsForms.dll to the toolbox. I have also added References to both the GMap.NET.WindowsForm.dll and the Gmap.NET.Core.dll. My form has two panels (one on left with different color background, one on right with myMap1 in it). The pnlMap is docked to Fill and the GMap control is loaded into that one and Docked to FIll.\r<br />\n<br />\nBut when I run the program through VS 2015, my resulting form doesn't have a map that appears correct. It's more like a giant view from way up top. I have no ability to zoom in or interact with the map. And the map is not docked to pnlMap (which it says it is even in the Designer part of the code (which I have not edited)). I don't know if I'm allow to include a screenshot but if not I'll include (if it's allowed) a link to a picture of my form running.\r<br />\n<br />\nI haven't written a lot of code so hopefully it is something silly that I am missing. I do apologize for what I am hoping is something easy that I have to change. \r<br />\n<br />\nOh, and one more thing. This is set to use .NET 4.5.2 (I'm not sure if that could cause this).\r<br />\n<br />\nThanks for any help you can give.<br />\n<pre><code>Imports GMap.NET\nImports GMap.NET.MapProviders\nImports GMap.NET.WindowsForms\nImports GMap.NET.WindowsForms.Markers\nImports System\nImports System.Collections.Generic\nImports System.ComponentModel\nImports System.Data\nImports System.Drawing\nImports System.Linq\nImports System.Text\nImports System.Threading\nImports System.Threading.Tasks\nImports System.Windows.Forms\nImports System.Xml.Linq\n\nPublic Class GoogleMapTestWin\n\n\n\n    Private Sub GoogleMapTestWin_Load(sender As Object, e As EventArgs) Handles MyBase.Load\n\n        Try\n\n            '  &gt;&gt;  set map provider to Google \n            myMap1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance\n            myMap1.Dock = System.Windows.Forms.DockStyle.Fill\n\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly\n\n            '  &gt;&gt;  set the region to Atlanta\n            myMap1.SetPositionByKeywords(&quot;Atlanta, GA&quot;)\n\n            '  &gt;&gt;  allow dragging of the mouse and activate with the left mousebutton\n            myMap1.CanDragMap = True\n            myMap1.DragButton = MouseButtons.Left\n\n            '  &gt;&gt;  set initial zoom level\n            myMap1.Zoom = 11\n\n        Catch ex As Exception\n\n            MessageBox.Show(&quot;Error on Load: &quot; &amp; ex.Message)\n\n        End Try\n\n    End Sub\n\nEnd Class</code></pre>\n\nHere's the screenshot (the pnlMenu is the offcolor one on the left. the rest is pnlMap and as you can see the map isnt docked to Fill for some reason).\r<br />\n<br />\nAm I for getting something?\r<br />\n<br />\n<img src=\"http://i.imgur.com/atwubqn.jpg\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2016-06-07T16:27:06.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1475465",
+    "ThreadId": "655325",
+    "Html": "Load event is too late, use form constructor...<br />\n",
+    "PostedDate": "2016-06-08T07:59:17.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-06-08T07:59:22.797-07:00"
+  },
+  {
+    "Id": "1475473",
+    "ThreadId": "655325",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nLoad event is too late, use form constructor...<br />\n</blockquote>\nI'm sorry. I'm kind of new to this. I googled some tutorials about using a form constructor. So I removed everything from the Load event and put it into a Sub New() event. That generated some code that said I should add stuff after the InitializeComponents command (automatically created by VS 2015). So I came up with this:<br />\n<pre><code>Public Sub New()\n\n        MyBase.New\n\n        ' This call is required by the designer.\n        InitializeComponent()\n\n        ' Add any initialization after the InitializeComponent() call.\n\n        '  &gt;&gt;  set map provider to Google and set Instance.Mode to server only (we're requiring internet connection)\n        myMap1.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance\n        myMap1.Dock = System.Windows.Forms.DockStyle.Fill\n\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly\n\n        '  &gt;&gt;  set the region to Atlanta\n        myMap1.SetPositionByKeywords(&quot;Atlanta, GA USA&quot;)\n\n        '  &gt;&gt;  allow dragging of the mouse and activate with the left mousebutton\n        ' set the map draging option. This will allow user to drag map my clicking left mouse.\n        myMap1.CanDragMap = True\n        myMap1.DragButton = MouseButtons.Left\n\n        '  &gt;&gt;  set initial zoom level\n        myMap1.Zoom = 12\n\n    End Sub\n\n    Private Sub GoogleMapTestWin_Load(sender As Object, e As EventArgs) Handles MyBase.Load\n\n        Try\n\n\n\n        Catch ex As Exception\n\n            MessageBox.Show(&quot;Error on Load: &quot; &amp; ex.Message)\n\n        End Try\n\n    End Sub</code></pre>\n\nI know I'm doing something wrong because I'm getting the exact same result (same as screenshot above).\r<br />\n<br />\nAgain, I do apologize for such a noob type of question but I'm not sure where else to look. I am still looking through other tutorials and if I find anything I will  post back here. Maybe it'll is anyone else ever runs into this type of situation when just starting out.<br />\n",
+    "PostedDate": "2016-06-08T09:10:03.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1475502",
+    "ThreadId": "655325",
+    "Html": "dunno, demos use docking and it works<br />\n",
+    "PostedDate": "2016-06-08T15:26:08.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

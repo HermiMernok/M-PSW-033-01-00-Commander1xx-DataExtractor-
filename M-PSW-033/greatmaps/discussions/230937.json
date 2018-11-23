@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "507311",
+    "ThreadId": "230937",
+    "Html": "<p>Hi.</p>\r\n<p>I'm using&nbsp;GetRouteBetweenPoints to calculate distance and time between 2 points.</p>\r\n<p>It works greak. But I have a doubt. I'm using this function a lot and I'm wondering if is there a problem with google maps api.</p>\r\n<p>On their page they say there is a limit for 2.500 request per day.</p>\r\n<p>I have 3 questions:</p>\r\n<p>1. Is&nbsp;GetRouteBetweenPoints using google maps API? If yes, I think there is a problem with limit requests.</p>\r\n<p>2. Did you experienced this problem?</p>\r\n<p>3. How can understand this problem (on my code) if google cut the connection?</p>\r\n<p>&nbsp;</p>\r\n<p>It never happened to me, but it can be possible to happen.</p>",
+    "PostedDate": "2010-10-14T10:09:17.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507319",
+    "ThreadId": "230937",
+    "Html": "<p>I don't use it much, can't say what real limits are,&nbsp;you can calculate direct distance when blocked(manager.<em>GetDistance</em>), or you can prepare 10 keys, and use new when blocked, then limit would be 25.000 requests ;}</p>",
+    "PostedDate": "2010-10-14T10:19:31.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507327",
+    "ThreadId": "230937",
+    "Html": "<p>Ok, thanks for your tip.</p>\r\n<p>But I think Google can block access by IP. Am I correct?</p>",
+    "PostedDate": "2010-10-14T10:51:26.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507331",
+    "ThreadId": "230937",
+    "Html": "<p>it's posible</p>",
+    "PostedDate": "2010-10-14T10:58:38.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507336",
+    "ThreadId": "230937",
+    "Html": "<p>&quot;If more than 2,500 geocode requests in a 24 hour period are received from a single IP address, or geocode requests are submitted from a single IP address at too fast a rate, the Google Maps API geocoder will begin responding with a&nbsp;<a href=\"http://code.google.com/apis/maps/documentation/geocoding/#StatusCodes\">status code</a>&nbsp;of 620. This&nbsp;<a href=\"http://code.google.com/apis/maps/articles/phpsqlgeocode.html\">article</a>&nbsp;explains how to time geocode requests from PHP and provides sample code for doing so. If excessive geocoder usage continues, access to the Google Maps API geocoder from this IP address may be blocked permanently.&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>From&nbsp;<a href=\"http://code.google.com/intl/pt-PT/apis/maps/faq.html#geocoder_limit\">http://code.google.com/intl/pt-PT/apis/maps/faq.html#geocoder_limit</a></p>",
+    "PostedDate": "2010-10-14T11:12:00.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507338",
+    "ThreadId": "230937",
+    "Html": "<p>i see, then you can workaround this by using few proxies, different ip can by blocked but yours never, because they would block ip of some proxy</p>",
+    "PostedDate": "2010-10-14T11:16:27.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507341",
+    "ThreadId": "230937",
+    "Html": "<p>yes, but I'm under a proxy already and it's not a good idea.</p>\r\n<p>But thanks for your help once more!</p>",
+    "PostedDate": "2010-10-14T11:20:16.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

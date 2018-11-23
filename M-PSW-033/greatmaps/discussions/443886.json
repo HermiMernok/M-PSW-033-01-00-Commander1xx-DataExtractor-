@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1044395",
+    "ThreadId": "443886",
+    "Html": "Hey radioman. I am using the GMap.NET V1.6. I have gotten an ArgumentOutOfRangeException several times coming from the GMapOverlay.DrawRoutes(...) routine which is breaking my application. I'm curious if this is something you've ever seen. I've included the call stack. Maybe you can make out something I'm not seeing.\r<br />\n<br />\nThe trouble is that my application bangs out back to my Program.Main() where I'm launching my form, so I can't just catch the exception and proceed. So I'm not sure where that call to re-paint the map is even coming from. \r<br />\n<br />\nIs it possible for you to catch that exception in the routine so that the application doesn't break?\r<br />\n<br />\nAny suggestions?<br />\n<pre><code>System.ArgumentOutOfRangeException was unhandled\n  Message=Index was out of range. Must be non-negative and less than the size of the collection.\nParameter name: index\n  Source=mscorlib\n  ParamName=index\n  StackTrace:\n       at System.ThrowHelper.ThrowArgumentOutOfRangeException()\n       at System.Collections.Generic.List`1.get_Item(Int32 index)\n       at GMap.NET.WindowsForms.GMapOverlay.DrawRoutes(Graphics g)\n       at GMap.NET.WindowsForms.GMapOverlay.Render(Graphics g)\n       at GMap.NET.WindowsForms.GMapControl.OnPaintOverlays(Graphics g)\n       at GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\n       at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)\n       at System.Windows.Forms.Control.WmPaint(Message&amp; m)\n       at System.Windows.Forms.Control.WndProc(Message&amp; m)\n       at System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)\n       at System.Windows.Forms.UserControl.WndProc(Message&amp; m)\n       at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)\n       at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)\n       at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\n       at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG&amp; msg)\n       at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)\n       at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)\n       at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)\n       at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()\n       at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()\n       at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)\n       at FAA.Spectrum.Foxhunt.Client.Program.Main(String[] args) in C:\\Users\\Michael\\Documents\\Visual Studio 2010\\Projects\\FAA.Spectrum\\FAA.Spectrum.Foxhunt.Client\\Program.cs:line 23\n       at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)\n       at System.AppDomain.nExecuteAssembly(RuntimeAssembly assembly, String[] args)\n       at System.Runtime.Hosting.ManifestRunner.Run(Boolean checkAptModel)\n       at System.Runtime.Hosting.ManifestRunner.ExecuteAsAssembly()\n       at System.Runtime.Hosting.ApplicationActivator.CreateInstance(ActivationContext activationContext, String[] activationCustomData)\n       at System.Runtime.Hosting.ApplicationActivator.CreateInstance(ActivationContext activationContext)\n       at System.Activator.CreateInstance(ActivationContext activationContext)\n       at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssemblyDebugInZone()\n       at System.Threading.ThreadHelper.ThreadStart_Context(Object state)\n       at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)\n       at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\n       at System.Threading.ThreadHelper.ThreadStart()\n  InnerException: </code></pre>\n\n",
+    "PostedDate": "2013-05-16T03:33:01.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044432",
+    "ThreadId": "443886",
+    "Html": "Not sure what your thoughts are on this approach, radioman. But I'm thinking this is all I really need to do in order to catch the problem:<br />\n<pre><code>    internal partial class Map : GMapControl\n    {\n        public Map()\n        {\n            InitializeComponent();\n        }\n\n        protected override void OnPaint(PaintEventArgs e)\n        {\n            try\n            {\n                base.OnPaint(e);\n            }\n            catch (ArgumentOutOfRangeException)\n            {\n                // Discard - it's a bug in the original control\n            }\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2013-05-16T04:46:40.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044520",
+    "ThreadId": "443886",
+    "Html": "i don't care for the old versions, and i've never had any issues with the latest, maybe you are doing some weird threading...<br />\n",
+    "PostedDate": "2013-05-16T06:04:37.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044539",
+    "ThreadId": "443886",
+    "Html": "I'm absolutely doing threading. And I'm quite sure that is where the issue is coming from.\r<br />\n<br />\nI'm still using 1.6 since it's your latest &quot;Stable&quot; release. Do you have plans of creating a new &quot;Stable&quot; version? Or do you think there is significant value added in me switching over to the latest Hot Build right now?<br />\n",
+    "PostedDate": "2013-05-16T06:42:22.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044540",
+    "ThreadId": "443886",
+    "Html": "update GUI objects in GUI thread, and there will be no issues<br />\n",
+    "PostedDate": "2013-05-16T06:45:46.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044555",
+    "ThreadId": "443886",
+    "Html": "So I'd need to invoke the UI every time I update a routes points?<br />\n",
+    "PostedDate": "2013-05-16T07:23:22.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1044563",
+    "ThreadId": "443886",
+    "Html": "backgroundworker work fine for that, all demos use that<br />\n",
+    "PostedDate": "2013-05-16T07:37:04.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

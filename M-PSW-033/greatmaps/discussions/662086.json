@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1494355",
+    "ThreadId": "662086",
+    "Html": "I have created a WPF control with Pin image for marking places on maps. <img src=\"https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678093-pin-48.png\" alt=\"Image\" /><br />\n<pre><code>      GMapMarker marker = new GMapMarker(\n                new PointLatLng(lat, lng);\n            marker.Shape = new PinControl();\n            gmap.Markers.Add(marker);</code></pre>\n\nHowever, when I scroll the map, the pin clearly not stays in the same position. It looks like the marker point is in the centre of image. <br />\n<br />\nCan I move a marking point on the end of a pin nail?<br />\n",
+    "PostedDate": "2017-03-20T11:41:36.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1494738",
+    "ThreadId": "662086",
+    "Html": "I have noticed it was because the marker was set for the top-left of the image, not the pin nail end. \r<br />\nFor now on my solution is to manipulate user control margin to make its top-left corner be on a desired point.\r<br />\n<img src=\"http://oi66.tinypic.com/16kdr1d.jpg\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2017-03-27T11:53:46.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

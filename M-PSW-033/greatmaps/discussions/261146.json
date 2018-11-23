@@ -1,0 +1,442 @@
+[
+  {
+    "Id": "626759",
+    "ThreadId": "261146",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am a beginner at C# and WPF and would like to use GMap.NET in my own application. I have done the following steps:</p>\r\n<p>1) New C# project, WPF, VS2010, x86.</p>\r\n<p>2) Added reference to GMap.NET.Core.dll, GMap.NET.WindowsPresentation.dll, System.Data.SQLite.dll (x86)</p>\r\n<p>3) Added the control to my toolbox, so i see &quot;GMapControl&quot;, &quot;GMapControlNew&quot;, and &quot;TilePrefetcher&quot; in my toolbox.</p>\r\n<p>4) Added a new GMapControl object to my window, in a grid.</p>\r\n<p>&nbsp;</p>\r\n<p>When I build my application to test, it shows that the GMapControl object loaded, but no imagery. Instead, there are many &quot;Exception: The type initializer for 'SingletonCreator' threw an exception.&quot; messages all over the tiled areas. In the background, there\r\n are &quot;We are sorry, but we don't have imagery at this zoom level for this region&quot;. Setting GMapControl.Zoom to any value between 2 and 17 doesn't seem to help. Will appreciate any advice to point me in the right direction please! Still learning to code so bear\r\n with me!</p>\r\n<p>Thank you!</p>\r\n",
+    "PostedDate": "2011-06-13T00:23:27.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626761",
+    "ThreadId": "261146",
+    "Html": "<p>use AnyCPU target</p>",
+    "PostedDate": "2011-06-13T00:31:21.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626765",
+    "ThreadId": "261146",
+    "Html": "<p>Target changed to \"Any CPU\", result is still the same. I am sorry I think I must be doing something really wrong here! :/</p>",
+    "PostedDate": "2011-06-13T00:36:00.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626768",
+    "ThreadId": "261146",
+    "Html": "<p>I have tried adding a configuration file for .NET4 by doing:</p>\r\n<p>1) right-click on project &gt; Add &gt; New Item &gt; Visual C# Application Configuration File</p>\r\n<p>2) changing the configuration file as per http://greatmaps.codeplex.com/documentation</p>\r\n<p>no difference :(</p>",
+    "PostedDate": "2011-06-13T00:43:37.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626769",
+    "ThreadId": "261146",
+    "Html": "<p>zip your test project, i'll check the issue</p>",
+    "PostedDate": "2011-06-13T00:45:37.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626771",
+    "ThreadId": "261146",
+    "Html": "<p>Thanks! Zipping and send it via email!</p>",
+    "PostedDate": "2011-06-13T01:00:06.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626789",
+    "ThreadId": "261146",
+    "Html": "<p>just add this ;}</p>\r\n<p><img src=\"http://0wxnqw.blu.livefilestore.com/y1pS6ZxalcVLVRnsIZCMXmx_Ed79YJ-a57w78cecNxuP5R40nC0WwWar7tEyZQM-Y9FsoC97pFRwrpgWbW0qZFVv206wIMInS_F/app%20config.png?psid=1\" alt=\"\" width=\"800\" /></p>",
+    "PostedDate": "2011-06-13T01:51:18.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626790",
+    "ThreadId": "261146",
+    "Html": "<p>OH WOW. Must have added the wrong config file. The first time i changed the config file to some other name. So now it works! Great thanks for your help! :)</p>",
+    "PostedDate": "2011-06-13T01:54:25.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626792",
+    "ThreadId": "261146",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2011-06-13T01:55:56.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640379",
+    "ThreadId": "261146",
+    "Html": "<p>p.s. new version doesn't require app config file anymore</p>",
+    "PostedDate": "2011-07-11T04:39:05.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640384",
+    "ThreadId": "261146",
+    "Html": "\r\n<div>Cool will download and try tomorrow. Thank you so much for the heads up! :)<br>\r\n<br>\r\nSent from my iPhone</div>\r\n<div><br>\r\nOn Jul 11, 2011, at 19:39, &quot;radioman&quot;&lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt; wrote:<br>\r\n<br>\r\n</div>\r\n<div></div>\r\n<blockquote type=\"cite\">\r\n<div>\r\n<p>From: radioman</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>p.s. new version doesn't require app config file anymore</p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-07-11T04:52:02.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734091",
+    "ThreadId": "261146",
+    "Html": "<p>Dears, I have the same problem but no result .. when I add the control to the form.. after running the map takes time to display blue quarters containing&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>\"<span style=\"color: #ff0000;\"><strong>Exception: the operation has timed out&nbsp;</strong></span><span style=\"color: #0000ff;\">we are sorry but we dont have imagery at this zoom level for this region</span>\"</p>\r\n<p>&nbsp;</p>\r\n<p>please i need your support .. as I wast lots of time trying to find solution</p>",
+    "PostedDate": "2012-01-31T23:58:24.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734097",
+    "ThreadId": "261146",
+    "Html": "<p>your provider? too high zoom, old version?</p>",
+    "PostedDate": "2012-02-01T00:02:04.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734104",
+    "ThreadId": "261146",
+    "Html": "<p>unfortunately.. i'm using the latest version of the&nbsp;GMap.NET.WindowsForms which is&nbsp;v2.0.50727</p>\r\n<p>and this is my code</p>\r\n<p>\r\n<pre>   public Form1()\r\n        {\r\n            InitializeComponent();\r\n\r\n            SuspendLayout();\r\n            GMapControl MainMap = new GMapControl();\r\n            {\r\n                MainMap.MapProvider = GMapProviders.YahooMap;\r\n                MainMap.Position = new PointLatLng(54.6961334816182, 25.2985095977783);\r\n                MainMap.MinZoom = 1;\r\n                MainMap.MaxZoom = 17;\r\n                MainMap.Zoom = 9;\r\n                MainMap.Dock = DockStyle.Fill;\r\n            }\r\n            Controls.Add(MainMap);\r\n            ResumeLayout(true);\r\n        }</pre>\r\nnothing more .. :(</p>",
+    "PostedDate": "2012-02-01T00:07:21.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734112",
+    "ThreadId": "261146",
+    "Html": "<p>did you added both references:&nbsp;<strong>GMap.NET.Core.dll</strong> &amp;&amp;<strong>&nbsp;GMap.NET.WindowsForms.dll</strong> ?</p>",
+    "PostedDate": "2012-02-01T00:13:04.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734116",
+    "ThreadId": "261146",
+    "Html": "<p>yes.,&nbsp;<span>GMap.NET.WindowsForms v2.0.50727,&nbsp;GMap.NET.Core&nbsp;v2.0.50727 and &nbsp;BSE.Windows.Forms&nbsp;v2.0.50727</span></p>\r\n<p>&nbsp;</p>\r\n<p><span><br /></span></p>",
+    "PostedDate": "2012-02-01T00:16:24.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734126",
+    "ThreadId": "261146",
+    "Html": "<p>you use old version, there is no&nbsp;BSE.Windows.Forms anymore</p>",
+    "PostedDate": "2012-02-01T00:21:24.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734135",
+    "ThreadId": "261146",
+    "Html": "<p>could you please send me link of the last version ...&nbsp;</p>\r\n<p>I have download it from&nbsp;<a href=\"http://greatmaps.codeplex.com/releases/view/20235#DownloadId=67818\">http://greatmaps.codeplex.com/releases/view/20235#DownloadId=67818</a></p>\r\n<p>or what i have to do .. i have deleted the reference of&nbsp;<span>&nbsp;BSE.Windows.Forms .. but still the same result</span></p>",
+    "PostedDate": "2012-02-01T00:27:24.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734143",
+    "ThreadId": "261146",
+    "Html": "<p>http://greatmaps.codeplex.com/releases/view/73162#DownloadId=336069</p>",
+    "PostedDate": "2012-02-01T00:31:06.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734159",
+    "ThreadId": "261146",
+    "Html": "<p>OMG .. I have&nbsp;realized that the system configuration add proxy to enter the internet .. I have to work around this problem&nbsp;</p>",
+    "PostedDate": "2012-02-01T00:41:49.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734179",
+    "ThreadId": "261146",
+    "Html": "<p>GMapProvider.WebProxy = new WebProxy(\"10.2.0.100\", 8080);<br />GMapProvider.WebProxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeada\");</p>",
+    "PostedDate": "2012-02-01T00:54:51.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734342",
+    "ThreadId": "261146",
+    "Html": "<p>it works , but the&nbsp;rendering&nbsp;of the map is extremely slow :( while the connection speed is so fast</p>",
+    "PostedDate": "2012-02-01T02:50:35.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734415",
+    "ThreadId": "261146",
+    "Html": "<p>rendering is as fast as you can get on your machine</p>",
+    "PostedDate": "2012-02-01T03:43:38.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734472",
+    "ThreadId": "261146",
+    "Html": "<p>there is more than strange things ,&nbsp;</p>\r\n<p>when I use&nbsp;MainMap.MapProvider = GMapProviders.<span style=\"color: #ff0000;\"><strong>GoogleMap</strong></span>; it does not work ,&nbsp;</p>\r\n<p>while&nbsp;MainMap.MapProvider = GMapProviders.<strong><span style=\"color: #ff0000;\">YahooMap</span></strong>; works</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-02-01T04:24:49.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734485",
+    "ThreadId": "261146",
+    "Html": "<p>it works here ;}</p>",
+    "PostedDate": "2012-02-01T04:31:23.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734509",
+    "ThreadId": "261146",
+    "Html": "<p>i'm so sorry if I ask lot of questions really thank you for your support but i'd like to know something ,&nbsp;</p>\r\n<p>how can i tied&nbsp;</p>\r\n<p><span>GMapProvider.WebProxy = new WebProxy(\"10.2.0.100\", 8080);</span><br /><span>GMapProvider.WebProxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeada\");</span></p>\r\n<p><span>with&nbsp;</span></p>\r\n<p><span>the gmap control</span></p>",
+    "PostedDate": "2012-02-01T04:50:26.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734526",
+    "ThreadId": "261146",
+    "Html": "<p>?</p>",
+    "PostedDate": "2012-02-01T05:05:37.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734537",
+    "ThreadId": "261146",
+    "Html": "<p>as i see there was something like&nbsp;</p>\r\n<p>// set your proxy here if need&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.Instance.Proxy = new WebProxy(\"10.2.0.100\", 8080);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>MainMap.Instance.Proxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeadam\");</p>\r\n<p>OR</p>\r\n<p>MainMap.Manager.Proxy = new WebProxy(\"10.2.0.100\", 8080);&nbsp;</p>\r\n<p>MainMap.Manager.Proxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeadam\");</p>\r\n<p>&nbsp;</p>\r\n<p>to tied the proxy with the&nbsp;MainMap which is the gmap control</p>\r\n<p>&nbsp;</p>\r\n<p>but in this version of&nbsp;<strong>GMap.NET.Core.dll</strong><span>&nbsp;&amp;&amp;</span><strong>&nbsp;GMap.NET.WindowsForms.dll&nbsp;</strong><strong>there is no&nbsp;MainMap.Manager.Proxy or&nbsp;MainMap.Instance.Proxy&nbsp;</strong></p>",
+    "PostedDate": "2012-02-01T05:12:06.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734580",
+    "ThreadId": "261146",
+    "Html": "<p>&nbsp;</p>\r\n<p>Error<span> </span>1<span> </span>'GMap.NET.GMaps' does not contain a definition for 'Proxy' and no extension method 'Proxy' accepting a first argument of type 'GMap.NET.GMaps' could be found (are you missing a using directive or an assembly reference?)<span> </span>D:\\GoogleMapPlanningTool\\GoogleMapPlanningTool\\Form1.cs<span> </span>42<span> </span>33<span> </span>GoogleMapPlanningTool</p>",
+    "PostedDate": "2012-02-01T05:40:18.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734584",
+    "ThreadId": "261146",
+    "Html": "<p>sorry,&nbsp;GMapProvider.<strong>WebProxy</strong></p>",
+    "PostedDate": "2012-02-01T05:42:54.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734595",
+    "ThreadId": "261146",
+    "Html": "<p>ok great i used&nbsp;</p>\r\n<p><span>GMapProvider.WebProxy = new WebProxy(\"10.2.0.100\", 8080);</span><br /><span>GMapProvider.WebProxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeada\");</span></p>\r\n<p><span>but what is relation between GMapProvider and&nbsp;<span>MainMap , there is nothing to connect the MainMap&nbsp;&nbsp;control with&nbsp;GMapProvider</span></span></p>",
+    "PostedDate": "2012-02-01T05:50:45.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734598",
+    "ThreadId": "261146",
+    "Html": "<p>\r\n<pre> public Form1()\r\n        {\r\n            GMapProvider.WebProxy = new WebProxy(\"10.2.0.100\", 8080);\r\n            GMapProvider.WebProxy.Credentials = new NetworkCredential(\"ogrenci@bilgeadam.com\", \"bilgeada\");\r\n            \r\n            InitializeComponent();\r\n\r\n            SuspendLayout();\r\n            MainMap = new GMapControl();\r\n            {\r\n                 MainMap.MapProvider = GMapProviders.GoogleMap;\r\n                MainMap.Position = new PointLatLng(27.6961334816182, 30.2985095977783);\r\n                MainMap.MinZoom = 1;\r\n                MainMap.MaxZoom = 17;\r\n                MainMap.Zoom = 7;\r\n                MainMap.CanDragMap = true;\r\n                MainMap.Dock = DockStyle.Fill;\r\n            }\r\n            Controls.Add(MainMap);\r\n            ResumeLayout(true);\r\n        }</pre>\r\n<span>GMapProvider is not assiend to&nbsp;</span><span>MainMap .. that's what i mean&nbsp;</span></p>",
+    "PostedDate": "2012-02-01T05:52:10.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734625",
+    "ThreadId": "261146",
+    "Html": "<p>you've set faked address and credentials, it will not work</p>",
+    "PostedDate": "2012-02-01T06:06:00.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734631",
+    "ThreadId": "261146",
+    "Html": "<p>you mean&nbsp;<span>faked address &gt;&gt;&nbsp;</span>10.2.0.100</p>\r\n<p><span style=\"white-space: pre;\"> faked</span>&nbsp;<span>credentials&gt;&gt;&nbsp;</span>\"ogrenci@bilgeadam.com\", \"bilgeada\"</p>\r\n<p>???</p>",
+    "PostedDate": "2012-02-01T06:09:48.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734637",
+    "ThreadId": "261146",
+    "Html": "<p>Ofcourse ;}</p>",
+    "PostedDate": "2012-02-01T06:13:21.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734641",
+    "ThreadId": "261146",
+    "Html": "<p>i'm so sorry but from where can i get the right ones?</p>",
+    "PostedDate": "2012-02-01T06:16:07.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734648",
+    "ThreadId": "261146",
+    "Html": "<p><em>\"OMG .. I have realized that the system configuration add proxy to enter the internet .. I have to work around this problem \"</em> its your proxy, how do i know ;}</p>",
+    "PostedDate": "2012-02-01T06:21:16.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734674",
+    "ThreadId": "261146",
+    "Html": "<p>Thank You sooooooooooooooooooo much :)&nbsp;</p>\r\n<p>really you are Great Person ... Thank you for your amazing support :)</p>",
+    "PostedDate": "2012-02-01T06:36:36.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734679",
+    "ThreadId": "261146",
+    "Html": "<p>;} anytime, anywhere</p>",
+    "PostedDate": "2012-02-01T06:41:05.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734701",
+    "ThreadId": "261146",
+    "Html": "<p>Thank you :)</p>\r\n<p>the last question , it there a way to add 1000s marker or icons in the map without killing the performance ?</p>",
+    "PostedDate": "2012-02-01T06:57:34.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734710",
+    "ThreadId": "261146",
+    "Html": "<p>check the flight demo, it handles &gt; 1000 markers quite good</p>",
+    "PostedDate": "2012-02-01T07:03:36.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "736385",
+    "ThreadId": "261146",
+    "Html": "<p>mmm .. really i dont understand what&nbsp;<span>&nbsp;flight demo is? and how it works :(</span></p>",
+    "PostedDate": "2012-02-02T02:12:00.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "736508",
+    "ThreadId": "261146",
+    "Html": "<p>not my problem ;}</p>",
+    "PostedDate": "2012-02-02T03:41:27.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "736521",
+    "ThreadId": "261146",
+    "Html": "<p>ok</p>",
+    "PostedDate": "2012-02-02T03:48:22.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802027",
+    "ThreadId": "261146",
+    "Html": "<p>hi, i'm currently working desktop app using gmapcontrol and i can't drag it. Can you help me to solve this problem pls?&nbsp;</p>",
+    "PostedDate": "2012-02-27T07:16:02.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802029",
+    "ThreadId": "261146",
+    "Html": "<p>default drag button is <strong>right</strong></p>",
+    "PostedDate": "2012-02-27T07:18:29.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802050",
+    "ThreadId": "261146",
+    "Html": "<p>oh, thanks. it works :)</p>\n<div style=\"color: black; background-color: white;\">\n<pre><div style=\"color: black; background-color: white;\">\n</div>\n</pre>\n</div>\n<p>&nbsp;</p>",
+    "PostedDate": "2012-02-27T07:51:34.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810611",
+    "ThreadId": "261146",
+    "Html": "<p>Hi,</p>\r\n<p>I am looking to do a particular thing and I wanted an expert's advice in knowing if Gmap.Net is the right thing to use.&nbsp;</p>\r\n<p>What I need to do is this -&nbsp;</p>\r\n<p>Have the user select certain filtering criteria from dropdown (this runs queries on the database and generates XML resultsets). Then depending on what criteria the user has selected, render that particular XML onto the map. Then if the user hovers over a particular state, the data for that particular state (in that resultset) will be displayed in a balloon.&nbsp;</p>\r\n<p>Please help me. Its an urgent requirement.&nbsp;</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2012-03-14T18:53:56.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810771",
+    "ThreadId": "261146",
+    "Html": "<p>i wonder what it has to do with 'Using GMap.NET in .NET4' ;} i guess nothing at all</p>",
+    "PostedDate": "2012-03-15T04:29:37.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810861",
+    "ThreadId": "261146",
+    "Html": "<p>I wanted to knw if that can be done using GMap.net in a windows forms application. Can Gmap be connected to the database to render xml resultset?</p>",
+    "PostedDate": "2012-03-15T07:33:50.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810868",
+    "ThreadId": "261146",
+    "Html": "<p>you can render whatever you want</p>",
+    "PostedDate": "2012-03-15T07:41:59.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810878",
+    "ThreadId": "261146",
+    "Html": "<p>Are there any examples that do such rendering?</p>",
+    "PostedDate": "2012-03-15T07:51:12.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810884",
+    "ThreadId": "261146",
+    "Html": "<p>there are general demos, customize for yourself as you want</p>",
+    "PostedDate": "2012-03-15T07:58:55.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810903",
+    "ThreadId": "261146",
+    "Html": "<p>There is hardly any documentation available.</p>\r\n<p>Anyway, thanks for your help!</p>",
+    "PostedDate": "2012-03-15T08:19:12.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811001",
+    "ThreadId": "261146",
+    "Html": "<p>nobody pay for documentation ;}</p>",
+    "PostedDate": "2012-03-15T11:11:02.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

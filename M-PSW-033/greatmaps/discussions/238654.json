@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "536894",
+    "ThreadId": "238654",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p><br>\r\nFirst of all thanks for releasing this great job. You are the master.</p>\r\n<p>In second place, I need to limit to the user the navigable area. To reach this point I've tryed to handle some events like OnCurrentPositionChanged and OnMapDrag but unsuccessfully.Here's a snipet:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">void</span> mapctrl1_OnCurrentPositionChanged(PointLatLng point)\r\n{\r\nPointLatLng boundadj = point;<span style=\"color:green\">// mapctrl1.Position;</span>\r\n<span style=\"color:blue\">if</span> (boundadj.Lat &gt; latmax) boundadj.Lat = latmax;\r\n<span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (boundadj.Lat &lt; latmin) boundadj.Lat = latmin;\r\n<span style=\"color:blue\">if</span> (boundadj.Lng &gt; lngmax) boundadj.Lng = lngmax;\r\n<span style=\"color:blue\">else</span> <span style=\"color:blue\">if</span> (boundadj.Lng &lt; lngmin) boundadj.Lng = lngmin;\r\n<span style=\"color:blue\">if</span> (boundadj.Lat != point.Lat || boundadj.Lng != point.Lng) mapctrl1.Position = boundadj;\r\n}\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p><br>\r\nIs there any function, method or way to get my goal?&nbsp;</p>\r\n<p><br>\r\nThanks,</p>\r\n<p><br>\r\nmarranxo</p>\r\n",
+    "PostedDate": "2010-12-16T10:34:40.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536966",
+    "ThreadId": "238654",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I'm interested in the same topic.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2010-12-16T12:59:32.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536992",
+    "ThreadId": "238654",
+    "Html": "\r\n<p>check property <strong>BoundsOfMap</strong></p>\r\n",
+    "PostedDate": "2010-12-16T13:43:51.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537181",
+    "ThreadId": "238654",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p>I've set the bounds in BoundsOfMap as you suggested but now I can't drag the map in deeper zoom levels inside the trusted area. Is this the default behavior or it's my fault?</p>\r\n<p>In the case it's the default behavior, is there any way to change it to allow map dragging inside bounds?</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>latcur = latmin &#43; (latmax - latmin) / 2;\r\nlngcur = lngmin &#43; (lngmax - lngmin) / 2;\r\nmapctrl1.Position = <span style=\"color:blue\">new</span> PointLatLng(latcur, lngcur);\r\nmapctrl1.BoundsOfMap = <span style=\"color:blue\">new</span> RectLatLng(latmin, lngmin, latmax - latmin, lngmax - lngmin);\r\nmapctrl1.CanDragMap = <span style=\"color:blue\">true</span>;\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Thanks,</p>\r\n<p>marranxo</p>\r\n",
+    "PostedDate": "2010-12-17T01:31:28.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "538660",
+    "ThreadId": "238654",
+    "Html": "\r\n<p>I have checked that the BoundsOfMap work on my project</p>\r\n<p>here is my code snippet</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">double</span> minLat = 22.13;\r\n<span style=\"color:blue\">double</span> maxLat = 22.53;\r\n<span style=\"color:blue\">double</span> minLng = 113.80;\r\n<span style=\"color:blue\">double</span> maxLng = 114.42;\r\n<span style=\"color:blue\">this</span>.MainMap.BoundsOfMap = <span style=\"color:blue\">new</span> RectLatLng?(<span style=\"color:blue\">new</span> RectLatLng(maxLat, minLng, maxLng- minLng, maxLat - minLat));\r\n\r\n</pre>\r\n</div>\r\nYou can use BoundsOfMap.Value.Contains() function in MapDrag event to check the PointLatLng inside the region you want to limit.\r\n<p></p>\r\n",
+    "PostedDate": "2010-12-21T01:55:08.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "538691",
+    "ThreadId": "238654",
+    "Html": "\r\n<p>Sorry It was my fault. I was coding like the area delimited by RectLatLng would be a rectangle based in the bottom left corner and it seems it's a rectangle based in the top left corner. Thanks for your time and sorry again.</p>\r\n",
+    "PostedDate": "2010-12-21T03:44:39.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110982",
+    "ThreadId": "238654",
+    "Html": "<strong>cyrilhl wrote:</strong><br />\n<blockquote>\nI have checked that the BoundsOfMap work on my project here is my code snippet   double minLat = 22.13; double maxLat = 22.53; double minLng = 113.80; double maxLng = 114.42; this.MainMap.BoundsOfMap = new RectLatLng?(new RectLatLng(maxLat, minLng, maxLng- minLng, maxLat - minLat));   You can use BoundsOfMap.Value.Contains() function in MapDrag event to check the PointLatLng inside the region you want to limit.<br />\n</blockquote>\n<strong>Why this dont work for me? Im going bananas...</strong><br />\n<pre><code>    Public Property MapBoundsLatMin As Double = -9.1\n\n    Public Property MapBoundsLatMax As Double = -30.1\n\n    Public Property MapBoundsLngMin As Double = 135.8\n\n    Public Property MapBoundsLngMax As Double = 155.9\n    \n    Me.Map.BoundsOfMap = New RectLatLng(Me.MapSettings.MapBoundsLatMin,\n                                                Me.MapSettings.MapBoundsLngMin,\n                                                Math.Abs(Me.MapSettings.MapBoundsLatMax - Me.MapSettings.MapBoundsLatMin),\n                                                Math.Abs(Me.MapSettings.MapBoundsLngMax - Me.MapSettings.MapBoundsLngMin))</code></pre>\n\nUsing version: greatmaps-a158dfe4e6a8.zip\r<br />\n<br />\nAny help appreciated...<br />\n",
+    "PostedDate": "2013-10-23T04:02:48.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

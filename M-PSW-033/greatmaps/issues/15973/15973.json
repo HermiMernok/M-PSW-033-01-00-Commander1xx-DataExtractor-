@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-05-20T05:02:22.543-07:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "File = MainForm.cs, Lines 272, 296\r\n\r\nPRB: Bearing property is not defined for the marker object.\r\n\r\nLine = (marker as GMapMarkerGoogleRed).Bearing = (float?)d.Bearing;\r\n",
+    "LastUpdatedDate": "2010-05-20T06:45:56.517-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-05-20T02:39:28.48-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Errors in Demo.WindowsForms project",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15973
+  },
+  "FileAttachments": [
+    {
+      "FileId": 122801,
+      "FileName": "Bearing.png",
+      "DownloadUrl": ".\\122801"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "it is ;}",
+      "PostedDate": "2010-05-20T05:02:42.4-07:00",
+      "Id": 12532
+    },
+    {
+      "Message": "Not in the source files I downloaded yesterday...\r\nSee attached image.",
+      "PostedDate": "2010-05-20T06:19:46.9-07:00",
+      "Id": 12533
+    },
+    {
+      "Message": "http://greatmaps.codeplex.com/SourceControl/changeset/view/52bc47dbc214#GMap.NET.WindowsForms%2fGMap.NET.WindowsForms%2fMarkers%2fGMapMarkerGoogleRed.cs",
+      "PostedDate": "2010-05-20T06:45:56.517-07:00",
+      "Id": 12536
+    }
+  ]
+}

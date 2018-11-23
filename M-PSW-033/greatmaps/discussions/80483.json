@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "275886",
+    "ThreadId": "80483",
+    "Html": "<p>Hi *,</p>\r\n<p>Great framework :) I really like it :)</p>\r\n<p>One question:</p>\r\n<p>is there a reason why is CacheLocation always set to -&gt; System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + Path.DirectorySeparatorChar + &quot;GMap.NET&quot; + Path.DirectorySeparatorChar;</p>\r\n<p>Why am I asking?</p>\r\n<p>eg. WPF example:</p>\r\n<p>Try to set in MainWindow CacheLocation to some other location:</p>\r\n<p>MainMap.CacheLocation = &quot;C:\\\\specific_cache_location\\\\&quot;;</p>\r\n<p>Make no sense because CacheLocation is always overwritten in SQLitePureImageCache() constructor and in core StartSystem()</p>\r\n<p>So my proposal is following (check if CacheLocation is set by user):</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">public</span> SQLitePureImageCache()\r\n      {\r\n          <span style=\"color:Blue\">if</span> (CacheLocation == <span style=\"color:Blue\">null</span>)\r\n          {\r\n              CacheLocation = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + Path.DirectorySeparatorChar + <span style=\"color:#A31515\">&quot;GMap.NET&quot;</span> + Path.DirectorySeparatorChar;\r\n          }\r\n      }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>and</p>\r\n<p>in Core.cs -&gt; StartSystem()</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">if</span> (Cache.Instance.CacheLocation == <span style=\"color:Blue\">null</span>)\r\n    {\r\n       Cache.Instance.CacheLocation = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + Path.DirectorySeparatorChar + <span style=\"color:#A31515\">&quot;GMap.NET&quot;</span> + Path.DirectorySeparatorChar;\r\n    }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Correct me if I'm wrong but I think that this is a little bug ;)</p>\r\n<p>&nbsp;</p>\r\n<p>Great job, nice coding</p>\r\n<p>Keep a good work, thumb up</p>\r\n<p>Regards,</p>\r\n<p>G.M.-Smile</p>",
+    "PostedDate": "2010-01-11T14:21:26.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275910",
+    "ThreadId": "80483",
+    "Html": "<p>done!</p>",
+    "PostedDate": "2010-01-11T14:57:33.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

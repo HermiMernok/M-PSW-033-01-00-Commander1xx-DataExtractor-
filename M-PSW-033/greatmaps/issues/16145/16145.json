@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I am new to GMap.NET, and I have just started testing it out the WPF version. The control is working very well, except that when I close the application, it takes a very long time for the application to fully terminate. This only happens when I do a bunch of zoom/pan functions right before I close it.\r\n\r\nTo investigate this, I subclassed GMap.NET.WindowsPresentation.GMapControl. I also overridden the Dispose() method, and added a destructor for the class. I set three breakpoints - one before I call base.Dispose(), another after base.Dispose(), and the last one in destructor. The first breakpoint I reached when I clicked on the window's close button, is obviously the one before base.Dispose(). Then I continued from the breakpoint, which it almost immediately reached the breakpoint after base.Dispose(). And it took very long before the last breakpoint is triggered. The amount of delay is proportionate to the amount of zooming/panning I do right before I close the window.\r\n\r\nLooking at my output window, I saw that just before the last breakpoint is reached, it showed \"The thread 'CacheEngine' (HEX value) has exited with code 0 (0x0).\" This is when I traced all the way to GMap.NET.GMaps. This class does not implement IDisposable. The closest thing that I can call is GMaps.CancelTileCaching() in my Dispose() override, which could visibly reduce a potential 30 seconds delay to 4 seconds.\r\n\r\nI have also noticed the only time GMaps.CancelTileCaching() is called is in Application.Current.SessionEnding event, which is triggered when user logs off the computer.\r\n\r\nShouldn't there be something that would stop the caching queue when the application is already exiting?",
+    "LastUpdatedDate": "2016-06-30T07:50:53.833-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-06-30T00:00:01.473-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMaps CacheEngine not properly disposed",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16145
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "process will stop when tiles are saved, if you want discard them call CancelTileCaching",
+      "PostedDate": "2016-06-30T07:50:53.833-07:00",
+      "Id": 200354
+    }
+  ]
+}

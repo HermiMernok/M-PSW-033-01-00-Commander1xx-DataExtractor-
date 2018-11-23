@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1026497",
+    "ThreadId": "439336",
+    "Html": "Hi there,<br />\n<br />\nI have observed and used this great project now for a while. It seems that development on the Google API (v3) has been halted - probably due to the fact that the project has run into trouble with Google Terms. Anyway, especially the GeoCoding and Routing (Directions) API are very important to me. <br />\n<br />\nUsing the new API (v3) should actually fit into Googles Terms - and with Enterprise Support, the same API can also be used for large scale Enterprise Applications. (At least they have now examples of how to use their API with Java, C# and Co on their very own page)<br />\n<br />\nI actually wanted to implement the new v3 API now myself, but I have stumbled across this great library here (<a href=\"https://github.com/maximn/google-maps\" rel=\"nofollow\">https://github.com/maximn/google-maps</a>) which implements the Google Maps API v3, including Enterprise support. So there is no need to reinvent the wheel.<br />\n<br />\nSo why not integrate this project into GMaps.NET? I will integrate it in my copy of GMap.NET - and would gladly share the code if there is a possibility to fork it on Git/GitHub. I think the only caveat will be the integration of the Cache, the rest will be simply wrapping the results to the GMap.NET objects.<br />\n<br />\nBest,<br />\nIsNull<br />\n",
+    "PostedDate": "2013-04-06T02:37:57.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1026743",
+    "ThreadId": "439336",
+    "Html": "good<br />\n",
+    "PostedDate": "2013-04-07T02:39:33.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253656",
+    "ThreadId": "439336",
+    "Html": "IsNull any updates? Do you have a public fork for the integration?<br />\n",
+    "PostedDate": "2014-06-06T03:58:28.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253667",
+    "ThreadId": "439336",
+    "Html": "Yeah, I have made the integration of the Google API v3 way back and it works good.\r<br />\n<br />\nAs it happens, I just started working on this project again. I am on my way to release the code, actually I am just waiting for my pull request here to be merged in: <a href=\"https://github.com/ericnewton76/gmaps-api-net/pull/9\" rel=\"nofollow\">https://github.com/ericnewton76/gmaps-api-net/pull/9</a>. This will then allow me to reference the Google.API code over a Nuget dependency - otherwise I have to include my own fork of the project.\r<br />\n<br />\nI will post here as soon as I have moved the Code into a OpenSource Project on GitHub.)<br />\n",
+    "PostedDate": "2014-06-06T04:37:12.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253696",
+    "ThreadId": "439336",
+    "Html": "I made the Google API v3 Map-Provider Integration now OpenSource:\r<br />\n<br />\n<a href=\"https://github.com/IsNull/GMap.NET.MapProviders.Google\" rel=\"nofollow\">https://github.com/IsNull/GMap.NET.MapProviders.Google</a>\r<br />\n<br />\nEnjoy!<br />\n",
+    "PostedDate": "2014-06-06T06:43:06.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-06-06T06:43:11.66-07:00"
+  },
+  {
+    "Id": "1253731",
+    "ThreadId": "439336",
+    "Html": "great! hope we can merge it in the main code-base soon, and it'd be lot better if the greatmaps project itself move to github.<br />\n",
+    "PostedDate": "2014-06-06T08:11:23.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253758",
+    "ThreadId": "439336",
+    "Html": "<blockquote>\nhope we can merge it in the main code-base soon<br />\n</blockquote>\nYeah as soon as the dependencies are fixed, I am fine when someone merges it into the main branch.<br />\n<blockquote>\nand it'd be lot better if the greatmaps project itself move to github.<br />\n</blockquote>\nAbsolutely. Workflow is way smoother there. <br />\nThe only thing which is not supported on GitHub are Discussion Forums, yet one can abuse the issue system for it.<br />\n",
+    "PostedDate": "2014-06-06T09:52:07.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

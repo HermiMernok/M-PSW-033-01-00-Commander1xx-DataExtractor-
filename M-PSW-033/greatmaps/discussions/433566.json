@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "1002958",
+    "ThreadId": "433566",
+    "Html": "I am having some trouble with my code:\r<br />\n<br />\nThe map is only displayed in the corner of the map control when I change the map provider with comboBox_maps. I cannot figure out how to get the maps to redraw correctly after I select one. \r<br />\n<br />\nAny help on this issue would be greatly appreciated.<br />\n<pre><code>public partial class main : Form\n{\n    public main()\n    {\n        InitializeComponent();\n    }\n\n    private void main_Load(object sender, EventArgs e)\n    {          \n    }\n\n    private void map_Load(object sender, EventArgs e)\n    {\n        comboBox_maps.DataSource = GMapProviders.List;\n        map.MinZoom = 3;\n        map.MaxZoom = 17;\n        map.Zoom = 5;\n        map.Manager.Mode = AccessMode.ServerAndCache;  \n    }\n\n    private void comboBox_maps_SelectedIndexChanged(object sender, EventArgs e)\n    {\n        map.MapProvider = (GMapProvider)comboBox_maps.SelectedItem;\n    }\n}</code></pre>\n\n",
+    "PostedDate": "2013-02-18T11:15:53.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1002980",
+    "ThreadId": "433566",
+    "Html": "works fine for me, maybe you use old version ;/<br />\n",
+    "PostedDate": "2013-02-18T11:51:42.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004114",
+    "ThreadId": "433566",
+    "Html": "Here a picture of the problem:<br />\n<br />\n<img src=\"http://i.imgur.com/M9uBpIB.png\" alt=\"Image\" /><br />\n<br />\nI am using the latest version, do you recommend using an older version ?<br />\n",
+    "PostedDate": "2013-02-20T09:25:30.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004153",
+    "ThreadId": "433566",
+    "Html": "set map docking to full<br />\n",
+    "PostedDate": "2013-02-20T10:49:54.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004170",
+    "ThreadId": "433566",
+    "Html": "Do you mean Fill ?\r<br />\n<br />\nmap.Dock = DockStyle.Fill;\r<br />\n<br />\nThis does not fix the problem, it just fills my main form with the image I previously posted.<br />\n",
+    "PostedDate": "2013-02-20T11:30:45.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004173",
+    "ThreadId": "433566",
+    "Html": "forks fine for me, try not using load event<br />\n",
+    "PostedDate": "2013-02-20T11:36:26.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004193",
+    "ThreadId": "433566",
+    "Html": "Interesting. Could you give example code without using load event ? I am not the strongest C# programmer. Thank you for all your help btw.<br />\n",
+    "PostedDate": "2013-02-20T12:11:14.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004214",
+    "ThreadId": "433566",
+    "Html": "just move  all initial code to public main()<br />\n",
+    "PostedDate": "2013-02-20T12:49:10.443-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004680",
+    "ThreadId": "433566",
+    "Html": "I have moved the code to main as you suggested but the issue still remains.\r<br />\n<br />\nMy code now:\r<br />\n<br />\npublic partial class main : Form<br />\n<pre><code>{\n    GMapControl map = new GMap.NET.WindowsForms.GMapControl();\n    public main()\n    {\n        InitializeComponent();\n        comboBox_maps.DataSource = GMapProviders.List;\n        addMap();\n    }\n\n    private void addMap()\n    { \n        map.Bearing = 0F;\n        map.CanDragMap = true;\n        map.GrayScaleMode = false;\n        map.LevelsKeepInMemmory = 5;\n        map.Location = new System.Drawing.Point(12, 87);\n        map.MarkersEnabled = true;\n        map.MaxZoom = 2;\n        map.MinZoom = 2;\n        map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;\n        map.Name = &quot;map&quot;;\n        map.NegativeMode = false;\n        map.PolygonsEnabled = true;\n        map.RetryLoadTile = 0;\n        map.RoutesEnabled = true;\n        map.ShowTileGridLines = false;\n        map.Size = new System.Drawing.Size(960, 513);\n        map.TabIndex = 2;\n        map.Zoom = 0D;\n        map.Load += new System.EventHandler(this.main_Load);\n        map.MinZoom = 3;\n        map.MaxZoom = 17;\n        map.Zoom = 5;\n        map.Manager.Mode = AccessMode.ServerAndCache;\n        Controls.Add(map);\n    }\n\n    private void comboBox_maps_SelectedIndexChanged(object sender, EventArgs e)\n    {\n        map.MapProvider = (GMapProvider)comboBox_maps.SelectedItem;\n    }\n</code></pre>\n\nAny suggestions? This has me stumped.<br />\n",
+    "PostedDate": "2013-02-21T07:10:48.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004684",
+    "ThreadId": "433566",
+    "Html": "the line that is is important to be in constructor is: map.MapProvider = ...\r<br />\n..and set docking to fill<br />\n",
+    "PostedDate": "2013-02-21T07:16:52.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004698",
+    "ThreadId": "433566",
+    "Html": "Its Working :D.\r<br />\n<br />\nSetting the initial combobox index to 1 seemed to resolve the Issue.\r<br />\n<br />\nHe is the working code for anyone interested:<br />\n<pre><code>public partial class main : Form\n{\n    GMapControl map = new GMap.NET.WindowsForms.GMapControl();\n    public main()\n    {\n        InitializeComponent();\n        comboBox_maps.DataSource = GMapProviders.List;\n        comboBox_maps.SelectedIndex = 1;\n        map.MapProvider = (GMapProvider)comboBox_maps.SelectedItem;\n        addMap(); \n    }\n\n    private void main_Load(object sender, EventArgs e)\n    {\n    }\n\n    private void addMap()\n    { \n        map.Bearing = 0F;\n        map.CanDragMap = true;\n        map.GrayScaleMode = false;\n        map.LevelsKeepInMemmory = 5;\n        map.Location = new System.Drawing.Point(12, 87);\n        map.MarkersEnabled = true;\n        map.MaxZoom = 2;\n        map.BorderStyle = BorderStyle.FixedSingle;\n        map.MinZoom = 2;\n        map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;\n        map.Name = &quot;map&quot;;\n        map.NegativeMode = false;\n        map.PolygonsEnabled = true;\n        map.RetryLoadTile = 0;\n        map.RoutesEnabled = true;\n        map.ShowTileGridLines = false;\n        map.Size = new System.Drawing.Size(960, 511);\n        map.TabIndex = 2;\n        map.Zoom = 0D;\n        map.Load += new System.EventHandler(this.main_Load);\n        map.MinZoom = 3;\n        map.MaxZoom = 17;\n        map.Zoom = 5;\n        map.Manager.Mode = AccessMode.ServerAndCache;\n        //map.MapProvider = GMapProviders.OpenStreetMap;\n        Controls.Add(map);\n    }\n\n    private void comboBox_maps_SelectedIndexChanged(object sender, EventArgs e)\n    {\n        map.MapProvider = (GMapProvider)comboBox_maps.SelectedItem;\n    }\n</code></pre>\n\nThank you radioman for all your help on the issue.<br />\n<ul>\n<li>Dan.</li>\n</ul>\n",
+    "PostedDate": "2013-02-21T07:30:55.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131785",
+    "ThreadId": "433566",
+    "Html": "Thanks for the thread guys. I found this very helpful and made it easy to implement this same feature.\r<br />\n<br />\nChuck<br />\n",
+    "PostedDate": "2013-12-04T09:48:17.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

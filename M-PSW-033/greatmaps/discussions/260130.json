@@ -1,0 +1,210 @@
+[
+  {
+    "Id": "622681",
+    "ThreadId": "260130",
+    "Html": "\r\n<p>When I tried the WindowsForm Demo I noticed that the cache was persistent; meaning if i quit the application lost my internet connection and re-opened the application I would be able to get map data. Right now I have incorporated GMaps into an app; however\r\n when I close the app, lose my internet connection and re-open it, all the tiles says &quot;No data in local tile cache.&quot; To test, I changed the cacheLocation and I do get a folder structure like this&nbsp;\\TileDBv3\\en but there's no file in there, and if I right\r\n click TileDBv3 the size is 0 bytes. Am I doing something wrong? Do I need to set anything else up?</p>\r\n",
+    "PostedDate": "2011-06-03T11:07:41.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622685",
+    "ThreadId": "260130",
+    "Html": "<p>Double check that you deploy&nbsp;<strong>System.Data.SQLite.DLL</strong> alongside the GMap dll's.</p>",
+    "PostedDate": "2011-06-03T11:13:46.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "623580",
+    "ThreadId": "260130",
+    "Html": "<p>It is properly listed under references; do I need to do something else?</p>\n<p>The properties for this reference are as follows:</p>\n<p>&nbsp;</p>\n<p>(Name):<span style=\"white-space: pre;\"> </span>System.Data.SQLite<br />Aliases:<span style=\"white-space: pre;\"> </span>global<br />Copy Local: <span style=\"white-space: pre;\"> </span>true<br />Embed &nbsp;Interop:<span style=\"white-space: pre;\"> </span>False<br />Specific Versions:<span style=\"white-space: pre;\"> </span>False</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-06T09:39:02.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "623617",
+    "ThreadId": "260130",
+    "Html": "<p>new version requires to deploy two folders with sqlite, x64 and x86 as in demos</p>",
+    "PostedDate": "2011-06-06T10:34:23.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "623698",
+    "ThreadId": "260130",
+    "Html": "<p>Do I need to create the folders myself? I ask because I can't add two references with the same name, and I'm just wondering how to accomplish this as simply copying the folders x64 and x86 and their contents within the build folder does not work.</p>",
+    "PostedDate": "2011-06-06T12:55:43.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624002",
+    "ThreadId": "260130",
+    "Html": "<p>yes it works, add two folders, add dlls, set build target to 'content', thats it.</p>",
+    "PostedDate": "2011-06-07T02:11:50.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624115",
+    "ThreadId": "260130",
+    "Html": "<p>I tried doing what you suggested but still am unable to get data in the local cache. You can check my configuration by viewing the following image:&nbsp;<a href=\"http://dl.dropbox.com/u/6186580/Exception.png\">http://dl.dropbox.com/u/6186580/Exception.png</a></p>\r\n<p>I have checked, and after build it does copy the folder and dlls into the build folder but after closing the program and reopening without internet connectivity I get the No data in local tile cache. I would really appreciate any help you could give!</p>\r\n<h4></h4>",
+    "PostedDate": "2011-06-07T06:09:06.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624121",
+    "ThreadId": "260130",
+    "Html": "<p>When you are running with internet, do you have this somewhere in your code?</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>MapControl.Manager.Mode = GMap.NET.AccessMode.ServerAndCache;\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-06-07T06:18:39.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624131",
+    "ThreadId": "260130",
+    "Html": "<p>Yes I do. I have that in my map initialization, and then I do the check for internet connectivity with a try catch and if I don't have connectivity I change it to CacheOnly.&nbsp;</p>",
+    "PostedDate": "2011-06-07T06:37:33.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624136",
+    "ThreadId": "260130",
+    "Html": "<p>maybe thats the problem?</p>",
+    "PostedDate": "2011-06-07T06:44:17.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624138",
+    "ThreadId": "260130",
+    "Html": "<p>How so?&nbsp;</p>",
+    "PostedDate": "2011-06-07T06:45:15.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624143",
+    "ThreadId": "260130",
+    "Html": "<p>did you tried debug?</p>",
+    "PostedDate": "2011-06-07T06:50:40.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624147",
+    "ThreadId": "260130",
+    "Html": "<p>Yes....I have checked and when it runs it runs with Manager.Mode set to ServerAndCache. I also have a dropdown like the one you have in your demo to change the mode. If I change it to cache only while the application is running it works, but not after I close it</p>",
+    "PostedDate": "2011-06-07T06:53:05.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624159",
+    "ThreadId": "260130",
+    "Html": "<p>are you sure you use AnyCPU target?</p>",
+    "PostedDate": "2011-06-07T07:09:27.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624171",
+    "ThreadId": "260130",
+    "Html": "<p>I did not have it set to AnyCPU rather to x86. I have now changed that. When I debugged this time I noticed this exception in the output:</p>\n<p>\n<pre>GetImageFromCache: System.DllNotFoundException: Unable to load DLL 'sqlite3': The specified module could not be found. <br />(Exception from HRESULT: 0x8007007E)� �at Mono.Data.SqliteClient.Sqlite.sqlite3_open16(String dbname, IntPtr&amp; handle)� �at Mono.Data.SqliteClient.SqliteConnection.Open()� �<br />at GMap.NET.CacheProviders.SQLitePureImageCache.GMap.NET.PureImageCache.GetImageFromCache(MapType type, GPoint pos, Int32 zoom)</pre>\n</p>\n<p>Any ideas?</p>",
+    "PostedDate": "2011-06-07T07:29:46.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624185",
+    "ThreadId": "260130",
+    "Html": "<p>so do you use mono version?</p>",
+    "PostedDate": "2011-06-07T07:58:02.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624187",
+    "ThreadId": "260130",
+    "Html": "<p>I didn't mean to. Does this mean I have the wrong Gmap.NET.Core. and WindowsForms dll's?? How do I fix it then?</p>\n<p>I tried &nbsp;by deleting the references to the dlls I used, and used the ones I downloaded from Demo.WIndowsForms from your Downloads page, and now I don't get anything...all the tiles give the message that the Type Initializer for SingletonCreator threw an exception</p>",
+    "PostedDate": "2011-06-07T08:01:38.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624298",
+    "ThreadId": "260130",
+    "Html": "<p>Please, any help you could provide would be very much appreciated as right now I can't use the app. I even created a new project using the references from GMap.WindowsForms and I get the same&nbsp;\r\n<pre>Type Initializer for SingletonCreator threw an exception</pre>\r\nerror on every tile.&nbsp;</p>",
+    "PostedDate": "2011-06-07T11:10:32.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624305",
+    "ThreadId": "260130",
+    "Html": "<p>I have gotten that exception before when using .NET 4.0.</p>\r\n<p>Are you using .NET 4.0? If so, try putting this in your app.config file:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">&lt;?</span><span style=\"color: #a31515;\">xml</span> <span style=\"color: red;\">version</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">1.0</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">?&gt;</span>\r\n<span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">configuration</span><span style=\"color: blue;\">&gt;</span>\r\n   <span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">startup</span> <span style=\"color: red;\">useLegacyV2RuntimeActivationPolicy</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">true</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">&gt;</span>\r\n      <span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">supportedRuntime</span> <span style=\"color: red;\">version</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">v4.0</span><span style=\"color: black;\">\"</span> <span style=\"color: red;\">sku</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">.NETFramework,Version=v4.0</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">/&gt;</span>\r\n   <span style=\"color: blue;\">&lt;/</span><span style=\"color: #a31515;\">startup</span><span style=\"color: blue;\">&gt;</span>\r\n<span style=\"color: blue;\">&lt;/</span><span style=\"color: #a31515;\">configuration</span><span style=\"color: blue;\">&gt;</span>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-06-07T11:20:20.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624311",
+    "ThreadId": "260130",
+    "Html": "<p>Yes, my application already has that. At the time I noticed I was missing this, my app did not have an app.config file so I added a new application configuration file and copied this (which I saw in the downloads page) and pasted it. Unfortunately I still get the same error. I have attached teh debug trace to see if anything looks odd:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<pre>'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_32\\mscorlib\\v4.0_4.0.0.0__b77a5c561934e089\\mscorlib.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\assembly\\GAC_MSIL\\Microsoft.VisualStudio.HostingProcess.Utilities\\10.0.0.0__b03f5f7f11d50a3a\\Microsoft.VisualStudio.HostingProcess.Utilities.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Windows.Forms\\v4.0_4.0.0.0__b77a5c561934e089\\System.Windows.Forms.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Drawing\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Drawing.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System\\v4.0_4.0.0.0__b77a5c561934e089\\System.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\assembly\\GAC_MSIL\\Microsoft.VisualStudio.HostingProcess.Utilities.Sync\\10.0.0.0__b03f5f7f11d50a3a\\Microsoft.VisualStudio.HostingProcess.Utilities.Sync.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\assembly\\GAC_MSIL\\Microsoft.VisualStudio.Debugger.Runtime\\10.0.0.0__b03f5f7f11d50a3a\\Microsoft.VisualStudio.Debugger.Runtime.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\Documents and Settings\\avivas\\My Documents\\Visual Studio 2010\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\bin\\Debug\\WindowsFormsApplication1.vshost.exe', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\Microsoft.VisualBasic\\v4.0_10.0.0.0__b03f5f7f11d50a3a\\Microsoft.VisualBasic.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Core\\v4.0_4.0.0.0__b77a5c561934e089\\System.Core.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\assembly\\GAC_MSIL\\Microsoft.VisualBasic.PowerPacks.Vs\\10.0.0.0__b03f5f7f11d50a3a\\Microsoft.VisualBasic.PowerPacks.Vs.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Messaging\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Messaging.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Xml.Linq\\v4.0_4.0.0.0__b77a5c561934e089\\System.Xml.Linq.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Data.DataSetExtensions\\v4.0_4.0.0.0__b77a5c561934e089\\System.Data.DataSetExtensions.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\Microsoft.CSharp\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\Microsoft.CSharp.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_32\\System.Data\\v4.0_4.0.0.0__b77a5c561934e089\\System.Data.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Deployment\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Deployment.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Xml\\v4.0_4.0.0.0__b77a5c561934e089\\System.Xml.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\nThe thread '' (0x16c) has exited with code 0 (0x0).\r\nThe thread 'vshost.LoadReference' (0x7ec) has exited with code 0 (0x0).\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\Documents and Settings\\avivas\\My Documents\\Visual Studio 2010\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\bin\\Debug\\WindowsFormsApplication1.exe', Symbols loaded.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\Documents and Settings\\avivas\\My Documents\\Visual Studio 2010\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\bin\\Debug\\GMap.NET.WindowsForms.dll'\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\Documents and Settings\\avivas\\My Documents\\Visual Studio 2010\\Projects\\WindowsFormsApplication1\\WindowsFormsApplication1\\bin\\Debug\\GMap.NET.Core.dll'\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Configuration\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Configuration.dll', Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.\r\n'WindowsFormsApplication1.vshost.exe' (Managed (v4.0.30319)): Loaded 'C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Web.Services\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Web.Services.dll'</pre>\r\n</p>",
+    "PostedDate": "2011-06-07T11:30:21.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624544",
+    "ThreadId": "260130",
+    "Html": "<p>last log has zero value, please run debug mode with right dlls, with right config ;}</p>",
+    "PostedDate": "2011-06-07T23:35:54.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624668",
+    "ThreadId": "260130",
+    "Html": "<p>I thought I did everything according to the documentation. I referenced the 3 dll's included in the&nbsp;<a id=\"fileDownload0\" class=\"FileNameLink\" tabindex=\"9\" href=\"http://greatmaps.codeplex.com/releases/view/20235#DownloadId=67818\">GMap.NET.WindowsForms.zip</a>&nbsp; those being BSE.Windows.Forms.dll, GMap.Net.Core.dll, and GMap.Net.WindowsForms.dll. I then added the x86 and x64 folders to my project and set them as<br /> \"Content\" and \"Always Copy\". Then I added the code mentioned by @mattgerg since I am using .NET 4.0 and this is what I get.</p>\r\n<p>If there are any other changes I need to make, please do let me know!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-08T05:15:48.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624675",
+    "ThreadId": "260130",
+    "Html": "<p>BSE.Windows.Forms.dll is not needed, and finally&nbsp;add reference to System.Data.SQLite.DLL, but set Copy Local to False</p>",
+    "PostedDate": "2011-06-08T05:28:47.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624680",
+    "ThreadId": "260130",
+    "Html": "<p>For a Winforms project, I have never had to include BSE.Windows.Forms.dll. &nbsp;I only use GMap.Net.Core.dll and GMap.Net.WindowsForms.dll.</p>\r\n<p>Also, once the x86 and x64 folders are created, you need to put the appropriate SQLite dll inside each folder. &nbsp;Look in the demo for an example of how to set that up in your project.</p>",
+    "PostedDate": "2011-06-08T05:33:09.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624683",
+    "ThreadId": "260130",
+    "Html": "<p>Thanks @radioman and @mattgerg for all your help. This did the trick. Thanks for all your help!</p>",
+    "PostedDate": "2011-06-08T05:38:23.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624689",
+    "ThreadId": "260130",
+    "Html": "<p>great ;} ..anyway in the next version deploying folders will be unnecessary and it will be done automatically, a little easier</p>",
+    "PostedDate": "2011-06-08T05:49:16.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

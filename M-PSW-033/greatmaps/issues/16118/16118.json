@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I have found a bug inside the GMaps.NET control. If you add multiple routes to an overlay, the routes are always shown with the last color given.\r\n\r\nExample:\r\nRoute1: Color.Green\r\nRoute2: Color.Blue\r\nRoute3: Color.Yellow\r\n\r\nResult:\r\nAll routes are yellow.\r\n\r\n```\r\nforeach (GefahreneTour gefahreneTour in gefahreneTouren)\r\n            {\r\n                List<PointLatLng> points = ShowLeerungen(gefahreneTour.LeerungenCollection);\r\n                //Route\r\n                GMapRoute oGMapRoute = new GMapRoute(GetTrackingRoute(gefahreneTour.TrackingCollection), string.Format(\"My_Route_{0}\", routesOverlay.Routes.Count));\r\n                oGMapRoute.Stroke.Width = 4;\r\n                oGMapRoute.Stroke.StartCap = LineCap.Flat;\r\n                oGMapRoute.Stroke.EndCap = LineCap.ArrowAnchor;\r\n\r\n                // Farbe berechnen, mit der die Route angezeigt wird\r\n                int nMod = routesOverlay.Routes.Count % this.dColors.Count;\r\n                if (this.dColors.ContainsKey(nMod))\r\n                    oGMapRoute.Stroke.Color = this.dColors[nMod];\r\n                else\r\n                    oGMapRoute.Stroke.Color = this.dColors[0];\r\n\r\n                //oGMapRoute.Stroke.Color = Color.Green;\r\n\r\n                // Route dem Overlay hinzufügen\r\n                routesOverlay.Routes.Add(oGMapRoute);\r\n\r\n                // Position und Zoom berechnen\r\n                gmap.ZoomAndCenterRoute(oGMapRoute);\r\n\r\n                // Label zur Anzeige der Tour\r\n                Label oLabel = new Label();\r\n                this.gmap.Controls.Add(oLabel);\r\n                oLabel.Text = string.Format(\"Tour: {0}\", gefahreneTour.TourBezeichnung);\r\n                oLabel.Parent = this.gmap;\r\n                oLabel.ForeColor = oGMapRoute.Stroke.Color;\r\n                oLabel.BackColor = Color.Transparent;\r\n                oLabel.Location = new Point(3, (routesOverlay.Routes.Count * 22) + 5);\r\n                oLabel.Font = new Font(oLabel.Font.FontFamily, 16, FontStyle.Bold);\r\n            }\r\n```",
+    "LastUpdatedDate": "2016-01-24T14:30:38.637-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-04-28T06:02:06.307-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Color error on adding multiple routes to an overlay",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16118
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "default Stroke is shared accross all routes, use your own instance if you want different colors",
+      "PostedDate": "2015-04-28T07:09:30.173-07:00",
+      "Id": 183507
+    },
+    {
+      "Message": "THX a lot, you saved my day. Things can be so easy",
+      "PostedDate": "2015-04-28T07:37:06.763-07:00",
+      "Id": 183508
+    },
+    {
+      "Message": "Example code please.",
+      "PostedDate": "2016-01-24T07:55:31.077-08:00",
+      "Id": 195754
+    },
+    {
+      "Message": "Works!\nTHX a lot!\n\nCode:\n\n__Pen myStroke = new Pen(Color.Gold, 1);__\n\nGMapRoute route5= new GMapRoute(routePoints5, \"route5\");\n__route5.Stroke = myStroke;__\n//route5.Stroke.Color = Color.Gold;\n//route5.Stroke.Width = 1;\nroutes5.Routes.Add(route5);\n\n__Pen myStroke1 = new Pen(Color.Red, 2);__\n\nGMapRoute route6= new GMapRoute(routePoints6, \"route6\");\n__route6.Stroke = myStroke1;__\n//route6.Stroke.Color = Color.Red;\n//route6.Stroke.Width = 2;\nroutes6.Routes.Add(route6);\n",
+      "PostedDate": "2016-01-24T14:30:38.637-08:00",
+      "Id": 195766
+    }
+  ]
+}

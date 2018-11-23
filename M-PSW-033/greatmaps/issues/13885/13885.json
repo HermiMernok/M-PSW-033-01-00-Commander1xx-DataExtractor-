@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "it is known bug http://gmap4dotnet.codeplex.com/WorkItem/View.aspx?WorkItemId=13687\r\n\r\nfor now in wpf version: use value of integer for zoom",
+    "ClosedDate": "2009-08-14T11:54:16.897-07:00",
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "Happens in the precompiled ones I download from here. And from me downloading the source and compiling myself. When I put down a cursor or marker and then pan around, they both move. It happens more at higher altitude zoom levels. They don't change position relative to each other, just relative to the map underneath them. I put three pictures to show what I mean. Slide 1 shows initial position, 2 and 3 are different pans after that to show that they do indeed move, and relative to the map only. They seem to follow my moving along the map, but not exactly. So if I pan far away enough, they disappear off the screen. So they obviously only change position at some constant proportion to my panning across the map.",
+    "LastUpdatedDate": "2009-08-14T11:54:16.897-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-08-14T11:29:15.66-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "(Bug) Cursor moves with panning.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 13885
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106843,
+      "FileName": "Pictures.rar",
+      "DownloadUrl": ".\\106843"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Sorry, I didn't notice that I put the same picture as slide2 and slide3. You can still see what I'm saying, though. ",
+      "PostedDate": "2009-08-14T11:31:19.927-07:00",
+      "Id": 3135
+    }
+  ]
+}

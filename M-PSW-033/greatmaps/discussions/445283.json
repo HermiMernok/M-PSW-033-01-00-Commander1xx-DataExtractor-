@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1049938",
+    "ThreadId": "445283",
+    "Html": "Hello\r<br />\nI have a problem:\r<br />\nI have two computers connected to the network\r<br />\n1 - the first computer has a user name and password on the domain and access to the Internet via a proxy\r<br />\n2 - The second computer connected to the same network, but without the user within the domain and access to the Internet via the same proxy.\r<br />\n<br />\nWhen the project used in the first computer does not show the map as they appear in the second computer  you pictures facility\r<br />\n<br />\n<br />\n<br />\nplease  : i want answer for this problem\r<br />\n<br />\n<br />\n<img src=\"http://im40.gulfup.com/0GDW7.jpg\" alt=\"Image\" />\r<br />\n<br />\n<br />\n<img src=\"http://im40.gulfup.com/HGX4q.png\" alt=\"Image\" />\r<br />\n<br />\n<br />\n<br />\n<br />\npic 1 : <a href=\"http://im40.gulfup.com/HGX4q.png\" rel=\"nofollow\">http://im40.gulfup.com/HGX4q.png</a>\r<br />\npic 2 : <a href=\"http://im40.gulfup.com/0GDW7.jpg\" rel=\"nofollow\">http://im40.gulfup.com/0GDW7.jpg</a><br />\n",
+    "PostedDate": "2013-05-29T00:44:19.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050024",
+    "ThreadId": "445283",
+    "Html": "GMapProvider.WebProxy = new WebProxy(&quot;127.0.0.1&quot;, 1080);\r<br />\nGMapProvider.WebProxy.Credentials = new NetworkCredential(&quot;<a href=\"mailto:ogrenci@bilgeadam.com&quot;,\" rel=\"nofollow\">ogrenci@bilgeadam.com\",</a> &quot;bilgeada&quot;);\r<br />\n// or\r<br />\nGMapProvider.WebProxy = WebRequest.DefaultWebProxy;<br />\n",
+    "PostedDate": "2013-05-29T03:45:02.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

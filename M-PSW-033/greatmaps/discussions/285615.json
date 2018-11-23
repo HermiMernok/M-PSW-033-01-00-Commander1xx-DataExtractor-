@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "723051",
+    "ThreadId": "285615",
+    "Html": "\r\n<p>Hello Gmap Community,</p>\r\n<p>is there any interest to implement a .kml import? All geofeatures(point, line, polygon) are realized by radioman.</p>\r\n<p>Are there allready some codesnippets?</p>\r\n<p>bye EDE</p>\r\n",
+    "PostedDate": "2012-01-10T05:07:19.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "728450",
+    "ThreadId": "285615",
+    "Html": "<p>KMZ would be better (okay, I know it's just a zip wrapper, but better to support it properly).</p>\r\n<p>&nbsp;</p>\r\n<p>I think this would be a very useful thing. I'm surprised there has been no other comment!</p>",
+    "PostedDate": "2012-01-20T13:25:44.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "757653",
+    "ThreadId": "285615",
+    "Html": "<p>Same here... Is kind of a surprise not&nbsp;finding&nbsp;discussions about this theme... Any help on how to import Kml&nbsp;would&nbsp;be&nbsp;appreciated.&nbsp;</p>",
+    "PostedDate": "2012-02-11T15:04:16.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "789498",
+    "ThreadId": "285615",
+    "Html": "<p>You can use SharpKml for that. It's very easy to use with GMap.net, so it takes not a lot of time to write a wrapper.</p>\r\n<p>For example loading Polygons onto the map (quick'n'dirty-solution just to illustrate the idea):</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">using</span> SharpKml;\r\n<span style=\"color: blue;\">using</span> SharpKml.Base;\r\n<span style=\"color: blue;\">using</span> SharpKml.Dom;\r\n<span style=\"color: blue;\">using</span> SharpKml.Engine;\r\n\r\n<span style=\"color: green;\">/* ... */</span>\r\n                        <span style=\"color: green;\">// Load KML-Data into program</span>\r\n                        KmlFile kmlData = KmlFile.Load(file);\r\n\r\n                        GMapOverlay overlay = <span style=\"color: blue;\">new</span> GMapOverlay(file);\r\n                        mapController.Overlays.Add(overlay);\r\n                        <span style=\"color: blue;\">foreach</span> (<span style=\"color: blue;\">var</span> poly <span style=\"color: blue;\">in</span> kmlData.Root.Flatten().OfType&lt;Polygon&gt;())\r\n                        {\r\n                            <span style=\"color: green;\">// Fetch path from KML-Data</span>\r\n                            List&lt;PointLatLng&gt; path = <span style=\"color: blue;\">new</span> List&lt;PointLatLng&gt;();\r\n                            <span style=\"color: blue;\">foreach</span> (Vector i <span style=\"color: blue;\">in</span> poly.OuterBoundary.LinearRing.Coordinates)\r\n                                path.Add(<span style=\"color: blue;\">new</span> PointLatLng(i.Latitude, i.Longitude));\r\n\r\n                            <span style=\"color: green;\">// Add Polygon to Map-Overlay</span>\r\n                            GMapPolygon pol = <span style=\"color: blue;\">new</span> GMapPolygon(path, System.IO.Path.GetFileNameWithoutExtension(file));\r\n                            overlay.Polygons.Add(pol);\r\n                        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-02-21T05:14:08.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "791276",
+    "ThreadId": "285615",
+    "Html": "<p>Thanks, wanne try it tomorrow.</p>\r\n<p>EDE</p>",
+    "PostedDate": "2012-02-21T12:16:47.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "811924",
+    "ThreadId": "285615",
+    "Html": "<p>Thank you&nbsp;<a class=\"UserProfileLink\" href=\"http://www.codeplex.com/site/users/view/neurotroph\">neurotroph</a>, it works. Had to change from VS2008 to VS2010 because sharpKML only works with .Net Framework 4. But it was&nbsp;<span>worth it ;)</span></p>\n<p><span>Linq is needed to, otherwise it doesn't&nbsp;recognize&nbsp;\"</span>OfType\".</p>\n<p><span><br /> </span></p>",
+    "PostedDate": "2012-03-17T12:30:38.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083867",
+    "ThreadId": "285615",
+    "Html": "neurotroph,\r<br />\n<br />\nTHANK YOU!!! This thread really helped me a ton in getting my app to load KML files... Thanks!<br />\n",
+    "PostedDate": "2013-08-22T15:25:50.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

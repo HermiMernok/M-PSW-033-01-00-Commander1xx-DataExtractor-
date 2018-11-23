@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "862173",
+    "ThreadId": "364094",
+    "Html": "\r\n<p>I created a custom marker type so that I could draw a circle around a given PointLatLng with a given radius in kilometers.</p>\r\n<p>Because I am specifying the circle diameter in kilometers rather than pixels, I have to calculate the pixel distance on the fly when we render the marker based on the current zoom level and projection.</p>\r\n<p>So I naturally put the Size and Offset calculations in the OnRender overriden method.&nbsp; But it appears this can't be done because the marker is not shown with the proper offset until I move the map (rather then simply changing zoom level).</p>\r\n<p>Anyone have any thoughts on how to better do this?&nbsp; All I want to do is have a cirlce on the map with a set radius in kilometers that stays there as I pan and zoom.</p>\r\n<p>Here is my complete custom marker class:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System;\r\n<span style=\"color:blue\">using</span> System.Drawing;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color:blue\">using</span> FAA.Spectrum.DirectionFinder.Controls;\r\n\r\n<span style=\"color:blue\">namespace</span> FAA.Spectrum.DirectionFinder.Markers\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> GMapCircleMarker : GMapMarker\r\n    {\r\n        <span style=\"color:blue\">public</span> Pen OuterPen { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">double</span> RadiusInKM { <span style=\"color:blue\">get</span>;<span style=\"color:blue\">set</span>; }\r\n        <span style=\"color:blue\">internal</span> Map HostMap { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n        \r\n        <span style=\"color:blue\">public</span> GMapCircleMarker(GMap.NET.PointLatLng p)\r\n            : <span style=\"color:blue\">base</span>(p)\r\n        {\r\n            DisableRegionCheck = <span style=\"color:blue\">true</span>;\r\n            IsHitTestVisible = <span style=\"color:blue\">false</span>;\r\n\r\n            OuterPen = <span style=\"color:blue\">new</span> Pen(Color.DarkRed, 2F);\r\n            RadiusInKM = 0;\r\n            HostMap = <span style=\"color:blue\">null</span>;\r\n        }\r\n        \r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n        {\r\n            <span style=\"color:blue\">if</span> (RadiusInKM &gt; 0 &amp; HostMap != <span style=\"color:blue\">null</span>)\r\n            {\r\n                <span style=\"color:blue\">double</span> groundResolution = HostMap.MapProvider.Projection.GetGroundResolution(Convert.ToInt32(HostMap.Zoom), Position.Lat);\r\n                <span style=\"color:blue\">int</span> diameter = (<span style=\"color:blue\">int</span>)(RadiusInKM * 2 * 1000 / groundResolution);\r\n\r\n                Size = <span style=\"color:blue\">new</span> System.Drawing.Size(diameter, diameter);\r\n                Offset = <span style=\"color:blue\">new</span> System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\r\n\r\n                g.DrawEllipse(OuterPen, <span style=\"color:blue\">new</span> Rectangle(LocalPosition.X, LocalPosition.Y, diameter, diameter));\r\n            }\r\n        }\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-07-12T13:37:39.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869738",
+    "ThreadId": "364094",
+    "Html": "<p>try map.<strong>Invalidate</strong>();</p>",
+    "PostedDate": "2012-07-16T08:35:55.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949520",
+    "ThreadId": "364094",
+    "Html": "\r\n<p>Mike,</p>\r\n<p>I think you can find your sollution in this topic: <a href=\"http://greatmaps.codeplex.com/discussions/402114\">\r\nhttp://greatmaps.codeplex.com/discussions/402114</a></p>\r\n",
+    "PostedDate": "2012-11-30T06:23:49.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

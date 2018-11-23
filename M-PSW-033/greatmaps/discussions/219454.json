@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "467363",
+    "ThreadId": "219454",
+    "Html": "<p>Hi!</p>\r\n<p>I've just recently added GMaps to my project, and I'm trying to draw polygons over my map, to describe &quot;Regions&quot;.&nbsp; It's really just a polygon drawn over the map, starting on MouseDown,&nbsp;and ending on MouseUp.&nbsp; I have that working, however I'd like to be able to move the rectangle around.&nbsp; I've been able to move the rectangle predictably, but the rectangle doesn't refresh as I move it.&nbsp; I can click and drag it, drop it, then zoom out/in and the rectangle will appear where I want it to be, however I dont want to have to zoom in and out. Is there anyway to redraw the overlay, or something to that effect?</p>\r\n<p>&nbsp;EDIT: I was browsing the forum, and the following looked promissing, however it didn't change anything&nbsp;(as far as I could tell):</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p>gMapControl1.UpdatePolygonLocalPosition(selectedPoly);</p>\r\n</span></p>\r\n<p>Thanks,</p>\r\n<p>Steven</p>",
+    "PostedDate": "2010-07-14T10:18:14.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "467368",
+    "ThreadId": "219454",
+    "Html": "call gMapControl1.Invalidate() after that too",
+    "PostedDate": "2010-07-14T10:29:56.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "467377",
+    "ThreadId": "219454",
+    "Html": "<p>You're amazing, thanks!</p>",
+    "PostedDate": "2010-07-14T10:42:21.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "467382",
+    "ThreadId": "219454",
+    "Html": ";}",
+    "PostedDate": "2010-07-14T10:48:39.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

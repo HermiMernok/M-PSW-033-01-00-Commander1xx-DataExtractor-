@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1150528",
+    "ThreadId": "483983",
+    "Html": "Dear radio man,\r<br />\nThanks for your great project! As I am new in the map related topics, could you please give me some help. I need to change projection of google hybrid map from MercatorProjection to PlateCarreeProjection.\r<br />\nwhen I use\r<br />\nPlateCarreeProjection g = new PlateCarreeProjection();<br />\n<pre><code>        gmap.MapProvider.Projection = g;</code></pre>\n\nI get the following error message:\r<br />\n&quot;Property or indexer 'GMap.NET.MapProviders.GMapProvider.Projection' cannot be assigned to -- it is read only&quot;.\r<br />\nIf I use the wrong way, could you please guide me to the right way. \r<br />\nThanks in advance.<br />\n",
+    "PostedDate": "2014-01-07T09:41:07.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1150911",
+    "ThreadId": "483983",
+    "Html": "there is no need to change projection, it's constant, create your own provider with your own projection if you need it<br />\n",
+    "PostedDate": "2014-01-08T07:12:34.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1151200",
+    "ThreadId": "483983",
+    "Html": "Dear radioman\r<br />\nThanks for your help, But unfortunately, I almost got lost in the code, in different version of dlls, source codes, and etc. could you please kindly give me a step by step guide to do that? And could you please introduce me a site which I can get a working solution file in c# which I can debug the map providers? Because when I remove the GMAP.NET.CORE.dll and add required functions manually, a lot of errors raised and after removing them, no breakpoints in the mapprovider is triggered.<br />\n",
+    "PostedDate": "2014-01-08T22:22:58.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1151252",
+    "ThreadId": "483983",
+    "Html": "latest version works fine<br />\n",
+    "PostedDate": "2014-01-09T01:45:44.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

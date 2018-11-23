@@ -1,0 +1,43 @@
+<div class="wikidoc"><h3>Constructing a Coordinate System by code</h3>Creating a coordinate system by code is a little more tedious than <a href="https://projnet.codeplex.com/wikipage?title=CreateCSByWKT&referringTitle=CreateCSByCode">constructing it from Well-known text</a> or <a href="https://projnet.codeplex.com/wikipage?title=LoadByID&referringTitle=CreateCSByCode">create it by an SRID</a>.<br />It also requires you to know all the parameters for the coordinate system, but on the other hand it gives you the power to construct any spatial reference where no WKT or SRID exists.<br /><br />To create a coordinate system, you first need to create a Coordinate System factory:<br /><pre>
+CoordinateSystemFactory cFac = new SharpMap.CoordinateSystems.CoordinateSystemFactory();
+</pre>
+<h4>Creating a geographic coordinate system</h4>A geographic coordinate system consists of the following:
+<ul><li>A prime meridian (usually Greenwich)</li>
+<li>A datum</li>
+<li>An ellipsoid (in the datum)</li>
+<li>An angular unit (usually degrees)</li>
+<li>A couple of axis (usually Latitude/Longitude)</li></ul>
+<pre>
+//Create Bessel 1840 geographic coordinate system
+IEllipsoid ellipsoid = cFac.CreateFlattenedSphere(&quot;Bessel 1840&quot;, 6377397.155, 299.15281, LinearUnit.Metre);
+IHorizontalDatum datum = cFac.CreateHorizontalDatum(&quot;Bessel 1840&quot;, DatumType.HD_Geocentric, ellipsoid, null);
+IGeographicCoordinateSystem gcs = cFac.CreateGeographicCoordinateSystem(&quot;Bessel 1840&quot;, AngularUnit.Degrees, datum,
+	PrimeMeridian.Greenwich, new AxisInfo(&quot;Lon&quot;, AxisOrientationEnum.East),
+	new AxisInfo(&quot;Lat&quot;, AxisOrientationEnum.North));
+</pre><br />The are a number of predefined common geographic coordinate systems you can use. Example:<br /><pre>
+GeographicCoordinateSystem wgs84 = GeographicCoordinateSystem.WGS84;
+</pre>
+<h4>Creating a projected coordinate system</h4>A projected coordinate system consists of the following:
+<ul><li>A geographic coordinate system</li>
+<li>A projection</li>
+<li>A linear unit</li>
+<li>A set of axes</li></ul>
+The projection contains a projection type (see WKT name in &quot;<a href="https://projnet.codeplex.com/wikipage?title=Supported%20projections&referringTitle=CreateCSByCode">Supported projections</a>&quot;) and a set of parameters.<br /> <br /><pre>
+//Create World Mercator projected coordinate system
+List&lt;ProjectionParameter&gt; parameters = new List&lt;ProjectionParameter&gt;(4);
+parameters.Add(new ProjectionParameter(&quot;latitude_of_origin&quot;, 0));
+parameters.Add(new ProjectionParameter(&quot;central_meridian&quot;, 0));
+parameters.Add(new ProjectionParameter(&quot;false_easting&quot;, 0));
+parameters.Add(new ProjectionParameter(&quot;false_northing&quot;, 0));
+IProjection projection = cFac.CreateProjection(&quot;Mercator_1SP&quot;, &quot;Mercator_1SP&quot;, parameters);
+IProjectedCoordinateSystem coordsys = cFac.CreateProjectedCoordinateSystem(&quot;World Mercator WGS84&quot;,
+    GeographicCoordinateSystem.WGS84, projection, LinearUnit.Metre,
+    new AxisInfo(&quot;East&quot;, AxisOrientationEnum.East), new AxisInfo(&quot;North&quot;, AxisOrientationEnum.North));
+</pre><br />The projection CS class comes with a helper method for defining a WGS84 based Universal Transverse Mercator (UTM) projection, by specifying a UTM zone and northern/southern hemisphere:<br /><pre>
+IProjectedCoordinateSystem UTM32N = ProjectedCoordinateSystem.WGS84_UTM(32,true)
+</pre>
+<h4>Converting a coordinate system to a string representation</h4>Once a coordinate system has been created, you can easily convert the projection into a readable Well-known text, by using its WKT property:<br /><pre>
+string WellKnownText = coordsys.WKT;
+</pre><br />Similarly you can get the OGC XML representation using<br /><pre>
+string csXML = coordsys.XML;
+</pre></div><div class="ClearBoth"></div>

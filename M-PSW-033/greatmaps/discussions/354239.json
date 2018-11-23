@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "831097",
+    "ThreadId": "354239",
+    "Html": "\r\n<p>Hi radioman :)</p>\r\n<p>Great job ! I try to do a similar job for WinRT, and your work is a reference for me !</p>\r\n<p>Do you know a way to customize polygon (from a point)'s color ?</p>\r\n<p>Yes, there is probably other ways to make a colored overlay, but I'm curious (and maybe a little bit lazy ? &quot;Shake yourself and find another way to do your colored overlay&quot; is an acceptable response x) ).&nbsp;</p>\r\n<p>Thanks in advance, and congratulations again !</p>\r\n",
+    "PostedDate": "2012-05-02T06:48:07.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831121",
+    "ThreadId": "354239",
+    "Html": "<p>;} ..so your question is?</p>\r\n<p>anyway each polygon has OnRender function, you can override to create custom polygon</p>",
+    "PostedDate": "2012-05-02T07:21:20.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831132",
+    "ThreadId": "354239",
+    "Html": "<p>Hmm, sorry for not being clear.<br /> <br /> <br /> I've a point and an poly \"on\" this point ( GMapMarker.Polygon)<br /> I would like to customize the colors of this polygon. An idea ?</p>\n<p>Oh, and I'm in WPF, not in Windows Forms ;} (what a strange smiley :p )</p>\n<p>&nbsp;</p>\n<p>Thanks</p>",
+    "PostedDate": "2012-05-02T07:34:35.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831163",
+    "ThreadId": "354239",
+    "Html": "<p>(marker.Shape as Path).Fill = Brushes.Red;</p>",
+    "PostedDate": "2012-05-02T08:32:41.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831173",
+    "ThreadId": "354239",
+    "Html": "<p>Already tried that, but it raises NullReferenceException ? (I use the latest build)</p>\r\n<p>... <span class=\"hps\">after</span><span>&nbsp;</span><span class=\"hps\">a moment's reflection, run&nbsp;RegeneratePolygonShape before try to modify the shape seems usefull ;)</span></p>\r\n<p><span class=\"hps\">Thanks a lot radioman, your reactivity is impressive :D</span></p>",
+    "PostedDate": "2012-05-02T08:46:26.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831206",
+    "ThreadId": "354239",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2012-05-02T09:56:14.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

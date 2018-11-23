@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "1101026",
+    "ThreadId": "459734",
+    "Html": "Hi,\r<br />\n<br />\nI am new in GMap.net.\r<br />\nPlease help to remove this issue. whenever i add the reference of GMap.Net.Core.dll and GMap.Net.WindowsMobile.dll in .NET CF then i always got that issue.\r<br />\n<br />\nError\t1\tThe type 'GMap.NET.PointLatLng' exists in both 'c:\\Work\\bin\\GMap.NET.WindowsMobile.dll' and 'c:\\Work\\bin\\GMap.NET.Core.dll'.\r<br />\n<br />\nand there are on line in code.\r<br />\n<br />\nmap.Manager.Mode =GMap.NET.AccessMode.ServerOnly;\r<br />\nmap.MapProvider =GMapProviders.GoogleMap;\r<br />\nmap.Position = new PointLatLng(Variables.latitude, Variables.longitude);\r<br />\n<br />\nPlease help me to sort out this issue.\r<br />\n<br />\nRegards\r<br />\n<br />\nWaan Shela<br />\n",
+    "PostedDate": "2013-09-30T12:14:58.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1101210",
+    "ThreadId": "459734",
+    "Html": "you don't need to reference GMap.NET.Core.dll for mobile project<br />\n",
+    "PostedDate": "2013-10-01T00:49:22.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104297",
+    "ThreadId": "459734",
+    "Html": "Thanks for the replying .\r<br />\n<br />\nI am getting this error badly. Please help me sort out this.\r<br />\n<br />\n&quot;No Source code found&quot;\r<br />\n<br />\n&quot;ObjectDisposedException&quot;\r<br />\n   at System.Threading.WaitHandle.CheckResultInternal(Boolean r)\r<br />\n   at System.Threading.EventWaitHandle.Set()\r<br />\n   at GMap.NET.Internals.Core.Dispose(Boolean disposing)\r<br />\n   at GMap.NET.Internals.Core.Finalize()\r<br />\n<br />\nMy code\r<br />\n<br />\nvoid timer_Tick(object sender, EventArgs e)<br />\n<pre><code>    {\n      try\n      {\n\n          MakeMap();\n\n        }\n      catch (Exception ex)\n      {\n        updateTime.Enabled = false;            \n      }\n    }\n\n\n</code></pre>\n\nprivate void makeMap()<br />\n<pre><code>    {\n        panel1.Controls.Remove(MapControl);\n\n        map = new GMapControl();\n        map.Manager.Mode = GMap.NET.AccessMode.ServerOnly;\n        map.MapProvider = GMapProviders.GoogleMap;\n        map.MaxZoom = 17;\n        map.MinZoom = 10;\n        map.Zoom = map.MinZoom;\n\n        map.Position = new PointLatLng(31.48035, 74.37417);\n\n        OverlayOne = new GMapOverlay(&quot;OverlayOne&quot;);\n        map.Overlays.Add(OverlayOne);\n\n        GMapMarkerTransparentGoogleGreen driverMarker = new GMapMarkerTransparentGoogleGreen(map.Position);\n\n        driverMarker.ToolTipMode = MarkerTooltipMode.Always;\n        driverMarker.ToolTipText = &quot;Driver&quot;;\n        driverMarker.Tag = &quot;Driver1&quot;;\n\n        OverlayOne.Markers.Add(driverMarker);\n\n        map.Size = new System.Drawing.Size(335, 245);\n\n        panel1.Controls.Add(map);\n\n    }</code></pre>\n\n",
+    "PostedDate": "2013-10-06T14:23:14.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104381",
+    "ThreadId": "459734",
+    "Html": "why do you remove the control?<br />\n",
+    "PostedDate": "2013-10-06T23:59:46.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104460",
+    "ThreadId": "459734",
+    "Html": "Hi radioman,\r<br />\n<br />\nThanks for your reply.\r<br />\n<br />\nI have changed my code and still i am getting the same issue.\r<br />\n<br />\nI will explain you in more detail.\r<br />\n<br />\n1) I am using .net CF 3.5 and Visual Studio 2008.\r<br />\n2) I have Window CE 6.0 Device.\r<br />\n3) I have created Map control in form constructor. Its working fine and creates the map and i desired.\r<br />\n3) I have a timer on my form as well which is updating my database with new coordinates if my position is changed.And i am making new marker at new position which is working fine.\r<br />\n4) I have few buttons in my form. Which are in separate panel then map control.\r<br />\n<br />\nIssue Starts here:\r<br />\n<br />\nIn the start for 1 to 2 minutes its works fine but after sometime when I click on any button on my form or i just press on Map control and scroll the map or just click on zoom in and zoom out button it gives me the following error.\r<br />\n<br />\n<br />\nError:- \r<br />\n<br />\n&quot;There is no source code available for the current location.&quot;\r<br />\n<br />\nIf click ok on message box then i got the following error.\r<br />\n<br />\n&quot;ObjectDisposedException&quot;\r<br />\n<br />\nStack Trace:-\r<br />\n<br />\n&quot;   at System.Threading.Timer.throwIfDisposed()\\r\\n   at System.Threading.Timer.Change(UInt32 dueTime, UInt32 period)\\r\\n   at System.Threading.Timer.Change(Int32 dueTime, Int32 period)\\r\\n   at System.Net.HttpWebRequest.cancelReadWriteTimer()\\r\\n   at System.Net.HttpWebRequest.ConnectionClient.Read(Byte[] data, Int32 offset, Int32 length)\\r\\n   at System.Net.HttpReadStream.NetworkRead(Byte[] data, Int32 offset, Int32 length)\\r\\n   at System.Net.ChunkedReadStream.fillBuffer()\\r\\n   at System.Net.ChunkedReadStream.getLine()\\r\\n   at System.Net.ChunkedReadStream.doRead(Byte[] data, Int32 offset, Int32 length)\\r\\n   at System.Net.HttpReadStream.ReadToDrain(Byte[] buffer, Int32 offset, Int32 length)\\r\\n   at System.Net.HttpReadStream.doClose()\\r\\n   at System.Net.HttpReadStream.Finalize()\\r\\n&quot;\r<br />\n<br />\nNote:- I was thinking it  may be due to of my web service. I removed all of the code except my map control code still the i got the error. \r<br />\n<br />\nIf i click continue on the above error then i got the following.\r<br />\n<br />\n&quot;ObjectDisposedException&quot;\r<br />\n<br />\nStack Trace:-\r<br />\n<br />\n&quot;   at System.Threading.WaitHandle.CheckResultInternal(Boolean r)\\r\\n   at System.Threading.EventWaitHandle.Set()\\r\\n   at GMap.NET.Internals.Core.Dispose(Boolean disposing)\\r\\n   at GMap.NET.Internals.Core.Finalize()\\r\\n&quot;\r<br />\n<br />\n<br />\n<br />\nMy Code:-\r<br />\n<br />\n<br />\n  public partial class frmLocation:Form<br />\n<pre><code>{\n    internal GMap.NET.WindowsForms.GMapControl map;\n    internal GMapOverlay OverlayOne;\n\n    System.Windows.Forms.Timer updateTime = new System.Windows.Forms.Timer();\n\n    public frmDriverLocationNew()\n    {\n        InitializeComponent();\n\n        updateTime.Tick += new EventHandler(timer_Tick);\n        updateTime.Interval = (6000) * (10);\n        updateTime.Enabled = true;\n\n\n        //getting the coordinates\n        ///new ClsGPS();\n\n      //Start of Map\n        map = new GMapControl();\n        map.Manager.Mode = GMap.NET.AccessMode.ServerOnly;\n        map.MapProvider = GMapProviders.GoogleMap;\n        map.MaxZoom = 17;\n        map.MinZoom = 12;\n        map.Zoom = map.MinZoom;\n        //map.Position = new PointLatLng(Variables.latitude, Variables.longitude);\n        map.Position = new PointLatLng(31.48035, 74.37417);\n        OverlayOne = new GMapOverlay(&quot;OverlayOne&quot;);\n        map.Overlays.Add(OverlayOne);\n        GMapMarkerTransparentGoogleGreen driverMarker = new GMapMarkerTransparentGoogleGreen(map.Position);\n        //GMapMarkerImage image = new GMapMarkerImage(map.Position, imageList1.Images[0]); \n        driverMarker.ToolTipMode = MarkerTooltipMode.Always;\n        driverMarker.ToolTipText = &quot;Driver&quot;;\n        driverMarker.Tag = &quot;Driver1&quot;;\n        OverlayOne.Markers.Add(driverMarker);\n        map.Size = new System.Drawing.Size(335, 245);\n        panel1.Controls.Add(map);           \n\n    }\n</code></pre>\n\nvoid timer_Tick(object sender, EventArgs e)<br />\n<pre><code>    {\n      try\n      {\n          //getting coordinates\n        ////new ClsGPS();\n\n          MakeMap();     \n\n      }\n\n      catch (Exception ex)\n      {\n        updateTime.Enabled = false;\n        MessageBox.Show(ex.ToString());\n      }\n    }\n\n   private void MakeMap()\n    {\n        //getting the coordinates\n       //// new ClsGPS();\n\n        var m = OverlayOne.Markers.FirstOrDefault(p =&gt; (p.Tag as string) == &quot;Driver1&quot;);\n        if (m != null)\n        {\n            OverlayOne.Markers.Remove(m);\n        }\n\n        var pos = new PointLatLng(31.495030, 74.391257);\n        GMapMarker marker = new GMapMarkerGoogleGreen(pos);\n        {\n            marker.ToolTipText = &quot;Driver&quot;;\n            marker.ToolTipMode = MarkerTooltipMode.Always;\n            marker.Tag = &quot;Driver1&quot;;\n            // marker.Offset = new System.Drawing.Point(-marker.Size.Width, -marker.Size.Height);\n        }\n\n        OverlayOne.Markers.Add(marker);\n        map.ReloadMap();\n        map.Refresh();                \n    }\n</code></pre>\n\n}\r<br />\n<br />\n<br />\n<br />\nHope now you can understand my problem well.\r<br />\n<br />\nWaiting for your reply.<br />\n",
+    "PostedDate": "2013-10-07T04:34:30.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104482",
+    "ThreadId": "459734",
+    "Html": "remove map.ReloadMap();\r<br />\ndon't remove marker, reuse it<br />\n",
+    "PostedDate": "2013-10-07T05:55:24.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104516",
+    "ThreadId": "459734",
+    "Html": "Thanks for your reply i have changed my code as per ur advice.\r<br />\n<br />\nI am still getting the same issues after sometime.\r<br />\n<br />\nWaiting for your  reply<br />\n",
+    "PostedDate": "2013-10-07T07:11:19.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104521",
+    "ThreadId": "459734",
+    "Html": "My new code is as fellow<br />\n<pre><code>public partial class frmDriverLocationNew :Form\n    {\n       \n        internal GMap.NET.WindowsForms.GMapControl map;\n        internal GMapOverlay OverlayOne;\n        GMapMarkerTransparentGoogleGreen driverMarker;\n\n        System.Windows.Forms.Timer updateTime = new System.Windows.Forms.Timer();\n\n        public frmDriverLocationNew()\n        {\n            InitializeComponent();\n           \n            updateTime.Tick += new EventHandler(timer_Tick);\n            updateTime.Interval = (6000) * (10);\n            updateTime.Enabled = true;\n\n            \n            //getting the coordinates\n            ///new ClsGPS();\n\n            //Start of Map\n            map = new GMapControl();\n            map.Manager.Mode = GMap.NET.AccessMode.ServerOnly;\n            map.MapProvider = GMapProviders.GoogleMap;\n            map.MaxZoom = 17;\n            map.MinZoom = 12;\n            map.Zoom = map.MinZoom;\n            //map.Position = new PointLatLng(Variables.latitude, Variables.longitude);\n            map.Position = new PointLatLng(31.48035, 74.37417);\n            OverlayOne = new GMapOverlay(&quot;OverlayOne&quot;);\n            map.Overlays.Add(OverlayOne);\n            driverMarker = new GMapMarkerTransparentGoogleGreen(map.Position);\n            //GMapMarkerImage image = new GMapMarkerImage(map.Position, imageList1.Images[0]); \n            driverMarker.ToolTipMode = MarkerTooltipMode.Always;\n            driverMarker.ToolTipText = &quot;Driver&quot;;\n            driverMarker.Tag = &quot;Driver1&quot;;\n            OverlayOne.Markers.Add(driverMarker);\n            map.Size = new System.Drawing.Size(335, 245);\n            panel1.Controls.Add(map);\n\n            pbLoader.Visible = false;\n            this.Refresh();\n\n        }\n\n        void timer_Tick(object sender, EventArgs e)\n        {\n            try\n            {\n                //getting coordinates\n                ////new ClsGPS();\n              \n                MakeMap();\n            \n            }\n          \n            catch (Exception ex)\n            {\n                updateTime.Enabled = false;\n                MessageBox.Show(ex.ToString());\n            }\n           \n        }\n    \n\n        private void MakeMap()\n        {\n            //getting the coordinates\n           //// new ClsGPS();\n\n            var pos = new PointLatLng(31.495030, 74.391257);\n            driverMarker.Position = pos;\n                       \n            OverlayOne.Markers.Add(driverMarker);\n            map.Refresh();\n               \n        }\n}</code></pre>\n\n",
+    "PostedDate": "2013-10-07T07:15:48.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104522",
+    "ThreadId": "459734",
+    "Html": "ObjectDisposedException?<br />\n",
+    "PostedDate": "2013-10-07T07:19:22.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104529",
+    "ThreadId": "459734",
+    "Html": "Same as i described above.\r<br />\n<br />\n&quot;There is no source code available for the current location.&quot; \r<br />\n<br />\nIf click ok on message box then i got the following error. \r<br />\n<br />\n&quot;ObjectDisposedException&quot; \r<br />\n<br />\nStack Trace:- \r<br />\n<br />\n&quot; at System.Threading.Timer.throwIfDisposed()\\r\\n at System.Threading.Timer.Change(UInt32 dueTime, UInt32 period)\\r\\n at System.Threading.Timer.Change(Int32 dueTime, Int32 period)\\r\\n at System.Net.HttpWebRequest.cancelReadWriteTimer()\\r\\n at System.Net.HttpWebRequest.ConnectionClient.Read(Byte[] data, Int32 offset, Int32 length)\\r\\n at System.Net.HttpReadStream.NetworkRead(Byte[] data, Int32 offset, Int32 length)\\r\\n at System.Net.ChunkedReadStream.fillBuffer()\\r\\n at System.Net.ChunkedReadStream.getLine()\\r\\n at System.Net.ChunkedReadStream.doRead(Byte[] data, Int32 offset, Int32 length)\\r\\n at System.Net.HttpReadStream.ReadToDrain(Byte[] buffer, Int32 offset, Int32 length)\\r\\n at System.Net.HttpReadStream.doClose()\\r\\n at System.Net.HttpReadStream.Finalize()\\r\\n&quot; \r<br />\n<br />\n<br />\nIf i click continue on the above error then i got the following. \r<br />\n<br />\n&quot;ObjectDisposedException&quot; \r<br />\n<br />\nStack Trace:- \r<br />\n<br />\n&quot; at System.Threading.WaitHandle.CheckResultInternal(Boolean r)\\r\\n at System.Threading.EventWaitHandle.Set()\\r\\n at GMap.NET.Internals.Core.Dispose(Boolean disposing)\\r\\n at GMap.NET.Internals.Core.Finalize()\\r\\n&quot; <br />\n",
+    "PostedDate": "2013-10-07T07:23:00.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104531",
+    "ThreadId": "459734",
+    "Html": "well that's not the map issue<br />\n",
+    "PostedDate": "2013-10-07T07:24:38.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104545",
+    "ThreadId": "459734",
+    "Html": "Thanks for ur reply.\r<br />\n<br />\nThis issue is really disturbing my life.\r<br />\n<br />\nDo u have skype id, i am ready to share the screen with you by using device emulator.\r<br />\n<br />\nwaiting for your reply<br />\n",
+    "PostedDate": "2013-10-07T07:48:46.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1104644",
+    "ThreadId": "459734",
+    "Html": "fix your timer, it's not the map issue<br />\n",
+    "PostedDate": "2013-10-07T10:01:12.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1105126",
+    "ThreadId": "459734",
+    "Html": "Hi,\r<br />\n<br />\nI totally removed the timer and just click on zoom and zoom out button. get the same error my dear.\r<br />\n<br />\nOh GOD.\r<br />\n<br />\nPlease help me.<br />\n<pre><code> private void btnZoomIn_Click(object sender, EventArgs e)\n        {\n            int zoom = (int)(map.Zoom);\n            if (zoom &gt;= 8)\n            {\n                //btnZoomIn.Enabled = true;\n                map.Zoom = (int)(map.Zoom - 2);\n\n            }\n            else\n            {\n                //btnZoomIn.Enabled = false;\n            }\n            map.Refresh();\n        }\n\n        private void btnZoomOut_Click(object sender, EventArgs e)\n        {\n            int zoom = (int)(map.Zoom);\n            if (zoom &lt;= 8 || zoom &gt;= 16)\n            {\n                //btnZoomOut.Enabled = false;\n            }\n            else\n            {\n               // btnZoomOut.Enabled = true;\n                map.Zoom = (int)(map.Zoom + 1);\n            }\n            map.Refresh();\n        }\n</code></pre>\n\n",
+    "PostedDate": "2013-10-08T12:09:12.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1105337",
+    "ThreadId": "459734",
+    "Html": "no need to call <em>Refresh</em>, anyway do you get the same error in demo?<br />\n",
+    "PostedDate": "2013-10-09T00:24:50.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1105744",
+    "ThreadId": "459734",
+    "Html": "Hi radioman,<br />\n<br />\nthanks for the reply, your demo code is working fine.<br />\n<br />\nI am thinking to copy and past the same code which is not much different then my code, in my project and then try to test it.<br />\n<br />\nReally thanks for your reply<br />\n",
+    "PostedDate": "2013-10-09T15:35:49.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

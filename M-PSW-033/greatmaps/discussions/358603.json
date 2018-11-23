@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "845622",
+    "ThreadId": "358603",
+    "Html": "\r\n<p>Hi radioman,</p>\r\n<p>first of all<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"text-decoration:underline\">\r\n<strong>-Many thanks for your work on this great control!!!!</strong></span></p>\r\n<p>Im am trying so save an GMapOverlay to a file and later load it again into the MapControl. Here is what i do:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">With</span> SaveFileDialog\r\n\t<span style=\"color:blue\">If</span> .ShowDialog() = DialogResult.OK <span style=\"color:blue\">Then</span>\r\n\t\t<span style=\"color:blue\">Using</span> fs <span style=\"color:blue\">As</span> Stream = File.Open(.FileName, FileMode.Create)\r\n\t\t\t<span style=\"color:blue\">Dim</span> bf <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> BinaryFormatter\r\n\t\t\tbf.Serialize(fs, m_PointsOverlay)\r\n\t\t<span style=\"color:blue\">End</span> <span style=\"color:blue\">Using</span>\r\n\t\t\r\n\t<span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">With</span><br><br><div style=\"color:black; background-color:white\"><pre><span style=\"color:blue\">Dim</span> overlay <span style=\"color:blue\">As</span> GMap.NET.WindowsForms.GMapOverlay\r\n<span style=\"color:blue\">Try</span>\r\n\t<span style=\"color:blue\">Using</span> fs <span style=\"color:blue\">As</span> Stream = File.Open(filename, FileMode.Open, FileAccess.Read)\r\n\t\t<span style=\"color:blue\">Dim</span> bf <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> BinaryFormatter\r\n\t\toverlay = bf.Deserialize(fs)\r\n\t<span style=\"color:blue\">End</span> <span style=\"color:blue\">Using</span>\r\n<span style=\"color:blue\">Catch</span> ex <span style=\"color:blue\">As</span> Exception\r\n\t\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Try<br></span>&nbsp;<br>If I try to add this overlay to MainMap I get a red cross thru the hole control.<br>What am I doing wrong?<br><br>Michael<br></pre>\r\n</div>\r\n&nbsp;</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-06-06T09:45:24.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845629",
+    "ThreadId": "358603",
+    "Html": "\r\n<p>I tried it direct in your demo, and this is where it crashed:</p>\r\n<p>&nbsp;public override void OnRender(Graphics g)<br>\r\n&nbsp;from GMapRoundedToolTip<br>\r\n<br>\r\n<br>\r\nMarker is Null here?</p>\r\n<p>In the overlay the is only one Marker with a text in the tooltip.</p>\r\n<p>Any suggestions?</p>\r\n",
+    "PostedDate": "2012-06-06T09:58:28.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845632",
+    "ThreadId": "358603",
+    "Html": "<p>nop, need some debugging..</p>",
+    "PostedDate": "2012-06-06T10:02:09.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845640",
+    "ThreadId": "358603",
+    "Html": "<p>If I replace the tooltip from the marker with a new one, before adding it to MainMap everything works. But I need to do the following:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">For</span> <span style=\"color: blue;\">Each</span> m <span style=\"color: blue;\">As</span> markers.GMarkerGoogle <span style=\"color: blue;\">In</span> PointsOverlay.Markers\r\n\r\n\t<span style=\"color: blue;\">Dim</span> tttext <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span> = m.ToolTipText\r\n\t<span style=\"color: blue;\">Dim</span> ttmode <span style=\"color: blue;\">As</span> MarkerTooltipMode = m.ToolTipMode\r\n\t<span style=\"color: blue;\">Dim</span> tt <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> GMapToolTip(m)\r\n\tm.ToolTip = tt\r\n\tm.ToolTipMode = ttmode\r\n\tm.ToolTipText = tttext\r\n<span style=\"color: blue;\">Next</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>If I need to create a tooltip with the marker in the constructor, why must I set the markers ToolTip Property to the new ToolTip? May this be the Problem?</p>",
+    "PostedDate": "2012-06-06T10:12:37.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845648",
+    "ThreadId": "358603",
+    "Html": "\r\n<p>Hm, if I add this</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>      \t<span style=\"color:blue\">if</span>(<span style=\"color:blue\">this</span>.ToolTip != <span style=\"color:blue\">null</span>)\n      \t{\n      \t\t<span style=\"color:blue\">this</span>.ToolTip.Marker = <span style=\"color:blue\">this</span>;\n      \t}\n</pre>\r\n</div>\r\nto\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">protected</span> GMapMarker(SerializationInfo info, StreamingContext context)\n</pre>\r\n</div>\r\n<p>in GMapMarker.cs, everything is working!</p>\r\n<p>&nbsp;</p>\r\n<pre style=\"font-family:Consolas; font-size:13; color:black; background:white\"><br>\n</pre>\r\n",
+    "PostedDate": "2012-06-06T10:23:03.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845666",
+    "ThreadId": "358603",
+    "Html": "<p>thanks, i'll fix this</p>",
+    "PostedDate": "2012-06-06T11:00:14.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845668",
+    "ThreadId": "358603",
+    "Html": "<p>Fine! Maybe a</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>marker.ToolTip = <span style=\"color: blue;\">this</span>;\r\n</pre>\r\n</div>\r\n</p>\r\n<p>in the constructor of GMapToolTip makes also sense?</p>\r\n<p>&nbsp;</p>\r\n<p>Michael</p>",
+    "PostedDate": "2012-06-06T11:04:51.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

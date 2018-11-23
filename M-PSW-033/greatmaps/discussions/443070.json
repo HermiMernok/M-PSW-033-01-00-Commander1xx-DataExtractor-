@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1041248",
+    "ThreadId": "443070",
+    "Html": "Hi Radioman!<br />\n<br />\nI upgraded to a newer version of GMap (bf99ca4c954e), now the following problem arises:<br />\n<br />\nI have a route on the map:<br />\n<br />\n<img src=\"https://dl.dropboxusercontent.com/u/7026787/Screenshots/Route1.jpg\" alt=\"Image\" /><br />\n<br />\nNow I move the map, then change the map provider, now the route is not in the correct position (actually it is offset by the amount I moved the map):<br />\n<br />\n<img src=\"https://dl.dropboxusercontent.com/u/7026787/Screenshots/Route2.jpg\" alt=\"Image\" /><br />\n<br />\n I need to zoom in/out (which updates the route and sets it to the correct position). Is this by design? Do I have to call map.UpdateRouteLocalPosition() after every change of the map provider? It definitely worked in the older version I used...<br />\n",
+    "PostedDate": "2013-05-09T01:27:58.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1041253",
+    "ThreadId": "443070",
+    "Html": "hey!\r<br />\n<br />\n..indeed it's a bug, haven't noticed<br />\n",
+    "PostedDate": "2013-05-09T01:36:42.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1041256",
+    "ThreadId": "443070",
+    "Html": ":-) \r<br />\nPlease tell me, when you had the time to fix it, and BIG THANKS for your great work!<br />\n",
+    "PostedDate": "2013-05-09T01:47:20.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1041273",
+    "ThreadId": "443070",
+    "Html": "fixed, thanks!<br />\n",
+    "PostedDate": "2013-05-09T02:38:25.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

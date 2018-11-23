@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1203231",
+    "ThreadId": "529081",
+    "Html": "Hello Radioman,\r<br />\n<br />\nGreat work ! The best Open source API i have ever worked with.  My question is How can I select multiple markers from a map . In the demo , when I use Alt+Mouse Down/Up over a list of marker , I don't see how I can get a collection of the selected markers.\r<br />\n<br />\nThank you\r<br />\nSE<br />\n",
+    "PostedDate": "2014-02-05T14:58:38.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1203442",
+    "ThreadId": "529081",
+    "Html": "i would iterate markers and check if its in the area<br />\n",
+    "PostedDate": "2014-02-06T06:32:06.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1203469",
+    "ThreadId": "529081",
+    "Html": "Thank you for the reply . I know that SelectedArea event argument has Lat/Long , so should i iterate and see if the marker's lat/long falls within the selected area .  Is that correct ? <br />\n",
+    "PostedDate": "2014-02-06T07:32:44.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1203523",
+    "ThreadId": "529081",
+    "Html": "probably<br />\n",
+    "PostedDate": "2014-02-06T08:19:39.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1204339",
+    "ThreadId": "529081",
+    "Html": "It worked by iterating through the markers and check their lat/long to see if they fall withing the corneres of the selected area. \r<br />\n<br />\nThank you,\r<br />\nSE <br />\n",
+    "PostedDate": "2014-02-07T07:21:26.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

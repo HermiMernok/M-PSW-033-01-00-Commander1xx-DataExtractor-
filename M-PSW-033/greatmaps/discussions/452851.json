@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1078364",
+    "ThreadId": "452851",
+    "Html": "Hi,<br />\n<br />\nI have been using GMap.NET for a while: it's great.<br />\n<br />\nRecently I updated to the latest version, but I encountered a bug:<br />\n<br />\n<br />\nAn exception of type System.ArgumentException occured in System.Drawing.dll but was not handled in user code.<br />\nAdditional information: Changes cannot be made to Brush because permission are not valid.<br />\nThere is a handler, the pogram maybe safely continued.<br />\n<br />\n<br />\n<br />\nThe program wasn't able to continue.<br />\n<br />\nI have read online that the issue may be that some uses Brushes.Red for example, and some other part of the code wants to change a property of this immutable Bush.<br />\n<br />\nAnyone got any idea how to fix this? My program became unusable after upgrading :-(<br />\n",
+    "PostedDate": "2013-08-08T11:43:26.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1078382",
+    "ThreadId": "452851",
+    "Html": "After some debugging it appears to be in\r<br />\n&quot;ScalePen.Dispose();&quot;\r<br />\n<br />\nIn GMapControl<br />\n",
+    "PostedDate": "2013-08-08T12:11:02.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1078385",
+    "ThreadId": "452851",
+    "Html": "Solved when I don't do\r<br />\nScalePen = Pens.Black\r<br />\n<br />\nMaybe something that can be fixed?<br />\n",
+    "PostedDate": "2013-08-08T12:12:14.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1078780",
+    "ThreadId": "452851",
+    "Html": "i see, ok<br />\n",
+    "PostedDate": "2013-08-09T09:17:33.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

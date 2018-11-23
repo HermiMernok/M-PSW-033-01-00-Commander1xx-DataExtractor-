@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "148261",
+    "ThreadId": "44547",
+    "Html": "Need the opportunity to use the proxy\r\n",
+    "PostedDate": "2009-01-19T02:07:59.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148263",
+    "ThreadId": "44547",
+    "Html": "Error 407\r\n",
+    "PostedDate": "2009-01-19T02:09:15.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148267",
+    "ThreadId": "44547",
+    "Html": "Good idea! ..i know google has some access limitation.. and specially in satellite mode.\r\n",
+    "PostedDate": "2009-01-19T02:15:21.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148281",
+    "ThreadId": "44547",
+    "Html": "I have the same issue. There is a simple solution - you need to add a WebProxy object to the WebRequest that you make. I know VB.NET, not C#, so I cannot do it myself. \r\n",
+    "PostedDate": "2009-01-19T02:57:19.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "148289",
+    "ThreadId": "44547",
+    "Html": "done! <br>\r\n<br>\r\n// set your proxy here if need <br>\r\nGMapControl.Manager.Proxy = new WebProxy(&quot;10.2.0.100&quot;, 8080); <br>\r\nGMapControl.Manager.Proxy.Credentials = new NetworkCredential(&quot;ogrenci@bilgeadam.com&quot;, &quot;bilgeadam&quot;); \r\n",
+    "PostedDate": "2009-01-19T03:17:31.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

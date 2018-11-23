@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1086077",
+    "ThreadId": "454829",
+    "Html": "I try to calculate the route between 2 points with OpenStreet map, but sometimes it &quot;waits&quot; for several seconds and then returns null.<br />\n<br />\nMapRoute route = OpenStreetMapProvider.Instance.GetRouteBetweenPoints(p1, p2, false, true, 15);<br />\n<br />\nI tried changing the parameters of the method with no effect.<br />\nI did notice that it fails less when I try to put both locations exactly on a road. But if the method only works with coordinates exactly on roads, could someone tell me how to calculate the road between 2 points with start and end point as close to the input points as possible.<br />\n<br />\nThe input points are given by the mouse and are correct.<br />\n<br />\nedit:  I update to the hotbuild and changed to MapRoute route = OpenStreetMapProvider.Instance.GetRoute(p1, p2, false, true, 15);<br />\n<br />\nstill the same problem<br />\n",
+    "PostedDate": "2013-08-29T02:11:45.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1086203",
+    "ThreadId": "454829",
+    "Html": "thats provider issue, you can try another<br />\n",
+    "PostedDate": "2013-08-29T07:44:33.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091047",
+    "ThreadId": "454829",
+    "Html": "Thanks, it helps!\r<br />\n<br />\nI now calculate the route in a seperate thread to avoid that the GUI &quot;hangs&quot;, but after the route calcuation I 'm not able to refresh the map to show the route.\r<br />\nIt's not that the refresh doesn't work, it's only that I'm not able to call the refresh method (for the GMapControl instance) from another thread.\r<br />\nIt's no issue with GMap directly but if anyone knew a solution that would be greatly appreciated.<br />\n",
+    "PostedDate": "2013-09-11T01:56:21.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091057",
+    "ThreadId": "454829",
+    "Html": "map.Invalidate() is thread safe by default<br />\n",
+    "PostedDate": "2013-09-11T02:28:43.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091071",
+    "ThreadId": "454829",
+    "Html": "Thanks, I tried it and got no problems to call the method but the route is still only drawn after I zoom in or out.<br />\n",
+    "PostedDate": "2013-09-11T03:09:28.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

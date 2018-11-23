@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "476779",
+    "ThreadId": "222557",
+    "Html": "<p>Dear Radioman,</p>\r\n<p>I can't get GreatMaps to work with Windows 7 64-bit edition. I've downloaded the changeset 23f575a70f8d, made some adjustments to fit it to my needs, imported it in my program and tried to run it, without success. The demo is working fine, but when I add the control to my application, it doesn't work anymore. When I create a new application with the GreatMap as only control in it, it doesn't work either.<br>I get a nice form with the text &quot;This program has stopped working&quot; and the following info.</p>\r\n<hr>\r\n<p>Description:<br>Stopped working</p>\r\n<p>Problem signature:<br>Problem Event Name: CLR20r3<br>Problem Signature 01: p2000 monitor.exe<br>Problem Signature 02: 3.0.0.0<br>Problem Signature 03: 4c5a88c3<br>Problem Signature 04: P2000 Monitor<br>Problem Signature 05: 3.0.0.0<br>Problem Signature 06: 4c5a88c3<br>Problem Signature 07: 3<br>Problem Signature 08: 6<br>Problem Signature 09: System.NullReferenceException<br>OS Version: 6.1.7600.2.0.0.256.1<br>Locale ID: 1043</p>\r\n<p>Read our privacy statement online:<br>http://go.microsoft.com/fwlink/?linkid=104288&amp;clcid=0x0409</p>\r\n<p>If the online privacy statement is not available, please read our privacy statement offline:<br>C:\\Windows\\system32\\en-US\\erofflps.txt</p>\r\n<hr>\r\n<p>&nbsp;</p>\r\n<p>When I add an UnhandledException handler I get some more info, the exception message and stacktrace:</p>\r\n<hr>\r\n<p>Er is een fout opgetreden bij het maken van het formulier. Zie ExceptionInnerException voor details. De fout is: Could not load file or assembly 'GMap.NET.WindowsForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. An attempt was made to load a program with an incorrect format.<br>at WindowsApplication1.My.MyProject.MyForms.Create__Instance__[T](T Instance) in 17d14f5c-a337-4978-8281-53493378c1071.vb:line 197<br>at WindowsApplication1.My.MyApplication.OnCreateMainForm() in C:\\Documents and Settings\\Thomas\\Bureaublad\\P2000 Monitor\\P2000 Monitor\\My Project\\Application.Designer.vb:line 37<br>at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()<br>at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()</p>\r\n<hr>\r\n<p>&nbsp;</p>\r\n<p>Everything works fine at Windows XP 32-bit. I already set the reference in GMap.NET.Core to the x64 version of System.Data.SQLite, set the platform to x86 and set the compilation symbols in GMap.NET.Core to &quot;MONOdisabled; MySQLdisabled; MsSqlCe&quot; (I hope that's good?).</p>\r\n<p>Do you have any clue about what's happening here? I personally think it's a problem in the SQL-stuff, because I can't find anything weird in GMap.NET.WindowsForms and that one references to GMap.NET.Core and his SQL references, so... But I'm really out of ideas. Do you have any?</p>\r\n<p>With kind regards,<br>Thomas</p>",
+    "PostedDate": "2010-08-05T03:31:18.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "476914",
+    "ThreadId": "222557",
+    "Html": "<p>&nbsp;if you use <strong>x64 sqlite dll</strong>, your <strong>target must be also x64</strong>, but <strong>you can still use x86 dll</strong> in x64 environment <strong>if you target x86</strong></p>\r\n<p>..and you don't need symbol of <em>MsSqlCe</em>&nbsp;if you use sqlite, you can use it if you do not want to use sqlite(wrong way to go) ;}</p>",
+    "PostedDate": "2010-08-05T07:28:53.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "476943",
+    "ThreadId": "222557",
+    "Html": "<p>Thanks for your reply. I tried it, but it doesn't seem to change anything, I still get the same error.</p>\r\n<p>I made another guess, I added the unmodified version of GMap.NET.WindowsForms and GMap.NET.Core to a new WindowsApplication and tried to run it on Win7. It gives&nbsp;me the same&nbsp;error as the first one. The demo still works fine, but as soon as I use it in my (vb.net) project, I &quot;load a program with an incorrect format.&quot;</p>",
+    "PostedDate": "2010-08-05T08:14:15.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "476968",
+    "ThreadId": "222557",
+    "Html": "<p>Got it! Some Googling yesterday&nbsp;made clear&nbsp;that &quot;an incorrect format&quot; means that a 64-bit exe loads a 32-bit dll or<span id=\"result_box\"><span style=\"background-color:#fff;color:#000\">vice versa. It seems my Visual Basic Express Edition doesn't have a Configuration Manager (As the Visual C# Express Edition has), so I had to manually edit my .vbproj-file (as described <a href=\"http://www.onteorasoftware.net/post/Changing-the-target-cpu-in-VB-express-2008.aspx\">here</a>&nbsp;) to make it work on x86. Thank you for pushing me in the right direction, it seems solved now =).</span></span></p>",
+    "PostedDate": "2010-08-05T08:53:20.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "477353",
+    "ThreadId": "222557",
+    "Html": "great! ;}",
+    "PostedDate": "2010-08-06T06:15:39.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

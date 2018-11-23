@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1448177",
+    "ThreadId": "646107",
+    "Html": "Hi, not sure if this has been asked before however I could not find a suitable answer.\r<br />\n<br />\nI am currently pre-fetching tiles into a MSSQL database, however (And I may be wrong) I do not believe that the geocoding data is also stored in the database. If I pre-fetch the tiles to the database, and I then access the database from another machine, Can I still use the geocoding information without an internet connection or not? If not, how can I pre-fetch the geocoding information into the database?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-10-12T05:51:15.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1448192",
+    "ThreadId": "646107",
+    "Html": "geocoding is cached only localy, C:\\Users\\xxx\\AppData\\Local\\GMap.NET\\GeocoderCache\r<br />\n<br />\n..and it's quite impossible to cache all possible requests<br />\n",
+    "PostedDate": "2015-10-12T07:46:10.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-10-12T07:46:13.647-07:00"
+  }
+]

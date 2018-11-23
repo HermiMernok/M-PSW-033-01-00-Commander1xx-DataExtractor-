@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1144313",
+    "ThreadId": "479204",
+    "Html": "Right now the GMapProviders static constructor uses reflection to find/instantiate each static GMapProvider field and put them into a list. The fatal problem with this is that if your Windows system has FIPS enforced, the .NET MD5CryptoServiceProvider class will throw exceptions in any map derived from GoogleMapProvider (namely because of the calls to EncryptString and DecryptString).\r<br />\n<br />\nThis bubbles up as a TypeInitializationException and then it it is impossible to use the built-in GMapProviders.List property.\r<br />\n<br />\nIf a list absolutely needs to be had, it should be created on-the-fly in the GMapProviders.List property (and cached by the calling program if it wants to avoid duplicates). Or at least the failed constructors should be trapped and omitted from the list.<br />\n",
+    "PostedDate": "2013-12-31T13:45:34.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1150442",
+    "ThreadId": "479204",
+    "Html": "i've changed it to sha1, should be ok<br />\n",
+    "PostedDate": "2014-01-07T07:09:36.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

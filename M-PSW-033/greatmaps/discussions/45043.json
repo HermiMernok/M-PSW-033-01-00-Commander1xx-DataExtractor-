@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "150141",
+    "ThreadId": "45043",
+    "Html": "Can you pls add a ToolTipAlign property to the markers, to allow me to rotate the tooltip positions incase they overlap existing markers on the map.<br>\r\n<br>\r\nThanks<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-23T02:04:51.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150147",
+    "ThreadId": "45043",
+    "Html": "..yes that is isue, on google earth they split out automaticaly on mouse over, i try to make somethink like that...",
+    "PostedDate": "2009-01-23T02:19:54.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150156",
+    "ThreadId": "45043",
+    "Html": "If you allow manual setting also, because what i will allow is the user to select a market, then click a button to rotate the ToolTip&nbsp; on the map to uncover maybe map locations beneath the tool tip so they can format the look of the map before printing / saving the view<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-23T02:49:08.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150159",
+    "ThreadId": "45043",
+    "Html": "mm.. i see, user ability to rotate tooltip around marker",
+    "PostedDate": "2009-01-23T02:53:41.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150160",
+    "ThreadId": "45043",
+    "Html": "well i have your control hosted on a form that handles all the user requests. I then inherit this form whenever&nbsp; i need to display a map, so i will handle the user requests, but just need to be able to set the tooltip location,<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-23T02:56:05.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150167",
+    "ThreadId": "45043",
+    "Html": "you can override DrawToolTip, draw tooltip yourself and change x,y as you want, default point is marker center",
+    "PostedDate": "2009-01-23T03:18:52.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150171",
+    "ThreadId": "45043",
+    "Html": "i use VB and am using the DLL of your control and dont' think i can override the protected method from you're DLL <br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-23T03:30:06.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150189",
+    "ThreadId": "45043",
+    "Html": "ofcourse you can:<div><br></div><div><span><a href=\"http://www.java2s.com/Code/VB/Class/Overridesmethodfromsuperparentclass.htm\">http://www.java2s.com/Code/VB/Class/Overridesmethodfromsuperparentclass.htm</a></span><br></div>",
+    "PostedDate": "2009-01-23T04:21:17.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150190",
+    "ThreadId": "45043",
+    "Html": "Another idea, can you add&nbsp; TOOLTIP&nbsp; position to the Market object,&nbsp; i will then allow the user to even drag the tool tip to any location, but still draw the connecting line.<br>\r\nThis will again, allow the user to make a map more readable when a high number of markers are displayed.<br>\r\n<br>\r\nThanks,<br>\r\n<br>\r\n",
+    "PostedDate": "2009-01-23T04:21:43.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150191",
+    "ThreadId": "45043",
+    "Html": "defaulting to its current position<br>\r\n",
+    "PostedDate": "2009-01-23T04:22:13.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150193",
+    "ThreadId": "45043",
+    "Html": "good idea!",
+    "PostedDate": "2009-01-23T04:24:02.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "150194",
+    "ThreadId": "45043",
+    "Html": "oh ! radioman,&nbsp; thanks for the previous link<br>\r\n",
+    "PostedDate": "2009-01-23T04:24:18.783-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

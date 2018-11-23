@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1427782",
+    "ThreadId": "638842",
+    "Html": "I started using mapcruncher because I have many large images to overlay on the map. So mapcruncher slices up the images into small tiles but how do I bring those into Gmap? It generates alot of files but don't know how to make it work with Gmap. Is there a way to use those small images with the existing maps in Gmap?<br />\n",
+    "PostedDate": "2015-05-27T05:58:46.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427925",
+    "ThreadId": "638842",
+    "Html": "<pre><code>            try\n            {\n                int c = 0;\n\n                int type = GMapProviders.LithuaniaTOP50Map.DbId;\n\n                //GMaps.Instance.PrimaryCache.DeleteOlderThan(DateTime.MaxValue, type);\n\n                var import = Directory.GetFiles(@&quot;T:\\tiles\\Layer_NewLayer\\&quot;, &quot;*.jpg&quot;, SearchOption.AllDirectories).Where(p =&gt; p.Contains(&quot;Layer_&quot;) &amp;&amp; !p.Contains(&quot;black&quot;)).ToList();\n\n                int total = import.Count;\n                \n                foreach (var i in import)\n                {\n                    var qk = Path.GetFileNameWithoutExtension(i);\n\n                    int x = 0;\n                    int y = 0;\n                    int z = 0;\n                    GMapProviders.BingMap.QuadKeyToTileXY(qk, out x, out y, out z);\n\n                    Debug.WriteLine(c++ + &quot; of &quot; + total + &quot;, x: &quot; + x + &quot;, y: &quot; + y + &quot;, z: &quot; + z);\n\n                    if (!GMaps.Instance.PrimaryCache.PutImageToCache(File.ReadAllBytes(i), type, new GPoint(x, y), z))\n                    {\n                        break;\n                    }\n                }\n            }\n            catch (Exception ex)\n            {\n                Debug.WriteLine(&quot;import: &quot; + ex);\n            }</code></pre>\n\n",
+    "PostedDate": "2015-05-28T06:17:07.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427930",
+    "ThreadId": "638842",
+    "Html": "Cool but I am getting an error on <br />\n<pre><code>GMapProviders.BingMap.QuadKeyToTileXY(qk, out x, out y, out z);</code></pre>\n\nError\t1\t'GMap.NET.MapProviders.BingMapProvider' does not contain a definition for 'QuadKeyToTileXY' \r<br />\n<br />\nWhy is this happening? <br />\n",
+    "PostedDate": "2015-05-28T06:46:10.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427961",
+    "ThreadId": "638842",
+    "Html": "OK I fixed this issue. But I still don't see the images on the Bing Map. I am trying on the Demo.clouds project. Here's the code.<br />\n<pre><code>public MainForm()\n      {\n         InitializeComponent();\n\n         try\n         {\n             int c = 0;\n\n             int type = GMapProviders.LithuaniaTOP50Map.DbId;\n\n             //GMaps.Instance.PrimaryCache.DeleteOlderThan(DateTime.MaxValue, type);\n\n             var import = Directory.GetFiles(@&quot;C:\\Users\\Vaib\\Desktop\\tiles\\Layer_NewLayer\\&quot;, &quot;*.jpg&quot;, SearchOption.AllDirectories).Where(p =&gt; p.Contains(&quot;Layer_&quot;) &amp;&amp; !p.Contains(&quot;black&quot;)).ToList();\n\n             int total = import.Count;\n\n             foreach (var i in import)\n             {\n                 var qk = Path.GetFileNameWithoutExtension(i);\n\n                 int x = 0;\n                 int y = 0;\n                 int z = 0;\n                 GMapProviders.BingMap.QuadKeyToTileXY(qk, out x, out y, out z);\n\n\n                 // GMapProviders.BingMap.\n                 Debug.WriteLine(c++ + &quot; of &quot; + total + &quot;, x: &quot; + x + &quot;, y: &quot; + y + &quot;, z: &quot; + z);\n\n                 if (!GMaps.Instance.PrimaryCache.PutImageToCache(File.ReadAllBytes(i), type, new GPoint(x, y), z))\n                 {\n                     break;\n                 }\n             }\n         }\n         catch (Exception ex)\n         {\n             Debug.WriteLine(&quot;import: &quot; + ex);\n         }\n\n         if(!DesignMode)\n         {\n            try\n            {\n               System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry(&quot;www.bing.com&quot;);\n            }\n            catch\n            {\n               mapControl.Manager.Mode = AccessMode.CacheOnly;\n               MessageBox.Show(&quot;No internet connection avaible, going to CacheOnly mode.&quot;, &quot;GMap.NET - CloudsDemo&quot;, MessageBoxButtons.OK, MessageBoxIcon.Warning);\n            }\n\n            mapControl.MapProvider = GMapProviders.BingMap;\n            mapControl.OnMapZoomChanged += new MapZoomChanged(mapControl_OnMapZoomChanged);\n\n            mainOverlay = new GMapOverlay(&quot;top&quot;);\n            mapControl.Overlays.Add(mainOverlay);\n\n            clouds = new GMapImage(gtl);\n            clouds.Image = Properties.Resources.USOverlay;\n             \n            mainOverlay.Markers.Add(clouds);\n         }\n      }</code></pre>\n\n",
+    "PostedDate": "2015-05-28T12:42:23.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1428420",
+    "ThreadId": "638842",
+    "Html": "<pre><code>int type = GMapProviders.LithuaniaTOP50Map.DbId; </code></pre>\n\nyou have to create your own provider and use it's type<br />\n",
+    "PostedDate": "2015-06-02T09:43:05.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1428423",
+    "ThreadId": "638842",
+    "Html": "since I am using Bing maps, can I do this<br />\n<pre><code>int type = GMapProviders.BingMap.DbId;</code></pre>\n\nI really don't know how to create my own provider<br />\n",
+    "PostedDate": "2015-06-02T09:49:27.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

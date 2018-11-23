@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1057000",
+    "ThreadId": "447097",
+    "Html": "Hi,\r<br />\nThank you very much for this great job!\r<br />\nI'm trying to do a test wf application reading your tutorial.\r<br />\ni've add one simple marker and a basic route in one overlay.\r<br />\nthere are some problems:\r<br />\n1)first click on button1\r<br />\nthe route doesn't appear untill i resize the map\r<br />\n<img src=\"http://s8.postimg.org/rhrrxjret/Immagine.png\" alt=\"Image\" />\r<br />\n2)Resize form\r<br />\nmarker disappear and route appear\r<br />\n<img src=\"http://s8.postimg.org/429us77np/Immagine2.png\" alt=\"Image\" />\r<br />\n3)scroll map,resize map, re-click on button1\r<br />\nmarker appear in a different position.\r<br />\n<img src=\"http://s8.postimg.org/xswzdysn9/Immagine3.png\" alt=\"Image\" />\r<br />\n<br />\nwhats'wrong?thank you.\r<br />\nthis is my simple code<br />\n<pre><code>namespace TestMap {\n    public partial class Form1 : Form {\n        public Form1() {\n            InitializeComponent();\n        }\n\n        private void gMapControl1_Load(object sender, EventArgs e) {\n            // Initialize map:\n            gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n            gmap.Position = new PointLatLng(44.731532, 11.290816);\n            gmap.CanDragMap = true;\n        }\n\n        private void simpleButton1_Click(object sender, EventArgs e) {\n            PointLatLng start2 = new PointLatLng(44.731532, 11.290816); ;\n            PointLatLng end2 = new PointLatLng(44.755298, 11.308620);\n            MapRoute route2 = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(\n              start2, end2, false, false, 15);\n            GMapRoute r2 = new GMapRoute(route2.Points, &quot;My route&quot;);\n            GMapOverlay routesOverlay = new GMapOverlay(&quot;routes&quot;);\n            routesOverlay.Routes.Add(r2);\n            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(-25.966688, 32.580528),GMarkerGoogleType.blue_pushpin);\n            marker.ToolTipText = &quot;Test Marker&quot;;\n            routesOverlay.Markers.Add(marker);\n            gmap.Overlays.Add(routesOverlay);\n        }\n\n    }\n}</code></pre>\n\n",
+    "PostedDate": "2013-06-14T09:14:20.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1057561",
+    "ThreadId": "447097",
+    "Html": "remove: gMapControl1_Load<br />\n<br />\nthen <br />\n<pre><code>GMapOverlay routesOverlay = new GMapOverlay(&quot;routes&quot;);\n\npublic Form1()\n {\n            InitializeComponent();\n\n           gmap.MapProvider = GMapProviders.GoogleMap;\n           gmap.Overlays.Add(routesOverlay);  \n }</code></pre>\n\n",
+    "PostedDate": "2013-06-16T23:34:06.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1058242",
+    "ThreadId": "447097",
+    "Html": "Thanks a lot! it works!<br />\n",
+    "PostedDate": "2013-06-18T08:03:36.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

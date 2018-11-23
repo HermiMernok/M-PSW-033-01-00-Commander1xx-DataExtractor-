@@ -1,0 +1,370 @@
+[
+  {
+    "Id": "591813",
+    "ThreadId": "252531",
+    "Html": "<p>Hello,<br /> <br /> ..unfortunately <strong>tile access is public and well known</strong>, there is no way to somehow 'remove' it<br /> <br /> you're welcome ;}<br /> <br /></p>\n<blockquote style=\"margin: 0 0 0.80ex; border-left: #0000FF 2px solid; padding-left: 1ex;\"><em>Hi there,</em><br /> <br /> <em>I work at Google on the Developer Relations teams, and I recently received a note that GMap is accessing our tile data outside of our published API's. &nbsp;&nbsp;</em><br /> <br /> <em>First, I want to say that GMap looks like a really cool and useful project. &nbsp;And also I imagine a lot of usersenjoy the integration you have with our tiles. &nbsp;However your current implementation goes against out terms of service, and so I'm writing to you  now asking that you remove the ability to access our data from GMap.</em><br /> <br /> <em>I realize that removing this will be both a hassle and a loss to the program, but there are a number of reasons it's important to us that we only serve up tiles via our API's (including the fact that the data in our tiles often comes from 3rd parties).  &nbsp;If you have any questions, or would like to chat more about this, please feel free to contact me at jlivni@google.com.</em><br /> <br /> <em>Thanks,</em><br /> <br /> <em>&nbsp;-Josh</em></blockquote>\n<p>// anyone like the idea? ;}</p>",
+    "PostedDate": "2011-04-04T23:39:29.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592192",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Hi there,</em><br /> <br /><em> Thanks for the fast response. As an open source developer, I imagine you must have put some thought into the type of license your own software uses, and are familiar with software and data that has different and less open licenses. </em><br /> <br /><em> In this case, it is certainly possible to circumvent our published/public API access to find out the URL scheme to the tiles directly, but this information is only known to a relatively tiny number of people who choose to research it (we purposely do not publish  it) and it's only public in the sense that you can take it without permission, and in contradiction to our published terms of use of the data. </em><br /> <br /><em> Your response was not very long, but I am hoping that your ability to take something just because you are able to (even though you know you are not supposed to) is not the argument you were trying to make?</em><br /> <br /><em> Finally, you say there is no way to remove it -- but all you need to do is remove a few lines of code from your project so that accessing our data outside of our API is not in the dropdown menu for users of your program (and of course to remove our logo from  your project name, which is also in violation of our terms :)</em><br /> <br /><em> If you are still unclear as to the difference between something you are technically able to copy and something you are legally able to copy, please let me know and I can make it more clear. If there is another reason you are still uninterested in removing this  from your project, please describe why so I can better understand where the confusion is.</em><br /> <br /><em> Thanks,</em><br /> <br /><em> &nbsp;-Josh\"</em></p>",
+    "PostedDate": "2011-04-05T09:59:54.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592243",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Hi there,</em><br /> <br /> <em>I just realized there is also a chance you were not aware that you are welcome embed our entire javascript API into a desktop application (such as GMap.NET), as noted in our terms at http://code.google.com/apis/maps/faq.html#tos_nonweb -- this means you  would get all the functionality of the API (include ability to view all tiles, etc) and would interact with the API through javascript, rather than accessing the tiles directly. </em><br /> <br /> <em>I realize this would require a major change to your codebase, but in case you are interested in this path and previously unaware of it, I thought I would mention it.</em><br /> <br /> <em>Thanks again for your attention to this; I look forward to hearing back.</em><br /> <br /> <em>Cheers,</em><br /> <br /> <em>&nbsp;-Josh\"</em></p>\n<p>// Which exactly line of the code does not use your api already? ;}</p>",
+    "PostedDate": "2011-04-05T11:24:27.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592275",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Almost everything in GMaps.cs is an interface to accessing data and</em><br /><em>services directly, rather than through the javascript API.  One</em><br /><em>obvious example is your MakeImageUrl method, which manually constructs</em><br /><em>tile urls to be displayed in your program, rather than just calling</em><br /><em>setMapTypeId via the API.  There's also some other locations you</em><br /><em>reference Google which are not being accessed through the API (an</em><br /><em>example being your googleCopyright string in Core.cs, which is another</em><br /><em>good example of why it's important you use the API, since it does not</em><br /><em>actually show the correct copyright string).</em><br /> <br /><em>The general concept here is that rather than have developers write all</em><br /><em>the wrapper functionality to our services, we need them to just use</em><br /><em>our API which provides the access without needing you to think about</em><br /><em>things like what the copyright should be, or how to place it, or which</em><br /><em>tiles are available for which countries, or how to implement geocoding</em><br /><em>or routing, etc, etc. This way we can meet all our requirements, and</em><br /><em>as a side effect all developer sites will have the latest data and</em><br /><em>services automatically.</em><br /> <br /><em>Thanks again for the followup, and I hope this explanation helps.</em><br /> <br /><em>&nbsp;-Josh\"</em></p>\r\n<p>// Can i use your api offline? ;}</p>",
+    "PostedDate": "2011-04-05T12:01:53.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592351",
+    "ThreadId": "252531",
+    "Html": "<p>http://code.google.com/apis/maps/faq.html#tos_nonweb</p>\n<p>\"Can I use Google Maps in my non-Web application?&nbsp;<br /> <br /> <strong>Yes, the Google Maps APIs can now be used in Desktop application</strong>s, provided that they adhere to the other restrictions of the Terms of Service. Note that in order for a <strong>desktop application to be deemed \"publicly accessible\", there must be a publicly accessible webpage from which it can be downloaded</strong>. See Section 7.1c of the Terms of Service for more information.\" Section 7.1c: \"Maps API Implementation\" <strong>means a software application</strong> or website that uses the Maps <strong> APIs to obtain and display Content</strong> in conjunction with Your Content, according to these Terms.\"</p>\n<p>Nothing about fucked javascript ;} I wonder does google developers know their own 'terms' ;}</p>\n<p>p.s. everything else is just Google Maps API Web Services:&nbsp;http://code.google.com/apis/maps/documentation/webservices/index.html which aren't the focus of this project, maybe even outdated...</p>",
+    "PostedDate": "2011-04-05T13:30:26.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593946",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Hi again,</em><br /> <br /> <em>I wanted to follow up on my last couple emails I had not heard a</em><br /> <em>response. It looks like on your GMap.net forum you have reposted</em><br /> <em>these emails, and your last comment there implies you think our terms</em><br /> <em>may conflict with what I've written. To clarify:</em><br /> <em>- I suggested the idea of potentially embedding the javascript API</em><br /> <em>because that's the most popular API -- any of the API's (such as the</em><br /> <em>Flash API) could also be used, as noted in the terms link I sent you.</em><br /> <em>This is why the \"javascript\" API is not directly mentioned -- it just</em><br /> <em>struck me as the most reasonable choice to use as an example for you.</em><br /> <em>- Direct grabbing tiles via their URL and bypassing the API's as you</em><br /> <em>are currently doing, however, is not allowed.</em><br /> <br /> <em>Please let me know if you are either still confused by the terms or</em><br /> <em>otherwise still under the impression that your current method of using</em><br /> <em>the map content is allowed.</em><br /> <br /> <em>Thanks,</em><br /> <br /> <em>&nbsp;-Josh\"<br /></em><br /> // Can you explain more in detail how i could embed that javascript API? I think you realize it's .NET project.<br /> // I need to make some web-request to get some data, what's the 'right' way?</p>",
+    "PostedDate": "2011-04-07T23:36:50.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "594082",
+    "ThreadId": "252531",
+    "Html": "<p>Plus, have you ever try to draw over a .net WebBrowser control... it's just insane. You need to add a transparent form over the browser control but you also need the mouse event to pass through the transparent form so that they reach the actual web browser for pan, zoom, etc. It would be very nice to call tile direclty but with a signed URL in order for Google Maps to track down usage and to manage copyrights. Javascript is the worst thing for Winforms programmation.</p>",
+    "PostedDate": "2011-04-08T05:05:18.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595113",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Hi there,</em><br /><br /><em>I am not a .NET expert, but at first glance it looks like http://msdn.microsoft.com/en-us/library/system.windows.forms.webbrowser.aspx might be worth looking at.  Additional searches for forms.webbrowser as well as terms like .NET, C# , and javascript brought up other seemingly relevant examples.</em><br /><br /><em>The important point here is that you load the javascript API (as outlined in http://code.google.com/apis/maps/documentation/javascript/basics.html if using the Javascript API, for example), and only use these documented API methods to access any of the map tiles, services etc.</em><br /><br /><em>As I mentioned, this would probably entail quite a bit of extra code for you, but if you do think it would be something you would like to consider, please let me know, and I'd be happy to work with you to try ensure you meet our other Terms of Service.</em><br /><br /><em>On that note, section 10.1.1a of the terms (recently updated at http://code.google.com/apis/maps/terms.html) hopefully makes more clear that your current implementation is accessing our map data inappropriately -- but again let me know if this is still causing you any confusion.</em><br /><br /><em>Thanks,</em><br /><br /><em>&nbsp;-Josh\"</em></p>\r\n<p>// You see, <strong>browser is</strong> simply <strong>unacceptable</strong>, any chance to get some additional API to support non-browser users? Maybe flash API can expose some functions to access tiles? Without it, i can't do much, i guess OpenStreetMaps is the answer to this nonsense ;} Anyway i will not remove current implementation until i get a valid solution or the direct access will be blocked, since the project itself has nothing to do with using any services from google, it is purely the choice of users/developers to use or not to use this 'inappropriate' software. As The MIT License say:</p>\r\n<p><em>\"THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\"</em></p>\r\n<p><em>&nbsp;</em></p>",
+    "PostedDate": "2011-04-10T23:55:22.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595167",
+    "ThreadId": "252531",
+    "Html": "<p>Hi radioman,</p>\r\n<p>first of all thx for the great work !!! And thx Google for their \"contructive work\" in the open source community :S</p>\r\n<p>i planned to use your Control in a project im working on. What are you going to do on this issue? Is using bing maps in your current release now \"valid\" ? I think you are using the Google Maps for routing, is this also not correct for google or are just the tiles the problem?</p>\r\n<p>greets,</p>\r\n<p>Lukas</p>",
+    "PostedDate": "2011-04-11T01:44:03.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595173",
+    "ThreadId": "252531",
+    "Html": "<p>Routing/geocoding/etc uses valid services, it's ok, i guess ;} they might change rules about that too... but there is bing/openstreet routing/geocoding services out-here in replacement if needed.</p>\r\n<p>In real there is no problem, just that google doesn't like direct tile access, i guess for some stupid political reasons... ;}</p>\r\n<p>for bing check: http://www.microsoft.com/maps/product/licensing_for_nonprofit.aspx</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-04-11T02:01:27.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595175",
+    "ThreadId": "252531",
+    "Html": "<p>thx for the fast response :)</p>\r\n<p>&nbsp;</p>\r\n<p>i will use bing maps then :) and just in case ms also doesnt like your implementation, there is still OpenStreet :)</p>",
+    "PostedDate": "2011-04-11T02:10:08.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595305",
+    "ThreadId": "252531",
+    "Html": "<p>Are there any useful FREE (like OpensStreetMap) satellite image/arial tiles available?</p>",
+    "PostedDate": "2011-04-11T07:08:25.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595449",
+    "ThreadId": "252531",
+    "Html": "<p><em>Hi again, </em></p>\n<div><em>We realize that some developers could benefit from a non-browser based API, and I've added your feedback and use case to discussions with the team here.</em></div>\n<div><em>And you are correct that other providers, such as some providers of OpenStreetMap data allow access in different ways. &nbsp;For example, discussion at&nbsp;<a href=\"http://code.google.com/p/gmaps-api-issues/issues/detail?id=1396\" target=\"_blank\">http://code.google.com/p/gmaps-api-issues/issues/detail?id=1396</a> notes that Bing and ESRI, amongst others, offer &nbsp;some type of direct tile access (be sure to read their current Terms yourself of course :)</em></div>\n<div><em>Meanwhile your software is enabling access to a service that you now clearly understanid is violating our terms, simply saying it has nothing to do with our services doesn't make that a reality. &nbsp;Further, as an open source developer, I am sure you are aware that just putting an MIT or similar license on your code doesn't suddenly make it ok -- it just means you are misleading your users (some of whom clearly care about this issue, as noted in your discussion threads).</em></div>\n<div><em>So with all that I'll ask once again for you to please remove the direct tile access.</em></div>\n<div><em>Thanks,</em></div>\n<div><em>&nbsp; -Josh</em></div>\n<div><em>&nbsp;</em></div>\n<div>// ..so what is forcing to use this software? Does it's&nbsp;egzistace is&nbsp;violating google terms? Does linux egzistance is violating google terms too because you can hack access to servers using it? Then i think they should remove code which allows any internet connection to google servers&nbsp;in kernel&nbsp;;/</div>",
+    "PostedDate": "2011-04-11T10:45:43.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595454",
+    "ThreadId": "252531",
+    "Html": "<p>...he still thinks google own this project somehow ;}</p>\n<p>p.s. i've just realized than linux developers <em>'are misleading users', </em>but thanks google i still can find torrents of windows7, i'm saved&nbsp;;} but considering microsoft terms it's provide illegal access&nbsp;to their&nbsp;software, g you better start shutdown your search engines ;}</p>",
+    "PostedDate": "2011-04-11T10:48:59.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "595511",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"I am not familiar with&nbsp;egzistace&nbsp; But are you suggesting that these tools contain command line options or UI dropdowns that not only make it easy, but even suggest that users violate another companies terms? &nbsp;In your case, you have added specific lines of code to your project that refer to our map tiles; I doubt these other programs have this. </em></p>\r\n<div><em>A better analogy would be if you removed all the Google specific code from your project: In this case users could grab your open source code and decide to modify it, just as they can with the other open source programs. &nbsp;This is very different than advocating/enabling a small set of specific behavior.</em></div>\r\n<div><em>Cheers,</em></div>\r\n<div><em>&nbsp; -Josh\"</em></div>\r\n<div><em>&nbsp;</em></div>\r\n<div>;} i guess my spelling is getting better, anyway, i'm still in the search of correct solution, it can take some time...</div>",
+    "PostedDate": "2011-04-11T13:22:47.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "596802",
+    "ThreadId": "252531",
+    "Html": "<p>This is truly an interesting discussion and I'm glad it has been made public to developers. Both sides stand on some shaky ground. It is a great case study.</p>\r\n<p><em> and it's only public in the sense that you can take it without permission&nbsp; </em>Is one of the key points that I believe google is incorrect on. Being able to take something doesn't make it public -true. But this program, nor any program that uses HTTP takes it without permission. A request is made without permission (a request which is very much Public, and common knowledge as it is written in a open protocol), Google has created a server to respond to that request freely, and is therefore giving the data. Just as a bum can ask me for money, I have the right to refuse - even if I find the request annoying, but if respond to the request by giving the bum money - I certainly can't say the bum took the money without permission - I gave it to him!</p>\r\n<p>It seems clear that burden should rely on the server to deny requests based upon legitimacy . What google has done is ask the bum to stop asking for money - in the form of an email. The question becomes, does that prevent the bum from asking? And do the terms of service apply to the protocol, or to the API? Because the HTTP request isn't using the API, and is in fact only making use of HTTP - which is opensource and not subject to google's terms of service.</p>\r\n<p>I Hope that google takes the initiative to clean this up from a legal point of view because it seems like a very dark road to go down. If the right to make a request to a web server isn't public then the protocol fails, and the very search engine that gave them their billions would violate that same concept. They started off by spidering unsolicited webrequests through web servers and categorizing and caching the response and then using this information for profit. If the burden doesn't lie on the webserver to deny these requests, and in fact lies with the requester google could be in a heap of trouble wouldn't you think?</p>\r\n<p>&nbsp;</p>\r\n<p>- Cheers,</p>\r\n<p>&nbsp;</p>\r\n<p>John</p>",
+    "PostedDate": "2011-04-13T13:02:46.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "596894",
+    "ThreadId": "252531",
+    "Html": "<p>This&nbsp;is a masterful argumentation!!</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-04-13T16:24:44.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "596948",
+    "ThreadId": "252531",
+    "Html": "<p>I would like to make another point, as this really is interesting discussion.</p>\r\n<p>Google makes an agruement that the author of the code can't be absolved of responsibility of a user misusing the software (assuming that it is misuse) by making it so convienent. Sort of like having a poison cookie with a sign that says free cookies and in small print says 'cookie may or may not contain poison, eat at your own risk'. Who does the responsibility end with? I certainly learned a long time ago 'don't take candy from strangers' - i'm sure this applies to cookies and software as well. Especailly if the license is a use at your own risk scenario.</p>\r\n<p>The scope of the user is key to this arguement. If the user is easily mislead - then it is the misleaders wrong doing. Like tricking a child with candy. But as audience of this code (found on codeplex) which requires compilation, and even debugging to get it built is virtually entirely coders, the nature of this free cookie should be clear to any involved.<br />In my own experience - I arrived at this excellent code after being disappointed in google maps lack of portable API - I mean javascript only!? Flash!? Technologies that are relegated to browser solutions on PC's and Laptops when virtually all the cool / profitable coding is being done on mobile / hand held devices is just sad. Especailly when the only cross device protocol is HTTP and HTTP happens to be the underlying platform of the map API anyway.&nbsp; Anyone who gets here has the competence to not be mislead by an MIT license or anything of the kind. That arguement assumes the user ignorant, and getting this far proves they aren't.<br /><br />Furthermore the developer's point regarding Operating systems being held responsible for misuse applys well, though google's counter arguement of the ease of access (choosing the option from a list) is a good point. So a better example would be -&nbsp;say you&nbsp;owned&nbsp;a technology that when misuesd allowed for child pornographer's to search for and share child pornography would you be responsible? By google's arguement - Only if it is inherently easy to do. Like typing \"child porn\" in a search engine for example.... So I'm assuming google would like to take responsibility for the years of search before the safe search feature? I wonder what the jail time for mass distribution of child pornography is?<br /><br />Again - this just seems like a very dark road to go down, especailly taking the moral high road of \"What you are doing is wrong - because it violates what we say is right\" attitude.</p>\r\n<p>One last point which is just an oppinion - Google should offer this developer a job. It is this same clever and clean code style that created google maps in the first place (a rogue developer hacking the capability of javascript and ajax to the max). Obviously his code is useful and his insite into the nature of mapping is an assett. Instead of opening their minds to change they let companies like microsoft -&nbsp; who are supposed to be the typical evil doers -&nbsp; fill the role. It will be like when nintendo tried to stop the hacker who turned the wii into a 3d motion capture device - microsoft hired him and they used his help to create the kinect.</p>\r\n<p>Cheers,</p>\r\n<p>&nbsp;</p>\r\n<p>John</p>",
+    "PostedDate": "2011-04-13T19:28:38.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "597131",
+    "ThreadId": "252531",
+    "Html": "<p>I would like to add to jamesjohn2222's insightful comments.</p>\r\n<p>Radioman - you should take the fact that Google is concerned about GMap as&nbsp;a high complement - very few people can claim that they got Google worried.</p>\r\n<p>Having discovered <a href=\"http://investor.google.com/corporate/code-of-conduct.html\">http://investor.google.com/corporate/code-of-conduct.html</a>&nbsp;(Google's Code of Conduct - \"Don't be evil.\") I find the demand that GMap stop accessing their data unless it uses an essentially unusable API very, very close to evil. Having created APIs in the past I fully understand how they would like to&nbsp;be able the change the HTTP level protocol that they use without fear of breaking any code, but I think that is a risk that GMap users have always accepted (but perhaps accepting this risk has not been as clear as it could have been).</p>\r\n<p>If Google actually employed&nbsp;the smart people that they have a reputation for seeking, someone there should have realised that there is a huge <span style=\"color: black; font-size: 10pt;\">opportunity </span>to expand the use of Google (more $ for them) if their products were&nbsp;usable by non-browser applications.</p>\r\n<p>Martin.&nbsp;</p>",
+    "PostedDate": "2011-04-14T03:40:46.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599673",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Hi there,</em><br /><br /><em>I just want to follow up again -- I realize you are still looking for a replacement way to do this, but in the meantime please do remove the code from your program, as it seems like you now agree it violates the terms.</em><br /><br /><em>Thanks,</em><br /><br /><em>&nbsp;-Josh\"</em></p>\r\n<p>// &nbsp;Hey, i've just removed all hardcoded strings to google servers, thanks ;}</p>",
+    "PostedDate": "2011-04-19T02:40:55.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "600189",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Great, thanks for your understanding. The last request I have is if you could also remove the Google logo from the GMap.NET homepage. And of course let me know if you have any questions down the line about our API.</em><br /> <br /> <em>&nbsp;-Josh\"</em></p>\n<p>// Does it look better now? ;}</p>",
+    "PostedDate": "2011-04-19T23:39:27.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "600845",
+    "ThreadId": "252531",
+    "Html": "<p>Perhaps this is a dumb question, so here goes.</p>\r\n<p>Is entering a URL into a browser and getting a map tile displayed in violation of anything and if so how?</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-04-21T01:13:01.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "600864",
+    "ThreadId": "252531",
+    "Html": "according the laws of Josh, this violates pentagon privacy ;} <br />\n<img src=\"https://khms0.google.com/kh/v=142&amp;src=app&amp;x=18740&amp;s=&amp;y=25076&amp;z=16&amp;s=\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2011-04-21T02:09:12.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "601012",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"Hi again,</em><br /><br /><em>From your previous message I assumed you had removed the functionality you built to give users access our tiles directly as I have been asking, but looking now at your changelist to the code I see you didn't fix this at all.  To be clear, you are still violating out terms (as I am sure you are aware).</em><br /><br /><em>&nbsp;-Josh\"</em></p>\r\n<p>// Can you please show me specific line of code which targets google.com servers? If there is no such lines, the source itself is perfectly legal! With no embedded urls.</p>",
+    "PostedDate": "2011-04-21T07:22:24.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "601095",
+    "ThreadId": "252531",
+    "Html": "<p><em>\"As long as your program accesses the tiles (or other services) outside our published API's it is in violation.&nbsp; Simply obfuscating the URL doesn't change that.</em></p>\r\n<p><em>-Josh\"</em></p>\r\n<p><em>// programm access tiles by request of user, i'll add violation&nbsp;confirmation dialogs to demos, any questions?</em></p>",
+    "PostedDate": "2011-04-21T09:41:26.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "602637",
+    "ThreadId": "252531",
+    "Html": "<p>Well, sorta figured this would happen eventually. Basically Google say that Microsoft is bad because they try to force things onto the desktop, Google is just as bad as forcing everything through the friggin browser. When are companies going to realise that Web2.0 has it's place, but traditional Winforms still has a massive market share and is what alot of users still prefer.</p>\r\n<p>I wonder how&nbsp;<a href=\"http://gis.thinkgeo.com/Products/GISComponentsforNETDevelopers/MapSuiteDesktopEdition/FAQ/tabid/677/Default.aspx\">http://gis.thinkgeo.com/Products/GISComponentsforNETDevelopers/MapSuiteDesktopEdition/FAQ/tabid/677/Default.aspx</a>&nbsp;does it, as this is a commercial piece of software their must be a way around.</p>\r\n<p>From what I understand from their forums etc, it would appear they are using the Static Maps api to \"build\" tiles, I believe you can do this without breaching the T&amp;C, not sure how much harder it would be to convert the code base to use Static Maps and of course the next issue will be will Google chuck a wobbly over this way as well because we aren't using a \"Chrome\" to access it?</p>\r\n<p>Google does provide alot for \"free\" however the amount of money they make out of the \"free\" stuff is astronomical. If google provided an API that worked in .NET that we could use in GreatMaps that displayed the correct copyrights, \"icons of businesses who paid $$$ to have them on maps\" etc, I wouldn't mind. But until they can provide it, shouldn't they be \"assisting\" those who have gone to alot of effort to fill a void that they have \"ignored\" for years.</p>\r\n<p><strong>@Josh</strong>, I can only assume you are reading this thread, you need to ask whoever it is you need to ask and find out if Google will ever support this \"desktop\" demographic? The browser is a great thing for social/information/marketing applications, however there are \"ALOT\" of scenarios when the webbrowser is just too darn PITA to operate with.&nbsp;Also Josh, can you confirm that if the \"end user\" purchases your ridiculously priced API access $10k per annum I believe, would that resolve the legality of the component? or do you still stick to the T&amp;C that it is \"reverse\" engineering the API? If I payed $10k for your service I would expect to be able to do just about anything to make that $$$ work for me.</p>\r\n<p><strong>@Radioman</strong>, I applaud you making this public for all of us to see, however I personally would take a slightly different approach and try and get Google to \"work\" with the project, send this forum post to places like CodeProject, TheRegister and other Developer/IT sites to try and get some public awareness.</p>",
+    "PostedDate": "2011-04-25T16:13:55.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "602745",
+    "ThreadId": "252531",
+    "Html": "<p>i'm slowly going forward, sure any help is always welcome, and if thats the way of google guys to say 'thanks', so be it ;} they can easily make fork with correct copyrights/etc, but instead they are silently planning adding more nonsense to their api, so  it may become to hard or even impossible to maintain. Quite ironic ;} to create public maps and then hide access to it, a shop with closed doors ;} another waste of data centers without maximizing posible users</p>",
+    "PostedDate": "2011-04-26T00:30:06.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "606012",
+    "ThreadId": "252531",
+    "Html": "<p>On approch you could do is loading the javascript api, invoking scripts to set map position and zoom and then get the generated HTML from the WebBrowser object (in Windows at least) and retreive all tile's URL from there... It should work but.. that's uggly!</p>",
+    "PostedDate": "2011-05-02T11:35:40.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "617880",
+    "ThreadId": "252531",
+    "Html": "<p>I read this discussion. If I understand it correctly the problem is that directly accessing the Google tile server is not allowed and you have to use one of the api's of Google Maps? Maybe a solution is to use the Static Map Api? See&nbsp;<a href=\"http://code.google.com/intl/nl-NL/apis/maps/documentation/staticmaps/\">http://code.google.com/intl/nl-NL/apis/maps/documentation/staticmaps/</a></p>\r\n<p>The only problem is that 640x640 is the largest image size which is allowed.</p>\r\n<p>Does somebody know if when you have a commercial license of Google Maps accessing the tile server directly is allowed?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-05-25T01:21:54.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "618619",
+    "ThreadId": "252531",
+    "Html": "<p>We have Google Maps API Premier license and it is NOT allowed to access public tiles unfortunately. Until Google realize that \"desktop application\" still exists, we're stuck with javascript.</p>",
+    "PostedDate": "2011-05-26T05:31:18.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619135",
+    "ThreadId": "252531",
+    "Html": "<p>That is what I read as well. <a href=\"http://gis.thinkgeo.com/Support/DiscussionForums/tabid/143/aff/16/aft/5155/afv/topic/Default.aspx\" target=\"_blank\">Thinkgeo</a> is using staticmaps from google and lives with the limitations.</p>\n<p>But then it's legal.</p>",
+    "PostedDate": "2011-05-27T00:20:50.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619310",
+    "ThreadId": "252531",
+    "Html": "<p>You're right. I've contacted ThinkGeo before finding GMaps.NET. Their pricing are very high!</p>\r\n<p>Problem with static maps is that without a Google Maps API Premier license, you cannot load more than few tiles before being blocked. I've already tried. Moreover, static maps, because they're intended to be use as single map image, have an embedded Google logo and copyright. So by default, you would have plenty of Google logos and copyrights everywhere in the GMapControl. Thinkgeo probably found a way to \"remove\" the extra logos. But it may be a violations of the terms too!!</p>",
+    "PostedDate": "2011-05-27T06:25:06.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619355",
+    "ThreadId": "252531",
+    "Html": "<p>On the same Link I've posted:</p>\r\n<p><em>\"If your map is larger than 600x600 you will notice that Google's logo  shows up multiple times on the map.  This is due to a license  restriction, which stipulates that we cannot in any way modify or hide  the logo.  To make the experience as pleasant as possible for you, we  use the maximum Google request size so that the logos are as infrequent  as possible.  We also request the tiles in such as way as to make them  predictable as to where they appear on the screen.  We must do this to  comply with the license and are sorry for the inconvenience....\"</em></p>\r\n<p>So actually they pretend to work legal. I had a quick look at this product website before I decided to use GMap.Net. The price of 5000$ for one license was too much for my hobby :-)</p>",
+    "PostedDate": "2011-05-27T07:34:23.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "620785",
+    "ThreadId": "252531",
+    "Html": "<p>As GMap allows to display maps from various sources, I am wondering if the direct access to the tile server is a Google-specific point of discussion or if this is the same for all sources. Say, the way BingMaps are accessed, might this be in contradiction to their terms of usage?</p>",
+    "PostedDate": "2011-05-31T07:00:10.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "620913",
+    "ThreadId": "252531",
+    "Html": "<p>Yes, this is Google specific. Microsoft has a Bing map control for silverlight applications which access the tile server of Bing maps direct.</p>",
+    "PostedDate": "2011-05-31T10:17:25.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627357",
+    "ThreadId": "252531",
+    "Html": "<p>Does Google require how exactly the javascript is executed? If I have a particular javascript engine that takes Google's API as input, and returns a URL as output, can I use that URL to retrieve the tile data? Can I execute the javascript in my brain and then tell the computer what to do next?</p>",
+    "PostedDate": "2011-06-14T01:19:10.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627384",
+    "ThreadId": "252531",
+    "Html": "<p>executing javascript directly in your brain might cause some license 'issues' ;} you 'must' use God's API for that</p>",
+    "PostedDate": "2011-06-14T02:43:20.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627395",
+    "ThreadId": "252531",
+    "Html": "<p>Thanks a lot for posting the discussion with Josh from Google, this is very informative.</p>\r\n<p>So finally to prevent terms violation you removed references to Google from source code (url, logos...etc.), you removed the google provider sample from the demo and you added a warning into the license ? Google is ok with that ?</p>\r\n<p>Anyway, the fact is the terms of licence of google maps is a bit fuzzy concerning how tiles can be used. And the funny thing is, because of these restrictive fuzzy&nbsp;terms, lot of people/companies are using free tile providers (Open stree maps for instance) that can be easily integrated with every API (silverlight...)&nbsp;instead of buying a Google Map Premier licence :-)</p>\r\n<p>Thx</p>",
+    "PostedDate": "2011-06-14T02:55:14.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627421",
+    "ThreadId": "252531",
+    "Html": "<p>a shoot in the foot ;}</p>",
+    "PostedDate": "2011-06-14T03:43:49.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631786",
+    "ThreadId": "252531",
+    "Html": "<p>Email sent to said google employee:<br /><em>This relates to&nbsp;<a href=\"http://greatmaps.codeplex.com/discussions/252531\" target=\"_blank\">http://greatmaps.codeplex.com/discussions/252531</a>&nbsp;. I don't mind displaying the&nbsp;Google&nbsp;logo when I use GMap.NET in my code. In fact I display it proudly.&nbsp;Google has the best maps and no one will argue that. Removing&nbsp;Google&nbsp;map support will&nbsp;severely&nbsp;decrease the value of the project.&nbsp; </em>\r\n<div><em>Whatever happened to \"Don't be evil\". A clear warning in the license that the \"the code for&nbsp;Google&nbsp;maps access is not supported by&nbsp;Google\" would really be sufficient,&nbsp;wouldn't&nbsp;it?.&nbsp;</em></div>\r\n<div><em>I am disappointed.&nbsp;</em></div>\r\n</p>",
+    "PostedDate": "2011-06-23T05:28:24.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631790",
+    "ThreadId": "252531",
+    "Html": "<p>Asked on stackoverflow as well :&nbsp;<a href=\"http://stackoverflow.com/q/6453885/390330\">http://stackoverflow.com/q/6453885/390330</a></p>",
+    "PostedDate": "2011-06-23T05:31:04.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631830",
+    "ThreadId": "252531",
+    "Html": "<p>I have gone through the complete terms of agreement. There is nothing in there about writing source code. Its all about accessing \"You must not access or use the Maps API(s) or any Content through any technology or means other than those provided in the Service\"</p>\r\n<p>In that respect this project is perfectly legal!&nbsp;</p>",
+    "PostedDate": "2011-06-23T06:35:30.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "639171",
+    "ThreadId": "252531",
+    "Html": "<p>Email sent to Josh Livni:</p>\r\n<p><em>Hi Josh</em></p>\r\n<p>\r\n<div><em>I read with interest your recent discussion with the developer of&nbsp;<span class=\"il\">GMap</span>.NET.</em></div>\r\n<div><em>It is a shame that you could not come to some agreement for allowing him to continue using Google Maps as a source for this excellent component. I understand that you believe it violates your terms of service but I thought you may have been able to make an exception in this case, or to adjust your terms accordingly.</em></div>\r\n<div><em>I have used Google Maps in a large online application previously and recently had a need to have access to mapping in a Windows Forms app, for which&nbsp;<span class=\"il\">GMap</span>.NET was the best (only) available tool. With access to Google now disallowed, it forces me to other start considering other systems such as Bing Maps. I would have thought that the last thing Google would want is for developers getting interested in other mapping providers.</em></div>\r\n<div><em>Google does not offer a way of using the Maps API from the desktop. If I were Google, I would embrace this product and its developer and use it to promote Google Maps on the desktop instead of asking him to cease and desist.</em></div>\r\n<div><em>Perhaps you could pass these thoughts on to your superiors and let them know how developers such as I feel about this.</em></div>\r\n<div><em>Kind regards</em></div>\r\n<em> <span style=\"color: #888888;\">\r\n<div>Paul</div>\r\n</span></em></p>",
+    "PostedDate": "2011-07-07T18:56:58.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "639172",
+    "ThreadId": "252531",
+    "Html": "<p>Reply from Josh Livni:</p>\r\n<p><em>Hi Paul, </em>\r\n<div><em>Thanks for the thoughtful feedback -- we definitely take into consideration the needs of all our developers, and also we have to take into account our license agreements with our data providers. &nbsp;</em></div>\r\n<div><em>As it turns out, you are generally able use Google Maps in a desktop application so long as you use our published API's rather than grab tiles or other data directly or otherwise access data outside of our API's. &nbsp;There are some caveats (you need to be get authorization if you are 'wrapping' our API), but certainly it is quite feasible. &nbsp;Arc2Earth is one example of a company that is integrating our maps within an desktop application, and if someone wanted to build a desktop app like&nbsp;<span class=\"il\">GMap</span>.NET that was freely available and used our API to access the data, it's likely that application could also be entirely compliant with our terms.</em></div>\r\n<div><em>I realize this information probably does not help you unless you're interested in building such a desktop app yourself from scratch, but I will pass your comments on, and whatever provider you choose for your maps I hope your project goes well.</em></div>\r\n<div><em>Cheers,</em></div>\r\n<span style=\"color: #888888;\">\r\n<div><em>&nbsp; -Josh</em></div>\r\n</span></p>",
+    "PostedDate": "2011-07-07T18:57:57.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990789",
+    "ThreadId": "252531",
+    "Html": "\r\n<p>Google's stance is logical (and BTW Bing has similar restrictions). More on this here:&nbsp;<a title=\"http://code.google.com/p/gmaps-api-issues/issues/detail?id=1396#c38\" href=\"http://code.google.com/p/gmaps-api-issues/issues/detail?id=1396#c38\">http://code.google.com/p/gmaps-api-issues/issues/detail?id=1396#c38</a></p>\r\n<p style=\"padding-left:30px\"><em>We have discussed this, and have decided that this is not something that we wish to offer for a number of reasons. We can not enforce the branding and attributions requirements on apps that use tiles directly, we can not accurately\r\n track usage of our maps in order to meet our financial commitments to our data providers, it would be harder to protect against aggregation and scraping of large volumes of our tiles, and it would constrain our ability to change the serving infrastructure\r\n and features of our maps. In addition we are seeing browsers improve across platforms so we expect to be able to cater to more devices with our existing APIs over time.</em></p>\r\n<p>Even OpenStreetMap doesn't like when users scrape large amounts of tiles from their servers, because it puts a lot of stress on OSM's server infrastructure (and the project is non-profit, so not a lot of money can be spent on the hardware). If I'm not mistaken,\r\n GMap.NET offers such a functioality.&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-23T02:26:17.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990803",
+    "ThreadId": "252531",
+    "Html": "\r\n<p>dodge that, ha ;}</p>\r\n",
+    "PostedDate": "2013-01-23T02:43:39.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

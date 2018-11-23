@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1235874",
+    "ThreadId": "542761",
+    "Html": "Hi,\r<br />\nI am new to GMap.NET.  Following is the code that I have written in VB.net. In the windows form, I have placed GMAP.Net control with name GMap1. When I use GoogleSatelliteMap, as mapprovider, I get following error.  &quot;We are Sorry, But we don't have imagery result at this zoom level&quot;. Kindly help.\r<br />\n<br />\nRegards,\r<br />\nNick.<br />\n<pre><code>Public Class Form1\n\n    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load\n        GMap1.Position = New PointLatLng(26.925906, 68.208648)\n        GMap1.MapProvider = GMapProviders.GoogleSatelliteMap\n        GMap1.MinZoom = 5\n        GMap1.MaxZoom = 18\n        GMap1.Zoom = 18\n        GMap1.Manager.Mode = AccessMode.ServerAndCache\n\n        'Load a marker(s)\n\n        Dim overlayOne As New GMap.NET.WindowsForms.GMapOverlay(GMap1, &quot;OverlayOne&quot;)\n\n        'Create a marker and add it to the overlay (overlayOne)\n        overlayOne.Markers.Add(New GMap.NET.WindowsForms.Markers.GMapMarkerCross(New PointLatLng(26.925906, 68.208648)))\n\n\n        GMap1.Overlays.Add(overlayOne)\n    End Sub</code></pre>\n\n",
+    "PostedDate": "2014-04-20T06:41:10.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1236069",
+    "ThreadId": "542761",
+    "Html": "zoom = 18 is not supportet. just up to 17.<br />\n<pre><code>GMap1.Zoom = 18\n</code></pre>\n\nBye Ede<br />\n",
+    "PostedDate": "2014-04-21T01:33:54.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1237587",
+    "ThreadId": "542761",
+    "Html": "Hi Ede,\r<br />\nI have tried with Zoom value less then 18. But still I can't view the GoogleSatelliteMap. Kindly help\r<br />\n<br />\n<br />\nRegards,\r<br />\n<br />\nNick<br />\n",
+    "PostedDate": "2014-04-24T08:10:01.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

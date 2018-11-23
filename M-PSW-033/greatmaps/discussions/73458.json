@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "251072",
+    "ThreadId": "73458",
+    "Html": "<p>Is it possible to pre cache some area of the map on all levels of zoom? I think it would very helpfull to have method that will receive 4 parameters (left top and right bottom point) and cache map on all possible levels of the zoom.</p>",
+    "PostedDate": "2009-10-29T01:27:19.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "251729",
+    "ThreadId": "73458",
+    "Html": "<p>there is integrated function for that in demos</p>",
+    "PostedDate": "2009-10-30T12:02:57.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "251814",
+    "ThreadId": "73458",
+    "Html": "<p>I need a method to cache all zoom/tiles <strong>along a route</strong>.&nbsp;<br>Any idea how&nbsp;I can calculate the intersection of the route-path with the edge of&nbsp;the map view rect?</p>\r\n<p>My plan was to&nbsp;basically simulate 'driving' the route at each required zoom level.</p>\r\n<pre>foreach zoom level to cache \r\n{\r\n  set map current zoom level\r\n  set origin to startroutepoint\r\n  while (origin is not null) \r\n  {\r\n    load map cache\r\n    origin &lt;= <span style=\"color:#000000\"><strong>calculate route and current map view boundary intersection\r\n</strong></span>  }<br>  set origin to endroutepoint <br>  load map cache\r\n}\r\n</pre>",
+    "PostedDate": "2009-10-30T16:28:05.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252417",
+    "ThreadId": "73458",
+    "Html": "<p>good idea!</p>",
+    "PostedDate": "2009-11-02T06:30:02.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

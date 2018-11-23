@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks",
+    "ClosedDate": "2012-01-10T06:27:43.603-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "just a code suggestion for non integer zoom levels\r\n\r\n\r\n      /// <summary>\r\n      /// gets world coordinate from local control coordinate \r\n      /// </summary>\r\n      /// <param name=\"x\"></param>\r\n      /// <param name=\"y\"></param>\r\n      /// <returns></returns>\r\n      public PointLatLng FromLocalToLatLng(int x, int y)\r\n      {\r\n#if !PocketPC\r\n         if(MapRenderTransform.HasValue)\r\n         {\r\n             x = (int)(Core.renderOffset.X + ((x - Core.renderOffset.X) / MapRenderTransform.Value));\r\n             y = (int)(Core.renderOffset.Y + ((y - Core.renderOffset.Y) / MapRenderTransform.Value));\r\n         }\r\n\r\n         if(IsRotated)\r\n         {\r\n            System.Drawing.Point[] tt = new System.Drawing.Point[] { new System.Drawing.Point(x, y) };\r\n            rotationMatrixInvert.TransformPoints(tt);\r\n            var f = tt[0];\r\n\r\n            if(VirtualSizeEnabled)\r\n            {\r\n               f.X += (Width - Core.vWidth) / 2;\r\n               f.Y += (Height - Core.vHeight) / 2;\r\n            }\r\n\r\n            x = f.X;\r\n            y = f.Y;\r\n         }\r\n#endif\r\n         return Core.FromLocalToLatLng(x, y);\r\n      }\r\n\r\n      /// <summary>\r\n      /// gets local coordinate from world coordinate\r\n      /// </summary>\r\n      /// <param name=\"point\"></param>\r\n      /// <returns></returns>\r\n      public GPoint FromLatLngToLocal(PointLatLng point)\r\n      {\r\n         GPoint ret = Core.FromLatLngToLocal(point);\r\n\r\n#if !PocketPC\r\n         if (MapRenderTransform.HasValue)\r\n         {\r\n             ret.X = (int)(Core.renderOffset.X + ((Core.renderOffset.X - ret.X) * -MapRenderTransform.Value));\r\n             ret.Y = (int)(Core.renderOffset.Y + ((Core.renderOffset.Y - ret.Y) * -MapRenderTransform.Value));\r\n         }\r\n\r\n         if(IsRotated)\r\n         {\r\n            System.Drawing.Point[] tt = new System.Drawing.Point[] { new System.Drawing.Point((int)ret.X, (int)ret.Y) };\r\n            rotationMatrix.TransformPoints(tt);\r\n            var f = tt[0];\r\n\r\n            if(VirtualSizeEnabled)\r\n            {\r\n               f.X += (Width - Core.vWidth) / 2;\r\n               f.Y += (Height - Core.vHeight) / 2;\r\n            }\r\n\r\n            ret.X = f.X;\r\n            ret.Y = f.Y;\r\n         }\r\n\r\n#endif\r\n         return ret;\r\n      }\r\n",
+    "LastUpdatedDate": "2012-01-10T06:27:43.603-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-12-22T06:22:39.563-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "scaled zoom",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16021
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

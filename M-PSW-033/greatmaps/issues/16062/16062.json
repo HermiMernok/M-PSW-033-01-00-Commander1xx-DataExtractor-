@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "check project Testing/Demo.Clouds\n\np.s. and don't use issue tracker for such questions..",
+    "ClosedDate": "2013-02-26T06:48:44.497-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I folllowed the examples to put an image on top of the map. Knowing that this image has a bounding box, how I can position in the right coordinates and so that it zooms and dezoom following the rest of the control ? \r\n\r\nThanks a lot\r\nAlessandro\r\n\r\nPS: The code I am using is this\r\n\r\n  Dim top As GMap.NET.WindowsForms.GMapOverlay\r\n        top = New WindowsForms.GMapOverlay(\"top\")\r\n        GMapControl1.Overlays.Add(top)\r\n\r\n        Dim cm As New MyCustomMarker(GMapControl1.Position)\r\n        cm.MarkerImage = New Bitmap(\"D:\\ShareLinux\\cases\\Mexico_20032012\\P1_MAXHEIGHT_END.jpg\")\r\n        top.Markers.Add(cm)\r\n\r\n        GMapControl1.Overlays.Add(top)\r\n...\r\n\r\n\r\nPublic Class MyCustomMarker\r\n\r\n    Inherits GMap.NET.WindowsForms.GMapMarker\r\n    Private img As Image\r\n\r\n    Public Property MarkerImage() As Image\r\n        Get\r\n            Return img\r\n        End Get\r\n        Set(ByVal value As Image)\r\n            img = value\r\n        End Set\r\n    End Property\r\n\r\n    Public Sub New(ByVal p As PointLatLng)\r\n        MyBase.New(p)\r\n\r\n    End Sub\r\n\r\n    Public Overloads Overrides Sub OnRender(ByVal g As Graphics)\r\n        g.DrawImageUnscaledAndClipped(img, New System.Drawing.Rectangle(MyBase.LocalPosition.X, MyBase.LocalPosition.Y, img.Width, img.Height))\r\n    End Sub\r\n\r\nEnd Class",
+    "LastUpdatedDate": "2013-02-26T06:48:44.497-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-02-26T03:37:56.117-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "geolocalized image overlay",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16062
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "606952",
+    "ThreadId": "256277",
+    "Html": "\r\n<p>Thanx for this wonderful project.</p>\r\n<p>&nbsp;</p>\r\n<p>I am trying to imitate navigation i.e mark the current position of GPS location and move it with changing GPS. But i am confused with moving map when the current marker is out of current map view. I saw that we can use map.offset but how the difference of\r\n latitude and longitude reflect the screen points so as to use in map.offset?? Can somebody clear on this??</p>\r\n",
+    "PostedDate": "2011-05-04T02:28:21.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "607024",
+    "ThreadId": "256277",
+    "Html": "<p><em><strong>myMarker</strong>.Position = new PointLatLng(54.6961334816182, 25.2985095977783);</em></p>\r\n<p><em>if(<strong>!</strong>MainMap.CurrentViewArea.Contains(<em><strong>myMarker</strong></em>.Position) </em>// center map if object is out of view, you can disable it, but then map will be centered on each position update<em><br /></em>{<br /><em>&nbsp; MainMap.<strong>Position</strong> = <strong>myMarker</strong>.Position;<br />}<br /></em></p>",
+    "PostedDate": "2011-05-04T05:06:49.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

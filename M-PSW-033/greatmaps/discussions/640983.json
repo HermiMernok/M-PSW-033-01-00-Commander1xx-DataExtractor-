@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1433271",
+    "ThreadId": "640983",
+    "Html": "I am using gmap in a winform application and now want to move this application to surface pro 3 tablet with windows 8. This tablet has resolution of 2160x1440, so I should make the gmap size to 2160x1440 before moving to the tablet right? And will increasing the size of the map have any effect on it's performance?<br />\n\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-07-06T11:22:57.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1433335",
+    "ThreadId": "640983",
+    "Html": "set map docking to full, the more tiles you render the slower it is, try experiment with map.<strong>ForceDoubleBuffer</strong> = true;<br />\n",
+    "PostedDate": "2015-07-07T01:07:30.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1433364",
+    "ThreadId": "640983",
+    "Html": "How to set the docking to full? I only see fill. And I tried map.ForceDoubleBuffer=true but that shows a black screen on the map, I am putting it in the form.load.\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-07-07T05:36:00.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

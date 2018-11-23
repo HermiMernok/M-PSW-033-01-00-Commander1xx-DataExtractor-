@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "860342",
+    "ThreadId": "362812",
+    "Html": "\r\n<p>&#65279;&#65279;&#65279;I have a route that I want to show up, but it is completely off coordinates-wise.&nbsp; Offset works, but doesn't really seem to help (I don't understand offset though).</p>\r\n<p>The route shows up at 0,0 while both points m1 and m2 show up in the proper locations.&nbsp; Is this a bug or am I doing something wrong?</p>\r\n<p>Here is the code:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>            GMapControl MainMap = Utility.UIHelpers.FindChild&lt;GMapControl&gt;(App.Current.MainWindow,<span style=\"color:#a31515\">&quot;gMapControl1&quot;</span>);\r\n            <span style=\"color:blue\">if</span> (MainMap != <span style=\"color:blue\">null</span>)\r\n            {\r\n                GMapMarker m1 = <span style=\"color:blue\">new</span> GMapMarker(routeOverlay.First());\r\n                m1.Shape = <span style=\"color:blue\">new</span> UserControls.PathPointPlacemark();\r\n\r\n                GMapMarker m2 = <span style=\"color:blue\">new</span> GMapMarker(routeOverlay.Last());\r\n                m2.Shape = <span style=\"color:blue\">new</span> UserControls.PathPointPlacemark();\r\n\r\n                GMapMarker mRoute = <span style=\"color:blue\">new</span> GMapMarker(start);\r\n                {                   \r\n                    mRoute.Route.AddRange(routeOverlay);\r\n                    mRoute.RegenerateRouteShape(MainMap);\r\n                    mRoute.ZIndex = -1;\r\n                    \r\n                }\r\n                MainMap.Markers.Add(m1);\r\n                MainMap.Markers.Add(m2);\r\n                MainMap.Markers.Add(mRoute);\r\n                MainMap.ZoomAndCenterMarkers(<span style=\"color:blue\">null</span>);\r\n            }\r\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-07-11T07:55:46.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860352",
+    "ThreadId": "362812",
+    "Html": "<div style=\"color: black; background-color: white;\">\r\n<pre><div style=\"color: black; background-color: white;\"><pre>GMapMarker mRoute = <span style=\"color: blue;\">new</span> GMapMarker(routeOverlay.First());\r\n</pre>\r\n</div>\r\n&nbsp;</pre>\r\n</div>\r\n<p>Nevermind--I figured it out.&nbsp; I found out how routes work.</p>\r\n<p>Code should have been as shown above.&nbsp; The position in the GMapMarker constructor is the position for the route that all of the other points are based off (the path start).&nbsp;</p>\r\n<p>﻿﻿</p>",
+    "PostedDate": "2012-07-11T08:15:39.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

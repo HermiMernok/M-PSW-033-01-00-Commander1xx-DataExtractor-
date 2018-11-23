@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "675668",
+    "ThreadId": "273563",
+    "Html": "<pre>if i use GMapProviders.GoogleMap,the map can't show.if i use other GMapProviders like LithuaniaMap,it can show well.</pre>\n<pre>GoogleMap needs GoogleMap api key.where and how can i get it?.</pre>\n<pre><a href=\"http://code.google.com/apis/maps/signup.html\">http://code.google.com/apis/maps/signup.html</a>.</pre>\n<pre>i find this, but it needs url for signup.is this url my IP adress?</pre>\n<pre>could u help me or tell me how to use GMapProviders.GoogleMap in C# project?</pre>\n<pre>using System;\nusing System.Linq;\nusing System.Collections.Generic;\nusing System.ComponentModel;\nusing System.Data;\nusing System.Data.SQLite;\nusing System.Drawing;\nusing System.Text;\nusing System.Windows.Forms;\nusing GMap.NET;\nusing GMap.NET.WindowsForms;\nusing GMap.NET.WindowsForms.Markers;\nusing GMap.NET.MapProviders;\nusing Microsoft.WindowsCE.Forms;\n\nnamespace MapNet\n{\n    public partial class Form1 : Form\n    {\n        private GMapControl _map;\n        public Form1()\n        {\n            InitializeComponent();\n            this.SuspendLayout();\n            initMapControl();\n            this.ResumeLayout(false);\n        }\n        private void initMapControl()  \n        {\n            _map = new GMapControl();  \n            _map.BackColor = System.Drawing.Color.White;  \n            _map.CanDragMap = true;  \n            _map.Dock = System.Windows.Forms.DockStyle.Fill;  \n            _map.Location = new System.Drawing.Point(0, 0);  \n            _map.MapProvider = GMapProviders.GoogleMap;\n            <span style=\"color: #ff0000;\">//GMapProviders.GoogleMap.APIKey = \"\";\n</span>            _map.MarkersEnabled = true;   \n            _map.Name = \"MainMap\";  \n            _map.RoutesEnabled = true; \n            _map.ShowTileGridLines = false; \n            _map.TabIndex = 0;\n            _map.Manager.Language = LanguageType.ChineseSimplified; \n            _map.Zoom = trackBar1.Value;  \n            this.panel1.Controls.Add(_map);  \n        }\n\n        private void Form1_Load(object sender, EventArgs e)\n        {\n            PointLatLng current = new PointLatLng(119.276173, 26.111844);\n            GMapMarkerGoogleGreen currentMark = new GMapMarkerGoogleGreen(current);\n            GMapOverlay overlay = new GMapOverlay(_map, \"current\");  \n            overlay.Markers.Add(currentMark);  \n            _map.Overlays.Add(overlay); \n        } \n    }\n}</pre>",
+    "PostedDate": "2011-09-22T23:50:16.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675676",
+    "ThreadId": "273563",
+    "Html": "<p>it has nothing to do with api key, you don't need it to display the map</p>",
+    "PostedDate": "2011-09-23T00:12:02.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675702",
+    "ThreadId": "273563",
+    "Html": "<p>lol.</p>\r\n<p>This is the same question i asked before.</p>\r\n<p>Thx.</p>\r\n<p>Maybe it's my net problem.</p>",
+    "PostedDate": "2011-09-23T00:56:41.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

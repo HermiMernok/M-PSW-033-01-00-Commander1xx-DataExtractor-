@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "461008",
+    "ThreadId": "217672",
+    "Html": "<p>Heya Radioman.</p>\r\n<p>I succeeded in reducing your windowsform app to almost nothing, just basics. So i thought i could start building mine.<br>I have my own vb app that's working, so i imported your modules and added a gmapcontrol to the layout.<br>It compiles but it fails to start with message</p>\r\n<p>&quot;An error occurred creating the form. See Exception.InnerException for details.&nbsp; The error is: Could not load file or assembly 'GMap.NET.WindowsForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef' or one of its dependencies. An attempt was made to load a program with an incorrect format.&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>Now i also have difficulties nailing WHERE this appens.</p>\r\n<p>Right now i have only lines in the constructor, i added some IFs and Try/Catch but the exception is thrown the same.</p>\r\n<p>&nbsp;&nbsp; at Server.My.MyProject.MyForms.Create__Instance__[T](T Instance) in 17d14f5c-a337-4978-8281-53493378c1071.vb:line 190<br>&nbsp;&nbsp; at Server.My.MyProject.MyForms.get_ServerMain()<br>&nbsp;&nbsp; at Server.My.MyApplication.OnCreateMainForm() in C:\\Users\\Erupter\\Documents\\Visual Studio 2010\\Projects\\Swarm Deployment 0.1\\ServerSide\\My Project\\Application.Designer.vb:line 35<br>&nbsp;&nbsp; at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()<br>&nbsp;&nbsp; at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()<br>&nbsp;&nbsp; at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)<br>&nbsp;&nbsp; at Server.My.MyApplication.Main(String[] Args) in 17d14f5c-a337-4978-8281-53493378c1071.vb:line 81<br>&nbsp;&nbsp; at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)<br>&nbsp;&nbsp; at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()<br>&nbsp;&nbsp; at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)<br>&nbsp;&nbsp; at System.Threading.ThreadHelper.ThreadStart()</p>\r\n<p>&nbsp;</p>\r\n<p>Since i added your source to my project, i can see that the Gmap.NET.WindowsForms is marked with a white cross on blue background.<br>While the Gmap.NET is not.</p>\r\n<p>I can't seem to find how to fix this as i cannot even understand where the exception is thrown. Right now the first call to Gmap.net.windowsforms is wrapped in a try/catch and still the exception is thrown...<br>I can give the source if you want to have a look.</p>",
+    "PostedDate": "2010-06-29T00:22:40.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461010",
+    "ThreadId": "217672",
+    "Html": "<p>you <span style=\"text-decoration:underline\">can't set</span> <strong>Any CPU</strong> target while using sqlite cache, as <a href=\"http://greatmaps.codeplex.com/documentation\">documentation</a> says,&nbsp;<em>set target to x86 so it works anywhere</em> ;}</p>",
+    "PostedDate": "2010-06-29T00:30:27.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461033",
+    "ThreadId": "217672",
+    "Html": "<p>I used sqlite in my app, and it works.</p>\r\n<p>Must be something in your implementation...</p>\r\n<p>Anyway thanks, it was that. How did you understand that???</p>",
+    "PostedDate": "2010-06-29T01:26:38.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461038",
+    "ThreadId": "217672",
+    "Html": "<p>i guess my telepathic abilities are great too ;]</p>\r\n<p>cheers erupter!</p>",
+    "PostedDate": "2010-06-29T01:37:42.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915326",
+    "ThreadId": "217672",
+    "Html": "<p>It worked! Thank you!</p>",
+    "PostedDate": "2012-09-20T12:16:49.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915333",
+    "ThreadId": "217672",
+    "Html": "<p>p.s. from version 1.7 you can use any cpu target you want, works</p>",
+    "PostedDate": "2012-09-20T12:29:15.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

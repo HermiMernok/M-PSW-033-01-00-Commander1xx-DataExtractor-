@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "707161",
+    "ThreadId": "281753",
+    "Html": "\r\n<p>Hello</p>\r\n<p>First of all Thanks for great control.</p>\r\n<p>&nbsp;</p>\r\n<p>i have issues about serializing the overlays, i try&nbsp;SerializeOverlays with no luck, saying that Pen is not marked as Serializable.</p>\r\n<p>also try to modify the code not saving the Pen and Brush Property but after that another error occur (&nbsp;The constructor to deserialize an object of type 'GMap.NET.WindowsForms.Markers.GMarkerGoogle' was not found. )</p>\r\n<p>&nbsp;</p>\r\n<p>am i doing smth wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>the code is:</p>\r\n<p>public T DeepClone&lt;T&gt;(T obj)&nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>using (var ms = new System.IO.MemoryStream())&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>formatter.Serialize(ms, obj);</p>\r\n<p>ms.Position = 0;</p>\r\n<p>return (T)formatter.Deserialize(ms);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>}&nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n<p>usage:</p>\r\n<p>GMapOverlay overlay = DeepClone&lt;GMapOverlay&gt;(&lt;some overlay&gt;);</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-12-04T06:33:48.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707170",
+    "ThreadId": "281753",
+    "Html": "<p>i've never used serialization, don't know</p>",
+    "PostedDate": "2011-12-04T07:43:58.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707188",
+    "ThreadId": "281753",
+    "Html": "<p>p.s. found the problem, default markers wasn't implemented correctly:</p>\r\n<p><em>\"If you inherit from a class which is implementing ISerializable (like Hashtable) and you want that your class to be serializable also, you must implement the methods from ISerializable interface:</em><br /><br /><em> - the serialization constructor, used at deserialization; which is a must; because you didn't implement it you have that error</em><br /><br /><em>protected CSDictionary(SerializationInfo info, StreamingContext context) : base(info, context) { }</em><br /><br /><em>- the serialization method GetObjectData used at serialization, which you need to implement if you have additional data to serialize.\"</em></p>",
+    "PostedDate": "2011-12-04T09:08:35.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707261",
+    "ThreadId": "281753",
+    "Html": "<p>check it now, should be ok</p>",
+    "PostedDate": "2011-12-04T13:24:45.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707573",
+    "ThreadId": "281753",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for detailed explanation.</p>\r\n<p>still has errors on Pen in GMapPolygon, anyway decide to impement my own class which collect data i need and be serialized.</p>\r\n<p>&nbsp;</p>\r\n<p>Best Regards.</p>",
+    "PostedDate": "2011-12-05T07:43:34.287-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707655",
+    "ThreadId": "281753",
+    "Html": "<p>fixed now ;}</p>",
+    "PostedDate": "2011-12-05T09:49:26.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "707717",
+    "ThreadId": "281753",
+    "Html": "<p>THANKS</p>",
+    "PostedDate": "2011-12-05T11:59:20.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "465442",
+    "ThreadId": "218927",
+    "Html": "<p>Hi</p>\r\n<p>How can I draw line betweeb 10 points. I like to show the rouds that My car passed. For example I have 10 points from the places that my car passed.</p>\r\n<p>Regards</p>",
+    "PostedDate": "2010-07-09T07:57:54.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465482",
+    "ThreadId": "218927",
+    "Html": "<p>you can simply create route from these points:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><strong>GMapOverlay</strong> routes = <span style=\"color:blue\">new</span> <strong>GMapOverlay</strong>(MainMap, <span style=\"color:#a31515\">&quot;routes&quot;</span>);\r\nMainMap.Overlays.Add(routes);\r\n\r\nList&lt;<strong>PointLatLng</strong>&gt; points = <span style=\"color:blue\">new</span> List&lt;<strong>PointLatLng</strong>&gt;();\r\n{\r\n   points.Add(<span style=\"color:blue\">new</span> <strong>PointLatLng</strong>(54.6961334816182, 25.2585095977783));\r\n   points.Add(<span style=\"color:blue\">new</span> <strong>PointLatLng</strong>(54.6861334816182, 25.2285095977783));\r\n   points.Add(<span style=\"color:blue\">new</span> <strong>PointLatLng</strong>(54.6461334816182, 25.3985095977783));\r\n   points.Add(<span style=\"color:blue\">new</span> <strong>PointLatLng</strong>(54.6461334816182, 25.4985095977783));\r\n   points.Add(<span style=\"color:blue\">new</span> <strong>PointLatLng</strong>(54.6361334816182, 25.2285095977783));\r\n}\r\n            \r\n<strong>GMapRoute</strong> r = <span style=\"color:blue\">new</span> <strong>GMapRoute</strong>(points, <span style=\"color:#a31515\">&quot;My car route&quot;</span>);\r\nroutes.Routes.Add(r);</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-07-09T08:48:44.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

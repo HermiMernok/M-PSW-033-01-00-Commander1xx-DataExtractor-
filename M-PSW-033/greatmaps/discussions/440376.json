@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "1030830",
+    "ThreadId": "440376",
+    "Html": "Hi, \r<br />\nThis is a very cool app, kudos for the team that worked on this. I found the app very useful.\r<br />\nI am trying to cache an entire city or state to the street level zoom. \r<br />\nFor example I tried to cache the entire city of Palm Springs, CA. \r<br />\nI selected the desired the area by clicking Alt + dragging the mouse. Then I zoomed to the street level and waited for all the tiles to be cached. There were like 450+ tiles.\r<br />\nAfter this I disabled the internet and opened in cache only mode, I can see the city fine at zoom 14-15 level, but as I zoom in the streets appear blur. Happened the same when I tried to cache the entire state of Nevada.\r<br />\nI also tried to export and import the city and state caches with the same result!!\r<br />\nAppreciate any help.\r<br />\nThanks in advance\r<br />\nSteve<br />\n",
+    "PostedDate": "2013-04-15T14:12:26.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031037",
+    "ThreadId": "440376",
+    "Html": "use integrated tile prefetcher, select area, click preftech in cache menu, wait, it's done<br />\n",
+    "PostedDate": "2013-04-16T03:20:04.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031150",
+    "ThreadId": "440376",
+    "Html": "Thank you, Now when I click prefetch it is looping through each zoom level to download all tiles, it didn't do that yesterday for some reason.<br />\nWhere does the program store the downloaded tiles of the prefetched area? After it is done prefetching and all zoom levels can I click on export to save the file?<br />\nAlso can I query for a street from the exported file?<br />\n<br />\nThank in advance<br />\n",
+    "PostedDate": "2013-04-16T07:19:14.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031153",
+    "ThreadId": "440376",
+    "Html": "you can click 'open cache location' and just copy the files, import/export would work, but copy/paste is the fastest way<br />\n",
+    "PostedDate": "2013-04-16T07:23:15.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031164",
+    "ThreadId": "440376",
+    "Html": "Thank you, Can I query a street from the copied/exported cache file??<br />\n",
+    "PostedDate": "2013-04-16T07:32:25.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031171",
+    "ThreadId": "440376",
+    "Html": "nop, it's tile only cache<br />\n",
+    "PostedDate": "2013-04-16T07:40:55.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031175",
+    "ThreadId": "440376",
+    "Html": "Ahhh, bummer, very good product nevertheless. Keep up the good work.\r<br />\nIf I click on the cached map can I get the co-ordinates?\r<br />\nThank you<br />\n",
+    "PostedDate": "2013-04-16T07:44:59.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031178",
+    "ThreadId": "440376",
+    "Html": "it doesn't matter it's cached or not, it's the same map, you can get the coordinates\r<br />\np.s. all geocoding queries are cached too<br />\n",
+    "PostedDate": "2013-04-16T07:47:39.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031179",
+    "ThreadId": "440376",
+    "Html": "Thank you, that helps a lot<br />\n",
+    "PostedDate": "2013-04-16T07:48:21.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031378",
+    "ThreadId": "440376",
+    "Html": "How do you zoom to the cached area after importing or copying the db file?? <br />\n",
+    "PostedDate": "2013-04-16T13:32:54.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031537",
+    "ThreadId": "440376",
+    "Html": "just zoom, the usual way<br />\n",
+    "PostedDate": "2013-04-16T23:31:42.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031611",
+    "ThreadId": "440376",
+    "Html": "I'm trying to do this, using prefetch of an area to use only cache. (Last hot build version, demo windows app)<br />\nAll zoom tiles of a non visible area are prefetch (server mode, because in cache mode can't prefetch nothing). Then I change to cache only and try to go to the coordinates or moving with the mouse, no tiles are shown.<br />\n<br />\nAny tip?<br />\n<br />\nGreat job.<br />\n",
+    "PostedDate": "2013-04-17T02:12:13.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031655",
+    "ThreadId": "440376",
+    "Html": "works just fine for me<br />\n",
+    "PostedDate": "2013-04-17T03:32:23.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031664",
+    "ThreadId": "440376",
+    "Html": "OK, more info... the only code I modified is on click event for prefetch an area that is not visible (not the actual selected  nor visible area)\r<br />\nOpenStreetMaps for provider.\r<br />\n<br />\nSet zoom to 15 in other planet area, set cache mode, clear cache, set server mode, prefetch the non visible area (dialog ok, x of x),  set cache mode, set coordinate and press &quot;go to&quot; button.\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-04-17T03:49:22.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031756",
+    "ThreadId": "440376",
+    "Html": "is you set mode to <strong>ServerOnly</strong> it wont work, you have to use <strong>ServerAndCache</strong> mode<br />\n",
+    "PostedDate": "2013-04-17T06:06:26.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1080545",
+    "ThreadId": "440376",
+    "Html": "Hi.<br />\nIt's really a great application!<br />\nI have a question. I can't find downloaded files after prefetching has been finished. Where are they located?<br />\nthanks in advance<br />\n<br />\nP.S-&gt; I've solved it now by clearing tiles in disk cache.<br />\n",
+    "PostedDate": "2013-08-14T07:09:37.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1080994",
+    "ThreadId": "440376",
+    "Html": "p.s. in demo there is 'open cache location' button<br />\n",
+    "PostedDate": "2013-08-15T08:49:08.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

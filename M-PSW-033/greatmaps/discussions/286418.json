@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "726423",
+    "ThreadId": "286418",
+    "Html": "\r\n<p>Hi, i am new in Gmap.net</p>\r\n<p>As far as i know it can use a database in order to make tiles cache. I am trying the demo application and I choose to use Server&amp;Cach mode it works but i can see the database... Where is it location? what is its name?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>Alan</p>\r\n",
+    "PostedDate": "2012-01-17T07:02:58.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "726429",
+    "ThreadId": "286418",
+    "Html": "<p>map.<strong>CacheLocation </strong>by default<strong> == </strong>System.Environment.GetFolderPath(System.Environment.SpecialFolder.<strong>LocalApplicationData</strong>) + Path.DirectorySeparatorChar + \"<strong>GMap.NET</strong>\" + Path.DirectorySeparatorChar</p>\r\n<p><em>C:\\Users\\userName\\AppData\\Local\\GMap.NET\\TileDBv5\\en&nbsp;</em></p>",
+    "PostedDate": "2012-01-17T07:12:08.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

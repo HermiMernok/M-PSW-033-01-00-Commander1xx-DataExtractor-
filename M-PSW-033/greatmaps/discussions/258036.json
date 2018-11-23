@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "614446",
+    "ThreadId": "258036",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am new to GMAP.net.&nbsp; I want to use this component in our product. The application is not web based, it is a csharp application.</p>\r\n<p>Since we are using the component in our product for commercial purpose, I guess we need to have some sort of license from Google (&nbsp; is it Google maps api premier ? ). We plan to use such.</p>\r\n<p>&nbsp;</p>\r\n<p>I understood from google&nbsp; ( http://code.google.com/apis/maps/documentation/staticmaps/ )&nbsp; that we need to pass clientid in the url request.</p>\r\n<p>I want to know how is this possible in the GMAP component.?</p>\r\n<p>&nbsp;</p>\r\n<p>additionally I would like to know how to use the component for Bing?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-05-18T01:38:59.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614474",
+    "ThreadId": "258036",
+    "Html": "<p>for google commercial deals, please contact&nbsp;<strong>Josh Livni,&nbsp;jlivni@google.com</strong>, for bing usage, i don't know, anyway you can switch to free provider if google/bing/etc isn't acceptable</p>",
+    "PostedDate": "2011-05-18T02:35:07.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614513",
+    "ThreadId": "258036",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for the contact info.</p>\r\n<p>But could you please tell me how I can use theclientid in the url request?</p>",
+    "PostedDate": "2011-05-18T04:08:24.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614529",
+    "ThreadId": "258036",
+    "Html": "<p>set MainMap.Manager.<strong>GoogleMapsAPIKey</strong> to your key</p>",
+    "PostedDate": "2011-05-18T04:42:53.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "618009",
+    "ThreadId": "258036",
+    "Html": "<p>I had contact with Google. GMap.Net uses tile servers as data source. Google does not allow you to directy use their tile servers. Also if you have a Google Maps Premier account then is still not allowed.</p>",
+    "PostedDate": "2011-05-25T06:19:18.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "618738",
+    "ThreadId": "258036",
+    "Html": "<p>Plus, the GoogleMapsAPIKey is not the same thing as the Google Maps Api Premier clientid. When using Google Maps Api Premier, you need to supply your own unique client id and sign the url as well. You have to do some modifications to current GMap.NET release to use web service calls with API Premier.</p>",
+    "PostedDate": "2011-05-26T07:50:14.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "933723",
+    "ThreadId": "401091",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>Good day.</p>\r\n<p>I would like to inquire on how to access the map eventhough I am offline.</p>\r\n<p>I have a program that uses your map but it only works when I am connected to the internet. When I have no internet, it only shows blue screen. The message shown is &quot;Exception: The remote name couldn't be resolved mt1.google.com. We are sorry but we don't\r\n have imagery at this zoom level for this region.&quot;</p>\r\n<p>How can I store the gmdb file to the cache even though I have no internet connection?</p>\r\n<p>Please give me guidelines or sample procedures.</p>\r\n<p>Thanks.</p>\r\n<p>&nbsp;</p>\r\n<p>Jeff Jaret</p>\r\n",
+    "PostedDate": "2012-10-29T03:48:57.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933735",
+    "ThreadId": "401091",
+    "Html": "<p>map.Manager.Mode = AccessMode.<strong>CacheOnly</strong>;</p>",
+    "PostedDate": "2012-10-29T04:14:40.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

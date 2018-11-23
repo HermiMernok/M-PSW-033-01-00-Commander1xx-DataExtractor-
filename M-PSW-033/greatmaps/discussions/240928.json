@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "545790",
+    "ThreadId": "240928",
+    "Html": "\r\n<p>HI all, i'm trying to put marker in map using gmap api in c#. can anyone hel me? this my code but it does not work, i add reference to GMAP.NET.WindowsForms</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;GMapControl map = new GMapControl();&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;GMapOverlay objects = new GMapOverlay(map, &quot;stops&quot;);&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;GMap.NET.PointLatLng ptl = new GMap.NET.PointLatLng(38.90019921335809, -77.03791383334352);&nbsp;&nbsp; &nbsp; &nbsp;</p>\r\n<p>GMapMarker mark = new GMapMarker(ptl);&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>mark.ToolTipMode = MarkerTooltipMode.Always;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>objects.Markers.Add(mark);&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp;&nbsp;map.Overlays.Add(objects);</p>\r\n",
+    "PostedDate": "2011-01-07T20:47:40.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "545904",
+    "ThreadId": "240928",
+    "Html": "\r\n<p>try GMapMarker mark = new <strong>SomeCustomGMapMarker</strong>(ptl);</p>\r\n<p>default marker itself is empty</p>\r\n",
+    "PostedDate": "2011-01-08T04:39:53.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

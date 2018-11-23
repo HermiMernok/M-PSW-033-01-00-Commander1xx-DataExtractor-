@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "659339",
+    "ThreadId": "269396",
+    "Html": "\r\n<p>Hi, I have a circle&nbsp;with a radius of&nbsp;5 miles around a marker and when i try a static map the circle shrinks&nbsp;like the markers&nbsp;instead of staying&nbsp;at 5 miles around the marker. Can anyone give me any ideas?</p>\r\n",
+    "PostedDate": "2011-08-17T03:32:14.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659345",
+    "ThreadId": "269396",
+    "Html": "<p>?</p>",
+    "PostedDate": "2011-08-17T03:44:36.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659348",
+    "ThreadId": "269396",
+    "Html": "<p>On the map i have a marker at sw1, around the marker i have a circle with a radius of 5 miles. When i use a static map like on the demo, the&nbsp;5 miles radius changes according to the zoom level and does not stay at 5 miles? On the demo the polygons shrink when using the static map so this is what is happening to my 5 mile radius. If you need screen shots then i will put a link to some.</p>\r\n<p>Thanks for a quick response.</p>",
+    "PostedDate": "2011-08-17T03:50:59.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659352",
+    "ThreadId": "269396",
+    "Html": "<p>\"using the static map\" ?</p>",
+    "PostedDate": "2011-08-17T04:04:24.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659358",
+    "ThreadId": "269396",
+    "Html": "<p>yes, static map. I converted your code into vb and has to modify it a bit but the image at <a href=\"http://www.hostmyweb.co.uk/tmp/static_map.png\">http://www.hostmyweb.co.uk/tmp/static_map.png</a>&nbsp;will explain the problem. If you notice the postcodes spread out which they are supposed to but the circle stays the same size instead of enlarging to 5 miles.</p>",
+    "PostedDate": "2011-08-17T04:27:28.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659362",
+    "ThreadId": "269396",
+    "Html": "<p>i see, well you have to modify code to adjust size of the circle</p>",
+    "PostedDate": "2011-08-17T04:34:25.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659364",
+    "ThreadId": "269396",
+    "Html": "<p><span style=\"color: #0000ff;\">Hi, thanks again for a quick response. Please bear with me as maps are new to me. So could i clear the layer and add another circle based on the zoom or would i have to modify the exisiting circle in this which is out of the static map form:-</span></p>\n<p><span style=\"font-size: x-small;\"></span>\n<p>&nbsp;</p>\n</p>\n<p>For Each r As GMapPolygon In Main.objects.Polygons</p>\n<p>If r.IsVisible Then</p>\n<p>Using rp As New GraphicsPath()</p>\n<p>For j As Integer = 0 To r.Points.Count - 1</p>\n<p>Dim pr = r.Points(j)</p>\n<p>Dim px As GPoint = Main.GMapControl1.Projection.FromLatLngToPixel(pr.Lat, pr.Lng, info.Zoom)</p>\n<p>px.Offset(padding, padding)</p>\n<p>px.Offset(-topLeftPx.X, -topLeftPx.Y)</p>\n<p>Dim p2 As GPoint = px</p>\n<p>'</p>\n<p>If j = 0 Then</p>\n<p>rp.AddLine(p2.X, p2.Y, p2.X, p2.Y)</p>\n<p>Else</p>\n<p>Dim p As System.Drawing.PointF = rp.GetLastPoint()</p>\n<p>rp.AddLine(p.X, p.Y, p2.X, p2.Y)</p>\n<p>End If</p>\n<p>Next</p>\n<p>If rp.PointCount &gt; 0 Then</p>\n<p>rp.CloseFigure()</p>\n<p>gfx.FillPath(r.Fill, rp)</p>\n<p>gfx.DrawPath(r.Stroke, rp)</p>\n<p>End If</p>\n<p>End Using</p>\n<p>End If</p>\n<p>Next</p>",
+    "PostedDate": "2011-08-17T04:43:06.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659436",
+    "ThreadId": "269396",
+    "Html": "<p>..well you have to experiment, i haven't done this before on static map</p>",
+    "PostedDate": "2011-08-17T07:14:41.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659441",
+    "ThreadId": "269396",
+    "Html": "<p>Hi, i am experimenting and have came to a conclusion that I have to find out what percentage the map has changed so I can draw a new circle on the graphics (gfx in your demo) I was thinking that if i had the height and width of the original and changed the same to the percentage that that would work. Could you give me a pointer on how the to get the info i need? Pleaseeeeeeeeee, hang on... i've had a thought :-)</p>\n<p>Thanks</p>",
+    "PostedDate": "2011-08-17T07:25:54.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659444",
+    "ThreadId": "269396",
+    "Html": "<p>well you can check wpf demo it has circle and distance is calculated based on meters</p>",
+    "PostedDate": "2011-08-17T07:29:58.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659507",
+    "ThreadId": "269396",
+    "Html": "<p>Sorted :-) See <a href=\"http://www.hostmyweb.co.uk/tmp/static_map_fixed_zoom.png\">http://www.hostmyweb.co.uk/tmp/static_map_fixed_zoom.png</a>&nbsp;for results.</p>\n<p>In case anyone is interested the calulation is below. Just draw a new circle on the big image.</p>\n<p><span style=\"font-size: x-small;\">&nbsp;</span></p>\n<p>zms(1)=1, zms(2)=2, zms(3)=4, zms(4)=8 etc</p>\n<p>original_image_width&nbsp;* (zms(zoomlevel_numericupdown-originalzoomlevel_on_map) * 0.935483871)</p>\n<p>original_image_height&nbsp;* (zms(zoomlevel_numericupdown-originalzoomlevel_on_map) * 0.935483871)</p>\n<p><span style=\"font-size: x-small;\">﻿</span>May not be the best way but at least it's a way :-)</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-08-17T09:42:50.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

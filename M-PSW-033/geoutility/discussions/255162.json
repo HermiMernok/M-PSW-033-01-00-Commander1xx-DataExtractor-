@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "602347",
+    "ThreadId": "255162",
+    "Html": "\r\n<p>There is an issue on the constructor of MGRS class. If I pass both east and north value below 10,000, it will be pumped up to higher than 10,000 and cause the target point greatly miss.</p>\r\n<p>You can try this bug with the following code.</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>Geographic geo = <span style=\"color:blue\">new</span> Geographic(\r\n                <span style=\"color:blue\">new</span> GeoUtility.GeoSystem.Helper.Sexagesimal(10, 0, 0).ToDecimal()\r\n                , <span style=\"color:blue\">new</span> GeoUtility.GeoSystem.Helper.Sexagesimal(10, 0, 40).ToDecimal()\r\n                );\r\n            Console.WriteLine(geo.ToSexagesimalString());\r\n\r\n            Console.WriteLine(((MGRS)geo).ToLongString());\r\n            Console.WriteLine(((UTM)geo).ToLongFormatString());\r\n            Console.WriteLine(((Geographic)((MGRS)geo)).ToSexagesimalString());\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>This code will output like this.</p>\r\n<p></p>\r\n<pre>Longitude: 10? 00' 00'' 00'''; Latitude: 10? 00' 39'' 60''' (WGS84)\r\n32P PS 9597 6807\r\n32P E 609597 N 1106807\r\nLongitude: 10? 47' 27'' 38'''; Latitude: 10? 33' 41'' 50''' (WGS84)</pre>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your good works and I hope this will be fixed soon.</p>\r\n",
+    "PostedDate": "2011-04-25T03:22:16.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "606935",
+    "ThreadId": "255162",
+    "Html": "<p><span id=\"ClosedCommentLabel\">Solved at revision 58022.<br /><br />Thanks for reporting.</span></p>",
+    "PostedDate": "2011-05-04T02:06:06.943-07:00",
+    "UserRole": "Owner",
+    "MarkedAsAnswerDate": null
+  }
+]

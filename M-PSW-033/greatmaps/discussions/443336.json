@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1042224",
+    "ThreadId": "443336",
+    "Html": "Hi Radioman!\r<br />\nI'm having an issue with CacheOnly mode. I have a cache folder created by demo - Prefetch.\r<br />\nBut when I use my dll that uses Gmap in my application cache is not used and exceptions are thrown on tiles.\r<br />\nVisual studio debug is looking like this:\r<br />\n<br />\n&quot;POSForms.vshost.exe&quot; (Managed (v4.0.30319)): Loaded &quot;C:\\Users\\fox\\AppData\\Local\\GMap.NET\\DllCache\\SQLite_v84_NET4_x86\\System.Data.SQLite.DLL&quot;\r<br />\nSQLiteVersion: 3.7.14 | 2012-09-03 15:42:36 c0d89d4a9752922f9e367362366efde4f1b06f2a | INTEROP_CODEC INTEROP_EXTENSION_FUNCTIONS NET_40 PRELOAD_NATIVE_LIBRARY THROW_ON_DISPOSED TRACE TRACE_PRELOAD TRACE_WARNING\r<br />\nSQLite error (21): misuse at line 111924 of [c0d89d4a97]\r<br />\nWARNING: Type mapping failed, returning default type Object for name &quot;byte&quot;.\r<br />\nSQLite error (21): misuse at line 111924 of [c0d89d4a97]\r<br />\n<br />\nIt seems to me that 2 SQLite dlls conflicting cause I have SQLite Db that I should work with.\r<br />\nI've already placed my SQLite usage into separate dll-module but there's still no use.\r<br />\nCould suggest some solution or make Gmap use existing SQLite.dll links in application?\r<br />\nThanks a lot upfront<br />\n",
+    "PostedDate": "2013-05-11T04:58:25.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1042229",
+    "ThreadId": "443336",
+    "Html": "for your referenced sqlite dll, set <strong>CopyToLocal</strong> to false<br />\n",
+    "PostedDate": "2013-05-11T05:21:02.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1042232",
+    "ThreadId": "443336",
+    "Html": "Hi again. It is not copied.<br />\n",
+    "PostedDate": "2013-05-11T05:43:20.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1042236",
+    "ThreadId": "443336",
+    "Html": "there is no issue, windows form demo is using sqlite to store addresses, works perfectly<br />\n",
+    "PostedDate": "2013-05-11T05:53:36.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1042237",
+    "ThreadId": "443336",
+    "Html": "Hi, I've resolved an issue. Solution was to copy same SQLite.dll version into default DllCache\\some_sqlite_version_folder\\ (for me it is C:\\Users***\\AppData\\Local\\GMap.NET\\DllCache\\SQLite_v84_NET4_x86).\r<br />\nBut still it has to be resolved some other way. At least it is required for you to use SQLite.dll from cache folder that we specify in cachelocation or primary/secondary cache.\r<br />\nI hope you'll find the solution and resolve problem. I'll copy comment to issue I've added to issue tracker.<br />\n",
+    "PostedDate": "2013-05-11T06:02:08.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1042238",
+    "ThreadId": "443336",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nthere is no issue, windows form demo is using sqlite to store addresses, works perfectly<br />\n</blockquote>\nThat's because same versions are used I guess.<br />\n",
+    "PostedDate": "2013-05-11T06:03:24.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1042240",
+    "ThreadId": "443336",
+    "Html": "thats the idea ;}<br />\n",
+    "PostedDate": "2013-05-11T06:14:49.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

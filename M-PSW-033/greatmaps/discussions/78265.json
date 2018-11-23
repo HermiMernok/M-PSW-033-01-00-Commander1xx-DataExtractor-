@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "267754",
+    "ThreadId": "78265",
+    "Html": "<p>Hi! I have got a problem with the loading of the map on the startup. Moreover, the work of this program is good under Windows7 (x64 platform), WindowsXP (x86 platform) but it doesnt shows the maps under&nbsp; WindowsXP(dualcore x86) and WindowsXP(core2duo x64). I am troubled) Help!!! Thanks in advance!</p>",
+    "PostedDate": "2009-12-15T14:26:43.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267790",
+    "ThreadId": "78265",
+    "Html": "<p>hm... strange</p>",
+    "PostedDate": "2009-12-15T15:17:56.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267891",
+    "ThreadId": "78265",
+    "Html": "<p>Hi Sammual,</p>\r\n<p>Just humour me and try the following to see if it fixes your problem;</p>\r\n<p>In GMap.NET.Core find Core.cs and then find</p>\r\n<p>waitOnEmptyTasks.WaitOne(1111);</p>\r\n<p>and change it to</p>\r\n<p>waitOnEmptyTasks.WaitOne();</p>\r\n<p>Then rebuild and see if it fixes the problem.</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-15T23:05:08.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268033",
+    "ThreadId": "78265",
+    "Html": "<p>Hi, thanks for yours answers. I was troubled by the real decission of my problem. The wrong thing was in using Framework.Net 2.0 for the &quot;WindowsXP(dualcore x86) and WindowsXP(core2duo x64)&quot; - case. After installing Framework3.5 all bad things goes out.</p>\r\n<p>&nbsp;Azl<strong>e</strong>n :) , your thought was interesting, but problem with loading maps from server was previous one in my own list:)&nbsp; Anyhow, thanks.</p>",
+    "PostedDate": "2009-12-16T07:28:15.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268059",
+    "ThreadId": "78265",
+    "Html": "<p>mm, but windows form version should work in .net2, only wpf version need 3.5</p>",
+    "PostedDate": "2009-12-16T08:03:19.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268072",
+    "ThreadId": "78265",
+    "Html": "<p>I actual got stuck with this same problem of no map display today after upgrading from XP to Vista on a machine.</p>\r\n<p>I found the problem to be framework related, the overload on waitOnEmptyTasks.WaitOne fails if no 3.5 installed (or incorrectly installed in my case).</p>\r\n<p>Hence my suggetstion of the code mod for someone else who had the problem to confirm it would run on their machine thus confirming the framework issue.</p>\r\n<p>Radioman I agree that it should work for dotnet2 as the build is set for dotnet2 however it seems to need 3.5, as to why I have no idea.</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-16T08:35:39.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268120",
+    "ThreadId": "78265",
+    "Html": "<p>i changed waitone function, i&nbsp;think&nbsp;it was from .net sp2, can anyone&nbsp;confirm&nbsp;it's working great? ;}</p>",
+    "PostedDate": "2009-12-16T11:04:06.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268310",
+    "ThreadId": "78265",
+    "Html": "<p>I had already made that chnage as well and can confirm that it works ok: )</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-16T20:41:33.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268338",
+    "ThreadId": "78265",
+    "Html": "<p>good ;}</p>",
+    "PostedDate": "2009-12-16T22:11:14.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268367",
+    "ThreadId": "78265",
+    "Html": "<p>Notes:</p>\r\n<p>.net 2.0 SP2 is applied with .net3.5 SP1.</p>\r\n<p>The most current mscorlib.dll version is 2.0.50727.3603.</p>\r\n<p>The mscorlib.dll version on the machine that I had a problem with was 2.0.50727.1434.</p>\r\n<p>So if the development machine has all the latest frameworks and service packs installed there exsists a potential for version issues in deployment even if compiling for .net 2.0.</p>\r\n<p>Luckily I had VS2008 installed on the deployment machine and was able to catch the problem as debugging on the development machine would not have caught it.</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-17T00:01:31.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "268843",
+    "ThreadId": "78265",
+    "Html": "<p>I think the key problem is in using of&nbsp;GMap.NET.Core.dll,&nbsp;GMap.NET.WindowsForms.dll and&nbsp;System.Data.SQLite.dll that may be compiled under the different Framework version. In my case I compiled all the DLLs and project in whole under the Framework3.5 (such as in Windows7 &quot;was born&quot; with it). So, to have no problem with project, install Framework3.5 and compile all using it... and have a luck:)</p>",
+    "PostedDate": "2009-12-18T02:07:43.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "270116",
+    "ThreadId": "78265",
+    "Html": "<p>I download the latest source code(44472), and compile it. But it can't show the map.&nbsp;</p>\r\n<p>When I download the bin-release(winform), it works fine.</p>\r\n<p>I had VS2008 installed.</p>\r\n<p>&nbsp;</p>\r\n<p>I try the <a id=ChangeSetLink12 style=\"font-weight:bold\" title=\"Browse change set 44164\" href=\"http://greatmaps.codeplex.com/SourceControl/changeset/view/44164\">44164</a>&nbsp;source code, it works fine too.</p>",
+    "PostedDate": "2009-12-22T18:32:06.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

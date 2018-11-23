@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "512320",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>I must say, I love the GMap control. It made my life quite a bit easier.</p>\r\n<p>&nbsp;</p>\r\n<p>However, it would be great if mouse zoom worked when the cursor is over a marker. If markers used the standard MouseClickEventArgs, it would be fairly simple to check if the sender was a Marker object and the click event was a mouse wheel event and call\r\n the event on the GMapControl. Just a thought anyway, does anybody have a way around this? I sometimes have to plot many markers in close proximity to each other, so when the map is zoomed out it is one big blob of markers and the mousewheel doesn't work for\r\n zoom.</p>\r\n",
+    "PostedDate": "2010-10-25T11:52:44.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512365",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>i guess, i'll add an option to enable/disable it</p>\r\n",
+    "PostedDate": "2010-10-25T13:13:52.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512380",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>done, just set&nbsp;<strong>IgnoreMarkerOnMouseWheel</strong> = true;</p>\r\n",
+    "PostedDate": "2010-10-25T13:34:22.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512711",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>nvm</p>\r\n",
+    "PostedDate": "2010-10-26T06:54:10.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521375",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>Is this option still there? If so, where is it?</p>\r\n<p>This would be useful when many markers are displayed.</p>\r\n",
+    "PostedDate": "2010-11-12T19:54:13.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521489",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>it's there from Oct 25 at 11:34 PM ;}</p>\r\n",
+    "PostedDate": "2010-11-13T06:50:02.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521652",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>Yes, it is there for Oct 25, but is no longer in latest version (I have not checked others since the 25th Oct).</p>\r\n<p>Be great to have it back :o&gt;</p>\r\n",
+    "PostedDate": "2010-11-13T20:41:39.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521718",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>yes it's still here, what the point to remove features that takes hours to make ;}</p>\r\n<p>p.s. i guess you use experimental code from optimizations branch</p>\r\n",
+    "PostedDate": "2010-11-14T06:14:25.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521900",
+    "ThreadId": "232260",
+    "Html": "\r\n<p>Sorry, you are correct. I must rememer to use Default in future.</p>\r\n<p>Fantastic work you are doing!</p>\r\n",
+    "PostedDate": "2010-11-14T16:45:49.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "500478",
+    "ThreadId": "229146",
+    "Html": "<p>How can I make a polyline in a GMap in Windows Forms?</p>\r\n<p>&nbsp;I try to adapt this code but I fail.</p>\r\n<p>I think that is wpf code....?</p>\r\n<p>&nbsp;<span style=\"font-size:10pt;color:blue\" lang=EN-US>public</span><span style=\"font-size:10pt;color:black\" lang=EN-US> Path CreateRoutePath(List&lt;System.Windows.Point&gt; localPath)</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"font-size:10pt;color:green\" lang=EN-US>// Create a StreamGeometry to use to specify myPath.</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StreamGeometry geometry = </span><span style=\"font-size:10pt;color:blue\" lang=EN-US>new</span><span style=\"font-size:10pt;color:black\" lang=EN-US> StreamGeometry();</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;</span><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style=\"font-size:10pt;color:blue\" lang=EN-US>using</span><span style=\"font-size:10pt;color:black\" lang=EN-US> (StreamGeometryContext ctx = geometry.Open())</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.BeginFigure(localPath[0], </span><span style=\"font-size:10pt;color:blue\" lang=EN-US>false</span><span style=\"font-size:10pt;color:black\" lang=EN-US>, </span><span style=\"font-size:10pt;color:blue\" lang=EN-US>false</span><span style=\"font-size:10pt;color:black\" lang=EN-US>);</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;</span><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style=\"font-size:10pt;color:green\" lang=EN-US>// Draw a line to the next specified point.</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx.PolyLineTo(localPath, </span><span style=\"font-size:10pt;color:blue\" lang=EN-US>true</span><span style=\"font-size:10pt;color:black\" lang=EN-US>, </span><span style=\"font-size:10pt;color:blue\" lang=EN-US>true</span><span style=\"font-size:10pt;color:black\" lang=EN-US>);</span></p>\r\n<p><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;</span><span style=\"font-size:10pt;color:black\" lang=EN-US>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style=\"font-size:10pt;color:#30332d\">.}</span></p>\r\n<p><span style=\"font-size:10pt;color:#30332d\">}</span></p>\r\n<p>&nbsp;The error is something like this: Point name or type doesn&rsquo;t exist in name space&hellip;</p>\r\n<p>&nbsp;Many thanks and best regards</p>",
+    "PostedDate": "2010-09-30T05:37:25.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500532",
+    "ThreadId": "229146",
+    "Html": "<p>you need it in windows forms, but you paste wpf code, thats strange ;} ..anyway routes in windows forms version Is polylines already</p>",
+    "PostedDate": "2010-09-30T07:25:24.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

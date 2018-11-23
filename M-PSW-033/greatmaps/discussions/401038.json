@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "933515",
+    "ThreadId": "401038",
+    "Html": "\r\n<p>I am using WPF, I have follow the sample to create a marker, but the position of the marker is incorrect, it is not on the &#43; sign.</p>\r\n<p>&nbsp;</p>\r\n<p>Code:</p>\r\n<p>GMapMarker currentMarker = new GMapMarker(GeoMap.Position);<br>\r\n{<br>\r\n&nbsp;currentMarker.Shape = new CustomMarkerRed(this, currentMarker, &quot;you are here&quot;);<br>\r\ncurrentMarker.Offset = new Point(-15, -15);<br>\r\ncurrentMarker.ZIndex = int.MaxValue;<br>\r\nGeoMap.Markers.Add(currentMarker);<br>\r\n}</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you.</p>\r\n",
+    "PostedDate": "2012-10-28T08:09:21.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933523",
+    "ThreadId": "401038",
+    "Html": "<p>adjust the offset</p>",
+    "PostedDate": "2012-10-28T09:07:29.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

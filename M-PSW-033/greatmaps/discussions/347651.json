@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "806834",
+    "ThreadId": "347651",
+    "Html": "\r\n<p>Since I updated to the latest version I don't have the debug output from the cache-engine and the downloaded tiles anymore.<br>\r\nIs there a way to re-enable this somewhere? I'm afraid I can't find the right property...<br>\r\nthx &nbsp;</p>\r\n",
+    "PostedDate": "2012-03-07T05:25:15.013-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806926",
+    "ThreadId": "347651",
+    "Html": "<p>and why do you need it ;]</p>",
+    "PostedDate": "2012-03-07T08:30:06.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806973",
+    "ThreadId": "347651",
+    "Html": "<p>Because it enables me to see when (=at which part of a route) the tiles are loaded from local db/are downloaded from provider, when they are saved in the database (and when that is done).<br />It also displays (periodicly) how much space is already taken so i can deduce which part of the route takes how much space<br />Same for when users would wander around a bit on the map.</p>",
+    "PostedDate": "2012-03-07T09:29:25.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806979",
+    "ThreadId": "347651",
+    "Html": "<p>use debug mode then ;}</p>",
+    "PostedDate": "2012-03-07T09:37:45.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807028",
+    "ThreadId": "347651",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\">How do i enable debug? ----&gt; Why do you need it? ----&gt; [explanation] How should i do it? --------&gt; use debug mode.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>&uarr;_________________________________________________________________________________________________________</strong>| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br /></blockquote>\r\n<p>If you know what i mean.</p>",
+    "PostedDate": "2012-03-07T10:32:12.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807032",
+    "ThreadId": "347651",
+    "Html": "<p>no at all man ;]</p>",
+    "PostedDate": "2012-03-07T10:34:07.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807190",
+    "ThreadId": "347651",
+    "Html": "<p>Dear Mr. Radioman,<br /><span style=\"color: #000000;\">can you plz explain to me how i can use debug mode...?</span>&nbsp;</p>",
+    "PostedDate": "2012-03-07T15:53:00.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807195",
+    "ThreadId": "347651",
+    "Html": "<p>open visual studio and click F5 ;]</p>",
+    "PostedDate": "2012-03-07T16:02:00.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807205",
+    "ThreadId": "347651",
+    "Html": "<p>Yeah, i do that about 500 times a day.</p>\r\n<p>I will try to explain my problem.</p>\r\n<p><strong>Using </strong>the <strong>old dlls </strong>i got this kind of <strong>output</strong>:<br /><em>Thread[13] - Wait 0 - 01:49:11.6233125Thread[11] - tile loaded: 73KB, 12 - {X=2090,Y=1363}Thread[11] - Wait 1 - 01:49:11.6363133Thread[12] - tile loaded: 85KB, 12 - {X=2090,Y=1361}Thread[12] - Wait 2 - 01:49:11.6453138Invalidate delta: 217msResponse: http://e.maptile.maps.svc.ovi.com/maptiler/v2/maptile/newest/hybrid.day/14/8363/5452/256/png8EnqueueCacheTask: 1548269087 at zoom 14, pos: {X=8363,Y=5452}, CacheType:BothThread[14] - tile loaded: 49KB, 14 - {X=8363,Y=5452}Thread[14] - Wait 3 - 01:49:12.7503770Invalidate delta: 994msResponse: http://d.maptile.maps.svc.ovi.com/maptiler/v2/maptile/newest/hybrid.day/14/8364/5453/256/png8EnqueueCacheTask: 1548269087 at zoom 14, pos: {X=8364,Y=5453}, CacheType:BothThread[3] - tile loaded: 41KB, 14 - {X=8364,Y=5453}Thread[3] - Wait 4 - 01:49:12.8493826Thread[3] - OnTileLoadComplete: 2041ms, MemoryCacheSize: 6,26068782806396MBInvalidate delta: 210msCacheEngine: storing tile 1548269087 at zoom 14, pos: {X=8363,Y=5452}, CacheType:Both...CacheEngine: storing tile 1548269087 at zoom 14, pos: {X=8364,Y=5453}, CacheType:Both...CacheEngine: stop&nbsp;</em></p>\r\n<p><strong>Using </strong>the <strong>new dlls </strong>i DO <strong>NOT </strong>GET <strong>THIS OUTPUT</strong><br /><br />I would <strong>like </strong>to have the <strong>output back</strong>.<br /><br />Is this <strong>possible</strong>?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-03-07T16:58:01.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807334",
+    "ThreadId": "347651",
+    "Html": "<p>use f*** debug build</p>",
+    "PostedDate": "2012-03-08T01:45:30.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807833",
+    "ThreadId": "347651",
+    "Html": "<p>I am honestly&nbsp;truly&nbsp;absolutely convinced that i am building and running the program in debug mode (using vs2010). Configuration is (and has always been) set to debug, i click the 'play' button (start debugging) and have no clue where or how else i should define that i am debugging my projects. Same&nbsp;environment works for old dlls btw.&nbsp;&nbsp;&nbsp;</p>",
+    "PostedDate": "2012-03-08T17:20:57.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "808052",
+    "ThreadId": "347651",
+    "Html": "<p>ok, instructions for dumbs: download the source(http://greatmaps.codeplex.com/SourceControl/list/changesets), open the solution, then set configuration to debug, click F5, enjoy ;}</p>",
+    "PostedDate": "2012-03-09T05:07:24.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

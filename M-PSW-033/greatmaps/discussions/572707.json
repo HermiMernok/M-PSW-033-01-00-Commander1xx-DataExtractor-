@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1324549",
+    "ThreadId": "572707",
+    "Html": "Is there a way to check if a lat/long coord. is inside of a polygon?<br />\n<pre><code>Dim poly As New GMapPolygon(New List(Of PointLatLng) From {\n                             New PointLatLng(__PROSPECT, __OVERLAND),\n                             New PointLatLng(__DRAKE, __OVERLAND),\n                             New PointLatLng(__DRAKE, __TIMBERLINE),\n                             New PointLatLng(__PROSPECT, __TIMBERLINE)}, \n                             poly1&quot;)\n    overLay.Polygons.Add(poly)\n    poly.Fill = New SolidBrush(Color.FromArgb(50, 255, 200, 100))\n    poly.Stroke = Pens.Black\n    'something like this - which obviously does not work\n    Dim isInside = ploy.Contains(New PointLatLng(__PROSPECT, __COLLEGE))</code></pre>\n\nThanks<br />\n",
+    "PostedDate": "2014-11-20T19:53:00.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1324554",
+    "ThreadId": "572707",
+    "Html": "From <a href=\"http://alienryderflex.com/polygon/\" rel=\"nofollow\">here</a> I made this(which seems to work):<br />\n<pre><code>  ''' &lt;summary&gt;\n  '''  PointInPolygon: \n  '''  int    polySides  =  how many corners the polygon has\n  '''  float  polyX[]    =  horizontal coordinates of corners\n  '''  float  polyY[]    =  vertical coordinates of corners\n  '''  float  x, y       =  point to be tested\n  ''' &lt;/summary&gt;\n  ''' &lt;param name=&quot;polygon&quot;&gt;GMapPolygon&lt;/param&gt;\n  ''' &lt;param name=&quot;latLng&quot;&gt;PointLatLng&lt;/param&gt;\n  ''' &lt;returns&gt;True if lat/lng is inside the polygon&lt;/returns&gt;\n  ''' &lt;remarks&gt;&lt;/remarks&gt;\n  Private Function pointInPolygon(polygon As GMapPolygon, latLng As PointLatLng) As Boolean\n    Dim polysides = polygon.Points.Count\n    Dim polyX As New List(Of Double)\n    For Each _latLng In polygon.Points\n      polyX.Add(_latLng.Lng)\n    Next\n    Dim polyY As New List(Of Double)\n    For Each _latLng In polygon.Points\n      polyY.Add(_latLng.Lat)\n    Next\n    Dim x = latLng.Lng\n    Dim y = latLng.Lat\n    Dim i As Integer, j As Integer = polySides - 1\n    Dim oddNodes As Boolean = False\n    For i = 0 To polysides - 1\n      If (polyY(i) &lt; y AndAlso polyY(j) &gt;= y OrElse polyY(j) &lt; y AndAlso polyY(i) &gt;= y) AndAlso (polyX(i) &lt;= x OrElse polyX(j) &lt;= x) Then\n        oddNodes = oddNodes Xor (polyX(i) + (y - polyY(i)) / (polyY(j) - polyY(i)) * (polyX(j) - polyX(i)) &lt; x)\n      End If\n      j = i\n    Next\n    Return oddNodes\n  End Function</code></pre>\n\nUsage:<br />\n<pre><code>Dim isInside = pointInPolygon(poly, New PointLatLng(__PROSPECT, __COLLEGE)) \n' returns true</code></pre>\n\nI have not tested complexed polys, just some border tests on a trapazoid shape poly. Please add to this if you find something that may benefit others or improves the algorithm.<br />\n",
+    "PostedDate": "2014-11-20T20:52:57.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1325182",
+    "ThreadId": "572707",
+    "Html": "This will give you what you want.\r<br />\n<br />\nPolygon in this example is a List of GMap.NET.PointLatLng\r<br />\n<br />\nCheers<br />\n<pre><code>    Public Shared Function IsInPolygon(ByVal point As GMap.NET.PointLatLng, ByVal points As List(Of GMap.NET.PointLatLng)) As Boolean\n\n        Dim j As Integer = points.Count - 1\n        Dim inPoly As Boolean = False\n\n        For i As Integer = 0 To points.Count - 1\n            If points(i).Lng &lt; point.Lng AndAlso points(j).Lng &gt;= point.Lng OrElse points(j).Lng &lt; point.Lng AndAlso points(i).Lng &gt;= point.Lng Then\n                If points(i).Lat + (point.Lng - points(i).Lng) / (points(j).Lng - points(i).Lng) * (points(j).Lat - points(i).Lat) &lt; point.Lat Then\n                    inPoly = Not inPoly\n                End If\n            End If\n            j = i\n\n        Next i\n\n        Return inPoly\n\n    End Function</code></pre>\n\n",
+    "PostedDate": "2014-11-23T02:40:17.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1325389",
+    "ThreadId": "572707",
+    "Html": "@Azlan, The function I have seems to work. Thanks for another way.<br />\n",
+    "PostedDate": "2014-11-23T21:32:39.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

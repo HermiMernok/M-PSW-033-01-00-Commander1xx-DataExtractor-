@@ -1,0 +1,186 @@
+[
+  {
+    "Id": "452563",
+    "ThreadId": "215224",
+    "Html": "<p>I'm getting this error message in the WPF sample app, some of the tiles are replaced with an error message saying: &quot;Access Blocked we suspect this client is downloading maps in an unauthorized manner. Please ask at irc.openstreetmap.org&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>Is there a way to fix this, workaround, or somehow download the maps in an &quot;authorized manner&quot;?</p>",
+    "PostedDate": "2010-06-07T10:25:35.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "452595",
+    "ThreadId": "215224",
+    "Html": "<p>i never have such issue, unless you use 'server only' mode(p.s. that mode is created just for testing, use default settings)</p>",
+    "PostedDate": "2010-06-07T11:17:10.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "452754",
+    "ThreadId": "215224",
+    "Html": "<p>It was set to server + cache, but it was a fresh copy (the database was empty since it was the first time opening it on that machine)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-07T19:25:49.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "452796",
+    "ThreadId": "215224",
+    "Html": "<p>i've never blocked downloading few fresh tiles, did you use prefetcher? ;}</p>",
+    "PostedDate": "2010-06-07T21:48:46.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "453471",
+    "ThreadId": "215224",
+    "Html": "I had used prefetcher in the past a few times, but it has been a couple months since I've last used the software... Like I said, this was as soon as I opened the program and it was viewing the initial &quot;lietuva vilnius&quot; location, it loaded a couple tiles then started loading a bunch of the &quot;Access Blocked&quot; tiles.\r\n\r\nI switched it to OpenStreetMapOSM and it started working. Maybe this was just a glitch in the OSM server and it was blocking people for incorrect reason?",
+    "PostedDate": "2010-06-09T04:44:10.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "453472",
+    "ThreadId": "215224",
+    "Html": "<p>can you try&nbsp;directly <a href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a> ?</p>",
+    "PostedDate": "2010-06-09T04:47:57.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "868114",
+    "ThreadId": "215224",
+    "Html": "<p>Hi,</p>\r\n<p>today I&nbsp;got the first time the same message tiles from OSM.<br />I never used&nbsp;a&nbsp;prefetcher program and used OSM rarely.<br />The OSM page works fine on me computer.<br />Does GMap itentify it self against the server in the same way for all users ?<br />I mean then we all together may be a to heavy user.</p>\r\n<p>Because of the message text I believe it's meat&nbsp;more against GMAP.NET, than against the user !<br />Please visit the webside named in the message:</p>\r\n<p>Access blocked<br />This application is<br />blocked for overusing<br />OpenStreetMap's<br />volunteer-run servers:<br />wiki.osm.org/Blocked</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-07-15T09:01:56.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869083",
+    "ThreadId": "215224",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>Started getting the same error today, what can we do?, we use a local SQL server so 80% of the requests are fine.</p>\r\n<p>Can we use our own server?</p>\r\n",
+    "PostedDate": "2012-07-16T00:00:11.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869211",
+    "ThreadId": "215224",
+    "Html": "<p>Yeah I'm getting that from Australia using the demo apps.&nbsp;My very quick test app also has the problem.&nbsp;The website works fine.&nbsp;</p>\r\n<p>So it seems they've identified the GMap.NET control and blocked it :(</p>",
+    "PostedDate": "2012-07-16T01:46:16.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869487",
+    "ThreadId": "215224",
+    "Html": "<p>just change the useragent in GMapProvider.cs \"public static string UserAgent = xxxx\"</p>\r\n<p>bye EDE</p>",
+    "PostedDate": "2012-07-16T05:44:27.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869629",
+    "ThreadId": "215224",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:gray\">      ///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\n      <span style=\"color:gray\">///</span><span style=\"color:green\"> Gets or sets the value of the User-agent HTTP header.</span>\n      <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">string</span> UserAgent = <span style=\"color:#a31515\">&quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.7) Gecko/20091221 Firefox/3.5.7&quot;</span>;\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>Hi RobbeEDE!</p>\r\n<p>What String shall I put as UserAgent?</p>\r\n<p>Cheers, Xandolph</p>\r\n",
+    "PostedDate": "2012-07-16T07:21:01.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869646",
+    "ThreadId": "215224",
+    "Html": "<p>Putting in a few random strings does not appear to help, I still get the blocked message!</p>",
+    "PostedDate": "2012-07-16T07:34:12.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869650",
+    "ThreadId": "215224",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>jamesscreech wrote:</strong><br />\r\n<p>Putting in a few random strings does not appear to help, I still get the blocked message!</p>\r\n</blockquote>\r\n<p>Found a way, you need to set the value before you do anything else with the map control.</p>",
+    "PostedDate": "2012-07-16T07:36:51.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869656",
+    "ThreadId": "215224",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>GMapProvider.UserAgent = <span style=\"color: #a31515;\">\"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0.1\"</span>;\r\n</pre>\r\n</div>\r\n</p>\r\n<p>seems to work now :-)</p>\r\n<p>Thanks!!</p>",
+    "PostedDate": "2012-07-16T07:40:00.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869721",
+    "ThreadId": "215224",
+    "Html": "<p>fixed by using integrated pseudo-randomized value ;}</p>",
+    "PostedDate": "2012-07-16T08:26:27.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870605",
+    "ThreadId": "215224",
+    "Html": "<p>Hi radioman,</p>\r\n<p>and how can I solve the problem in my application now ?<br />I'm using the DLLs Version 1.6</p>\r\n<p>Setting (like xandolph) the <br />&nbsp;&nbsp;&nbsp;&nbsp; frmMain.GM.GMapProvider.UserAgent = \"....\"<br />gives the error message :<br />&nbsp;&nbsp;&nbsp; \"Access of shared member through an instance; qualifying expression will not be evaluated\"</p>\r\n<p>and that it is fixed, as you announced, will help me only if I go into the source and compile it.<br />Right ?</p>\r\n<p>Sorry for the boring questions<br />Rainer</p>\r\n<p><span style=\"font-size: x-small;\"><span style=\"font-size: x-small;\"></span></span></p>",
+    "PostedDate": "2012-07-17T00:56:43.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870685",
+    "ThreadId": "215224",
+    "Html": "<p>look above, there are few answers already, no errors, works perfect</p>",
+    "PostedDate": "2012-07-17T03:39:18.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870710",
+    "ThreadId": "215224",
+    "Html": "<p>@RainerAtCodeplex:</p>\r\n<p>just use the static member, don't try to access an instance of GMapProvider:</p>\r\n<pre>GMapProvider.UserAgent = <span style=\"color: #a31515;\">\"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:13.0) Gecko/20100101 Firefox/13.0.1\"</span>;<br /></pre>",
+    "PostedDate": "2012-07-17T04:23:29.183-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870719",
+    "ThreadId": "215224",
+    "Html": "<p>Many thanks radioman, xandolph,</p>\r\n<p>of course I did \"look above\".</p>\r\n<p>After looking into the source I found the necessary class names:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>GMap.NET.MapProviders.GMapProvider.UserAgent = <span style=\"color: #a31515;\">\"Mozilla...\"</span> <br /><br /></pre>\r\n</div>",
+    "PostedDate": "2012-07-17T04:42:19.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "876671",
+    "ThreadId": "215224",
+    "Html": "<p>Hi all - I, too, have experienced the AccessBlocked message and know the issue to be the default User Agent.</p>\r\n<p>I'm concerned that I may inadvertently breach the correct format of the User Agent string that I intend to specify.</p>\r\n<p>My understanding is that the first token is product, so can I assume I can put what I like in here?</p>\r\n<p>The second token is Layout engine and version. I know that xandolph uses Gecko/20100101 but is this valid for all User Agent strings?<br />(a quick check on google suggests that a layout engine is a browser-related term, but we're all using GMaps as a .NET component not as a browser component, so should I be using any reference to Gecko?- or is the GMaps .NET component using Gecko behind the scenes?)</p>\r\n<p>Is the third token (extensions) optional?</p>\r\n<p>btw: further up this thread, on June 7, 2010, radioman suggested that we shouldn't use server_only mode unless testing.</p>\r\n<p>A recent post on the OSM help page says the following</p>\r\n<p>&nbsp;\"scraping\" use (where you download tiles for storing them rather than for displaying them live in the browser) are not allowed.</p>\r\n<p>so should we really be using</p>\r\n<p><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\"><span style=\"font-family: Consolas; color: #008000; font-size: x-small;\">\r\n<p>GMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache?</p>\r\n</span></span></span></p>",
+    "PostedDate": "2012-07-19T06:11:39.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "879316",
+    "ThreadId": "215224",
+    "Html": "<p>yes, if you want slow access, server overload, use server mode</p>",
+    "PostedDate": "2012-07-20T02:18:01.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "879345",
+    "ThreadId": "215224",
+    "Html": "<p>Radioman, I agree with you entirely, I'm just letting people know that it is technically not permitted and they can make their own minds up</p>",
+    "PostedDate": "2012-07-20T02:29:43.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "879365",
+    "ThreadId": "215224",
+    "Html": "<p>'they' are helpless, random useragent, they can't even identify this software ;}</p>",
+    "PostedDate": "2012-07-20T02:37:31.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

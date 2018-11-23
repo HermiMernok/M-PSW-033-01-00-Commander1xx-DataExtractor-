@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1494403",
+    "ThreadId": "662107",
+    "Html": "Hi\r<br />\n<br />\nIs it possible to  get a route off line,  I have cached the map set the mode to  cacheonly\r<br />\nalso <br />\n<pre><code>  with gmapMap\n            .CacheLocation = c:\\myCache\\GMAP.NET\\\n            .Manager.Mode = GMap.NET.AccessMode.CacheOnly\n            .Manager.UseRouteCache = True\n            .Manager.UseDirectionsCache = True\n            .Manager.UseGeocoderCache = True\n            .Manager.UsePlacemarkCache = True\n</code></pre>\n\nIn my routing \r<br />\n<br />\n  Dim rp As RoutingProvider = gmapMap.MapProvider\r<br />\n<br />\n   myRoute = rp.GetRoute(myStart, myEnd, True, False, 15)\r<br />\n<br />\n<br />\nbut myroute is always nothing Is this possible to  get the route with no internet connection.\r<br />\n<br />\nAny help appreciated.\r<br />\n<br />\nRegards\r<br />\nColin<br />\n",
+    "PostedDate": "2017-03-21T08:22:12.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "840889",
+    "ThreadId": "357118",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I've just discovered GMap.Net, great tool! And have a some questions regarding the tile cache.</p>\r\n<p>Is there a limit on how much data is cached (excluding disk size)?</p>\r\n<p>Is it possible to set a limit on the size of the cache?</p>\r\n<p>Is it possible to empty the cache?</p>\r\n<p>Is it possible to automatically cache all tiles at all zoom levels for a given area? (The users of my app may not have internet access all the time, or at any time, so I would like to pre-cache the required map data.)</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you</p>\r\n<p>James</p>\r\n",
+    "PostedDate": "2012-05-25T05:12:38.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840910",
+    "ThreadId": "357118",
+    "Html": "<ul>\r\n<li>limit is 2TB</li>\r\n<li>map.Manager.PrimaryCache.<strong>DeleteOlderThan</strong>(DateTime.Now, null); // check the demo source...</li>\r\n<li>there is tile prefetcher in demos, you can use it or adapt in your own app</li>\r\n</ul>",
+    "PostedDate": "2012-05-25T06:10:44.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840917",
+    "ThreadId": "357118",
+    "Html": "<p>Thank you for the swift reply. I missed the prefetcher in the demo.</p>\r\n<p>Looking at my cache file it appears to be limited to 256MB. Is the limit changeable in code?</p>\r\n<p>&nbsp;</p>\r\n<p>James</p>",
+    "PostedDate": "2012-05-25T06:25:07.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

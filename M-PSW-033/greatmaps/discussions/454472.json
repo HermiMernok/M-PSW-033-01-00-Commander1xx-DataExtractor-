@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1084651",
+    "ThreadId": "454472",
+    "Html": "Hello radioman!\r<br />\nI want to know if I can use GMap.NET 's dll files in Delphi.\r<br />\nI've tried to import its dll files in a VCL Forms Application in Delphi EX3 and add GMapControl to a form. But I don't know how to use it now! For example GMapControl has lots of properties in C#. like Position, Zoom, etc. But now I can't see these properties in GMapControl that is imported into Delphi.\r<br />\n<br />\nI'm looking for a way to use it in Delphi and if it's not possible, I would be glad to know this fact in order not to waste time on it anymore!\r<br />\nthanks in advance for your help.<br />\n",
+    "PostedDate": "2013-08-25T08:06:37.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084784",
+    "ThreadId": "454472",
+    "Html": "i've no idea<br />\n",
+    "PostedDate": "2013-08-25T23:26:11.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090443",
+    "ThreadId": "454472",
+    "Html": "in AssemblyInfo.cs add\r<br />\n<br />\n[Assembly: ClassInterface(ClassInterfaceType.AutoDual)]<br />\n",
+    "PostedDate": "2013-09-09T21:49:49.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091870",
+    "ThreadId": "454472",
+    "Html": "We use this tool in our Delphi forms.  The map itself and all logic for it reside in a .dll, and we host it through Delphi using RemoteObjects Hydra.  It works well.<br />\n",
+    "PostedDate": "2013-09-12T12:01:31.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

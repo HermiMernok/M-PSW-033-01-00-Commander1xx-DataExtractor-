@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "204019",
+    "ThreadId": "60259",
+    "Html": "<p>Hello all,</p>\r\n<p>First i want to thank radioman, nice project GZ.</p>\r\n<p>I'm trying to use this\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Dim</span> rotacerta <span style=\"color:Blue\">As</span> List(Of PointLatLng) = GMaps.Instance.GetRouteBetweenPoints(p1, p2, <span style=\"color:Blue\">False</span>, 10)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>But i always get this :</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; Value of type 'GMap.NET.MapRoute' cannot be converted to 'System.Collections.Generic.List(Of GMap.NET.PointLatLng)'.&nbsp;</p>\r\n<p>Can you guys help me and tell me what i'm doing wrong.</p>\r\n<p>&nbsp;</p>\r\n<p>Other thing is it possible to know the name of the street by pointing Lat and Long?</p>\r\n<p>&nbsp;</p>\r\n<p>Best Regards,</p>",
+    "PostedDate": "2009-06-22T04:51:46.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204031",
+    "ThreadId": "60259",
+    "Html": "<p>the real defination of function is:&nbsp;</p>\r\n<p><strong>MapRoute</strong> <em>GetRouteBetweenPoints</em>(PointLatLng start, PointLatLng end, bool avoidHighways, int Zoom);</p>",
+    "PostedDate": "2009-06-22T05:29:19.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204048",
+    "ThreadId": "60259",
+    "Html": "<p>I did tryed this also,</p>\r\n<p>Dim testes As New MapRoute (GMaps.Instance.GetRouteBetweenPoints(p1, p2, False, 10), &quot;testes&quot;)</p>\r\n<p>But didn't worked also.</p>\r\n<p>Sorry but i really cant understand it.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-22T06:23:10.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204073",
+    "ThreadId": "60259",
+    "Html": "<p>Dim testes As MapRoute&nbsp;GMaps.Instance.GetRouteBetweenPoints(p1, p2, False, 10);</p>",
+    "PostedDate": "2009-06-22T07:35:40.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204119",
+    "ThreadId": "60259",
+    "Html": "<p>Forget it just made it ty.</p>\r\n<p>Sorry</p>\r\n<p>\r\n<hr>\r\n</p>\r\n<p>Sorry again but in VB.net 2008</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Dim</span> p1 <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> PointLatLng(lat, lng)\r\n<span style=\"color:Blue\">Dim</span> p2 <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> PointLatLng(lat2, lng2)\r\n\r\n<span style=\"color:Blue\">Dim</span> testes <span style=\"color:Blue\">As</span> MapRoute(GMaps.Instance.GetRouteBetweenPoints(p1, p2, <span style=\"color:Blue\">False</span>, 10))\r\n<br>and instantly give me this error Error\t1\tArray bounds cannot appear in type specifiers<br><br>Sorry but i cant get where i'm doing it wrong <br></pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-22T09:54:03.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "204156",
+    "ThreadId": "60259",
+    "Html": "<p>xinoura, are you portuguese?</p>\r\n<p>i&acute;ve been working in this project in vb2008 express, if you want i give you the code that i&acute;ve done already. It&acute;s working.</p>\r\n<p>My msn is <a href=\"mailto:lsoares_73@hotmail.com\">lsoares_73@hotmail.com</a></p>\r\n<p>&nbsp;</p>\r\n<p>Best regards</p>\r\n<p>ps, radioman, i hope that you dont mind about pm messages.</p>\r\n<p>&nbsp;</p>\r\n<p>sorry for my english</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-22T11:14:59.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1105255",
+    "ThreadId": "461580",
+    "Html": "Hi Radioman,  thanks for an amazing tool.  Upgraded from 1.5.5 to 1.6.0 and noticed that I'm missing the createPointLatLngFromCenterMiles to create a circle.  Is this function anywhere else in the code.  I'd like to create a circle from a center point and a radius ideally.\r<br />\nthanks\r<br />\nJonathan<br />\n",
+    "PostedDate": "2013-10-08T17:10:43.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1105258",
+    "ThreadId": "461580",
+    "Html": "OK I found them. thanks.<br />\n<pre><code>  public PointLatLng createPointLatLngFromCenterMiles(double DistanceMiles)\n  {\n      PointLatLng distancePoint = new PointLatLng();\n\n      //xMeter = xMeter / 1000;\n\n      double earthRadius = 3958.0;\n      double lat = this.Lat * (Math.PI / 180);\n      double lon = this.Lng * (Math.PI / 180);\n\n      double d = DistanceMiles / earthRadius;\n\n      double brng = 360 * (Math.PI / 180);\n\n      var latRadians = Math.Asin(Math.Sin(lat) * Math.Cos(d) + Math.Cos(lat) * Math.Sin(d) * Math.Cos(brng));\n      var lngRadians = lon + Math.Atan2(Math.Sin(brng) * Math.Sin(d) * Math.Cos(lat), Math.Cos(d) - Math.Sin(lat) * Math.Sin(latRadians));\n\n      distancePoint.Lat = latRadians * 180 / Math.PI;\n      distancePoint.Lng = lngRadians * 180 / Math.PI;\n\n      return distancePoint;\n  }\n\n  public PointLatLng createPointLatLngFromCenterKilometers(double DistanceKilometers)\n  {\n      PointLatLng distancePoint = new PointLatLng();\n\n      //xMeter = xMeter / 1000;\n\n      double earthRadius = 6367.0;\n      double lat = this.Lat * (Math.PI / 180);\n      double lon = this.Lng * (Math.PI / 180);\n\n      double d = DistanceKilometers / earthRadius;\n      double brng = 360 * (Math.PI / 180);\n\n      var latRadians = Math.Asin(Math.Sin(lat) * Math.Cos(d) + Math.Cos(lat) * Math.Sin(d) * Math.Cos(brng));\n      var lngRadians = lon + Math.Atan2(Math.Sin(brng) * Math.Sin(d) * Math.Cos(lat), Math.Cos(d) - Math.Sin(lat) * Math.Sin(latRadians));\n\n      distancePoint.Lat = latRadians * 180 / Math.PI;\n      distancePoint.Lng = lngRadians * 180 / Math.PI;\n\n      return distancePoint;\n  }\n</code></pre>\n\n",
+    "PostedDate": "2013-10-08T17:18:04.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

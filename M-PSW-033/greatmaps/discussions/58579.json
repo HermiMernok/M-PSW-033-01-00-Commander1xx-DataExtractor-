@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "198262",
+    "ThreadId": "58579",
+    "Html": "<p>Hello,</p>\r\n<p>I've a problem with the new overlays. I have a huge list of points, which should display several regions in the Netherlands. I have a vb app, but translated the code in C# also, neither works the right way.</p>\r\n<pre>        Dim Ov As New GMapNET.GMapOverlay(mainmap, &quot;Regiolijntjes&quot;)\r\n        mainmap.Overlays.Add(Ov)\r\n        Dim Regio = My.Resources.RegioLijntjes.Split(&quot;y&quot;)\r\n        Dim Points As New List(Of GMapNET.PointLatLng)\r\n        For i = 0 To 20\r\n            Points.Clear()\r\n            Dim RegioPoints = Regio(i).Split(&quot;/&quot;)\r\n            For ii = 0 To RegioPoints.Length - 1\r\n                Dim tmp = RegioPoints(ii).Split(&quot;x&quot;)\r\n                If tmp(0) &lt;&gt; &quot;&quot; Then\r\n                    Points.Add(New GMapNET.PointLatLng(tmp(0).Replace(&quot;.&quot;, &quot;,&quot;), tmp(1).Replace(&quot;.&quot;, &quot;,&quot;)))\r\n                End If\r\n            Next\r\n            Dim Lines As New GMapNET.GMapRoute(Points, &quot;Regiolijntjes&quot;)\r\n            Lines.Color = Color.Red\r\n            Ov.Routes.Add(Lines)\r\n        Next\r\n        Regio = Nothing\r\n        Ov.IsVisibile = My.Settings.LinesEnabled</pre>\r\n<p>With that, Ov has correctly 25 routes. But he draws only the last one! Have you any idea how this is possible?<br>The points are seperated by &quot;/&quot;, the coordinates by &quot;x&quot;, and the regions by &quot;y&quot;.</p>\r\n<p>With kind regards,<br>Thomas</p>",
+    "PostedDate": "2009-06-05T08:01:37.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198290",
+    "ThreadId": "58579",
+    "Html": "<p>maybe not so corectly ;} try manual add few routes</p>",
+    "PostedDate": "2009-06-05T09:10:39.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198380",
+    "ThreadId": "58579",
+    "Html": "<p>Aah, got it. I shouldn't have cleared the Points list. It still affects the Lines, and thereby, still the Ov.Routes variable. Strange, but ok. Code should be this:</p>\r\n<pre>        Dim Ov As New GMapNET.GMapOverlay(mainmap, &quot;Regiolijntjes&quot;)\r\n        mainmap.Overlays.Add(Ov)\r\n        Dim Regio = My.Resources.RegioLijntjes.Split(&quot;y&quot;)\r\n        For i = 0 To Regio.Count - 1\r\n            Dim Points As New List(Of GMapNET.PointLatLng)\r\n            Dim RegioPoints = Regio(i).Split(&quot;/&quot;)\r\n            For ii = 0 To RegioPoints.Length - 1\r\n                Dim tmp = RegioPoints(ii).Split(&quot;x&quot;)\r\n                If tmp(0) &lt;&gt; &quot;&quot; Then\r\n                    Points.Add(New GMapNET.PointLatLng(tmp(0).Replace(&quot;.&quot;, &quot;,&quot;), tmp(1).Replace(&quot;.&quot;, &quot;,&quot;)))\r\n                End If\r\n            Next\r\n            Dim Lines As New GMapNET.GMapRoute(Points, &quot;Regiolijntjes&quot;)\r\n            Lines.Color = Color.Red\r\n            Ov.Routes.Add(Lines)\r\n        Next\r\n        Regio = Nothing\r\n        Ov.IsVisibile = My.Settings.LinesEnabled</pre>\r\n<p>Thanks!</p>",
+    "PostedDate": "2009-06-05T12:28:28.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198382",
+    "ThreadId": "58579",
+    "Html": "<p>welcome ;}</p>",
+    "PostedDate": "2009-06-05T12:30:24.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

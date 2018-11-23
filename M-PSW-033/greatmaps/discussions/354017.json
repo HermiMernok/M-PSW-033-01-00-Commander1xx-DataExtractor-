@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "830182",
+    "ThreadId": "354017",
+    "Html": "\r\n<p>I used to be able to change the color of&nbsp;a route by changing the shape property to a windows.shape.path</p>\r\n<p>this does not seem to work now that i updated to the latest version.</p>\r\n<p>&nbsp;</p>\r\n<p>any ideas?</p>\r\n",
+    "PostedDate": "2012-04-30T07:07:54.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830185",
+    "ThreadId": "354017",
+    "Html": "<p>sure it works</p>",
+    "PostedDate": "2012-04-30T07:13:38.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830186",
+    "ThreadId": "354017",
+    "Html": "<p>hmm, i have not changed anything other then updating to the latest release of gmaps and the color is not being applied.</p>\r\n<p>Ill dig a little deeper and see if i can find out why</p>",
+    "PostedDate": "2012-04-30T07:16:48.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830190",
+    "ThreadId": "354017",
+    "Html": "<p>hm</p>",
+    "PostedDate": "2012-04-30T07:20:50.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830191",
+    "ThreadId": "354017",
+    "Html": "<p>seems like</p>\r\n<p><span style=\"color: #010001; font-size: x-small;\"><span style=\"color: #010001; font-size: x-small;\">\r\n<p>RegenerateRouteShape</p>\r\n<p><span style=\"color: #010001; font-size: x-small;\"><span style=\"color: #010001; font-size: x-small;\">&nbsp;</span></span>overwrites the shape now, setting the properties after this is called fixed it.</p>\r\n<p><span style=\"color: #010001; font-size: x-small;\"></span></p>\r\n<p><span style=\"color: #010001; font-size: x-small;\"></span>thanks, sorry to waste your time</p>\r\n</span></span></p>",
+    "PostedDate": "2012-04-30T07:21:04.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830196",
+    "ThreadId": "354017",
+    "Html": "<p>works as expected:</p>\r\n<p><em>GMapMarker mRoute = new GMapMarker(start);</em><br /><em> {</em><br /><em> mRoute.Route.AddRange(route.Points);</em><br /><em> mRoute.RegenerateRouteShape(MainMap);</em><br /><br /><em> (mRoute.<strong>Shape</strong> as System.Windows.Shapes.Path).<strong>Stroke</strong> = Brushes.Green;</em></p>\r\n<p><em>...</em></p>",
+    "PostedDate": "2012-04-30T07:27:56.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830199",
+    "ThreadId": "354017",
+    "Html": "<p>previously i had set the stroke color once when the window loaded and did not have to set the color again when regenerateroute was called.</p>",
+    "PostedDate": "2012-04-30T07:35:34.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830207",
+    "ThreadId": "354017",
+    "Html": "<p><em>GMapMarker mRoute = new GMapMarker(start);</em><br /><em> {</em><br /><em> mRoute.Route.AddRange(route.Points);</em><br /><em> mRoute.<strong>RegenerateRouteShape</strong>(MainMap);</em><br /><br /><em> (mRoute.Shape as System.Windows.Shapes.Path).Stroke = Brushes.<strong>Green</strong>;</em><br /><br /><em> mRoute.<strong>RegenerateRouteShape</strong>(MainMap);</em></p>\r\n<p><em>...&nbsp;</em></p>\r\n<p>...and the route is still green, works as expected</p>",
+    "PostedDate": "2012-04-30T07:42:25.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830210",
+    "ThreadId": "354017",
+    "Html": "<p>wierd.</p>\r\n<p>Well its working fine now setting it after the regenerate so ill leave it at that :P</p>\r\n<p>thanks for your response, your quick :)</p>",
+    "PostedDate": "2012-04-30T07:51:00.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "830212",
+    "ThreadId": "354017",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2012-04-30T07:53:00.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

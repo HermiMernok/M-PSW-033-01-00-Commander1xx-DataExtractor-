@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "676571",
+    "ThreadId": "273824",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>First of all I want to thank you for this amazing control.<br>\r\nI found a bug in DirectionUrlFormatPoint string. There should not be @ in front of gps coords. When it is so, then it returns NOT_FOUND. If you sned string without this, it works fine.</p>\r\n<p><span style=\"font-family:Consolas,'Courier New',Courier,monospace; white-space:pre\">Not correct: &quot;...origin=@{0},{1}&amp;destination=@{2},...&quot;</span></p>\r\n<p>Correct: &quot;...origin={0},{1}&amp;destination={2},...&quot;</p>\r\n<p>Tomas</p>\r\n",
+    "PostedDate": "2011-09-26T01:41:24.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676591",
+    "ThreadId": "273824",
+    "Html": "<p>it was fixed at:</p>\r\n<table style=\"margin: 0px;\" border=\"0\" cellspacing=\"2\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td style=\"padding-right: 6;\">\r\n<p style=\"text-indent: 0px; margin: 0px;\"><span style=\"font-weight: 600;\">Changeset:</span></p>\r\n</td>\r\n<td>\r\n<p style=\"text-indent: 0px; margin: 0px;\"><span style=\"font-family: 'monospace'; font-size: 9pt;\">699 (64139de179eb)</span> GMap.NET.Core: fixed format url for directions</p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<table style=\"margin: 0px;\" border=\"0\" cellspacing=\"2\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td style=\"padding-right: 6;\">\r\n<p style=\"text-indent: 0px; margin: 0px;\"><span style=\"font-weight: 600;\">Date:</span></p>\r\n</td>\r\n<td>\r\n<p style=\"text-indent: 0px; margin: 0px;\">2011-09-23 09:39:02 +0300 (3 days)</p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+    "PostedDate": "2011-09-26T02:04:24.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1420329",
+    "ThreadId": "273824",
+    "Html": "Hi,\r<br />\nI found a bug in DirectionUrlFormatWaypoint and DirectionUrlFormatWaypointStr string. When you call GetDirections (out GDirections direction, PointLatLng start, IEnumerable &lt;PointLatLng&gt; vayPoynts ..., an error occurs (NOT_FOUND).\r<br />\nNot correct: &quot; ... origin={0},{1}&amp;waypoints={2}&amp;sensor=....&quot;\r<br />\nCorrect: &quot;...origin={0},{1}&amp;waypoints={2}&amp;destination={3},{4}&amp;sensor...&quot;<br />\n",
+    "PostedDate": "2015-04-28T05:53:44.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1425243",
+    "ThreadId": "273824",
+    "Html": "fixed<br />\n",
+    "PostedDate": "2015-05-13T10:11:44.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-05-13T10:11:48.177-07:00"
+  }
+]

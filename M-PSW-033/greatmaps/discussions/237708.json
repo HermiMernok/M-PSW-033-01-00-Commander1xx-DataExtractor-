@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "533308",
+    "ThreadId": "237708",
+    "Html": "\r\n<p>Hello</p>\r\n<p>First of all I'd like to thank you radioman, for such a great maps framework.</p>\r\n<p>I'm using WPF and I'd like to draw multiple polygons with different styles and also be able to somehow group them in layers so that I can toggle them on and off. Basically I'm trying to mark some areas on land and then draw different objects (polygons) on\r\n them that would support some events and scale with zoom level.</p>\r\n<p>Right now, I've followed your example and I'm using GMapMarker's polygon but I don't have any good ideas on how to dinamically change the polygons' colors and how to group them in layers/groups with different ZIndex, is there a way to do that already or\r\n do I need to change the code and in what way would you suggest me to go?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-09T02:31:20.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533325",
+    "ThreadId": "237708",
+    "Html": "\r\n<p>hey, i guess there is no best way yet, polygon is simply Path object, you can change it's color/etc...</p>\r\n",
+    "PostedDate": "2010-12-09T03:14:03.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533366",
+    "ThreadId": "237708",
+    "Html": "\r\n<p>So I can derive from GMapMarker and override the&nbsp;RegeneratePolygonShape and same for&nbsp;GMapControl and&nbsp;CreatePolygonPath so that they accept color as a parameter?</p>\r\n<p>Or I create a GMapMarker and call RegeneratePolygonShape on it and&nbsp;then do&nbsp;(marker.Shape as Path).Fill = Brushes.Yellow but somehow I don't like the idea of painting twice?</p>\r\n<p>What would be better?</p>\r\n",
+    "PostedDate": "2010-12-09T05:13:00.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533394",
+    "ThreadId": "237708",
+    "Html": "\r\n<p>to get more control&nbsp;overriding would be better</p>\r\n",
+    "PostedDate": "2010-12-09T06:16:26.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580645",
+    "ThreadId": "237708",
+    "Html": "<p>Hi pingec!</p>\n<p>I have exactly the same needs as yourself and thought I'd contact you to see if you've implemented the functionality instead of me trying to \"re-invent\" the wheel:-)</p>\n<p>Cheers!</p>",
+    "PostedDate": "2011-03-15T03:34:21.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "582289",
+    "ThreadId": "237708",
+    "Html": "<p>I went with my second idea beacuse it was the easiest one and just kept groups of polygons in different lists. I't not a good solution and it's temporary, I haven't touched the app in a while, need to get back to it.</p>",
+    "PostedDate": "2011-03-17T12:30:58.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

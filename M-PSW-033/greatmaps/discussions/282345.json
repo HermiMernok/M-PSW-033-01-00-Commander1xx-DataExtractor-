@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "709693",
+    "ThreadId": "282345",
+    "Html": "\r\n<p>Hi Guys,</p>\r\n<p>Trying to add maps to my compact framework v3.5 app and am having trouble compiling the program. I get the following error:</p>\r\n<p>Error 1 The type 'System.Windows.Forms.UserControl' is defined in an assembly that is not referenced. You must add a reference to assembly 'System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.</p>\r\n<p>Is there any way around this? I am referencing system.windows.forms but i think its v3.5. I assumed that they would be backwards compatible? I am a bit of a noob with the compact framework.</p>\r\n",
+    "PostedDate": "2011-12-08T22:28:47.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709710",
+    "ThreadId": "282345",
+    "Html": "<p>you added wrong dll, use windows mobile version:&nbsp;GMap.NET.WindowsForms.dll, it's in VS2008 solution&nbsp;GMap.NET.sln</p>",
+    "PostedDate": "2011-12-08T23:28:23.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710697",
+    "ThreadId": "282345",
+    "Html": "<p>Thanks, I have fixed that issue.</p>\r\n<p>I want to be able to just plot Lat/Long coordinates and not the actual map. Is this possible? Can I have just a white background?</p>",
+    "PostedDate": "2011-12-11T19:32:56.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710758",
+    "ThreadId": "282345",
+    "Html": "<p><em>map.MapProvider = GMapProviders.<strong>EmptyProvider</strong>;</em></p>",
+    "PostedDate": "2011-12-11T23:32:39.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712473",
+    "ThreadId": "282345",
+    "Html": "<p>Thanks,</p>\r\n<p>I have another question regarding loading times. The map control takes quite a while to load on my mobile device. Is there anyway I can optimise this process or is there a specific procedure I should follow to load the control?&nbsp;</p>",
+    "PostedDate": "2011-12-14T19:33:57.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712529",
+    "ThreadId": "282345",
+    "Html": "<p>it loads fast, you are doing something wrong</p>",
+    "PostedDate": "2011-12-14T23:42:29.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

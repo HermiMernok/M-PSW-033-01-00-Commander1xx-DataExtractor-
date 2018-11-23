@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "546588",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>can you please tell me how to load markers during Prefetch i am populating markers from service.</p>\r\n<p>or <span style=\"font-family:Comic Sans MS; font-size:x-small\"><span style=\"font-family:Comic Sans MS; font-size:x-small\">OnTileLoadStart.</span></span></p>\r\n<p><span style=\"font-family:Comic Sans MS; font-size:x-small\"><span style=\"font-family:Comic Sans MS; font-size:x-small\">&nbsp;</span></span></p>\r\n",
+    "PostedDate": "2011-01-10T04:16:25.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546599",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>you mean add markers on the map while still loading other markers in background?</p>\r\n",
+    "PostedDate": "2011-01-10T04:40:39.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546609",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>yes since map load as Tiles iam trying&nbsp;to add markers on the map loaded part(Tiles)&nbsp;and also&nbsp;loading the other&nbsp;markers and other&nbsp;maparea&nbsp;on the background.</p>\r\n",
+    "PostedDate": "2011-01-10T05:05:29.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546634",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>hm.. it's complicated, i don't have demo for this now ;/</p>\r\n",
+    "PostedDate": "2011-01-10T05:40:23.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546635",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>yes i understand can you please suggest me some ways to move forward.Is it possible to get the Total number of tiles and which tile is currently&nbsp;loading?</p>\r\n",
+    "PostedDate": "2011-01-10T05:42:19.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546652",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>since there is few threads loading tiles, it's not one tile that is loading, but i think you need to add/remove your marker when all tiles are loaded using TileLoadComplete event somehow</p>\r\n",
+    "PostedDate": "2011-01-10T05:56:27.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546675",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>ok but TileLoadComplete event occurs almost similar to MapLoaded event. Is it possible to fetch the tile area which loading has been completed?</p>\r\n",
+    "PostedDate": "2011-01-10T06:14:12.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546688",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>TileLoadComplete occurs everytime you zoom/move map, so tiles needs to be loaded, for separate tile, there is no events</p>\r\n",
+    "PostedDate": "2011-01-10T06:34:43.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546695",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>Thanks&nbsp;another question :) is it possible to identify the separate tiles loading completion by any method?</p>\r\n",
+    "PostedDate": "2011-01-10T06:40:19.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546702",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>nop, just use OnTileLoadComplete &#43;&nbsp;CurrentViewArea and unload any marker which is not in that area and load/enable any marker who is there ;}</p>\r\n",
+    "PostedDate": "2011-01-10T06:48:56.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547187",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>Hi</p>\r\n<p>In the Core.cs file under UpdateBounds i find a method FindTilesAround(ref tileDrawingList); which i believe returns the tiles that are under the view. Is there any property where we can identify each tile uniquely and find the loaded event seperately?</p>\r\n<p>so that i can load markers for a particular tile.</p>\r\n",
+    "PostedDate": "2011-01-11T02:23:04.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547196",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>you can try hack the code in Core.ProcessLoadTask</p>\r\n",
+    "PostedDate": "2011-01-11T02:40:51.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547200",
+    "ThreadId": "241129",
+    "Html": "\r\n<p>hack :) a difficult Job let me try and come back. Thanks for the suggestion.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-11T02:49:48.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

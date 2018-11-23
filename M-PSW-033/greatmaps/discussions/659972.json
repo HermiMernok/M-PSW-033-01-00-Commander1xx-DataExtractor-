@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1489407",
+    "ThreadId": "659972",
+    "Html": "<blockquote>\nHello Community, i need help with the GMap.NET. I just know to set a Marker with the Latitude and Longitude but. The Problem is that i want to set the Marker by the TextBox Text with the City, Streetname and Number.<br />\n<br />\nI know that this Code set's a Marker with Lat and Lng: <br />\n<pre><code>GMapMarker marker = new GMarkerGoogle(new PointLatLng(48.8617774, 2.349272), GMarkerGoogleType.red_dot);</code></pre>\n\nAnd i want to have something like this:<br />\n<pre><code>GMapMarker marker = new GMarkerGoogle(new PointLatLng(textbox1.text + textbox2.text + textbox3.text), GMarkerGoogleType.red_dot);</code></pre>\n\nI hope you Guys can help me. I searched the hole Internet for my Problem.<br />\nGrettings from Germany !<br />\n</blockquote>\n/ ---------- I found a Resulution for the Prbolem ----------/<br />\n<br />\nYou can use NuGet package <a href=\"https://www.nuget.org/packages/GoogleMaps.LocationServices\" rel=\"nofollow\">GoogleMaps.LocationServices.</a> It uses Google's REST API to get lat/long for a given address and vice versa, without the need for an API key.<br />\n<pre><code>var address = &quot;Stavanger, Norway&quot;; //Use textbox value textbox1.text\n\n    var locationService = new GoogleLocationService();\n    var point = locationService.GetLatLongFromAddress(address);\n\n    var latitude = point.Latitude;\n    var longitude = point.Longitude;\n\n    GMarkerGoogle(new PointLatLng(latitude, longitude), GMarkerGoogleType.red_dot);</code></pre>\n\n",
+    "PostedDate": "2016-12-07T01:00:26.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

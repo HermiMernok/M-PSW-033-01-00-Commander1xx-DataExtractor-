@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "466737",
+    "ThreadId": "219280",
+    "Html": "<p>Hey Radioman.</p>\r\n<p>I get you are the type &quot;watch, observe, learn, implement&quot; and i try to follow that way, but what i &quot;need&quot; is far from my reach, and should be easy enough for you.</p>\r\n<p>Since you've understood the tiling mecanism behind the mapping, and you manage it, would it be possibile to add a zoom level by oversampling available tiles?</p>\r\n<p>Something like &quot;gmapcontrol.oversampling as boolean&quot; and &quot;gmapcontrol.oversamplinglevels as integer&quot;</p>\r\n<p>if you enable oversampling the software can oversample whatever tile level is availabe IF the next one is not available.</p>\r\n<p>Oversampling levels looks self explanatory to me.</p>\r\n<p>You could also implement an undersampling method for reverse cases, but this is not my priority.</p>\r\n<p>Fact is i could really use another zoom level, which no map provider gives us. Detail is not necesarry i could really do with oversampling available bitmaps, but i can't start arranging the gmapcontrol. Am too noob for that.</p>\r\n<p>Maybe just an &quot;gmapcontrol.oversamplemaxzoom as boolean&quot; to just make it available another zoom level beyond max, instead of doing a whole oversampling system...</p>\r\n<p>Think about it pls :)</p>",
+    "PostedDate": "2010-07-13T05:00:04.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466758",
+    "ThreadId": "219280",
+    "Html": "<p>hey, i know somebody else too wanted that feature, you can try to wait for my implementation or help by developing it by yourself, nothing special is needed, just use lower level tiles to generate higher levels on fly ;}</p>",
+    "PostedDate": "2010-07-13T05:31:38.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466862",
+    "ThreadId": "219280",
+    "Html": "<p>I'm trying to look at the source...</p>",
+    "PostedDate": "2010-07-13T08:46:04.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

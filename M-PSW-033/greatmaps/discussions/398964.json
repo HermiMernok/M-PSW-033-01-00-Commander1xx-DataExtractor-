@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "925218",
+    "ThreadId": "398964",
+    "Html": "\r\n<p>Hello! Help me please! I need to get the coordinates (latitude, longitude) of the top left point of the map and the bottom right point of the map. By what properties gmapcontrol I do that?</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>tb_lat_1.Text = gMapControl1.FromLocalToLatLng(0, gMapControl1.Size.Height).Lat.ToString();\r\n            tb_lng_1.Text = gMapControl1.FromLocalToLatLng(0, gMapControl1.Size.Height).Lng.ToString();\r\n\r\n            tb_lat_2.Text = gMapControl1.FromLocalToLatLng(gMapControl1.Size.Width, 0).Lat.ToString();\r\n            tb_lng_2.Text = gMapControl1.FromLocalToLatLng(gMapControl1.Size.Width, 0).Lng.ToString(); \r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p>Attempted to do so, but it is wrong.</p>\r\n<p>Hope for your help. Thanks!</p>\r\n",
+    "PostedDate": "2012-10-11T06:02:45.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925227",
+    "ThreadId": "398964",
+    "Html": "\r\n<p>var p1 = map.FromLocalToLatLng(0, 0);<br>\r\nvar p2 = map.FromLocalToLatLng(width, height);</p>\r\n<p>or<br>\r\n<br>\r\nvar area = map.<strong>ViewArea</strong>;</p>\r\n",
+    "PostedDate": "2012-10-11T06:17:22.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925233",
+    "ThreadId": "398964",
+    "Html": "\r\n<p>thanks! you helped me much more!</p>\r\n",
+    "PostedDate": "2012-10-11T06:33:38.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

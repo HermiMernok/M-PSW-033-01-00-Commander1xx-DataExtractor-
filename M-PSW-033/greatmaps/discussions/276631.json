@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "687063",
+    "ThreadId": "276631",
+    "Html": "\r\n<p>Hi everybody.</p>\r\n<p>I created a GmapControl, with several layers. I.E.: if a draw a square in the first layer, it will be overlapped with a circle that i draw in the second layer. Its possible to &quot;change the order&quot; of a Layer? (or something like layer.BringTofront/layer.BringtoBack).\r\n I know that i can change the way of draw things (drawing the circle in the first layer and square in the second). But, when i have somehting like 6 layers or more (they are created programmatically), its very troublesome to control this. I need the first layer\r\n always stay at top of the rest.</p>\r\n<p>Thanks.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-10-20T12:33:26.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687091",
+    "ThreadId": "276631",
+    "Html": "<p>MainMap.Overlays.<strong>Move</strong></p>",
+    "PostedDate": "2011-10-20T13:02:38.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687138",
+    "ThreadId": "276631",
+    "Html": "<p>Gmapcontrol.Overlays.Move ask for a oldIndex and newIndex (integer). How can obtain these index for a layer? Sorry for disturbing you</p>\n<p>EDIT:</p>\n<p>Ops! I Get it: gmapcontrol.overlays.Indexof(MyLayer)</p>\n<p>(This returns the index of my layer)</p>\n<p>thanks!</p>",
+    "PostedDate": "2011-10-20T14:40:51.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

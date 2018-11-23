@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "253101",
+    "ThreadId": "73996",
+    "Html": "<p>Radioman, is it possible for GMAP to use local (on local hard disk or LAN) GIS data only in the form of Shapefiles or GIS data in MS SQL, thus no online downloading from Google etc ?</p>\r\n<p>Thanks</p>\r\n<p>OD</p>",
+    "PostedDate": "2009-11-03T21:23:20.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253152",
+    "ThreadId": "73996",
+    "Html": "<p>you can use your server as <a href=\"http://greatmaps.codeplex.com/wikipage?title=ImageCacheSecond&referringTitle=Documentation\">ImageCacheSecond</a>&nbsp;so&nbsp;downloading&nbsp;from global servers occurs only once</p>",
+    "PostedDate": "2009-11-04T01:27:48.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253204",
+    "ThreadId": "73996",
+    "Html": "<p>Is it thus not possible at all currently to avoid the initial download as we have a full dataset ?</p>\r\n<p>Alternatively, do you think it would be worth my while to to attempt to change the source components to achieve this (thus to use a &quot;caching server&quot; only type of option) ?</p>",
+    "PostedDate": "2009-11-04T04:04:23.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253216",
+    "ThreadId": "73996",
+    "Html": "<p>what are other&nbsp;alternatives?&nbsp;</p>",
+    "PostedDate": "2009-11-04T04:45:30.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253401",
+    "ThreadId": "73996",
+    "Html": "<p>Option 1:</p>\r\n<p>Avoid the download of map data from an internet source through appropriate settings so that only the locally available GIS data is used</p>\r\n<p>&nbsp;</p>\r\n<p>Option 2:</p>\r\n<p>Change source to achieve Option 1</p>\r\n<p>&nbsp;</p>\r\n<p>If Option 1 is not doable currently, is Option 2 practical within a reasonable time frame in your opinion ?</p>",
+    "PostedDate": "2009-11-04T10:34:02.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253421",
+    "ThreadId": "73996",
+    "Html": "<p>i use triple cache in my company, first as default global servers(google/etc), second local network server(empty by default), third local sqlite cache(again by default enabled), i there is no data&nbsp;locally&nbsp;on computer, it searches on local server(if found caches&nbsp;locally), if no download from global servers and cache on both local server and local cache, so other clients gets data from local server instead of global servers if they do not have data&nbsp;already&nbsp;locally ;} so there is Zero overload for global and local servers, maximum&nbsp;performance ;} works well</p>",
+    "PostedDate": "2009-11-04T11:13:47.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

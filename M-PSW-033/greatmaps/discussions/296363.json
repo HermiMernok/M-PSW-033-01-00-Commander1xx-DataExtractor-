@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "744089",
+    "ThreadId": "296363",
+    "Html": "\r\n<p>I am building a windows forms application that contains two windows forms. Each form contains a seperate GMapControl with its own GMapOverlay containing markers. The second form is designed to be a popup window. The problem I have is that when I close the\r\n second form and then try to interact with the map on the first form, the map on the first form disappears and is replaced with a big red cross. It seeems as if the map on form1 is deleted when I close form2. Can you please suggest why this is happening? Both\r\n forms have their own instance of the GMapControl so I am confused by what is causing this.</p>\r\n<p>Cheers, Julian.</p>\r\n",
+    "PostedDate": "2012-02-06T16:59:15.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "744544",
+    "ThreadId": "296363",
+    "Html": "<p>you are doing something wrong, try latest build</p>",
+    "PostedDate": "2012-02-06T23:18:55.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "746194",
+    "ThreadId": "296363",
+    "Html": "<p>Thank you radioman! Latest build has fixed this.</p>",
+    "PostedDate": "2012-02-07T17:51:56.15-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

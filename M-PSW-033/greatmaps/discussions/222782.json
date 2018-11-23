@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "477576",
+    "ThreadId": "222782",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I discovered that Google have changed their version numbers, but your code is now not working with the&nbsp;latest version of their script.&nbsp;Although&nbsp;the code is still passing the old version numbers it is&nbsp;continuing to work (for now). Maps version changed from <a href=\"mailto:m@129\">m@129</a>&nbsp;to<span style=\"color:#000000\"> <a href=\"mailto:m@130\">m@130</a></span>&nbsp;and the Settelite version changed from 63 to&nbsp;66.</p>\r\n<p>What I found was that the&nbsp;TryCorrectGoogleVersions() function was searching for &quot;jslinker,pageArgs&quot; but this string is no longer found in Google's scripts, and as a result the version numbers are not extracted from Google URIs (and no warning is created). I found that changing the code to search for &quot;jslinker,&quot;&nbsp; or&nbsp; &quot;;&quot; gets it working again.</p>\r\n<p>In looking at how the&nbsp;TryCorrectGoogleVersions() function extracts the version numbers I also discovered that it may be subject to timing issues as it is called by multiple threads. It looks like the first thread that enters it will start extracting the latest version numbers from Google's scripts, but if other threads enter the fuction while the first thread is still waiting for a response from maps.google.com they will return and use the initial version numbers in the defined in the code. I would like to contribute code changes to fix things like this, but I don't what to upset your ownership of the code if this is how you feel about it.</p>\r\n<p>Martin.</p>\r\n<p><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&nbsp;</span></span></p>",
+    "PostedDate": "2010-08-06T22:46:00.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "477938",
+    "ThreadId": "222782",
+    "Html": "<p>first, there is no&nbsp;ownership of the code, it's <em>OpenSource</em> ;}</p>\r\n<p>..anyway, if you made some fix or improvement, just create a fork and push your changes, i'll be happy to commit them in 'official' code branch</p>\r\n<p>..as for google version checking, i'll fix it as soon as i can</p>",
+    "PostedDate": "2010-08-09T00:46:30.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "479948",
+    "ThreadId": "222782",
+    "Html": "<p>To fix the concurrency issue I ended up with just a small code change. Is it OK if I post it here rather than make a branch? Maybe you can use it when you look at updating the Google version checking.</p>\r\n<p>The existing code is:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; internal void TryCorrectGoogleVersions()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(CorrectGoogleVersions &amp;&amp; !IsCorrectedGoogleVersions)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IsCorrectedGoogleVersions = true; // try it only once<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string url = @&quot;<a href=\"http://maps.google.com\">http://maps.google.com</a>&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // code to find current versions ...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>The modified code is:&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; static object correctGoogleVersionsLock = new object();&nbsp; // lock object for object for TryCorrectGoogleVersions() <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; internal void TryCorrectGoogleVersions()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (CorrectGoogleVersions &amp;&amp; !IsCorrectedGoogleVersions)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lock (correctGoogleVersionsLock)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!IsCorrectedGoogleVersions)&nbsp;&nbsp;&nbsp;&nbsp; // check again in case we were waiting on the lock while another thread processed<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IsCorrectedGoogleVersions = true; // try it only once</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string url = @&quot;<a href=\"http://maps.google.com\">http://maps.google.com</a>&quot;; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // code to find current versions ...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-08-12T17:08:03.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "480000",
+    "ThreadId": "222782",
+    "Html": "<p>actualy&nbsp;IsCorrectedGoogleVersions should be in the lock scope, anyway i still need update whole function to get versions correctly, thanks</p>",
+    "PostedDate": "2010-08-12T21:55:24.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,178 @@
+[
+  {
+    "Id": "1483166",
+    "ThreadId": "657781",
+    "Html": "I have an issue that GMaps does not caching the tile, does not creating a new database, does not import/export cached tiles.\r<br />\n<br />\nSo my app is using the SQL LITE Database, and the GMaps also uses same LIB...\r<br />\nHow can I cache and load my cache from file? Does any body know?<br />\n",
+    "PostedDate": "2016-09-07T10:29:28.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483349",
+    "ThreadId": "657781",
+    "Html": "set sqlite references to '<strong>Copy Local = False</strong> to output, it's embedded and loaded dynamically from gmap<br />\n",
+    "PostedDate": "2016-09-10T07:38:09.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-09-11T09:01:53.487-07:00"
+  },
+  {
+    "Id": "1483353",
+    "ThreadId": "657781",
+    "Html": "Thanks for reply but how to set Copy Never? Can you provide me a smal example? it's very important for me to have cached map in my great project.<br />\n",
+    "PostedDate": "2016-09-10T08:26:00.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483355",
+    "ThreadId": "657781",
+    "Html": "Sorry. I understand. I will try to do that... So if I do not copy my SQL library that my sql data base will not work? My APP is based on SQLITE DB... :(<br />\n",
+    "PostedDate": "2016-09-10T08:33:23.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483397",
+    "ThreadId": "657781",
+    "Html": "it will work, it will use embedded sqlite dll iside gmap itself, if thats the issue<br />\n",
+    "PostedDate": "2016-09-11T09:06:01.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483441",
+    "ThreadId": "657781",
+    "Html": "I have tried, but the cached images still not caching, even if I take cached images by using your demo app, and when I try to import the Data.gmdb or put it in the cache folder, the map shows tiles without images but with sign like TILES NOT FOUND IN CACHE...\r<br />\n<br />\nWHY IT IS HAPPENED AND HOW TO MAKE CACHE WORKING?<br />\n",
+    "PostedDate": "2016-09-11T23:52:21.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483497",
+    "ThreadId": "657781",
+    "Html": "dunno what are you doing there, try debug cache engine<br />\n",
+    "PostedDate": "2016-09-12T09:09:24.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483502",
+    "ThreadId": "657781",
+    "Html": "I am doing nothing special... Just trying to show the map in offline mode. Thanks. I will try.<br />\n",
+    "PostedDate": "2016-09-12T09:48:08.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483547",
+    "ThreadId": "657781",
+    "Html": "Where to find &quot;debug cache engine&quot;???\r<br />\n<br />\nIn new project caching working well, but in my progect with DB SQLITE it does not loading cached tiles.\r<br />\nSo the connection to my DB is alway opened, may it be a reason?<br />\n",
+    "PostedDate": "2016-09-13T00:12:18.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483554",
+    "ThreadId": "657781",
+    "Html": "Hi YuryKomar,\r<br />\nI guess your SQLite assembly is conflicting with the one embedded in GMaps.\r<br />\n<br />\nGMaps is using an embedded SQLite assembly (dunno remember which version and which target platform, x86 or x64) and this will conflict for REAL with any SQLite assembly you might link in your project. \r<br />\nPlease make sure that you set set &quot;Copy local&quot; to FALSE on your SQLite assembly in your project :\r<br />\n<strong>==&gt; in Visual Studio, go to &quot;References&quot;, right click on System.Data.SQLite and set &quot;Copy local&quot; to FALSE).</strong>\r<br />\n<br />\n Doing that will prevent your SQLite assembly to be copied aside your application binary and thus likely prevent it from CRASHING the SQLite engine embedded in GMaps (and so crashing the cache system).\r<br />\n<br />\nMorevover when you deploy your application, DO NOT deploy any SQLite assembly with it, there is no need, it's embedded in GMaps.\r<br />\nI'm pretty sure your issue is related to that. I'm using SQLite in my application as well and the cache system is working perfectly fine.<br />\n",
+    "PostedDate": "2016-09-13T01:43:24.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-09-13T09:45:15.813-07:00"
+  },
+  {
+    "Id": "1483555",
+    "ThreadId": "657781",
+    "Html": "CryptoBoyNG, thanks for comment, a did try Not To Copy DLL, checked that it was deleted in BIN folder. So the problem as well as before... May version of Sqlite dll was downloaded from official web site, sure it is not buggy... My version of Gmaps is 1.7, looks like it is latest stable.\r<br />\nI have cheched it new project - it works, but in my app not. may be to close connetion to my DB before load caches and save it to cashe location? my connection always open.<br />\n",
+    "PostedDate": "2016-09-13T01:54:43.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483584",
+    "ThreadId": "657781",
+    "Html": "try debugger and catch the exception in gmap cache engine[<strong>CacheEngineLoop</strong>], you should see all errors in the output window<br />\n",
+    "PostedDate": "2016-09-13T09:44:09.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483688",
+    "ThreadId": "657781",
+    "Html": "So there is Immediate window log on my Application startup...\r<br />\n__SQLiteVersion: 3.13.0 | 2016-05-18 10:57:30 fc49f556e48970561d7ab6a2f24fdd7d9eb81ff2 | INTEROP_CODEC INTEROP_EXTENSION_FUNCTIONS NET_40 PRELOAD_NATIVE_LIBRARY THROW_ON_DISPOSED TRACE TRACE_PRELOAD TRACE_WARNING\r<br />\nSQLite error (21): misuse at line 136010 of [fc49f556e4]\r<br />\nSQLite error (21): misuse at line 136010 of [fc49f556e4]\r<br />\nSingleton: System.IO.FileNotFoundException: Файл 'C:\\ProgramData\\ShipSmartView\\MapsCache\\TileDBv5\\en\\Data.gmdb' не найден.\r<br />\nИмя файла: 'C:\\ProgramData\\ShipSmartView\\MapsCache\\TileDBv5\\en\\Data.gmdb'\r<br />\n   в System.IO.<strong>Error.WinIOError(Int32 errorCode, String maybeFullPath)\r<br />\n   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)\r<br />\n   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)\r<br />\n   в System.IO.File.Open(String path, FileMode mode, FileAccess access, FileShare share)\r<br />\n   в GMap.NET.CacheProviders.SQLitePureImageCache.CheckPreAllocation()\r<br />\n   в GMap.NET.CacheProviders.SQLitePureImageCache.set_CacheLocation(String value)\r<br />\n   в GMap.NET.Internals.Cache.set_CacheLocation(String value)\r<br />\n   в GMap.NET.Internals.Cache..ctor()</strong>\r<br />\n<br />\nSQLITE DLL set to CopyLocal=False\r<br />\n<br />\n<br />\nIn Sub NEW I do the following:\r<br />\n__\t\tWith MAP 'Google Map Defaults<br />\n<pre><code>        .CacheLocation = MapCacheFolder\n        If Not IO.File.Exists(MapCacheFile) Then CacheProviders.SQLitePureImageCache.CreateEmptyDB(MapCacheFile)\n        .ShowCenter = False\n        .MapProvider = MapProviders.GoogleTerrainMapProvider.Instance \n        .Manager.Mode = AccessMode.ServerAndCache\n    End With__</code></pre>\n\n",
+    "PostedDate": "2016-09-14T08:00:46.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483831",
+    "ThreadId": "657781",
+    "Html": "Guys , do you have any idea on How to solve the problem? So may be set refference to the SQL dll which embaded to your GMaps library instead of the one I using now( original one)...?<br />\n",
+    "PostedDate": "2016-09-15T21:55:23.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483958",
+    "ThreadId": "657781",
+    "Html": "remove this line:<br />\n<pre><code>If Not IO.File.Exists(MapCacheFile) Then CacheProviders.SQLitePureImageCache.CreateEmptyDB(MapCacheFile)</code></pre>\n\n",
+    "PostedDate": "2016-09-17T12:13:04.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483959",
+    "ThreadId": "657781",
+    "Html": "I have remover, but it is not fix :(\r<br />\nThe db.file does not creating, even if I put another file with caches in new cache location it see the DB file but does not load any tiles with sign on the chart.<br />\n",
+    "PostedDate": "2016-09-17T12:19:49.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484040",
+    "ThreadId": "657781",
+    "Html": "maybe its some weird permission stuff..<br />\n",
+    "PostedDate": "2016-09-18T13:16:16.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484795",
+    "ThreadId": "657781",
+    "Html": "No, permissions are OK... So I have moved my project from VS2010 to VS2013 and... The GMDB file has been created, with size 32,928kb... The app hungs while closing what showing that tiles are caching... But after that I opening the GMDB file and all tables are empty... The only one Exception I noticed in Immediate Window while loading my app:\r<br />\n<br />\n<strong>SQLiteVersion: 3.13.0 | 2016-05-18 10:57:30 fc49f556e48970561d7ab6a2f24fdd7d9eb81ff2 | INTEROP_CODEC INTEROP_EXTENSION_FUNCTIONS NET_40 PRELOAD_NATIVE_LIBRARY THROW_ON_DISPOSED TRACE TRACE_PRELOAD TRACE_WARNING</strong>\r<br />\n<br />\nand the following exception for each tile I guess, bucause its too much lines othe following error:\r<br />\n<br />\n<strong>SQLite error (21): misuse at line 136010 of [fc49f556e4]</strong><br />\n",
+    "PostedDate": "2016-09-27T09:23:01.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484796",
+    "ThreadId": "657781",
+    "Html": "So... I found only one way... To replace the Native SQL assembly in GMaps.Net shared folder to my dll which I used in my project. At sturt up I have the following message:\r<br />\n<strong>SQLiteVersion: 3.13.0 | 2016-05-18 10:57:30 fc49f556e48970561d7ab6a2f24fdd7d9eb81ff2 | INTEROP_CODEC INTEROP_EXTENSION_FUNCTIONS INTEROP_FTS5_EXTENSION INTEROP_JSON1_EXTENSION INTEROP_PERCENTILE_EXTENSION INTEROP_REGEXP_EXTENSION INTEROP_TOTYPE_EXTENSION INTEROP_VIRTUAL_TABLE NET_40 PRELOAD_NATIVE_LIBRARY THROW_ON_DISPOSED TRACE TRACE_PRELOAD TRACE_SHARED TRACE_WARNING USE_PREPARE_V2 WINDOWS</strong>\r<br />\n<br />\nAnd... This is workable... The only one problem remaining - <strong>how to replace your DLL with MY dll?</strong> because yours looks like too old already.<br />\n",
+    "PostedDate": "2016-09-27T09:32:08.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484798",
+    "ThreadId": "657781",
+    "Html": "Confirm also for VS2010 - works well after replacing your native GMaps SQL Lite DLL with the one I using in my project.\r<br />\nSo how to replace your lib with my?<br />\n",
+    "PostedDate": "2016-09-27T09:42:06.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1484890",
+    "ThreadId": "657781",
+    "Html": "current embedded version is SQLiteVersion: 3.8.11.1 | 2015-07-29, i'll try to update it\r<br />\n<br />\np.s. it's in GMap.NET\\GMap.NET.Core\\Properties\\Resources.resx<br />\n",
+    "PostedDate": "2016-09-28T10:30:12.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1489800",
+    "ThreadId": "657781",
+    "Html": "updated for .net4<br />\n",
+    "PostedDate": "2016-12-13T16:25:06.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-12-13T16:25:15.873-08:00"
+  }
+]

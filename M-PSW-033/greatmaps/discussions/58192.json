@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "196787",
+    "ThreadId": "58192",
+    "Html": "<p>Hi,</p>\r\n<p>It seems like when you pan the map with the right mouse button, that the currentposition of the map does not get changed.&nbsp; If you pan, and then hit the zoom scroll bar (on the demo), it will zoom in to where the map originally started, not to where you have panned it to.</p>\r\n<p>Am I doing something wrong, or is this just a bug?&nbsp; What would the best workaround to this be?</p>",
+    "PostedDate": "2009-06-02T05:24:26.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196806",
+    "ThreadId": "58192",
+    "Html": "<p>it's just style of demos, but you can easily do that:</p>\r\n<pre>private void sliderZoom_ValueChanged(object sender, RoutedPropertyChangedEventArgs e)\r\n{\r\n         int zn = (int) e.NewValue;\r\n         if(zn != MainMap.Zoom &amp;&amp; this.IsLoaded)\r\n         {\r\n            MainMap.CurrentPosition = MainMap.FromLocalToLatLng((int) MainMap.ActualWidth/2, (int) MainMap.ActualHeight/2);\r\n            MainMap.Zoom = zn;\r\n         }\r\n}\r\n</pre>",
+    "PostedDate": "2009-06-02T06:07:21.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197626",
+    "ThreadId": "58192",
+    "Html": "<p>Hi radioman,</p>\r\n<p>this seems not to work.</p>\r\n<p>When I use this code, the map zooms in where the mouse currently hovers, not where the center of the current map is.</p>\r\n<p>This is true when I use the mouse wheel to zoom. If I use the slider, the map zooms in where the red dot is, and still not to the center of the visble map area.</p>\r\n<p>best Regards, Marcel</p>",
+    "PostedDate": "2009-06-04T01:42:50.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197638",
+    "ThreadId": "58192",
+    "Html": "<p><span style=\"font-weight:bold\">i repeat</span> ;]</p>\r\n<p>&nbsp;</p>\r\n<pre>      private void sliderZoom_ValueChanged(object sender, RoutedPropertyChangedEventArgs e)\r\n      {\r\n         int zn = (int) e.NewValue;\r\n         if(zn != MainMap.Zoom &amp;&amp; this.IsLoaded)\r\n         {\r\n            MainMap.CurrentPosition = MainMap.FromLocalToLatLng((int) MainMap.ActualWidth/2, (int) MainMap.ActualHeight/2);\r\n            MainMap.Zoom = zn;\r\n         }\r\n      }\r\n</pre>",
+    "PostedDate": "2009-06-04T02:16:10.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197640",
+    "ThreadId": "58192",
+    "Html": "<p>You're fast! :-) Thanks for the great control overall.</p>\r\n<p>But, doing it so, did not work, it behaves as described above. Most probably I unterstand that as a bug whereas it is a feature.</p>\r\n<p>I have now managed to archive what I wanted by examinig your code and overriding a method. When I use this in my GMap-derived class, I get what I want, which is zooming into the center of the visible map:</p>\r\n<p>[snippet]</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected override void OnMouseWheel(MouseEventArgs e)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZoomToLevel(this.Zoom + Math.Sign(e.Delta));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>[/snippet]</p>\r\n<p>&nbsp;</p>\r\n<p>Best Regards, Marcel</p>",
+    "PostedDate": "2009-06-04T02:23:46.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197641",
+    "ThreadId": "58192",
+    "Html": "<p>ahh.. you want zoom by mouse to center?</p>",
+    "PostedDate": "2009-06-04T02:26:14.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197656",
+    "ThreadId": "58192",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><a name=\"OLE_LINK1\"></a><a name=\"OLE_LINK2\"><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">Yes, exactly as Google Earth does with the mouse wheel.</span></a></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<div>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><b><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy;font-weight:bold\">Marcel Suter, </span></b><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">Software Developer</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><b><span lang=EN-GB style=\"font-size:3.0pt;line-height:120%;font-family:Verdana;color:navy;font-weight:bold\"> </span></b></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">T.  +41 31 950 42 30</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">M. +41 76 387 70 06</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">F.  +41 31 950 42 49</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">marcel.suter@enkom.com</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><b><span style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy;font-weight:bold\">ENKOM INVENTIS AG</span></b></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">Worbstrasse 225 / Postfach</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">CH-3073 Guemligen</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\">www.enkom.com</span></p>\r\n\r\n<p class=MsoNormal style=\"line-height:120%\"><span lang=EN-GB style=\"font-size:9.0pt;line-height:120%;font-family:Verdana;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:7.5pt;font-family:Verdana;color:navy\">Confidentiality Notice<br>\r\nThe information contained in this Email, and any attachments, is intended for\r\nthe named recipients only. It may contain confidential and/or privileged\r\ninformation. If you are not the intended recipient, you must not copy,\r\ndistribute, or take any action in reliance on it. Any views expressed do not\r\nnecessarily reflect the views of the company. If you receive this Email by\r\nmistake, please advise the sender by using the reply facility in your Email\r\nsoftware and then delete it.</span><span lang=EN-GB style=\"font-size:7.5pt;font-family:Verdana\"></span></p>\r\n\r\n</div>\r\n\r\n<div>\r\n\r\n<div class=MsoNormal align=center style=\"text-align:center\"><span style=\"font-size:12.0pt\">\r\n\r\n<hr size=2 width=\"100%\" align=center>\r\n\r\n</span></div>\r\n\r\n<p class=MsoNormal><b><span style=\"font-size:10.0pt;font-family:Tahoma;font-weight:bold\">Von:</span></b><span style=\"font-size:10.0pt;font-family:Tahoma\"> radioman\r\n[mailto:notifications@codeplex.com] <br>\r\n<b><span style=\"font-weight:bold\">Gesendet:</span></b> Donnerstag, 4. Juni 2009\r\n11:26<br>\r\n<b><span style=\"font-weight:bold\">An:</span></b> Suter\r\n Marcel, Enkom Inventis AG<br>\r\n<b><span style=\"font-weight:bold\">Betreff:</span></b> Re: Pan and Zoom\r\n[gmap4dotnet:58192]</span></p>\r\n\r\n</div>\r\n\r\n<p class=MsoNormal><span style=\"font-size:12.0pt\"> </span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:Verdana\">From:\r\nradioman</span></p>\r\n\r\n<div style=\"margin-bottom:24.0pt\" id=ThreadNotificationPostBody>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:Verdana\">ahh..\r\nyou want zoom by mouse to center?</span></p>\r\n\r\n</div>\r\n\r\n<div style=\"border:none;border-top:solid #CCCCCC 1.0pt;padding:0cm 0cm 0cm 0cm\" id=ThreadNotificationFooter>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\">Read the <a href=\"http://gmap4dotnet.codeplex.com/Thread/View.aspx?ThreadId=58192&ANCHOR#Post197641\">full\r\ndiscussion online</a>.</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\">To add a post to this discussion, reply to this\r\nemail (<a href=\"mailto:gmap4dotnet@discussions.codeplex.com?subject=[gmap4dotnet:58192]\">gmap4dotnet@discussions.codeplex.com</a>)</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\">To start a new discussion for this project,\r\nemail <a href=\"mailto:gmap4dotnet@discussions.codeplex.com\">gmap4dotnet@discussions.codeplex.com</a></span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\">You are receiving this email because you\r\nsubscribed to this discussion on CodePlex. You can <a href=\"http://www.codeplex.com/site/discussions/project/unsubscribe/gmap4dotnet\">unsubscribe\r\nor change your settings</a> on codePlex.com.</span></p>\r\n\r\n<p><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\">Please note: Images and attachments will be\r\nremoved from emails. Any posts to this discussion will also be available online\r\nat codeplex.com</span></p>\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-06-04T03:31:29.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198217",
+    "ThreadId": "58192",
+    "Html": "<p>Using:</p>\r\n<p>MainMap.CurrentPosition = MainMap.FromLocalToLatLng((int) MainMap.ActualWidth/2, (int) MainMap.ActualHeight/2);</p>\r\n<p>&nbsp;works perfect for centering the map.</p>",
+    "PostedDate": "2009-06-05T06:52:47.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198236",
+    "ThreadId": "58192",
+    "Html": "<p>ok, check&nbsp;MouseWheelZoomType</p>",
+    "PostedDate": "2009-06-05T07:22:06.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

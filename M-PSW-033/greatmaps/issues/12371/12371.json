@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "works perfect, thanks mmurfinsimmons!",
+    "ClosedDate": "2009-03-08T10:09:26.337-07:00",
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "possible solution?",
+    "LastUpdatedDate": "2009-03-08T10:09:26.337-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-01-14T08:15:08.92-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ugly cubic route joints",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 12371
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106831,
+      "FileName": "gmapdr4.png",
+      "DownloadUrl": ".\\106831"
+    },
+    {
+      "FileId": 106832,
+      "FileName": "graphicspath.png",
+      "DownloadUrl": ".\\106832"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Have you tried creating a GraphicsPath  with AddLine(p1,p2) and use g.DrawPath() on the completed path?  This might have a more pleasing rendering...",
+      "PostedDate": "2009-02-21T12:27:31.57-08:00",
+      "Id": 3096
+    },
+    {
+      "Message": "The following code produces a better segment joins:\r\n..DrawRoutes...\r\nGraphicsPath rp = new GraphicsPath();\r\nfor (int i = 0; i  0)\r\n   g.DrawPath(routePen, rp);\r\nrp.Dispose();",
+      "PostedDate": "2009-02-23T15:57:49.51-08:00",
+      "Id": 3097
+    }
+  ]
+}

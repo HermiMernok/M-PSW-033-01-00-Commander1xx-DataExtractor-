@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1091255",
+    "ThreadId": "456559",
+    "Html": "HELP!\r<br />\n<br />\nI integrated Proj.Net into my project in order to transform coordinates. That works well with transforming WGS84 (ProjNet.CoordinateSystems.GeographicCoordinateSystem.WGS84) to UTM32 (ProjNet.CoordinateSystems.ProjectedCoordinateSystem.WGS84_UTM(32, True)).\r<br />\n<br />\nIt does not work with coordinates Gauss-Kruger 2 (EPSG:31466) and Gauss-Kruger 3 (EPSG:31467). I tried it by using \r<br />\n<br />\nProjNet.Converters.WellKnownText.CoordinateSystemWktReader.Parse(GK2WKT)\r<br />\nProjNet.Converters.WellKnownText.CoordinateSystemWktReader.Parse(GK3WKT)\r<br />\n<br />\nwith GK2WKT\r<br />\n<br />\n&quot;PROJCS[&quot;&quot;DHDN / Gauss-Kruger zone 2&quot;&quot;,GEOGCS[&quot;&quot;DHDN&quot;&quot;,DATUM[&quot;&quot;D_Deutsches_Hauptdreiecksnetz&quot;&quot;,SPHEROID[&quot;&quot;Bessel_1841&quot;&quot;,6377397.155,299.1528128]],PRIMEM[&quot;&quot;Greenwich&quot;&quot;,0],UNIT[&quot;&quot;Degree&quot;&quot;,0.017453292519943295]],PROJECTION[&quot;&quot;gauss_kruger&quot;&quot;],PARAMETER[&quot;&quot;latitude_of_origin&quot;&quot;,0],PARAMETER[&quot;&quot;central_meridian&quot;&quot;,6],PARAMETER[&quot;&quot;scale_factor&quot;&quot;,1],PARAMETER[&quot;&quot;false_easting&quot;&quot;,2500000],PARAMETER[&quot;&quot;false_northing&quot;&quot;,0],UNIT[&quot;&quot;Meter&quot;&quot;,1]]&quot;\r<br />\n<br />\nand GK3WKT\r<br />\n<br />\n&quot;PROJCS[&quot;&quot;DHDN / Gauss-Kruger zone 3&quot;&quot;,GEOGCS[&quot;&quot;DHDN&quot;&quot;,DATUM[&quot;&quot;D_Deutsches_Hauptdreiecksnetz&quot;&quot;,SPHEROID[&quot;&quot;Bessel_1841&quot;&quot;,6377397.155,299.1528128]],PRIMEM[&quot;&quot;Greenwich&quot;&quot;,0],UNIT[&quot;&quot;Degree&quot;&quot;,0.017453292519943295]],PROJECTION[&quot;&quot;gauss_kruger&quot;&quot;],PARAMETER[&quot;&quot;latitude_of_origin&quot;&quot;,0],PARAMETER[&quot;&quot;central_meridian&quot;&quot;,9],PARAMETER[&quot;&quot;scale_factor&quot;&quot;,1],PARAMETER[&quot;&quot;false_easting&quot;&quot;,3500000],PARAMETER[&quot;&quot;false_northing&quot;&quot;,0],UNIT[&quot;&quot;Meter&quot;&quot;,1]]&quot;\r<br />\n<br />\nAn error occured: Projection Gauss_Kruger is not supported.\r<br />\n<br />\nI found the WKT unter <a href=\"http://www.spatialreference.org/ref/epsg/31467/html/\" rel=\"nofollow\">http://www.spatialreference.org/ref/epsg/31467/html/</a> with projection as &quot;Transverse_Mercator&quot;. No error occures but results are up to a few hundred meters displaced. For example:\r<br />\n<br />\nLongitude 6.44990719188124\r<br />\nLatitude 50.5296161746303\r<br />\n<br />\nshould be transformed to\r<br />\n<br />\nGauss-Kruger 2 east (rechtswert): 2531944.721598\r<br />\nGauss-Kruger 2 north (hochwert): 5599416,36501248\r<br />\n<br />\nresults i get are\r<br />\n<br />\nGauss-Kruger 2 east (rechtswert): 2531987.14052421\r<br />\nGauss-Kruger 2 north (hochwert): 5599215,64379288\r<br />\n<br />\nWith a few centimeters i can live, 200m are too much!\r<br />\n<br />\nAny suggestions?<br />\n",
+    "PostedDate": "2013-09-11T08:09:30.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113698",
+    "ThreadId": "456559",
+    "Html": "Do you found any solution for this problem? I have the same problem using GK4 (see SharpMap-Toppic Displaced Vector Data with OSM background layer)<br />\n",
+    "PostedDate": "2013-10-29T08:13:49.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114059",
+    "ThreadId": "456559",
+    "Html": "Nop, still haven't found what i was looking for;-(((<br />\n",
+    "PostedDate": "2013-10-30T03:28:27.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114140",
+    "ThreadId": "456559",
+    "Html": "try with this suggestion from <a href=\"https://sharpmap.codeplex.com/discussions/464037#post1114040\" rel=\"nofollow\">here</a>\r<br />\n<br />\nYou may want to replace the content of the prj file with the &quot;postgis&quot; definition of EPSG:31468<br />\n<pre><code>PROJCS[&quot;DHDN / 3-degree Gauss-Kruger zone 4&quot;,GEOGCS[&quot;DHDN&quot;,DATUM[&quot;Deutsches_Hauptdreiecksnetz&quot;,SPHEROID[&quot;Bessel 1841&quot;,6377397.155,299.1528128,AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY[&quot;EPSG&quot;,&quot;6314&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4314&quot;]],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,12],PARAMETER[&quot;scale_factor&quot;,1],PARAMETER[&quot;false_easting&quot;,4500000],PARAMETER[&quot;false_northing&quot;,0],AUTHORITY[&quot;EPSG&quot;,&quot;31468&quot;],AXIS[&quot;X&quot;,NORTH],AXIS[&quot;Y&quot;,EAST]]</code></pre>\n\n",
+    "PostedDate": "2013-10-30T06:43:40.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114994",
+    "ThreadId": "456559",
+    "Html": "Hi all, i got the same hint to use postgis-definitions for EPSG:31466 / 31467 and it really works mothers finest! Greetz &amp; Thanx<br />\n",
+    "PostedDate": "2013-10-31T05:38:43.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

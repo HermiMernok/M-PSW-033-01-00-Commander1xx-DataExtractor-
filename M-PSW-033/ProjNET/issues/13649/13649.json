@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Using Proj.NET in CompactFrameWork 2.0 will (with some wkt coordinatesystems) throw a MissingMethodException (TryParse System.Int64)\n \nSample code:\n \n        const string UTMWGS84_WKT = \"PROJCS[\\\"WGS 84 / UTM zone 32N\\\",\" +\n                                            \"GEOGCS[\\\"WGS 84\\\",\" +\n                                            \"DATUM[\\\"WGS_1984\\\",\" +\n                                            \"SPHEROID[\\\"WGS 84\\\",6378137,298.257223563,AUTHORITY[\\\"EPSG\\\",\\\"7030\\\"]],\" +\n                                            \"AUTHORITY[\\\"EPSG\\\",\\\"6326\\\"]],\" +\n                                            \"PRIMEM[\\\"Greenwich\\\",0,AUTHORITY[\\\"EPSG\\\",\\\"8901\\\"]],\" +\n                                            \"UNIT[\\\"degree\\\",0.01745329251994328,AUTHORITY[\\\"EPSG\\\",\\\"9122\\\"]],\" +\n                                            \"AUTHORITY[\\\"EPSG\\\",\\\"4326\\\"]],\" +\n                                            \"PROJECTION[\\\"Transverse_Mercator\\\"],\" +\n                                            \"PARAMETER[\\\"latitude_of_origin\\\",0],\" +\n                                            \"PARAMETER[\\\"central_meridian\\\",9],\" +\n                                            \"PARAMETER[\\\"scale_factor\\\",0.9996],\" +\n                                            \"PARAMETER[\\\"false_easting\\\",500000],\" +\n                                            \"PARAMETER[\\\"false_northing\\\",0],\" +\n                                            \"UNIT[\\\"metre\\\",1,AUTHORITY[\\\"EPSG\\\",\\\"9001\\\"]],\" +\n                                            \"AUTHORITY[\\\"EPSG\\\",\\\"32632\\\"]]\";\n \n        const string WGS84_WKT = \"GEOGCS[\\\"GCS_WGS_1984\\\",\" +\n                                         \"DATUM[\\\"D_WGS_1984\\\",\" +\n                                         \"SPHEROID[\\\"WGS_1984\\\",6378137,298.257223563]],\" +\n                                         \"PRIMEM[\\\"Greenwich\\\",0],\" +\n                                         \"UNIT[\\\"Degree\\\",0.0174532925199433]]\";\n \n                ICoordinateSystemFactory CF = new CoordinateSystemFactory();\n                ICoordinateSystem sourceC = CF.CreateFromWkt(WGS84_WKT);\n                ICoordinateSystem targetC = CF.CreateFromWkt(UTMWGS84_WKT);    //This throws a MissingMethodException\n \n               ICoordinateTransformationFactory CTF = new CoordinateTransformationFactory();\n               ICoordinateTransformation WGS84CoordinateTransformation = CTF.CreateFromCoordinateSystems(sourceC, targetC);\n \n             double[] wgs84 = new double[] { 11.722588, 55.7156179};\n             double[] utm32 = WGS84CoordinateTransformation.MathTransform.Transform(wgs84);",
+    "LastUpdatedDate": "2013-02-21T16:06:08.38-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2009-07-14T00:33:17.253-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CreateFromWkt throws MissingMethodException in CF 2.0",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 13649
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Seems to be related to the long.tryparse in WKTStreamTokenizer.ReadAuthority.\r\n\r\nBuilding with Conditional Compile Symbol Silverlight would to be a valid workaround.",
+      "PostedDate": "2009-07-14T01:23:50.633-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-09-24T09:46:14.59-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:08.38-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

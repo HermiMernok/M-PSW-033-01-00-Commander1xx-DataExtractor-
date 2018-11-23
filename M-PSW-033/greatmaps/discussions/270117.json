@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "662211",
+    "ThreadId": "270117",
+    "Html": "\r\n<p>I created a new .net 4.0&nbsp;WPF project in VS 2010 SP1. I then added references to the three DLLs. I created a Map class in my project and then added&nbsp;</p>\r\n<pre style=\"font-family:Consolas; background:white; color:black; font-size:13px\"><span style=\"color:red\">xmlns</span><span style=\"color:blue\">:</span><span style=\"color:red\">my</span><span style=\"color:blue\">=</span><span style=\"color:blue\">&quot;clr-namespace:GMapWPFDemo.Source&quot;</span>\r\n</pre>\r\n<p>&nbsp;to pick up the reference. Once I add the control &lt;my:Map /&gt; to the XAML i get these errors. I am fairly new to WPF so maybe I am doing something totally wrong.</p>\r\n<p>Any ideas?</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"width:1px; height:1px; overflow:hidden; top:0px; left:-10000px\">\r\n&#65279;</div>\r\n",
+    "PostedDate": "2011-08-23T10:34:35.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662323",
+    "ThreadId": "270117",
+    "Html": "<p>Only one ))). Add&nbsp;references&nbsp;</p>\r\n<p><span style=\"color: #ff0000;\">xmlns</span><span style=\"color: #0000ff;\">:</span><span style=\"color: #ff0000;\">gmap</span>=<span style=\"color: #0000ff;\">\"clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation\"&nbsp;</span></p>\r\n<p><span class=\"hps\">and</span>&nbsp;<span class=\"hps\">somewhere</span>&nbsp;<span class=\"hps\">in XAML</span></p>\r\n<p><span class=\"hps\">&nbsp;</span><span style=\"color: #0000ff;\"><span style=\"color: #ff0000;\">&lt;gmap:GMapControl Margin=<span style=\"color: #0000ff;\">\"1\"</span> Background=<span style=\"color: #0000ff;\">\"Transparent\"</span> x:Name=<span style=\"color: #0000ff;\">\"mapCtrl\" &nbsp;<span style=\"color: #ff0000;\">Zoom</span>=\"12\" <span style=\"color: #ff0000;\">MaxZoom</span>=\"24\" <span style=\"color: #ff0000;\">MinZoom</span>=\"4\"</span>/&gt;</span></span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-08-23T13:23:39.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662327",
+    "ThreadId": "270117",
+    "Html": "<p>Thank you for the reply. When I do that I get a less verbose Problem Loading designer error and this compiler error:</p>\r\n<p>Unable to load the metadata for assembly 'GMap.NET.WindowsPresentation'. This assembly may have been downloaded from the web.&nbsp; See <a href=\"http://go.microsoft.com/fwlink/?LinkId=179545\">http://go.microsoft.com/fwlink/?LinkId=179545</a>.&nbsp; The following error was encountered during load: Could not load file or assembly 'GMap.NET.WindowsPresentation, Version=1.5.5.5, Culture=neutral, PublicKeyToken=b85b9027b614afef' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)</p>",
+    "PostedDate": "2011-08-23T13:36:07.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662363",
+    "ThreadId": "270117",
+    "Html": "<p>No problem )&nbsp; Maybe you're using. NET Framework 4 Client Profile as target .NET Framework version or profile .You need to change app.config like this&nbsp;</p>\n<p><span style=\"color: #000000;\">&lt;startup useLegacyV2RuntimeActivationPolicy=\"true\"&gt;&nbsp; &nbsp; </span></p>\n<p><span style=\"color: #000000;\">&lt;supportedRuntime version=\"v4.0\" sku=\".NETFramework,Version=v4.0\"/&gt;&nbsp;</span></p>\n<p><span style=\"color: #000000;\">&lt;/startup&gt;</span>&nbsp;</p>\n<p><a href=\"http://greatmaps.codeplex.com/documentation\">http://greatmaps.codeplex.com/documentation</a></p>\n<p><a href=\"http://msdn.microsoft.com/en-us/library/bb398202(v=VS.100).aspx\">http://msdn.microsoft.com/en-us/library/bb398202(v=VS.100).aspx</a></p>",
+    "PostedDate": "2011-08-23T14:40:39.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662639",
+    "ThreadId": "270117",
+    "Html": "<p>You are correct. I forgot to mention that I did that step as well. So my app.config is like this:</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">&lt;?</span><span style=\"color: #a31515;\">xml</span> <span style=\"color: red;\">version</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">1.0</span><span style=\"color: black;\">\"</span> <span style=\"color: red;\">encoding</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">utf-8</span><span style=\"color: black;\">\"</span> <span style=\"color: blue;\">?&gt;</span>\r\n<span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">configuration</span><span style=\"color: blue;\">&gt;</span>\r\n  <span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">startup</span> <span style=\"color: red;\">useLegacyV2RuntimeActivationPolicy</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">true</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">&gt;</span>\r\n      <span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">supportedRuntime</span> <span style=\"color: red;\">version</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">v4.0</span><span style=\"color: black;\">\"</span> <span style=\"color: red;\">sku</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">.NETFramework,Version=v4.0</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">/&gt;</span>\r\n   <span style=\"color: blue;\">&lt;/</span><span style=\"color: #a31515;\">startup</span><span style=\"color: blue;\">&gt;</span>\r\n<span style=\"color: blue;\">&lt;/</span><span style=\"color: #a31515;\">configuration</span><span style=\"color: blue;\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-08-24T05:48:50.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662649",
+    "ThreadId": "270117",
+    "Html": "<p>ok, I figured out the issue. Since this DLL was downloaded it was not given full trust. I found instructions to unblock it. I am not getting the singleton error, but I saw a post about that so I think I am good to move forward.</p>\r\n<p><a href=\"http://msdn.microsoft.com/en-us/library/ee890038(VS.100).aspx\">http://msdn.microsoft.com/en-us/library/ee890038(VS.100).aspx</a></p>",
+    "PostedDate": "2011-08-24T06:16:09.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667793",
+    "ThreadId": "270117",
+    "Html": "<p>p.s. latest version should work without any configs</p>",
+    "PostedDate": "2011-09-05T10:08:39.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1264868",
+    "ThreadId": "551280",
+    "Html": "I am trying to generate &quot;packages&quot; of prefetched areas.\r<br />\n<br />\nEither I am not doing this properly, or my understanding of this feature is wrong.\r<br />\n<br />\nFirst I get the selected area which gives me the RectLatLng object.\r<br />\n<br />\nThen, like in the demo, I loop through zoom levels to the MaxZoom.<br />\n<pre><code>for (int i = (int)wMap.Zoom; i &lt;= wMap.MaxZoom; i++)\n            {\n                TilePrefetcher tpf = new TilePrefetcher() { Owner = this, ShowCompleteMessage = true };\n                tpf.Start(area, i, wMap.MapProvider, 100);                \n            }</code></pre>\n\nEverything appear to work there, however, when I try to zoom in, the message states the tiles are not available.\r<br />\n<br />\nI have added Export / Import after the looping, loaded the export in the demo app, but the higher zoom level tiles do not appear.  There do seem to be some other random tiles found.<br />\n",
+    "PostedDate": "2014-07-11T08:30:39.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1423065",
+    "ThreadId": "551280",
+    "Html": "To solve this, I created a usercontrol that extends the functionality of tileprefetcher adding new methods and events.<br />\n",
+    "PostedDate": "2015-05-05T10:30:14.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1492399",
+    "ThreadId": "551280",
+    "Html": "krisket,\r<br />\n<br />\ncould you elaborate? that was a really vague solution you provided, and not so helpful. I am encountering something similar but post is currently a dead end.\r<br />\n<br />\nany code snippets would be really good.<br />\n",
+    "PostedDate": "2017-02-08T12:39:27.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

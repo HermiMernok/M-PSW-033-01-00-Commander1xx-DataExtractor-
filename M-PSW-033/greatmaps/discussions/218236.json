@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "463039",
+    "ThreadId": "218236",
+    "Html": "<p>Hi all (and Radioman).</p>\r\n<p>GMap.NET looks like a great little library. I've been taking a look at it and reading a few posts on the discussions. Something I've not been able to figure out are the capabilities for transparent overlays. As there aren't any tutorials I decided posting here would be a better place to start.</p>\r\n<p>What I'm interested in doing essentially is building up a set of transparent layers on top of the raster background map. For example one layer might contain a set of markers, another a set of labels while a 3rd layer might contain some polygon/regions all with the map in the background. Then the visibility of these can be toggled allowing you to build up various views of the map.</p>\r\n<p>Is this sort of thing possible already? If not what sort of approach is needed to add it? Obviously some different layer classes, which I might look into adding. The thing I'm a little unsure on are to do with changing scales (e.g. only painting the icons in the map region, changing the size of points depending on the map scale etc...) Any suggestions would be great.</p>\r\n<p>Ian</p>",
+    "PostedDate": "2010-07-03T05:23:20.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463043",
+    "ThreadId": "218236",
+    "Html": "<p>When rendering lines polygons or whatever set the alpha value for the color value to get transparency.</p>\r\n<p>&nbsp;</p>\r\n<p>For rendering images set up a color matrix.</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers</p>",
+    "PostedDate": "2010-07-03T05:34:33.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463044",
+    "ThreadId": "218236",
+    "Html": "<p>hey&nbsp;IanWright83 ;}</p>\r\n<p>..layers are just objects for grouping your markers/routes/polygons, so what you see on the map actually depends only on these.</p>\r\n<p>Rendering from down -&gt; top. Each marker can draw anything, transparent or not. Map stays the same in the very bottom, so always visible.</p>\r\n<p><strong>...</strong></p>\r\n<p>layerN[markers/routes/polygons]</p>\r\n<p>layer2[markers/routes/polygons]</p>\r\n<p>layer1[markers/routes/polygons]</p>\r\n<p>layer0[markers/routes/polygons]</p>\r\n<p>Map[tiles]</p>\r\n<p>Form</p>\r\n<p>Application</p>\r\n<p><strong>...&nbsp;</strong></p>",
+    "PostedDate": "2010-07-03T05:35:58.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463051",
+    "ThreadId": "218236",
+    "Html": "<p>Ah, so they exist already?</p>\r\n<p>Are there any examples of how these work to get me started?</p>",
+    "PostedDate": "2010-07-03T05:58:31.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463054",
+    "ThreadId": "218236",
+    "Html": "<p>just look in demo source</p>",
+    "PostedDate": "2010-07-03T06:02:14.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "463134",
+    "ThreadId": "218236",
+    "Html": "<p>thanks radioman, managed to find the example that I'm now working from.</p>",
+    "PostedDate": "2010-07-03T14:09:27.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

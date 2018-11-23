@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1062876",
+    "ThreadId": "448638",
+    "Html": "Hi radioman,<br />\n<br />\nI've had a problem with some of the mouseovers not working on some of my markers. <br />\n<strong>To cut a long story very short :</strong><br />\nAfter deserializing the overlays, adding any NEW Markers to the deserialized overlay would fail to have their 'Overlay' parameter set.  This was due to missing OnChangeEvents on the deserialized Overlays. A fix that has worked me is calling CreateEvents() when the overlay has been deserialized and all appears good. <br />\nBelow is the code change (single liner) - I'm don't know if this is the appropriate fix as I have not done extensive testing. <br />\n<br />\n&quot;GMapOverlay.cs&quot;<br />\n<pre><code>protected GMapOverlay(SerializationInfo info, StreamingContext context)\n{\n         this.Id = info.GetString(&quot;Id&quot;);\n         this.IsVisibile = info.GetBoolean(&quot;IsVisible&quot;);\n\n         this.deserializedMarkerArray = Extensions.GetValue&lt;GMapMarker[]&gt;(info, &quot;Markers&quot;, new GMapMarker[0]);\n         this.deserializedRouteArray = Extensions.GetValue&lt;GMapRoute[]&gt;(info, &quot;Routes&quot;, new GMapRoute[0]);\n         this.deserializedPolygonArray = Extensions.GetValue&lt;GMapPolygon[]&gt;(info, &quot;Polygons&quot;, new GMapPolygon[\n\n         CreateEvents();     // By re-adding the events all seems good.  OlMogy ...\n\n }\n</code></pre>\n\nOh - this product is one best freebies I've come across. For me (a post grad student at 45yo) this has been such a wonderful find. Thankyou very much! I hope my small contribution is useful.<br />\n<br />\ncheers<br />\nOlMogy ...<br />\n",
+    "PostedDate": "2013-06-29T21:54:42.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063056",
+    "ThreadId": "448638",
+    "Html": "thanks, fixed!<br />\n",
+    "PostedDate": "2013-06-30T23:52:10.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063409",
+    "ThreadId": "448638",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nthanks, fixed!<br />\n</blockquote>\nnp - thankyou for such an excellent product!\r<br />\n<br />\nI've just upgraded to the latest source and found that there is another small fix required. This one was suggested on the discussions somewhere here and I have lost the link, sorry.  I added this one a couple of weeks ago and forgot about it. Another one liner :). \r<br />\nAnd thanks to original poster for this fix. \r<br />\n<br />\nThis is the fix -&gt;<br />\n  if (this.ToolTip != null) this.ToolTip.Marker = this;\r<br />\n<br />\n<br />\n<br />\n<br />\nCMapMarker.cs<br />\n<pre><code>protected GMapMarker(SerializationInfo info, StreamingContext context)\n  {\n     this.Position = Extensions.GetStruct&lt;PointLatLng&gt;(info, &quot;Position&quot;, PointLatLng.Empty);\n     this.Tag = Extensions.GetValue&lt;object&gt;(info, &quot;Tag&quot;, null);\n     this.Offset = Extensions.GetStruct&lt;Point&gt;(info, &quot;Offset&quot;, Point.Empty);\n     this.area = Extensions.GetStruct&lt;Rectangle&gt;(info, &quot;Area&quot;, Rectangle.Empty);\n     this.ToolTip = Extensions.GetValue&lt;GMapToolTip&gt;(info, &quot;ToolTip&quot;, null);\n     this.ToolTipMode = Extensions.GetStruct&lt;MarkerTooltipMode&gt;(info, &quot;ToolTipMode&quot;, MarkerTooltipMode.OnMouseOver);\n     this.ToolTipText = info.GetString(&quot;ToolTipText&quot;);\n     this.IsVisible = info.GetBoolean(&quot;Visible&quot;);\n     this.DisableRegionCheck = info.GetBoolean(&quot;DisableregionCheck&quot;);\n     this.IsHitTestVisible = info.GetBoolean(&quot;IsHitTestVisible&quot;);\n\n    // Fix missing reference in the tooltip to the marker object after deserialization\n     if (this.ToolTip != null) this.ToolTip.Marker = this;\n  }</code></pre>\n\n",
+    "PostedDate": "2013-07-01T18:43:22.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063471",
+    "ThreadId": "448638",
+    "Html": "ok<br />\n",
+    "PostedDate": "2013-07-02T00:48:07.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063576",
+    "ThreadId": "448638",
+    "Html": "Hi radioman,\r<br />\n<br />\nI have reviewed the change I posted above and possibly a neater way would be get the tooltip to save the its Marker.\r<br />\nI'm no expert with Serialization so just a thought...\r<br />\n<br />\nI've tried this code out quickly and it also works to fix the issue. \r<br />\nBeing a novice with the package I don't know of any possible side effects this may have.\r<br />\nAnwyay, thanks once again. Old Mogy ...<br />\n<pre><code>      protected GMapToolTip(SerializationInfo info, StreamingContext context)\n      {\n         this.Offset = Extensions.GetStruct&lt;Point&gt;(info, &quot;Offset&quot;, Point.Empty);\n         this.TextPadding = Extensions.GetStruct&lt;Size&gt;(info, &quot;TextPadding&quot;, new Size(10, 10));\n      \n         this.Marker = Extensions.GetValue&lt;GMapMarker&gt;(info, &quot;Marker&quot;);   &lt;----  Deserialize GMapMarker ?\n      }\n\n\n      public void GetObjectData(SerializationInfo info, StreamingContext context)\n      {\n         info.AddValue(&quot;Offset&quot;, this.Offset);\n         info.AddValue(&quot;TextPadding&quot;, this.TextPadding);\n\n         info.AddValue(&quot;Marker&quot;, this.Marker);   // &lt;-- serialize the GmarpMarker ?\n      }\n</code></pre>\n\n",
+    "PostedDate": "2013-07-02T05:51:16.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063581",
+    "ThreadId": "448638",
+    "Html": "it's probably ok too<br />\n",
+    "PostedDate": "2013-07-02T05:55:55.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

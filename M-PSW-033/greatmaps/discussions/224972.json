@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "485306",
+    "ThreadId": "224972",
+    "Html": "<p>I am having a problem where none of the Google maps will show.&nbsp; I have changed mode from 'server and cache' to 'server only', but still won't work.&nbsp; It works fine on my machine, but we are testing on another machine that it won't work on.&nbsp; Any ideas on something to check?&nbsp; All I get now are the blue tiles that tell me the images aren't available at that zoom level.</p>",
+    "PostedDate": "2010-08-26T10:49:26.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485307",
+    "ThreadId": "224972",
+    "Html": "<p>- What language are you using? - Which Frameworks are you using?? - What's the code you have to load the map??? Don't think Radioman can tell you either without any info about what you've done.</p>",
+    "PostedDate": "2010-08-26T10:51:58.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485313",
+    "ThreadId": "224972",
+    "Html": "<p>sometimes i can, hehe ;} ..but usual problems are just targeting wrong cpu or missing configuration if using .net4</p>",
+    "PostedDate": "2010-08-26T10:58:54.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485314",
+    "ThreadId": "224972",
+    "Html": "<div><p>We are using VB.Net framework 4.0.  I have already made the change to the app.config file to allow it to work with 4.0.  </p>\r\n<p> </p><p>Here is the sub I use to set up the map control:</p><p> </p><p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas;color:blue\">Private</span><span style=\"font-size:9.5pt;font-family:Consolas\"> <span style=\"color:blue\">Sub</span> SetMapProperties()</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.Size = MPC.Size</span></p><p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.Location = MPC.Location</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.Dock = <span style=\"color:#2B91AF\">DockStyle</span>.Fill</span></p><p style=\"text-autospace:none\">\r\n<span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.ZoomAndCenterMarkers(<span style=\"color:blue\">Nothing</span>)</span></p><p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        UpdateMapSource()        </span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.CacheLocation = <span style=\"color:#A31515\">&quot;C:\\ProgramData\\Logic Concepts&quot;</span>     </span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.MinZoom = 3</span></p><p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.MaxZoom = 19</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.Zoom = 15</span></p><p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\"> </span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.CurrentPosition = <span style=\"color:blue\">New</span> <span style=\"color:#2B91AF\">PointLatLng</span>(33.952647147828451, -84.549941718578339)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        center = <span style=\"color:blue\">New</span> <span style=\"color:#2B91AF\">GMapMarkerCross</span>(GMapControl1.CurrentPosition)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        first = <span style=\"color:blue\">New</span> <span style=\"color:#2B91AF\">GMapOverlay</span>(GMapControl1, <span style=\"color:#A31515\">&quot;first&quot;</span>)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        objects = <span style=\"color:blue\">New</span> <span style=\"color:#2B91AF\">GMapOverlay</span>(GMapControl1, <span style=\"color:#A31515\">&quot;objects&quot;</span>)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        MapTop = <span style=\"color:blue\">New</span> <span style=\"color:#2B91AF\">GMapOverlay</span>(GMapControl1, <span style=\"color:#A31515\">&quot;top&quot;</span>)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.Overlays.Add(first)</span></p><p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.Overlays.Add(objects)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        GMapControl1.Overlays.Add(MapTop)</span></p><p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas\">        first.Markers.Add(center)</span></p>\r\n<p style=\"text-autospace:none\"><span style=\"font-size:9.5pt;font-family:Consolas;color:blue\">End</span><span style=\"font-size:9.5pt;font-family:Consolas\"> <span style=\"color:blue\">Sub</span></span></p><p>\r\n </p></div>",
+    "PostedDate": "2010-08-26T10:59:29.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485317",
+    "ThreadId": "224972",
+    "Html": "<p>are you really calling this in the forms constructor?</p>",
+    "PostedDate": "2010-08-26T11:08:05.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

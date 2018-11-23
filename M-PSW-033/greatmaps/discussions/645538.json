@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1446182",
+    "ThreadId": "645538",
+    "Html": "Hello\r<br />\n<br />\nI have a problem getting the speed at a track/waypoint when importing from a GPX file. It seems that the wptType has no definition of speed, which is a part of GPX right?\r<br />\n<br />\nDoes anyone have an idea how I can get the speeds from my GPX file after deserializing? I can get elevation, lat and lon etc. but no speed.\r<br />\n<br />\nThanks\r<br />\nZ<br />\n",
+    "PostedDate": "2015-09-28T05:36:13.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1446188",
+    "ThreadId": "645538",
+    "Html": "<a href=\"http://forum.locusmap.eu/index.php?topic=3426.0\" rel=\"nofollow\">http://forum.locusmap.eu/index.php?topic=3426.0</a>\r<br />\n<br />\n&quot;Speed was a tag in gpx 1.0 but removed with gpx 1.1. It was removed because you can calculate speed by the given coordinates..&quot;\r<br />\n<br />\nspeed = distance / time; // distance is calculated using map.MapPrpvider.Projection.<strong>GetDistance</strong>\r<br />\n<br />\n...anyway you can try modify <strong>gpx.cs</strong> and add this tag back<br />\n",
+    "PostedDate": "2015-09-28T07:11:34.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-09-28T07:11:37.683-07:00"
+  }
+]

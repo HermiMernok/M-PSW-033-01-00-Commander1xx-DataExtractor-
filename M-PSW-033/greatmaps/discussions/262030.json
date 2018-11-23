@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "630107",
+    "ThreadId": "262030",
+    "Html": "\r\n<p>I was wondering if anyone has been able to add a grid to the map. I am trying to get a grid working when the zoom level is real close (so I can work with a flat-earth assumption), but I would like to create a grid that is about 10 meters by 10 meters or\r\n so and I was wondering if anybody had achieved this.</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2011-06-20T08:25:06.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630163",
+    "ThreadId": "262030",
+    "Html": "<p>var 10mInPx = 10.0 / Projection.GetGroundResolution(map.Zoom, Position.Lat);</p>\r\n<p>draw grid by overriding OnPaintEtc</p>",
+    "PostedDate": "2011-06-20T10:25:23.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630544",
+    "ThreadId": "262030",
+    "Html": "<p>In regard to using the GetGroundResolution function is the Projection the map.Projection? In addition, what Latitude am I supposed to give it?</p>",
+    "PostedDate": "2011-06-21T05:47:41.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "630545",
+    "ThreadId": "262030",
+    "Html": "<p>current position</p>",
+    "PostedDate": "2011-06-21T05:51:27.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

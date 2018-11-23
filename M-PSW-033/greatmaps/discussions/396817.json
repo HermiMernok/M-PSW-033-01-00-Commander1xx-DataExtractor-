@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "917199",
+    "ThreadId": "396817",
+    "Html": "\r\n<p>Hi there!</p>\r\n<p><br>\r\nAwesome application!&nbsp; I am just having a small difficulty that I'm not able to determine the cause of.</p>\r\n<p>I'm using the hot build version, Windows Forms app, have set 'CanDragMap' to true, and am able to drag the map (a google map in this instance) successfully.&nbsp; However, if I use a slider control to set zoom (gMap.Zoom = zoomSlider.Value), the map will\r\n zoom fine, but will no longer refresh when I drag it.&nbsp; OnPositionChanged() still gets called, and if I zoom again, the newly redrawed map will be centered on the new 'drag' position.&nbsp; I've tried this with different map providers and the behavior\r\n is the same.&nbsp; I have added a call to Refresh() in the OnPositionChanged event to no avail.</p>\r\n<p>Thoughts?</p>\r\n<p>Thanks!!</p>\r\n<p>Bob</p>\r\n",
+    "PostedDate": "2012-09-25T05:49:31.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917254",
+    "ThreadId": "396817",
+    "Html": "<p>yes, it's know issue in 1.7 version, only integer zoom levels works correctly</p>",
+    "PostedDate": "2012-09-25T07:07:08.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "917267",
+    "ThreadId": "396817",
+    "Html": "<p>Dang! I knew it was something I did but couldn't correlate with moving to the float zoom levels.&nbsp; Thanks for the info!!!</p>",
+    "PostedDate": "2012-09-25T07:21:47.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

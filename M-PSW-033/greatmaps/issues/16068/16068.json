@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed, thanks",
+    "ClosedDate": "2013-05-14T01:45:36.443-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi!\r\nI found the strange bug. Map isn't drag by mouse. All other function are workable.\r\nI found, that resone is negative value of the field Timestamp in method OnMouseMove of class GMap.NET.WindowsPresentation.GMapControl. Therefore code\r\n      if(e.Timestamp - onMouseUpTimestamp < 55)\r\n         {\r\n            Debug.WriteLine(\"OnMouseMove skipped: \" + ((uint)e.Timestamp - onMouseUpTimestamp) + \"ms\");\r\n            return;\r\n         }\r\n isn't work properly. \r\nI changed data type of variable onMouseUpTimestamp to uint and correct your code as\r\n         // Изменил тип данных на uint\r\n         if((uint)e.Timestamp - onMouseUpTimestamp < 55)\r\n         {\r\n            Debug.WriteLine(\"OnMouseMove skipped: \" + ((uint)e.Timestamp - onMouseUpTimestamp) + \"ms\");\r\n            return;\r\n         }\r\nand component has began to work properly.\r\nOS Windows 8 64 bit, .NET Framework 3.5\r\nThank You for your job!\r\nGood luck!",
+    "LastUpdatedDate": "2013-05-14T01:45:36.443-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-05-14T00:13:00.57-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Map drag isn't work",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16068
+  },
+  "FileAttachments": [
+    {
+      "FileId": 679624,
+      "FileName": "GMapControl.cs",
+      "DownloadUrl": ".\\679624"
+    }
+  ],
+  "Comments": []
+}

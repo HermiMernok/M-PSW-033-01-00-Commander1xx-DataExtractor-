@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "854704",
+    "ThreadId": "361207",
+    "Html": "\r\n<p>When I start my application and initialize a map provider with the command</p>\r\n<p>&quot;MyForm.MyGMapControl.MapProvider=GMapProviders.GoogleMap&quot;</p>\r\n<p>it takes 15 - 20 seconds to load a map for the first time. Thereafter getting new maps or switching between GoogleMap and GoogleHybrid is almost instantaneous&nbsp;</p>\r\n<p>Conversely the statement</p>\r\n<p>&quot;MyForm.MyGMapControl.MapProvider=GMapProviders.BingMap&quot;</p>\r\n<p>loads in &lt; 1 second.</p>\r\n<p>It there any way to make the GoogleMap initialization faster?</p>\r\n<p>Note: I'm using windows forms.</p>\r\n<p>Many thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-06-27T20:10:36.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "855126",
+    "ThreadId": "361207",
+    "Html": "<p>Hi,</p>\r\n<p>yes, I aswell&nbsp;found this bad behavior since I upgrated to version 1.6</p>\r\n<p>Rainer</p>",
+    "PostedDate": "2012-06-28T11:34:47.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "855171",
+    "ThreadId": "361207",
+    "Html": "<p>In debug mode, the version of Google Maps (and bing maps) is checked, if you use an old version there is a wait for 5555 milliseconds. Just update to latest version.</p>",
+    "PostedDate": "2012-06-28T13:50:23.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "855196",
+    "ThreadId": "361207",
+    "Html": "\r\n<div style=\"font-family:arial,helvetica,sans-serif; font-size:10pt; color:#000000\">\r\nWorks Perfectly.<br>\r\n<br>\r\nMany thanks<br>\r\n<br>\r\n<hr id=\"zwchr\">\r\n<div style=\"color:rgb(0,0,0); font-weight:normal; font-style:normal; text-decoration:none; font-family:Helvetica,Arial,sans-serif; font-size:12pt\">\r\n<b>From: </b>&quot;xandolph&quot; &lt;notifications@codeplex.com&gt;<br>\r\n<b>To: </b>jimcran272@gmail.com<br>\r\n<b>Sent: </b>Thursday, June 28, 2012 1:50:31 PM<br>\r\n<b>Subject: </b>Re: Google Maps Initialization [greatmaps:361207]<br>\r\n<br>\r\n<p>From: xandolph</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>In debug mode, the version of Google Maps (and bing maps) is checked, if you use an old version there is a wait for 5555 milliseconds. Just update to latest version.</p>\r\n</div>\r\n</div>\r\n<br>\r\n</div>\r\n",
+    "PostedDate": "2012-06-28T14:58:10.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870972",
+    "ThreadId": "361207",
+    "Html": "<p>Even the shortest&nbsp;application takes 22597ms for this statement in the&nbsp;Visual Studio <span style=\"color: #ff0000;\">Debug Mode&nbsp;</span>for GoogleMap.<br />For BingMap only 290ms.<br />Doesn't matter if 'CacheOnly' or 'ServerAndCache'</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>    <span style=\"color: blue;\">Private</span> <span style=\"color: blue;\">Sub</span> Form1_Load(<span style=\"color: blue;\">ByVal</span> sender <span style=\"color: blue;\">As</span> System.Object, <span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.EventArgs) <span style=\"color: blue;\">Handles</span> <span style=\"color: blue;\">MyBase</span>.Load\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Manager.Mode = GMap.NET.AccessMode.CacheOnly\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Position = <span style=\"color: blue;\">New</span> GMap.NET.PointLatLng(48.13723, 11.5755)\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MinZoom = 6\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MaxZoom = 16\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.Zoom = 10\r\n\r\n        <span style=\"color: blue;\">Dim</span> SW <span style=\"color: blue;\">As</span> Stopwatch = Stopwatch.StartNew\r\n        <span style=\"color: blue;\">Me</span>.GMapControl1.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap\r\n        MsgBox(SW.ElapsedMilliseconds)\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n\r\n</pre>\r\n</div>\r\n<p>The compiled EXE runs fast, so it is not a big problem !</p>\r\n<p>Rainer</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-07-17T12:06:36.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "870975",
+    "ThreadId": "361207",
+    "Html": "<p>yes, DEBUG mode, if you mess with it, don't complain</p>",
+    "PostedDate": "2012-07-17T12:08:48.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "872751",
+    "ThreadId": "361207",
+    "Html": "<p>It's NOT a problem at all, it helps you to keep the map provider versions up to date!</p>\r\n<p>For example, check out this code in GoogleMapProvider.cs:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>...\r\n   <span style=\"color: blue;\">string</span> ver = <span style=\"color: blue;\">string</span>.Format(<span style=\"color: #a31515;\">\"m@{0}\"</span>, gc[1].Value);\r\n   <span style=\"color: blue;\">string</span> old = GMapProviders.GoogleMap.Version;\r\n\r\n   GMapProviders.GoogleMap.Version = ver;\r\n   GMapProviders.GoogleChinaMap.Version = ver;\r\n<span style=\"color: blue;\">#if</span> DEBUG\r\n   Debug.WriteLine(<span style=\"color: #a31515;\">\"GMapProviders.GoogleMap.Version: \"</span> + ver + <span style=\"color: #a31515;\">\", \"</span> + (ver == old ? <span style=\"color: #a31515;\">\"OK\"</span> : <span style=\"color: #a31515;\">\"old: \"</span> + old + <span style=\"color: #a31515;\">\", consider updating source\"</span>));\r\n   <span style=\"color: blue;\">if</span>(Debugger.IsAttached &amp;&amp; ver != old)\r\n   {\r\n         <strong><span style=\"color: #ff0000;\">Thread.Sleep(5555);</span></strong>\r\n   }\r\n<span style=\"color: blue;\">#endif</span>\r\n}\r\n\r\n...\r\n</pre>\r\n</div>\r\nIf you hit the Thread.Sleep(5555); line, just update the GMapProviders.GoogleMap.Version to the new value (stored in variable \"ver\")!</p>",
+    "PostedDate": "2012-07-18T01:47:51.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

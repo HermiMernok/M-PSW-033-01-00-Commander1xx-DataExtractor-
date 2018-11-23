@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "162735",
+    "ThreadId": "48727",
+    "Html": "<p>string ListofCities = &quot;city1 , country ; city2 , country;...&quot;;</p>\r\n<p>string[] Cities = ListofCities.Split(';');<br>\r\nforeach (string city in Cities)<br>\r\n{<br>\r\n MainMap.SetCurrentPositionByKeywords(city);<br>\r\n MainMap.Zoom = 5;<br>\r\n for (int i = MainMap.Zoom; i &lt;= GMaps.Instance.MaxZoom; i++)<br>\r\n {<br>\r\n  // prefetch<br>\r\n }<br>\r\n}</p>\r\n<p>System stops responding at zoom value 11.</p>\r\n<p>//Works<br>\r\nfor(int i = 11; i &lt;= GMaps.Instance.MaxZoom; i++)<br>\r\n {<br>\r\n }</p>\r\n<p>//Works<br>\r\nfor(int i =5; i &lt;=10; i++)<br>\r\n {<br>\r\n }</p>\r\n",
+    "PostedDate": "2009-02-27T05:57:05.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "162779",
+    "ThreadId": "48727",
+    "Html": "banned from google? try other providers?",
+    "PostedDate": "2009-02-27T07:50:19.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

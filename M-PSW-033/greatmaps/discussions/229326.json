@@ -1,0 +1,234 @@
+[
+  {
+    "Id": "501126",
+    "ThreadId": "229326",
+    "Html": "<p>I placed a pull request a considerable amount of time ago, which was either rejected/or expired.</p>\r\n<p>I've placed another one.... But basically I want to know how I can get the code I wrote incorporated into the main trunk?</p>",
+    "PostedDate": "2010-10-01T08:50:36.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501146",
+    "ThreadId": "229326",
+    "Html": "<p>yes i see it, the&nbsp;serializable stuff, maybe it's time for review, nothing is rejected!</p>",
+    "PostedDate": "2010-10-01T09:25:27.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "501148",
+    "ThreadId": "229326",
+    "Html": "<p>...there was some changes, i don't know if they are in sync with your fork, can you test it if it still works with latest changeset? This stuff will add some maintenance to be in sync between wpf/forms/mobile, i can't just simply 'apply' it, you know ;}</p>\r\n<p>p.s. unless someone provides a complete solution {;</p>",
+    "PostedDate": "2010-10-01T09:30:44.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502340",
+    "ThreadId": "229326",
+    "Html": "<p>radioman,&nbsp;</p>\r\n<p>I understand that they can just be applied, I'll take a look and let you know if it still works. I believe it's a useful extension however (to be able to save and reload overlays).</p>\r\n<p>I'll get back to you as soon as I can.</p>",
+    "PostedDate": "2010-10-04T23:55:55.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505045",
+    "ThreadId": "229326",
+    "Html": "<p>radioman.&nbsp;</p>\r\n<p>I've had a quick look at trying to check if things are in sync, but I can't figure out how to synchronize my fork with the main branch to check. Do you know how to do this?</p>",
+    "PostedDate": "2010-10-10T08:37:21.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505048",
+    "ThreadId": "229326",
+    "Html": "<p>fork default branch locally, then push your codeplex fork to that local default fork ;/</p>\r\n<p>..well, i can't explain it exactly ;}</p>",
+    "PostedDate": "2010-10-10T09:13:09.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505331",
+    "ThreadId": "229326",
+    "Html": "<p>Would it be easier if I just get all my changes together, create a new fork then send a pull request on that one instead? Then the old one could be deleted after...</p>",
+    "PostedDate": "2010-10-11T04:42:14.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505341",
+    "ThreadId": "229326",
+    "Html": "<p>yeah, you can try that</p>",
+    "PostedDate": "2010-10-11T05:07:02.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505345",
+    "ThreadId": "229326",
+    "Html": "<p>radioman. I just uplifted all the changes, all builds ok (just had to make a few minor tweaks) so should be good. I've done the pull request. This currently is for winforms only (I don't know a whole lot about WPF yet but I'll look at what needs to be done to replicate it in WPF and then hopefully create another Fork once I know what I'm doing.</p>",
+    "PostedDate": "2010-10-11T05:20:02.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505366",
+    "ThreadId": "229326",
+    "Html": "<p>ok, i'll try to merge it in, different formating makes hard to see real changes...</p>",
+    "PostedDate": "2010-10-11T05:47:44.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505369",
+    "ThreadId": "229326",
+    "Html": "<p>Thanks radioman. I can go through make sure you've got all the changes once your done. Apart from the GMapControl most of the changes are an implementation of ISerializable (and possibly IDeserializationCallback) with their methods inside an appropriate auto generated region by VS2010 (e.g. #region ISerialization Members) so it shouldn't be too bad to spot the changes.</p>",
+    "PostedDate": "2010-10-11T05:50:17.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505371",
+    "ThreadId": "229326",
+    "Html": "<p>p.s. you missed to add&nbsp;Extensions.cs, and to use extensions in core isn't very good, because it's based on .net2, hmm..</p>",
+    "PostedDate": "2010-10-11T05:52:25.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505373",
+    "ThreadId": "229326",
+    "Html": "<p>hmm, I'll have a quick look.&nbsp;</p>\r\n<p>Extension methods are supported in .net 2.0. They just missed it out of the compiler, but I added in the standard fix to enable this. Here's the code if you want to just do a copy n' paste to add it in. With the ExtensionAttribute you can then use extensions wherever you fancy and it'll work just fine.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System;\r\n<span style=\"color:blue\">using</span> System.Collections.Generic;\r\n<span style=\"color:blue\">using</span> System.Text;\r\n<span style=\"color:blue\">using</span> System.Runtime.Serialization;\r\n\r\n<span style=\"color:blue\">namespace</span> System.Runtime.CompilerServices\r\n{\r\n    <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n    <span style=\"color:gray\">///</span><span style=\"color:green\"> Allows the use of Extension methods within .NET 2.0 Build.</span>\r\n    <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n    [AttributeUsage(AttributeTargets.Method, AllowMultiple = <span style=\"color:blue\">false</span>, Inherited = <span style=\"color:blue\">false</span>)]\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> ExtensionAttribute : Attribute\r\n    {\r\n    }\r\n}\r\n\r\n<span style=\"color:blue\">namespace</span> GMap.NET\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">class</span> Extensions\r\n    {\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Retrieves a value from the SerializationInfo of the given type.</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;typeparam name=&quot;T&quot;&gt;</span><span style=\"color:green\">The Type that we are attempting to de-serialize.&lt;/typeparam&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;info&quot;&gt;</span><span style=\"color:green\">The SerializationInfo.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;key&quot;&gt;</span><span style=\"color:green\">The key of the value we wish to retrieve.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:green\">The value if found, otherwise null.&lt;/returns&gt;</span>\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> T GetValue&lt;T&gt;(<span style=\"color:blue\">this</span> SerializationInfo info, <span style=\"color:blue\">string</span> key) <span style=\"color:blue\">where</span> T : <span style=\"color:blue\">class</span>\r\n        {\r\n            <span style=\"color:green\">// Return the value from the SerializationInfo, casting it to type T.</span>\r\n            <span style=\"color:blue\">return</span> info.GetValue(key, <span style=\"color:blue\">typeof</span>(T)) <span style=\"color:blue\">as</span> T;\r\n        }\r\n\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Retrieves a value from the SerializationInfo of the given type.</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;typeparam name=&quot;T&quot;&gt;</span><span style=\"color:green\">The Type that we are attempting to de-serialize.&lt;/typeparam&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;info&quot;&gt;</span><span style=\"color:green\">The SerializationInfo.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;key&quot;&gt;</span><span style=\"color:green\">The key of the value we wish to retrieve.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;defaultValue&quot;&gt;</span><span style=\"color:green\">The default value if the de-serialized value was null.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:green\">The value if found, otherwise the default value.&lt;/returns&gt;</span>\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> T GetValue&lt;T&gt;(<span style=\"color:blue\">this</span> SerializationInfo info, <span style=\"color:blue\">string</span> key, T defaultValue) <span style=\"color:blue\">where</span> T : <span style=\"color:blue\">class</span>\r\n        {\r\n            T deserializedValue = info.GetValue&lt;T&gt;(key);\r\n            <span style=\"color:blue\">if</span> (deserializedValue != <span style=\"color:blue\">null</span>)\r\n            {\r\n                <span style=\"color:blue\">return</span> deserializedValue;\r\n            }\r\n\r\n            <span style=\"color:blue\">return</span> defaultValue;\r\n        }\r\n\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Retrieves a value from the SerializationInfo of the given type for structs.</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;typeparam name=&quot;T&quot;&gt;</span><span style=\"color:green\">The Type that we are attempting to de-serialize.&lt;/typeparam&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;info&quot;&gt;</span><span style=\"color:green\">The SerializationInfo.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;key&quot;&gt;</span><span style=\"color:green\">The key of the value we wish to retrieve.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;param name=&quot;defaultValue&quot;&gt;</span><span style=\"color:green\">The default value if the de-serialized value was null.&lt;/param&gt;</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;returns&gt;</span><span style=\"color:green\">The value if found, otherwise the default value.&lt;/returns&gt;</span>\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> T GetStruct&lt;T&gt;(<span style=\"color:blue\">this</span> SerializationInfo info, <span style=\"color:blue\">string</span> key, T defaultValue) <span style=\"color:blue\">where</span> T : <span style=\"color:blue\">struct</span>\r\n        {\r\n            <span style=\"color:blue\">try</span>\r\n            {\r\n                <span style=\"color:blue\">return</span> (T)info.GetValue(key, <span style=\"color:blue\">typeof</span>(T));\r\n            }\r\n            <span style=\"color:blue\">catch</span> (Exception)\r\n            {\r\n                <span style=\"color:blue\">return</span> defaultValue;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-11T05:56:00.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505375",
+    "ThreadId": "229326",
+    "Html": "<p>good, but g, why do people invented forks... To forget copy/paste/add new file/save ;} can you just add this file and push it?</p>",
+    "PostedDate": "2010-10-11T06:00:44.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505376",
+    "ThreadId": "229326",
+    "Html": "<p>Yeah, I have done now. Sorry.</p>",
+    "PostedDate": "2010-10-11T06:02:38.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505404",
+    "ThreadId": "229326",
+    "Html": "<p>I see what you mean about the formatting changes now I've seen your changes. Sorry about that. Our VS IDE's must be set up differently...</p>",
+    "PostedDate": "2010-10-11T06:53:01.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505446",
+    "ThreadId": "229326",
+    "Html": "<p>anyway it's done, thank You! ;}</p>\r\n<p>p.s. i've found a way, tortoisemerge has option to ignore formating, perfect!</p>",
+    "PostedDate": "2010-10-11T07:57:49.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505484",
+    "ThreadId": "229326",
+    "Html": "<p>Thanks radioman, and no problem. It's great to have the chance to contribute to a really good project.</p>\r\n<p><br>That probably is useful in tortoisemerge. My VS2010 formats stuff like that automatically, although I do have to sayit is an odd layout choice you've chosen (never seen anything quite like it).</p>",
+    "PostedDate": "2010-10-11T09:08:13.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505491",
+    "ThreadId": "229326",
+    "Html": "<p>what do you mean 'odd'? ;}</p>",
+    "PostedDate": "2010-10-11T09:29:33.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513990",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>Hello guys. &nbsp;Great work adding serialization to the layers.</p>\r\n<p>However, by adding this code...</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">namespace</span> System.Runtime.CompilerServices\r\n{\r\n    <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n    <span style=\"color:gray\">///</span><span style=\"color:green\"> Allows the use of Extension methods within .NET 2.0 Build.</span>\r\n    <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n    [AttributeUsage(AttributeTargets.Method, AllowMultiple = <span style=\"color:blue\">false</span>, Inherited = <span style=\"color:blue\">false</span>)]\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> ExtensionAttribute : Attribute\r\n    {\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>...we allow extension methods to exist in the .NET 2.0 library, but we also disallow extension methods in the implementing application when the application uses a later version, say, .NET 3.5 or .NET 4.0. &nbsp;</p>\r\n<p>Last night, I updated to the latest sources (to get the MouseWheelIgnoreMarkers feature), and my extension methods in my 4.0 application cannot coexist with the new extension methods in GMap. &nbsp;It has to do with System.Runtime.CompilerServices.ExtensionAttribute\r\n having multiple definitions.</p>\r\n<p>Does anybody know of an elegant solution to this problem? &nbsp;I've been working at it for a few hours, but have not had much luck.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-10-28T07:51:42.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "514088",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>hm, so i guess by default we need disable it</p>\r\n",
+    "PostedDate": "2010-10-28T10:03:37.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "514184",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>Hmm, that's annoying...</p>\r\n<p><br>\r\nmattgerg, the best way to handle this then is via a refactor. Extension methods are just an easy of use, there's no reason that they really need to be there, other than making the code nicer. We could either wrap the extension attribute in an if like below:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\"></span><div style=\"color:black; background-color:white\"><pre><span style=\"color:blue\">#if</span> NETVersion20\r\n\r\n<span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n<span style=\"color:gray\">///</span><span style=\"color:green\"> Allows the use of Extension methods within .NET 2.0 Build.</span>\r\n<span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n[AttributeUsage(AttributeTargets.Method, AllowMultiple = <span style=\"color:blue\">false</span>, Inherited = <span style=\"color:blue\">false</span>)]\r\n<span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> ExtensionAttribute : Attribute { }\r\n\r\n<span style=\"color:blue\">#endif</span>\r\n</pre>\r\n</div>\r\n<span style=\"color:blue\"></span></pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>This way anyone wanting to use it would have to define the NETVersion20 in their project settings. Other alternatives are that it doesn't support .NET 2.0 (I'm not sure what the target platform is, radioman would have to confirm that), or otherwise to not\r\n use extension attributes for the serialization which adds a bit of overhead. Easiest way to remove the extension attributes is to target .NET 2.0, remove the class with that definition and change all the calls (I can't remember the method used off the top\r\n of my head) from:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>classInstance.Method(obj1)\r\n<span style=\"color:green\">// to</span>\r\nMethod(classInstance, obj1)\r\n</pre>\r\n</div>\r\n<br>\r\nThis should also get around the problem. I probably can't make the changes for a little while so feel free to do so yourself. If not if you can wait a little I'll take a look.&nbsp;\r\n<p></p>\r\n",
+    "PostedDate": "2010-10-28T12:32:58.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516662",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>Thanks for the reply, Ian.</p>\r\n<p>If we were to take the preprocessor approach, anyone who wanted to use serialization in .NET 2.0 would have to define NETVersion20, not in\r\n<em>their </em>project, but in GMap.NET itself; the directives affect the code during compilation, so by the time we include a GMap.NET DLL, in a project, it is already too late for preprocessor. &nbsp;Right?</p>\r\n<p>Correct me if I am wrong, radioman, but the library itself targets .NET 2.0, so the project will not build without the ExtensionAttribute() class at this point. &nbsp;Further to this, I have tried to build the library for .NET 4.0 and .NET 3.5, but the map\r\n tiles do not render when the target platform has been updated.</p>\r\n<p>For these reasons, I think the simplest solution would be to rewrite serialization using static methods rather than extensions. &nbsp;Its not as pretty from the code's point of view, but that solution involves no hackery. &nbsp;We keep serialization, target\r\n platform remains unchanged, and the library continues to work for everybody as is.</p>\r\n<p>&nbsp;</p>\r\n<p>Radioman, Ian, your thoughts?</p>\r\n",
+    "PostedDate": "2010-11-03T13:51:58.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516675",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>i guess you are right</p>\r\n",
+    "PostedDate": "2010-11-03T14:14:00.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536715",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>Are there some developments regarding Serialization?</p>\r\n<p>I want to print (and save as wmf). PrintVisual complaints about different threads owns it (I also tried creating a deep clone using XamlWriter, but same problem).</p>\r\n<p>Radioman: maybe you can add a Print method in the WPF. Something like:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> Print()\r\n        {\r\n            PrintDialog dlg = <span style=\"color:blue\">new</span> PrintDialog();\r\n            dlg.PageRangeSelection = PageRangeSelection.AllPages;\r\n            dlg.UserPageRangeEnabled = <span style=\"color:blue\">true</span>;\r\n            <span style=\"color:blue\">if</span> (dlg.ShowDialog().Value)\r\n                dlg.PrintVisual(MainMap, <span style=\"color:#a31515\">&quot;Map&quot;</span>);\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2010-12-16T05:01:18.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536747",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>Serialization stuff is solved, but just for windows forms version, i doubt you can clone wpf visuals...</p>\r\n",
+    "PostedDate": "2010-12-16T05:47:38.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536777",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>I don't know if cloning is always possible (at least you should have a parameter-less constructor for each class). But I did it a couple of times.</p>\r\n<p>This is a technique of cloning:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">&nbsp;</span><div style=\"color:black; background-color:white\"><pre><span style=\"color:green\">// Clone Map</span>\r\n<span style=\"color:blue\">string</span> mapXaml = XamlWriter.Save(MainMap);\r\n\r\nStringReader stringReader = <span style=\"color:blue\">new</span> StringReader(mapXaml);\r\nXmlReader xmlReader = XmlReader.Create(stringReader);\r\nGMapControl dupMap = (GMapControl)XamlReader.Load(xmlReader);\r\n</pre>\r\n</div>\r\n<br></pre>\r\n</div>\r\n<p>I tried it and I ran into the problem that some of your variables have a name that is used elsewhere as well. My application had simular problems in the past; you can rename the variable (easiest) or give directions to the serializer.</p>\r\n<p>But if you add the Print() command there is, for me, no need for serialization. I like to (have it to) create a WMF, but PNG is good enough.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-16T06:40:09.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537172",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>Are you sure you need to be cloning stuff? You've not mentioned much about the problem you're having but sounds kinda like UI/multi-threading issues?&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-17T00:58:44.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537195",
+    "ThreadId": "229326",
+    "Html": "\r\n<p>Hi Ian,</p>\r\n<p>No I don't need cloning stuff per se. I want to Print (and export to WMF). But this is WPF (not WinForms).</p>\r\n<p>I also thought about threading issues as I received the famous &quot;The calling thread cannot access this object because a different thread owns it&quot;. But if you use the Print method I posted above in the Demo, it will print ok if you only have markers. If you\r\n have a map, the same threading error pops up. That's why I tried to create a clone.</p>\r\n",
+    "PostedDate": "2010-12-17T02:18:03.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

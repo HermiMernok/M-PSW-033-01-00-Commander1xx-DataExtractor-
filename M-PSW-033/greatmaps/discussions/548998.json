@@ -1,0 +1,154 @@
+[
+  {
+    "Id": "1257383",
+    "ThreadId": "548998",
+    "Html": "Hi,\r<br />\n<br />\nI am trying to display an kml file on my application. After have processed the kml file I found that has a strange polygon that got inner polygons inside it. \r<br />\n<br />\nIs there anyone that knows if this is possible to create inside GMap with a custom Polygon? \r<br />\nBr\r<br />\n  Bjorn Kallin<br />\n",
+    "PostedDate": "2014-06-18T03:12:07.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430541",
+    "ThreadId": "548998",
+    "Html": "Any chance that anyone got a solution for this?<br />\n",
+    "PostedDate": "2015-06-15T23:24:47.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430830",
+    "ThreadId": "548998",
+    "Html": "Here's a PolygonClass that supports holes, should help you to get on your way:<br />\n<pre><code>public class GMapPolygonHole : GMap.NET.WindowsForms.GMapPolygon\n    {\n        /// &lt;summary&gt;\n        /// How many holes does the Polygon have\n        /// &lt;/summary&gt;\n        public int NumberOfHoles \n        {\n            get\n            {\n                return LstPointHoles.Count;\n            }\n        }\n\n        /// &lt;summary&gt;\n        /// The Minimum latitude\n        /// &lt;/summary&gt;\n        public double MinLat { get; private set; }\n\n        /// &lt;summary&gt;\n        /// The Maximum latitude\n        /// &lt;/summary&gt;\n        public double MaxLat { get; private set; }\n\n        /// &lt;summary&gt;\n        /// The Minimum longitude\n        /// &lt;/summary&gt;\n        public double MinLng { get; private set; }\n\n        /// &lt;summary&gt;\n        /// The Maximum longitude\n        /// &lt;/summary&gt;\n        public double MaxLng { get; private set; }      \n\n        /// &lt;summary&gt;\n        /// The List with the coordinates of all the Holes\n        /// &lt;/summary&gt;\n        public List&lt;List&lt;PointLatLng&gt;&gt; LstPointHoles = new List&lt;List&lt;PointLatLng&gt;&gt;();\n\n\n        /// &lt;summary&gt;\n        /// The List with the local coordinates of all the Holes\n        /// &lt;/summary&gt;\n        public List&lt;List&lt;GPoint&gt;&gt; LstPointsLocalHoles = new List&lt;List&lt;GPoint&gt;&gt;();\n\n\n        /// &lt;summary&gt;\n        /// Constructor\n        /// &lt;/summary&gt;\n        public GMapPolygonHole(List&lt;GMap.NET.PointLatLng&gt; outerPoints, string name)\n            : base(outerPoints, name)\n        {\n            CalcBoundingBox();\n        }\n\n        /// &lt;summary&gt;\n        /// Calculate the Min and Max X and y (lat/Long) values\n        /// &lt;/summary&gt;\n        public void CalcBoundingBox()\n        {\n            if (this.Points.Count == 0)\n            {\n                return;\n            }\n            MinLat = this.Points.Min(x =&gt; x.Lat);\n            MaxLat = this.Points.Max(x =&gt; x.Lat);\n\n            MinLng = this.Points.Min(x =&gt; x.Lng);\n            MaxLng = this.Points.Max(x =&gt; x.Lng);\n        }\n\n\n        /// &lt;summary&gt;\n        /// Set the Color for the polygon and its Border\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;col&quot;&gt;&lt;/param&gt;\n        public void SetPolygonColor(Color colFill, Color colBorder)\n        {\n            this.Stroke.Color = colBorder;\n            ((SolidBrush)this.Fill).Color = colFill;\n        }\n\n        /// &lt;summary&gt;\n        /// Update the Graphics path\n        /// &lt;/summary&gt;\n        public override void UpdateGraphicsPath()\n        {\n            if (graphicsPath == null)\n            {\n                graphicsPath = new GraphicsPath();\n            }\n            else\n            {\n                graphicsPath.Reset();\n            }\n            //Add Main Polygon first:\n            Point[] pnts = new Point[LocalPoints.Count];\n            for (int i = 0; i &lt; LocalPoints.Count; i++)\n            {\n                Point p2 = new Point((int)LocalPoints[i].X, (int)LocalPoints[i].Y);\n                pnts[pnts.Length - 1 - i] = p2;\n            }\n            \n            if (pnts.Length &gt; 2)\n            {\n                graphicsPath.AddPolygon(pnts);\n\n                //Add All Holes:\n                foreach (var holeLocalPoints in LstPointsLocalHoles)\n                {\n                    pnts = new Point[holeLocalPoints.Count];\n                    for (int i = 0; i &lt; holeLocalPoints.Count; i++)\n                    {\n                        Point p2 = new Point((int)holeLocalPoints[i].X, (int)holeLocalPoints[i].Y);\n                        pnts[pnts.Length - 1 - i] = p2;\n                    }\n                    if (pnts.Length &gt; 2)\n                    {\n                        graphicsPath.AddPolygon(pnts);\n                    }\n                }\n            }\n            else if (pnts.Length &gt; 0)\n            {\n                graphicsPath.AddLines(pnts);\n            }\n        }\n\n        \n\n\n        /// &lt;summary&gt;\n        /// Add a hole \n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;holePoly&quot;&gt;&lt;/param&gt;\n        public void AddNormalHole(GMap.NET.WindowsForms.GMapPolygon holePoly)\n        {\n            this.LstPointHoles.Add(holePoly.Points);\n        }\n\n\n        /// &lt;summary&gt;\n        /// Add a hole \n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;holePoly&quot;&gt;&lt;/param&gt;\n        public void AddNormalHole(List&lt;PointLatLng&gt; points)\n        {\n            this.LstPointHoles.Add(points);\n        }\n\n\n        /// &lt;summary&gt;\n        /// Returns true if the point is Inside of the Polygon, also considers Holes!\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;p&quot;&gt;Point to check&lt;/param&gt;\n        /// &lt;returns&gt;True if Point is inside, false otherwise&lt;/returns&gt;\n        public bool IsPointInsidePolygon(PointLatLng p, bool borderIsPartOfPolygon)\n        {\n            //Border belongs to Polygon!\n            if (borderIsPartOfPolygon &amp;&amp; Points.Contains(p))\n            {\n                return true;\n            }\n\n            //Check if point is within the Bounding Box\n            if (p.Lng &lt; MinLng || p.Lng &gt; MaxLng || p.Lat &lt; MinLat || p.Lng &gt; MaxLat)\n            {\n                // Definitely not within the polygon!\n                return false;\n            }\n\n            //Ray-cast algorithm is here onward\n            int k, j = Points.Count - 1;\n            bool oddNodes = false; //to check whether number of intersections is odd\n            for (k = 0; k &lt; Points.Count; k++)\n            {\n                //fetch adjacent points of the polygon\n                PointLatLng polyK = Points[k];\n                PointLatLng polyJ = Points[j];\n\n                //check the intersections\n                if (polyJ.Lat &lt; p.Lat &amp;&amp; polyK.Lat &gt;= p.Lat || polyK.Lat &lt; p.Lat &amp;&amp; polyJ.Lat &gt;= p.Lat)\n                {\n                    if (polyJ.Lng + (p.Lat - polyJ.Lat) / (polyK.Lat - polyJ.Lat) * (polyK.Lng - polyJ.Lng) &lt; p.Lng)\n                    {\n                        oddNodes = !oddNodes;\n                    }\n                }\n\n                j = k;\n            }\n\n            //Now Test all Holes:\n            foreach (var hole in this.LstPointHoles)\n            {\n                j = hole.Count - 1;\n                for (k = 0; k &lt; hole.Count; k++)\n                {\n                    //fetch adjacent points of the polygon\n                    PointLatLng polyK = hole[k];\n                    PointLatLng polyJ = hole[j];\n\n                    //check the intersections\n                    if (polyJ.Lat &lt; p.Lat &amp;&amp; polyK.Lat &gt;= p.Lat || polyK.Lat &lt; p.Lat &amp;&amp; polyJ.Lat &gt;= p.Lat)\n                    {\n                        if (polyJ.Lng + (p.Lat - polyJ.Lat) / (polyK.Lat - polyJ.Lat) * (polyK.Lng - polyJ.Lng) &lt; p.Lng)\n                        {\n                            oddNodes = !oddNodes;\n                        }\n                    }\n                    j = k;\n                }\n            }\n\n            return oddNodes;\n        }\n}</code></pre>\n\n",
+    "PostedDate": "2015-06-18T01:08:32.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430848",
+    "ThreadId": "548998",
+    "Html": "Many thanks i will try this!<br />\n",
+    "PostedDate": "2015-06-18T02:57:53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1431302",
+    "ThreadId": "548998",
+    "Html": "Hi,\r<br />\n<br />\nWhat should graphicsPath be?\r<br />\n<br />\nBr\r<br />\n  Bjorn Kallin<br />\n",
+    "PostedDate": "2015-06-22T00:41:52.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467268",
+    "ThreadId": "548998",
+    "Html": "Hi\r<br />\n<br />\nHas anyone got this to work?<br />\n",
+    "PostedDate": "2016-03-18T05:19:07.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467292",
+    "ThreadId": "548998",
+    "Html": "My code posted on June 18th 2015 is working.\r<br />\nWhat problems do you have?<br />\n",
+    "PostedDate": "2016-03-18T09:15:14.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467453",
+    "ThreadId": "548998",
+    "Html": "I did not get it to work. What should graphicsPath be?<br />\n",
+    "PostedDate": "2016-03-21T00:33:08.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467457",
+    "ThreadId": "548998",
+    "Html": "???\r<br />\nLook at this:\r<br />\n<br />\ngraphicsPath = new GraphicsPath();\r<br />\n<br />\nHere's more Info:\r<br />\n<br />\n<a href=\"https://msdn.microsoft.com/en-us/library/system.drawing.drawing2d.graphicspath%28v=vs.100%29.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/system.drawing.drawing2d.graphicspath%28v=vs.100%29.aspx</a><br />\n",
+    "PostedDate": "2016-03-21T01:03:21.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467467",
+    "ThreadId": "548998",
+    "Html": "Thanks and sorry for my ignorance I am a novice in developing apps. \r<br />\nI added the this to the class:\r<br />\nprivate GraphicsPath graphicsPath = new GraphicsPath(); \r<br />\nAnd this to main:<br />\n<pre><code>            List&lt;PointLatLng&gt; mainPolyPath = new List&lt;PointLatLng&gt;();\n            List&lt;PointLatLng&gt; holePolyPath = new List&lt;PointLatLng&gt;();\n\n            mainPolyPath.Add(new PointLatLng(57.71622109841999, 12.64674535084808));\n            mainPolyPath.Add(new PointLatLng(57.71157749019648, 12.64717679945724));\n            mainPolyPath.Add(new PointLatLng(57.71194237053732, 12.6586254415504));\n            mainPolyPath.Add(new PointLatLng(57.71647979222889, 12.65810722880249));\n            mainPolyPath.Add(new PointLatLng(57.71622109841999, 12.64674535084808));\n\n            holePolyPath.Add(new PointLatLng(57.71532560149932, 12.65232757115519));\n            holePolyPath.Add(new PointLatLng(57.71396416522996, 12.65057456492564));\n            holePolyPath.Add(new PointLatLng(57.71313701932088, 12.65247055966123));\n            holePolyPath.Add(new PointLatLng(57.7141503267416, 12.65405141531605));\n            holePolyPath.Add(new PointLatLng(57.71532560149932, 12.65232757115519));\n\n            //GMapPolygon mainPoly = new GMapPolygon(mainPolyPath, &quot;&quot;);\n            //GMapPolygon holePoly = new GMapPolygon(holePolyPath, &quot;&quot;);\n\n            //overlayPoly.Polygons.Add(mainPoly);\n            //overlayPoly.Polygons.Add(holePoly);\n\n            GMapPolygonHole mainPoly = new GMapPolygonHole(mainPolyPath, &quot;&quot;);\n            mainPoly.AddNormalHole(holePolyPath);\n            mainPoly.UpdateGraphicsPath();\n\n            overlayPoly.Polygons.Add(mainPoly);</code></pre>\n\nBut it only generates the main poly not the hole inside of it. Any suggestions?\r<br />\nMy visual studio generated a build error on the UpdateGraphicsPath and I had to remove the Override from it.<br />\n",
+    "PostedDate": "2016-03-21T03:24:32.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467469",
+    "ThreadId": "548998",
+    "Html": "Oh, sorry, you have to change something more in GMapPolygon.cs:\r<br />\n<br />\nChange \r<br />\n<br />\ninternal void UpdateGraphicsPath()<br />\n<pre><code>  {</code></pre>\n\n...\r<br />\n}\r<br />\nto \r<br />\n<br />\npublic virtual void UpdateGraphicsPath()<br />\n<pre><code>  {</code></pre>\n\n...\r<br />\n}\r<br />\n<br />\nand \r<br />\n<br />\nGraphicsPath graphicsPath;\r<br />\n<br />\nto \r<br />\n<br />\nprotected GraphicsPath graphicsPath;\r<br />\n<br />\n<br />\nThen remove \r<br />\n<br />\nprivate GraphicsPath graphicsPath = new GraphicsPath(); \r<br />\n<br />\nfrom the class GMapPolygonHole.cs\r<br />\n<br />\nThen it should work!<br />\n",
+    "PostedDate": "2016-03-21T03:36:17.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467473",
+    "ThreadId": "548998",
+    "Html": "Updated it now butt still only main polly shows. :(\r<br />\n<br />\nMy version of youre class looks like this now:<br />\n<pre><code>using GMap.NET;\nusing System;\nusing System.Collections.Generic;\nusing System.Drawing;\nusing System.Drawing.Drawing2D;\nusing System.Linq;\nusing System.Text;\nusing System.Threading.Tasks;\n\nnamespace Test1\n{\n    public class GMapPolygonHole : GMap.NET.WindowsForms.GMapPolygon\n    {\n        protected GraphicsPath graphicsPath;\n        /// &lt;summary&gt;\n        /// How many holes does the Polygon have\n        /// &lt;/summary&gt;\n        public int NumberOfHoles\n        {\n            get\n            {\n                return LstPointHoles.Count;\n            }\n        }\n\n        /// &lt;summary&gt;\n        /// The Minimum latitude\n        /// &lt;/summary&gt;\n        public double MinLat { get; private set; }\n\n        /// &lt;summary&gt;\n        /// The Maximum latitude\n        /// &lt;/summary&gt;\n        public double MaxLat { get; private set; }\n\n        /// &lt;summary&gt;\n        /// The Minimum longitude\n        /// &lt;/summary&gt;\n        public double MinLng { get; private set; }\n\n        /// &lt;summary&gt;\n        /// The Maximum longitude\n        /// &lt;/summary&gt;\n        public double MaxLng { get; private set; }\n\n        /// &lt;summary&gt;\n        /// The List with the coordinates of all the Holes\n        /// &lt;/summary&gt;\n        public List&lt;List&lt;PointLatLng&gt;&gt; LstPointHoles = new List&lt;List&lt;PointLatLng&gt;&gt;();\n\n\n        /// &lt;summary&gt;\n        /// The List with the local coordinates of all the Holes\n        /// &lt;/summary&gt;\n        public List&lt;List&lt;GPoint&gt;&gt; LstPointsLocalHoles = new List&lt;List&lt;GPoint&gt;&gt;();\n\n\n        /// &lt;summary&gt;\n        /// Constructor\n        /// &lt;/summary&gt;\n        public GMapPolygonHole(List&lt;GMap.NET.PointLatLng&gt; outerPoints, string name)\n            : base(outerPoints, name)\n        {\n            CalcBoundingBox();\n        }\n\n        /// &lt;summary&gt;\n        /// Calculate the Min and Max X and y (lat/Long) values\n        /// &lt;/summary&gt;\n        public void CalcBoundingBox()\n        {\n            if (this.Points.Count == 0)\n            {\n                return;\n            }\n            MinLat = this.Points.Min(x =&gt; x.Lat);\n            MaxLat = this.Points.Max(x =&gt; x.Lat);\n\n            MinLng = this.Points.Min(x =&gt; x.Lng);\n            MaxLng = this.Points.Max(x =&gt; x.Lng);\n        }\n\n\n        /// &lt;summary&gt;\n        /// Set the Color for the polygon and its Border\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;col&quot;&gt;&lt;/param&gt;\n        public void SetPolygonColor(Color colFill, Color colBorder)\n        {\n            this.Stroke.Color = colBorder;\n            ((SolidBrush)this.Fill).Color = colFill;\n        }\n\n        /// &lt;summary&gt;\n        /// Update the Graphics path\n        /// &lt;/summary&gt;\n        public virtual void UpdateGraphicsPath()\n        {\n\n            if (graphicsPath == null)\n            {\n                graphicsPath = new GraphicsPath();\n            }\n            else\n            {\n                graphicsPath.Reset();\n            }\n            //Add Main Polygon first:\n            Point[] pnts = new Point[LocalPoints.Count];\n            for (int i = 0; i &lt; LocalPoints.Count; i++)\n            {\n                Point p2 = new Point((int)LocalPoints[i].X, (int)LocalPoints[i].Y);\n                pnts[pnts.Length - 1 - i] = p2;\n            }\n\n            if (pnts.Length &gt; 2)\n            {\n                graphicsPath.AddPolygon(pnts);\n\n                //Add All Holes:\n                foreach (var holeLocalPoints in LstPointsLocalHoles)\n                {\n                    pnts = new Point[holeLocalPoints.Count];\n                    for (int i = 0; i &lt; holeLocalPoints.Count; i++)\n                    {\n                        Point p2 = new Point((int)holeLocalPoints[i].X, (int)holeLocalPoints[i].Y);\n                        pnts[pnts.Length - 1 - i] = p2;\n                    }\n                    if (pnts.Length &gt; 2)\n                    {\n                        graphicsPath.AddPolygon(pnts);\n                    }\n                }\n            }\n            else if (pnts.Length &gt; 0)\n            {\n                graphicsPath.AddLines(pnts);\n            }\n        }\n\n\n\n\n        /// &lt;summary&gt;\n        /// Add a hole \n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;holePoly&quot;&gt;&lt;/param&gt;\n        public void AddNormalHole(GMap.NET.WindowsForms.GMapPolygon holePoly)\n        {\n            this.LstPointHoles.Add(holePoly.Points);\n        }\n\n\n        /// &lt;summary&gt;\n        /// Add a hole \n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;holePoly&quot;&gt;&lt;/param&gt;\n        public void AddNormalHole(List&lt;PointLatLng&gt; points)\n        {\n            this.LstPointHoles.Add(points);\n        }\n\n\n        /// &lt;summary&gt;\n        /// Returns true if the point is Inside of the Polygon, also considers Holes!\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;p&quot;&gt;Point to check&lt;/param&gt;\n        /// &lt;returns&gt;True if Point is inside, false otherwise&lt;/returns&gt;\n        public bool IsPointInsidePolygon(PointLatLng p, bool borderIsPartOfPolygon)\n        {\n            //Border belongs to Polygon!\n            if (borderIsPartOfPolygon &amp;&amp; Points.Contains(p))\n            {\n                return true;\n            }\n\n            //Check if point is within the Bounding Box\n            if (p.Lng &lt; MinLng || p.Lng &gt; MaxLng || p.Lat &lt; MinLat || p.Lng &gt; MaxLat)\n            {\n                // Definitely not within the polygon!\n                return false;\n            }\n\n            //Ray-cast algorithm is here onward\n            int k, j = Points.Count - 1;\n            bool oddNodes = false; //to check whether number of intersections is odd\n            for (k = 0; k &lt; Points.Count; k++)\n            {\n                //fetch adjacent points of the polygon\n                PointLatLng polyK = Points[k];\n                PointLatLng polyJ = Points[j];\n\n                //check the intersections\n                if (polyJ.Lat &lt; p.Lat &amp;&amp; polyK.Lat &gt;= p.Lat || polyK.Lat &lt; p.Lat &amp;&amp; polyJ.Lat &gt;= p.Lat)\n                {\n                    if (polyJ.Lng + (p.Lat - polyJ.Lat) / (polyK.Lat - polyJ.Lat) * (polyK.Lng - polyJ.Lng) &lt; p.Lng)\n                    {\n                        oddNodes = !oddNodes;\n                    }\n                }\n\n                j = k;\n            }\n\n            //Now Test all Holes:\n            foreach (var hole in this.LstPointHoles)\n            {\n                j = hole.Count - 1;\n                for (k = 0; k &lt; hole.Count; k++)\n                {\n                    //fetch adjacent points of the polygon\n                    PointLatLng polyK = hole[k];\n                    PointLatLng polyJ = hole[j];\n\n                    //check the intersections\n                    if (polyJ.Lat &lt; p.Lat &amp;&amp; polyK.Lat &gt;= p.Lat || polyK.Lat &lt; p.Lat &amp;&amp; polyJ.Lat &gt;= p.Lat)\n                    {\n                        if (polyJ.Lng + (p.Lat - polyJ.Lat) / (polyK.Lat - polyJ.Lat) * (polyK.Lng - polyJ.Lng) &lt; p.Lng)\n                        {\n                            oddNodes = !oddNodes;\n                        }\n                    }\n                    j = k;\n                }\n            }\n\n            return oddNodes;\n        }\n    }\n}\n\n</code></pre>\n\n",
+    "PostedDate": "2016-03-21T04:02:35.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467478",
+    "ThreadId": "548998",
+    "Html": "I realized, that I made a LOT of changes to the original source-code...<br />\n<br />\n1) Remove &quot;protected GraphicsPath graphicsPath;&quot; from GMapPolygonHole<br />\n2) In GMapControl replace UpdatePolygonLocalPosition<br />\nwith this code:<br />\n<pre><code>public void UpdatePolygonLocalPosition(GMapPolygon poly)\n        {\n            if (poly is GMapPolygonHole)\n            {           \n\n                GMapPolygonHole polyHole = (GMapPolygonHole)poly;\n                //Clear ALL Points (including Holes)!\n                polyHole.LocalPoints.Clear();\n\n            foreach (GMap.NET.PointLatLng pg in polyHole.Points)\n            {\n            GPoint p = FromLatLngToLocal(pg);\n            p.OffsetNegative(Core.renderOffset);\n            polyHole.LocalPoints.Add(p);\n            }\n\n                polyHole.LstPointsLocalHoles.Clear();\n\n                foreach (var holePoints in polyHole.LstPointHoles)\n                {\n            foreach (GMap.NET.PointLatLng pg in holePoints)\n            {\n                GPoint p = FromLatLngToLocal(pg);\n                p.OffsetNegative(Core.renderOffset);\n                localPoints.Add(p);\n            }\n\n                    polyHole.LstPointsLocalHoles.Add(localPoints);\n                }\n\n                polyHole.UpdateGraphicsPath();\n            }\n            else\n            {\n                polygon.LocalPoints.Clear();\n        \n                  for (int i = 0; i &lt; polygon.Points.Count; i++)\n                  {\n                        GPoint p = FromLatLngToLocal(polygon.Points[i]);\n        #if !PocketPC\n                        if (!MobileMode)\n                        {\n                            p.OffsetNegative(Core.renderOffset);\n                        }\n        #endif\n                        polygon.LocalPoints.Add(p);\n                    }\n        #if !PocketPC\n                    polygon.UpdateGraphicsPath();\n        #endif\n            }\n        }</code></pre>\n\nI hope it works...<br />\n",
+    "PostedDate": "2016-03-21T04:36:52.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467494",
+    "ThreadId": "548998",
+    "Html": "Thanks and sorry for all the work I am crating for you! \r<br />\n<br />\nI do not know if this was correct way but I crated MyGMapConstrol that extends GMapControle and then created an override function called UpdatePolygonLocalPosition.\r<br />\nWhen I did this I get some unknown variables in the UpdatePolygonLocalPosition:\r<br />\nCore.renderOffset\r<br />\nlocalPoints\r<br />\npolygon<br />\n",
+    "PostedDate": "2016-03-21T06:18:06.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467599",
+    "ThreadId": "548998",
+    "Html": "Hi again\r<br />\n<br />\nI downloaded GMap source code and change the GMapControl as above and added GMapPolygonHole to it. It was missing localPoints in GMapControl -&gt;UpdatePolygonLocalPosition so I added a list of GPoints like this:<br />\n<pre><code>                List&lt;GPoint&gt; localPoints = new List&lt;GPoint&gt;();\n\n                foreach (var holePoints in polyHole.LstPointHoles)\n                {\n\n                    \n\n                    foreach (GMap.NET.PointLatLng pg in holePoints)\n                    {\n                        GPoint p = FromLatLngToLocal(pg);\n                        p.OffsetNegative(Core.renderOffset);\n                        localPoints.Add(p);\n                    }\n\n                    polyHole.LstPointsLocalHoles.Add(localPoints);\n                }\n</code></pre>\n\nBut no luck the main ploy is only shown. :(<br />\n",
+    "PostedDate": "2016-03-22T02:33:27.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467641",
+    "ThreadId": "548998",
+    "Html": "Many thanks Xandolph for all the information got it to work now!<br />\n",
+    "PostedDate": "2016-03-22T08:34:00.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467645",
+    "ThreadId": "548998",
+    "Html": "Cool, sorry that I didn't have the time to reply anymore...\r<br />\nYou can do some pretty neat stuff with those holes in the polygons:\r<br />\n<br />\n<img src=\"https://dl.dropboxusercontent.com/u/7026787/Screenshots/tin.jpg\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2016-03-22T08:43:13.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1467767",
+    "ThreadId": "548998",
+    "Html": "Nice map!\r<br />\n<br />\nI´m also an fisherman and also try to create my own depth maps. <br />\n",
+    "PostedDate": "2016-03-23T05:23:05.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1487072",
+    "ThreadId": "548998",
+    "Html": "Is it nessesary to recompile the source or is the solution working with the build 1.7 of gmap.net ?\r<br />\n<br />\nI have a similar problem. \r<br />\nI want to show Countries as Polygons. \r<br />\nsome Regions have holes. For example excludes the region Brandenburg the region berlin.\r<br />\nI am very happy to have the gmap.net-dll.\r<br />\n<br />\nHoping someone can help me.<br />\n",
+    "PostedDate": "2016-10-28T09:35:30.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

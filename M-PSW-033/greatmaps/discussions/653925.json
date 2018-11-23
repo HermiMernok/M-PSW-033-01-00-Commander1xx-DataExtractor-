@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1471126",
+    "ThreadId": "653925",
+    "Html": "I want to put a polygon that covers a gMapControl perfectly. But I cannot find a way to size it (like polygon.ViewArea = gMapControl.ViewArea).<br />\n<br />\nAnd do I have to figure out how to zoom the polygon when the gMapControl zooms?<br />\n<br />\nThanks for any help. I've been trying to get this for many hours.<br />\n",
+    "PostedDate": "2016-04-23T13:27:13.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1471137",
+    "ThreadId": "653925",
+    "Html": "I found a not so elegant way. Here it is unless someone has a better way.<br />\n<pre><code>            polyOverlay1 = new GMapOverlay(&quot;poly1&quot;);\n            RectLatLng map_area = gMapControl1.ViewArea;\n            List&lt;PointLatLng&gt; points = new List&lt;PointLatLng&gt;();\n\n            points.Add(new PointLatLng(map_area.Top, map_area.Left));\n            points.Add(new PointLatLng(map_area.Top, map_area.Right));\n            points.Add(new PointLatLng(map_area.Bottom, map_area.Right));\n            points.Add(new PointLatLng(map_area.Bottom, map_area.Left));\n\n            GMapPolygon polygon = new GMapPolygon(points, &quot;mypolygon&quot;);\n\n            polygon.Fill = new SolidBrush(Color.FromArgb(90, Color.White));\n            polygon.Stroke = new Pen(Color.Red, 1);\n            polyOverlay1.Polygons.Add(polygon);\n            gMapControl1.Overlays.Add(polyOverlay1);\n            polyOverlay1.IsVisibile = true;</code></pre>\n\n",
+    "PostedDate": "2016-04-23T15:08:21.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-04-23T15:08:42.317-07:00"
+  }
+]

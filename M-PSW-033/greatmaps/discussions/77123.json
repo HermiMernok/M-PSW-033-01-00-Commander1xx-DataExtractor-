@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "263656",
+    "ThreadId": "77123",
+    "Html": "<p>Radioman,</p>\r\n<p>In windows forms i used the gmap.handle to draw an image from file on the map.</p>\r\n<p>In WPF can't find handle. What is replacement? I want to use markers from a file (icon e.d.)</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-04T07:38:14.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263684",
+    "ThreadId": "77123",
+    "Html": "<p>lets start learing wpf/xaml is quite different from windows forms ;}</p>",
+    "PostedDate": "2009-12-04T08:44:57.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263899",
+    "ThreadId": "77123",
+    "Html": "<p>Yes, thats for sure. And i now how to use handle in wpf/xaml for windows, but not for gmap.</p>\r\n<p>Or do i have to use an other approach?</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2009-12-05T04:49:18.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263928",
+    "ThreadId": "77123",
+    "Html": "<p>you do not need any handles, you just create marker and add it to the map, the marker can be any control, even your wanted image. Try figure out how is made red marker in wpf gmap demo</p>",
+    "PostedDate": "2009-12-05T06:27:37.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263931",
+    "ThreadId": "77123",
+    "Html": "<p>Radioman,</p>\r\n<p>I (already) know how to make custom marker. Only an image as marker is still a challenge.</p>\r\n<p>I will try to figure out how you did the trick in demo. :-()</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-05T06:49:18.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264109",
+    "ThreadId": "77123",
+    "Html": "<p>Radioman,</p>\r\n<p>I have tried to figure out how you did the trick. But can not get it working in VB 2008 WPF.</p>\r\n<p>Is there any VB programmer around here who already figured this out?</p>\r\n<p>Any help is welcome.</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-06T05:01:58.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264141",
+    "ThreadId": "77123",
+    "Html": "<p>but language doesn't matter in .NET ;/</p>",
+    "PostedDate": "2009-12-06T07:34:46.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264464",
+    "ThreadId": "77123",
+    "Html": "<p>Radioman,</p>\r\n<p>I know language doesn't make much diffrence but i still can not figure out how to do the trick.</p>\r\n<p>What i want to do is load an .png or .bmp&nbsp; and use it as a marker.</p>\r\n<p>Heru</p>",
+    "PostedDate": "2009-12-07T06:22:17.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264484",
+    "ThreadId": "77123",
+    "Html": "<p>just do it ;} i'm not big fan of vb, so can't help much here ;}</p>",
+    "PostedDate": "2009-12-07T07:19:33.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264493",
+    "ThreadId": "77123",
+    "Html": "<p>Radioman,</p>\r\n<p>i don't need much help here... just some clues...</p>\r\n<p>Is it for instance possibile/hard to use something like:</p>\r\n<p>\r\n<p><span style=\"font-size:x-small\">\r\n<p>myMarker.Shape = Image.FromFile(&quot;Marker.png&quot;) ? ? ? ?</p>\r\n<p>If not, can you explain in some simple steps how to do the trick???</p>\r\n<p>&nbsp;</p>\r\n&lt;font size=&quot;2&quot;&gt;\r\n<p>Heru</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n</p>\r\n</p>",
+    "PostedDate": "2009-12-07T07:32:53.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264514",
+    "ThreadId": "77123",
+    "Html": "<ul>\r\n<li><a href=\"http://stackoverflow.com/questions/265062/load-image-from-file-and-print-it-using-wpf-how\">http://stackoverflow.com/questions/265062/load-image-from-file-and-print-it-using-wpf-how</a></li>\r\n<li><a href=\"http://stackoverflow.com/questions/569561/dynamic-loading-of-images-in-wpf\">http://stackoverflow.com/questions/569561/dynamic-loading-of-images-in-wpf</a></li>\r\n<li><a href=\"http://www.google.com/search?client=opera&rls=en&q=wpf+load+image&sourceid=opera&ie=utf-8&oe=utf-8\">http://www.google.com/search?client=opera&amp;rls=en&amp;q=wpf+load+image&amp;sourceid=opera&amp;ie=utf-8&amp;oe=utf-8</a></li>\r\n<li>;}</li>\r\n</ul>",
+    "PostedDate": "2009-12-07T08:16:49.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264824",
+    "ThreadId": "77123",
+    "Html": "<p>Radioman,</p>\r\n<p>Although i know how to read bitmap, these links are very usefull. But still no clue how to connect an image to a marker....</p>\r\n<p>So probably i am a moran .....</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-08T01:45:56.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264903",
+    "ThreadId": "77123",
+    "Html": "<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">Image myImage2 = new Image();</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">myImage2.Source = bitmapSource2;</div>\r\n<p><ol>\r\n<li>Image myImage = new Image();</li>\r\n<li>myImage.Source = bitmapSource;</li>\r\n<li>marker.shape =&nbsp;myImage2;</li>\r\n</ol></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-08T05:33:17.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264909",
+    "ThreadId": "77123",
+    "Html": "<p>Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>At this moment i am busy with digging a very deep hole. And when this hole is finished i will go hide my self for some hours to shame myself.</p>\r\n<p>All the time i did&nbsp;</p>\r\n<p><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">\r\n<p>GMapControl1.Markers.Add(myImage) in stead of&nbsp;</p>\r\n<span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">\r\n<p>GMapControl1.Markers.Add(myMarker).</p>\r\n<p>I overlooked is several times.</p>\r\n<p>Thank for your patience.</p>\r\n<p>&nbsp;</p>\r\n<p>BTW. WPF in combination with gMapControl is so much better than with Windows forms.</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n</span></span></span></span></p>",
+    "PostedDate": "2009-12-08T05:49:43.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "264918",
+    "ThreadId": "77123",
+    "Html": "<p>;} i'm glad to hear, yeah wpf rocks!</p>",
+    "PostedDate": "2009-12-08T06:24:46.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

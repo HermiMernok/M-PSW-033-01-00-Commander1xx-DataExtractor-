@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hello,\r\nFirst of all thank you Radioman for this great library !\r\n\r\nWe noticed that the control freezes in Windows Mobile version when you do fast and multiple drag of the map.\r\n\r\nI analyzed the code and could see that it was freezing because two LoadTile threads were in \"wait\" mode.\r\nI do not have enough time to analyze the whole code of Core class, but I can tell you that setting GThreadPoolSize to 1 in Windows Mobile application (\"PocketPC\" conditional-compilation) seems to bypass the problem.\r\n\r\nDo you think it is necessary to have multiple threads in Windows Mobile app ? Will it realy slow the software if we use only one thread on WM machines ?\r\n\r\nI hope my contribution can help.\r\n\r\nGreetings",
+    "LastUpdatedDate": "2015-01-08T09:00:33.507-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-01-08T06:27:16.557-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Windows Mobile version freezes randomly when dragging",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16107
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "On my hd2 it works 99% ok, what version have you tested, is it repeatable?",
+      "PostedDate": "2015-01-08T09:00:33.507-08:00",
+      "Id": 169717
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "Transformations",
+      "DisplayName": "Transformations"
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2007-08-24T20:23:45.34-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Reported in MsSqlSpatial issue tracker on Apr 16 at 10:28 AM:\n \n\"I'm having some trouble transforming coordinates. I've tracked down the SRID's and searched and looked at this for hours. Using one coordinate pair I've converted back and forth in ArcGIS and MsSqlSpatial to compare the results.. My initial test was over 400,000 pairs but soon realized that I missed something so I pulled one pair.... \n \n-- ESRI Transform for my input test\n--> NAD1983HARNStatePlaneArizonaCentralFIPS0202Feet_Intl\n \ndd: -110.99537 32.21563 = ft: 984923.1 443399.1\n \nselect st.x(geom),st.y(geom) from ( select geom = \nST.Transform( ST.GeomFromText('POINT( 984923.1 443399.1 )', 2868) , 4326) ) t\n--> MsSqlSpatial Returns: -108.797329180134 34.9583360237288\n \nselect st.x(geom),st.y(geom) from (select geom=\nST.Transform( ST.GeomFromText('POINT(-110.99537 32.21563 )', 4326) ,2868) ) t\n--> MsSqlSpatial Returns: 786844.803188649 135147.80629036\n \noddly ... 135147.80629036 looks real close to 443399.1 *.3048\n \n--=====================================================\nSRID: 2868 \nselect srtext from st.spatialrefsys where srid=2868\nPROJCS[\"NAD83(HARN) / Arizona Central (ft)\"\n,GEOGCS[\"NAD83(HARN)\"\n,DATUM[\"NAD83_High_Accuracy_Regional_Network\"\n,SPHEROID\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"],AUTHORITY\"EPSG\",\"6152\"]\n,PRIMEM\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]\n,UNIT\"degree\",0.01745329251994328,AUTHORITY[\"EPSG\",\"9122\"],AUTHORITY\"EPSG\",\"4152\"]\n,PROJECTION\"Transverse_Mercator\"\n,PARAMETER\"latitude_of_origin\",31\n,PARAMETER\"central_meridian\",-111.9166666666667\n,PARAMETER\"scale_factor\",0.9999\n,PARAMETER\"false_easting\",700000\n,PARAMETER\"false_northing\",0\n,UNIT[\"foot\",0.3048\n,AUTHORITY\"EPSG\",\"9002\"]\n,AUTHORITY\"EPSG\",\"2868\"]\n \n-- ESRI Projection File .prj \nPROJCS[\"NAD_1983_HARN_StatePlane_Arizona_Central_FIPS_0202_Feet_Intl\"\n,GEOGCS[\"GCS_North_American_1983_HARN\"\n,DATUM[\"D_North_American_1983_HARN\"\n,SPHEROID\"GRS_1980\",6378137.0,298.257222101]\n,PRIMEM\"Greenwich\",0.0\n,UNIT\"Degree\",0.0174532925199433]\n,PROJECTION\"Transverse_Mercator\"\n,PARAMETER\"False_Easting\",700000.0\n,PARAMETER\"False_Northing\",0.0\n,PARAMETER\"Central_Meridian\",-111.9166666666667\n,PARAMETER\"Scale_Factor\",0.9999\n,PARAMETER\"Latitude_Of_Origin\",31.0\n,UNIT\"Foot\",0.3048]\n \nThanks in advance...\n-Andy \"\n \n________________________________________\n \nOdegaard comment on Apr 17 at 1:30 PM\nHere's my take on it (but untested).\nSee the following function in MapProjection.cs:\nprotected MapProjection(Collection<ProjectionParameter> parameters)\nThe two projection parameters 'semimajor' and 'semiminor' should be multiplied by the linear unit of the projection. Unfortunately this is not accessible here, so the MapProjection should have an override that takes an extra parameter LinearUnit, and multiplies it to the semiminor and semimajor which is always specified in meters;\nThe reason that only one of the values fit if you multiply by 0.3048 is that False_Northing is 0.0 which is the same value in feet and meters. If you change the False_Easting to a meter unit, both X and Y should give you a meter-unit you can multiply by 0.3048. Or in other words:\n(786844-700000)/0.3048+700000 = 984921 feet\nOf course this is just a workaround, and not a solution to the real problem.",
+    "LastUpdatedDate": "2017-12-12T22:24:53.023-08:00",
+    "PlannedForRelease": "Proj.NET 1.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2007-06-13T20:59:53.33-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Transform between 2868 and 4326 EPSG SRIDs",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 1853
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 9496.",
+      "PostedDate": "2007-08-24T20:23:45.34-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T16:06:12.493-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T03:55:43.1-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-12T22:24:53.023-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

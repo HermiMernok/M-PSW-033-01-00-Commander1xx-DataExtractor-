@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "519057",
+    "ThreadId": "233956",
+    "Html": "\r\n<p>How do I do Placemarks caching?<br>\r\nIf this is something that already exists, how do I hook up into this feature?</p>\r\n",
+    "PostedDate": "2010-11-08T16:03:07.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519152",
+    "ThreadId": "233956",
+    "Html": "\r\n<p>yes, they are cached</p>\r\n",
+    "PostedDate": "2010-11-08T22:25:38.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519171",
+    "ThreadId": "233956",
+    "Html": "\r\n<p>well, I looked at the caching code for placemarks and I guess that's not what I had in mind. It caches the end-part of the url (again I am guessing that's the request url, but it might be the url that is in response)...<br>\r\nThe app that I am building provides (for now due to google limitation) up to 20 responses to a single request, while the requset can be a mix of address components and just keywords like Starbucks or McDonalds. And therefore in this situation my purpose is\r\n to cache all the results that were found. These results are lat/lng, address components, all parsed (and even tooltip ready for display as is. That is, I am looking to cache an object. There is quite a lot of parsing and data coming back so it will save an\r\n online call completely and all the parsing/processing). So&nbsp;I guess at this point I need to add&nbsp;&quot;advanced cache&quot; code to existing cache code that will do binary serialization of my extended&nbsp;Placemark objects. &nbsp;Again, great job, I still did\r\n not get to reasearch the most part of it, but it is awesome; I promise quite a few question when I get to the routes... ;-)</p>\r\n",
+    "PostedDate": "2010-11-08T23:20:00.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519199",
+    "ThreadId": "233956",
+    "Html": "\r\n<p>i see ;}</p>\r\n",
+    "PostedDate": "2010-11-09T00:24:08.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

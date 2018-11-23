@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1204182",
+    "ThreadId": "529617",
+    "Html": "Hello Radioman,\r<br />\n<br />\nI create simple MapProvider:<br />\n<pre><code>using System;\nusing System.Drawing;\nusing System.Drawing.Imaging;\nusing System.IO;\nusing GMap.NET;\nusing GMap.NET.MapProviders;\nusing GMap.NET.WindowsPresentation;\n\nnamespace Client\n{\n    public class MyMapProvider : YandexMapProviderBase\n    {\n        public static readonly MyMapProvider Instance;\n\n        private MyMapProvider()\n        {\n        }\n\n        static MyMapProvider()\n        {\n            Instance = new HeatMapProvider();\n        }\n\n        #region GMapProvider Members\n\n        private readonly Guid id = new Guid(&quot;FC69BD46-6D65-44BE-AE29-F1C8D66D3F55&quot;);\n\n        public override Guid Id\n        {\n            get { return id; }\n        }\n\n        private readonly string name = &quot;MyMap&quot;;\n\n        public override string Name\n        {\n            get { return name; }\n        }\n\n        private GMapProvider[] overlays;\n\n        public override GMapProvider[] Overlays\n        {\n            get\n            {\n                if (overlays == null)\n                {\n                    overlays = new GMapProvider[] {YandexMapProvider.Instance, this};\n                }\n                return overlays;\n            }\n        }\n\n        public override PureImage GetTileImage(GPoint pos, int zoom)\n        {\n            var pureImage = new GMapImage();\n            using (var resultImage = Image.FromFile(@&quot;C:\\\\demo_tile.png&quot;))\n            {\n                var stream = new MemoryStream();\n                resultImage.Save(stream, ImageFormat.Png);\n                stream.Position = 0L;\n                pureImage.Data = stream;\n            }\n            return pureImage;\n        }\n\n        #endregion\n\n    }\n}\n</code></pre>\n\nBut the picture is not applied immediately. Picture begins to emerge only after the move map. How to fix this?\r<br />\n<br />\nWith best regards.<br />\n",
+    "PostedDate": "2014-02-07T03:17:04.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1206172",
+    "ThreadId": "529617",
+    "Html": "Find a solution :)<br />\n<pre><code>var stream = new MemoryStream();\nresultImage.Save(stream, ImageFormat.Png);\nstream.Position = 0L;\nvar pureImage = GMapImageProxy.Instance.FromArray(stream.ToArray());\nreturn pureImage;</code></pre>\n\n",
+    "PostedDate": "2014-02-09T23:55:30.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

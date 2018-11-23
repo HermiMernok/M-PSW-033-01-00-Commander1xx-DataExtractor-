@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "706186",
+    "ThreadId": "281553",
+    "Html": "\r\n<p>Is there any idea how to &quot;animate&quot; marker moving from one position to other, but not jumping</p>\r\n<p>I'm try to make one transparent picture box and move it from screen position, but only way was to put it in map control, in that case it flick when map render start ....</p>\r\n<p>Is it possible to change marker position many times per sec to make it slide on map???</p>\r\n<p>If there is any idea Please Help!</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2011-12-01T18:01:22.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706266",
+    "ThreadId": "281553",
+    "Html": "<p>wtf, picture box, what it has to do with map control?</p>",
+    "PostedDate": "2011-12-01T23:32:31.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706274",
+    "ThreadId": "281553",
+    "Html": "<p>I try with markers and overlay, but without success</p>\r\n<p>Please for little help with this,</p>\r\n<p>I need just idea to solve problem, and what time is needed to refresh markers on map&nbsp; i have 10 cars and need to make them slide, i have delay 1 sec,</p>\r\n<p>and that translation from one point to odher need to be 1s long, my question is how many times per sec can be refreshed overlay with markes in 1s,</p>\r\n<p>Can it be 25 times per second (25fps) to make ilusion of slide without hoping?</p>\r\n<p>Or i need to move marker for 1px and then i must calculate frequency of moving to get it slide ?</p>\r\n<p>Or any idea, sample few lines of code anything what can&nbsp; &uml;show the way&uml; for solving this problem.</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-12-01T23:52:47.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706281",
+    "ThreadId": "281553",
+    "Html": "<p>refresh rate is limited by cpu and the number of markers, it's the same as dragging the map, the question is <em>how to calculate transition points?</em></p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>onTimerTick()\r\n{\r\n  MainMap.HoldInvalidation = <span style=\"color: blue;\">true</span>;\r\n  {\r\n     marker1.Position = <span style=\"color: blue;\">new</span> (..\r\n     marker2.Position = <span style=\"color: blue;\">new</span> (..\r\n     marker3.Position = <span style=\"color: blue;\">new</span> (..\r\n     marker4.Position = <span style=\"color: blue;\">new</span> (..\r\n  }\r\n  map.Refresh();\r\n}<br /></pre>\r\n<pre>&nbsp;</pre>\r\n</div>",
+    "PostedDate": "2011-12-02T00:13:44.72-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706282",
+    "ThreadId": "281553",
+    "Html": "<p>p.s. i'll try to experiment it on vehicle demo</p>",
+    "PostedDate": "2011-12-02T00:15:18.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706675",
+    "ThreadId": "281553",
+    "Html": "<p>THANK YOU VERY MUCH!</p>\r\n<p>THIS IS THE RIGHT ANSWER WHAT I NEED!</p>\r\n<p>THIS LOOK <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">FASCINATING, BEAUTIFUL , GREAT GREAT GREAT</span></span> WITH YOUR GREAT MAP.</p>\r\n<p>I wish to thank YOU Radioman one more time for this GREAT ARTICLE.</p>\r\n<p>I will do some tests and feedback all results to YOU.</p>\r\n<p>THANKS !</p>",
+    "PostedDate": "2011-12-02T13:52:36.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706860",
+    "ThreadId": "281553",
+    "Html": "<p>;}</p>",
+    "PostedDate": "2011-12-03T02:14:20.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

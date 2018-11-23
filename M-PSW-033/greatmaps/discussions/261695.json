@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "628919",
+    "ThreadId": "261695",
+    "Html": "<p>Hello radioman,</p>\n<p>I have a case where I'm drawing multiple System.Windows.Shapes.Path's&nbsp; (interconnected to represent one huge path)&nbsp; on a Canvas that sits on top of the GMapControl. The path represents a given route drawn based on a list of PointLatLng points. Now, whenever  the user pans or zooms in/out, I need to re-position my path. I want to avoid redrawing the path myself; I need to use a transformation instead, because the rendering would be done on the graphics card level when using the Transformation (of course I need  to have a good graphics card). The reason why I'm not using GMapMarker::Route is because my route can be composed of a tremendous number of points and I don't really need to keep all these points in memory, because I'll lose performance. Instead of that, I  keep only the sub paths in a list in order to redraw whenever the user changes the view of the map (pan/zoom). Any idea of how to get the pan/zoom offset in order for me to apply a transformation on my paths.</p>\n<p>by the way, I'm using the WPF version.</p>\n<p>Thanks,</p>",
+    "PostedDate": "2011-06-16T13:56:51.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629003",
+    "ThreadId": "261695",
+    "Html": "<p>thats why you need to keep points in the memory, to regenerate path when zoom changes, maybe it can be redesigned to get points on demand, so memory will be clear after zoom event</p>",
+    "PostedDate": "2011-06-16T17:51:22.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

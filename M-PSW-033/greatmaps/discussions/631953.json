@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1416295",
+    "ThreadId": "631953",
+    "Html": "Hi,\r<br />\nFirst I'd like to thank radioman for this awesome project.\r<br />\nI'd like to ask if it is possible to access the zoom property through a property path, so I can animate the GMapControl zoom.\r<br />\nIf yes, what's the path to this property?\r<br />\nthanks! <br />\n",
+    "PostedDate": "2015-04-21T05:54:02.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1416305",
+    "ThreadId": "631953",
+    "Html": "Found it!! It might come handy to anyone out there who wants to animate his WPF GMapControl Zoom. use the following:<br />\nStoryboard.SetTargetProperty(ZoomAnimation, new PropertyPath(GMapControl.ZoomProperty));<br />\nThanks again!<br />\n",
+    "PostedDate": "2015-04-21T06:14:52.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

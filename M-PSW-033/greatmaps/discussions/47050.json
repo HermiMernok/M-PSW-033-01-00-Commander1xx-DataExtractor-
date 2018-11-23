@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "157364",
+    "ThreadId": "47050",
+    "Html": "First of all, great project. I wrote something like it about 6 months ago as a proof of concept, doing offline tile serving etc...<br>\r\n<br>\r\nreason for post... for proxy authentication do you think you should have: <span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#2b91af\">WebRequest</span><span style=\"font-size:13px\">.DefaultWebProxy.Credentials = System.Net.</span><span style=\"font-size:13px;color:#2b91af\">CredentialCache</span><span style=\"font-size:13px\">.DefaultCredentials;\r\n<p>&nbsp;</p>\r\n</span></p>\r\ninstead of:<br>\r\n<br>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008000\">// set your proxy here if need\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008000\">//GMaps.Instance.Proxy = new WebProxy(&quot;10.2.0.100&quot;, 8080);\r\n<p>&nbsp;</p>\r\n</span></p>\r\n<span style=\"font-size:13px\">\r\n<p>&nbsp;</p>\r\n</span>\r\n<p><span style=\"font-size:13px;color:#008000\">//GMaps.Instance.Proxy.Credentials = new NetworkCredential(&quot;xxx@yyy.com&quot;, &quot;wibble&quot;);</span><br>\r\n<br>\r\nthanks again for a great app!</p>\r\n",
+    "PostedDate": "2009-02-13T03:09:17.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157449",
+    "ThreadId": "47050",
+    "Html": "i think it is default by default ;}",
+    "PostedDate": "2009-02-13T07:53:38.62-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "159388",
+    "ThreadId": "47050",
+    "Html": "...but if your behind a corperate firewall, you need to set this to pick up your proxy information / credentials ...or at least you do at the site I'm at right now.\r\n",
+    "PostedDate": "2009-02-19T03:18:12.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "159812",
+    "ThreadId": "47050",
+    "Html": "just set GMaps.Instance.Proxy, if its not null or default it is used in tile downloading or geocoding...",
+    "PostedDate": "2009-02-19T10:43:15.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

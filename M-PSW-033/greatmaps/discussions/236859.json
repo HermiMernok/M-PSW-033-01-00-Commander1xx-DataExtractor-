@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "530038",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>Can I use this in Visual Foxpro application ?&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-02T06:06:58.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530077",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>if it can display any .net control, then yes</p>\r\n",
+    "PostedDate": "2010-12-02T07:10:32.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530202",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>Foxpro can handle .NET control registered with RegAsm. When I want to register Gmap.Net.dll, I get error: &nbsp;Warning RA0000: No types were registered from RegAsm.</p>\r\n",
+    "PostedDate": "2010-12-02T10:32:55.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530209",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>no, you need register&nbsp;GMap.NET.WindowsForms.dll</p>\r\n",
+    "PostedDate": "2010-12-02T10:39:37.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530220",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>yes, I try register gmap.net.windowsforms.dll and get that error</p>\r\n<p>&nbsp;</p>\r\n<p>Is anybody who use gmap in microsoft access ? &nbsp;there is similar need for registering&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-02T10:57:35.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530233",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Please, can you set this property in Gmap , it can help with this regasm issue probably &nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Set&nbsp;<strong>ComVisible</strong>&nbsp;property to&nbsp;<strong>&quot;true</strong>&quot; in&nbsp;<strong>assemblyInfo.cs</strong>&nbsp;file.</p>\r\n",
+    "PostedDate": "2010-12-02T11:17:03.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530245",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>does it work?</p>\r\n",
+    "PostedDate": "2010-12-02T11:29:44.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530258",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>I think that it can be made only from you in source code before compile next dll release.&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-02T11:59:18.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "530266",
+    "ThreadId": "236859",
+    "Html": "\r\n<p>yes, but you can build it too, you don't have to wait for such changes, and if it works, i'll include it too</p>\r\n",
+    "PostedDate": "2010-12-02T12:06:43.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

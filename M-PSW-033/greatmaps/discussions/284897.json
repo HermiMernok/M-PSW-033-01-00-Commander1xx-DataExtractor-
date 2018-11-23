@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "720132",
+    "ThreadId": "284897",
+    "Html": "\r\n<p>Hello</p>\r\n<p>Why is disabled property Bearing to set:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>[Category(<span style=\"color:#a31515\">&quot;GMap.NET&quot;</span>)]\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">float</span> Bearing\r\n      {\r\n         <span style=\"color:blue\">get</span>\r\n         {\r\n            <span style=\"color:blue\">return</span> Core.bearing;\r\n         }\r\n         <span style=\"color:blue\">set</span>\r\n         {\r\n            <span style=\"color:green\">//if(Core.bearing != value)</span>\r\n            <span style=\"color:green\">//{</span>\r\n            <span style=\"color:green\">//   bool resize = Core.bearing == 0;</span>\r\n            <span style=\"color:green\">//   Core.bearing = value;</span>\r\n\r\n            <span style=\"color:green\">//   UpdateRotationMatrix();</span>\r\n\r\n            <span style=\"color:green\">//   if(value != 0 &amp;&amp; value % 360 != 0)</span>\r\n            <span style=\"color:green\">//   {</span>\r\n            <span style=\"color:green\">//      Core.IsRotated = true;</span>\r\n\r\n            <span style=\"color:green\">//      if(Core.tileRectBearing.Size == Core.tileRect.Size)</span>\r\n            <span style=\"color:green\">//      {</span>\r\n            <span style=\"color:green\">//         Core.tileRectBearing = Core.tileRect;</span>\r\n            <span style=\"color:green\">//         Core.tileRectBearing.Inflate(1, 1);</span>\r\n            <span style=\"color:green\">//      }</span>\r\n            <span style=\"color:green\">//   }</span>\r\n            <span style=\"color:green\">//   else</span>\r\n            <span style=\"color:green\">//   {</span>\r\n            <span style=\"color:green\">//      Core.IsRotated = false;</span>\r\n            <span style=\"color:green\">//      Core.tileRectBearing = Core.tileRect;</span>\r\n            <span style=\"color:green\">//   }</span>\r\n\r\n            <span style=\"color:green\">//   if(resize)</span>\r\n            <span style=\"color:green\">//   {</span>\r\n            <span style=\"color:green\">//      Core.OnMapSizeChanged((int)ActualWidth, (int)ActualHeight);</span>\r\n            <span style=\"color:green\">//   }</span>\r\n\r\n            <span style=\"color:green\">//   Core_OnMapZoomChanged();</span>\r\n\r\n            <span style=\"color:green\">//   InvalidateVisual();</span>\r\n            <span style=\"color:green\">//}</span>\r\n         }\r\n      }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-01-03T20:11:49.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722402",
+    "ThreadId": "284897",
+    "Html": "<p>rotation is out of sync in latest code</p>",
+    "PostedDate": "2012-01-09T05:02:50.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722491",
+    "ThreadId": "284897",
+    "Html": "<p>In last version <a id=\"ChangeSetLink0\" style=\"font-weight: bold;\" title=\"View change set a9646cd300e6\" href=\"../SourceControl/changeset/changes/a9646cd300e6\">a9646cd300e6</a> also property Bearing <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">commented. How I can Rotate Map?<br /></span></span></p>",
+    "PostedDate": "2012-01-09T06:36:41.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722493",
+    "ThreadId": "284897",
+    "Html": "<p>you can't in the latest code</p>",
+    "PostedDate": "2012-01-09T06:37:38.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722499",
+    "ThreadId": "284897",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">Why</span><span>?</span> <span class=\"hps\">Where is</span> <span class=\"hps\">the latest version</span><span>?</span><br /> <span class=\"hps\">Thank you.</span></span></p>",
+    "PostedDate": "2012-01-09T06:41:53.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722501",
+    "ThreadId": "284897",
+    "Html": "<p>rotation should be ok in the last release, hot build has some functionality disabled...</p>",
+    "PostedDate": "2012-01-09T06:46:15.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722506",
+    "ThreadId": "284897",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Well</span><span>, thank you</span> <span class=\"hps\">now</span> <span class=\"hps\">understand when</span> <span class=\"hps\">to wait for</span> <span class=\"hps\">release</span><span>?</span></span></p>",
+    "PostedDate": "2012-01-09T06:51:00.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722511",
+    "ThreadId": "284897",
+    "Html": "<p>you don't have to wait, just use latest release if you need rotation, v1.6</p>",
+    "PostedDate": "2012-01-09T06:57:20.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722540",
+    "ThreadId": "284897",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Well,</span> <span class=\"hps\">using version</span> <span class=\"hps\">v1.6,</span> <span class=\"hps\">and wait for</span> <span class=\"hps\">the new release.</span><br /> <span class=\"hps\">Thank you.</span></span></p>",
+    "PostedDate": "2012-01-09T07:46:50.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1341905",
+    "ThreadId": "284897",
+    "Html": "should be ok now<br />\n",
+    "PostedDate": "2015-01-14T11:45:17.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-14T11:45:31.04-08:00"
+  }
+]

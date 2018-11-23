@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "override f*** function\n\npublic virtual Path CreatePolygonPath(List<Point> localPath, bool addBlurEffect)",
+    "ClosedDate": "2016-07-26T13:22:46.16-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Inside of GMapControl.cs the myPath has hard-coded values. This prevents the user from being able to customize any GMapPolygon properties such as color, stroke thickness etc. \r\n         \r\n\r\n// Create a path to draw a geometry with.\r\n         Path myPath = new Path();\r\n         {\r\n            // Specify the shape of the Path using the StreamGeometry.\r\n            myPath.Data = geometry;\r\n\r\n            if (addBlurEffect)\r\n            {\r\n                BlurEffect ef = new BlurEffect();\r\n                {\r\n                    ef.KernelType = KernelType.Gaussian;\r\n                    ef.Radius = 3.0;\r\n                    ef.RenderingBias = RenderingBias.Performance;\r\n                }\r\n\r\n                myPath.Effect = ef;\r\n            }\r\n\r\n            myPath.Stroke = Brushes.MidnightBlue;\r\n            myPath.StrokeThickness = 5;\r\n            myPath.StrokeLineJoin = PenLineJoin.Round;\r\n            myPath.StrokeStartLineCap = PenLineCap.Triangle;\r\n            myPath.StrokeEndLineCap = PenLineCap.Square;\r\n\r\n            myPath.Fill = Brushes.AliceBlue;\r\n\r\n            myPath.Opacity = 0.6;\r\n            myPath.IsHitTestVisible = false;\r\n         }\r\n         return myPath;",
+    "LastUpdatedDate": "2016-08-04T14:51:45.56-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-07-25T15:59:52.33-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WPF GMapPolygon has hard-coded fill effects ",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16146
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Well radioman... \n\nWhen wants to draw a polygon via \"GMapPolygon\" we do not have access to said field, because of this \"var shape = map.CreatePolygonPath(localPath);\"\n\nThanks for being an a** hole\n\n```\npublic class GMapPolygon : GMapMarker, IShapable\n    {\n        public readonly List<PointLatLng> Points = new List<PointLatLng>();\n\n        public GMapPolygon(IEnumerable<PointLatLng> points)\n        {\n            Points.AddRange(points);\n            RegenerateShape(null);\n        }\n        \n        public override void Clear()\n        {\n            base.Clear();\n            Points.Clear();\n        }\n\n        /// <summary>\n        /// regenerates shape of polygon\n        /// </summary>\n        public virtual void RegenerateShape(GMapControl map)\n        {\n             if(map != null)\n             {\n                this.Map = map;\n                 \n                if(Points.Count > 1)\n                {\n                   Position = Points[0];\n                   \n                   var localPath = new List<System.Windows.Point>(Points.Count);\n                   var offset = Map.FromLatLngToLocal(Points[0]);\n                   foreach(var i in Points)\n                   {\n                      var p = Map.FromLatLngToLocal(i);\n                      localPath.Add(new System.Windows.Point(p.X - offset.X, p.Y - offset.Y));\n                   }\n    \n                   var shape = map.CreatePolygonPath(localPath);\n    \n                   if(this.Shape is Path)\n                   {\n                      (this.Shape as Path).Data = shape.Data;\n                   }\n                   else\n                   {\n                      this.Shape = shape;\n                   }\n                }\n                else\n                {\n                   this.Shape = null;\n                }\n             }\n        }\n    }\n```",
+      "PostedDate": "2016-08-04T14:51:45.56-07:00",
+      "Id": 201066
+    }
+  ]
+}

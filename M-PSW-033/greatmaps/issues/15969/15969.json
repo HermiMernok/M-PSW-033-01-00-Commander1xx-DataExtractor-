@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "new geocoding system includes all search results, not top 1",
+    "ClosedDate": "2011-09-20T11:24:50.907-07:00",
+    "CommentCount": 5,
+    "Custom": "",
+    "Description": "Hi,\nI am using GMAP.Net for windows form and integrated it with one of my application. The problem is in displaying few addresses in and around UK. Please refer to attached file and see same address is plotted correct in google maps using maps.google.com but while trying to locate in my application it displays at a different place which is actually incorrect. You can use following address for testing:\n\n\"15 Back Lane, Claybrooke Magna, Lutterworth,Leicestershire LE17 5AW, Storbritannien, UK\"",
+    "LastUpdatedDate": "2011-09-20T11:24:50.907-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-01-18T22:55:08.483-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wrong Address/Location",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15969
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106844,
+      "FileName": "Routing problem.zip",
+      "DownloadUrl": ".\\106844"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "May anyone suggest, if it is a google map problem or am I doing something wrong?",
+      "PostedDate": "2010-01-29T01:55:43.767-08:00",
+      "Id": 3148
+    },
+    {
+      "Message": "Did some testing: \r\n\r\n*** TEST: \"15 Back Lane, Claybrooke Magna, Lutterworth,Leicestershire LE17 5AW, Storbritannien, UK\" \r\n\r\n   Google maps: OK\r\n   Gmap.net: NOK, error cannot find address \r\n\r\n*** TEST: \"15 Back Lane, Claybrooke Magna, Lutterworth, Leicestershire LE17 5AW, Storbritannien\"\r\n\r\n   Google maps: OK\r\n   Gmap.net: NOK, recognizes the address, but the accuray is the TOWN\r\n\r\n*** TEST: 15 Back Lane, Claybrooke Magna\r\n\r\n   Google maps: OK\r\n   Gmap.net: OK (very minor difference in location / other side of the street)  / Accuracy: Address\r\n\r\nApparently Google uses some additional logic on their webserver to check addresses in comparison to the webservice they are providing\r\n\r\n\r\n\r\n\r\n",
+      "PostedDate": "2010-05-29T08:04:49.763-07:00",
+      "Id": 12720
+    },
+    {
+      "Message": "*** TEST: 15 Back Lane, Claybrooke magna,  LE17 5AW, Leicestershire, Storbritannien, UK\r\n\r\nGoogle maps: OK\r\nGmap.net: OK (very minor difference in location / other side of the street) / Accuracy: Address\r\n\r\n\r\n=>>> Conclusion: there's a problem with the lutterworth",
+      "PostedDate": "2010-05-29T08:23:15.247-07:00",
+      "Id": 12721
+    },
+    {
+      "Message": "*** maps.google.com http request (direct from the webpage:\r\n\r\nGET /maps?f=q&source=s_q&output=js&hl=nl&geocode=&abauth=2da74866%3AwdH6YGRNP10zX1mo3TWMavSpTDc&q=15+Back+Lane%2C+Claybrooke+magna%2C+LE17+5AW%2C+Leicestershire%2C+Storbritannien%2C+UK&btnG=Zoeken+in+Maps&aq=&vps=1&jsv=242c&sll=60.930432%2C-164.003906&sspn=20.02887%2C54.580078 HTTP/1.1\r\n\r\n**** gmap.net request (from geocoding box): \r\nGET /maps/geo?q=15+Back+Lane,+Claybrooke+Magna,+Lutterworth,Leicestershire+LE17+5AW,+Storbritannien,+UK&output=csv&key=ABQIAAAAWaQgWiEBF3lW97ifKnAczhRAzBk5Igf8Z5n2W3hNnMT0j2TikxTLtVIGU7hCLLHMAuAMt-BO5UrEWA HTTP/1.1",
+      "PostedDate": "2010-05-30T10:16:05.33-07:00",
+      "Id": 12733
+    },
+    {
+      "Message": "Coogle maps API v3 has the same \"issues\" as gmap.net:\r\n   http://code.google.com/intl/nl-BE/apis/maps/documentation/javascript/examples/index.html (simple geocoding example)\r\n\r\nboth sources generate identitical results.\r\n\r\ngoogle uses additional intelligence for their own services (maps.google.com).  ",
+      "PostedDate": "2010-05-30T11:05:45.123-07:00",
+      "Id": 12734
+    }
+  ]
+}

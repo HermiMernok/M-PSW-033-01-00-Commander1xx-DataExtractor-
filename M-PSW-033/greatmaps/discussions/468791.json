@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1123874",
+    "ThreadId": "468791",
+    "Html": "Hi,<br />\nI don't know why its doesn't matter what the LatLng of the marker2 but the map show only the last marker. (Yellow),   tried on BING and GOOGLE, same result.<br />\n<br />\nThe Tooltip show both markers together and again, its doest matter if location of marker2 even 0, 0...<br />\n<br />\n<br />\nWhats wrong in the code?<br />\n<br />\n<br />\nmarkersOverlay.Clear();<br />\n<br />\nGMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(48, 16.4),  GMarkerGoogleType.green);<br />\nmarker.ToolTip = new GMapRoundedToolTip(marker);<br />\nmarker.ToolTipText = &quot;345 Park Ave&quot;;<br />\nmarker.Tag = 1;<br />\nmarker.ToolTipMode = MarkerTooltipMode.OnMouseOver;<br />\n<br />\nmarkersOverlay.Markers.Add(marker);<br />\nGMarkerGoogle marker2 = new GMarkerGoogle(new PointLatLng(45, 16.4),  GMarkerGoogleType.yellow);<br />\nmarker2.ToolTip = new GMapRoundedToolTip(marker2);<br />\nmarker2.ToolTipText = &quot;Point 2&quot;;<br />\nmarker2.ToolTipMode = MarkerTooltipMode.OnMouseOver;<br />\nmarker2.Tag = 2;<br />\n<br />\nmarkersOverlay.Markers.Add(marker2);<br />\n<br />\ngMapControl.Overlays.Add(markersOverlay);<br />\n",
+    "PostedDate": "2013-11-15T05:00:36.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1125154",
+    "ThreadId": "468791",
+    "Html": "Try to add the overlay to the map first, then add markers to the overlay.<br />\n",
+    "PostedDate": "2013-11-16T23:16:09.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1125169",
+    "ThreadId": "468791",
+    "Html": "@Xandolph,    It doesn't show any marker<br />\n",
+    "PostedDate": "2013-11-17T01:05:17.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

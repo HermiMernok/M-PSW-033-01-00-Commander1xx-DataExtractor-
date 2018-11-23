@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1084418",
+    "ThreadId": "454412",
+    "Html": "Hello ; \r<br />\nI am using GMAP.net for windows form , and I am trying to use :\r<br />\nPlacemark pos = GMaps.Instance.GetPlacemarkFromGeocoder(item.Position);\r<br />\n<br />\nInstance have no defined function for GetPlacemarkFromGeocoder\r<br />\n<br />\nIs there any way for getting the GetPlacemarkFromGeocoder ?\r<br />\n<br />\nI am using the Last Hot Build .\r<br />\n<br />\nRegards...<br />\n",
+    "PostedDate": "2013-08-24T01:23:43.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084423",
+    "ThreadId": "454412",
+    "Html": "these functions are moved to each provider<br />\n",
+    "PostedDate": "2013-08-24T02:10:59.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084424",
+    "ThreadId": "454412",
+    "Html": "Thanks for your reply ,I am using Google Maps.\r<br />\n<br />\nWhat is that function if I am using Google map ?<br />\n",
+    "PostedDate": "2013-08-24T02:17:16.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084576",
+    "ThreadId": "454412",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\nthese functions are moved to each provider<br />\n</blockquote>\nCould you please provide me the function used in Google Map for getting the reverse Geocode <br />\n",
+    "PostedDate": "2013-08-24T22:09:45.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084582",
+    "ThreadId": "454412",
+    "Html": "Thank you I got it :<br />\n<pre><code>            GeoCoderStatusCode status = new GeoCoderStatusCode();\n            Placemark? plc = new Placemark();\n            plc = GMapProviders.GoogleMap.GetPlacemark(currentMarker.Position, out status);</code></pre>\n\n",
+    "PostedDate": "2013-08-24T22:49:26.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092790",
+    "ThreadId": "454412",
+    "Html": "Hello\r<br />\n<br />\nIt seems that the Google Geocoder does not work anymore since september 2013\r<br />\n<br />\nit is necessary to use V3 now\r<br />\n<br />\n<a href=\"https://developers.google.com/maps/documentation/geocoding/#XML\" rel=\"nofollow\">https://developers.google.com/maps/documentation/geocoding/#XML</a>\r<br />\n<br />\nDo someone get that issue ?<br />\n",
+    "PostedDate": "2013-09-15T00:08:28.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126103",
+    "ThreadId": "454412",
+    "Html": "You can get the coordinates from a gmap point and reverse geocode this way<br />\n<pre><code>Public Function GetPlacemark(ByVal lng As Double, ByVal lat As Double) As String\n            Dim myAddress As String = &quot;Nothing&quot;\n            Dim webClient As New System.Net.WebClient\n            Dim sLng As String = CStr(lng)\n            Dim sLat As String = CStr(lat)\n            sLng = Replace(sLng, &quot;,&quot;, &quot;.&quot;)\n            sLat = Replace(sLat, &quot;,&quot;, &quot;.&quot;)\n            webClient.Encoding = System.Text.Encoding.UTF8\n            Dim result As String = webClient.DownloadString(&quot;http://maps.googleapis.com/maps/api/geocode/xml?latlng=&quot; &amp; sLat &amp; &quot;,&quot; &amp; sLng &amp; &quot;&amp;sensor=false&quot;)\n\n            Dim xmlDoc As New XmlDocument()\n\n            xmlDoc.LoadXml(result)\n\n            Dim m_nodelist As XmlNodeList\n\n            m_nodelist = xmlDoc.SelectNodes(&quot;/GeocodeResponse/result/formatted_address&quot;)\n\n\n            myAddress = m_nodelist(0).InnerText\n      \n            Return  myAddress\n        End Function</code></pre>\n\n",
+    "PostedDate": "2013-11-18T09:27:44.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1209198",
+    "ThreadId": "454412",
+    "Html": "Well I had the same problem but I found a way to get the address of a point.\r<br />\nI know it's a bit messy but it gets the job done.<br />\n<pre><code>PointLatLng p = new PointLatLng(29.0894152, -110.9612378﻿);\nGDirections d;\nGMap.NET.MapProviders.GoogleMapProvider.Instance.GetDirections(out d ,p, p, true, true, true, false, true);\nMessageBox.Show(d.StartAddress);</code></pre>\n\nIt basically calculates a route using the same point as starting and ending points.\r<br />\nAfter this, we can get the start address from p, which is the address of the point.\r<br />\n<br />\nI hope it helps someone.\r<br />\nCheers!<br />\n",
+    "PostedDate": "2014-02-16T19:31:54.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342996",
+    "ThreadId": "454412",
+    "Html": "@pinwinocdb ty so much dude! \r<br />\n@radioman ty for it!! i love your work!<br />\n",
+    "PostedDate": "2015-01-17T22:38:14.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

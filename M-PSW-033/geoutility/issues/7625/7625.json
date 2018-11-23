@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-12-02T05:14:51.86-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n \nI'm currently testing your geoutility library. During these test i came across a minor issue. \n \nWhen i do the conversion from UTM to MGRS and then back to UTM, it gave me the wrong coordinates.\n \nInput UTM: 36 S 728350 3664450 => MGRS: 36S YB 2835 6445\nInput MGRS: 36S YB 2835 6445 => UTM: 36 S 702835 3606445\n \nAs you can see it adds 2 extra 0 in UTM one after 36S7 the other after 36\n \nIt only does this when UTM ends on a 0. I also tested it with your test application. The results where the same.\n \nCan you check this?\n \nThanks\nRichard\n \nBTW: Great Library ;-)",
+    "LastUpdatedDate": "2013-05-15T22:07:20.17-07:00",
+    "PlannedForRelease": "GeoUtility Library 3.1.7.5",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "geoutility",
+    "ReportedDate": "2010-11-30T03:07:34.567-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Conversion UTM to MGRS and back",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7625
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks for reporting.\r\n\r\n\n\n** Closed by geoutility 01.12.2010 06:41",
+      "PostedDate": "2010-12-02T01:35:30.87-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Reopened by administrator",
+      "PostedDate": "2010-12-02T01:35:32.163-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "MGRS issue solved with change set 53398. ",
+      "PostedDate": "2010-12-02T05:14:28.173-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-12-02T05:14:51.86-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-13T18:30:49.233-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-15T22:07:20.17-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

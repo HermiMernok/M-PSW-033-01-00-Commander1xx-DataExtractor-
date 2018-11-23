@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "981710",
+    "ThreadId": "428027",
+    "Html": "\r\n<p>I'm looking to see if there is an easy way to accomplish the following scenario:</p>\r\n<p>I have a map object that has a legend of variable height overlayed in the upper left corner of the map.&nbsp; I would like to be able to use something similar to the ZoomAndCenterMarkers function, but have it not include the width of the legend so that markers\r\n would never be behind the legend after that function call.</p>\r\n<p>In other words, let's say I have a map object that is 1080 x 768 pixels, and a legend that is 250 pixels wide (with variable height) shown in the upper left corner of the map.&nbsp; How can I get the map to zoom and center the markers only on the 830 x 768\r\n area of the map to the right of the legend?</p>\r\n<p>Sure, I could just not have the legend on top of the map, but then I have to lose all that space that the map could be showing underneath the legend (and it wouldn't look as nice either).</p>\r\n<p>Ideally it would be nice to have a function that could accept a pixel-based area of the map (top,left,width,height) so that an algorithm would adjust the zoom and center as to not have a marker show up in that area, but I'll settle for something that would\r\n exclude the width of the legend.</p>\r\n",
+    "PostedDate": "2012-12-29T22:01:24.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983695",
+    "ThreadId": "428027",
+    "Html": "\r\n<p>you can modify <strong>GetRectOfAllMarkers</strong> with additional parameter for the truncated view area:<br>\r\n<br>\r\nvar p = FromLocalToLatLng(0, 0);<br>\r\nvar p2 = FromLocalToLatLng(Width, Height -&nbsp;<strong>LEGEND_HEIGHT</strong>)<strong>;</strong><br>\r\nvar <strong>truncatedArea</strong>&nbsp;= RectLatLng.FromLTRB(p.Lng, p.Lat, p2.Lng, p2.Lat);</p>\r\n<p>RectLatLng? rect = <strong>GetRectOfAllMarkers</strong>(null, <strong>truncatedArea</strong>);<br>\r\nif(rect.HasValue)<br>\r\n{<br>\r\nreturn <strong>SetZoomToFitRect</strong>(rect.Value);<br>\r\n}</p>\r\n",
+    "PostedDate": "2013-01-07T03:46:28.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

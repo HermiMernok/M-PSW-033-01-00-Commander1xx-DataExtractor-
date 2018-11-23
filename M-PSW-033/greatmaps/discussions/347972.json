@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "808014",
+    "ThreadId": "347972",
+    "Html": "\r\n<p>Is easy,</p>\r\n<p>Dim RutaNueva As GMap.NET.WindowsForms.GMapOverlay&nbsp;</p>\r\n<p>Dim Ruta As MapRoute = GMapProviders.OpenStreetMap.GetRouteBetweenPoints(New PointLatLng(41.40963739, 2.15529274), (New PointLatLng(41.40748285, 2.15636874)), False, False, 5)</p>\r\n<p>RutaNueva = New GMap.NET.WindowsForms.GMapOverlay(MiMapa, &quot;RutaNueva&quot;)</p>\r\n<p>MiMapa.Overlays.Add(RutaNueva)</p>\r\n<p><br>\r\n&nbsp;Dim p As GMap.NET.WindowsForms.GMapRoute</p>\r\n<p>&nbsp;p = New GMapRoute(Ruta.Points, &quot;TestRoute&quot;)<br>\r\n&nbsp;RutaNueva.Routes.Add(p)&nbsp;</p>\r\n<p>&nbsp;MiMapa.ZoomAndCenterRoute(Ruta)</p>\r\n<p>Bye.</p>\r\n",
+    "PostedDate": "2012-03-09T03:14:37.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1302880",
+    "ThreadId": "347972",
+    "Html": "This is old sample code and no longer works....<br />\n<br />\nHere is some new code for VB.Net - VS2012<br />\n<br />\n For Each row As DataRow In dsDataStart.Tables(0).Rows<br />\n<pre><code>            dX1 = row.Item(0)\n            dY1 = row.Item(1)\n        Next\n        dsDataStart = Nothing\n        cProc.GetData(gsPCSQL_2, dsDataEnd)\n        For Each row As DataRow In dsDataEnd.Tables(0).Rows\n            dX2 = row.Item(0)\n            dY2 = row.Item(1)\n        Next\n        dsDataEnd = Nothing\n\n        'Place the Markers on the Map==========================\n\n        Me.gmap_UK.Overlays.Clear()\n        Me.gmap_UK.Overlays.Add(gmapDataOL)\n        Me.gmap_UK.HoldInvalidation = True\n\n        gmapDataOL.Markers.Add(New GMarkerGoogle(New PointLatLng(dY1, dX1), GMarkerGoogleType.green_big_go))\n        ptStart = New PointLatLng(dY1, dX1)\n        gmapDataOL.Markers.Add(New GMarkerGoogle(New PointLatLng(dY2, dX2), GMarkerGoogleType.red_big_stop))\n        ptEnd = New PointLatLng(dY2, dX2)\n        gmapDataOL.Markers(0).ToolTipText = sStartPostcode\n        gmapDataOL.Markers(1).ToolTipText = sEndPostcode\n        gmapDataOL.Markers(0).ToolTipMode = MarkerTooltipMode.Always\n        gmapDataOL.Markers(1).ToolTipMode = MarkerTooltipMode.Always\n        gmapDataOL.Markers(0).IsVisible = True\n        gmapDataOL.Markers(1).IsVisible = True\n        ' gmap_UK.ZoomAndCenterMarkers(&quot;MapData&quot;)\n        Me.gmap_UK.Overlays.Add(gmapDataOL)\n        gmapDataOL.IsVisibile = True\n\n        'Now Place the Route on the Map\n        myPen.Width = 3\n        rMapRoute = GMap.NET.MapProviders.GoogleMapProvider.Instance.GetRoute(ptStart, ptEnd, False, False, 15)\n        g_Route = New GMapRoute(rMapRoute.Points, &quot;RouteData&quot;)\n        Me.txtInfo.Text = rMapRoute.Name ' Gives Miles + Time taken\n        g_Route.Stroke = myPen\n        gmapRouteOL.Routes.Add(g_Route)\n        Me.gmap_UK.Overlays.Add(gmapRouteOL)\n        gmapRouteOL.IsVisibile = True\n        gmap_UK.ZoomAndCenterRoute(g_Route)\n        gmap_UK.Refresh()</code></pre>\n\n",
+    "PostedDate": "2014-09-09T07:34:36.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

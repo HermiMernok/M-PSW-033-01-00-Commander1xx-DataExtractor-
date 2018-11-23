@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "427817",
+    "ThreadId": "208437",
+    "Html": "<p>Hi, first of all your control is incredible. I've been using it for a school project and it's way better than the web based solution I was using last semester.</p>\r\n<p>I am using it to make a campus map, but since I have hundreds of markers and edges in a small space, it starts to run slowly when moving the map/etc.</p>\r\n<p>Here is an example of how many markers I have on the screen at one time:</p>\r\n<p>http://people.clemson.edu/~hodges8/mgrid/authoringtool.jpg</p>\r\n<p>Right now each marker is a custom GMapMarker and so is each edge. Can you think of a more efficient way to do this with your control? It's the only way I could think of to do it.</p>\r\n<p>Thanks,</p>\r\n<p>Adam</p>",
+    "PostedDate": "2010-04-06T05:21:50.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "427832",
+    "ThreadId": "208437",
+    "Html": "<p>Hey, sounds great! ;}</p>\r\n<p>..on performance you can optimize by using custom lightweight visuals for your marker shape. Check&nbsp;<a href=\"http://codepad.org/mYpx2Mfo\">http://codepad.org/mYpx2Mfo</a>. // GMapMarker m; m.Shape = new CircleVisual(m);</p>\r\n<p>I use it to display ~500 objects and scrolling is quite normal.</p>\r\n<p>If you found even faster way, let me know!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-06T06:08:28.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1046969",
+    "ThreadId": "444559",
+    "Html": "Hello. <br />\nIs there a way to search by keywords (using SetCurrentPositionByKeywords) offline? Maybe I can somehow pre-cache map locations? Similar to how I can pre-cache tiles and then load them from a hard drive when i dont have an active internet connection. <br />\nThx.<br />\n",
+    "PostedDate": "2013-05-22T02:35:17.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1046977",
+    "ThreadId": "444559",
+    "Html": "when you call SetCurrentPositionByKeywords or use any other provider function, it's cached already, if you call the same function with the same parameters, you'll get result from the cache<br />\n",
+    "PostedDate": "2013-05-22T02:41:00.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1046987",
+    "ThreadId": "444559",
+    "Html": "Yes, i get that. But to cache a response i need to get it from the web server first. And i cant do that offline. Neither can i guess all the possible keyword combinations to cache the responses beforehand.<br />\n",
+    "PostedDate": "2013-05-22T02:51:24.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

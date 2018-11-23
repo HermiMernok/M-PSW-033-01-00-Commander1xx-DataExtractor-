@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1454148",
+    "ThreadId": "648228",
+    "Html": "Hi, I am trying to use the winforms version in a windows service where I can't show any user interface stuff. I basically want to load the map centred to a point, add some icons, etc. and then  grab an image of the map to use in a report. It works fine in a windows forms app, I use a form to do it: I initialise the map (set the provider, centre, etc.), show the form (using showdialogue), then use a timer to pause for a couple of seconds (keeping an eye on the  ontileloadstart and ontileloadcomplete events to make sure the map is loaded), then I grab the image and close the form. Not the most elegant because the user sees the form but it works.\r<br />\n<br />\nThe problem is in a windows service I can't show the form, but I can't see a way of forcing the map to download tiles etc. without showing the form, also, just for testing, I tried to call reloadmap  and got an error with this: &quot;Please, do not call ReloadMap before form is loaded, it's useless&quot;.\r<br />\n<br />\nHas anyone managed to load the map in this way (without showing a form)? Maybe I am just missing a call to force the map to load!<br />\n",
+    "PostedDate": "2015-12-01T09:12:03.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1454161",
+    "ThreadId": "648228",
+    "Html": "<ul>\n<li>you can try enable service to interact with desktop, thats a checkbox in windows service options menu</li>\n<li></li>\n<li>or you can use demo from Testing/BigMapMaker which requires no desktop interaction</li>\n</ul>\n",
+    "PostedDate": "2015-12-01T12:18:07.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-12-01T12:18:10.683-08:00"
+  }
+]

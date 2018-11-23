@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "194153",
+    "ThreadId": "57446",
+    "Html": "<p>Hi radioman,&nbsp; can you pls exclude markers where IsVisible = false from the inclusion of the min/max lat/lng rectangle calculation.</p>\r\n<p>Thanks,</p>",
+    "PostedDate": "2009-05-26T02:05:48.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "194160",
+    "ThreadId": "57446",
+    "Html": "<p>?</p>",
+    "PostedDate": "2009-05-26T02:11:37.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "194188",
+    "ThreadId": "57446",
+    "Html": "<p>when you zoom and centre to a layer there may be markers that are not visible. the calculaton you have that calculates the min/max long/lat rectange includes all markers for a given layer.&nbsp; I have changed my client code to calc this rectangle by excluding markers where Visible is false.&nbsp; so the max zoom level for the markers correcly zooms to the required level for only the visible zooms. but for completeness, i suggest that the condition is included in the core. (its only a single line change)</p>\r\n<p>thanks</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-26T03:20:52.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "194230",
+    "ThreadId": "57446",
+    "Html": "<p>done!</p>",
+    "PostedDate": "2009-05-26T05:14:45.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "194242",
+    "ThreadId": "57446",
+    "Html": "<p>thanks :)</p>",
+    "PostedDate": "2009-05-26T05:32:04.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

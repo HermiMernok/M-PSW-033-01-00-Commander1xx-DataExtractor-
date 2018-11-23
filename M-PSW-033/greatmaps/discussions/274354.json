@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "678562",
+    "ThreadId": "274354",
+    "Html": "\r\n<p>Hi,<br>\r\nI need help!</p>\r\n<p>I'm using&nbsp;<em>GMap.NET.Core.dll </em>and <em>GMap.NET.WindowsForms.dll </em>\r\n(downloaded from this site two days ago...)<br>\r\nand all work fine, except when I try to find a location (city, country ...)&nbsp;with\r\n<em>SetCurrentPositionByKeywords.<br>\r\n</em>I always receive <em>unknown&nbsp;</em>and I can't find any place in the world.</p>\r\n<p>Also <em>GetPlacemarkFromGeocoder</em> function doesn't work...</p>\r\n<p>Another indication: I'm in Italy. Is it a problem? I have to do a particular configuration?</p>\r\n<p>This&nbsp;is my vbnet code:</p>\r\n<p><span style=\"color:blue\">Me</span>.cntMainMap.MapType = GMap.NET.MapType.BingMap<br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.MinZoom = 3<br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.MaxZoom = 17<br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.Zoom = 4<br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.Manager.Mode = GMap.NET.AccessMode.ServerOnly<br>\r\n<br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.CanDragMap = <span style=\"color:blue\">\r\nTrue</span><br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.DragButton = Windows.Forms.MouseButtons.Left<br>\r\n<br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.SetCurrentPositionByKeywords(<span style=\"color:#a31515\">&quot;USA&quot;</span>)<br>\r\n<span style=\"color:blue\">Dim</span> overlayOne <span style=\"color:blue\">As</span>\r\n<span style=\"color:blue\">New</span> GMap.NET.WindowsForms.GMapOverlay(<span style=\"color:blue\">Me</span>.cntMainMap,\r\n<span style=\"color:#a31515\">&quot;OverlayOne&quot;</span>)<br>\r\n<br>\r\n<span style=\"color:blue\">Me</span>.cntMainMap.Overlays.Add(overlayOne)</p>\r\n<p>Someone can help me?</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2011-09-30T02:33:21.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678567",
+    "ThreadId": "274354",
+    "Html": "<p>use hot build, lats release is quite old</p>",
+    "PostedDate": "2011-09-30T02:44:04.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678572",
+    "ThreadId": "274354",
+    "Html": "<p>Ok, I find it, but <em>MapType</em> ?<br />Is it deleted?</p>\r\n<p>How do you substitute it?</p>",
+    "PostedDate": "2011-09-30T03:02:49.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678599",
+    "ThreadId": "274354",
+    "Html": "<p>MainMap.<strong>MapProvider</strong> = <strong>GMapProviders</strong>.GoogleMap;</p>",
+    "PostedDate": "2011-09-30T04:23:36.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678609",
+    "ThreadId": "274354",
+    "Html": "<p>Ok!</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-09-30T05:10:23.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

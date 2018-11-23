@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "844531",
+    "ThreadId": "358293",
+    "Html": "\r\n<p>hello every body. please exuse me becose i cnow that my englich is so bed :(</p>\r\n<p>hear is my problem: i want to create routs from a list of LatLngPoints.</p>\r\n<p>I do it and i can calculate distance but routes are not visible on my map.</p>\r\n<p>this is my C# code:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">foreach</span> (XElement route <span style=\"color:blue\">in</span> RoutesRq)\r\n                {\r\n                    List&lt;PointLatLng&gt; points = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n\r\n                    <span style=\"color:blue\">foreach</span> (XElement p <span style=\"color:blue\">in</span> route.Elements())\r\n                    {\r\n                        <span style=\"color:blue\">var</span> latitude = Convert.ToDouble(p.Value.Split(<span style=\"color:#a31515\">','</span>)[0].Replace(<span style=\"color:#a31515\">'.'</span>, <span style=\"color:#a31515\">','</span>));\r\n                        <span style=\"color:blue\">var</span> longitude = Convert.ToDouble(p.Value.Split(<span style=\"color:#a31515\">','</span>)[1].Replace(<span style=\"color:#a31515\">'.'</span>, <span style=\"color:#a31515\">','</span>));\r\n                        points.Add(<span style=\"color:blue\">new</span> PointLatLng(latitude, longitude));\r\n                    }\r\n\r\n                    GMapRoute Grout = <span style=\"color:blue\">new</span> GMapRoute(points, <span style=\"color:#a31515\">&quot;R_&quot;</span> &#43; i);\r\n                    routes.Routes.Add(Grout);\r\n                    i&#43;&#43;;\r\n                }\r\n</pre>\r\n</div>\r\nhelp me plees. thanks a lot.\r\n<p></p>\r\n",
+    "PostedDate": "2012-06-04T10:35:48.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "844546",
+    "ThreadId": "358293",
+    "Html": "<p>map.Overlays.<strong>Add</strong>(routes);</p>",
+    "PostedDate": "2012-06-04T10:55:43.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "844854",
+    "ThreadId": "358293",
+    "Html": "\r\n<p>thank you radioman but no result. i have added the instruction into my code but... no news :(</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">#region</span> il y a des routes\n            IEnumerable&lt;XElement&gt; RoutesRq = <span style=\"color:blue\">from</span> xElement <span style=\"color:blue\">in</span> xDoc.Root.Descendants(<span style=\"color:#a31515\">&quot;Route&quot;</span>) <span style=\"color:blue\">select</span> xElement;\n            <span style=\"color:blue\">bool</span> HasRouts = <span style=\"color:blue\">false</span>;\n            <span style=\"color:blue\">if</span> (RoutesRq.Count() &gt; 0)\n            {\n                HasRouts = <span style=\"color:blue\">true</span>;\n                <span style=\"color:blue\">int</span> i = 1;\n                <span style=\"color:blue\">foreach</span> (XElement route <span style=\"color:blue\">in</span> RoutesRq)\n                {\n                    List&lt;PointLatLng&gt; points = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\n\n                    <span style=\"color:blue\">foreach</span> (XElement p <span style=\"color:blue\">in</span> route.Elements())\n                    {\n                        <span style=\"color:blue\">var</span> latitude = Convert.ToDouble(p.Value.Split(<span style=\"color:#a31515\">','</span>)[0].Replace(<span style=\"color:#a31515\">'.'</span>, <span style=\"color:#a31515\">','</span>));\n                        <span style=\"color:blue\">var</span> longitude = Convert.ToDouble(p.Value.Split(<span style=\"color:#a31515\">','</span>)[1].Replace(<span style=\"color:#a31515\">'.'</span>, <span style=\"color:#a31515\">','</span>));\n                        points.Add(<span style=\"color:blue\">new</span> PointLatLng(latitude, longitude));\n                    }\n\n                    GMapRoute Grout = <span style=\"color:blue\">new</span> GMapRoute(points, <span style=\"color:#a31515\">&quot;R_&quot;</span> &#43; i);\n                    routes.Routes.Add(Grout);\n                    i&#43;&#43;;\n                }\n\t\t<span style=\"color:#ff0000\">gMapControl.Overlays.Add(routes);</span>\n<span style=\"color:green\"><span style=\"white-space:pre\">\t\t</span>//gMapControl is my GMap.NET.WindowsForms.GMapControl object</span>\n            }\n            <span style=\"color:blue\">#endregion</span> il y a des routes\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>is there a mistake ?&nbsp;thanks for help</p>\r\n",
+    "PostedDate": "2012-06-05T01:10:03.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "844880",
+    "ThreadId": "358293",
+    "Html": "<p>Hi. im sory disturb you :p. it was a mistake in my lon and lat. naw i can draw my routs successfuly. thanks a lot&nbsp;<a class=\"UserProfileLink\" href=\"http://www.codeplex.com/site/users/view/radioman\">radioman</a>&nbsp;for this GREAT project.</p>",
+    "PostedDate": "2012-06-05T02:09:42.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "844929",
+    "ThreadId": "358293",
+    "Html": "<p>cheers ;}</p>",
+    "PostedDate": "2012-06-05T04:43:57.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "905877",
+    "ThreadId": "358293",
+    "Html": "<p>&nbsp;</p>\r\n<pre>\"routes.Routes.Add(Grout);\"</pre>\r\n<pre>What kind of router is variable?<br /></pre>\r\n<pre>Thanks</pre>",
+    "PostedDate": "2012-08-29T11:59:58.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "905885",
+    "ThreadId": "358293",
+    "Html": "<p>GMapRoute, check the demos</p>",
+    "PostedDate": "2012-08-29T12:10:05.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "905892",
+    "ThreadId": "358293",
+    "Html": "\r\n<p>but the demo does not work on my system</p>\r\n<p>could you help me?</p>\r\n<p>&nbsp;</p>\r\n<pre>//a gps device keeps me updated lat1 long1 values ​​per second</pre>\r\n<pre>map1.MapProvider = GMapProviders.GoogleMap;\n            map1.SetCurrentPositionByKeywords(&quot;Ha Noi&quot;);\n            \n            GMapOverlay overlayone = new GMapOverlay(map1, &quot;OverlayOne&quot;);\n           if (k1 &gt; 32)//if template more than 32 degrees C\n            {\n                overlayone.Markers.Add(new GMapMarkerGoogleRed(new PointLatLng(lat1, long1)));\n           }\n            else\n            {\n                overlayone.Markers.Add(new GMapMarkerGoogleGreen(new PointLatLng(lat1, long1)));\n            }\n            map1.Overlays.Add(overlayone);\n           \n            \n      \n            //\n            List points = new List();\n            map1.RoutesEnabled = true;\n            PointLatLng p = new PointLatLng(lat1,long1);\n            points.Add(p);\n\n            \n            GMapRoute route = new GMapRoute(points, &quot;route&quot;);\n            Pen pen = new Pen(Color.Red);\n            pen.Width = 2;\n            route.Stroke = pen;\n            overlayone.Routes.Add(route);</pre>\r\n<p>&nbsp;</p>\r\n<p>i can display markers on map but i can't draw a route between markers.Help me?</p>\r\n<p>see it:</p>\r\n<p><span><a href=\"http://www.fileden.com/files/2009/1/16/2270235//1.png\">http://www.fileden.com/files/2009/1/16/2270235//1.png</a></span></p>\r\n",
+    "PostedDate": "2012-08-29T12:20:27.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "905914",
+    "ThreadId": "358293",
+    "Html": "<p>route is a line with <strong>two or more</strong> points</p>",
+    "PostedDate": "2012-08-29T13:06:50.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906045",
+    "ThreadId": "358293",
+    "Html": "<p>could you see my code and help me.</p>\r\n<pre>PointLatLng p = new PointLatLng(lat1,long1);\r\npoints.Add(p);//<strong>&nbsp;more</strong><span>&nbsp;points because </span>a gps device keeps me updated lat1 long1 values ​​per second</pre>\r\n<pre>but i don't see route between points</pre>",
+    "PostedDate": "2012-08-29T18:41:52.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906047",
+    "ThreadId": "358293",
+    "Html": "<p>i should see&nbsp;<a href=\"http://www.fileden.com/files/2009/1/16/2270235//1.png\">http://www.fileden.com/files/2009/1/16/2270235//1.png</a></p>\r\n<p>i have more points.</p>",
+    "PostedDate": "2012-08-29T18:46:00.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

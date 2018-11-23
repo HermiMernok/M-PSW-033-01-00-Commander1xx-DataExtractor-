@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "837967",
+    "ThreadId": "356237",
+    "Html": "\r\n<p>Hello Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>Can you add GeoServer Support for Next Release?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n<p>Azzahrah,</p>\r\n",
+    "PostedDate": "2012-05-17T21:16:20.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "837996",
+    "ThreadId": "356237",
+    "Html": "<p>what do you mean 'support' ?</p>",
+    "PostedDate": "2012-05-18T00:14:43.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838179",
+    "ThreadId": "356237",
+    "Html": "<p>hello Radioman,</p>\r\n<p>That i mean&nbsp; we can use GeoServer as Map Provider,</p>\r\n<p>Regards</p>\r\n<p>Azzahrah</p>",
+    "PostedDate": "2012-05-18T08:44:44.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838185",
+    "ThreadId": "356237",
+    "Html": "<p>well just make another provider, copy/paste, change the url, thats it</p>",
+    "PostedDate": "2012-05-18T09:06:11.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838188",
+    "ThreadId": "356237",
+    "Html": "<p>Hello radioman,</p>\r\n<p>Thanks for quick answer, i will try as you advice,</p>\r\n<p>Regards,</p>\r\n<p>Azzahrah</p>",
+    "PostedDate": "2012-05-18T09:18:08.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839468",
+    "ThreadId": "356237",
+    "Html": "<p>You can create a WMS provider as described in this topic: http://greatmaps.codeplex.com/discussions/278458<br />I use it to access maps from GeoSever.</p>\r\n<p>Regards,<br />Orvindo</p>",
+    "PostedDate": "2012-05-22T09:08:19.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "841195",
+    "ThreadId": "356237",
+    "Html": "<p>Hello orvindo,</p>\r\n<p>&nbsp;</p>\r\n<p>i have tried, but too many error&nbsp;</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp; The type or namespace name 'CoordinateSystemFactory' could not be found (are you missing a using directive or an assembly reference?)&nbsp;&nbsp;&nbsp; E:\\ftp\\component\\.NET\\GreatMap\\greatmaps-1.6 - Power\\GMap.NET.Core\\GMap.NET.MapProviders\\GeoServer\\WMSProviderBase.cs&nbsp;&nbsp;&nbsp; 51&nbsp;&nbsp;&nbsp; 17&nbsp;&nbsp;&nbsp; GMap.NET.Core</p>\r\n<p>this not exist,</p>\r\n<p>using ProjNet.Converters;<br />using ProjNet.CoordinateSystems;<br />using ProjNet.CoordinateSystems.Transformations;</p>\r\n<p>&nbsp;</p>\r\n<p>please guide me, how to use it,</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n<p>Azzahrah.</p>",
+    "PostedDate": "2012-05-26T07:39:10.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "850001",
+    "ThreadId": "356237",
+    "Html": "<p>You should add a reference to ProjNet.dll (http://projnet.codeplex.com/).<br /><br />If you don't need coordinate conversions, the code referring to ProjNet can be removed.<br /><br />Regards,<br />Orvindo</p>",
+    "PostedDate": "2012-06-17T05:16:15.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

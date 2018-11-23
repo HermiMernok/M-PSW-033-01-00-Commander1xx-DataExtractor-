@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "722452",
+    "ThreadId": "285465",
+    "Html": "\r\n<p><span id=\"result_box\" lang=\"en\"><span>I propose to add</span> <span>a</span>\r\n<span>class</span> <span>GMapControl</span> <span>following method</span><span>:</span><br>\r\n<span></span></span></p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> OnMapClose()\r\n       {\r\n           <span style=\"color:blue\">if</span> (!SuspendDispose)\r\n           {\r\n               Core.OnMapClose();\r\n           }\r\n           SuspendDispose = <span style=\"color:blue\">false</span>;\r\n       }\r\n<span id=\"result_box\" lang=\"en\"><span>It is necessary</span> <span>to destroy the</span> <span>Map</span> <span>when</span> <span>needed.</span></span></pre>\r\n</div>\r\n<span id=\"result_box\" lang=\"en\"><span></span></span>\r\n<p></p>\r\n",
+    "PostedDate": "2012-01-09T05:57:46.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722479",
+    "ThreadId": "285465",
+    "Html": "<p>MainMap.<strong>Dispose</strong>(); ..and i'll add it to wpf version too</p>",
+    "PostedDate": "2012-01-09T06:25:54.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722494",
+    "ThreadId": "285465",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">It will be</span> <span class=\"hps\">great,</span> <span class=\"hps\">thanks.</span></span></p>",
+    "PostedDate": "2012-01-09T06:38:54.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

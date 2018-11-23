@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "442739",
+    "ThreadId": "212606",
+    "Html": "Hi,\r\n\r\nHow can i find the objects within a given distance to given coordinate?\r\n\r\nM. Hararci",
+    "PostedDate": "2010-05-13T23:38:49.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442746",
+    "ThreadId": "212606",
+    "Html": "<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">var</span> objectsInArea = <span style=\"color:blue\">from</span> p <span style=\"color:blue\">in</span> objects\r\n                             <span style=\"color:blue\">where</span> GMaps.Instance.GetDistance(center, p.Point) &lt;= areaRadius\r\n                             <span style=\"color:blue\">select</span> <span style=\"color:blue\">new</span>\r\n                             {\r\n                                Obj = p,\r\n                                Dist = GMaps.Instance.GetDistance(center, p.Point)\r\n                             };\r\n         <span style=\"color:blue\">if</span>(objectsInArea.Any())\r\n         {\r\n</pre>\r\n</div>\r\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;....</p>",
+    "PostedDate": "2010-05-13T23:56:13.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442770",
+    "ThreadId": "212606",
+    "Html": "Hi radioman,\r\n\r\nThanks for fast reply.  I try it but I don't worked. \r\n\r\nError\t1\tCould not find an implementation of the query pattern for source type 'GMap.NET.WindowsForms.GMapOverlay'.  'Where' not found.\tF:\\greatmaps\\Demo.WindowsForms\\Forms\\MainForm.cs\t508\t43\tDemo.WindowsForms\r\n\r\n\r\n",
+    "PostedDate": "2010-05-14T01:12:41.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442771",
+    "ThreadId": "212606",
+    "Html": "<p>?</p>",
+    "PostedDate": "2010-05-14T01:15:17.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442794",
+    "ThreadId": "212606",
+    "Html": "Pardon me. I didn't check the framework of the demo application. Changing the target framework of the application and it works. That's great. Thanks for helping.",
+    "PostedDate": "2010-05-14T02:37:34.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442799",
+    "ThreadId": "212606",
+    "Html": "<p>happy to help, se ya ;}</p>",
+    "PostedDate": "2010-05-14T03:00:49.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

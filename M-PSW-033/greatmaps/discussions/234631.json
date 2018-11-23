@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "521675",
+    "ThreadId": "234631",
+    "Html": "\r\n<p>Hi. I&nbsp; have a little WPF project that use this very nice framework. On this way I want to thank you very much.</p>\r\n<p>Until few versions ago I used this pice of code to make a route.</p>\r\n<pre style=\"font-family:consolas\"><span style=\"color:#2b91af\">MapRoute</span>&nbsp;route&nbsp;=&nbsp;<span style=\"color:#2b91af\">GMaps</span>.Instance.GetRouteBetweenPoints(start,&nbsp;end,&nbsp;<span style=\"color:blue\">false</span>,&nbsp;(<span style=\"color:blue\">int</span>)MainMap.Zoom);<br><span style=\"color:blue\">if</span>&nbsp;(route&nbsp;!=&nbsp;<span style=\"color:blue\">null</span>)<br>{<br>\tlabelRoutePointsKM.Content&nbsp;=&nbsp;<span style=\"color:#a31515\">&quot;Km=&quot;</span>&nbsp;&#43;&nbsp;<span style=\"color:#2b91af\">Math</span>.Round(route.<span style=\"color:#ff0000\"><strong>Distance</strong></span>,&nbsp;2).ToString(<span style=\"color:#a31515\">&quot;N2&quot;</span>);</pre>\r\n<pre style=\"font-family:consolas\">}</pre>\r\n<pre style=\"font-family:consolas\">where <strong><em>start </em></strong>and <strong><em>end </em></strong>are two <span style=\"color:#2b91af\">PointLatLng</span></pre>\r\n<pre style=\"font-family:consolas\">My problem is the property <strong>Distance </strong>is not available anymore.</pre>\r\n<pre style=\"font-family:consolas\">There is another way to read this information.</pre>\r\n<pre style=\"font-family:consolas\">The Windows Form version is more powerfull, better developed ?</pre>\r\n<pre style=\"font-family:consolas\">Thanks a lot !</pre>\r\n<pre style=\"font-family:consolas\">Liviu</pre>\r\n",
+    "PostedDate": "2010-11-14T02:06:59.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521720",
+    "ThreadId": "234631",
+    "Html": "\r\n<p>yes it's still here, i guess you use experimental code from optimizations branch</p>\r\n<p>p.s. route.Name contains length info</p>\r\n",
+    "PostedDate": "2010-11-14T06:17:44.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521864",
+    "ThreadId": "234631",
+    "Html": "\r\n<p>yes, you're right. I used the experimental code. I changed with the last Hot Build from 6 nov and the property is still there.</p>\r\n<p>Thanks for route.Name tip.</p>\r\n",
+    "PostedDate": "2010-11-14T13:51:31.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

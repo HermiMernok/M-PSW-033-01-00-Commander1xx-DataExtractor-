@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1406659",
+    "ThreadId": "623565",
+    "Html": "Hey there,<br />\n<br />\nI was wondering why I get a difference in Lat's and Lng's when comparing Gmap.NET application and Google Earth.<br />\n<br />\nI get the lat and lng via:<br />\n<pre><code>private void On_Gmap_MoveMouse(object sender, MouseEventArgs e)\n    {\n\n        base.OnMouseMove(e);\n        System.Windows.Point p = e.GetPosition(this);\n\n        double lat = gmap.FromLocalToLatLng((int)p.X, (int)p.Y).Lat;\n        double lng = gmap.FromLocalToLatLng((int)p.X, (int)p.Y).Lng;\n     }\n</code></pre>\n\nany ideas why there is a difference in lat like 0,00005° ?<br />\nMight there a difference in the used ellipsoid?<br />\n<br />\n<br />\nThanks in advance!<br />\n",
+    "PostedDate": "2015-04-12T14:52:28.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1408488",
+    "ThreadId": "623565",
+    "Html": "you use wpf, it's pixel independent, and you do casting (int)p.X, 5 == (int)5.6;\r<br />\n<br />\ntry windows form version<br />\n",
+    "PostedDate": "2015-04-12T23:55:44.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1409639",
+    "ThreadId": "623565",
+    "Html": "hm right, the casting could be the problem and a difference in 0.00005° would result in a offset of 5 meters when using the earths radius of 6378km and assumeing that the earth is a sphere. That looks like the difference I get when comparing the two maps.<br />\n<br />\nWPF is pixel independent yes but in full zoom stage the error resulting from pixel difference should not be a big problem or am I wrong?<br />\n<br />\nI tried Windows Form and that is much closer to Google Earth...<br />\nIs there any way fixing that in WPF?<br />\n<br />\nThanks for your response and keep up the good work!<br />\n",
+    "PostedDate": "2015-04-13T07:35:54.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1409812",
+    "ThreadId": "623565",
+    "Html": "looks correct, can you show your differences?\r<br />\n<br />\n<img src=\"http://www.pictureshack.us/images/59286_gmap.jpg\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-04-13T08:53:14.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-04-13T08:53:24.717-07:00"
+  },
+  {
+    "Id": "1409995",
+    "ThreadId": "623565",
+    "Html": "Yeah, here is my difference\r<br />\n<img src=\"http://www.pictureshack.us/images/94836_differences1.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-04-13T10:14:17.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1410014",
+    "ThreadId": "623565",
+    "Html": "Okay, now I tried the exact same thing like you and there is no offset when zooming right at the start of the app without mouse movement. The coordinates above where picked in the method &quot;OnmouseMove&quot;. So it has to do something with the picking which is probably the casting....<br />\n<br />\n<br />\n<img src=\"http://www.pictureshack.us/images/38257_diff1.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-04-13T10:23:27.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1410056",
+    "ThreadId": "623565",
+    "Html": "I GOT IT !!! \r<br />\n<br />\nit was this line of code:  \r<br />\n<pre><code>private void On_Gmap_MoveMouse(object sender, MouseEventArgs e)\n    {\n\n        base.OnMouseMove(e);\n        //System.Windows.Point p = e.GetPosition(this);  changed this line\n        System.Windows.Point p = e.GetPosition(gmap); // to this and got different coodinates which are right know\n\n        double lat = gmap.FromLocalToLatLng((int)p.X, (int)p.Y).Lat;\n        double lng = gmap.FromLocalToLatLng((int)p.X, (int)p.Y).Lng;\n    }</code></pre>\n\n",
+    "PostedDate": "2015-04-13T10:38:18.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-04-14T02:34:39.277-07:00"
+  },
+  {
+    "Id": "1410087",
+    "ThreadId": "623565",
+    "Html": "eureka ;} yes, local point is relative to map control<br />\n",
+    "PostedDate": "2015-04-13T10:51:20.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

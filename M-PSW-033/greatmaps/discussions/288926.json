@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "734656",
+    "ThreadId": "288926",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>i'm trying to add som overlay to created map by me. Map works fine - properties like MapProvider, Zoom, Position, etc I can handle without any problems. When I want add overlay</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>mainOverlay = <span style=\"color:blue\">new</span> GMapOverlay(MainMap, <span style=\"color:#a31515\">&quot;top&quot;</span>);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>I got following errors:</p>\r\n<p>Error<span> </span>11<span> </span>The best overloaded method match for 'GMap.NET.WindowsForms.GMapOverlay.GMapOverlay(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)' has some invalid arguments<span>\r\n</span>C:\\MainWindow.xaml.cs<span> </span>125<span> </span>27<span> </span>AppGUI</p>\r\n<p>Error<span> </span>12<span> </span>Argument 1: cannot convert from 'GMap.NET.WindowsPresentation.GMapControl' to 'System.Runtime.Serialization.SerializationInfo'<span>\r\n</span>C:\\MainWindow.xaml.cs<span> </span>125<span> </span>43<span> </span>AppGUI</p>\r\n<p>Error<span> </span>13<span> </span>Argument 2: cannot convert from 'string' to 'System.Runtime.Serialization.StreamingContext'<span>\r\n</span>C:\\MainWindow.xaml.cs<span> </span>125<span> </span>52<span> </span>AppGUI</p>\r\n<p>Additionaly I can't call MainMap.Overlay - it doesn't show up. So I can't add my map to my my Overlay which I declare earlier without any troubles&nbsp;\r\n</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>GMapOverlay mainOverlay;\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>In using part I load</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> GMap.NET;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color:blue\">using</span> GMap.NET.MapProviders;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms.Markers;\r\n<span style=\"color:blue\">using</span> GMap.NET.WindowsForms.ToolTips;</pre>\r\n</div>\r\n<p></p>\r\n<p>Do you have any hints, what can be wrong?</p>\r\n",
+    "PostedDate": "2012-02-01T06:26:08.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734666",
+    "ThreadId": "288926",
+    "Html": "<p>in a recent version you don't need to specify&nbsp;MainMap in parameters</p>",
+    "PostedDate": "2012-02-01T06:31:41.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "736360",
+    "ThreadId": "288926",
+    "Html": "<p>Hello,</p>\n<p>thanks - constructor run now without any problems.</p>\n<p>But still I have some trouble, because I can't add my overlay to my map as in example</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>MainMap.Overlays.Add(routes);\nMainMap.Overlays.Add(polygons);\nMainMap.Overlays.Add(objects);\nMainMap.Overlays.Add(top);\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>It seems that I don't have acces to Overlays - maybe <a href=\"http://dl.dropbox.com/u/113376/screen.jpg\" target=\"_blank\"> screen</a> will clearify my situation&nbsp;</p>",
+    "PostedDate": "2012-02-02T01:56:17.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "736507",
+    "ThreadId": "288926",
+    "Html": "<p>wpf version never has any overlays, only map.Markers by default</p>",
+    "PostedDate": "2012-02-02T03:40:58.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "747098",
+    "ThreadId": "288926",
+    "Html": "<p>Thank you :)</p>",
+    "PostedDate": "2012-02-08T05:32:50.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

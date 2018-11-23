@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "193056",
+    "ThreadId": "57135",
+    "Html": "<p>I just downloaded the latest svn code and in the Forms Demo, if you swap the TooltipMode.Always to TooltipMode.OnMouseOver, the tooltips never appear when you mouse over them.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-21T20:33:29.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193067",
+    "ThreadId": "57135",
+    "Html": "<p>yes it IS working ;}<br><br>\r\n<p>GMapMarkerRect mBorders = new GMapMarkerRect(MainMap.CurrentPosition);<br>mBorders.Size = new Size(100, 100);<br><br>if you use&nbsp;<span style=\"color:#30332d\"><span style=\"font-weight:bold\">TooltipMode.OnMouseOve</span>r, please <span style=\"font-weight:bold\">set your marker size and offset</span> if you use your own <span style=\"font-weight:bold\">custom marker</span> ;}&nbsp;</span></p>\r\n</p>",
+    "PostedDate": "2009-05-21T21:28:20.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193073",
+    "ThreadId": "57135",
+    "Html": "<p>It isn't for me ... it works in WPF but not in Forms ... and this is in the Demo which uses GMapMarkerGoogleGreen, not a custom marker.</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapMarker myCity = new GMapMarkerGoogleGreen(pos.Value);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myCity.TooltipMode = MarkerTooltipMode.OnMouseOver;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myCity.ToolTipText = &quot;Welcome to Lithuania! ;}&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ground.Markers.Add(myCity);</p>\r\n<p>Were you able to try it?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-21T22:24:03.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193078",
+    "ThreadId": "57135",
+    "Html": "<p>I've tested and I can see it works on GMapMarkerRect's, but not on GMapMarkerGoogleGreen's. I don't know why, because inside they are very similar and both inherit GMapMarker. Do you know why it's not working?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-21T22:48:22.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193079",
+    "ThreadId": "57135",
+    "Html": "<p>i repeat:&nbsp;<span style=\"color:#30332d\">please&nbsp;<span style=\"font-weight:bold\">set your marker size and offset</span></span></p>",
+    "PostedDate": "2009-05-21T22:50:39.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "193082",
+    "ThreadId": "57135",
+    "Html": "<p>Ok I realise now I must do GmapMarkerGoogleGreen.size = New Size(100,100) and it works. Thanks.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-21T22:56:06.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196420",
+    "ThreadId": "57135",
+    "Html": "<p>Hi,</p>\r\n<p>I am trying to set the size of the GMapMarkerGoogleGreen so I can get the ToolTip to show up, but I keep getting an error on setting the Size:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<p><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">&lt;font size=&quot;2&quot; color=&quot;#008080&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#008080&quot;&gt;\r\n<p>GMapMarker</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#008080&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p><span style=\"font-size:x-small\"> m = </span><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">GMapMarkerGoogleGreen</span></span><span style=\"font-size:x-small\">(targetPoint);&lt;font size=&quot;2&quot;&gt;\r\n<p>m.Size =</p>\r\n&lt;/font&gt;</span></p>\r\n<p><span style=\"font-size:x-small;color:#0000ff\"><span style=\"font-size:x-small;color:#0000ff\">new</span></span><span style=\"font-size:x-small\"> </span><span style=\"font-size:x-small;color:#008080\"><span style=\"font-size:x-small;color:#008080\">Size</span></span><span style=\"font-size:x-small\">(100,100);</span></p>\r\n<p><span style=\"font-size:x-small\">I get the error: &nbsp;Error&nbsp;1&nbsp;'Size' is an ambiguous reference between 'System.Drawing.Size' and 'GMapNET.Size'&nbsp;</span></p>\r\n<p><span style=\"font-size:x-small\">What am I doing wrong??&nbsp; The sample with the tooltip on the Rectangle seems to work ok.<br></span></p>\r\n</p>\r\n</p>",
+    "PostedDate": "2009-06-01T08:01:26.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196472",
+    "ThreadId": "57135",
+    "Html": "<p>nothing wrong, use&nbsp;<span style=\"font-size:10px;color:#30332d\">GMapNET.Size</span></p>",
+    "PostedDate": "2009-06-01T09:51:10.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196506",
+    "ThreadId": "57135",
+    "Html": "<p>Ahhh....I see.&nbsp; Thanks!&nbsp;&nbsp; I'm sort of new to this whole programming thing.</p>\r\n<p>One more question.....how would I use a marker other than the ones provided through the code.&nbsp; For example, the Google ones listed under your 'Map Icons' link??</p>",
+    "PostedDate": "2009-06-01T11:16:44.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "196510",
+    "ThreadId": "57135",
+    "Html": "<p>just like demo markers, just create your own by example</p>",
+    "PostedDate": "2009-06-01T11:25:38.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

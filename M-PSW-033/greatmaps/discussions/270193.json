@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "662581",
+    "ThreadId": "270193",
+    "Html": "<p>Hi All,</p>\n<p>I know it's a long shot but before i go searching the internet i need to know :- is there a way to find out an angle between 2 markers as i have knockup up a gps proggy on my phone and plotted it inside a windows forms proggy. I would like to have arrows pointing which way i was travelling so if i went south the arrow would point at the 6 oclock position, straight forward but what if i was travelling at the 1,2,3,4 etc oclock positions? If i had the angles then i could rotate an arrow image before placing it as a marker i guess.</p>\n<p>Thanks</p>",
+    "PostedDate": "2011-08-24T02:58:12.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662626",
+    "ThreadId": "270193",
+    "Html": "<p>Sorry, i have just found a bearing thread with a remote control plane so will have a look at that. I will look closer next time!</p>",
+    "PostedDate": "2011-08-24T05:03:16.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662950",
+    "ThreadId": "270193",
+    "Html": "<p>Nope, i have looked and looked. Have put looked at <span style=\"font-size: x-small;\">GMapMarkerGoogleGreen and munually changed the bearing in a marker and it works so i need to know please is the bearing automatically populated or do you have to work it out yourself. I would guess the former but for the life of me i can't think what i'm doing wrong. I am putting points in a maproute called 'rts' and add the like </span></p>\r\n<p><span style=\"font-size: x-small;\">\r\n<p>gps.Routes.Add(rte) and i also add markers to gps where i can access the .bearing like gps.bearing but it's always empty.</p>\r\n<p>c# is not my strong point but i have checked the source code and i can't find where it's set?</p>\r\n</span></p>\r\n<p><span style=\"font-size: x-small;\">&nbsp;</span></p>",
+    "PostedDate": "2011-08-24T15:20:54.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "663165",
+    "ThreadId": "270193",
+    "Html": "<p>ok found a function to calculate routes in vb.net See below</p>\r\n<p>\r\n<p><span style=\"font-size: x-small;\">\r\n<p>Public Function Bearing(ByVal finalVal As Double, ByVal pStopPoint As GMap.NET.PointLatLng, ByVal pStartPoint As GMap.NET.PointLatLng) As String</p>\r\n<p>Dim MetersPerLat As Double = 110950.58</p>\r\n<p>Dim MetersPerLon As Double = 111317.1</p>\r\n<p>Dim RAD As Double = (Math.PI / 180)</p>\r\n<p>Try</p>\r\n<p>Dim RadBear As Double</p>\r\n<p>Dim Lat1Rad As Double = pStopPoint.Lat</p>\r\n<p>Dim lat2Rad As Double = pStartPoint.Lat</p>\r\n<p>Dim lon1rad As Double = pStopPoint.Lng</p>\r\n<p>Dim lon2rad As Double = pStartPoint.Lng</p>\r\n<p>RadBear = Math.Atan2(Math.Sin(lon1rad - lon2rad) * Math.Cos(lat2Rad), Math.Cos(Lat1Rad) * Math.Sin(lat2Rad) - Math.Sin(Lat1Rad) * Math.Cos(lat2Rad) * Math.Cos(lon1rad - lon2rad)) Mod 2 * Math.PI</p>\r\n<p>Dim finalBrg As Double = RadBear / RAD</p>\r\n<p>Return Math.Round(finalBrg)</p>\r\n<p>Catch ex As Exception</p>\r\n<p>MsgBox(\"INSIDE THE BEARING FUNCTION: \" &amp; ex.Message &amp; vbNewLine &amp; ex.Source)</p>\r\n<p>End Try</p>\r\n<p>End Function</p>\r\n<font size=\"2\">\r\n<p>&nbsp;</p>\r\n</font></span>&nbsp;</p>\r\n</p>\r\n<div id=\"_mcePaste\" class=\"mcePaste\" style=\"left: -10000px; overflow: hidden; width: 1px; position: absolute; top: 0px; height: 1px;\">﻿</div>",
+    "PostedDate": "2011-08-25T04:56:58.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803661",
+    "ThreadId": "270193",
+    "Html": "<p>Dear Radioman,</p>\r\n<p>I can't find the \"GetBearing\" in the map.Manager. Any idea why?</p>\r\n<p>Thanks in advance,</p>\r\n<p>Gilles</p>",
+    "PostedDate": "2012-03-01T02:52:25.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803700",
+    "ThreadId": "270193",
+    "Html": "<p>sorry, map.MapProvider.Projection.<strong>GetBearing</strong></p>",
+    "PostedDate": "2012-03-01T04:15:51.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803738",
+    "ThreadId": "270193",
+    "Html": "<p>Thanks Radioman,</p>\r\n<p>Works like a charm!</p>",
+    "PostedDate": "2012-03-01T05:15:10.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

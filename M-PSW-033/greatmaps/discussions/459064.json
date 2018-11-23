@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1098980",
+    "ThreadId": "459064",
+    "Html": "When creating a gMarker, I use a custom bitmap for it but afterwards, I update the marker's position via it's position attribute.\r<br />\n<br />\nIs there a way to also change the marker's bitmap when updating it's position as well? <br />\n",
+    "PostedDate": "2013-09-25T05:21:01.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099000",
+    "ThreadId": "459064",
+    "Html": "just change it<br />\n",
+    "PostedDate": "2013-09-25T05:53:40.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099017",
+    "ThreadId": "459064",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\njust change it<br />\n</blockquote>\nHow?<br />\n",
+    "PostedDate": "2013-09-25T06:29:20.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099067",
+    "ThreadId": "459064",
+    "Html": "marker.MyImage = myImage;<br />\n",
+    "PostedDate": "2013-09-25T08:12:51.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099072",
+    "ThreadId": "459064",
+    "Html": "Thanks, radioman!<br />\n",
+    "PostedDate": "2013-09-25T08:22:28.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100376",
+    "ThreadId": "459064",
+    "Html": "Radioman,\r<br />\n<br />\nI don't see an attribute for my marker named .MyImage so I am unable to set = myImage. Only stuff I see are things such as position, bearing, tag, tooltip, ishittestvisible, etc.<br />\n",
+    "PostedDate": "2013-09-28T03:49:40.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1103482",
+    "ThreadId": "459064",
+    "Html": "radioman, can you help? I don't see a .MyImage attribute for my marker...<br />\n",
+    "PostedDate": "2013-10-03T23:08:09.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1103499",
+    "ThreadId": "459064",
+    "Html": "just add it<br />\n",
+    "PostedDate": "2013-10-04T00:19:14.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1103504",
+    "ThreadId": "459064",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\njust add it<br />\n</blockquote>\nHow? :-S<br />\n",
+    "PostedDate": "2013-10-04T00:34:39.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1103641",
+    "ThreadId": "459064",
+    "Html": "You have to create a custom marker class, or change the GMarkerGoogle class. Here's some code for a custom image marker class (you can also rotate the image), so you get the idea:<br />\n<pre><code>using System;\nusing System.Collections.Generic;\nusing System.Text;\nusing System.Drawing;\nusing System.Drawing.Drawing2D;\nusing GMap.NET.WindowsForms;\nusing GMap.NET;\nusing System.Diagnostics;\n\nnamespace GMapEnhanced\n{\n    public class GMapMarkerImage : GMapMarker\n    {\n\n        private Size imgSize = Size.Empty;\n        /// &lt;summary&gt;\n        /// Gets or sets the Image size\n        /// &lt;/summary&gt;\n        public Size ImageSize\n        {\n            get\n            {\n                return imgSize;\n            }\n            set\n            {\n                imgSize = value;\n                this.Size = new System.Drawing.Size(imgSize.Width, imgSize.Height);\n                this.Offset = new System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\n            }\n        }\n\n        private bool bDrawBorder = false;\n        /// &lt;summary&gt;\n        /// gets or sets a value if a border shall be drawn around the image\n        /// &lt;/summary&gt;\n        public bool DrawBorder\n        {\n            get { return bDrawBorder; }\n            set \n            {\n                bDrawBorder = value;\n                if (bDrawBorder)\n                {\n                    this.Size = new System.Drawing.Size(imgSize.Width + 2 * (int)penBorder.Width, imgSize.Height + 2 * (int)penBorder.Width);\n                    this.Offset = new System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\n                }\n                else\n                {\n                    this.Size = new System.Drawing.Size(imgSize.Width, imgSize.Height);\n                    this.Offset = new System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\n                }\n            }\n        }\n\n\n        private Pen penBorder = new Pen(Color.Red, 2f);\n        /// &lt;summary&gt;\n        /// The Pen for the Image border\n        /// &lt;/summary&gt;\n        public Pen PenBorder\n        {\n            get { return penBorder; }\n            set \n            {\n                penBorder = value;\n\n            }\n        }\n\n\n        /// &lt;summary&gt;\n        /// ToolTip position in local coordinates\n        /// &lt;/summary&gt;\n        public override Point ToolTipPosition\n        {\n            get\n            {\n                Point ret = area.Location;\n                ret.Offset(-Offset.X, 0);\n                return ret;\n            }\n        }\n\n\n        private float rot;\n        /// &lt;summary&gt;\n        /// Gets or sets the Rotation Angle in degrees\n        /// &lt;/summary&gt;\n        public float RotationAngle\n        {\n            get { return rot; }\n            set \n            { \n                rot = value;\n                if (Overlay != null &amp;&amp; Overlay.Control != null &amp;&amp; !Overlay.Control.HoldInvalidation)\n                {\n                    Overlay.Control.Refresh();\n                }\n            }\n        }\n\n\n        private Image img;\n        /// &lt;summary&gt;\n        /// The image to display as a marker.\n        /// &lt;/summary&gt;\n        public Image MarkerImage\n        {\n            get\n            {\n                return img;\n            }\n            set\n            {\n                img = value;\n                if (img != null)\n                {\n                    ImageSize = img.Size;\n                    //Offset = new System.Drawing.Point(-Size.Width / 2, -Size.Height / 2);\n\n                    if (Overlay != null &amp;&amp; Overlay.Control != null)\n                    {\n                        Overlay.Control.UpdateMarkerLocalPosition(this);\n                    }\n                }\n            }\n        }\n\n        /// &lt;summary&gt;\n        /// Constructor\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;p&quot;&gt;The position of the marker&lt;/param&gt;\n        public GMapMarkerImage(PointLatLng p, Image image)\n            : base(p)\n        {\n            img = image;\n            ImageSize = img.Size;\n            rot = 0f;\n        }\n\n\n        /// &lt;summary&gt;\n        /// Overload with Angle\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;p&quot;&gt;&lt;/param&gt;\n        /// &lt;param name=&quot;image&quot;&gt;&lt;/param&gt;\n        /// &lt;param name=&quot;typ&quot;&gt;&lt;/param&gt;\n        /// &lt;param name=&quot;angle&quot;&gt;&lt;/param&gt;\n        public GMapMarkerImage(PointLatLng p, Image image, float angle)\n            : this(p, image)\n        {\n            rot = angle;\n        }\n\n        /// &lt;summary&gt;\n        /// Override Render function\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;g&quot;&gt;&lt;/param&gt;\n        public override void OnRender(Graphics g)\n        {\n            var tmp = g.InterpolationMode;\n            g.InterpolationMode = InterpolationMode.HighQualityBicubic;\n\n            if (rot != 0f)\n            {\n                GraphicsState savedState = g.Save();\n                g.ResetTransform();\n                Matrix transformationMatrix = new Matrix();\n                transformationMatrix.RotateAt(rot, new PointF(LocalAreaInControlSpace.Location.X - Offset.X, LocalAreaInControlSpace.Location.Y - Offset.Y));\n                g.Transform = transformationMatrix;\n                g.DrawImage(img, LocalAreaInControlSpace.Location.X, LocalAreaInControlSpace.Location.Y, imgSize.Width, imgSize.Height);\n                g.Restore(savedState);\n            }\n            else\n            {\n                if (bDrawBorder)\n                {\n                    g.DrawRectangle(penBorder, LocalPosition.X, LocalPosition.Y, this.Size.Width - (int)(penBorder.Width / 2f), this.Size.Height - (int)(penBorder.Width / 2f));\n                    g.DrawImage(img, LocalPosition.X + penBorder.Width, LocalPosition.Y + penBorder.Width, imgSize.Width, imgSize.Height);\n                }\n                else\n                {\n                    g.DrawImage(img, LocalPosition.X, LocalPosition.Y, imgSize.Width, imgSize.Height);\n\n                }\n            }\n\n            g.InterpolationMode = tmp;\n        }\n\n        bool disposed = false;\n        /// &lt;summary&gt;\n        /// Dispose all resources\n        /// &lt;/summary&gt;\n        public override void Dispose()\n        {\n            if (!disposed)\n            {\n                disposed = true;\n                if (MarkerImage != null)\n                {\n                    MarkerImage.Dispose();\n                    MarkerImage = null;\n                }\n                base.Dispose();\n            }\n        }\n    }\n}\n</code></pre>\n\n",
+    "PostedDate": "2013-10-04T07:22:24.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

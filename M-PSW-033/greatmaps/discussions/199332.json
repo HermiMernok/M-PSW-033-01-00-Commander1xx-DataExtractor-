@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "408007",
+    "ThreadId": "199332",
+    "Html": "<p>I know that it was said many times already, that you must set the Size of the Marker in order for the Tooltip to show &quot;OnMouseOver&quot;.</p>\r\n<p>I tried for 3 hours already, and for the life of me, I can seem to get it working... I read all of the posts that were related to this issue, and I haven't had any luck.</p>\r\n<p>I'm using VB 2008.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>        <span style=\"color:Blue\">While</span> reader2.Read()\r\n            dFXCoord = reader2(<span style=\"color:#A31515\">&quot;FXCOORD&quot;</span>)\r\n            dFYCoord = reader2(<span style=\"color:#A31515\">&quot;FYCOORD&quot;</span>)\r\n\r\n            <span style=\"color:Blue\">Dim</span> mCoord <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> PointLatLng(dFYCoord, dFXCoord)\r\n            <span style=\"color:Blue\">Dim</span> m <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> GMapMarkerGoogleGreen(mCoord) \r\n            m.ToolTipText = reader2(<span style=\"color:#A31515\">&quot;FSITEID&quot;</span>)\r\n            <span style=\"color:Blue\">If</span> bHideLabels = <span style=\"color:Blue\">True</span> <span style=\"color:Blue\">Then</span>\r\n                m.TooltipMode = MarkerTooltipMode.OnMouseOver\r\n            <span style=\"color:Blue\">Else</span>\r\n                m.TooltipMode = MarkerTooltipMode.Always\r\n            <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">If</span>\r\n            top.Markers.Add(m)\r\n        <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">While</span>\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>I even put in a checkbox, so that I can turn the labels on and off easily, but since they are so close to each other, I still can't read all of them.</p>\r\n<p>What am I doing wrong? How can I set the size?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-02-26T01:55:14.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "408674",
+    "ThreadId": "199332",
+    "Html": "<p>so you&nbsp;know you must set the Size but you don't and expect else ;} interesting</p>",
+    "PostedDate": "2010-02-26T07:31:56.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "410298",
+    "ThreadId": "199332",
+    "Html": "<p>No, of course I don't expect it to work the way it is now. I know that there is currently no code to change the size. I couldn't figure out exactly what code to write. Whatever I tried, didn't seem to be valid code.</p>\r\n<p>Such as:</p>\r\n<p>m.Size = New GMapMarkerGoogleGreen.Size (100, 100)</p>\r\n<p>I'm looking for help creating the proper line of code, to change the size.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-26T12:16:47.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "410300",
+    "ThreadId": "199332",
+    "Html": "<p>m.Size = new, press space and wait for intellsense</p>",
+    "PostedDate": "2010-02-26T12:18:28.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "410325",
+    "ThreadId": "199332",
+    "Html": "<p>Intellisense is almost worthless at times. In this case I got over 200 different choices.</p>\r\n<p>But thanks for pointing me in the right direction. Even telling me that &quot;m.size = New&quot; cut my trial and error by at least 50%. Because now I knew that that part was correct.</p>\r\n<p>This is what I found worked for me.</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>m.Size = <span style=\"color:Blue\">New</span> Drawing.Size(35, 35)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks again!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-26T13:03:54.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "410358",
+    "ThreadId": "199332",
+    "Html": "<p>;} welcome</p>",
+    "PostedDate": "2010-02-26T13:54:42.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

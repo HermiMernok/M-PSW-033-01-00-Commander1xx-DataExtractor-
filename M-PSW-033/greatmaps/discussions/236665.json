@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "529314",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>I m really intersting in the circle control in the Radioman WPF Demo, but I m working on Winform application.</p>\r\n<p>Is there a way to use this circle control in winform application ? In fact, I&nbsp;managed to draw circle, but I can't put color inside this circle like in WPF demo!</p>\r\n<p>Is there someone can help me to do this?</p>\r\n<p>Thanks in&nbsp;advance.</p>\r\n<p>Kemanke&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-01T02:07:05.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529320",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>g.DrawEllipse(...);<br>\r\ng.FillEllipse(...);</p>\r\n",
+    "PostedDate": "2010-12-01T02:16:38.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529335",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>Ok for FillElipse(...) ... but there is no opacity ! so we can't see what is behind the circle.</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2010-12-01T02:34:59.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529337",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>I m sorry yes we can set brush opacity...</p>\r\n<p></p>\r\n<p><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><font face=\"Consolas\" size=\"2\" color=\"#2b91af\"></p>\r\n<p>Brush <span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">b =\r\n</span></span><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\"><span style=\"font-family:Consolas; color:#0000ff; font-size:x-small\">new</span></span></span><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">\r\n</span></span><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\">SolidBrush</span></span></span><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">(</span></span><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\"><span style=\"font-family:Consolas; color:#2b91af; font-size:x-small\">Color</span></span></span></p>\r\n</font></span></span></span><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">.FromArgb(128, 0, 0, 255));</span></span></span></span></span></span><span style=\"font-family:Consolas; font-size:x-small\">&nbsp;</span>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;Other question, is it possible to set a&nbsp;tooltip wich will be not hiden (alway visible)?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks again for your help</p>\r\n",
+    "PostedDate": "2010-12-01T02:41:13.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529340",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>marker.ToolTipMode = ...</p>\r\n",
+    "PostedDate": "2010-12-01T02:43:00.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529350",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>thanks I found it ;)</p>\r\n",
+    "PostedDate": "2010-12-01T03:03:25.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529454",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>I ve again a question... I m sorry!</p>\r\n<p>The fact to have color inside a circle&nbsp;will be&nbsp;an option in&nbsp;my application, how can I update circles wich are already on the map?</p>\r\n<p>Do you think I have&nbsp;to clear all of them and add&nbsp;them again with new option (color inside)?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2010-12-01T06:49:57.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529556",
+    "ThreadId": "236665",
+    "Html": "\r\n<p>just change the color and call Invalidate</p>\r\n",
+    "PostedDate": "2010-12-01T09:51:04.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "621835",
+    "ThreadId": "236665",
+    "Html": "<p>hi,</p>\r\n<p>I also want to draw a circle on windows mobile, but I don't have&nbsp;opacity to set.</p>\r\n<p>is there any suggestion??</p>\r\n<p>Thanks .</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-01T23:47:16.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "621842",
+    "ThreadId": "236665",
+    "Html": "<p>nop ;}</p>",
+    "PostedDate": "2011-06-02T00:44:01.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "759362",
+    "ThreadId": "236665",
+    "Html": "<p>Hello there,</p>\r\n<p>I am trying to do the same ( a circle in the Map) but I don't know how.Can you help me ?</p>",
+    "PostedDate": "2012-02-12T14:24:54.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1252804",
+    "ThreadId": "547516",
+    "Html": "I have custom markers where I set properties which change how the marker should paint itself. When I change the property, I want to force the marker to repaint itself.\r<br />\n<br />\n<strong>What is the best method of doing this from the UI thread?</strong>\r<br />\n<br />\n<strong>What is the best method of doing this from a non-UI thread?</strong>\r<br />\n<br />\nIn the past I have simply removed and then added the marker in succession. Or I've called Refresh() or Invalidate(). But I'd like to know radioman's preferred method of triggering the OnRender event for the marker.<br />\n",
+    "PostedDate": "2014-06-04T04:42:54.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253072",
+    "ThreadId": "547516",
+    "Html": "<strong>Invalidate</strong> is async and works from any thread in same way, <strong>Refresh</strong> is sync and only works from UI thread\r<br />\n<br />\nI would use <strong>Invalidate</strong>  because it doesn't interrupt UI\r<br />\n<br />\nAlso its related to <a href=\"https://greatmaps.codeplex.com/discussions/403800\" rel=\"nofollow\">https://greatmaps.codeplex.com/discussions/403800</a> if you have many markers changing simultaneously<br />\n",
+    "PostedDate": "2014-06-04T16:01:37.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

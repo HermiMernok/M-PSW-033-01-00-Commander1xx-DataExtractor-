@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "515276",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>I got this message on cache.cs line 101, I already got a newcache directory, maybe you can delete the new directory first? or just check if the directory already exist.</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(Directory.Exists(oldCache))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Directory.Exists(newCache))<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Directory.Delete(newCache,true);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Directory.Move(oldCache, newCache);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CacheLocation = newCache;</p>\r\n",
+    "PostedDate": "2010-10-31T19:37:10.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516129",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>hm</p>\r\n",
+    "PostedDate": "2010-11-02T13:59:20.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522203",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I also got this exception when I'm starting my application since I updated from version 1.5.3.3 to the hot build version\r\n<a id=\"x_ChangeSetLink0\" title=\"View change set 377e89571f0d\" href=\"../SourceControl/changeset/changes/377e89571f0d\" style=\"font-weight:bold\">\r\n377e89571f0d</a> from today.</p>\r\n<p>Another exception I get is when everything is loaded it shows:</p>\r\n<p>Exception: The type initialize for 'SingletonCreator' threw an exception</p>\r\n<p>After searching the discussions I found the hint to the documentation regartin .NET4.0, but that doesn't help.</p>\r\n<p>Do you have any ideas what causes this problem?</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2010-11-15T08:34:06.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522215",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>cache location should be ok now</p>\r\n",
+    "PostedDate": "2010-11-15T08:54:53.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522231",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>Cache location works for me now.</p>\r\n<p>But I still got the other exception.</p>\r\n",
+    "PostedDate": "2010-11-15T09:30:24.15-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522243",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>please explain?</p>\r\n",
+    "PostedDate": "2010-11-15T09:59:19.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522250",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>I just got it to run.</p>\r\n<p>Somehow I was missing some references.</p>\r\n",
+    "PostedDate": "2010-11-15T10:14:06.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "522253",
+    "ThreadId": "232995",
+    "Html": "\r\n<p>i see ;}</p>\r\n",
+    "PostedDate": "2010-11-15T10:24:09.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

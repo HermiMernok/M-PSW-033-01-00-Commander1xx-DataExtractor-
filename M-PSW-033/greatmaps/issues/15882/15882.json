@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "perfect, done!",
+    "ClosedDate": "2010-01-13T21:36:40.26-08:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "Not really an issue but an updated method of using the buttons for the Zoom controls up / down (if your interested :-) )\nAdd to MainWindow.xaml\n    <Window.Resources>\n        <Style x:Key=\"ZoomUpButton\" TargetType=\"Button\">\n            <Setter Property=\"Width\" Value=\"23.5\" />\n            <Setter Property=\"Height\" Value=\"25.5\" />\n            <Setter Property=\"Template\">\n                <Setter.Value>\n                    <ControlTemplate TargetType=\"Button\">\n                        <Grid Width=\"23.5\" Height=\"25.5\">\n                            <Image Source=\"/Demo.WindowsPresentation;component/Windows/Zoom/zoom+.png\" Stretch=\"Fill\" />\n                            <ContentPresenter HorizontalAlignment=\"Center\" />\n                        </Grid>\n                        <ControlTemplate.Triggers>\n                            <Trigger Property=\"IsMouseOver\" Value=\"True\">\n                                <Setter Property=\"Effect\">\n                                    <Setter.Value>\n                                        <DropShadowEffect ShadowDepth=\"2\" />\n                                    </Setter.Value>\n                                </Setter>\n                            </Trigger>\n                        </ControlTemplate.Triggers>\n                    </ControlTemplate>\n                </Setter.Value>\n            </Setter>\n        </Style>\n        <Style x:Key=\"ZoomDownButton\" TargetType=\"Button\">\n            <Setter Property=\"Width\" Value=\"23.5\" />\n            <Setter Property=\"Height\" Value=\"25.5\" />\n            <Setter Property=\"Template\">\n                <Setter.Value>\n                    <ControlTemplate TargetType=\"Button\">\n                        <Grid Width=\"23.5\" Height=\"25.5\">\n                            <Image Source=\"/Demo.WindowsPresentation;component/Windows/Zoom/zoom-.png\" Stretch=\"Fill\" />\n                            <ContentPresenter HorizontalAlignment=\"Center\" />\n                        </Grid>\n                        <ControlTemplate.Triggers>\n                            <Trigger Property=\"IsMouseOver\" Value=\"True\">\n                                <Setter Property=\"Effect\">\n                                    <Setter.Value>\n                                        <DropShadowEffect ShadowDepth=\"2\" />\n                                    </Setter.Value>\n                                </Setter>\n                            </Trigger>\n                        </ControlTemplate.Triggers>\n                    </ControlTemplate>\n                </Setter.Value>\n            </Setter>\n        </Style>\n    </Window.Resources>\n\nthen change:\n\n<src:ControlZoomUp x:Name=\"czuZoomUp\" ....\n\nto\n\n<Button x:Name=\"czuZoomUp\" Style=\"{StaticResource ZoomUpButton} ....\n\nthis would remove the need for the 4 additional files and code for ControlZoomDown.xaml and ControlZoomUp.xaml",
+    "LastUpdatedDate": "2010-01-13T21:36:40.26-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-01-13T02:44:43.96-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "A change to Control Zoom up / down (WPF)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15882
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

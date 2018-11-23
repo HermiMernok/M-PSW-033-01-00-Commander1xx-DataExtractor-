@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "802946",
+    "ThreadId": "346650",
+    "Html": "\r\n<p><span style=\"color:black; font-size:10pt\">I set Position and Zoom through code. When the zoom changes, the map redraws immediately. But when I change only the position, for instance during a pan operation, the map redraw is delayed.</span></p>\r\n<p><span style=\"color:black; font-size:10pt\">Made this simple work around where I set the zoom twice, to ensure that it changes:</span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</span></span><span style=\"font-size:9.5pt\">_gMapControl.Position = <span style=\"color:blue\">\r\nnew</span> GMap.NET.<span style=\"color:#2b91af\">PointLatLng</span>(latitude, longitude);</span>\r\n<p></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;</span><span style=\"font-size:9.5pt\">_gMapControl.Zoom = zoom &#43; 0.000001;</span></p>\r\n<p><span style=\"font-size:9.5pt\">_gMapControl.Zoom = zoom;</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:9.5pt\">where &nbsp;_gMapControl is a&nbsp;GMap.NET.WindowsPresentation.GMapControl</span></p>\r\n<p><span style=\"font-size:9.5pt\">&nbsp;</span></p>\r\n<p><span style=\"font-size:9.5pt\">That is a bit ugly. What to do?</span></p>\r\n",
+    "PostedDate": "2012-02-28T18:46:13.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "803012",
+    "ThreadId": "346650",
+    "Html": "<p>what do you mean 'redraw is delayed' ?</p>",
+    "PostedDate": "2012-02-29T00:28:59.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809396",
+    "ThreadId": "346650",
+    "Html": "<p><span style=\"color: black; font-size: 10pt;\">I apologize for not replying. Forgot to tick the e-mail notification.</span></p>\r\n<p><span style=\"color: black; font-size: 10pt;\">When I change the zoom, the map is redrawn immediately. I do not know the internals of your map update code, but it is like the redraw have been done when the Zoom property setter returns.</span></p>\r\n<p><span style=\"color: black; font-size: 10pt;\">When I change only the position, then the map is not redrawn immediately. The rest of the application renders to reflect the new location, but the GMap control catches up later. It is like the redraw in this case is put on the dispatcher queue with a low priority or something. </span></p>\r\n<p>&nbsp;Made this improved hach to avoid setting the Zoom twice per frame</p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">\r\n<p>_gMapControl.Position = p;</p>\r\n<p>_doAddEpsilonToZoomHack = !_doAddEpsilonToZoomHack;</p>\r\n<p>_gMapControl.Zoom = _doAddEpsilonToZoomHack ? z + 0.00000001 : z;</p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;</span></span></p>\r\n</span></span>\r\n<p>&nbsp;</p>\r\n</p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;</span></span></span></span>But still a bit smelly...</p>",
+    "PostedDate": "2012-03-12T18:07:55.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809500",
+    "ThreadId": "346650",
+    "Html": "<p>i still don't get it, missing tiles are always loaded async, you can't avoid it</p>",
+    "PostedDate": "2012-03-13T03:15:44.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "809935",
+    "ThreadId": "346650",
+    "Html": "<p>I understand about the async loading of tiles. That is not the issue.</p>\r\n<p>I took a look at the code.</p>\r\n<p>I see that when I set the Zoom property, InvalidateVisual(true) is called. When I set the Position property, it is not.</p>\r\n<p>Adding InvalidateVisual(true) to the Position property setter solves the problem.</p>",
+    "PostedDate": "2012-03-13T17:08:53.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810184",
+    "ThreadId": "346650",
+    "Html": "<p>..strange, i get instant redraw even without calling invalidate, what OS do you use?</p>",
+    "PostedDate": "2012-03-14T06:00:40.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810202",
+    "ThreadId": "346650",
+    "Html": "<p>Windows 7 SP 1</p>\r\n<p>Machine type: 64 bit<br />OS version: Microsoft Windows NT 6.1.7601 Service Pack 1<br />CLR version: 4.0.30319.261</p>",
+    "PostedDate": "2012-03-14T06:14:35.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

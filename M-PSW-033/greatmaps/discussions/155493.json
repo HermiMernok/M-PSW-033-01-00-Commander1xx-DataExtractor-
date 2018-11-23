@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "363170",
+    "ThreadId": "155493",
+    "Html": "<p>Hi Can Anyone help please i am trying add this code to vb windows.form.application</p>\r\n<p>i keep getting this error message</p>\r\n<p>'Instance' is not a member of 'GMaps'.</p>\r\n<p>can anyone tell me what i am missing to make this work</p>\r\n<p>&nbsp;</p>\r\n<p>Imports System.Globalization<br>Imports GMap.NET<br>Imports GMap.NET.WindowsForms<br>Imports GMap.NET.WindowsForms.Markers<br>Imports System.Windows.Forms.PaintEventArgs<br><br><br>Public Class TruckRoutes</p>\r\n<p>Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '*********************************************************************************************************************<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim g1 As GMap.NET.PointLatLng = New PointLatLng(-27.227463, 153.105769)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mainmap.CurrentPosition = g1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim g2 As GMap.NET.PointLatLng = New PointLatLng(-27.403776, 153.164713)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim route As MapRoute<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim r As GMapRoute<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim routes As GMapOverlay<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; route = GMaps.Instance.GetRouteBetweenPoints(g1, g2, False, mainmap.Zoom)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r = New GMapRoute(route.Points, route.Name)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r.Color = Color.Blue<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routes = New GMapOverlay(mainmap, &quot;routes&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mainmap.Overlays.Add(routes)</p>\r\n<p>End Sub<br><br><br>End Class</p>",
+    "PostedDate": "2010-02-23T06:53:56.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363247",
+    "ThreadId": "155493",
+    "Html": "<p>try use&nbsp;mainmap.Manager</p>",
+    "PostedDate": "2010-02-23T09:13:19.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

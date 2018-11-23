@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1006057",
+    "ThreadId": "434348",
+    "Html": "I am writing an MDI application that uses Tab Controls. The GMap control is in tab #3.\r<br />\n<br />\nUsing debug output, I know that the routine that sets-up the map control is running, but the map does not actually display until the tab for its page is selected. This presents the user with a blank area for a couple seconds before the map is actually seen.\r<br />\n<br />\nI have been trying different ways to force the map to paint without having to select the tab, but with no luck.\r<br />\n<br />\nSo I would like to know if I can force GMap to paint the map &quot;in the blind&quot; or is this just how things work in Tab Controls?\r<br />\n<br />\nChuck<br />\n",
+    "PostedDate": "2013-02-24T17:06:57.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006059",
+    "ThreadId": "434348",
+    "Html": "Let me clarify something.... I know I'm not supposed to see the map without selecting the tab for its page.\r<br />\n<br />\nThe problem is when I select the tab for the first time, the control is blank and it takes a few seconds for the map to paint on the control.\r<br />\n<br />\nDoes that make more sense?<br />\n",
+    "PostedDate": "2013-02-24T17:32:32.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006087",
+    "ThreadId": "434348",
+    "Html": "x<br />\n",
+    "PostedDate": "2013-02-24T20:56:07.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006958",
+    "ThreadId": "434348",
+    "Html": "you can try load form with visible = false, select tab 3, then select tab 1, and set visible = true<br />\n",
+    "PostedDate": "2013-02-26T06:54:10.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

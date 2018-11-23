@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "656417",
+    "ThreadId": "268678",
+    "Html": "<p>Hi there</p>\n<p>First of all, I'd like to congratulate you for the very impressive job that you've done (it's really amazing) and also I'd like to thank you for choosing the open source philosophy: reading your source code is very instructive and let people learn how to  create such amazing software.</p>\n<p>So I'm trying to 'play' a little with that control of yours in a C# WinForm application.&nbsp; As I haven't found any documentation (except of http://greatmaps.codeplex.com/documentation) I've followed the little instructions on http://www.codeproject.com/KB/miscctrl/GMapNET.aspx  :<br /> <br /> I've downloaded the aae170acdd8d version of source code, and there I got on the \"\\GMap.NET.WindowsForms\\bin\\Debug\" directory the 1.5.5.5 version of \"GMap.NET.Core.dll\" and \"GMap.NET.WindowsForms.dll\"<br /> <br /> * I have created my VS 2010 4.0 .NET Framework C# win form application<br /> * I have added the two dll files to project reference.<br /> * I have added GMapControl and MessagingServiceV2 to the tool</p>\n<p>Then, i add a GMapControl to the winform and for the first try i copy the code showed on MainForm.cs</p>\n<pre id=\"pre0\" style=\"margin-top: 0pt;\" lang=\"cs\">// config map <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.MapProvider = GMapProviders.OpenStreetMap;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Position = new PointLatLng(54.6961334816182, 25.2985095977783);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.MinZoom = 1;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.MaxZoom = 17;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Zoom = 9;<br /><br />The problem is that is does not recognise the GMapProviders class.<br />Does it mean that i have to add other dll libraries to make the project build successfully??<br />Or it means that i have to copy the GMapProviders.cs file to my project (and all the class files for each map provider in<br />the \\GMap.NET.Core\\GMap.NET.MapProviders directory)??<br /><br />I don't know how people is using the code you have deliver: whether they change the source code of the whole application you<br />have created or whether they start from scratch, importing the dll and the controls that you have created.<br />So, if this is the case, could you please give a little list of the necessary dlls that are needed to show a map on a simple<br />winform application (so i can make work my application, making me not feel so dumb as i'm feeling now, and continue playing<br />with the possibilities that your application gives).<br /><br />Thank you very much for your time, your work and your patience. And congratulations once again for your fantastic work!<br /><br />Natxo</pre>",
+    "PostedDate": "2011-08-11T03:22:47.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656429",
+    "ThreadId": "268678",
+    "Html": "<p>just add:</p>\n<p>&nbsp;<em>using GMap.NET.MapProviders;</em></p>\n<p>p.s. when there is missing namespaces, just right click on the unrecognizable word and select <em>Resolve</em></p>\n<p>cheers ;}</p>",
+    "PostedDate": "2011-08-11T03:41:10.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656526",
+    "ThreadId": "268678",
+    "Html": "<p>hehe... thanks a lot (though i'm feeling quite stupid at this moment ;) )</p>",
+    "PostedDate": "2011-08-11T06:43:14.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

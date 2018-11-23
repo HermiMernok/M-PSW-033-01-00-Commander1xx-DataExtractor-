@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1426648",
+    "ThreadId": "638452",
+    "Html": "Hi\r<br />\nI have successfully integrated the GMAP.net dll with LABVIEW.  I have encountered one problem though; when using FromLocalToLatLng function, it returns coordinates which are slightly offset.\r<br />\nHas anybody else seen this issue?\r<br />\nKind regards.<br />\n",
+    "PostedDate": "2015-05-20T08:25:10.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426671",
+    "ThreadId": "638452",
+    "Html": "..how do you know there is an offset?<br />\n",
+    "PostedDate": "2015-05-20T10:46:00.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426793",
+    "ThreadId": "638452",
+    "Html": "Hi Radioman\r<br />\n<br />\nI compared the coordinates I received back with coordinates I got off Google maps for the same spot. What's interesting though, is that I went further and tested the same scenario, but did it in C# as opposed to Labview and got a match between the two..so I'm kinda suspicious of the mouse coordinates that I'm getting back from Labview.\r<br />\n<br />\nKind regards\r<br />\nWerner  <br />\n",
+    "PostedDate": "2015-05-21T00:49:37.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426816",
+    "ThreadId": "638452",
+    "Html": "yes, you need coordinates relative to gmap control, not the application main form<br />\n",
+    "PostedDate": "2015-05-21T03:08:36.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

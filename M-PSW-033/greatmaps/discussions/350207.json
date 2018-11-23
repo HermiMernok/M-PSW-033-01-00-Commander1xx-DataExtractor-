@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "816099",
+    "ThreadId": "350207",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I always get a Blue Cross at the middle of the map when i zoom or jump to a position. How&nbsp;do i deactivate this?</p>\r\n<p>Using WPF.</p>\r\n<p>Didn't find something in this forum even if I am sure I am not the first one who doesn't want this.</p>\r\n<p>&nbsp;</p>\r\n<p>And thank you radioman for this great piece of work.</p>\r\n",
+    "PostedDate": "2012-03-27T07:27:34.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816103",
+    "ThreadId": "350207",
+    "Html": "<p>try end messing with debug build...</p>",
+    "PostedDate": "2012-03-27T07:32:42.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827739",
+    "ThreadId": "350207",
+    "Html": "<p>Sorry i didn't get how to remove the Blue Cross. Could you give me a more detailed explanation? I'm using Winform.</p>",
+    "PostedDate": "2012-04-24T01:38:38.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827777",
+    "ThreadId": "350207",
+    "Html": "<p>use release build</p>",
+    "PostedDate": "2012-04-24T02:53:56.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827801",
+    "ThreadId": "350207",
+    "Html": "<p>Well the blue cross is always shown. In the release build too.</p>",
+    "PostedDate": "2012-04-24T04:24:20.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827802",
+    "ThreadId": "350207",
+    "Html": "<p>Sorry I'm wrong. The release build is the solution. Thanks very much.</p>",
+    "PostedDate": "2012-04-24T04:26:22.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827807",
+    "ThreadId": "350207",
+    "Html": "<p>p.s. if you don't like the <em>red</em> cross, set, map.<strong>ShowCenter</strong> = false;</p>",
+    "PostedDate": "2012-04-24T04:36:21.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "931372",
+    "ThreadId": "350207",
+    "Html": "<p>Hello I join this topic because I have the same problem, only I could not solve it using the Release, in the proof of control if I could do it, but in my project using the Release does not hide the blue cross.</p>\r\n<p><br />I would like to know how I can remove that code blue cross, or else I have to add in my code so that the use Release instead of debug not display the blue cross.</p>\r\n<p><br />Thanks in advance.</p>",
+    "PostedDate": "2012-10-23T15:36:00.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "931375",
+    "ThreadId": "350207",
+    "Html": "<p>just update references, you use old references from debug build</p>",
+    "PostedDate": "2012-10-23T15:46:36.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

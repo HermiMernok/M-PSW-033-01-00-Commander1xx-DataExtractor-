@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "291012",
+    "ThreadId": "85441",
+    "Html": "<p>Hi All,</p>\r\n<p>What I am finding is every map except Google Maps shows the GPS captured co-ordinates out by up to 50 metres.</p>\r\n<p>I need the Satellite view, not streets.</p>\r\n<p>Google Maps is spot on (taking into account the 1-2 metre accuracy of the GPS unit I am using) except that Google Maps might display once out of 1000 times I use it (cant seem to get cache to work, different story). The fixes to allow the use of&nbsp;Google Maps in these discussions (rather than getting the tile error) do NOT work.</p>\r\n<p>Anyway, Bing Satellite Maps is the closest to Goole Maps as some areas I use the tracks on, are remote and not covered by Yahoo Maps. ArcGis do, but the zoom level is not sufficient. But, using Bing compared to Google, the GPS points are about 20 metres right to what they show under Google Maps.</p>\r\n<p>Is this a failure of GMap, or is it more the Map provider.</p>\r\n<p>What would be perfect is to be able to use Google Satellite Maps all the time (anymore ideas on this).</p>\r\n<p>Is there anyway of tell GMap to compensate? I could change the GPS lat/long, but as they are coming from the GPS device, then I know they are the correct coordinates.</p>\r\n<p>Thanks</p>\r\n<p>Robert</p>\r\n<p>PS Here is an example. -34.262713, 150.942521 is a point on a dirt road, in the middle of an intersection (Under Google). However, it is 10 metres right (under Bing). I need the accuracy of Google though.</p>",
+    "PostedDate": "2010-02-15T14:15:13.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291210",
+    "ThreadId": "85441",
+    "Html": "<p>but Satellite accuracy is good, the point is in the middle of the road. But as you see the overlay of roads has some 'shortcuts', thats how google generate it, so i can't change it, you can request them to fix it ;}</p>\r\n<p><img src=\"http://wn6aqw.blu.livefilestore.com/y1p0gI3Bt6uF_x55m-jgQn1P5L74Z-lfbQaWzSi_RIX9gAd4ow-fAf31C3CCc9sA6DYN9lCU_0_zsCB877Y4THb9SO6teTocGyk/accuracy.png\" alt=\"\"></p>",
+    "PostedDate": "2010-02-16T05:36:42.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291622",
+    "ThreadId": "85441",
+    "Html": "<p>Ok... I didnt try overlay the road on the image.</p>\r\n<p>I see what you mean and understand.</p>\r\n<p>But surely, a GPS point from a GPS should be reprented the same on ALL maps, one would think..</p>\r\n<p>Thanks,</p>\r\n<p>Robert</p>",
+    "PostedDate": "2010-02-17T02:12:25.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291639",
+    "ThreadId": "85441",
+    "Html": "<p>well on the main roads they are quite good, but it's quite impossible google/bing guys to keep all roads in perfect precision. There is nice video about it&nbsp;<a href=\"http://channel9.msdn.com/shows/Going+Deep/Expert-to-Expert-Gur-Kimchi-Inside-Bing-Maps/\">http://channel9.msdn.com/shows/Going+Deep/Expert-to-Expert-Gur-Kimchi-Inside-Bing-Maps/</a> ...the art of maintaining <em>Tera-bytes</em> of data o.O ;}</p>",
+    "PostedDate": "2010-02-17T03:30:37.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291981",
+    "ThreadId": "85441",
+    "Html": "<p>Thats a great interesting&nbsp;video (love the guys smiley shirt).</p>\r\n<p>I might have led you astray though.</p>\r\n<p>I only used that dirt&nbsp;road as an example, but the program I have developed, is not caring about tracking on roads or anything, other than plotting accurate points captured GPS Co-ordinates from the GPS unit over the land (well, with the 1-3 metre error of the GPS unit).</p>\r\n<p>The question was about why the two different satelite maps show different positions for the same GPS co-ordinate.</p>\r\n<p>I will keep going and capture more data (I only have limited data to compare at the moment). Then, maybe I can work out an algorithm to plot the correct location on the Bing Map that I am forced to use.</p>\r\n<p>Thanks,</p>\r\n<p>Rob</p>",
+    "PostedDate": "2010-02-17T20:16:02.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

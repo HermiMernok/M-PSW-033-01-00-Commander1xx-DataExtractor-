@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "278032",
+    "ThreadId": "81062",
+    "Html": "<p>Hi,</p>\r\n<p>I cant get the gmap.net dll to work in in Visual Basic .net 2008 I had tried the following</p>\r\n<p>- Draging &amp; dropping both GMap.NET.WindowsPresentation.dll &amp; GMap.NET.Core.dll onto my form</p>\r\n<p>- Draging &amp; dropping both GMap.NET.WindowsPresentation.dll &amp; GMap.NET.Core.dll onto my toolbox</p>\r\n<p>- Adding GMap.NET.WindowsPresentation.dll &amp; GMap.NET.Core.dll as a reference</p>\r\n<p>The GMap.net only seems to work in Visual C#.NET 2008 and not VB.NET 2008.</p>\r\n<p>How can I get it to work in VB.NET 2008?</p>\r\n<p>Thanks,</p>\r\n<p>Alex</p>",
+    "PostedDate": "2010-01-16T17:10:11.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278033",
+    "ThreadId": "81062",
+    "Html": "<p>there is only one visual studio, the language doesn't matter in .net</p>",
+    "PostedDate": "2010-01-16T17:11:29.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278034",
+    "ThreadId": "81062",
+    "Html": "<p>How do I add GMap.net to my VB.NET 2008 project?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-16T17:14:02.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278035",
+    "ThreadId": "81062",
+    "Html": "<p>what project? wpf or windows forms?</p>",
+    "PostedDate": "2010-01-16T17:17:25.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278036",
+    "ThreadId": "81062",
+    "Html": "<p>A VB.NET 2008 Windows Form</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-16T17:17:57.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278037",
+    "ThreadId": "81062",
+    "Html": "<p>so why you try to use wpf version dll?</p>",
+    "PostedDate": "2010-01-16T17:18:53.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278038",
+    "ThreadId": "81062",
+    "Html": "<p>I worked it out</p>\r\n<p>Right click on the toolbox and click choose items then browse to and add GreatMapsAPI\\Demo.WindowsForms\\bin\\Debug\\GMap.NET.WindowsForms.dll</p>\r\n<p>I didn't know there were different versions, the demo only includes the WPF, if you download the whole package you get the above file.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-16T17:23:08.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278039",
+    "ThreadId": "81062",
+    "Html": "<p>...actually&nbsp;there are 3&nbsp;public demos in download page(wpf, windows forms, windows forms for MONO), and there is 4 demo for windows mobile, but only in svn</p>",
+    "PostedDate": "2010-01-16T17:27:26.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278047",
+    "ThreadId": "81062",
+    "Html": "<p>Thanks for your help and thanks for making this api its very good!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-16T18:14:34.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "278052",
+    "ThreadId": "81062",
+    "Html": "<p>thx, any ideas/improvements are&nbsp;welcome! ;}</p>",
+    "PostedDate": "2010-01-16T18:52:27.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "455189",
+    "ThreadId": "215954",
+    "Html": "<p>Hallo Radioman.</p>\r\n<p>I found your project and i think it's wonderfull, but...<br>Too much lack of docs and i am unable to compile.<br>Being a student i have access to Visual Studio 10.<br>I load Demo.WindowsForms.sln and Visual Studio says this</p>\r\n<p>\r\n<pre>Warning\t1\tCould not find type 'Demo.WindowsForms.Map'.  Please make sure that the assembly that contains this type is referenced.  If this type is a part of your development project, make sure that the project has been successfully built using settings for your current platform or Any CPU.\t\t0\t0\t\r\nWarning\t2\tThe variable 'MainMap' is either undeclared or was never assigned.\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\Demo.WindowsForms\\Forms\\MainForm.Designer.cs\t1229\t0\t\r\nError\t3\tNo overload for 'MainMap_OnMarkerClick' matches delegate 'GMap.NET.WindowsForms.MarkerClick'\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\Demo.WindowsForms\\Forms\\MainForm.cs\t85\t38\tDemo.WindowsForms\r\n</pre>\r\n</p>\r\n<p>And obviously it doesn't compile.</p>\r\n<p>I still have to understand all this, i'd really like a list of functions/methods with at least a description.</p>\r\n<p>Downloaded from here, latest version.</p>\r\n<p>Hope you can help.</p>",
+    "PostedDate": "2010-06-14T06:34:15.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455249",
+    "ThreadId": "215954",
+    "Html": "<p>Build succeeded.<br><br>Time Elapsed 00:00:00.73<br>========== Rebuild All: 9 succeeded, 0 failed, 1 skipped ==========</p>\r\n<p>that means, you mess something, try again, delete all stuff, extract source, or use hg, set target to x86, rebuild all.</p>",
+    "PostedDate": "2010-06-14T08:25:33.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455263",
+    "ThreadId": "215954",
+    "Html": "<p>I don't doubt it works :p</p>\r\n<p>I downloaded <span id=TitleLabel>4e5b2edf28a2, extracted to a folder in my downloads, doulbe clicked on &quot;Demo.WindowsForms.csproj&quot;</span></p>\r\n<p><span>And here i have 5 warnings</span></p>\r\n<p>&nbsp;</p>\r\n<pre>Warning\t1\tThe referenced component 'GMap.NET.Core' could not be found. \t\r\nWarning\t2\tThe referenced component 'GMap.NET.WindowsForms' could not be found. \t\r\nWarning\t3\tThe referenced component 'BSE.Windows.Forms' could not be found. \t\r\nWarning\t4\tThe OutputPath property is not set for project 'GMap.NET.Core.csproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='AnyCPU'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.\tDemo.WindowsForms\r\nWarning\t5\tThe OutputPath property is not set for project 'GMap.NET.WindowsForms.csproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='AnyCPU'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.\tDemo.WindowsForms\r\n</pre>\r\n<p>&nbsp;</p>\r\n<p>I then manually add the three dlls i downloaded as references, warnings disappear.</p>\r\n<p>And the build error now becomes<br><br></p>\r\n<pre>Error\t1\tNo overload for 'MainMap_OnMarkerClick' matches delegate 'GMap.NET.WindowsForms.MarkerClick'\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\Demo.WindowsForms\\Forms\\MainForm.cs\t83\t38\tDemo.WindowsForms\r\n</pre>\r\n<p>&nbsp;</p>\r\n<p>so i don't know what to do.</p>\r\n<p>&nbsp;</p>\r\n<p>And also upon reopening these two warnings\r\n<pre>Warning\t1\tCould not find type 'Demo.WindowsForms.Map'.  Please make sure that the assembly that contains this type is referenced.  If this type is a part of your development project, make sure that the project has been successfully built using settings for your current platform or Any CPU.\t\t0\t0\t\r\nWarning\t2\tThe variable 'MainMap' is either undeclared or was never assigned.\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\Demo.WindowsForms\\Forms\\MainForm.Designer.cs\t1229\t0\t\r\n</pre>\r\n</p>",
+    "PostedDate": "2010-06-14T09:02:10.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455266",
+    "ThreadId": "215954",
+    "Html": "<p>easy to repeat ;}</p>\r\n<p>that means, you mess something, try again, delete all stuff, extract source, or use hg, <strong>set target to x86, rebuild all.&nbsp;</strong></p>",
+    "PostedDate": "2010-06-14T09:06:30.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455267",
+    "ThreadId": "215954",
+    "Html": "<p>I did delete everything, redownloaded, and just reopened the file.</p>\r\n<p>I'll try with another build. Could it be some vstudio configuration i am missing while you have?</p>",
+    "PostedDate": "2010-06-14T09:08:25.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455271",
+    "ThreadId": "215954",
+    "Html": "<p>i've just did the same, builds perfectly</p>",
+    "PostedDate": "2010-06-14T09:20:37.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455279",
+    "ThreadId": "215954",
+    "Html": "<p>set target to <strong>x86</strong></p>\r\n<p>.</p>",
+    "PostedDate": "2010-06-14T09:33:07.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455281",
+    "ThreadId": "215954",
+    "Html": "Ok now it builds but with these warnings<br>\r\n<br>\r\n<br>\r\nWarning\t1\tThe tag 'GMapControl' does not exist in XML namespace 'clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation'. Line 35 Position 10.\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\Testing\\TemplatedBinding\\Window1.xaml\t35\t10\tTemplatedBinding\r\n<br>\r\n<br>\r\nWarning\t2\tThe tag 'GMapControlNew' does not exist in XML namespace 'clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation'. Line 7 Position 10.\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\Testing\\WPF-GMapControlNew\\MainWindow.xaml\t7\t10\tWPF-GMapControlNew\r\n<br>\r\n<br>\r\nAnd these others too<br>\r\n<br>\r\nWarning\t1\tUnreachable code detected\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.Core\\GMap.NET\\GMaps.cs\t2302\t10\tGMap.NET.Core<br>\r\nWarning\t2\tThe field 'GMap.NET.WindowsForms.GMapControl.RaiseEmptyTileError' is assigned but its value is never used\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapControl.cs\t292\t12\tGMap.NET.WindowsForms<br>\r\nWarning\t3\tThe field 'GMap.NET.WindowsPresentation.GMapControlNew.maparea' is assigned but its value is never used\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t344\t12\tGMap.NET.WindowsPresentation<br>\r\nWarning\t4\tUnreachable code detected\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1048\t10\tGMap.NET.WindowsPresentation<br>\r\nWarning\t5\tThe field 'GMap.NET.WindowsPresentation.GMapControlNew.Empty' is assigned but its value is never used\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1082\t28\tGMap.NET.WindowsPresentation<br>\r\nWarning\t6\tUnreachable code detected\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1130\t10\tGMap.NET.WindowsPresentation<br>\r\nWarning\t7\tUnreachable code detected\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1178\t10\tGMap.NET.WindowsPresentation<br>\r\nWarning\t8\tUnreachable code detected\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1048\t10\tGMap.NET.WindowsPresentation<br>\r\nWarning\t9\tUnreachable code detected\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1130\t10\tGMap.NET.WindowsPresentation<br>\r\nWarning\t10\tUnreachable code detected\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1178\t10\tGMap.NET.WindowsPresentation<br>\r\nWarning\t11\tThe field 'GMap.NET.WindowsPresentation.GMapControlNew.maparea' is assigned but its value is never used\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t344\t12\tGMap.NET.WindowsPresentation<br>\r\nWarning\t12\tThe field 'GMap.NET.WindowsPresentation.GMapControlNew.Empty' is assigned but its value is never used\tC:\\Users\\Erupter\\Downloads\\Devel\\Gmap.NET\\Source\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControlNew.xaml.cs\t1082\t28\tGMap.NET.WindowsPresentation<br>\r\n<br>",
+    "PostedDate": "2010-06-14T09:34:46.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455284",
+    "ThreadId": "215954",
+    "Html": "<p>you use old source</p>",
+    "PostedDate": "2010-06-14T09:45:34.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455582",
+    "ThreadId": "215954",
+    "Html": "<p>Actually it's the latest.</p>\r\n<p>Anyway your source compile, it's just me totally new to all this and being stupid.</p>\r\n<p>Man would it be possible for you to design just a basic Forms project (maybe VB?), with the map in the center and a dropdownmenu for map provider?</p>\r\n<p>At least i could try to graps what happens where...</p>",
+    "PostedDate": "2010-06-15T04:04:17.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455752",
+    "ThreadId": "215954",
+    "Html": "<p>but that is exactly what demos are for, just keep training and you will succeed ;}</p>",
+    "PostedDate": "2010-06-15T10:47:47.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

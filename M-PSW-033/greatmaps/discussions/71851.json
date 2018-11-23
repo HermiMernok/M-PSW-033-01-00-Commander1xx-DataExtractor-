@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "245184",
+    "ThreadId": "71851",
+    "Html": "<p>I'd like to try out the control using VS2005 and VB.Net or VB2008 Express.</p>\r\n<p>Should it work OK in VS2005? I have it &nbsp;placed on form and somethings work but the image says &quot;Sorry we don't have imagery for this zoom and region&quot;. I think I have&nbsp;reasonable values but maybe not:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> Form1_Load(...\r\n        map.MapType = GMap.NET.MapType.BingMap\r\n        map.Zoom = 200000\r\n        <span style=\"color:Blue\">Dim</span> code <span style=\"color:Blue\">As</span> GMap.NET.GeoCoderStatusCode = map.SetCurrentPositionByKeywords(<span style=\"color:#A31515\">&quot;San Luis Obispo,CA&quot;</span>) ' code = success\r\n        Debug.Print(map.CurrentPosition.ToString) <span style=\"color:Green\">'= {Lat=35.2827524, Lng=-120.6596156} </span>\r\n</pre>\r\n<pre><span style=\"color:#008000\"><br></span></pre>\r\n<pre><span style=\"color:#008000\"><br></span></pre>\r\n<pre><span style=\"color:#008000\"><pre style=\"color:#000000;font-family:Consolas, 'Courier New', Courier, monospace;font-size:1em;margin:8px\"><span style=\"color:#008000\">I'm just trying got a hello world type project for now.</span></pre>\r\n<pre style=\"color:#000000;font-family:Consolas, 'Courier New', Courier, monospace;font-size:1em;margin:8px\"><span style=\"color:#008000\">Anyone have a VB.Net demo form they would like to share?</span></pre>\r\n</span></pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-13T11:25:16.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245192",
+    "ThreadId": "71851",
+    "Html": "<pre style=\"white-space:pre-wrap;word-wrap:break-word\"> map.Zoom = 200000 ;} max is almost for all 17</pre>",
+    "PostedDate": "2009-10-13T11:32:51.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245228",
+    "ThreadId": "71851",
+    "Html": "<p>Zoom setting doesn't seem to help - I still get the error that imagery is not available.</p>\r\n<p>The default .Zoom =2 doesn't work.</p>\r\n<p>Something more fundemental going on, some missing prequesite or setting?</p>\r\n<p>Is there a way for me to send you my VB Express 2008 project for review?</p>\r\n<p>Here's the complete code (copied mostly from CSharp demo):</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Option</span> <span style=\"color:Blue\">Explicit</span> <span style=\"color:Blue\">On</span>\r\n<span style=\"color:Blue\">Imports</span> System\r\n<span style=\"color:Blue\">Imports</span> System.Collections.Generic\r\n<span style=\"color:Blue\">Imports</span> System.Drawing\r\n<span style=\"color:Blue\">Imports</span> System.Globalization\r\n<span style=\"color:Blue\">Imports</span> System.Windows.Forms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.CacheProviders\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n\r\n<span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Class</span> Form1\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> Form1_Load(<span style=\"color:Blue\">ByVal</span> sender <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Object</span>, <span style=\"color:Blue\">ByVal</span> e <span style=\"color:Blue\">As</span> System.EventArgs) <span style=\"color:Blue\">Handles</span> <span style=\"color:Blue\">Me</span>.Load\r\n        <span style=\"color:Green\">'config(gmaps)</span>\r\n        GMaps.Instance.UseRouteCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.UsePlacemarkCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.Mode = AccessMode.ServerAndCache\r\n        <span style=\"color:Green\">'config(map)</span>\r\n        map.MapType = MapType.ArcGIS_MapsLT_Map\r\n        map.MaxZoom = 12\r\n        map.MinZoom = 3\r\n        map.Zoom = map.MinZoom\r\n        map.CurrentPosition = <span style=\"color:Blue\">New</span> PointLatLng(54.6961334816182, 25.2985095977783)\r\n        map.ZoomAndCenterMarkers(<span style=\"color:#A31515\">&quot;&quot;</span>)\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n</pre>\r\n</div>",
+    "PostedDate": "2009-10-13T12:38:31.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245230",
+    "ThreadId": "71851",
+    "Html": "<p>target x86</p>",
+    "PostedDate": "2009-10-13T12:42:08.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245233",
+    "ThreadId": "71851",
+    "Html": "<p>I'm a control user, and not a control developer - what does &quot;target x86&quot; mean?</p>\r\n<p>Note that I am unable to load the CSharp source - I get an error about CSharp.targets missing - so I cannot build the control on my Vista PC (x86) under VS2005.</p>",
+    "PostedDate": "2009-10-13T12:47:43.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245235",
+    "ThreadId": "71851",
+    "Html": "<p>set target on <strong>your</strong> project ;}</p>",
+    "PostedDate": "2009-10-13T12:51:07.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245242",
+    "ThreadId": "71851",
+    "Html": "<p>Sorry - I don't think VB has the concept of a &quot;target&quot;.</p>\r\n<p>BTW the demo project does run on my PC.</p>",
+    "PostedDate": "2009-10-13T13:02:27.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245243",
+    "ThreadId": "71851",
+    "Html": "<p>..and oh why &amp;ms continues to use vb ;} let's hope they don't do it forever</p>",
+    "PostedDate": "2009-10-13T13:05:08.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245248",
+    "ThreadId": "71851",
+    "Html": "<p>FYI</p>\r\n<p>I created a new CSharpe project and added the GMap control to a form. I also added a reference to</p>\r\n<p>GMap.NET.WindowsForms.dll and GMap.NET.Core.dll</p>\r\n<p>I set MapType to Google and the form came up OK without any additional code and the tiles displayed.</p>\r\n<p>I want to do the same thing with VB.</p>\r\n<p>Why VB - C is great for systems/control development - it is very ineffecient when it comes to writing end user applications (IMHO.) And of course any competent C programmer can write a VB program (right?), but the opposite is not true.&nbsp; :)</p>",
+    "PostedDate": "2009-10-13T13:13:57.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245249",
+    "ThreadId": "71851",
+    "Html": "<p>;} ..well first try to put start code in&nbsp;<strong>constructor</strong>, not in load event</p>",
+    "PostedDate": "2009-10-13T13:17:07.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245256",
+    "ThreadId": "71851",
+    "Html": "<p>VB does not have a Contructor event for the Form Class.</p>\r\n<p>Thanks for your help! I don't want to take a bunch of your time.</p>\r\n<p>Maybe someone that has worked in both envoironments can shed some light on the problems with VB. I can barely spell C#. I would guess it is something simple as the control you are developing shouldn't care what CLR/IDE they are used with.</p>",
+    "PostedDate": "2009-10-13T13:25:56.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245263",
+    "ThreadId": "71851",
+    "Html": "<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\"><br>Option</span> <span style=\"color:Blue\">Explicit</span> <span style=\"color:Blue\">On</span></pre>\r\n<pre><span style=\"color:Blue\">Imports</span> System\r\n<span style=\"color:Blue\">Imports</span> System.Collections.Generic\r\n<span style=\"color:Blue\">Imports</span> System.Drawing\r\n<span style=\"color:Blue\">Imports</span> System.Globalization\r\n<span style=\"color:Blue\">Imports</span> System.Windows.Forms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.CacheProviders\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n\r\n<span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Class</span> Form1\r\n   <span style=\"color:Blue\">Sub</span> <span style=\"color:Blue\">New</span>()\r\n\r\n      InitializeComponent()\r\n\r\n      <span style=\"color:Green\">'config(gmaps)</span>\r\n      GMaps.Instance.UseRouteCache = <span style=\"color:Blue\">True</span>\r\n      GMaps.Instance.UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n      GMaps.Instance.UsePlacemarkCache = <span style=\"color:Blue\">True</span>\r\n      GMaps.Instance.Mode = AccessMode.ServerAndCache\r\n\r\n      <span style=\"color:Green\">'config(map)</span>\r\n      GMapControl1.MapType = MapType.OpenStreetMapSurfer\r\n      GMapControl1.MaxZoom = 19\r\n      GMapControl1.MinZoom = 6\r\n      GMapControl1.Zoom = GMapControl1.MinZoom\r\n      GMapControl1.CurrentPosition = <span style=\"color:Blue\">New</span> PointLatLng(54.6961334816182, 25.2985095977783)\r\n   <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p>// works perfect ;}</p>",
+    "PostedDate": "2009-10-13T13:38:23.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245310",
+    "ThreadId": "71851",
+    "Html": "<p>Thanks!</p>\r\n<p>What I was missing was a reference to System.Data.SQLite.dll in the VB Project. I'm suprised I didn't get an error....</p>\r\n<p>Below&nbsp;is my &quot;final&quot; hello world code for VS2005 VB.Net.</p>\r\n<p><span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>InitializeComponent</p>\r\n&lt;/font&gt;</span></p>\r\n<p>InitializeComponent() sub is called automatically and is not usually visable to the VB coder.&nbsp; (Do a Solution wide search for InitializeComponent to see the code which should not be modifed.)</p>\r\n<p>The initial map properties are set in Form_Load(). I'm not sure all the setup code/Imports&nbsp;are required as I just copied it from a CSharp sample.</p>\r\n<p>&nbsp;When you first drop a map control on a form set the MapType property manually as the absence of a valid default causes an error when you try to save the project(bug?). My control was named 'map' for this example (avoid the name GMap.)</p>\r\n<p>radio - thanks for your help! Great control!</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Option</span> <span style=\"color:Blue\">Explicit</span> <span style=\"color:Blue\">On</span>\r\n\r\n<span style=\"color:Blue\">Imports</span> System\r\n<span style=\"color:Blue\">Imports</span> System.Collections.Generic\r\n<span style=\"color:Blue\">Imports</span> System.Drawing\r\n<span style=\"color:Blue\">Imports</span> System.Globalization\r\n<span style=\"color:Blue\">Imports</span> System.Windows.Forms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.CacheProviders\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n<span style=\"color:Green\">' Project refernces required:</span>\r\n<span style=\"color:Green\">'   GMap.NET.Core.dll</span>\r\n<span style=\"color:Green\">'   GMap.NET.WindowsForms.dll</span>\r\n<span style=\"color:Green\">'   System.Data.SQLite.dll</span>\r\n<span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Class</span> Form1\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> Form1_Load(<span style=\"color:Blue\">ByVal</span> sender <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">Object</span>, <span style=\"color:Blue\">ByVal</span> e <span style=\"color:Blue\">As</span> System.EventArgs) <span style=\"color:Blue\">Handles</span> <span style=\"color:Blue\">Me</span>.Load\r\n\r\n        <span style=\"color:Green\">'config(gmaps)</span>\r\n        GMaps.Instance.UseRouteCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.UsePlacemarkCache = <span style=\"color:Blue\">True</span>\r\n        GMaps.Instance.Mode = AccessMode.ServerAndCache\r\n\r\n        <span style=\"color:Green\">'config(map)</span>\r\n        map.MapType = MapType.GoogleHybrid\r\n        map.MaxZoom = 19\r\n        map.MinZoom = 6\r\n        map.Zoom = map.MinZoom\r\n        <span style=\"color:Green\">'map.CurrentPosition = New PointLatLng(54.6961334816182, 25.2985095977783)</span>\r\n        map.SetCurrentPositionByKeywords(<span style=\"color:#A31515\">&quot;San Luis Obispo, CA&quot;</span>)\r\n\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-13T15:24:27.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "245385",
+    "ThreadId": "71851",
+    "Html": "<p>great, i'll try to fix design mode ;}</p>",
+    "PostedDate": "2009-10-13T22:13:04.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

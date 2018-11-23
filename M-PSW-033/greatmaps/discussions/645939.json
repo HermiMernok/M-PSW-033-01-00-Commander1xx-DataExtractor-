@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1447521",
+    "ThreadId": "645939",
+    "Html": "I would like to create a heatmap for many given points on a map based on OpenStreetMap. \r<br />\n<br />\nI am working on C# VS2013 WPF.<br />\n\r<br />\nI have checked the C# code at: \r<br />\n<br />\n<a href=\"http://greatmaps.codeplex.com/\" rel=\"nofollow\">http://greatmaps.codeplex.com/</a>\r<br />\n<a href=\"http://www.codeproject.com/Articles/88956/GHeat-NET\" rel=\"nofollow\">http://www.codeproject.com/Articles/88956/GHeat-NET</a>\r<br />\n<br />\nBut, the Gheat.net (built at 2010) was built on GMAP.net  v1.4.9.4 and my GMAP.net is 1.7 (built at 2015). \r<br />\n<br />\nThe authors added two files that define some new classes about points. \r<br />\n<br />\nI got some compile errors when I added them to GMAP.NET 1.7 C# code.\r<br />\n<br />\nFor example, <br />\n<pre><code>  public Point(Size sz)\n  {\n     this.x = sz.Width;\n     this.y = sz.Height;\n     this._data = null;\n     this._weight = null;\n  }\n</code></pre>\n\nSize was not defined in GMAP.NET 1.7 but it was in GMAP.1.4.<br />\n\r<br />\nCan anyone recommend other open source libs that support building heatmap on OSM? \r<br />\n<br />\nAny help would be appreciated. <br />\n",
+    "PostedDate": "2015-10-07T12:25:43.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447898",
+    "ThreadId": "645939",
+    "Html": "i think it's <strong>GSize</strong> now<br />\n",
+    "PostedDate": "2015-10-09T12:10:49.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

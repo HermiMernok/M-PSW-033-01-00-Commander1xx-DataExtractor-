@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "456771",
+    "ThreadId": "216391",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>Is it possible to add the custom layers of Google Maps to GMap.NET? For example, I would like to use the Webcam-layer in my application. Is this possible?</p>\r\n<p>Kind regards,</p>\r\n<p>Mindstorms</p>",
+    "PostedDate": "2010-06-17T08:36:22.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456844",
+    "ThreadId": "216391",
+    "Html": "<p>override OnPaintEtc, paint whatever ;}</p>",
+    "PostedDate": "2010-06-17T10:29:38.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456946",
+    "ThreadId": "216391",
+    "Html": "Well, yes. But do you have any idea how to get the layers from Google?",
+    "PostedDate": "2010-06-17T14:17:02.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456952",
+    "ThreadId": "216391",
+    "Html": "<p>what&nbsp;layers? ;/</p>",
+    "PostedDate": "2010-06-17T14:28:44.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456957",
+    "ThreadId": "216391",
+    "Html": "<p>For example, these:&nbsp;</p>\r\n<p><a href=\"http://maps.google.nl/maps?ll=52.308479,5.866699&spn=2.861707,6.569824&t=h&z=7&lci=com.google.webcams\">http://maps.google.nl/maps?ll=52.308479,5.866699&amp;spn=2.861707,6.569824&amp;t=h&amp;z=7&amp;lci=com.google.webcams</a></p>",
+    "PostedDate": "2010-06-17T14:33:47.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457065",
+    "ThreadId": "216391",
+    "Html": "<p>..and why do we need them? ;} can't you use google?</p>",
+    "PostedDate": "2010-06-17T22:09:59.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457225",
+    "ThreadId": "216391",
+    "Html": "<p>I would like to integrate the webcamlayer in my application, which uses GMap.NET. So I thought maybe it would be an idea to integrate the Google layers in GMap.NET. Besides, I really don't know were to start if I should integrate it in my application&nbsp;independent of GMap.NET. Do you have any idea?</p>",
+    "PostedDate": "2010-06-18T05:23:41.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457232",
+    "ThreadId": "216391",
+    "Html": "<p>&quot;Google displays webcams from the aggregator <a href=\"http://www.webcams.travel/\">webcams.travel</a>, a site that lists more than 9000 webcams. &quot;All the webcams from <a href=\"http://www.webcams.travel/\">Webcams.travel</a> are now available on the integrated layer of Google Maps. This was made possible within the cooperation of <a href=\"http://www.webcams.travel/\">Webcams.travel</a> with Google,&quot; explains Webcams.travel's blog.&quot;</p>\r\n<p>So thats the start, if they have some service for that, we can use it too ;}</p>\r\n<p>p.s. yes they do, <a href=\"http://www.webcams.travel/developers/\">http://www.webcams.travel/developers/&nbsp;</a></p>",
+    "PostedDate": "2010-06-18T05:44:10.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457241",
+    "ThreadId": "216391",
+    "Html": "They seem to have an usable API, which returns webcams and information in xml or json. It's also usable for Yahoo! and Bingmaps, and it doesn't seem very hard to implement. http://nl.webcams.travel/developers/",
+    "PostedDate": "2010-06-18T06:05:10.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457247",
+    "ThreadId": "216391",
+    "Html": "<p>yeah, i'll try to add it demos live feature ;}</p>",
+    "PostedDate": "2010-06-18T06:16:21.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

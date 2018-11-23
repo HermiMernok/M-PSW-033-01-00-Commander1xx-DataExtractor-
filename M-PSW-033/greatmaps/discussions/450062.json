@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1068527",
+    "ThreadId": "450062",
+    "Html": "hi,\r<br />\nI created a program in c sharp that reads positions from a db, I was able to represent them on the map but if I update the traces I get a big red cross, I think there is some problem with the update of the 'overlay. This is my source code:<br />\n<pre><code>namespace app\n{\n    public class make_pos\n    {\n        public int vibilita = 0;\n    public static GMapOverlay markersOverlay = new GMapOverlay();\n   \n        public static void make_my_data(DataTable tabella_punti,int visib) \n        {\n             \n            if ((tabella_punti.TableName != &quot;&quot;)&amp;&amp;(tabella_punti.TableName != null)) {\n            tabella_punti.DefaultView.Sort = &quot;i_ncee, p_data desc, p_ora desc, p_min desc, p_sec desc&quot;;\n            DataTableReader dr_class = tabella_punti.DefaultView.ToTable().CreateDataReader();\n            int last_ncee=0;\n            if (markersOverlay.IsVisibile)\n            {\n                foreach (GMapMarker item in make_pos.markersOverlay.Markers)\n                {\n                  \n                   frmViewCapture.gmapcontrol1.UpdateMarkerLocalPosition(item);\n                }\n            }\n         \n   \n        while (dr_class.Read())\n        {\n           \n            if (last_ncee != Convert.ToInt32(dr_class.GetValue(3)))\n            {\n             \n                latlong dd = latlong.conv(Convert.ToString(dr_class.GetValue(4)), Convert.ToString(dr_class.GetValue(5)), Convert.ToString(dr_class.GetValue(6)), Convert.ToString(dr_class.GetValue(7)), Convert.ToString(dr_class.GetValue(8)), Convert.ToString(dr_class.GetValue(9)), Convert.ToString(dr_class.GetValue(10)), Convert.ToString(dr_class.GetValue(11)));\n                Image verde = Image.FromFile(&quot;pointers/&quot; + dr_class.GetValue(22) + &quot;.png&quot;);\n                           \n               GMap.NET.WindowsForms.Markers.GMarkerGoogle punto = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(new PointLatLng(double.Parse(dd.latt), double.Parse(dd.longg)), new Bitmap(verde));\n               // frmViewCapture.markersOverlay.Id = &quot;posizione&quot;;\n              \n                punto.ToolTipText =&quot;Numero Ue: &quot; +dr_class.GetValue(3).ToString()\n                                    +&quot;\\nNome: &quot;+dr_class.GetValue(0)\n                                    +&quot;\\nMatricola: &quot;+ dr_class.GetValue(1).ToString()\n                                    +&quot;\\nLat: &quot;+ dr_class.GetValue(4)+&quot;.&quot;+ dr_class.GetValue(5)+&quot;.&quot;+ dr_class.GetValue(6)+&quot;.&quot;+ dr_class.GetValue(7)+&quot;\\n Long: &quot;+dr_class.GetValue(8)+&quot;.&quot;+ dr_class.GetValue(9)+&quot;.&quot;+ dr_class.GetValue(10)+&quot;.&quot;+ dr_class.GetValue(11) \n                                    +&quot;\\nVelocita: &quot;+dr_class.GetValue(12)\n                                    +&quot;  Rotta: &quot;+dr_class.GetValue(13)\n                                    +&quot;\\nOra: &quot;+dr_class.GetValue(15)+&quot;:&quot;+dr_class.GetValue(16)+&quot;:&quot;+dr_class.GetValue(17)+&quot;  del: &quot;+dr_class.GetValue(18)\n                                    +&quot;\\nCodice Allarme: &quot; + dr_class.GetValue(21).ToString() ;\n               \n                punto.Bearing =Convert.ToInt16(dr_class.GetValue(13));\n               markersOverlay.Markers.Add(punto);\n               \n                          last_ncee = Convert.ToInt32(dr_class.GetValue(3));</code></pre>\n\n<pre><code> private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)\n       {\n         \n           mia_tabella = my_data.Tables[&quot;posizione&quot;];\n           \n             \n\n           \n        if (mia_tabella != null) mia_tabella.DefaultView.Sort = &quot;p_data desc, p_ora desc, p_min desc&quot;;\n           \n           \n           aggiorna_ora.ForeColor = Color.Black;\n           label14.BackColor = Color.Gray;\n           \n           label15.Text =&quot;Ultimo aggiornamento: &quot; + Convert.ToString(DateTime.Now);\n           gMapControl1.Overlays.Add(make_pos.markersOverlay);\n           foreach (GMapMarker item in make_pos.markersOverlay.Markers)\n           {\n               gMapControl1.UpdateMarkerLocalPosition(item);\n           }\n           \n       }</code></pre>\n\nCan you help me?\r<br />\nThanks for all :)<br />\n",
+    "PostedDate": "2013-07-15T09:38:10.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1068581",
+    "ThreadId": "450062",
+    "Html": "I fixed the overlay refresh, but when i make a mouseover on a mark the tooltip is decentralized.<br />\n<br />\n<br />\n<a href=\"https://www.dropbox.com/s/uzuirya51mqqkrl/tooltip.jpg\" rel=\"nofollow\">IMAGE</a><br />\n<br />\nthe black arrow indicates the location where the mouse is at this time<br />\n",
+    "PostedDate": "2013-07-15T11:06:38.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070786",
+    "ThreadId": "450062",
+    "Html": "check the offset<br />\n",
+    "PostedDate": "2013-07-20T05:39:14.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

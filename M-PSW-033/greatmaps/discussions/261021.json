@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "626324",
+    "ThreadId": "261021",
+    "Html": "\r\n<p>Hi guys!</p>\r\n<p>First of all, thank you very much to radioman for this amazing tool, you have made my life 100x easier with this :)</p>\r\n<p>Now what I would like to accomplish is that when the user scrolls mouse wheel, instead of zoom&#43;=1 I would like to be more like something like zoom&#43;=0.1</p>\r\n<p>Could someone please hint me to the correct place to modify this behaviour? Or perhaps the correct way to do it?</p>\r\n<p>I have tried playing around with OnMouseWheel in GMapControl.cs, specifically in this part :</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>            <span style=\"color:blue\">if</span>(e.Delta &gt; 0)\r\n            {\r\n               <span style=\"color:blue\">if</span>(!InvertedMouseWheelZooming)\r\n               {\r\n                  Zoom = ((<span style=\"color:blue\">int</span>)Zoom) &#43; 1;\r\n               }\r\n               <span style=\"color:blue\">else</span>\r\n               {\r\n                  Zoom = ((<span style=\"color:blue\">int</span>)(Zoom &#43; 0.99)) - 1;\r\n               }\r\n            }\r\n            <span style=\"color:blue\">else</span>\r\n            {\r\n               <span style=\"color:blue\">if</span>(InvertedMouseWheelZooming)\r\n               {\r\n                  Zoom = ((<span style=\"color:blue\">int</span>)Zoom) &#43; 1;\r\n               }\r\n               <span style=\"color:blue\">else</span>\r\n               {\r\n                  Zoom = ((<span style=\"color:blue\">int</span>)(Zoom &#43; 0.99)) - 1;\r\n               }\r\n            }\r\n</pre>\r\n</div>\r\n.. tried to change that &#43;1 to things like &#43;0.1, &#43;0.5, etc. but I get problems like after the first zoom in, it stops zooming in (for 0.1) or for 0.5, it will zoom in quite far first time and then not allow scroll to zoom in further. I must be doing something\r\n very wrong!\r\n<p></p>\r\n",
+    "PostedDate": "2011-06-11T04:19:04.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626326",
+    "ThreadId": "261021",
+    "Html": "<p>try: <em>if(e.Delta &gt; 0) Zoom += 0.1; else Zoom -= 0.1;</em></p>",
+    "PostedDate": "2011-06-11T04:30:01.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "626699",
+    "ThreadId": "261021",
+    "Html": "<p>that's great, thank you</p>",
+    "PostedDate": "2011-06-12T19:17:57.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

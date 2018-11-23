@@ -1,0 +1,313 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataExtractorWindow"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="DataExtractorWindow.MainWindow"
+        mc:Ignorable="d"
+        Title="Commander1xx DataExtractor" Height="800" Width="900"   
+        WindowStartupLocation ="CenterScreen" 
+        Icon="Resources/Icons/Mernok_Elektronik_Icon.ico" >
+
+    <Window.Resources>
+
+        <Style x:Key="groupheaderstyle" TargetType="{x:Type GroupItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                        <Expander x:Name="exp" IsExpanded="True" Background="LightGray" Foreground="Black">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <ItemsPresenter />
+                        </Expander>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CategoryGroupStyle" TargetType="{x:Type GroupItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                        <Expander x:Name="CategoryGroupExpander" IsExpanded="False" Background="LightGray" Foreground="Black">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                            </Expander.Header>
+                            <ItemsPresenter />
+                        </Expander>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border Background="White" BorderBrush="#FF7D8683" BorderThickness="1"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                               Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="DimGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GroupBoxStyle" TargetType="{x:Type GroupBox}">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Foreground="Black" FontWeight="Bold"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <RoutedUICommand x:Key="Command_Open_File" Text="Open File">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+O</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="Command_Save_File" Text="Save File">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+S</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="Command_Exit_Application" Text="Exit Application">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>CTRL+Q</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+        <RoutedUICommand x:Key="Command_About" Text="Login">
+            <RoutedUICommand.InputGestures>
+                <KeyGesture>F1</KeyGesture>
+            </RoutedUICommand.InputGestures>
+        </RoutedUICommand>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource Command_Open_File}" Executed="Button_Open_File_Click"></CommandBinding>
+        <CommandBinding Command="{StaticResource Command_Save_File}" Executed="Button_Save_File_Click"></CommandBinding>
+        <CommandBinding Command="{StaticResource Command_Exit_Application}" Executed="_Exit_Application_Click"></CommandBinding>
+        <CommandBinding Command="{StaticResource Command_About}" Executed="Menu_Item_About_Click"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="162*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+
+
+
+
+
+        <DockPanel x:Name="MenuPanel" Grid.ColumnSpan="2" Grid.Row="0">
+            <Menu x:Name ="Menu_Item">
+                <MenuItem Header="File" FontSize="12">
+                    <MenuItem x:Name="Open_File" Header="_Open File" Command="{StaticResource Command_Open_File}"/>
+                    <MenuItem x:Name="Save_File" Header="_Save File" Command="{StaticResource Command_Save_File}"/>
+                    <Separator></Separator>
+                    <MenuItem x:Name="Exit_Application" Header="_Exit" Command="{StaticResource Command_Exit_Application}"/>
+                </MenuItem>
+
+                <MenuItem Header="Help" FontSize="12">
+                    <MenuItem x:Name="_About" Header="_About Commander1xx DataExtractor"  Command="{StaticResource Command_About}"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <Calendar x:Name="Calender_Start_Date" Margin="0,30,0,0" Grid.Row="2" Height="170" VerticalAlignment="Top" IsEnabled="False" FirstDayOfWeek="Monday" Cursor="Hand"  PreviewKeyDown="PreviewKeyDown_Filter_Key"/>
+        <Calendar x:Name="Calender_End_Date" Margin="0,30,0,0" Grid.Row="4"  Height="170" VerticalAlignment="Top" IsEnabled="False" FirstDayOfWeek="Monday" Cursor="Hand"  PreviewKeyDown="PreviewKeyDown_Filter_Key"/>
+        <Button x:Name="Button_Filter" Content="Apply Filter" HorizontalAlignment="Center" Width="170" Click="Button_Filter_Click" Grid.Row="7" Margin="40,0,40,10" IsEnabled="False" Height="20" VerticalAlignment="Bottom"/>
+        <Label Content="Start Date and Time:" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Grid.Row="2" FontWeight="Bold" FontSize="16" Margin="42,0" />
+        <Label Content="End Date and Time: " VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Grid.Row="4" FontWeight="Bold" FontSize="16" Margin="44,0"/>
+        <xctk:TimePicker x:Name="TimePicker_Start_Time" 
+                         HorizontalAlignment="Center" 
+                         Grid.Row="3" Height="26" 
+                         Width="170" 
+                         VerticalAlignment="Center" 
+                         Value="12:00:00 AM" 
+                         IsEnabled="False" 
+                         Cursor="Hand"  
+                         PreviewKeyDown="PreviewKeyDown_Filter_Key" Margin="40,12"/>
+        <xctk:TimePicker x:Name="TimePicker_End_Time" HorizontalAlignment="Center" Grid.Row="5" Height="26" Width="170" VerticalAlignment="Center" Value="11:59:59 PM" IsEnabled="False" Cursor="Hand"  PreviewKeyDown="PreviewKeyDown_Filter_Key" Margin="40,12"/>
+        <TabControl x:Name="TabControl_Information" Grid.Column="1" Margin="10,6,10,0" Grid.Row="2" Grid.RowSpan="5">
+            <TabItem Header="Unit Information" Width="120">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="DataGrid_Unit_Information" AutoGenerateColumns="False" Margin="0,0,0,0">
+                        <DataGrid.GroupStyle>
+                            <GroupStyle ContainerStyle="{StaticResource groupheaderstyle}">
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <DataGridRowsPresenter />
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </DataGrid.GroupStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="1*" Header="No." Binding="{Binding No}" MinWidth="60" MaxWidth="60"/>
+                            <DataGridTextColumn Width="4*" Header="Name" Binding="{Binding Name}" MinWidth="100" MaxWidth="100"/>
+                            <DataGridTextColumn Width="4*" Header="Value" Binding="{Binding Value}" MinWidth="200" MaxWidth="200" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Event Summary" Width="120">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="DataGrid_Log_Summary" AutoGenerateColumns="False" Margin="0,0,0,0" SelectionChanged="DataGrid_Log_Summary_SelectionChanged">
+                        <DataGrid.GroupStyle>
+                            <GroupStyle ContainerStyle="{StaticResource CategoryGroupStyle}">
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <DataGridRowsPresenter />
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </DataGrid.GroupStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="1*" Header="No." Binding="{Binding Event_ID}" MinWidth="60" MaxWidth="60"/>
+                            <DataGridTextColumn Width="4*" Header="Name" Binding="{Binding Event_Name}" MinWidth="180" MaxWidth="180"/>
+                            <DataGridTextColumn Width="4*" Header="Count" Binding="{Binding Event_Count}" MinWidth="80" MaxWidth="80" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Log Entries" Width="120">
+                <DataGrid x:Name="DataGrid_Log" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="False" Grid.Column="1" Margin="0,0,0,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="1*" Header="No." Binding="{Binding No}" MinWidth="60" MaxWidth="60"/>
+                        <DataGridTextColumn Width="4*" Header="Date" Binding="{Binding DateTimeStamp, StringFormat='{}{0:dd/MM/yyyy}'}" MinWidth="80" MaxWidth="80" />
+                        <DataGridTextColumn Width="4*" Header="Time" Binding="{Binding DateTimeStamp , StringFormat='{}{0:HH:mm:ss}'}" MinWidth="80" MaxWidth="80" />
+                        <DataGridTextColumn Width="2*" Header="Event ID" Binding="{Binding EventID}" MinWidth="60" MaxWidth="60"/>
+                        <DataGridTextColumn Width="8*" Binding="{Binding EventDescription}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.Header>
+                                <Grid Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="16"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Event Description" VerticalAlignment="Center" />
+                                    <xctk:CheckComboBox x:Name="CheckComboBox_Events" HorizontalAlignment="Left" Height="28" 
+                                                        MouseEnter="CheckComboBox_Events_Mouse_Enter" VerticalAlignment="Top" 
+                                                        Width="16" Grid.Column="1" Background="Transparent" BorderThickness="0" 
+                                                        ItemSelectionChanged="CheckComboBox_Events_ItemSelectionChanged" 
+                                                        MouseLeave="CheckComboBox_Events_Mouse_Leave"
+                                                         PreviewKeyDown="PreviewKeyDown_Filter_Key"
+                                                        />
+                                </Grid>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="4*" Binding="{Binding RawData}" MinWidth="220">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.Header>
+                                <Grid Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Raw Data" VerticalAlignment="Center" />
+                                    <TextBox x:Name="TextBox_RawDataFilter" 
+                                             Grid.Column="1" Height="25" 
+                                             Text="$$-$$-$$-$$-$$-$$-$$-$$" 
+                                             Style="{StaticResource MyWaterMarkStyle}" 
+                                             Tag="$$-$$-$$-$$-$$-$$-$$-$$" 
+                                             Cursor="IBeam" 
+                                             KeyDown="TextBox_KeyDown_Auto_Hypen"
+                                             MaxLength="24"                                              
+                                             TextChanged="TextBox_RawDataFilter_TextChanged"
+                                             PreviewTextInput="OnPreviewTextInput"   
+                                             PreviewKeyDown="PreviewKeyDown_Filter_Key"
+                                             />
+                                </Grid>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <!--<DataGridTextColumn Width="2*" Header="UID" Binding="{Binding UID}"/>
+                        <DataGridTextColumn Width="2*" Header="VID" Binding="{Binding VID}"/>-->
+                        <DataGridTextColumn Width="10*" Binding="{Binding EventInformation}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.Header>
+                                <Grid Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Event Information" VerticalAlignment="Center" />
+                                    <TextBox x:Name="TextBox_EventInformationFilter" 
+                                             Height="25"
+                                             Grid.Column="1" 
+                                             Style="{StaticResource MyWaterMarkStyle}" 
+                                             Tag="Search"
+                                             Cursor="IBeam"
+                                              PreviewKeyDown="PreviewKeyDown_Filter_Key" 
+                                             CaretBrush="Red" 
+                                             />
+                                </Grid>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+
+        </TabControl>
+        <ProgressBar x:Name="ProgressBar_Log_Open" Minimum="0" Maximum="100" Grid.Column="1" Grid.Row="8" Margin="10"/>
+        <TextBlock x:Name="ProgressBar_TextBlock" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="8" Text="Progress Bar Task Text" FontSize="12" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"/>
+        <Button x:Name="Button_Filter_Clear" Content="Clear Filter" HorizontalAlignment="Center" Width="170" Click="Button_Filter_Clear_Click" Grid.Row="6" Height="20" VerticalAlignment="Bottom" Margin="40,0,40,6" IsEnabled="False"/>
+        <GroupBox x:Name="GroupBox_EventDescription" Grid.Column="1" Margin="10,0" Grid.Row="7" Content="Bind to Event Description" BorderThickness="2" IsEnabled="False">
+            <!--<GroupBox.Style TargetType="{StaticResource GroupBoxStyle}">
+                
+            </GroupBox.Style>-->
+               
+            <GroupBox.Header>
+            <TextBlock>
+                     <Span FontWeight="Bold" FontSize="14">Bind Event Name</Span>
+                </TextBlock>
+            </GroupBox.Header>
+        </GroupBox>
+
+    </Grid>
+</Window>

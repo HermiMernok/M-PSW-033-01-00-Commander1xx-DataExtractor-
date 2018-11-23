@@ -1,0 +1,85 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "ok ;}",
+    "ClosedDate": "2011-11-17T01:48:12.813-08:00",
+    "CommentCount": 9,
+    "Custom": null,
+    "Description": "First of all congrats on a fantastic piece of work! Tully inspiring. My issue is this:\r\nin a MS domain environment map does not display in some machines, while works perfectly on others. Its not a security issue as all users are members of the same groups. My guess is that it not either a performance issue since in two exactly same machines, in one it works while no joy for the other. The application is windows forms, and has been developed with VS 2005, VB.NET. In most of the target machines that the control fails to display the map i get a blue screen (where it was supposed to be map tiles) and a timeout expired error. Any ideas???? I tried almost every relative suggestion i could find in this site but still.....Any suggestions? Thank you so much in advance, and once again you have my respect for your work!",
+    "LastUpdatedDate": "2011-11-17T01:48:12.813-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-11-16T08:19:42.123-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Map does not show in some machines",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16017
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "what version do you use, and what OS have your machines?",
+      "PostedDate": "2011-11-16T11:06:22.26-08:00",
+      "Id": 49057
+    },
+    {
+      "Message": "hi many thanx for the swift response. i use the latest one downloaded from this site (i think 1.6.0.0), OS = win xp SP2. What i will do first thing tomorrow (at the office) is \n1) compare .NET framework versions on target machines \n2) run the Demo downloaded from here (for win forms) since it seems to create all appropriate cache folders ",
+      "PostedDate": "2011-11-16T11:28:58.797-08:00",
+      "Id": 49061
+    },
+    {
+      "Message": "Do i need something extra besides adding reference to core and control dlls??? think not since in 60% of target machines it works perfectly.  In the target machines these dlls are in the application path folder. oh i also try copying and pasting the gmap folders created in local settings/application data path from one machine to another but still no luck! help!",
+      "PostedDate": "2011-11-16T13:19:22.283-08:00",
+      "Id": 49070
+    },
+    {
+      "Message": "can you debug it? whats the exceptions?",
+      "PostedDate": "2011-11-16T14:33:02.027-08:00",
+      "Id": 49077
+    },
+    {
+      "Message": "no exceptions. what i also noticed is that the demo downloaded from here does not run either. No response, nothing. Any ideas?",
+      "PostedDate": "2011-11-17T00:44:21.137-08:00",
+      "Id": 49101
+    },
+    {
+      "Message": "bingo. i get a \"unable to connect to the remote server\" in the demo. but why? the machine can connect to the internet normally. Is it a security issue?",
+      "PostedDate": "2011-11-17T00:49:19.463-08:00",
+      "Id": 49104
+    },
+    {
+      "Message": "got it! all target machines that fail to work have proxy internet server. In the others that have a problem proxy was disabled. So my guess is that the control \"searches\" for a gateway to connect to the net. I really really dont want disabling proxy in all machines i would have domain chaos. So, can i somehow, through code, define the gateway or the proxy server that the control would use?I think we are very close to the solution. thanx in advance radioman!",
+      "PostedDate": "2011-11-17T00:57:59.407-08:00",
+      "Id": 49105
+    },
+    {
+      "Message": "prvdr = GMap.NET.MapProviders.GMapProviders.YahooMap\nDim prx As New System.Net.WebProxy(\"10.0.0.35\", 8080)\n prx.UseDefaultCredentials = True\n mainmap.MapProvider.WebProxy = prx\n\ncase closed, muchas gracias!!!!!",
+      "PostedDate": "2011-11-17T01:30:59.997-08:00",
+      "Id": 49106
+    },
+    {
+      "Message": "by default all request bypass any proxy, unless you specify it: GMapProvider.WebProxy = null or WebRequest.GetSystemWebProxy();",
+      "PostedDate": "2011-11-17T01:31:36.68-08:00",
+      "Id": 49107
+    }
+  ]
+}

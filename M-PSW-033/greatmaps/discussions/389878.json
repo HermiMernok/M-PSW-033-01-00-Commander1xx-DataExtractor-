@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "894266",
+    "ThreadId": "389878",
+    "Html": "\r\n<p>Been setting up a map within Visual&nbsp;Basic 2010 Express&nbsp;and can plot, cache, change providers, works a treat. Currently trying to setup a new map provider and ther seems to be an issue with the override of the overlays property.&nbsp;Wend the&nbsp;line\r\n gProvider&nbsp;= myMapTest.Instance&nbsp;is reached a StackOverflowException occurs where the error detail is &quot;Unable to evaluate expression&quot; to identify the cause and the error is flagged within the property statement of the WMSProvider class I have. This\r\n occurs with a minimal class that inherits from either GMapProvider or one of the other existing providers so does not appear to be related to any of the other code within the class. The code is not erroring with a unique provider ID error (which occurs if\r\n the code errors before the property get of the new guid can be reached). If the Overlay Property statement is removed the code runs but does not return any map tiles.<span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">\r\n</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> myMapTest\r\n    <span style=\"color:blue\">Inherits</span> GMapProvider\r\n    <span style=\"color:blue\">Private</span> myGUID <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span> = <span style=\"color:blue\">Nothing</span>\r\n    <span style=\"color:blue\">Private</span> myName <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:#a31515\">&quot;myMapTest&quot;</span>\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Shared</span> <span style=\"color:blue\">ReadOnly</span> Instance <span style=\"color:blue\">As</span> myMapTest\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">ReadOnly</span> <span style=\"color:blue\">Property</span> Id() <span style=\"color:blue\">As</span> Guid\r\n        <span style=\"color:blue\">Get</span>\r\n            <span style=\"color:blue\">If</span> myGUID <span style=\"color:blue\">Is</span> <span style=\"color:blue\">Nothing</span> <span style=\"color:blue\">Then</span>\r\n                myGUID = <span style=\"color:blue\">New</span> Guid(<span style=\"color:#a31515\">&quot;b330a7e1-04c6-479b-ade1-f159b7986491&quot;</span>)\r\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n            <span style=\"color:blue\">Return</span> myGUID\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Get</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Property</span>\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">ReadOnly</span> <span style=\"color:blue\">Property</span> Name <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>\r\n        <span style=\"color:blue\">Get</span>\r\n            <span style=\"color:blue\">Return</span> myName\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Get</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Property</span>\r\n    <span style=\"color:blue\">Private</span> myOverlays <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span> = <span style=\"color:blue\">Nothing</span>\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">ReadOnly</span> <span style=\"color:blue\">Property</span> Overlays <span style=\"color:blue\">As</span> GMap.NET.MapProviders.GMapProvider()\r\n        <span style=\"color:blue\">Get</span>\r\n            <span style=\"color:blue\">If</span> myOverlays <span style=\"color:blue\">Is</span> <span style=\"color:blue\">Nothing</span> <span style=\"color:blue\">Then</span>\r\n                myOverlays = Instance.Overlays\r\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n            <span style=\"color:blue\">Return</span> myOverlays\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Get</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Property</span>\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">ReadOnly</span> <span style=\"color:blue\">Property</span> Projection <span style=\"color:blue\">As</span> GMap.NET.PureProjection\r\n        <span style=\"color:blue\">Get</span>\r\n            <span style=\"color:blue\">Return</span> Projections.LKS92Projection.Instance\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Get</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Property</span>\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Shared</span> <span style=\"color:blue\">ReadOnly</span> UrlFormat <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:#a31515\">&quot;http://otile1.mqcdn.com/tiles/1.0.0/osm/{0}/{1}/{2}.jpg&quot;</span>\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">Function</span> GetTileImage(<span style=\"color:blue\">ByVal</span> pos <span style=\"color:blue\">As</span> GMap.NET.GPoint, <span style=\"color:blue\">ByVal</span> zoom <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span>) <span style=\"color:blue\">As</span> GMap.NET.PureImage\r\n        <span style=\"color:blue\">Dim</span> myURL <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>\r\n        myURL = MakeTileImageUrl(pos, zoom, <span style=\"color:blue\">String</span>.Empty)\r\n        <span style=\"color:blue\">Return</span> GetTileImageUsingHttp(myURL)\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Function</span>\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Function</span> MakeTileImageUrl(<span style=\"color:blue\">ByVal</span> pos <span style=\"color:blue\">As</span> GPoint, <span style=\"color:blue\">ByVal</span> zoom <span style=\"color:blue\">As</span> <span style=\"color:blue\">Integer</span>, <span style=\"color:blue\">ByVal</span> language <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>) <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>\r\n        <span style=\"color:blue\">Return</span> <span style=\"color:blue\">String</span>.Format(UrlFormat, zoom, pos.Y, pos.X)\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Function</span>\r\n    <span style=\"color:blue\">Shared</span> <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>()\r\n        Instance = <span style=\"color:blue\">New</span> myMapTest\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>()\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n</pre>\r\n</div>\r\n</span></span>\r\n<p></p>\r\n",
+    "PostedDate": "2012-08-01T11:08:34.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894272",
+    "ThreadId": "389878",
+    "Html": "<p>check the c# code, i don't know vb, you should add <strong>this</strong> to the overlays</p>",
+    "PostedDate": "2012-08-01T11:19:03.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894312",
+    "ThreadId": "389878",
+    "Html": "<p>Thanks for the quick response. The code ends up recursive, which creates the stackoverflow becasue of the Instance.Overlays being returned, which leaves me puzzled as to what I can return because the base class is not a GMapProvider object. As I understand the Overlays override needs to return the current created class inctance and not the Overlays sub collection, but the VB code does not recognise the base class inheritance as a convertible class to return as a GMapProvider.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-08-01T12:24:40.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894339",
+    "ThreadId": "389878",
+    "Html": "<p>After&nbsp;more than&nbsp;10 hours trying to figure out how to make it work in VB I'm stumped&nbsp;:-(&nbsp;It seems like it should be possible to do, is there anyone who has managed to create a provider within VB that inherits from GMapProvider ?﻿</p>",
+    "PostedDate": "2012-08-01T13:22:04.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894459",
+    "ThreadId": "389878",
+    "Html": "<p>try some reflector and convert the code</p>",
+    "PostedDate": "2012-08-01T22:36:05.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894482",
+    "ThreadId": "389878",
+    "Html": "<p>hello KarlT123,</p>\r\n<p>i've tried the same, but still does not work. Same Code in C# works like a charme. I think it is a threading problem. If you get a solution tell me/us. :)</p>\r\n<p>bye EDE</p>",
+    "PostedDate": "2012-08-02T00:10:33.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894495",
+    "ThreadId": "389878",
+    "Html": "<p>it's just a syntax stuff, if you know vb, there should be no problems</p>",
+    "PostedDate": "2012-08-02T00:45:30.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894609",
+    "ThreadId": "389878",
+    "Html": "<div style=\"color: black; background-color: white;\">\r\n<pre>&nbsp;</pre>\r\n</div>\r\n<p>I have coded in VB for around 15 years and the inheritance employed within VB.Net does not appear to pass through to C# in&nbsp;the way the class is used in C# within the map code for providers. Using the following code runs without error but returns no map tiles because it does not point to the \"this\" class instance.</p>\r\n<p>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Private</span> myMapProvider <span style=\"color: blue;\">As</span> GMapProvider()<br />&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">ReadOnly</span> <span style=\"color: blue;\">Property</span> Overlays <span style=\"color: blue;\">As</span> GMap.NET.MapProviders.GMapProvider()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Get</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Return</span> myMapProvider<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Get</span><br />&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Property</span></p>\r\n<p>I think the problem is that Overlays override (specified in the c#) is specified as return an array of GMapProvider rather than a single instance, which creates the problem for VB.</p>\r\n<p>Using the equivalent VB code below does not work because MyClass is not&nbsp;accesible in the same direct way as \"this\" is witihin C# and lacks a direct cast option</p>\r\n<pre>    <span style=\"color: blue;\">Private</span> myMapProvider <span style=\"color: blue;\">As</span> GMapProvider()\r\n    <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">ReadOnly</span> <span style=\"color: blue;\">Property</span> Overlays <span style=\"color: blue;\">As</span> GMap.NET.MapProviders.GMapProvider()\r\n        <span style=\"color: blue;\">Get</span>\r\n            <span style=\"color: blue;\">If</span> myMapProvider <span style=\"color: blue;\">Is</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">Then</span>\r\n                myMapProvider = <span style=\"color: blue;\">MyClass</span>\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n            <span style=\"color: blue;\">Return</span> myMapProvider\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Get</span>\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Property</span>\r\n</pre>\r\n<p>Using a work around will not allow a cast of a non array to an array and because GMapProvider is MustInherit with no constructor so you can't create a base to add to in the first place. Otherwise the DirectCast would perform the code equivalent of \"this\" and revert the new class back into a GMapProvider.</p>\r\n<p>&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Private</span> myMapProvider <span style=\"color: blue;\">As</span> GMapProvider()<br />&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">ReadOnly</span> <span style=\"color: blue;\">Property</span> Overlays <span style=\"color: blue;\">As</span> GMap.NET.MapProviders.GMapProvider()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Get</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">If</span> myMapProvider <span style=\"color: blue;\">Is</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">Then</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myMapProvider = <span style=\"color: blue;\">DirectCast</span>(Instance, GMapProvider)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">Return</span> myMapProvider<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Get</span><br />&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Property</span><br /><br />At this point I am starting to conclude that it is not just syntax stuff but a base incompatibility between the way GMap is written in C# and compatibility with VB.Net. when trying to create a map provider. Otherwise the code works a real treat and is pretty amazing :-)</p>",
+    "PostedDate": "2012-08-02T05:05:51.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894616",
+    "ThreadId": "389878",
+    "Html": "<p>The solution would appear to be to make the constructor for GMapProvider visible to VB</p>",
+    "PostedDate": "2012-08-02T05:21:04.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894621",
+    "ThreadId": "389878",
+    "Html": "<p>Is the equivalent to 'this' in VB 'me'???</p>\r\n<p>&nbsp;</p>\r\n<p>Michael</p>",
+    "PostedDate": "2012-08-02T05:23:43.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894623",
+    "ThreadId": "389878",
+    "Html": "<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">Private</span> m_overlays <span style=\"color: blue;\">As</span> GMapProvider()\r\n<span style=\"color: blue;\">Public</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">ReadOnly</span> <span style=\"color: blue;\">Property</span> Overlays() <span style=\"color: blue;\">As</span> GMapProvider()\r\n\t<span style=\"color: blue;\">Get</span>\r\n\t\t<span style=\"color: blue;\">If</span> m_overlays <span style=\"color: blue;\">Is</span> <span style=\"color: blue;\">Nothing</span> <span style=\"color: blue;\">Then</span>\r\n\t\t\tm_overlays = <span style=\"color: blue;\">New</span> GMapProvider() {<span style=\"color: blue;\">Me</span>}\r\n\t\t<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n\t\t<span style=\"color: blue;\">Return</span> m_overlays\r\n\t<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Get</span>\r\n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Property</span>\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-08-02T05:26:07.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894627",
+    "ThreadId": "389878",
+    "Html": "<p>Think that works - at least it managed to get a 404 this time. Cool, hat tip to MBDTeam.</p>",
+    "PostedDate": "2012-08-02T05:34:59.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894635",
+    "ThreadId": "389878",
+    "Html": "<p><a title=\"Codeconverter\" href=\"http://codeconverter.sharpdevelop.net/SnippetConverter.aspx\">http://codeconverter.sharpdevelop.net/SnippetConverter.aspx</a></p>\r\n<p>&nbsp;</p>\r\n<p>makes life easier ;-)</p>\r\n<p>&nbsp;</p>\r\n<p>Michael</p>",
+    "PostedDate": "2012-08-02T05:44:10.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894753",
+    "ThreadId": "389878",
+    "Html": "<p>Yep, certainly works a treat. Well, cool ! :-)</p>",
+    "PostedDate": "2012-08-02T09:02:55.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

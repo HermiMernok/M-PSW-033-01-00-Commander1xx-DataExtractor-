@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "466795",
+    "ThreadId": "219299",
+    "Html": "Hello,\r\nI'm getting the following error while trying to open your WPF application in design view....\r\n\r\n\r\n  Object reference not set to an instance of an object.\r\n\r\n\r\n at GMap.NET.Internals.Core.set_Zoom(Int32 value) in C:\\Users\\Sen\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.Core\\GMap.NET.Internals\\Core.cs:line 98\r\n   at GMap.NET.WindowsPresentation.GMapControl.ZoomPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) in C:\\Users\\sen\\greatmaps-bf9bef9b1773 (1)\\greatmaps_bf9bef9b1773\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\GMapControl.cs:line 149\r\n   at System.Windows.DependencyObject.OnPropertyChanged(DependencyPropertyChangedEventArgs e)\r\n   at System.Windows.FrameworkElement.OnPropertyChanged(DependencyPropertyChangedEventArgs e)\r\n   at System.Windows.DependencyObject.NotifyPropertyChange(DependencyPropertyChangedEventArgs args)\r\n   at System.Windows.DependencyObject.UpdateEffectiveValue(EntryIndex entryIndex, DependencyProperty dp, PropertyMetadata metadata, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType)\r\n   at System.Windows.DependencyObject.SetValueCommon(DependencyProperty dp, Object value, PropertyMetadata metadata, Boolean coerceWithDeferredReference, Boolean coerceWithCurrentValue, OperationType operationType, Boolean isInternal)\r\n   at System.Windows.DependencyObject.SetValue(DependencyProperty dp, Object value)\r\n   at Microsoft.Expression.Platform.WPF.WpfDependencyPropertyImplementation.SetValue(Object target, Object valueToSet)\r\n   at Microsoft.Expression.DesignModel.Metadata.DependencyPropertyReferenceStep.SetValue(Object target, Object valueToSet)\r\n   at Microsoft.Expression.DesignModel.Core.InstanceBuilderOperations.SetValue(Object target, IProperty propertyKey, Object value)\r\n   at Microsoft.Expression.DesignModel.InstanceBuilders.ClrObjectInstanceBuilder.ModifyValue(IInstanceBuilderContext context, ViewNode target, IProperty propertyKey, Object value, PropertyModification modification)\r\n   at Microsoft.Expression.DesignModel.InstanceBuilders.DependencyObjectInstanceBuilderBase`1.ModifyValue(IInstanceBuilderContext context, ViewNode target, IProperty propertyKey, Object value, PropertyModification modification)\r\n   at Microsoft.Expression.Platform.WPF.InstanceBuilders.FrameworkElementInstanceBuilder.ModifyValue(IInstanceBuilderContext context, ViewNode target, IProperty propertyKey, Object value, PropertyModification modification)\r\n   at Microsoft.Expression.DesignModel.InstanceBuilders.ClrObjectInstanceBuilder.UpdateProperty(IInstanceBuilderContext context, ViewNode viewNode, IProperty propertyKey, DocumentNode valueNode)\r\n\r\n\r\nAny clues?\r\nThanks\r\n",
+    "PostedDate": "2010-07-13T06:28:03.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466837",
+    "ThreadId": "219299",
+    "Html": "<p>fixed</p>",
+    "PostedDate": "2010-07-13T07:34:48.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466873",
+    "ThreadId": "219299",
+    "Html": "Thank You :-)",
+    "PostedDate": "2010-07-13T09:07:34.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967480",
+    "ThreadId": "219299",
+    "Html": "\r\n<p>It didn't work out for me too.</p>\r\n<p>I used the DLL's from the latest build and yet I keep getting that 'Object not set to an instance of an object' error which is caused by setting the Zoom property. Well it would run perfectly despite the error, but then you can't work on design mode properly.\r\n You could omit the Zoom property and get no errors which would free your design mode, but you won't be able to see the map either way.</p>\r\n<p>I'm talking about the WPF version only, no idea how's it going on Windows Forms</p>\r\n",
+    "PostedDate": "2012-12-22T14:45:00.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

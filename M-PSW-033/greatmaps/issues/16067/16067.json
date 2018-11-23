@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "for your referenced sqlite dll, set CopyToLocal to false",
+    "ClosedDate": "2013-05-11T05:52:52.227-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi Radioman! \r\nFound an issue with CacheOnly mode. \r\nI have a cache folder created by demo - Prefetch. \r\nBut when I use my dll that uses Gmap in my application cache is not used and exceptions are thrown on tiles. \r\nVisual studio debug is looking like this: \r\n\r\n\"POSForms.vshost.exe\" (Managed (v4.0.30319)): Loaded \"C:\\Users\\fox\\AppData\\Local\\GMap.NET\\DllCache\\SQLite_v84_NET4_x86\\System.Data.SQLite.DLL\" \r\nSQLiteVersion: 3.7.14 | 2012-09-03 15:42:36 c0d89d4a9752922f9e367362366efde4f1b06f2a | INTEROP_CODEC INTEROP_EXTENSION_FUNCTIONS NET_40 PRELOAD_NATIVE_LIBRARY THROW_ON_DISPOSED TRACE TRACE_PRELOAD TRACE_WARNING \r\nSQLite error (21): misuse at line 111924 of [c0d89d4a97] \r\nWARNING: Type mapping failed, returning default type Object for name \"byte\". \r\nSQLite error (21): misuse at line 111924 of [c0d89d4a97] \r\n\r\nIt seems to me that 2 SQLite dlls conflicting cause I have SQLite Db that I should work with. \r\nI've already placed my SQLite usage into separate dll-module but there's still no use. \r\nCould suggest some solution or make Gmap use existing SQLite.dll links in application? \r\nThanks a lot upfront",
+    "LastUpdatedDate": "2013-05-11T05:52:52.227-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-05-11T05:04:34.537-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cache SQLite exception",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16067
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1064102",
+    "ThreadId": "448956",
+    "Html": "Dear all.\r<br />\n<br />\nI want to add a custom map different from the mercator map of google. The mercator map is the same with its width and height rates, 512<em>512 on zoom level 1, the google map. But, my map I want to add is 1024</em>768 on zoom level 1 and the scale is also different. How could I successfully add the different style map on GMap.NET? What is worse, It even is not the world map and only shows the surroundings of the korean peninsula, latitude from 30 to 44 and longitude from 116 to 137.\r<br />\n<br />\nWhen I added the map on the gmap.net, It didn't show all the area of the map and the center location is different from the google map and the locating the selected point is different from the google map:Both points on the google map and the custom map is not matched. \r<br />\n<br />\nWhat will be the solution for this? How GMap.NET goes with this type of map?\r<br />\n<br />\n<a href=\"http://www.badasstalk.com\" rel=\"nofollow\">www.badasstalk.com</a><br />\n",
+    "PostedDate": "2013-07-03T06:29:29.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064106",
+    "ThreadId": "448956",
+    "Html": "you need to create custom map provider and custom map projection, ...and it's complicated...<br />\n",
+    "PostedDate": "2013-07-03T06:46:36.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064382",
+    "ThreadId": "448956",
+    "Html": "What part of core or gmapcontrol should I see to solve it? I am adjusting the provider and projection now but it doesn't seem to be enough.<br />\n",
+    "PostedDate": "2013-07-03T22:15:39.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064389",
+    "ThreadId": "448956",
+    "Html": "you can't 'just' adjust, you need to make new one<br />\n",
+    "PostedDate": "2013-07-03T23:15:48.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064746",
+    "ThreadId": "448956",
+    "Html": "What part of core or gmapcontrol should I see to solve it? The results of two transitions are operated differently. The one is Google map point to the custom map point and the other is custom map point to custom map point. These transitions should use different process to calculate their points but the same functions are used for them, FromPixelToLatLng and FromLatLngToPixel.\r<br />\n<br />\nOne solution I thought is making another override functions for the case. but I wonder what parts of gmap.net core and gmapcontrol class codes should I check for this. It is what I want to ask to you. I know I should make a new one and complicated. And I already created custom map provider and projection.\r<br />\n<br />\nPlease tell me some hint for the case.<br />\n",
+    "PostedDate": "2013-07-04T21:22:54.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064800",
+    "ThreadId": "448956",
+    "Html": "do you mean you want to have two overlays with different projection?<br />\n",
+    "PostedDate": "2013-07-05T01:14:07.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064830",
+    "ThreadId": "448956",
+    "Html": "no I want to add different scale map. so, it should use different functions from those of google map. because its structure is different from the google map.<br />\n",
+    "PostedDate": "2013-07-05T02:48:45.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1064831",
+    "ThreadId": "448956",
+    "Html": "then you need custom projection and custom provider, and thats it<br />\n",
+    "PostedDate": "2013-07-05T02:55:44.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

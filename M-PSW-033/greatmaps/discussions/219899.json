@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "469011",
+    "ThreadId": "219899",
+    "Html": "<p>hi, sorry for so many questions :(</p>\r\n<p>Is it possible to hope on next update:</p>\r\n<p>Create additional google map type - Google Local Culture and use next URL in it:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:#a31515\">&quot;http://mt3.google.com/vt/lyrs=m@107&amp;hl=&quot;</span> + Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName + <span style=\"color:#a31515\">&quot;&amp;x=18&amp;y=10&amp;z=5&amp;s=&quot;</span>\r\n</pre>\r\n</div>\r\n<p>This allow application to manage google map culture (text languages). Maybe some other map providers support same posibility?</p>",
+    "PostedDate": "2010-07-19T06:46:38.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469108",
+    "ThreadId": "219899",
+    "Html": "<p>it's was possible long ago, map.Manager.<strong>Language</strong> = ...</p>",
+    "PostedDate": "2010-07-19T10:09:18.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469127",
+    "ThreadId": "219899",
+    "Html": "<p>Why you so love custom types? :(</p>\r\n<p>Show me simple mapping from Thread.CurrentThread.CurrentUICulture to your LanguageType please.</p>",
+    "PostedDate": "2010-07-19T10:46:15.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469139",
+    "ThreadId": "219899",
+    "Html": "<p>because it is custom,&nbsp;<a href=\"http://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1\">http://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&amp;gid=1</a></p>",
+    "PostedDate": "2010-07-19T11:04:04.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469145",
+    "ThreadId": "219899",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">string</span> EnumToString(<span style=\"color:blue\">this</span> Enum value)\r\n        {\r\n            FieldInfo fi = value.GetType().GetField(value.ToString());\r\n            DescriptionAttribute[] attributes =\r\n                   (DescriptionAttribute[])fi.GetCustomAttributes(\r\n                  <span style=\"color:blue\">typeof</span>(DescriptionAttribute), <span style=\"color:blue\">false</span>);\r\n\r\n            <span style=\"color:blue\">return</span> (attributes.Length &gt; 0) ? attributes[0].Description : value.ToString();\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> T StringToEnum&lt;T&gt;(<span style=\"color:blue\">this</span> <span style=\"color:blue\">string</span> value)\r\n        {\r\n            FieldInfo[] fi = <span style=\"color:blue\">typeof</span>(T).GetFields();\r\n            <span style=\"color:blue\">foreach</span> (FieldInfo info <span style=\"color:blue\">in</span> fi)\r\n            {\r\n                List&lt;DescriptionAttribute&gt; attributes = <span style=\"color:blue\">new</span> List&lt;DescriptionAttribute&gt;((DescriptionAttribute[])info.GetCustomAttributes(<span style=\"color:blue\">typeof</span>(DescriptionAttribute), <span style=\"color:blue\">false</span>));\r\n                <span style=\"color:blue\">if</span> (attributes.Any(x =&gt; x.Description == value))\r\n                {\r\n                    <span style=\"color:blue\">return</span> (T)info.GetValue(<span style=\"color:blue\">null</span>);\r\n                }                \r\n            }\r\n            <span style=\"color:blue\">return</span> <span style=\"color:blue\">default</span>(T);\r\n        }\r\n\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-07-19T11:11:36.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469147",
+    "ThreadId": "219899",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>because it is custom,&nbsp;<a href=\"http://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1\">http://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&amp;gid=1</a></p>\r\n</blockquote>\r\n<p>&nbsp;</p>\r\n<p>Google return image in any way, if specified language not right or not present at all. And because most of languages use standard 2 symbol - it's possible to&nbsp;unify this part. And automate it - using&nbsp;CurrentUICulture by default.</p>",
+    "PostedDate": "2010-07-19T11:15:18.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469158",
+    "ThreadId": "219899",
+    "Html": "<p>in many cases, that parameter doesn't matter</p>",
+    "PostedDate": "2010-07-19T11:39:19.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469435",
+    "ThreadId": "219899",
+    "Html": "<p>It's verry important for right Localization.</p>",
+    "PostedDate": "2010-07-20T00:52:08.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

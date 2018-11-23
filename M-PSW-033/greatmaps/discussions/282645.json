@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "710886",
+    "ThreadId": "282645",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>I found here a little code piece to drawing circles but i cant get it to work because</p>\r\n<p>Overlay.Control is unknown.</p>\r\n<p>...</p>\r\n<p>using System;<br>\r\nusing System.Drawing;<br>\r\nusing System.Drawing.Drawing2D;<br>\r\nusing GMap.NET.WindowsForms;<br>\r\nusing GMap.NET;<br>\r\n<br>\r\nnamespace GMap.NET.WindowsForms.Markers<br>\r\n{<br>\r\n&nbsp;&nbsp;&nbsp; public class GMapMarkerCircle : GMapMarker<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public int Radius;&nbsp; //In Meters<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Pen OutlinePen;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Brush FillBrush;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public bool Fill;<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public GMapMarkerCircle(PointLatLng p)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : base(p)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OutlinePen = new Pen(Brushes.Blue, 1);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FillBrush = new SolidBrush(Color.FromArgb(20, Color.Blue));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Radius = 0;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void OnRender(Graphics g)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.SmoothingMode = SmoothingMode.AntiAlias;<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int R = (int)((Radius) / Overlay.<span style=\"text-decoration:underline\"><strong>Control</strong></span>.Core.Projection.GetGroundResolution(Overlay.<span style=\"text-decoration:underline\"><strong>Control</strong></span>.Zoom,\r\n Position.Lat)) * 2;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Fill == true)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.FillEllipse(FillBrush, new System.Drawing.Rectangle(LocalPosition.X - R / 2, LocalPosition.Y - R / 2, R, R));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawEllipse(OutlinePen, new System.Drawing.Rectangle(LocalPosition.X - R / 2, LocalPosition.Y - R / 2, R, R));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-12-12T05:42:02.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710893",
+    "ThreadId": "282645",
+    "Html": "<p>LocalPosition.X - R, i doubt it will give you correct results ;} anyway calculations should be done somewhere else</p>",
+    "PostedDate": "2011-12-12T05:56:22.703-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710910",
+    "ThreadId": "282645",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>LocalPosition.X - R, i doubt it will give you correct results ;} anyway calculations should be done somewhere else</p>\r\n</blockquote>\r\n<p>i think this could be righ ;)</p>\r\n<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Rr</span> <span class=\"hps\">is</span> <span class=\"hps\">not defined and</span> <span class=\"hps\">I need</span> <span class=\"hps\">the</span> <span class=\"hps\">zoom</span> <span class=\"hps\">level for</span> <span class=\"hps\">the</span> <span class=\"hps\">calculation</span><span>.</span></span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-12-12T06:56:14.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824805",
+    "ThreadId": "282645",
+    "Html": "<p>Hi,</p>\r\n<p>I'm trying to add the custom marker circle but I have the same problem: Overlay.Control is unknown</p>\r\n<p>I added the file GMapMarkerCircle.cs founded on Demo.WindowsForms to my app but it has some compilation errors: can't access to control because is declared as friend...</p>\r\n<p>any idea?</p>\r\n<p>thank you so much</p>",
+    "PostedDate": "2012-04-17T04:59:39.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824813",
+    "ThreadId": "282645",
+    "Html": "<p>works fine for me ;}</p>",
+    "PostedDate": "2012-04-17T05:09:13.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1135031",
+    "ThreadId": "282645",
+    "Html": "Hi,\r<br />\n<br />\nOn a WindowsForms I implement the above code \r<br />\n<br />\nMy call for the class looks like this: <br />\n<pre><code>private void gMapControl1_OnMapZoomChanged()\n        {            \n            GMapMarkerCircle circ = new GMapMarkerCircle(new PointLatLng(50.755786121111, 8.617633343333));\n            gMapControl1.Invalidate();         \n            \n        }\n</code></pre>\n\nbut the &quot;OnRender(Graphics g)&quot; method doen't fire\r<br />\n<br />\n<br />\ndll version is 1.6.0.0\r<br />\n<br />\n<br />\n<br />\nWhat am I doing wrong ?<br />\n",
+    "PostedDate": "2013-12-12T06:39:51.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

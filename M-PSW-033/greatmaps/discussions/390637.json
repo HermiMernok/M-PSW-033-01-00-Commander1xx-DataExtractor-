@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "896720",
+    "ThreadId": "390637",
+    "Html": "\r\n<p>Hi, i'm trying to configure a gmaps.windows.forms with cache only but it doesn't work...</p>\r\n<p>&nbsp;</p>\r\n<p>private void mapImage_Load(object sender, EventArgs e)&nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>mapImage.SetCurrentPositionByKeywords(&quot;medellin,colombia&quot;);&nbsp;</p>\r\n<p>mapImage.MinZoom = 7;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mapImage.MaxZoom = 17; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>\r\n<p>mapImage.Zoom = 13;</p>\r\n<p>mapImage.Manager.Mode = AccessMode.CacheOnly;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>mapImage.CacheLocation = Directory.GetCurrentDirectory();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>string path = Directory.GetCurrentDirectory() &#43; &quot;\\\\DataExp.gmdb&quot;;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>bool resp = mapImage.Manager.ImportFromGMDB(path); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mapImage.MapProvider = GMapProviders..GoogleMap;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>&nbsp; }</p>\r\n<p>What am i doing wrong?</p>\r\n<p>Thanks a lot...</p>\r\n",
+    "PostedDate": "2012-08-07T16:39:19.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "896801",
+    "ThreadId": "390637",
+    "Html": "<p>yes it work,&nbsp;mapImage.Manager.Mode = AccessMode.CacheOnly;     &nbsp;, thats all you need to set, and don't use the load event to set parameters.. and don't do import everytime..</p>",
+    "PostedDate": "2012-08-08T01:02:29.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "898398",
+    "ThreadId": "390637",
+    "Html": "<p>Thanks Radioman for your help... it works for a windows form, but i didn't get it works for a WindowsMobile form, that's what i did:</p>\r\n<p>public Form1()&nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\r\n<p>InitializeComponent();<br />mapImage.Manager.Mode = AccessMode.CacheOnly;</p>\r\n<p>mapImage.Position = new PointLatLng(6.260707, -75.56461);</p>\r\n<p>mapImage.MinZoom = 7;</p>\r\n<p>mapImage.MaxZoom = 17;</p>\r\n<p>mapImage.Zoom = 13;</p>\r\n<p>string path = Directory.GetCurrentDirectory() + \"\\\\Medellin.gmdb\";</p>\r\n<p>bool resp = mapImage.Manager.ImportFromGMDB(path);</p>\r\n<p>}</p>\r\n<p>&nbsp;</p>\r\n<p>The problem is Gmaps.Windows.Mobile doesn't have the \"ImportFromGMDB()\" class.</p>\r\n<p>How can i configure it?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks...</p>",
+    "PostedDate": "2012-08-11T11:29:46.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "900537",
+    "ThreadId": "390637",
+    "Html": "<p>don't use import, prepare database on external desktop app</p>",
+    "PostedDate": "2012-08-17T03:52:30.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1254232",
+    "ThreadId": "547972",
+    "Html": "Hello all \r<br />\n<br />\nI use followed codes for add a route on map <br />\n<pre><code> MapRoute route = GMapProviders.GoogleMap.GetRouteBetweenPoints(start, end, false, false, 15);  \nGMapRoute r = new GMapRoute(route.Points, &quot;My route&quot;);\nGMapOverlay routesOverlay = new GMapOverlay(GMapC, &quot;routes&quot;);\nroutesOverlay.Routes.Add(r);\nGMapC.Overlays.Add(routesOverlay);\nr.Stroke.Width = 2;\nr.Stroke.Color = Color.SeaGreen;       </code></pre>\n\nbut they did not work and give me an error :\r<br />\nsystem.nullreferenceexception: object reference not set to an instance of an object\r<br />\n<br />\nthis error happened on  this line : \r<br />\nGMapRoute r = new GMapRoute(route.Points, &quot;My route&quot;);\r<br />\n<br />\nwould you please help me \r<br />\n<br />\nP.S. Start and end are positions I get them by clicking mouse on the map.<br />\n",
+    "PostedDate": "2014-06-08T22:33:20.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1433664",
+    "ThreadId": "547972",
+    "Html": "I am receiving the same error message (was working fine up till a few weeks ago) when trying to run .GetRoute also using GoogleMaps as provider. Moma83 if you find a solution please post here :-)<br />\n",
+    "PostedDate": "2015-07-08T21:29:31.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1433684",
+    "ThreadId": "547972",
+    "Html": "<a href=\"http://greatmaps.codeplex.com/discussions/640458#post1432078\" rel=\"nofollow\">http://greatmaps.codeplex.com/discussions/640458#post1432078</a><br />\n",
+    "PostedDate": "2015-07-09T01:46:08.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-07-09T01:46:21.013-07:00"
+  },
+  {
+    "Id": "1433830",
+    "ThreadId": "547972",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\n<a href=\"http://greatmaps.codeplex.com/discussions/640458#post1432078\" rel=\"nofollow\">http://greatmaps.codeplex.com/discussions/640458#post1432078</a><br />\n</blockquote>\n",
+    "PostedDate": "2015-07-09T16:13:15.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1433831",
+    "ThreadId": "547972",
+    "Html": "that proposed answer give you &quot;directions&quot; not a &quot;route&quot;, I would like to be able to add a route to a map, as the above code is trying to do. Can a route be added to the map from a directions object?<br />\n",
+    "PostedDate": "2015-07-09T16:13:40.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1433853",
+    "ThreadId": "547972",
+    "Html": "I solved it CS71 \r<br />\nbut it was  a year ago \r<br />\nlet me check it <br />\n",
+    "PostedDate": "2015-07-09T23:21:54.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1434475",
+    "ThreadId": "547972",
+    "Html": "i have the same error, i can't create a route. GoogleMapProvider getroute return null. BingMapProvider  getroute return null, ClouMadeMapProvider getroute return null.<br />\n",
+    "PostedDate": "2015-07-15T05:45:52.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1434709",
+    "ThreadId": "547972",
+    "Html": "I ended up replacing Google with Bing (GMapProviders.BingMap) and all my program functionality worked perfectly. ________________________<br />\n",
+    "PostedDate": "2015-07-16T22:44:01.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1434723",
+    "ThreadId": "547972",
+    "Html": "I used <a href=\"http://greatmaps.codeplex.com/workitem/16123\" rel=\"nofollow\">http://greatmaps.codeplex.com/workitem/16123</a> GetDirections to solve my issue.<br />\n",
+    "PostedDate": "2015-07-17T00:32:03.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

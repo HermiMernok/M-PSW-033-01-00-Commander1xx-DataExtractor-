@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hello.\r\n\r\nThere is a problem displaying Yandex maps with relevant providers at a high zoom.\r\n\r\nThanks.",
+    "LastUpdatedDate": "2013-06-03T23:58:45.137-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-06-03T16:20:32.46-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Problem with Yandex.Map, again",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16073
+  },
+  "FileAttachments": [
+    {
+      "FileId": 688792,
+      "FileName": "Problem.png",
+      "DownloadUrl": ".\\688792"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "maybe it's beyond their max zoom level?",
+      "PostedDate": "2013-06-03T23:24:29.847-07:00",
+      "Id": 102020
+    },
+    {
+      "Message": "no.\nGetting the tile (Zoom = 6)\nhttp://vec01.maps.yandex.net/tiles?l=map&v=2.44.0&x=34&y=18&z=6&lang=ru_RU\nGetting the tile (Zoom = 13)\nhttp://01.pvec.maps.yandex.net/?l=pmap&x=4338&y=2392&z=13&lang=ru_RU\nDifferent urls ...",
+      "PostedDate": "2013-06-03T23:58:45.137-07:00",
+      "Id": 102021
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1047897",
+    "ThreadId": "444804",
+    "Html": "Hi ,I recently downloaded the latest release,in before this release every things was fine\r<br />\nbut now after i put first marker to create polygon i get Parameter is not valid error in GMapPolygon class<br />\n<pre><code>  internal void UpdateGraphicsPath()\n      {\n          if (graphicsPath == null)\n          {\n              graphicsPath = new GraphicsPath();\n          }\n          else\n          {\n              graphicsPath.Reset();\n          }\n\n          {\n              Point[] pnts = new Point[LocalPoints.Count];\n              for (int i = 0; i &lt; LocalPoints.Count; i++)\n              {\n                  Point p2 = new Point((int)LocalPoints[i].X, (int)LocalPoints[i].Y);\n                  pnts[pnts.Length - 1 - i] = p2;\n              }\n\n              if (pnts.Length &gt; 0)\n              {\n __ _                graphicsPath.AddPolygon(pnts);\n___              }\n          }\n      }</code></pre>\n\nthanks in advance<br />\n",
+    "PostedDate": "2013-05-23T11:51:13.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1048269",
+    "ThreadId": "444804",
+    "Html": "fixed<br />\n",
+    "PostedDate": "2013-05-24T07:58:11.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

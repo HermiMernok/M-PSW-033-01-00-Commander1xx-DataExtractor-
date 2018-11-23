@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "469470",
+    "ThreadId": "220024",
+    "Html": "<p>One more &quot;small&quot; but verry user annoing problem.</p>\r\n<p>On map grad markers redrawing with &quot;small&quot; position change. On big zoom (&gt;= 15) difference big.</p>\r\n<p>Also this problem create related problem with popup. Even in your example on big zoom level popup may not appear if you place mouse point over marker, becouse logical marker placed near.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-20T02:14:53.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469494",
+    "ThreadId": "220024",
+    "Html": "<p>?</p>",
+    "PostedDate": "2010-07-20T03:01:14.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469607",
+    "ThreadId": "220024",
+    "Html": "<p>Change in your sample max zoom to 20. Run it. Run transport demo. Find bus that not move. Zoom to max on it. Drag map. Marker jumping and not keep his position. On smaller zoom level this present too but not so visible.</p>",
+    "PostedDate": "2010-07-20T04:48:44.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469659",
+    "ThreadId": "220024",
+    "Html": "<p>..and how to fix it? ;}</p>",
+    "PostedDate": "2010-07-20T05:25:36.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469694",
+    "ThreadId": "220024",
+    "Html": "<p>Simple:</p>\r\n<p>Review your code, find problem and fix it.</p>\r\n<p>&nbsp;</p>\r\n<p>You can start from replacing double by decimal.</p>",
+    "PostedDate": "2010-07-20T06:48:12.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469740",
+    "ThreadId": "220024",
+    "Html": "<p>i like your style of 'fixing' problems ;} helps zero</p>",
+    "PostedDate": "2010-07-20T08:19:30.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469835",
+    "ThreadId": "220024",
+    "Html": "<p>Sorry have amnezia, forgot that it's I create controll and know its all lines :(</p>\r\n<p>I try use your control&nbsp;(and verry appreciative for it) and show you my experience and problems to make it better. In points I can help - I try. This problem tottaly insede control and to fix it&nbsp; - need know controll&nbsp;verry well.</p>\r\n<p>I think problem in double you use for position calculation. Same as float it&nbsp;have not absolute precision.</p>\r\n<p>Decimal have biger precision and maybe it will help if you replace double by decimal in position calculation, store.</p>\r\n<p>Double precision - 15 - 16 digits</p>\r\n<p>Decimal precision - 28 - 29 digits</p>",
+    "PostedDate": "2010-07-20T11:21:39.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469842",
+    "ThreadId": "220024",
+    "Html": "<p>..well float is more than enough, the problem is somewhere else, i still can't locate it, i guess my amnesia is much deeper ;}</p>",
+    "PostedDate": "2010-07-20T11:34:12.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469846",
+    "ThreadId": "220024",
+    "Html": "<p>This problem strange because for mouse over event - shape all time in right place BUT rendered&nbsp;it in wrong place.</p>\r\n<p>Maybe problem in part that render shape?</p>\r\n<p>&nbsp;</p>\r\n<p>your bus control and my custom control with mouse over popup work same:</p>\r\n<p>1. on big zoom level - visualy control jump after map drag or zoom</p>\r\n<p>2. but when you try get pop up - it opened not where control displayed but near, by calculation mouse over event fire in right place.</p>",
+    "PostedDate": "2010-07-20T11:41:28.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "469850",
+    "ThreadId": "220024",
+    "Html": "<p>hm</p>",
+    "PostedDate": "2010-07-20T11:48:17.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470152",
+    "ThreadId": "220024",
+    "Html": "<p>Also maybe related to this&nbsp;:</p>\r\n<p>when marker removed on big zoom level and after map drag - controll not totaly clear tile from marker, some time left parts 1-3 pixels from right or top of marker.</p>",
+    "PostedDate": "2010-07-21T02:43:44.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "470196",
+    "ThreadId": "220024",
+    "Html": "<p>;/</p>",
+    "PostedDate": "2010-07-21T03:00:13.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

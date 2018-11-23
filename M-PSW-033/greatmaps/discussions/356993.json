@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "840426",
+    "ThreadId": "356993",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I currently work on a project and I have to use a WMS in C#.</p>\r\n<p>I use the GreatMaps library with the Mercator Projection.</p>\r\n<p>So, I display my maps with tiles (256x256). If I zoom in, my maps deforms.</p>\r\n<p>It's a problem for me.&nbsp;</p>\r\n<p>For example, my request looks like that :</p>\r\n<p><a href=\"http://www2.demis.nl/wms/wms.asp?LAYERS=Countries&TRANSPARENT=True&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&bbox=-180,0,-90,66.51326044311198066&width=256&height=256&srs=EPSG:4326&format=image/png\">http://www2.demis.nl/wms/wms.asp?LAYERS=Countries&amp;TRANSPARENT=True&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;bbox=-180,0,-90,66.51326044311198066&amp;width=256&amp;height=256&amp;srs=EPSG:4326&amp;format=image/png</a></p>\r\n<p>and&nbsp;</p>\r\n<p><a href=\"http://www2.demis.nl/wms/wms.asp?LAYERS=Countries&TRANSPARENT=True&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&bbox=-180,0,0,85.0511287798066&width=256&height=256&srs=EPSG:4326&format=image/png\">http://www2.demis.nl/wms/wms.asp?LAYERS=Countries&amp;TRANSPARENT=True&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;bbox=-180,0,0,85.0511287798066&amp;width=256&amp;height=256&amp;srs=EPSG:4326&amp;format=image/png</a></p>\r\n<p>On the second request my zoom level is different and the maps is really deformed.</p>\r\n<p>So, I want you to help me. I tested many different algorithms to display tiles with Long and Lat but it's the same result.</p>\r\n<p>I use the&nbsp;FromPixelToLatLng&nbsp;on MercatorProjection which compute the Position in Longitude and Latitude with the Position in Pixels. But with this function I have (longitudeMax - longitudeMin) differents of (LatitudeMax - LatitudeMin) even if I\r\n have squared tiles.</p>\r\n<p>How I can resolve my problem.</p>\r\n<p>Thanks.</p>\r\n<p>Regards.</p>\r\n",
+    "PostedDate": "2012-05-24T06:36:48.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840433",
+    "ThreadId": "356993",
+    "Html": "<p>maybe it's not mercator projection, try&nbsp;<strong>PlateCarreeProjection</strong></p>",
+    "PostedDate": "2012-05-24T06:56:19.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840438",
+    "ThreadId": "356993",
+    "Html": "<p>Thanks for your answer.</p>\r\n<p>I forgot to mention I tested all Projections available in GreatMaps and MercatorProjection seems to be the most suitable I found.&nbsp;</p>\r\n<p>With MercatorProjection I have right results but some zoom level deform my maps.</p>",
+    "PostedDate": "2012-05-24T07:03:18.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "842626",
+    "ThreadId": "356993",
+    "Html": "<p>Hi,</p>\r\n<p><span class=\"hps\">The deformation</span><span>&nbsp;</span><span class=\"hps\">also occurs</span><span>&nbsp;</span><span class=\"hps\">with</span><span>&nbsp;</span><span class=\"hps\">the GMap provider</span><span>&nbsp;:&nbsp;</span><span class=\"hps\">MapBenderWMSProvider</span><span>.</span><span>&nbsp;</span></p>\r\n<p><span>&nbsp;</span><span class=\"hps\">It is as if</span><span>&nbsp;</span><span class=\"hps\">the&nbsp;</span><span class=\"hps\">projection</span><span>&nbsp;</span><span class=\"hps\">system</span><span>&nbsp;</span><span class=\"hps\">depending on the level</span><span>&nbsp;</span><span class=\"hps\">zoom</span><span>.</span><span>&nbsp;</span><span class=\"hps\">When we are at</span><span>&nbsp;</span><span class=\"hps\">the scale of a</span><span>&nbsp;</span><span class=\"hps\">country like France</span><span>,</span><span>&nbsp;</span><span class=\"hps\">it is</span><span>&nbsp;</span><span class=\"hps\">correct</span><span>.</span><span>&nbsp;</span><span class=\"hps\">But when we are at the scale of&nbsp;</span><span class=\"hps\">a continent or</span><span>&nbsp;</span><span class=\"hps\">around the world</span><span>,</span><span>&nbsp;</span><span class=\"hps\">then</span><span>&nbsp;</span><span class=\"hps\">this&nbsp;</span><span class=\"hps\">is completely wrong.</span></p>\r\n<p><span class=\"hps\"><br /></span></p>",
+    "PostedDate": "2012-05-30T09:24:55.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "842630",
+    "ThreadId": "356993",
+    "Html": "<p>at what location?</p>",
+    "PostedDate": "2012-05-30T09:33:43.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "842947",
+    "ThreadId": "356993",
+    "Html": "<p>everywhere.</p>\r\n<p>Zoom level 1, when you see the entire map. -&gt; distorted</p>\r\n<p>Zoom level ~ 6-7 -&gt; seem to be ok</p>\r\n<p>&nbsp;</p>\r\n<p><span class=\"hps\">This</span><span>&nbsp;</span><span class=\"hps\">is strange</span><span>&nbsp;</span><span class=\"hps\">because the</span><span>&nbsp;</span><span class=\"hps\">markers</span><span>&nbsp;</span><span class=\"hps\">appear to remain</span><span>&nbsp;</span><span class=\"hps\">in the correct position</span><span class=\"hps\">...</span><span>&nbsp;</span><span class=\"hps\">this&nbsp;</span><span class=\"hps\">is</span><span>&nbsp;</span><span class=\"hps\">really</span><span>&nbsp;</span><span class=\"hps\">the background image of the</span><span>&nbsp;m</span><span class=\"hps\">ap</span><span>&nbsp;</span><span class=\"hps\">that</span><span>&nbsp;</span><span class=\"hps\">is distorted</span></p>",
+    "PostedDate": "2012-05-31T01:09:55.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "842959",
+    "ThreadId": "356993",
+    "Html": "<p>i guess they use different projections for different zoom levels, thats not very smart thing to do ;}</p>",
+    "PostedDate": "2012-05-31T01:37:00.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "842983",
+    "ThreadId": "356993",
+    "Html": "<p>:)&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span class=\"hps\">Do</span><span>&nbsp;</span><span class=\"hps\">you know</span><span>&nbsp;</span><span class=\"hps\">if</span><span>&nbsp;</span><span class=\"hps\">there's</span><span>&nbsp;</span><span class=\"hps\">a</span><span>&nbsp;</span><span class=\"hps\">way to know</span><span>&nbsp;</span><span class=\"hps\">the</span><span>&nbsp;</span><span class=\"hps\">projection</span><span>&nbsp;</span><span class=\"hps\">system</span><span>&nbsp;</span><span class=\"hps\">used</span><span>?</span><span>&nbsp;</span><span class=\"hps\">I tried</span><span>&nbsp;</span><span class=\"hps\">those</span><span>&nbsp;</span><span class=\"hps\">greatmap</span><span>,</span><span class=\"hps\">but none</span><span>&nbsp;</span><span class=\"hps\">is suitable for</span><span>&nbsp;</span><span class=\"hps\">zoom levels</span><span>&nbsp;</span><span class=\"hps\">1 to 6</span></p>",
+    "PostedDate": "2012-05-31T02:38:53.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

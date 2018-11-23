@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "587936",
+    "ThreadId": "251575",
+    "Html": "\r\n<p>Hi</p>\r\n<p>please show me how to create Geo Fencing system with greatmaps</p>\r\n",
+    "PostedDate": "2011-03-28T17:29:19.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "588039",
+    "ThreadId": "251575",
+    "Html": "<p>fencing?</p>",
+    "PostedDate": "2011-03-28T23:38:14.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "588126",
+    "ThreadId": "251575",
+    "Html": "<p>http://en.wikipedia.org/wiki/Geofence,please show me how i can do that,</p>",
+    "PostedDate": "2011-03-29T03:48:57.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "588159",
+    "ThreadId": "251575",
+    "Html": "<p>what it has todo with control itself?</p>",
+    "PostedDate": "2011-03-29T05:29:01.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "588429",
+    "ThreadId": "251575",
+    "Html": "<p>i am searching for function who can create a polygone save it in database,and load it on mapcontrol and notify me if vehicule is in a geofence(polygone) or is out of</p>",
+    "PostedDate": "2011-03-29T13:16:31.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589441",
+    "ThreadId": "251575",
+    "Html": "<p>radioman is right,</p>\r\n<p>Geofencing as nothing to do with a map control. Geofencing is a pure mathematical concept, it's backend computing. I do it using DotSpatial.Topology assembly. You can get the binaries and code here:</p>\r\n<p><a href=\"http://dotspatial.codeplex.com/\">http://dotspatial.codeplex.com/</a>&nbsp;</p>\r\n<p>With simple linq query, you can convert GMapPolygon.Points collection to a Dotspatial coordinates and use GIS operation such as Intersect or contains (which is exactly geofencing). Here is a link to a thread I post on the Dotspatial forums:</p>\r\n<p><a href=\"http://dotspatial.codeplex.com/discussions/248193\">http://dotspatial.codeplex.com/discussions/248193</a></p>\r\n<p>Good luck!</p>",
+    "PostedDate": "2011-03-31T05:39:13.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "699791",
+    "ThreadId": "251575",
+    "Html": "<p>I found a solution here <a href=\"http://www.codeproject.com/KB/cs/RouteGeoFence.aspx\">http://www.codeproject.com/KB/cs/RouteGeoFence.aspx</a>&nbsp;for a GeoFence, and converted to VB. If still you need the code, let me know bahrnb.</p>\r\n<p>Greetings</p>",
+    "PostedDate": "2011-11-17T11:57:16.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

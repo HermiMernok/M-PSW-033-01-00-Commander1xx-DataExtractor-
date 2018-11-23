@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1399419",
+    "ThreadId": "616746",
+    "Html": "Hi there, \r<br />\nFirst of all, this is one fantastic tool. Love it. \r<br />\n<br />\nAnyway, I downloaded an area of the world. Fx. Iceland, and were wondering if there is an easy way to only scroll within the mapped area that are catched when using GMap.NET.AccessMode.CacheOnly, so an offline desktop or mobile app are limited to only show what is intended?<br />\n",
+    "PostedDate": "2015-04-02T17:15:53.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1400219",
+    "ThreadId": "616746",
+    "Html": "map.<strong>BoundsOfMap</strong> = RectLatLng.FromLTRB(...);<br />\n",
+    "PostedDate": "2015-04-02T23:22:11.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1400550",
+    "ThreadId": "616746",
+    "Html": "Thanks mate. It works to a certain degree, but only stops the map from scrolling at the center of the control when I set the upple left/right long and lats of the map and not at the cornors of the control.\r<br />\n<br />\nI could adjust for that by just getting long and lats that are further in on the catched map, but will then give me issues when I zoom in. <br />\n",
+    "PostedDate": "2015-04-03T01:39:28.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1108325",
+    "ThreadId": "462471",
+    "Html": "Hi, \r<br />\nI want to draw my custom lines with label on a GMap. \r<br />\nAt first, I use system.graphics from GMap, but I can't obtain what I want. \r<br />\nSo I use Microsoft Visual Basic PowerPack: I create a PowerPack shape container in which I put my lines and add it to the same panel of the GMap and all work fine, I see my lines with label. \r<br />\n<br />\nMy problem: when I drag the map, my lines disappear. \r<br />\nI put the redraw of the lines in paint event of the map and I can see my lines, but only when I finish to drag the Map. \r<br />\nHow can I see my lines during map dragging? \r<br />\nWhich event must I trap? \r<br />\nI can also use another method instead Microsoft Visual Basic PowerPack... \r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2013-10-16T07:28:43.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1108784",
+    "ThreadId": "462471",
+    "Html": "use markers/routes instead, if you want static lines, then overload OnPaintOverlays<br />\n",
+    "PostedDate": "2013-10-17T07:21:19.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

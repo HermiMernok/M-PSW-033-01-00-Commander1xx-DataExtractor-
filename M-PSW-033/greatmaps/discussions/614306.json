@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1396585",
+    "ThreadId": "614306",
+    "Html": "First off this control is fantastic and I know this has to be my fault.<br />\nI create a route in side a list.  Say A to B to C.<br />\nThe user can drag item C to item B position then submit route.<br />\nThis works but when I pan or zoom, the original route lines persists.<br />\n<br />\nHow do I Remove or alter a route and remove previous route lines?<br />\nI appreciate any help.<br />\n<pre><code> Dim rp As RoutingProvider = TryCast(MyMap.MapProvider, RoutingProvider)\n        If rp Is Nothing Then\n            rp = GMapProviders.OpenStreetMap\n        End If\n        For i = 1 To ListViewListRouter.Items.Count - 1\n'skips first item it is always the same\n            ToolTipAddress = RouteList(i).Address\n'the lng and lat in observable collection called &quot;Routelist&quot;\n            Dim StartLat As Double = RouteList(i).Lat\n            Dim StartLon As Double = RouteList(i).Lon\n 'imcrement variable for custom marker image\n            ListViewListRouterCount = i\n 'create the marker\n            Dim CurrentMarker = New GMapMarker(New PointLatLng(StartLat, StartLon))\n            CurrentMarker.ZIndex = 1\n            CurrentMarker.Shape = (New CustomMarker(Me, CurrentMarker, &quot;&quot;))\n            CurrentMarker.Offset = New System.Windows.Point(-15, -15)\n            MyMap.Markers.Add(CurrentMarker)\n\n'Create the Route\nIf RdBtnTurnByTurn.IsChecked Then\n                Dim Shop As New PointLatLng(47.7055669670551, -117.348280549049)\n                If i = 1 Then\n                    Dim route As MapRoute = rp.GetRoute(Shop, CurrentMarker.Position, False, False, CInt(MyMap.Zoom))\n                    If route IsNot Nothing Then\n                        Dim mRoute As New GMapRoute(route.Points)\n                        mRoute.RegenerateShape(MyMap)\n                        TryCast(mRoute.Shape, System.Windows.Shapes.Path).Stroke = Brushes.DarkViolet\n                        If True Then\n                            mRoute.ZIndex = 5\n                        End If\n                        MyMap.Markers.Add(mRoute)\n                      End If\n                Else\n                    Dim PreviousPoint As New PointLatLng(RouteList(i - 1).Lat, RouteList(i - 1).Lon)\n                    Dim route As MapRoute = rp.GetRoute(PreviousPoint, CurrentMarker.Position, False, False, CInt(MyMap.Zoom))\n                    If route IsNot Nothing Then\n                        Dim mRoute As New GMapRoute(route.Points)\n                        mRoute.RegenerateShape(MyMap)\n                        TryCast(mRoute.Shape, System.Windows.Shapes.Path).Stroke = Brushes.DarkViolet\n                        If True Then\n                            mRoute.ZIndex = 5\n                        End If\n                        MyMap.Markers.Add(mRoute)\n                        ' MyMap.ZoomAndCenterMarkers(Nothing)\n                    End If\n                End If\n            End If\nNext</code></pre>\n\n",
+    "PostedDate": "2015-03-25T13:34:55.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1398024",
+    "ThreadId": "614306",
+    "Html": "I feel silly its<br />\n<pre><code>Map.markers.clear()</code></pre>\n\nDuh.<br />\n",
+    "PostedDate": "2015-03-25T18:33:23.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-03-25T18:33:33.9-07:00"
+  }
+]

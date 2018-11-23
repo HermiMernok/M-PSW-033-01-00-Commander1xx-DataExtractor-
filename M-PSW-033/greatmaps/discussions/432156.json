@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "997131",
+    "ThreadId": "432156",
+    "Html": "Hello, I have one question. Is it the way to get distance of one point from some track? I have reference track and I need this distance - deviation of point from this track. And I need it in meters, so there is problem with translate degrees to meters on Earth.. I need high precission of deviation - deviations are maximally meters. Thanks for reply<br />\n",
+    "PostedDate": "2013-02-06T02:13:55.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997432",
+    "ThreadId": "432156",
+    "Html": "haversign\r<br />\n<br />\n<a href=\"http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe\" rel=\"nofollow\">http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe</a><br />\n",
+    "PostedDate": "2013-02-06T10:28:54.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997442",
+    "ThreadId": "432156",
+    "Html": "that function is implemented in providers projection already<br />\n",
+    "PostedDate": "2013-02-06T10:36:55.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997458",
+    "ThreadId": "432156",
+    "Html": "Radioman: Great, it is exactly what i need :-) Many thanks<br />\n",
+    "PostedDate": "2013-02-06T10:57:45.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1018251",
+    "ThreadId": "432156",
+    "Html": "Hello, I have one more question about this. How much is this method exactly? Haversine calculate distance on sphere (I think) but Earth is defined as ellipsoid by WGS-84. GPS is using WGS-84, Google Maps is using WGS-84..I am using it too.. but is this calculation of distance right? Thanks for explanation.<br />\n",
+    "PostedDate": "2013-03-20T06:48:36.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1018258",
+    "ThreadId": "432156",
+    "Html": "And one more question. Is the code of method GetDistance from Map Providers available somewhere here? Thanks<br />\n",
+    "PostedDate": "2013-03-20T06:52:59.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1018306",
+    "ThreadId": "432156",
+    "Html": "GetDistance is implemented in provider projection base class<br />\n",
+    "PostedDate": "2013-03-20T08:09:49.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1018375",
+    "ThreadId": "432156",
+    "Html": "Could you post a link please? I can´t find that :-( And is that method really exact? With accuracy in centimeters?<br />\n",
+    "PostedDate": "2013-03-20T10:14:37.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

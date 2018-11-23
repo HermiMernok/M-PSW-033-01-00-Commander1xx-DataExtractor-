@@ -1,0 +1,116 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed using cheap trick",
+    "ClosedDate": "2011-03-10T11:25:48.833-08:00",
+    "CommentCount": 14,
+    "Custom": null,
+    "Description": "I get these errors all the time. I can use the control just few seconds then it crashes the whole application:\r\n\r\n\r\nSystem.Runtime.InteropServices.SEHException was unhandled by user code\r\n  Message=Un composant externe a levé une exception.\r\n  Source=GMap.NET.Core\r\n  ErrorCode=-2147467259\r\n  StackTrace:\r\n       à GMap.NET.Internals.FastReaderWriterLock.NativeMethods.ReleaseSRWLockShared(IntPtr& srw)\r\n       à GMap.NET.Internals.FastReaderWriterLock.ReleaseReaderLock()\r\n       à GMap.NET.Internals.TileMatrix.LeaveReadLock()\r\n       à GMap.NET.WindowsForms.GMapControl.DrawMapGDIplus(Graphics g)\r\n       à GMap.NET.WindowsForms.GMapControl.OnPaint(PaintEventArgs e)\r\n       à System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer, Boolean disposeEventArgs)\r\n       à System.Windows.Forms.Control.WmPaint(Message& m)\r\n       à System.Windows.Forms.Control.WndProc(Message& m)\r\n       à System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)\r\n       à System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)\r\n  InnerException: \r\n",
+    "LastUpdatedDate": "2011-03-10T11:25:48.833-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-12-10T06:01:42.977-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "System.Runtime.InteropServices.SEHException was unhandled by user code error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 15993
+  },
+  "FileAttachments": [
+    {
+      "FileId": 184038,
+      "FileName": "GmapError.jpg",
+      "DownloadUrl": ".\\184038"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "what exactly is your OS?",
+      "PostedDate": "2010-12-10T06:54:43.19-08:00",
+      "Id": 19826
+    },
+    {
+      "Message": "Windows7 64bits",
+      "PostedDate": "2010-12-10T07:39:32.377-08:00",
+      "Id": 19828
+    },
+    {
+      "Message": "cpu?",
+      "PostedDate": "2010-12-10T11:14:00.253-08:00",
+      "Id": 19860
+    },
+    {
+      "Message": "Intel(R) Core(TM) i3 CPU M 330 @ 2.13Ghz 2.13Ghz",
+      "PostedDate": "2010-12-10T11:34:11.45-08:00",
+      "Id": 19863
+    },
+    {
+      "Message": "does the release demos crash too?",
+      "PostedDate": "2010-12-10T12:09:33.003-08:00",
+      "Id": 19870
+    },
+    {
+      "Message": "can you try add exception handling, and look if it fails all the time?",
+      "PostedDate": "2010-12-10T12:28:18.52-08:00",
+      "Id": 19872
+    },
+    {
+      "Message": "no",
+      "PostedDate": "2010-12-10T12:49:07.84-08:00",
+      "Id": 19874
+    },
+    {
+      "Message": "You mean in the source code right ? Or when I do manipulations with the markers?",
+      "PostedDate": "2010-12-11T03:51:54.887-08:00",
+      "Id": 19909
+    },
+    {
+      "Message": "yes, in the source since i can't reproduce that exception myself",
+      "PostedDate": "2010-12-11T08:32:30.263-08:00",
+      "Id": 19913
+    },
+    {
+      "Message": "That did not solve the problem. I also noticed that sometimes, the control doesn't refresh the map properly.\n\nMaybe it's the way the application work ? It's heavily multi-threaded.",
+      "PostedDate": "2010-12-12T06:33:00.24-08:00",
+      "Id": 19934
+    },
+    {
+      "Message": "Now it locks there:      /// <summary>\n      /// updates map bounds\n      /// </summary>\n      void UpdateBounds()\n      {\n         if(MapType == NET.MapType.None)\n         {\n            return;\n         }\n\n         lock(tileLoadQueue) <=== here",
+      "PostedDate": "2010-12-12T06:39:56.033-08:00",
+      "Id": 19935
+    },
+    {
+      "Message": "?",
+      "PostedDate": "2010-12-12T07:09:33.563-08:00",
+      "Id": 19936
+    },
+    {
+      "Message": "I don't know Radioman, looks like a deadlock to me.",
+      "PostedDate": "2010-12-12T07:46:56.567-08:00",
+      "Id": 19938
+    },
+    {
+      "Message": "somehow  targeting x64 the SRWLock doesn't work and it hangs ;/",
+      "PostedDate": "2011-02-24T13:19:12.87-08:00",
+      "Id": 29608
+    }
+  ]
+}

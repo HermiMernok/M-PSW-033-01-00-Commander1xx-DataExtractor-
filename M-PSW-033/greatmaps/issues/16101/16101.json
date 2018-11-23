@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "it's working! cheers ;}",
+    "ClosedDate": "2015-03-25T08:47:35.173-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "So there is GMapControl on form. I want to print map, and here is code\r\n``` \r\nPrintDocument doc = new PrintDocument { DocumentName = \"Map printing file\" };\r\ndoc.PrintPage += DocOnPrintPage;\r\nPrintDialog dialog = new PrintDialog { Document = doc };\r\nDialogResult result = dialog.ShowDialog();\r\nif (result == DialogResult.OK) doc.Print();\r\n```\r\nand\r\n``` \r\nprivate void DocOnPrintPage(object sender, PrintPageEventArgs e)\r\n{\r\n    var img = View.gmap.ToImage();\r\n    System.Drawing.Point loc = new System.Drawing.Point(0, 0);\r\n    e.Graphics.DrawImage(img, loc);\r\n}\r\n```\r\n\r\nI'm using ToImage() method, but it does not work as I want (it's like PrintScreen, because there are another objects like cursor, dialogbox, etc.) Is there any workaround to implement printing without this objects?\r\n\r\nP.S. Gmap.Net.Core and Gmap.Net.WindowForms verison is 1.7.0.0, and .Net FrameWork version is 4.0 and I cant upgrade .Net Framework version, because some of clients are using Windows XP.\r\n\r\nP.P.S Thank you for replies",
+    "LastUpdatedDate": "2015-03-25T08:47:35.173-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2014-07-14T02:10:44.437-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "How can I print GMap.NET maps?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 16101
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "yeah, current method use 'print screen' trick\n\nit's possible to implement real copy of the map, but no one needed that fidelity yet ;}\n\none would set (at least temporary) map.ForceDoubleBuffer = true; (it enables manual double buffer rendering) and then modify OnPaint function to store that temporary image in 'backBuffer' once it's requested\n\nif(printRequest) { printRequest = false; saveImage(backBuffer); }\n\n..thats the theory, i'll add this some day // do it yourself is the fastest way ;}\n\n",
+      "PostedDate": "2015-01-13T12:03:01.117-08:00",
+      "Id": 170012
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1091547",
+    "ThreadId": "456624",
+    "Html": "Recently, when I input an address in the &quot;location&quot; field and go to find a place, it always return an error message: \r<br />\n<strong>&quot;Google Maps Geocoder can't find:' address', reason: Unknow&quot;.</strong>\r<br />\n<br />\nI go into the code, and find that the error is come from an exception during http request query.  The exception is:\r<br />\n<strong>&quot;The remote server returned an error: (403) Forbidden.&quot;.</strong>\r<br />\n<br />\nSo can you help?\r<br />\nThank you very much.<br />\n",
+    "PostedDate": "2013-09-11T23:06:14.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091578",
+    "ThreadId": "456624",
+    "Html": "maybe you overused the service?<br />\n",
+    "PostedDate": "2013-09-12T00:56:19.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091872",
+    "ThreadId": "456624",
+    "Html": "We are getting this as well on our geocode functions, my guess is Goo*** changed something in the API to refuse these requests.  Not sure.  Trying to find a work around as well.<br />\n\r<br />\nGMaps.Instance.GetLatLngFromGeocoder() doesn't seem to be working for us any longer.\r<br />\n<br />\nDoes anyone know of any other good source for geocoding an address?\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2013-09-12T12:05:43.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091921",
+    "ThreadId": "456624",
+    "Html": "Just to followup, retrofitting the newest release to my code to avoid the Google Geocode issue was quick and easy.<br />\n<pre><code>                PointLatLng? pos = GMap.NET.MapProviders.BingMapProvider.Instance.GetPoint(address, out status);\n                if (pos != null &amp;&amp; status == GeoCoderStatusCode.G_GEO_SUCCESS)\n                {\n                    MainMap.Position = pos.Value;\n                }\n</code></pre>\n\nI was also using the GetRoute feature in the old code (via Google I believe), and using the new structure above the same similar method is available in the Bing provider source, but not Yahoo.  GetPoint is available in both.\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2013-09-12T14:28:05.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092068",
+    "ThreadId": "456624",
+    "Html": "Thanks for your reply.\r<br />\nWe are using the very old version of Gmap that does not provide GMap.NET.MapProviders.\r<br />\nIt seems that I need to update my Gmap so as to solve the problem.\r<br />\nAnyways, thank you very much.  If anyone has other solution, it is very welcome.<br />\n",
+    "PostedDate": "2013-09-12T20:01:31.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1093861",
+    "ThreadId": "456624",
+    "Html": "I found some news from the site:  <a href=\"https://developers.google.com/maps/documentation/geocoding/\" rel=\"nofollow\">https://developers.google.com/maps/documentation/geocoding/</a>\r<br />\n<br />\n<strong>This document discusses the Geocoding API v3. Note that the Geocoding API v2 has been turned down and is no longer available. Users of the Geocoding API v2 service should upgrade to v3.</strong>\r<br />\n<br />\nIt may be the reason why I cannot search anymore.  I need to change to code so as to use the search function again.<br />\n",
+    "PostedDate": "2013-09-17T22:55:25.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

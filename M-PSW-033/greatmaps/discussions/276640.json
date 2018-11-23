@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "687115",
+    "ThreadId": "276640",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Hello,</p>\r\n<p><span>I</span>&nbsp;<span>download the GMap.NET.WindowsForms.dll&nbsp;1.6.0.0 version</span>&nbsp;file. but i<span>&nbsp;can not find</span>&nbsp;<span>the property</span>&nbsp;<span>MapType and&nbsp;neither &nbsp;GetPlacemarkFromGeocoder function.</span></p>\r\n<p><span>Where</span>&nbsp;<span>I can find</span><span>?</span></p>\r\n<p>Previously&nbsp;I had the&nbsp;1.0.0.0 dll file version.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks...</p>\r\n",
+    "PostedDate": "2011-10-20T13:41:02.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687119",
+    "ThreadId": "276640",
+    "Html": "<p>MapType == MapProvider, and&nbsp;GetPlacemarkFromGeocoder == MapProvider.GetPlacemark</p>\r\n<p><em>MainMap.<strong>MapProvider</strong> = GMapProviders.OpenStreetMap;&nbsp;</em></p>",
+    "PostedDate": "2011-10-20T13:47:00.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687139",
+    "ThreadId": "276640",
+    "Html": "<p>Thanks.&nbsp;</p>\r\n<p>This product is Exelent.</p>",
+    "PostedDate": "2011-10-20T14:43:13.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687159",
+    "ThreadId": "276640",
+    "Html": "<p>Radioman, and the GetDistance Method?.&nbsp;<span class=\"hps\">I fail to</span>&nbsp;<span class=\"hps\">find :(</span></p>",
+    "PostedDate": "2011-10-20T15:42:25.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687275",
+    "ThreadId": "276640",
+    "Html": "<p>MainMap.MapProvider.Projection.<strong>GetDistance</strong></p>",
+    "PostedDate": "2011-10-21T00:35:54.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

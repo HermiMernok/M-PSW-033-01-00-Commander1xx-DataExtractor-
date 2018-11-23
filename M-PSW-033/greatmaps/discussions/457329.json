@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1094121",
+    "ThreadId": "457329",
+    "Html": "I would like to find out what type is assigned.\r<br />\nIn first step i create \r<br />\nGMarkerGoogle mG = new GMarkerGoogle( new PointLatLng(x, y), GMarkerGoogleType.purple);\r<br />\n<br />\nIn second step i find out (or not) instance.\r<br />\nGMapMarker b = lay.Markers.Where(xX =&gt; (int)xX.Tag == id).FirstOrDefault();\r<br />\n<br />\nI have instance. But how i can check GMarkerGoogleType in <strong>b</strong>?\r<br />\nThanks a lot\r<br />\nTom<br />\n",
+    "PostedDate": "2013-09-18T09:51:08.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1094342",
+    "ThreadId": "457329",
+    "Html": "i've made type public in latest changeset<br />\n",
+    "PostedDate": "2013-09-19T00:24:02.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1094366",
+    "ThreadId": "457329",
+    "Html": "<pre><code>                var b = lay.Markers.Where(xX =&gt; (int)xX.Tag == id).FirstOrDefault();\n\n                if (b == null) { //object not exist\n                    SolidBrush brFore = null;\n                    SolidBrush brBck = null;\n                    GMarkerGoogleType typeMarker = GMarkerGoogleType.arrow;\n                     if (typ == 1) { //cars of 1 department\n                        brFore = new SolidBrush(Color.Blue);\n                        brBck = new SolidBrush(Color.FromArgb(0xFF, 0xFF, 0x99));\n                        if( (status &amp; 1) == 0)\n                            typeMarker = GMarkerGoogleType.blue_pushpin;\n                        else\n                        typeMarker = GMarkerGoogleType.blue;\n                    }\n                    else if (typ == 2) { //cars of 2 department\n                        brFore = new SolidBrush(Color.Red);\n                        //bv.ToolTip.Fill = new SolidBrush(Color.FromArgb(0xFF, 0xFF, 0x99));\n                        brBck = new SolidBrush(Color.FromArgb(0xFF, 0xFF, 0x99));\n                        if ((status &amp; 1) == 0)\n                            typeMarker = GMarkerGoogleType.red_pushpin;\n                        else\n                            typeMarker = GMarkerGoogleType.red;\n                    }\n                     else if (typ == 4) { //next\n                        brFore = new SolidBrush(Color.SaddleBrown);\n                        brBck = new SolidBrush(Color.FromArgb(0xFF, 0xFF, 0x99));\n                        typeMarker = GMarkerGoogleType.orange;\n                        if ((status &amp; 1) == 0)\n                            typeMarker = GMarkerGoogleType.purple_pushpin;\n                        else\n                            typeMarker = GMarkerGoogleType.purple;\n                    }\n                    GMarkerGoogle bv = new GMarkerGoogle(/*new PointLatLng(x, y)*/ ppos, typeMarker);\n                    bv.Tag = id;\n                    bv.ToolTipMode = MarkerTooltipMode.Always;\n                    bv.ToolTipText = name;\n                    bv.ToolTip.TextPadding = new Size(5, 2);\n                    if (brFore != null)\n                        bv.ToolTip.Foreground = brFore;\n                    if (brBck != null)\n                        bv.ToolTip.Fill = brBck;\n                    // bv.ToolTip.Fill = new SolidBrush(Color.Transparent);\n                    lay.Markers.Add(bv);\n                }\n                else {\n                    b.Position = /*pos*/ ppos;\n                    b.Tag = id;\n                    //\n                    // here i want to check witch status (typeMarker) has b \n\n                     // here i want to change typeMarker if status changed\n                }</code></pre>\n\n",
+    "PostedDate": "2013-09-19T01:30:02.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1094410",
+    "ThreadId": "457329",
+    "Html": "I'm using version 1.7 \r<br />\nTom<br />\n",
+    "PostedDate": "2013-09-19T03:57:56.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

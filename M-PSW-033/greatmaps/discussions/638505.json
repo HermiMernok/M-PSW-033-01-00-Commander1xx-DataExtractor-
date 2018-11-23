@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1426815",
+    "ThreadId": "638505",
+    "Html": "Hi, it's me again)\r<br />\nHelp me please. I'm trying to do markers movement , but if i do it as in your example ( create Map.cs , xaml:src...), I get an error:\r<br />\n&quot;The name Map does not exist in the namespace &quot;clr-namespace:Flowers_WPF&quot;&quot;\r<br />\nHow can I do markers movement using standart GMapControl without src? <br />\n",
+    "PostedDate": "2015-05-21T03:08:06.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426818",
+    "ThreadId": "638505",
+    "Html": "and the problem is?<br />\n",
+    "PostedDate": "2015-05-21T03:11:34.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1426821",
+    "ThreadId": "638505",
+    "Html": "If I use standart GMapControl, my Marker Class doesn't see this GMapControl when i write this code:\r<br />\nvoid Red_marker_MouseMove(object sender, MouseEventArgs e)<br />\n<pre><code>    {\n        if (e.LeftButton == MouseButtonState.Pressed &amp;&amp; IsMouseCaptured)\n        {\n            Point p = e.GetPosition(New_Address_Window.gmapAddress);\n            // there is no gmapAddress in New_Address_Window\n        }\n    }</code></pre>\n\n",
+    "PostedDate": "2015-05-21T03:23:06.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

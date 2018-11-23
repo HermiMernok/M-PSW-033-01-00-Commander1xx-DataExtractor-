@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "map.Manager.DisableCodeplexAnalyticsPing = true;",
+    "ClosedDate": "2011-07-02T07:45:05.687-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hi!\r\n\r\nWhen closing a map you send information about the usage to codeplex.com in the destructor of the map (binary info etc). This in turn slows down the application and might send sensitive information.\r\nCould you remove this in the precompiles?",
+    "LastUpdatedDate": "2011-07-02T07:45:05.687-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-05-20T05:06:05.747-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Information is sent to codeplex.com in the desctructor",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 16004
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "how it slow down if you closed your application?",
+      "PostedDate": "2011-05-20T05:41:39.833-07:00",
+      "Id": 36111
+    },
+    {
+      "Message": "I close a form with a gmap control in it, and it locks for a while the first time you close probably because it needs to resolve the address. Sometimes as long as 5-10 seconds.\n\nCan you make it optional?",
+      "PostedDate": "2011-05-23T00:21:21.767-07:00",
+      "Id": 36228
+    },
+    {
+      "Message": "i gues, i'll make some property to disable it",
+      "PostedDate": "2011-05-24T10:54:24.03-07:00",
+      "Id": 36314
+    }
+  ]
+}

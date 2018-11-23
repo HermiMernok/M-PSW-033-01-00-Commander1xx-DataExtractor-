@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "944954",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>Hi Radioman....<br>\r\n&nbsp; &nbsp; is there any way out to add multiple markers to the Gmap using an Access database or a DatagridView.<br>\r\n:-) <br>\r\nThanks.&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-20T21:42:22.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945043",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>yes there is ;}</p>\r\n",
+    "PostedDate": "2012-11-21T02:53:15.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945047",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>Can you please tell me how to do it or give me the code...<br>\r\n<br>\r\nThanks in advance</p>\r\n<p>Please help me out......</p>\r\n<p>:-)&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-21T02:59:24.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945054",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>and why i should do that ;} i'm not your c# teacher ya know</p>\r\n",
+    "PostedDate": "2012-11-21T03:17:45.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945055",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>Thank you very much.... :-)</p>\r\n",
+    "PostedDate": "2012-11-21T03:19:56.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "945058",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>if you really have no idea:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">var</span> top = <span style=\"color:blue\">new</span> GMapOverlay();\r\nmap.Overlays.Add(top);\r\n\r\n<span style=\"color:blue\">var</span> marker = <span style=\"color:blue\">new</span> GMarkerGoogle(MainMap.Position, GMarkerGoogleType.arrow);\r\ntop.Markers.Add(marker);\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-11-21T03:27:56.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946293",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>Hi Radioman,<br>\r\n&nbsp; &nbsp;i tried the above code but it gave me only one red cross on the window instead of the map..<br>\r\n<br>\r\n&nbsp; &nbsp; But i've tried something like this but its not working, can you please check the snippet and &nbsp;tell me where i'm doing the mistake....</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><div style=\"color:black; background-color:white\"><pre><span style=\"color:blue\">for</span> (<span style=\"color:blue\">int</span> i = 0; i &lt;= dataGrid1.Rows.Count; i&#43;&#43;) \n            {\n                 <span style=\"color:blue\">foreach</span> (DataGridViewRow row <span style=\"color:blue\">in</span> dataGrid1.Rows)\n                {              \n                      <span style=\"color:blue\">var</span> lat = <span style=\"color:blue\">double</span>.Parse((dataGrid1.Columns[1].ToString()), CultureInfo.InvariantCulture);\n                      <span style=\"color:blue\">var</span> lng = <span style=\"color:blue\">double</span>.Parse((dataGrid1.Columns[2].ToString()), CultureInfo.InvariantCulture);\n                      MainMap.Position = <span style=\"color:blue\">new</span> PointLatLng(lat, lng);\n                      GMarkerGoogle m = <span style=\"color:blue\">new</span> GMarkerGoogle(MainMap.Position, GMarkerGoogleType.green_pushpin);\n                      objects.Markers.Add(m);\n                }\n           }\n</pre>\n</div>\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-11-23T18:13:40.393-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946405",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>remove: MainMap.Position = new PointLatLng(lat, lng);</p>\r\n",
+    "PostedDate": "2012-11-24T05:41:00.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946981",
+    "ThreadId": "404046",
+    "Html": "\r\n<p>hi,</p>\r\n<p>how do I add my own images, with new lib?</p>\r\n",
+    "PostedDate": "2012-11-26T03:59:45.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946983",
+    "ThreadId": "404046",
+    "Html": "\r\n<p><a href=\"http://greatmaps.codeplex.com/wikipage?title=custom%20marker&referringTitle=GMap.NET.WindowsForms\" target=\"_blank\">http://greatmaps.codeplex.com/wikipage?title=custom%20marker&referringTitle=GMap.NET.WindowsForms</a></p>\r\n<p>or use GMarkerGoogle with your bitmap</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-26T04:03:08.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1110975",
+    "ThreadId": "404046",
+    "Html": "any suggestion on how to add name to GMapMarker, want to use number to display list of markers ?<br />\n",
+    "PostedDate": "2013-10-23T03:42:11.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

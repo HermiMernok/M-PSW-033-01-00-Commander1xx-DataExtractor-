@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "802382",
+    "ThreadId": "346512",
+    "Html": "\r\n<p>I am driving GMap from a parent WPF application. The parent application drives GMap by setting the Position and Zoom properties. The parent application has a camera model that allows the user to scroll the map off the screen as well as do unlimited zoom.</p>\r\n<p>GMap internally clamps the Position to force it to stay within the bounds of the map and it clamps the zoom to stay within MinZoom and MaxZoom. And that is a probably a perfectly good design decision. But it means that the state of the GMapControl object\r\n (the value of Position and Zoom) does not match what it actually displayed on the screen. Is there a way that I can notify the parent application when the GMapControl clamps those values? A solution could be to have GMap throw an exception when one attempts\r\n to set the Position or Zoom outside the bounds.&nbsp;That way the value of Zoom and Position&nbsp;will always reflect what is shown of the screen and visa&nbsp;versa.&nbsp;And to avoid hitting that exception&nbsp;one would need a way of getting those bounds.</p>\r\n<p>In shot my request is:</p>\r\n<p>Throw exceptions if Position or Zoom is set out of bounds</p>\r\n<p>Add property/properties that return bounds on&nbsp;Position.</p>\r\n",
+    "PostedDate": "2012-02-27T21:12:34.15-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802425",
+    "ThreadId": "346512",
+    "Html": "<p>i don't get it exactly?</p>",
+    "PostedDate": "2012-02-27T23:42:11.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802534",
+    "ThreadId": "346512",
+    "Html": "<p>If I set Position to (0 deg, 220 deg) then GMap will actually clamp this value to (0 deg, 180 deg) if I use BingMapProvider with MercatorProjection. The problem (from my point of view) is that it does so silently. If I get the Position, GMap still returns (0 deg, 220 deg) even when it is clearly rendering the map using the position (0 deg, 180 deg). And since there is no way I can tell that GMap clamps the position, I render the overlays on top at the wrong location.</p>\r\n<p>I will like to be able to query the limits on Position that GMap uses internally. That way I can avoid setting a Position outside these bounds.</p>\r\n<p>From an OOD point of view, I will argue that GMap should not clamp the values silently. If one sets a value outside the valid bounds, then GMap should throw ArgumentOutOfRangeException from the property setter.</p>\r\n<p>Alternatively GMap should not clamp the values.</p>",
+    "PostedDate": "2012-02-28T03:57:52.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802539",
+    "ThreadId": "346512",
+    "Html": "<p>..but there is no 220 degrees ;} min is -180, max is +180, i can add checking but nobody so far needed any checking</p>\r\n<p>..and why do you render overlays 'on top', they are integrated anyway</p>",
+    "PostedDate": "2012-02-28T04:07:18.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802546",
+    "ThreadId": "346512",
+    "Html": "<p>I am using GMap as a map layer in an other GIS application.</p>\n<p>For instance your LatviaMapProvider uses the ﻿﻿﻿LKS92Projection that uses these bounds</p>\n<p>55.55 &lt;= latitude &lt;= 58.58 and 20.22 &lt;= longitude &lt;= 28.28</p>\n<p>Your&nbsp;Mercator projection has these boundaries on latitude</p>\n<p>﻿﻿-85.05112878 &lt;= latitude &lt;= 85.05112878</p>\n<p>So min and max&nbsp;are not always -180 and 180.</p>\n<p>&nbsp;</p>\n<p>﻿﻿﻿</p>",
+    "PostedDate": "2012-02-28T04:31:54.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802601",
+    "ThreadId": "346512",
+    "Html": "<p>done</p>",
+    "PostedDate": "2012-02-28T06:51:11.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

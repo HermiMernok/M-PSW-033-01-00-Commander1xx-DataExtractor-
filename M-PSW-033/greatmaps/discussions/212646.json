@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "442892",
+    "ThreadId": "212646",
+    "Html": "<p>Hi to all,</p>\r\n<p>i'm working on Windows Mobile6 and i would realize an applicationthat works only in Cache Mode.</p>\r\n<p>I've&nbsp;generated an&nbsp;.gmdb file from Windows Application and i've a file named &quot;Vilnius.gmdb&quot;: i've copied this file on a storage card (&quot;Storage Card\\\\Vilnius.gmdb&quot;).<span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\"></span></span>\r\n<p>On mobile, I'm starting from &quot;Demo.WindowsMobile&quot; and i've modified the MainForm_Load in this way:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>MainMap.Manager.Mode = AccessMode.CacheOnly;\r\nmenuItemCacheOnly.Checked = <span style=\"color:blue\">true</span>;\r\nmenuItemServerAndCache.Checked = <span style=\"color:blue\">false</span>;\r\nmenuItemServerOnly.Checked = <span style=\"color:blue\">false</span>;\r\nGMaps.Instance.ImportFromGMDB(<span style=\"color:#a31515\">&quot;Storage Card\\\\Vilnius.gmdb&quot;</span>);\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>but, when i run my application form is blank, without map but only with marker.</p>\r\n<p>Why?</p>\r\n<p>How to proceed?</p>\r\n<p>Thanks a lot!</p>\r\n<p>Antonio</p>\r\n</p>\r\n&nbsp;",
+    "PostedDate": "2010-05-14T06:37:23.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442958",
+    "ThreadId": "212646",
+    "Html": "<p>;} thats crazy to do on mobile, you must prepare you cache on desktop and vacuum your database, and only then copy it to sd card.</p>\r\n<p>p.s. C:\\Users\\radioman\\AppData\\Roaming\\GMap.NET\\TileDBv3\\en\\<strong>Data.gmdb =&gt;&nbsp;</strong>\\Storage Card\\GMap.NET\\TileDBv3\\EN\\<strong><strong>Data.gmdb</strong></strong></p>",
+    "PostedDate": "2010-05-14T08:59:18.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443404",
+    "ThreadId": "212646",
+    "Html": "<p>Hi radioman,</p>\r\n<p>i prepared file &quot;Vilnius.gmdb&quot; from my desktop application: in my first message i wrote &quot;I've&nbsp;generated an&nbsp;.gmdb file from Windows Application&quot;, but, now, i would to load it from my mobile and it doesn't work.</p>\r\n<p>&nbsp;</p>\r\n<p>On mobile i used this cose</p>\r\n<div style=\"background-color:white;color:black\">\r\n<pre>MainMap.Manager.Mode = AccessMode.CacheOnly;\r\nmenuItemCacheOnly.Checked = <span style=\"color:blue\">true</span>;\r\nmenuItemServerAndCache.Checked = <span style=\"color:blue\">false</span>;\r\nmenuItemServerOnly.Checked = <span style=\"color:blue\">false</span>;\r\nGMaps.Instance.ImportFromGMDB(<span style=\"color:#a31515\">&quot;Storage Card\\\\Vilnius.gmdb&quot;</span>);\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>but, when i run my application form is blank.</p>\r\n<p>&nbsp;</p>\r\n<p>Why?</p>\r\n<p>Thanks!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-16T04:29:21.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443441",
+    "ThreadId": "212646",
+    "Html": "<p>forget&nbsp;GMaps.Instance.ImportFromGMDB(&quot;Storage Card\\\\Vilnius.gmdb&quot;);, where do you find that you must use it? ;} just copy your desktop cache to mobile, importing works just in desktop</p>",
+    "PostedDate": "2010-05-16T07:33:46.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443664",
+    "ThreadId": "212646",
+    "Html": "<p>I watched this command in desktop application.</p>\r\n<p>I would that mobile works only on cache and i would my cache in Storage Card.</p>\r\n<p>When i Open mobile application i would it load Vilsius.gmdb.</p>\r\n<p>Is it possibile? can you help me?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-05-17T01:22:02.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443693",
+    "ThreadId": "212646",
+    "Html": "<p>Sun at 5:33 PM &quot;just copy your desktop cache to mobile, importing works just in desktop&quot;</p>",
+    "PostedDate": "2010-05-17T02:53:51.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks",
+    "ClosedDate": "2015-03-23T01:13:21.987-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello radioman.\r\n\r\nThere is cache problem if GMap will be used from service. Service can be run from System Local account.\r\n```\r\nlocation = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + Path.DirectorySeparatorChar + \"GMap.NET\" + Path.DirectorySeparatorChar;\r\n```\r\nnot working in this case.\r\nI think code below will be solve this problem\r\n\r\n```\r\nif (System.Security.Principal.WindowsIdentity.GetCurrent().IsSystem)\r\n{\r\n    location = System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonApplicationData) + Path.DirectorySeparatorChar + \"GMap.NET\" + Path.DirectorySeparatorChar;\r\n}\r\nelse\r\n{\r\n    location = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData) + Path.DirectorySeparatorChar + \"GMap.NET\" + Path.DirectorySeparatorChar;\r\n}\r\n```\r\n\r\nThanks.",
+    "LastUpdatedDate": "2015-03-23T01:13:21.987-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-02-28T18:47:35.15-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Cache problem",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16112
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

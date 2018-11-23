@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "477261",
+    "ThreadId": "222683",
+    "Html": "<p>Hi radioman,</p>\r\n<p>after some tests i've seen that when i have on my map some paths or polygons the map is a lot slower when i'm doing the drag or the&nbsp;zoom. how can&nbsp;i improve the performance? maybe disabling the blend function (but i don't know how) or something else?</p>\r\n<p>And also there's the possibility that you'll put a little config where the user can choose some parameters for paths or poligons? (i.e. color, thickness, blur, etc.)</p>",
+    "PostedDate": "2010-08-06T00:32:18.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "477934",
+    "ThreadId": "222683",
+    "Html": "<p>you can try override DrawPolygons/DrawRoutes in your custom GMapOverlay</p>\r\n<p>by default there is Stroke/Fill properties, and you can improving&nbsp;performance by reducing point in objects, less points - less calculations</p>\r\n<p>anyway i'm waiting for better solutions ;}</p>",
+    "PostedDate": "2010-08-09T00:41:31.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

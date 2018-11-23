@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "KiberTileCache.MemoryCacheCapacity = 3; // try decrease it to 2 or 1",
+    "ClosedDate": "2013-05-29T10:32:04.443-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "if the option MainMap.Manager.Mode = AccessMode.ServerAndCache is selected\r\n\r\nafter a while zooming in and out and moving around this exception will appear using the app in a real device I didn't tried in the simulator. I tried with several providers and this happens always after a while.\r\n\r\nFromStream: System.OutOfMemoryException: OutOfMemoryException\r\n   at Microsoft.AGL.Common.MISC.HandleAr(PAL_ERROR ar)\r\n   at System.Drawing.Bitmap._InitFromMemoryStream(MemoryStream mstream)\r\n   at System.Drawing.Bitmap..ctor(Stream stream)\r\n   at GMap.NET.WindowsForms.WindowsFormsImageProxy.FromStream(Stream stream)\r\n   at GMap.NET.MapProviders.GMapProvider.GetTileImageUsingHttp(String url)\r\n   at GMap.NET.MapProviders.BingHybridMapProvider.GetTileImage(GPoint pos, Int32 zoom)\r\n   at GMap.NET.GMaps.GetImageFrom(GMapProvider provider, GPoint pos, Int32 zoom, Exception& result)\r\n   at GMap.NET.Internals.Core.ProcessLoadTask()\r\n   at OpenNETCF.Threading.Thread2.ShimProc()",
+    "LastUpdatedDate": "2013-05-30T01:57:04.117-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-05-29T08:54:17.977-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Windows Mobile OutOfMemory Crash",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16072
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I set GMaps.Instance.MemoryCache.Capacity = 1; \n\nand keeps crashing after a while\n\nsnap shoot of the GMAPS object at the crash moment\n\n-\t\tthis\t{GMap.NET.GMaps}\tGMap.NET.GMaps\n+\t\tbase\t{GMap.NET.GMaps}\tGMap.NET.Singleton<GMap.NET.GMaps> {GMap.NET.GMaps}\n\t\tabortCacheLoop\tfalse\tbool\n\t\tboostCacheEngine\tfalse\tbool\n\t\tBoostCacheEngine\tfalse\tbool\n+\t\tCacheEngine\t{OpenNETCF.Threading.Thread2}\tOpenNETCF.Threading.Thread2\n\t\tCacheOnIdleRead\ttrue\tbool\n\t\tcacheOnIdleRead\ttrue\tbool\n\t\tisRunningOnMono\tfalse\tbool?\n\t\tIsRunningOnMono\tfalse\tbool\n-\t\tMemoryCache\t{GMap.NET.CacheProviders.MemoryCache}\tGMap.NET.CacheProviders.MemoryCache\n\t\tCapacity\t1\tint\n+\t\tkiberCacheLock\t{GMap.NET.Internals.FastReaderWriterLock}\tGMap.NET.Internals.FastReaderWriterLock\n\t\tSize\t1.8187618255615234\tdouble\n-\t\tTilesInMemory\t{GMap.NET.Internals.KiberTileCache}\tGMap.NET.Internals.KiberTileCache\n+\t\tbase\t{GMap.NET.Internals.KiberTileCache}\tSystem.Collections.Generic.Dictionary<GMap.NET.Internals.RawTile,byte[]> {GMap.NET.Internals.KiberTileCache}\n\t\tMemoryCacheCapacity\t1\tint\n\t\tmemoryCacheSize\t1907110\tlong\n\t\tMemoryCacheSize\t1.8187618255615234\tdouble\n+\t\tQueue\t{System.Collections.Generic.Queue<GMap.NET.Internals.RawTile>}\tSystem.Collections.Generic.Queue<GMap.NET.Internals.RawTile>\n\t\tMode\tServerAndCache\tGMap.NET.AccessMode\n+\t\tnoDataException\t{\"No data in local tile cache...\"}\tSystem.Exception\n\t\tnoMapInstances\tfalse\tbool\n\t\tOnTileCacheComplete\tnull\tGMap.NET.TileCacheComplete\n\t\tOnTileCacheProgress\tnull\tGMap.NET.TileCacheProgress\n\t\tOnTileCacheStart\tnull\tGMap.NET.TileCacheStart\n+\t\tPrimaryCache\t{GMap.NET.CacheProviders.SQLitePureImageCache}\tGMap.NET.PureImageCache {GMap.NET.CacheProviders.SQLitePureImageCache}\n\t\treadingCache\t5\tint\n\t\tSecondaryCache\tCould not evaluate expression\tGMap.NET.PureImageCache\n\t\tShuffleTilesOnLoad\tfalse\tbool\n+\t\ttileCacheQueue\t{System.Collections.Generic.Queue<GMap.NET.Internals.CacheQueueItem>}\tSystem.Collections.Generic.Queue<GMap.NET.Internals.CacheQueueItem>\n\t\tUseDirectionsCache\ttrue\tbool\n\t\tUseGeocoderCache\ttrue\tbool\n\t\tUseMemoryCache\ttrue\tbool\n\t\tUsePlacemarkCache\ttrue\tbool\n\t\tUseRouteCache\ttrue\tbool\n\t\tUseUrlCache\ttrue\tbool\n+\t\tWaitForCache\t{System.Threading.AutoResetEvent}\tSystem.Threading.AutoResetEvent\n",
+      "PostedDate": "2013-05-30T00:28:24.393-07:00",
+      "Id": 101628
+    },
+    {
+      "Message": "dunno, never crashed in emulator, never crashed on my htc device ;/",
+      "PostedDate": "2013-05-30T01:38:24.803-07:00",
+      "Id": 101633
+    },
+    {
+      "Message": "This is a M3 Orange PDA\n\nhttp://www.m3mobile.net/products/products_view.asp?s1=1&s2=1&s3=29\nsorry I can't help you more :S",
+      "PostedDate": "2013-05-30T01:57:04.117-07:00",
+      "Id": 101634
+    }
+  ]
+}

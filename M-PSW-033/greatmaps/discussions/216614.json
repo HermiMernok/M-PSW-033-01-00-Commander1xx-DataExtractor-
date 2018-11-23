@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "457569",
+    "ThreadId": "216614",
+    "Html": "<p>Hi radioman!</p>\r\n<p>I think there is a locking-bug in your hot-build.</p>\r\n<p>When you are dragging the map and drag the map again before the tiles are loaded completely the map freezes and is hanging in the tilematrix on line 197</p>\r\n<p>Snippet</p>\r\n<pre style=\"font-family:consolas\">&nbsp;Lock.AcquireWriterLock();<br><br>i think this is in coherence with:<br><br>&quot;GMap.NET.Core: optimized FastReaderWriterLock again ;}, when using Vista  or later uses native Slim Reader/Writer (SRW) Lock&quot;<br><br>;)<br><br>version 1.5.3.3 works normal :)<br>Ps: Reproduces OS: <br> - WinXP 32 &amp; 64<br> - Win7 32 &amp; 64<br><br><br>Greetz from Austria,<br>Manuel<br></pre>",
+    "PostedDate": "2010-06-19T07:11:26.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457574",
+    "ThreadId": "216614",
+    "Html": "<p>it stuck sometimes in debug mode, but should be ok in release</p>",
+    "PostedDate": "2010-06-19T07:39:16.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457577",
+    "ThreadId": "216614",
+    "Html": "<p>Any idea why only in debug-build?</p>\r\n<p>&nbsp;</p>\r\n<p>i'll try the release version on monday :)</p>",
+    "PostedDate": "2010-06-19T07:56:49.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "457600",
+    "ThreadId": "216614",
+    "Html": "<p>.debug mode make quite a lot debug trace prints, i guess they somehow screw things up, but that's only a guess ;}</p>",
+    "PostedDate": "2010-06-19T10:43:35.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

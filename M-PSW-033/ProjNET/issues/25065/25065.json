@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I've a point in British coordination system. I converted this point to World Geodetic System (WGS84) \nCoordination of point is :\n\nPOINT (387299.983770336 394174.082801568)\n\nAfter convert to lat long system it is :\n\n-2.19267975444489 53.4441711379192\n\nThe point is in the UK but when I try to display it in google map it displayed near Africa .\n\n![Image](http://i.stack.imgur.com/vveIi.png)\n\nI use this code for conversation.\n\n```\n     private const string BritishWKT =\n        \"PROJCS[\\\"OSGB 1936 / British National Grid\\\",GEOGCS[\\\"OSGB 1936\\\",DATUM[\\\"OSGB_1936\\\",SPHEROID[\\\"Airy 1830\\\", 6377563.396, 299.3249646, AUTHORITY[\\\"EPSG\\\", \\\"7001\\\"]],TOWGS84[375, -111, 431, 0, 0, 0, 0],AUTHORITY[\\\"EPSG\\\", \\\"6277\\\"]],PRIMEM[\\\"Greenwich\\\", 0, AUTHORITY[\\\"EPSG\\\", \\\"8901\\\"]],UNIT[\\\"DMSH\\\", 0.0174532925199433, AUTHORITY[\\\"EPSG\\\", \\\"9108\\\"]],AXIS[\\\"Lat\\\", NORTH],AXIS[\\\"Long\\\", EAST],AUTHORITY[\\\"EPSG\\\", \\\"4277\\\"]],PROJECTION[\\\"Transverse_Mercator\\\"],PARAMETER[\\\"latitude_of_origin\\\", 49],PARAMETER[\\\"central_meridian\\\", -2],PARAMETER[\\\"scale_factor\\\", 0.999601272],PARAMETER[\\\"false_easting\\\", 400000],PARAMETER[\\\"false_northing\\\", -100000],UNIT[\\\"metre\\\", 1, AUTHORITY[\\\"EPSG\\\", \\\"9001\\\"]],AXIS[\\\"E\\\", EAST],AXIS[\\\"N\\\", NORTH],AUTHORITY[\\\"EPSG\\\", \\\"27700\\\"]],VERT_CS[\\\"Newlyn\\\",VERT_DATUM[\\\"Ordnance Datum Newlyn\\\", 2005, AUTHORITY[\\\"EPSG\\\", \\\"5101\\\"]],UNIT[\\\"metre\\\", 1, AUTHORITY[\\\"EPSG\\\", \\\"9001\\\"]],AXIS[\\\"Up\\\", UP],AUTHORITY[\\\"EPSG\\\", \\\"5701\\\"]],AUTHORITY[\\\"EPSG\\\", \\\"7405\\\"]]\";\n        var _britishCoordinationSystem = CoordinateSystemWktReader.Parse(BritishWKT) as IProjectedCoordinateSystem;\n\n                var _wgs84CoordinationSystem = GeographicCoordinateSystem.WGS84;\n\n var ctfac = new CoordinateTransformationFactory();\n        ICoordinateTransformation trans = ctfac.CreateFromCoordinateSystems(_britishCoordinationSystem,\n            _wgs84CoordinationSystem);\n\n        double[] fromPoint = {Convert.ToDouble(txtX.Text), Convert.ToDouble(txtY.Text)};\n            // U2U Consult Head Office, in degrees\n        double[] toPoint = trans.MathTransform.Transform(fromPoint);\n        Lat = toPoint[0].ToString();\n        Lon = toPoint[1].ToString();\n\n```\nWhat's the problem ?",
+    "LastUpdatedDate": "2016-05-04T09:14:04.273-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "ProjNET",
+    "ReportedDate": "2014-01-11T22:48:41.05-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Convert from British Coordination System to WGS84",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 25065
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "When you say British Coordinate System do you mean the OS grid reference, if so it's a non-trivial conversion.\r\n\r\nHave a look at http://www.ordnancesurvey.co.uk/business-and-government/help-and-support/navigation-technology/os-net/formats-for-developers.html\r\n\r\nRegards\r\n\r\nPaul",
+      "PostedDate": "2014-02-16T15:35:13.643-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "You have everything correct. The issue that you're seeing is that you have the lat/long switched.\r\n\r\nThe conversion function returns coordinates in the form (longitude, latitude), which is not the usual way they are displayed.\r\n\r\nIf you put the following into google maps, you'll see a more reasonable location:\n53.4441711379192, -2.19267975444489",
+      "PostedDate": "2016-05-04T09:14:04.273-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

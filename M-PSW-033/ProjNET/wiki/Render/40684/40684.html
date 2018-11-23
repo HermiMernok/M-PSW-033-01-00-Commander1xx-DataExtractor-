@@ -1,0 +1,9 @@
+<div class="wikidoc"><h3>Compiling for Silverlight</h3>
+Silverlight gives you the option of having .NET code running inside the browser as part of a client page, without the need for serverside code. Proj.NET gives you the power of fast on-the-fly reprojection directly inside the browser without the need of calling back to a serverside reprojection engine. This literally gives you the option of doing millions of point-to-point projections directly in a webbrowser!<br /><br />Proj.NET has been prepared for compilation with Silverlight, but you need to go through a few steps to get this to work.<br />
+<ol><li>Install Visual Studio codename Orcas/2007 <a href="http://go.microsoft.com/fwlink/?LinkID=89146&amp;clcid=0x409">Get it here</a></li>
+<li>Install Microsoft Silverlight Tools Alpha for Visual Studio codename &quot;Orcas&quot; Beta 1 <a href="http://go.microsoft.com/fwlink/?LinkID=89149&amp;clcid=0x409">Get it here</a></li>
+<li>Start Orcas and Create a new &quot;Silverlight Class Library&quot; project</li>
+<li>Remove the generated class file (Class1.cs) from the project.</li>
+<li>Copy all the .cs files from Proj.NET to the project (You can easily do this by dragging the file folders to the project).</li>
+<li>Right-click the project and select &quot;Properties&quot;. Go to the Build tab and enter &quot;Silverligt&quot; in &quot;Conditional compilation symbols&quot;.</li></ol>
+<br />You should now be able to compile this library and reference it into your silverlight application.<br /></div><div class="ClearBoth"></div>

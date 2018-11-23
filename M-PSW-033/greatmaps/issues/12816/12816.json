@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "this was fixed long ago, do you still use old version?",
+    "ClosedDate": "2009-03-16T14:07:06.647-07:00",
+    "CommentCount": 3,
+    "Custom": "",
+    "Description": "GetAreaTileList() does not appear to be referenced by any of the currently downloadable source.  I was attempting to use it but in order to get it to work correctly, had to change the following line from:\nPoint rightBottom = FromPixelToTileXY(FromLatLngToPixel(rect.Right, rect.Bottom, zoom));\nto\nPoint rightBottom = FromPixelToTileXY(FromLatLngToPixel(rect.Bottom, rect.Right, zoom));\n\nThe lat/lon being passed to FromLatLngToPixel were swapped.",
+    "LastUpdatedDate": "2009-03-18T12:06:10.473-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-03-16T08:34:44.137-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GMapNet.GoogleMaps.GetAreaTileList() incorrectly computes rightBottom pixel location",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 12816
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I checked version 30293 from the \"Source Code\" link and the bug is there.  Is there a more recent version?",
+      "PostedDate": "2009-03-16T15:47:44.227-07:00",
+      "Id": 3102
+    },
+    {
+      "Message": "it's ok,  http://gmap4dotnet.codeplex.com/SourceControl/changeset/view/32093#390897",
+      "PostedDate": "2009-03-17T13:19:45.513-07:00",
+      "Id": 3103
+    },
+    {
+      "Message": "check in Trunk folder",
+      "PostedDate": "2009-03-18T12:06:10.473-07:00",
+      "Id": 3104
+    }
+  ]
+}

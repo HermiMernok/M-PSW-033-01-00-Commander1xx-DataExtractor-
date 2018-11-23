@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1212195",
+    "ThreadId": "533702",
+    "Html": "Hi All<br />\n<br />\nSorry if this is a stupid question, but I am totally new to programming and working on my first project - which is a simple mapping project in C# using this control.<br />\n<br />\nI have followed the instructions in the tutorial, and then I use this line <br />\n<pre><code>gmap.SetCurrentPositionByKeywords(&quot;Maputo, Mozambique&quot;);</code></pre>\n\nI get the following error.<br />\n<pre><code>Error   1   'GMap.NET.WindowsForms.GMapControl' does not contain a definition for 'SetCurrentPositionByKeywords' and no extension method 'SetCurrentPositionByKeywords' accepting a first argument of type 'GMap.NET.WindowsForms.GMapControl' could be found (are you missing a using directive or an assembly reference?) C:\\Users\\david\\Documents\\Visual Studio 2013\\Projects\\TestMap\\TestMap\\Form1.cs   38  18  TestMap</code></pre>\n\nIf I use:<br />\n<pre><code>gmap.Position = new PointLatLng(-41.2889, 174.7772);</code></pre>\n\nIt works fine. <br />\n<br />\nHas the syntax changed at some point that &quot;SetCurrentPositionByKeywords&quot; no longer works?  I really don't want to have to try and convert addresses to lat / long at this stage if I can help it.<br />\n<br />\nThanks in advance, and thanks to you Radioman for an awesome control.<br />\n",
+    "PostedDate": "2014-02-22T02:32:50.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1212420",
+    "ThreadId": "533702",
+    "Html": "check latest version<br />\n",
+    "PostedDate": "2014-02-22T10:43:58.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1212457",
+    "ThreadId": "533702",
+    "Html": "<strong>radioman wrote:</strong><br />\n<blockquote>\ncheck latest version<br />\n</blockquote>\nI'm using the hot build - 3660acb94e16.  Is that not the latest?<br />\n",
+    "PostedDate": "2014-02-22T11:46:38.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1212649",
+    "ThreadId": "533702",
+    "Html": "OK I figured it out.\r<br />\n<br />\nThe correct syntax is:<br />\n<pre><code>gmap.SetPositionByKeywords(&quot;Maputo, Mozambique&quot;);</code></pre>\n\nNot:<br />\n<pre><code>gmap.SetCurrentPositionByKeywords(&quot;Maputo, Mozambique&quot;);</code></pre>\n\nThanks!<br />\n",
+    "PostedDate": "2014-02-22T20:01:28.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

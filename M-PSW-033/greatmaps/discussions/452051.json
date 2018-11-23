@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1075396",
+    "ThreadId": "452051",
+    "Html": "Hi,\r<br />\n<br />\nI like Gmap.net and added it to my vb.net windows form application working with chemical analytical data to plot locations of sampling points on a map. I came to vb.net from vb6 and not familiar with inner working of Memory, cache or system elements. \r<br />\n<br />\nSometimes, when I run program, instead of map tiles, blue tiles with exception error returned by remote server would appear for any map provider I added to select map list. And when this happens, nothing I do will allow to connect to actual map tiles. Though I don't know why this happens, it is possible that our company web proxy creates a bottle neck and Gmap timeouts loading tiles. \r<br />\n<br />\nToday, when this happened (running my app, Gmap showing blue error tiles for any map, zoom), I decided to run Demo.WindowsForms.exe (I am using last hot build), and the same blue error tiles appeared. Then, I clicked &quot;TileHost - LeafletJS web demo&quot; checkbox and after web browser opened with OpenStrteetMap, everything started working: I closed web browser, Demo.WindowsForm started loading all maps with any zoom, then I tried my app and it worked seamlessly any way I tried after that, not giving any errors until end of the day.\r<br />\n<br />\nI have looked at the source code, trying to understand why this happened, and how to make my program less dependent on proxy traffic if that is the problem. And I cannot find how it works and what made everything fix itself after clicking the &quot;TileHost - LeafletJS web demo&quot; checkbox.\r<br />\n<br />\nI would appreciate any help pointing me in a direction to solve this problem.\r<br />\n<br />\nThank you<br />\n",
+    "PostedDate": "2013-07-31T20:58:36.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075436",
+    "ThreadId": "452051",
+    "Html": "you can try:\r<br />\n<br />\nGMapProvider.<strong>WebProxy</strong> = WebRequest.DefaultWebProxy // or your custom proxy<br />\n",
+    "PostedDate": "2013-07-31T23:29:10.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1075801",
+    "ThreadId": "452051",
+    "Html": "Thanks radioman! I tried DefaultWebProxy and also tried custom proxy. It still goes on and off at work network. I probably need to develop some caching/prefetching strategy. Maybe zooming setup can also affect it. <br />\n",
+    "PostedDate": "2013-08-01T17:58:34.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "Id": "505854",
+    "ThreadId": "230536",
+    "Html": "<p><span style=\"font-size:11pt\" lang=EN-GB>Would it be possible to create polygons in the same manner as this demo: <a href=\"http://gmaps-samples.googlecode.com/svn/trunk/simplewizard/makestaticmap.html\">http://gmaps-samples.googlecode.com/svn/trunk/simplewizard/makestaticmap.html</a></span></p>\r\n<p><span style=\"font-size:11pt\" lang=EN-GB>&nbsp;</span></p>\r\n<p><span style=\"font-size:11pt\" lang=EN-GB>Mark</span></p>",
+    "PostedDate": "2010-10-12T01:17:06.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505859",
+    "ThreadId": "230536",
+    "Html": "<p>Thats exactly the logic i was going to use in the polygons,&nbsp; split each line into 2 and allow the draging of the centre points.&nbsp; I notice that moving markers/polygons was shown in the latest demo.</p>\r\n<p>Would be nice to have this split line feature too.&nbsp;&nbsp; Just need to find time ........</p>",
+    "PostedDate": "2010-10-12T01:21:35.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505891",
+    "ThreadId": "230536",
+    "Html": "<p>yes, you can do it, but now there is no built-in feature to do so, you manually need update polygon, catch the drag start/end/etc...</p>",
+    "PostedDate": "2010-10-12T02:13:14.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "505902",
+    "ThreadId": "230536",
+    "Html": "<p><span style=\"font-size:11pt\" lang=EN-GB>If anyone has the skill set to accomplish this I would love to see it as an added feature.</span></p>",
+    "PostedDate": "2010-10-12T02:40:44.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506193",
+    "ThreadId": "230536",
+    "Html": "<p>It's not hard to do, I implemented something like it for a recent project.</p>\r\n<p>If I get a moment I will cut out the code and post it here.</p>\r\n<p><a href=\"http://prx.sytes.net/MapView.png\">http://prx.sytes.net/MapView.png</a></p>",
+    "PostedDate": "2010-10-12T11:41:18.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "506262",
+    "ThreadId": "230536",
+    "Html": "<p>Nice one Azlan, look forward to it.</p>\r\n<p>Mark</p>",
+    "PostedDate": "2010-10-12T14:00:04.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507118",
+    "ThreadId": "230536",
+    "Html": "<p>&nbsp;</p>\r\n<p>zeqk&nbsp;&nbsp;&nbsp; did some work on this.</p>\r\n<p>http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=85419</p>\r\n<p>in that post, radioman says that its now implemented in the demo,&nbsp; i'm not sure that the functionality of being able to drag a 'middle' marker and cause a line split is done in the</p>\r\n<p>current Gmap release, but if&nbsp;&nbsp; zeqk&nbsp;&nbsp; has already done that , them maybe someone could just include it as standard ?</p>\r\n<p>radioman, please confirm if this is included in the latest release</p>\r\n<p>thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-14T01:40:37.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507148",
+    "ThreadId": "230536",
+    "Html": "<p>it is included in demo, but not as polygon functionality</p>",
+    "PostedDate": "2010-10-14T02:59:21.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507266",
+    "ThreadId": "230536",
+    "Html": "<p>yes, but the polygon included in the demo is not able to add more vertices. Only can resize the polygon.</p>\r\n<p>I'm doing a clearer example of how to do this</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-14T07:48:38.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507275",
+    "ThreadId": "230536",
+    "Html": "Thanks Zeqk ",
+    "PostedDate": "2010-10-14T08:05:33.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507339",
+    "ThreadId": "230536",
+    "Html": "<p><a title=\"ImageShack - Image And Video Hosting\" href=\"http://img88.imageshack.us/i/mapsq.png/\"><img src=\"http://img88.imageshack.us/img88/1008/mapsq.png\" border=0 alt=\"\"></a> Uploaded with <a href=\"http://imageshack.us\">ImageShack.us</a></p>\r\n<p>&nbsp;</p>\r\n<p>I uploaded a example</p>\r\n<p>http://zeqktools.googlecode.com/files/altostools.maps_1.10.08.22_src.rar</p>\r\n<p>http://zeqktools.googlecode.com/files/altostools.maps_1.10.08.22_bin.rar</p>",
+    "PostedDate": "2010-10-14T11:16:35.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507365",
+    "ThreadId": "230536",
+    "Html": "<p>nice! ..i wonder how to put it together in one piece</p>",
+    "PostedDate": "2010-10-14T12:22:45.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507445",
+    "ThreadId": "230536",
+    "Html": "<p>Hi Zeqk, it looks very good apart from one thing, as soon as I had your assembly into my VB project my project will not build and gives me no errors, it just says &lsquo;build failed&rsquo; with no errors.</p>\r\n<p>&nbsp;</p>\r\n<p>Do you have any idea why this would happen?</p>",
+    "PostedDate": "2010-10-14T14:35:51.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507719",
+    "ThreadId": "230536",
+    "Html": "<p>you have to have GMap.NET dlls</p>\r\n<p>maybe that's the problem</p>",
+    "PostedDate": "2010-10-15T05:32:54.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507729",
+    "ThreadId": "230536",
+    "Html": "<p>I used all the dlls in your download.</p>\r\n<p>&nbsp;</p>\r\n<p>Mark</p>",
+    "PostedDate": "2010-10-15T05:42:58.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "509856",
+    "ThreadId": "230536",
+    "Html": "<p>Hi all =)</p>\r\n<p>It's good work,&nbsp;<a id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl20_UserNameLink\" href=\"http://www.codeplex.com/site/users/view/zeqk\">zeqk</a></p>\r\n<p><a id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl22_UserNameLink\" href=\"http://www.codeplex.com/site/users/view/radioman\">radioman</a>, when we will see this feature in main branch of gMap ? =)</p>\r\n<p>Now I try to implement drawing polygone on gMap and this feature is very&nbsp;useful for me,</p>\r\n<p>should I wait a new branch with this feature or implement this in my project ?</p>",
+    "PostedDate": "2010-10-20T04:06:56.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "509891",
+    "ThreadId": "230536",
+    "Html": "<p>i'm in reconstruction now, can't focus on polygons now, to much changes...</p>",
+    "PostedDate": "2010-10-20T05:40:21.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569501",
+    "ThreadId": "230536",
+    "Html": "<p>seqk, I have a (noob) question.</p>\r\n<p>I am using vs2010, and am trying to get your example solution converted and working. I get this following error:</p>\r\n<p>Marked: Application.Run(new Form1());</p>\r\n<p>Could not load file or assembly 'GMap.NET.Core, Version=1.5.3.3, Culture=neutral, PublicKeyToken=b85b9027b614afef' or one of its dependencies.<br />An attempt was made to load a program with an incorrect format.</p>\r\n<p>Tried replacing the dlls with the original projects, and using different versions.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-02-21T02:09:24.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569560",
+    "ThreadId": "230536",
+    "Html": "<p><span class=\"hps\" title=\"Haz clic para obtener traducciones alternativas\">I</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener traducciones alternativas\">never</span>&nbsp;<span class=\"hps\" title=\"Haz clic para obtener traducciones alternativas\">tried using the vs2010</span></p>\r\n<p><span class=\"hps\" title=\"Haz clic para obtener traducciones alternativas\">but you can try clean the solution, go to the bin folder an delete all.</span></p>\r\n<p>Remove the GMap.NET references and add again.</p>\r\n<p><span class=\"hps\" title=\"Haz clic para obtener traducciones alternativas\">Compile for 32 bits</span></p>\r\n<p><a href=\"http://dobrzanski.net/2010/06/29/attempt-load-program-incorrect-format-exception-hresult-0x8007000b/\">http://dobrzanski.net/2010/06/29/attempt-load-program-incorrect-format-exception-hresult-0x8007000b/</a></p>\r\n<p><span class=\"hps\" title=\"Haz clic para obtener traducciones alternativas\"><br /></span></p>",
+    "PostedDate": "2011-02-21T04:38:59.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "650065",
+    "ThreadId": "230536",
+    "Html": "<p>radioman did you get any free time for implement that? :)</p>",
+    "PostedDate": "2011-07-30T15:21:28.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "650139",
+    "ThreadId": "230536",
+    "Html": "<p>to bad i have no free time ;}</p>",
+    "PostedDate": "2011-07-31T01:29:41.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651018",
+    "ThreadId": "230536",
+    "Html": "<p>Guys,</p>\r\n<p>A polygon plotting tool is really easy to do.&nbsp; I built a framework for adding \"Tools\" to GMaps.&nbsp; Here's an overview:</p>\r\n<p>- An interface - IGMapTool - mas methods for MouseClick, MouseDown, MouseMove, MouseUp.</p>\r\n<p>- A GMapControl descendant which has a CurrentTool property of type IGMapTool</p>\r\n<p>- The descendant traps MouseClick, MouseDown, MouseMove, MouseUp, etc. and call the corresponding methods in CurrentTool if it isn't null.</p>\r\n<p>Now, create a PlotPolygonTool class which implements IGMapTool. On the first mouse click it creates a new GMapPolygon object and adds it to the map.&nbsp; On each MouseClick, add the mouse point to the polygon and redraw.&nbsp; On MouseDoubleClick, complete the polygon and reset.&nbsp; Dragging points can be done easily too, but I haven't done the dragging of the mid-point of lines, just dragging polygon points.</p>\r\n<p>If I can extract this from our systems I'll post some code, or perhaps do a fork if there's enough interest.</p>",
+    "PostedDate": "2011-08-02T01:56:11.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "652092",
+    "ThreadId": "230536",
+    "Html": "<p>I'm interessed :)</p>",
+    "PostedDate": "2011-08-03T17:31:48.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "652359",
+    "ThreadId": "230536",
+    "Html": "<p>I've created a fork, GMapNETKnightlie, I'll add the Tools code to it.&nbsp; It's forked from the current unstable release so it's a bit.... unstable ;-), but the tool code works.&nbsp; I'll post when I've pushed the updates, probably tomorrow.</p>",
+    "PostedDate": "2011-08-04T06:34:44.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "652960",
+    "ThreadId": "230536",
+    "Html": "<p>Code uploaded.&nbsp; See <a href=\"http://greatmaps.codeplex.com/discussions/267880\">http://greatmaps.codeplex.com/discussions/267880</a>.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2011-08-05T03:57:30.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

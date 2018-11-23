@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "476305",
+    "ThreadId": "222411",
+    "Html": "<p><br>First of all, thank you for this fantastic work!!!</p>\r\n<p>I got a Windows Forms application, where I show various markers on the map.<br>My idea was to enable some markers only above a certain zoom level, and enable those markers toolips on a higher zoom level.</p>\r\n<p>I tried to do this:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> gMapControl_OnMapZoomChanged()\r\n        {\r\n            <span style=\"color:green\">// We need to hide/show the overlay based upon the zoom level</span>\r\n            stationOverlay.IsVisibile = gMapControl.Zoom &gt;= 12 ? <span style=\"color:blue\">true</span> : <span style=\"color:blue\">false</span>;\r\n<br>            <span style=\"color:blue\">foreach</span> (GMapMarker marker <span style=\"color:blue\">in</span> stationOverlay.Markers)\r\n            {\r\n                <span style=\"color:blue\">if</span> (gMapControl.Zoom &gt;= 14)\r\n                    marker.ToolTipMode = MarkerTooltipMode.Always;\r\n                <span style=\"color:blue\">else</span>\r\n                    marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;\r\n            }\r\n        }</pre>\r\n<pre><br></pre>\r\n<pre><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif\"><span style=\"white-space:normal\">It works, BUT when I changing zoom level from 11 to 12 (so it will coming up visible first time), the markers show up in the wrong place, a few km-s east from the correct position.<br>When switching to higher zoom levels, the markers show on the right place, and when switching back to level 12, its right, switch to 11, they are disappear as intended, BUT, when&nbsp;<br></span></span><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">switching to 12 again, its wrong (again, few kms east from the right place)....</span></pre>\r\n</div>\r\n</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">Any idea?</span><br></pre>\r\n</div>\r\n</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif\"><span style=\"white-space:normal\">Thanks in advance,</span></span></pre>\r\n<pre><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif\"><span style=\"white-space:normal\"><br></span></span></pre>\r\n<pre><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif\"><span style=\"white-space:normal\">Rico</span></span></pre>\r\n<pre><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">&nbsp;</span></pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-08-04T01:11:57.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "476543",
+    "ThreadId": "222411",
+    "Html": "hey, whats the type of map?",
+    "PostedDate": "2010-08-04T10:50:34.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "476726",
+    "ThreadId": "222411",
+    "Html": "<p>Hey radioman, it's google maps, but I downloaded the source code and it seems, the last version does fixes this bug.<br>Other question, it's possible to show some blinking markers? Any ideas how to achieve that?</p>\r\n<p>Thank you for your excellent job!</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>Rico</p>",
+    "PostedDate": "2010-08-04T23:53:33.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "476917",
+    "ThreadId": "222411",
+    "Html": "<p>hm.. it seems that bug is only in&nbsp;Windows Forms version, i'll track it down next week</p>",
+    "PostedDate": "2010-08-05T07:31:18.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

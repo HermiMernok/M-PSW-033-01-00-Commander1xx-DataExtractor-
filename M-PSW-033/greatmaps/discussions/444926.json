@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1048387",
+    "ThreadId": "444926",
+    "Html": "Looking at the WindowsPresentation demo...it has no reference to SQLite or SQLCE.  Also, the demo project has no Conditional compilation symbols, whereas the Windows demo specifies MONO_disabled; SQLite.<br />\n<br />\nWhich compilation symbols should I be using, if any?  When looking in &quot;References&quot; folder in the Silverlight directory (&quot;which i am assuming is also WPF), there are no dll's.  I would prefer to not include any other 3rd party DLL's, is this possible?<br />\n<br />\nAs a WPF developer, is WindowsPresentation the correct library to use?  Which caching method is ideal? <br />\n",
+    "PostedDate": "2013-05-24T12:10:20.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1048392",
+    "ThreadId": "444926",
+    "Html": "there is no mono for wpf, no compilation symboms<br />\n",
+    "PostedDate": "2013-05-24T12:20:24.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1048402",
+    "ThreadId": "444926",
+    "Html": "With no compilation symbols, it runs fine on my developer machine, but when I try it on a laptop the map is tiled with the error:<br />\n<br />\nException: Could not load file or assembly 'System.Data.SqlServerCe'<br />\n<br />\nHence my confusion!<br />\n<br />\nEdit: I should add that I am including the WindowsPresentation source in my own source, not including a compiled DLL.<br />\n",
+    "PostedDate": "2013-05-24T12:29:25.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1048406",
+    "ThreadId": "444926",
+    "Html": "if you remove 'SQLite', core dll use mssqlce reference<br />\n",
+    "PostedDate": "2013-05-24T12:34:19.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

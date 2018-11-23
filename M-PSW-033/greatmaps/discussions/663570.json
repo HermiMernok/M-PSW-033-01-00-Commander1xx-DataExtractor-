@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1497667",
+    "ThreadId": "663570",
+    "Html": "hi folks,\r<br />\n<br />\nI'm adding an overlay with poly's to the map in Windows.Forms\r<br />\nBut the new Polygons appear only after I manually zome in/out or if i call gmap.ZoomAndCenterRoutes.\r<br />\n<br />\ni have tried gmap.Invalidate(which is async), gmap.Refresh, gmap.Update, gmap.ReloadMap, but nothing works as expected\r<br />\n<br />\nthanks in advanced!<br />\n",
+    "PostedDate": "2017-08-08T03:47:40.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1497788",
+    "ThreadId": "663570",
+    "Html": "did someone have an suggestion for me ?<br />\n",
+    "PostedDate": "2017-08-21T00:31:38.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1498064",
+    "ThreadId": "663570",
+    "Html": "after you add the last polygon set a new possition to your map control, maybe one point  in the polygon: \r<br />\nMapControl.Position = New PointLatLng(lat, lng).<br />\n",
+    "PostedDate": "2017-09-18T10:43:34.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

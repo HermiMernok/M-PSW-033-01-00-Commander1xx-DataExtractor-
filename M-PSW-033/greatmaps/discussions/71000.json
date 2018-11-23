@@ -1,0 +1,218 @@
+[
+  {
+    "Id": "242066",
+    "ThreadId": "71000",
+    "Html": "<p>Hello,</p>\r\n<p>I have some overlays (as png file). With button press i show desired overlay. (With some help of Radioman i managed to show an overlay) But when i click the map the overlay disappears.&nbsp; I also can not get the overlay on the desired position. It always shows up at the left uppercorner (0,0). Finally i want to zoom my overlay at the same value as my map.&nbsp; All possible? If yes, how?</p>\r\n<p>&nbsp;</p>\r\n<p>This is what i have so far:</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>\r\n<p><span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>strLatMap1 =</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;51.873165&quot;</span></span></p>\r\n<span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>strLongMap1 =</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;4.354719&quot;</span></span></p>\r\n<span style=\"font-size:x-small\">&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span><span style=\"font-size:x-small\"> strLat </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">As</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">String</span></span><span style=\"font-size:x-small\"> = strLatMap1.Replace(</span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;.&quot;</span></span><span style=\"font-size:x-small\">, </span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;,&quot;</span></span>\r\n<p><span style=\"font-size:x-small\">)&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span><span style=\"font-size:x-small\"> strLong </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">As</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">String</span></span><span style=\"font-size:x-small\"> = strLongMap1.Replace(</span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;.&quot;</span></span><span style=\"font-size:x-small\">, </span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;,&quot;</span></span>\r\n<p><span style=\"font-size:x-small\">)&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span><span style=\"font-size:x-small\"> myImage </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">As</span></span><span style=\"font-size:x-small\"> Image = Image.FromFile(</span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;c:\\rene-links.png&quot;</span></span>\r\n<p><span style=\"font-size:x-small\">)&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span>\r\n<p><span style=\"font-size:x-small\"> myPointX = GMap1.Location.X&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span>\r\n<p><span style=\"font-size:x-small\"> myPointY = GMap1.Location.Y&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span><span style=\"font-size:x-small\"> myRectangle </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">As</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">New</span></span>\r\n<p><span style=\"font-size:x-small\"> Drawing.Rectangle(myPointX, myPointY, myImage.Width, myImage.Height)&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span><span style=\"font-size:x-small\"> myPoint </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">As</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">New</span></span><span style=\"font-size:x-small\"> GMap.NET.PointLatLng(</span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">CDec</span></span><span style=\"font-size:x-small\">(strLat), </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">CDec</span></span>\r\n<p><span style=\"font-size:x-small\">(strLong))&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Dim</span></span><span style=\"font-size:x-small\"> myCustomMarker </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">As</span></span><span style=\"font-size:x-small\"> </span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">New</span></span>\r\n<p><span style=\"font-size:x-small\"> GMap.NET.WindowsForms.GMapMarker(myPoint)\r\n<p>g.DrawImage(myImage, myRectangle)</p>\r\n<p>myCustomMarker.OnRender(g)</p>\r\n&lt;font size=&quot;2&quot;&gt;\r\n<p>topOverlay =</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">New</span></span><span style=\"font-size:x-small\"> GMap.NET.WindowsForms.GMapOverlay(</span><span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">Me</span></span><span style=\"font-size:x-small\">.GMap1, </span><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">&quot;TopOverlay&quot;</span></span>\r\n<p><span style=\"font-size:x-small\">)\r\n<p>topOverlay.Markers.Add(myCustomMarker)</p>\r\n&lt;font size=&quot;2&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<span style=\"font-size:x-small\"><span id=\"_marker\">&nbsp;</span></span></p>\r\n</p>\r\n<p>When i include the last to lines the image only shows for fraction of second....</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T01:42:41.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242102",
+    "ThreadId": "71000",
+    "Html": "<p>please try read what you post ;}</p>",
+    "PostedDate": "2009-10-05T03:41:47.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242106",
+    "ThreadId": "71000",
+    "Html": "<p>Which tags do i need to show proper code??? :-)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T03:49:32.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242110",
+    "ThreadId": "71000",
+    "Html": "<p>forget tags, push button and paste code ;}</p>",
+    "PostedDate": "2009-10-05T03:51:29.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242114",
+    "ThreadId": "71000",
+    "Html": "<p>Better?</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>strLatMap1 = <span style=\"color:#A31515\">&quot;51.873165&quot;</span>\r\nstrLongMap1 = <span style=\"color:#A31515\">&quot;4.354719&quot;</span>\r\n<span style=\"color:Blue\">Dim</span> strLat <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">String</span> = strLatMap1.Replace(<span style=\"color:#A31515\">&quot;.&quot;</span>, <span style=\"color:#A31515\">&quot;,&quot;</span>)\r\n<span style=\"color:Blue\">Dim</span> strLong <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">String</span> = strLongMap1.Replace(<span style=\"color:#A31515\">&quot;.&quot;</span>, <span style=\"color:#A31515\">&quot;,&quot;</span>)\r\n<span style=\"color:Blue\">Dim</span> myImage <span style=\"color:Blue\">As</span> Image = Image.FromFile(<span style=\"color:#A31515\">&quot;c:\\rene-links.png&quot;</span>)\r\n<span style=\"color:Blue\">Dim</span> myPointX = GMap1.Location.X\r\n<span style=\"color:Blue\">Dim</span> myPointY = GMap1.Location.Y\r\n<span style=\"color:Blue\">Dim</span> myRectangle <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> Drawing.Rectangle(myPointX, \r\n\r\nmyPointY, myImage.Width, myImage.Height)\r\n\r\n<span style=\"color:Blue\">Dim</span> myPoint <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> GMap.NET.PointLatLng(<span style=\"color:Blue\">CDec</span>(strLat), <span style=\"color:Blue\">CDec</span> _(strLong))\r\nGMap1.CurrentPosition = myPoint\r\n<span style=\"color:Blue\">Dim</span> myCustomMarker <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> GMap.NET.WindowsForms.GMapMarker(myPoint)\r\ng = Graphics.FromHwnd(GMap1.Handle)\r\ng.DrawImage(myImage, myRectangle)\r\nmyCustomMarker.OnRender(g)\r\ntopOverlay = <span style=\"color:Blue\">New</span> GMap.NET.WindowsForms.GMapOverlay(<span style=\"color:Blue\">Me</span>.GMap1, <span style=\"color:#A31515\">&quot;TopOverlay&quot;</span>)\r\ntopOverlay.Markers.Add(myCustomMarker)\r\nGMap1.Overlays.Add(topOverlay)\r\n</pre>\r\n</div>",
+    "PostedDate": "2009-10-05T04:14:46.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242118",
+    "ThreadId": "71000",
+    "Html": "<p>perfect in style!</p>\r\n<p>..well your custom marker should be something like that in the&nbsp;beginning:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">class</span> myCustomMarker : <span style=\"color:Blue\">public</span> GMapMarker\r\n{\r\n    <span style=\"color:Blue\">void</span> OnRender(...)\r\n    {\r\n       <span style=\"color:Green\">// ... draw your picture here</span>\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T04:19:25.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242131",
+    "ThreadId": "71000",
+    "Html": "<p>Radioman,</p>\r\n<p>Is there a compleet functional sample (C#) of what i want to accomplish?</p>\r\n<p>Better for me is VB, but probably no vb samples available.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T05:00:05.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242139",
+    "ThreadId": "71000",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">class</span> myCustomMarker : GMapMarker\r\n{\r\n      Image img;\r\n      <span style=\"color:Blue\">public</span> myCustomMarker(PointLatLng p)\r\n         : <span style=\"color:Blue\">base</span>(p)\r\n      {\r\n         img = <span style=\"color:Blue\">new</span> Bitmap(<span style=\"color:#A31515\">@&quot;D:\\md\\Pictures\\figure_5.jpg&quot;</span>);\r\n      }\r\n\r\n      <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnRender(Graphics g)\r\n      {\r\n          g.DrawImageUnscaledAndClipped(img, <span style=\"color:Blue\">new</span> System.Drawing.Rectangle(<span style=\"color:Blue\">base</span>.LocalPosition.X, <span style=\"color:Blue\">base</span>.LocalPosition.Y, img.Width, img.Height));\r\n      }\r\n}\r\n\r\n\r\n<span style=\"color:Green\">// ...</span>\r\n\r\nGMapOverlay top = <span style=\"color:Blue\">new</span> GMapOverlay(MainMap, <span style=\"color:#A31515\">&quot;top&quot;</span>);\r\nMainMap.Overlays.Add(top);       \r\n\r\nmyCustomMarker cm = <span style=\"color:Blue\">new</span> myCustomMarker(MainMap.CurrentPosition);\r\ntop.Markers.Add(cm);\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T05:13:18.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242175",
+    "ThreadId": "71000",
+    "Html": "<p>Radioman,</p>\r\n<p>I really don't know what i am doing wrong, but:</p>\r\n<p>1) Adding the last two lines of code will cause the image to disappear just after showing it.</p>\r\n<p>2) Can not get the image to stay when clicking the map</p>\r\n<p>3) get the image on a dedired position.</p>\r\n<p>&nbsp;</p>\r\n<p>Any suggestions left?</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T06:54:02.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242214",
+    "ThreadId": "71000",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre style=\"color:#000000;font-family:Consolas, 'Courier New', Courier, monospace;font-size:1em;margin:8px\"><span style=\"color:blue\">class</span> myCustomMarker : GMapMarker\r\n{\r\n      Image img;\r\n      <span style=\"color:blue\">public</span> myCustomMarker(PointLatLng p)\r\n         : <span style=\"color:blue\">base</span>(p)\r\n      {\r\n         img = <span style=\"color:blue\">new</span> Bitmap(<span style=\"color:#a31515\">@&quot;D:\\md\\Pictures\\figure_5.jpg&quot;</span>);\r\n      }\r\n\r\n      <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n      {\r\n          g.DrawImageUnscaledAndClipped(img, <span style=\"color:blue\">new</span> System.Drawing.Rectangle(<span style=\"color:blue\">base</span>.LocalPosition.X, <span style=\"color:blue\">base</span>.LocalPosition.Y, img.Width, img.Height));\r\n      }\r\n}\r\n\r\n\r\n<span style=\"color:green\">// ...</span>\r\n\r\nGMapOverlay top = <span style=\"color:blue\">new</span> GMapOverlay(MainMap, <span style=\"color:#a31515\">&quot;top&quot;</span>);\r\nMainMap.Overlays.Add(top);       \r\n\r\nmyCustomMarker cm = <span style=\"color:blue\">new</span> myCustomMarker(MainMap.CurrentPosition);\r\ntop.Markers.Add(cm);\r\n</pre>\r\n<div><span style=\"font-family:Consolas, 'Courier New', Courier, monospace\"><span style=\"white-space:pre\"><br></span></span></div>\r\n</div>",
+    "PostedDate": "2009-10-05T08:37:59.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242221",
+    "ThreadId": "71000",
+    "Html": "<p>Radioman,</p>\r\n<p>With this code an can not get things working properly.</p>\r\n<p>Maybe difference from VB and C#...</p>\r\n<p>Do you know of any user of your control who is working in VB? Maybe he /she can help me out..</p>\r\n<p>When i am not mistaken, the last 2 lines of code makes a new instance of myCustomMarker and gives it the name cm and adds it to the toplayers marker?</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T08:45:36.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242233",
+    "ThreadId": "71000",
+    "Html": "<p>...</p>",
+    "PostedDate": "2009-10-05T09:14:28.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242245",
+    "ThreadId": "71000",
+    "Html": "<p>... means cannot help anymore?</p>\r\n<p>I feel like i am almost there, but just the finishing touch is missing.</p>\r\n<p>Do you still have contact with Mindstorms? I see he is programming in VB also.</p>\r\n<p>Maybe he can help me out.</p>\r\n<p>Or maby jumping to C# is an options (:-)....</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks anyway</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T10:04:39.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242250",
+    "ThreadId": "71000",
+    "Html": "<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Friend</span> <span style=\"color:Blue\">Class</span> myCustomMarker\r\n\t<span style=\"color:Blue\">Inherits</span> GMapMarker\r\n<br>\t  <span style=\"color:Blue\">Private</span> img <span style=\"color:Blue\">As</span> Image\r\n\t  <span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Sub</span> <span style=\"color:Blue\">New</span>(<span style=\"color:Blue\">ByVal</span> p <span style=\"color:Blue\">As</span> PointLatLng)\r\n\t\t  <span style=\"color:Blue\">MyBase</span>.<span style=\"color:Blue\">New</span>(p)\r\n\t\t img = <span style=\"color:Blue\">New</span> Bitmap(<span style=\"color:#A31515\">&quot;D:\\md\\Pictures\\figure_5.jpg&quot;</span>)\r\n\t  <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n\r\n\t  <span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Overrides</span> <span style=\"color:Blue\">Sub</span> OnRender(<span style=\"color:Blue\">ByVal</span> g <span style=\"color:Blue\">As</span> Graphics)\r\n\t\t  g.DrawImageUnscaledAndClipped(img, <span style=\"color:Blue\">New</span> System.Drawing.Rectangle(<span style=\"color:Blue\">MyBase</span>.LocalPosition.X, <span style=\"color:Blue\">MyBase</span>.LocalPosition.Y, img.Width, img.Height))\r\n\t  <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n<br><span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n\r\n<span style=\"color:Blue\">Private</span> top <span style=\"color:Blue\">As</span> GMapOverlay = <span style=\"color:Blue\">New</span> GMapOverlay(MainMap, <span style=\"color:#A31515\">&quot;top&quot;</span>)\r\nMainMap.Overlays.Add(top)\r\n\r\n<span style=\"color:Blue\">Dim</span> cm <span style=\"color:Blue\">As</span> myCustomMarker = <span style=\"color:Blue\">New</span> myCustomMarker(MainMap.CurrentPosition)\r\ntop.Markers.Add(cm)\r\n<br>You couold also add an image property to the custum maker so that you could assinge any image to it.<br>Cheers</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-05T10:31:25.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242437",
+    "ThreadId": "71000",
+    "Html": "<p>Thanks Azlan,</p>\r\n<p>This works great!! Now i know the purpose of OOP.....</p>\r\n<p>Is it also possible to&nbsp;Zoom the picture in the same way as the map?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks again... :-)</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-06T00:36:44.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242472",
+    "ThreadId": "71000",
+    "Html": "<p>perfect! ..about zooming, you need to know exactly scale for that, complex stuff...</p>",
+    "PostedDate": "2009-10-06T02:36:56.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242493",
+    "ThreadId": "71000",
+    "Html": "<p>Radioman, Azlan,</p>\r\n<p>What i do is:</p>\r\n<p>I make overlay in drawing software. I zoom in your map until i have reached desired zoomlevel. I resize&nbsp;my drawing (overlay)&nbsp; until it fits in the map.</p>\r\n<p>So i guess scale is not really issue, or am i wrong? Maybe i have to use the .ScaleTransForm(ZoomFactor, Zoomfactor) of the graphics object (overlay)???</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-06T04:01:10.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242521",
+    "ThreadId": "71000",
+    "Html": "<p>well if you get exactly match for coordinates, or it isn't important?</p>",
+    "PostedDate": "2009-10-06T05:29:28.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242584",
+    "ThreadId": "71000",
+    "Html": "<p>Radioman,</p>\r\n<p>I just finished little program to determine lat and lng for left uppercorner of overlay.</p>\r\n<p>So getting exact co&ouml;rdinates is solved.</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-06T08:29:47.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242598",
+    "ThreadId": "71000",
+    "Html": "<p>great ;}</p>",
+    "PostedDate": "2009-10-06T09:02:19.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242848",
+    "ThreadId": "71000",
+    "Html": "<p>Radioman, Azlan,</p>\r\n<p>Now i have to questions left. First: Is there a build-in option to zoom the layer in same value as map or do i have to use the zoomfunction of VB .Net?</p>\r\n<p>Second: How do i add image property? (OOP s new for me....)</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for you support!</p>\r\n<p>Hein</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-07T01:27:31.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242884",
+    "ThreadId": "71000",
+    "Html": "<p>noone can learn for you ;}</p>",
+    "PostedDate": "2009-10-07T02:54:27.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244129",
+    "ThreadId": "71000",
+    "Html": "<p>HeinR1965,</p>\r\n<p>Hope the following code can help you:</p>\r\n<p>Define the MyCustomMarker as following:</p>\r\n<p>Public Class MyCustomMarker<br>&nbsp;&nbsp;&nbsp; Inherits GMapMarker<br>&nbsp;&nbsp;&nbsp; Private img As Image<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; Public Property MarkerImage() As Image<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Get<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Return img<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Get<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Set(ByVal value As Image)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; img = value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End Set<br>&nbsp;&nbsp;&nbsp; End Property<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; Public Sub New(ByVal p As PointLatLng)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.New(p)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; End Sub<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; Public Overloads Overrides Sub OnRender(ByVal g As Graphics)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawImageUnscaledAndClipped(img, New System.Drawing.Rectangle(MyBase.LocalPosition.X, MyBase.LocalPosition.Y, img.Width, img.Height))<br>&nbsp;&nbsp;&nbsp; End Sub<br>&nbsp;&nbsp;&nbsp; <br>End Class</p>\r\n<p>&nbsp;</p>\r\n<p>Then use it in following way:</p>\r\n<p>Dim top As New GMapOverlay(gMapControl1, &quot;top&quot;)<br>gMapControl1.Overlays.Add(top)</p>\r\n<p>Dim cm As New MyCustomMarker(gMapControl1.CurrentPosition)<br>cm.MarkerImage = New Bitmap(&quot;C:\\Gmap.net\\PostData\\zoomin.png&quot;)<br>top.Markers.Add(cm)</p>\r\n<p>gMapControl1.Overlays.Add(top)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-10T01:26:13.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244655",
+    "ThreadId": "71000",
+    "Html": "<p>Sumvel,</p>\r\n<p>&nbsp;</p>\r\n<p>I already had a solution, but yours is much simpler and clear.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks, works great...</p>\r\n<p>&nbsp;</p>\r\n<p>Hein</p>",
+    "PostedDate": "2009-10-12T06:40:55.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "244976",
+    "ThreadId": "71000",
+    "Html": "<p><span style=\"color:navy;font-size:10pt\">No problem, HeinR1965. We can chat for more communication if you are interested.</span></p>",
+    "PostedDate": "2009-10-13T02:27:17.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260570",
+    "ThreadId": "71000",
+    "Html": "<p>Hi there again,</p>\r\n<p>Any help for scaling/zooming overlay around here?</p>\r\n<p>I am stuck.....</p>\r\n<p>&nbsp;</p>\r\n<p>Thanx in advance</p>",
+    "PostedDate": "2009-11-25T04:28:55.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261352",
+    "ThreadId": "71000",
+    "Html": "<p>scale objects, not overlay</p>",
+    "PostedDate": "2009-11-28T10:43:36.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

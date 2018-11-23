@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "442156",
+    "ThreadId": "212457",
+    "Html": "<p>Hey,</p>\r\n<p>Does anyone know a way to prevent a user from dragging the map out of the control - to snap it back into the control, or to wrap it?</p>\r\n<p>It seems like if you get overzealous with your dragging that you can lose the map for good, not to mention when dragging it around you can get ugly blank space when you drag a corner of the map to the center of the control.&nbsp;</p>",
+    "PostedDate": "2010-05-12T10:08:42.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442158",
+    "ThreadId": "212457",
+    "Html": "<p>what do you mean? Disable dragging? Set boundaries?</p>",
+    "PostedDate": "2010-05-12T10:10:54.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442163",
+    "ThreadId": "212457",
+    "Html": "<p>Check out this screen shot:</p>\r\n<p>http://www.omploader.org/vNGI2NA</p>\r\n<p>Is there a way to prevent that behaviour?&nbsp; I checked out the OnMapDrag event, but the delegate sub doesn't allow any overloads that might help you control it.&nbsp;</p>\r\n<p>If you do something like this.. myGmap﻿.BoundsOfMap = New GMap.NET.RectLatLng(New GMap.NET.PointLatLng(90, -180), New GMap.NET.SizeLatLng(-90, 180)) you can't drag the map anymore.</p>",
+    "PostedDate": "2010-05-12T10:17:51.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442166",
+    "ThreadId": "212457",
+    "Html": "<p>can you share the actual demo, i don't catch what's wrong, sorry ;}</p>",
+    "PostedDate": "2010-05-12T10:26:04.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442169",
+    "ThreadId": "212457",
+    "Html": "<p>Umm, hmm.. In that screen shot I dragged the corner of the map to the middle of the GMap control - it's just showing that there's empty space between the corner of the control and the corner of the map.. Maybe I should have drawn a border around it hehe.</p>\r\n<p>Is there a way to make the map wrap around or prevent that empty space?&nbsp; If you still don't get it I'll figure out a way to send it to you.</p>",
+    "PostedDate": "2010-05-12T10:33:44.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442172",
+    "ThreadId": "212457",
+    "Html": "<p>http://www.omploader.org/vNGI2YQ/gmapDemo.exe</p>\r\n<p>It's a WPF Application</p>\r\n<p>MainWindow.xaml:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Window</span> <span style=\"color:red\">x:Class</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">MainWindow</span><span style=\"color:black\">&quot;</span>\r\n    <span style=\"color:red\">xmlns</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">http://schemas.microsoft.com/winfx/2006/xaml/presentation</span><span style=\"color:black\">&quot;</span>\r\n    <span style=\"color:red\">xmlns:x</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">http://schemas.microsoft.com/winfx/2006/xaml</span><span style=\"color:black\">&quot;</span>\r\n    <span style=\"color:red\">Title</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">MainWindow</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">Height</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">379</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">Width</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">432</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">xmlns:my</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">clr-namespace:System.Windows.Controls;assembly=GMap.NET.WindowsPresentation</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">xmlns:my1</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">WindowStyle</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">ThreeDBorderWindow</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">ResizeMode</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">CanMinimize</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Grid</span><span style=\"color:blue\">&gt;</span>\r\n        <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">my</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">GMapControl</span> <span style=\"color:red\">Height</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">302</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">HorizontalAlignment</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">Left</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">Name</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">traceMap</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">VerticalAlignment</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">Top</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">Width</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">420</span><span style=\"color:black\">&quot;</span> <span style=\"color:blue\">/&gt;</span>\r\n<span style=\"color:blue\"></span>\r\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Grid</span><span style=\"color:blue\">&gt;</span>\r\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Window</span><span style=\"color:blue\">&gt;</span>\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Imports</span> GMap.NET\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsPresentation\r\n\r\n<span style=\"color:blue\">Class</span> MainWindow\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>()\r\n        <span style=\"color:green\">' This call is required by the designer.</span>\r\n        InitializeComponent()\r\n        <span style=\"color:blue\">With</span> traceMap\r\n            .MapType = MapType.BingHybrid\r\n            .MinZoom = 1.5\r\n            .MaxZoom = 12\r\n            .Zoom = 1.5\r\n            .CurrentPosition = <span style=\"color:blue\">New</span> GMap.NET.PointLatLng(40, 0)\r\n            .CanDragMap = <span style=\"color:blue\">True</span>\r\n            .DragButton = MouseButton.Left\r\n            .MouseWheelZoomType = MouseWheelZoomType.MousePositionWithoutCenter\r\n            <span style=\"color:green\">'.BoundsOfMap = New GMap.NET.RectLatLng(New GMap.NET.PointLatLng(90, -180), New GMap.NET.SizeLatLng(-90, 180))</span>\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">With</span>\r\n\r\n        <span style=\"color:blue\">AddHandler</span> traceMap.OnMapDrag, <span style=\"color:blue\">AddressOf</span> mapDragged\r\n        <span style=\"color:green\">' Add any initialization after the InitializeComponent() call.</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n<span style=\"color:blue\">#Region</span> <span style=\"color:#a31515\">&quot;Map Events&quot;</span>\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> mapDragged()\r\n\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n<span style=\"color:blue\">#End Region</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-12T10:36:14.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442175",
+    "ThreadId": "212457",
+    "Html": "<p>demo just crash ;/</p>",
+    "PostedDate": "2010-05-12T10:48:41.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442421",
+    "ThreadId": "212457",
+    "Html": "<p>any luck making working demo? ;}</p>",
+    "PostedDate": "2010-05-13T01:38:37.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442613",
+    "ThreadId": "212457",
+    "Html": "No, after looking at google maps and bing maps it looks like it has the same behaviour, they just wrap the map around and redraw the points to get around it.  \r\n\r\nI've just made my control a fixed size and set the map in it.  If you zoom in and out you can still break it so I'll probably remove that as well.\r\n\r\nI don't know why the demo was crashing.. do you have the GMap libs in your GAC or did you run the executable with them in the same folder?  It works fine for me if I do that.",
+    "PostedDate": "2010-05-13T12:00:18.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442614",
+    "ThreadId": "212457",
+    "Html": "<p>libs are changing ;} if you do not provide your version, i can't use my version, which is latest ;}</p>",
+    "PostedDate": "2010-05-13T12:04:18.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

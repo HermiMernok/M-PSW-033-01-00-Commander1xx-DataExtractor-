@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "684173",
+    "ThreadId": "275878",
+    "Html": "\r\n<p><span id=\"result_box\" lang=\"en\"><span>Please help me</span><span>.</span><br>\r\n<br>\r\n<span>I want to</span> <span>turn the</span> <span>handle.</span> <span>Instead of the standard</span>\r\n<span>marker</span> <span>image</span> <span>I uploaded</span> <span>my</span><span>.</span>\r\n<span>Now we need to</span> <span>handle</span> <span>rotated</span> <span>at different angles.</span><br>\r\n<br>\r\n<span>Anton</span> <span>from Russia.</span></span></p>\r\n",
+    "PostedDate": "2011-10-14T01:28:02.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684444",
+    "ThreadId": "275878",
+    "Html": "<p>check the demo markers they support rotation</p>",
+    "PostedDate": "2011-10-14T13:18:37.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684598",
+    "ThreadId": "275878",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">What method</span> <span class=\"hps\">provides the</span> <span class=\"hps\">rotation?</span></span></p>",
+    "PostedDate": "2011-10-15T02:36:47.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684601",
+    "ThreadId": "275878",
+    "Html": "<p>check the <strong>code</strong></p>",
+    "PostedDate": "2011-10-15T02:46:36.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687727",
+    "ThreadId": "275878",
+    "Html": "<p>where are those demo markers ??</p>",
+    "PostedDate": "2011-10-21T17:16:18.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "687774",
+    "ThreadId": "275878",
+    "Html": "<p>open the eyes ;}</p>",
+    "PostedDate": "2011-10-22T01:23:34.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "798216",
+    "ThreadId": "275878",
+    "Html": "<p>Hi</p>\r\n<p>To make Custom marker from image and rotate it , use this code in c#</p>\r\n<p>public class GMapMarkerImage : GMapMarker<br />&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public System.Drawing.Image Image;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public double Heading;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public GMapMarkerImage(PointLatLng p): base(p)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void OnRender(Graphics g)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Point Aircraft_Position = new Point(LocalPosition.X - 32, LocalPosition.Y - 32);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Point Center = new Point(Aircraft_Position.X + 32, Aircraft_Position.Y + 32);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rotate_Image(g, Exam_GMap.Properties.Resources.Airplane_64, Aircraft_Position, Center, (float)Heading, 1);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected void Rotate_Image(Graphics pe, Image img, Point ptImg, Point ptRot, float angle_deg, float scaleFactor)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double beta = 0; &nbsp;&nbsp;&nbsp; // Angle between the Horizontal line and the line (Left upper corner - Rotation point)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double d = 0;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // Distance between Left upper corner and Rotation point)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float deltaX = 0;&nbsp;&nbsp;&nbsp; // X componant of the corrected translation<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float deltaY = 0;&nbsp;&nbsp;&nbsp; // Y componant of the corrected translation<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double angle_rad = (angle_deg * Math.PI / 180);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Compute the correction translation coeff<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ptImg != ptRot)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ptRot.X != 0)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; beta = Math.Atan((double)ptRot.Y / (double)ptRot.X);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d = Math.Sqrt((ptRot.X * ptRot.X) + (ptRot.Y * ptRot.Y));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Computed offset<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; deltaX = (float)(d * (Math.Cos(angle_rad - beta) - Math.Cos(angle_rad) * Math.Cos(angle_rad + beta) - Math.Sin(angle_rad) * Math.Sin(angle_rad + beta)));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; deltaY = (float)(d * (Math.Sin(beta - angle_rad) + Math.Sin(angle_rad) * Math.Cos(angle_rad + beta) - Math.Cos(angle_rad) * Math.Sin(angle_rad + beta)));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Rotate image support<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pe.RotateTransform(angle_deg);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Dispay image<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pe.DrawImage(img, (ptImg.X + deltaX) * scaleFactor, (ptImg.Y + deltaY) * scaleFactor, img.Width * scaleFactor, img.Height * scaleFactor);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Put image support as found<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pe.RotateTransform(-angle_deg);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }</p>",
+    "PostedDate": "2012-02-23T13:04:39.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "799915",
+    "ThreadId": "275878",
+    "Html": "<p>hey j_sadi</p>\n<p>i used yur class the marker rotate , but it get a new location&nbsp;</p>\n<p>can u plz help me</p>",
+    "PostedDate": "2012-02-25T11:17:01.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342224",
+    "ThreadId": "275878",
+    "Html": "rotation is fixed\r<br />\n<br />\np.s. marker rotation demo [left menu, Live-&gt;FlightRadar] and <strong>GMarkerArrow.cs</strong><br />\n",
+    "PostedDate": "2015-01-15T08:20:57.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

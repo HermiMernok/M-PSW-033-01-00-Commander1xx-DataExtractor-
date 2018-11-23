@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "223670",
+    "ThreadId": "65745",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I'm sorry if this has been mentioned already. Are there plans to support Google Maps routes with multiple stops?</p>\r\n<p>Thanks</p>\r\n<p>Jack</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-14T12:52:32.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223679",
+    "ThreadId": "65745",
+    "Html": "<p>you mean directions?</p>",
+    "PostedDate": "2009-08-14T13:13:38.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223681",
+    "ThreadId": "65745",
+    "Html": "<p>Yes and no. The directions themselves are not necessarily important to me. I would like to be able to specify a starting point, and then multiple specific geocoded points along the way all the way to a final ending point. And then&nbsp; draw the route connecting all of these points. Think of it as something similar to a, for example, a truck that has to leave a warehouse and then delivery products at mutliple stops. I would like to be able to map this route.&nbsp;I don't want to draw straight 'lines' connecting these points. i do want Google to create the appropriate route. But, as I said, I don't necessarily need to have access to the directions via your control (although that would be a plus).</p>\r\n<p>The goal is to be able to draw multiple routes at the same time each with a different color. Each of these routes will represent a 'delivery truck' that is making multiple stops.</p>\r\n<p>I hope this makes sense!</p>\r\n<p>Jack</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-14T13:21:02.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223682",
+    "ThreadId": "65745",
+    "Html": "<p>well currrent functionality can do it allready</p>",
+    "PostedDate": "2009-08-14T13:23:21.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223683",
+    "ThreadId": "65745",
+    "Html": "<p>Great. Do I to use <span style=\"font-size:x-small\">GetRouteBetweenPoints </span><span style=\"font-size:x-small\">for each 'pair' of points, as in:</span></p>\r\n<p><span style=\"font-size:x-small\">Assume route A has 5 stops/points. Do I use&nbsp;</span><span style=\"font-size:x-small\">GetRouteBetweenPoints for stops # 1 and 2, then use it for stops # 2 and 3, then for stops # 3 and 4, etc?</span></p>\r\n<p><span style=\"font-size:x-small\">or is there some other method that I'm missing?</span></p>",
+    "PostedDate": "2009-08-14T13:28:47.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223684",
+    "ThreadId": "65745",
+    "Html": "<p>well if you do not have all point of route, you can use that</p>",
+    "PostedDate": "2009-08-14T13:34:26.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223689",
+    "ThreadId": "65745",
+    "Html": "<p>Hi&nbsp;again. I'm not sure if I understand correctly.</p>\r\n<p>I will have the geocoded coordinates for all points along the route. The GetRouteBetweenPoints method supports 2 PointLatLong params for a starting and an ending point. It sounded like you may have implied that the control provides some other method for plotting a route along multiple points? If not, is the method I describes before (i.e. creating separate routes along each pair of points) the only option available to me via your control?</p>\r\n<p>Sorry for asking again!</p>\r\n<p>Jack</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-14T13:51:03.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223699",
+    "ThreadId": "65745",
+    "Html": "<p>Just to make sure, I don't want a 'straight line' route between my multiple points. I know that this can be done. I want the 'driving' route from point 1, to point 2, to point 3, to point 4, etc. I don't care too much to see the text of the driving instructions/directions from Google but I do want a google-provided 'drivable' route connecting my multiple points.</p>\r\n<p>Thanks for any feedback you can give me.</p>\r\n<p>Jack</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-14T14:14:34.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "223702",
+    "ThreadId": "65745",
+    "Html": "<p>then you must use that function on each two point in your route</p>",
+    "PostedDate": "2009-08-14T14:16:29.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

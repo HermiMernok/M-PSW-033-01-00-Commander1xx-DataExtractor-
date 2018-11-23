@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "477932",
+    "ThreadId": "222882",
+    "Html": "Hi Radioman!\r\n\r\nIs there a algo in Windows.Forms for a Point in Poligon-Match?",
+    "PostedDate": "2010-08-09T00:38:09.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "477948",
+    "ThreadId": "222882",
+    "Html": "<p>hey, check <a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=85419\">http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=85419</a></p>",
+    "PostedDate": "2010-08-09T01:02:23.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478030",
+    "ThreadId": "222882",
+    "Html": "<p>This will do the trick (.NET 3.5)</p>\r\n<p>Extension Methods are so amazing =D</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">class</span> PolygonHelper\r\n    {\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">bool</span> IsPointInPolygon(<span style=\"color:blue\">this</span> GMapPolygon polygon, PointLatLng PointToDetermine)\r\n        {\r\n            <span style=\"color:blue\">return</span> IsPointInPolygon(polygon.Points, PointToDetermine);\r\n        }\r\n\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">bool</span> IsPointInPolygon(<span style=\"color:blue\">this</span> List&lt;PointLatLng&gt; polygon, PointLatLng PointToDetermine)\r\n        {\r\n            <span style=\"color:blue\">if</span> (polygon.Count &lt; 3)\r\n                <span style=\"color:blue\">return</span> <span style=\"color:blue\">false</span>;\r\n\r\n            List&lt;PointLatLng&gt; localPointList = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n            localPointList.AddRange(polygon);\r\n            localPointList.Add(polygon[0]);\r\n            <span style=\"color:blue\">int</span> counter = 0;\r\n            <span style=\"color:blue\">int</span> i;\r\n            <span style=\"color:blue\">double</span> xinters;\r\n            PointLatLng p1, p2;\r\n\r\n            p1 = polygon[0];\r\n            <span style=\"color:blue\">for</span> (i = 1; i &lt; localPointList.Count; i++)\r\n            {\r\n                p2 = localPointList[i % localPointList.Count];\r\n\r\n                <span style=\"color:blue\">if</span> (PointToDetermine.Lat &gt; Math.Min(p1.Lat, p2.Lat))\r\n                {\r\n                    <span style=\"color:blue\">if</span> (PointToDetermine.Lat &lt;= Math.Max(p1.Lat, p2.Lat))\r\n                    {\r\n                        <span style=\"color:blue\">if</span> (PointToDetermine.Lng &lt;= Math.Max(p1.Lng, p2.Lng))\r\n                        {\r\n                            <span style=\"color:blue\">if</span> (p1.Lat != p2.Lat)\r\n                            {\r\n                                xinters = (PointToDetermine.Lat - p1.Lat) * (p2.Lng - p1.Lng) / (p2.Lat - p1.Lat) + p1.Lng;\r\n                                <span style=\"color:blue\">if</span> (p1.Lng == p2.Lng || PointToDetermine.Lng &lt;= xinters)\r\n                                    counter++;\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n                p1 = p2;\r\n            }\r\n\r\n            <span style=\"color:blue\">if</span> (counter % 2 == 0)\r\n                <span style=\"color:blue\">return</span> <span style=\"color:blue\">false</span>;\r\n\r\n            <span style=\"color:blue\">return</span> <span style=\"color:blue\">true</span>;\r\n        }\r\n    }\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-08-09T04:33:02.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "592300",
+    "ThreadId": "252651",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I'm getting blue tiles showing on the map control with thr writing on:</p>\r\n<p>&quot;exception: mixed mode assembly is built against version 'v2.0.50727' of the runtime and cannot be loaded in the 4.0 runtime without additional configuration&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>I 'think' i need to put this somewhere but can anyone explain to me where this needs to go?</p>\r\n<p><span style=\"color:blue\">&lt;?</span><span style=\"color:#a31515\">xml</span> <span style=\"color:red\">\r\nversion</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">1.0</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">?&gt;</span><br>\r\n<span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">configuration</span><span style=\"color:blue\">&gt;</span><br>\r\n&nbsp;&nbsp; <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">startup</span>\r\n<span style=\"color:red\">useLegacyV2RuntimeActivationPolicy</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">true</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">supportedRuntime</span>\r\n<span style=\"color:red\">version</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">v4.0</span><span style=\"color:black\">&quot;</span>\r\n<span style=\"color:red\">sku</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">.NETFramework,Version=v4.0</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span><br>\r\n&nbsp;&nbsp; <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">startup</span><span style=\"color:blue\">&gt;</span><br>\r\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">configuration</span><span style=\"color:blue\">&gt;</span></p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>\r\n",
+    "PostedDate": "2011-04-05T12:27:35.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592307",
+    "ThreadId": "252651",
+    "Html": "<p>to app.config file, if you don't have one, just create</p>",
+    "PostedDate": "2011-04-05T12:34:38.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592336",
+    "ThreadId": "252651",
+    "Html": "<p>Hi Radioman,</p>\n<p>I've really new to c# and programming in general,</p>\n<p>could you please explain where I can find/create the app.config file?</p>\n<p>Thank you</p>\n<p>&nbsp;</p>\n<p>edit: Nevermind! I found it! thanks for the help and thanks for making a brilliant control!!</p>",
+    "PostedDate": "2011-04-05T13:11:55.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592341",
+    "ThreadId": "252651",
+    "Html": "<p>file-&gt;new-&gt;... app config</p>",
+    "PostedDate": "2011-04-05T13:23:11.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "592414",
+    "ThreadId": "252651",
+    "Html": "<p>k</p>",
+    "PostedDate": "2011-04-05T14:58:57.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810141",
+    "ThreadId": "252651",
+    "Html": "<p>Hi Radioman;</p>\r\n<p>I have the same problem even if I created 'app.config' ?!</p>",
+    "PostedDate": "2012-03-14T03:46:46.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810195",
+    "ThreadId": "252651",
+    "Html": "<p>you are doing something wrong..</p>",
+    "PostedDate": "2012-03-14T06:08:57.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810207",
+    "ThreadId": "252651",
+    "Html": "\r\n<p>?</p>\r\n<div>Le 14 mars 2012 14:09, &quot;radioman&quot; &lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt; a écrit :<br type=\"attribution\">\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: radioman</p>\r\n<div>\r\n<p>you are doing something wrong..</p>\r\n</div>\r\n<div>\r\n<p>Read the <a href=\"http://greatmaps.codeplex.com/discussions/252651#post810195\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:greatmaps@discussions.codeplex.com?subject=[greatmaps:252651]\" target=\"_blank\">greatmaps@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:greatmaps@discussions.codeplex.com\" target=\"_blank\">\r\ngreatmaps@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://greatmaps.codeplex.com/discussions/252651/unsubscribe/\" target=\"_blank\">\r\nunsubscribe</a> on CodePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n",
+    "PostedDate": "2012-03-14T06:21:14.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

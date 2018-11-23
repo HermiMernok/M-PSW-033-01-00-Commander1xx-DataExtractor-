@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "989830",
+    "ThreadId": "430317",
+    "Html": "\r\n<div style=\"background-color:white; color:black\">\r\n<pre>      <span style=\"color:blue\">public</span> <span style=\"color:blue\">virtual</span> <span style=\"color:blue\">void</span> OnRender(Graphics g)\r\n      {\r\n<span style=\"color:blue\">#if</span> !PocketPC\r\n         <span style=\"color:blue\">if</span>(IsVisible)\r\n         {\r\n            <span style=\"color:blue\">using</span>(GraphicsPath rp = <span style=\"color:blue\">new</span> GraphicsPath())\r\n            {\r\n               <span style=\"color:blue\">for</span>(<span style=\"color:blue\">int</span> i = 0; i &lt; LocalPoints.Count; i&#43;&#43;)\r\n               {\r\n                  GPoint p2 = LocalPoints[i];\r\n\r\n                  <span style=\"color:blue\">if</span>(i == 0)\r\n                  {\r\n                     rp.AddLine(p2.X, p2.Y, p2.X, p2.Y);\r\n                  }\r\n                  <span style=\"color:blue\">else</span>\r\n                  {\r\n                     System.Drawing.PointF p = rp.GetLastPoint();\r\n                     rp.AddLine(p.X, p.Y, p2.X, p2.Y);\r\n                  }\r\n               }\r\n\r\n               <span style=\"color:blue\">if</span>(rp.PointCount &gt; 0)\r\n               {\r\n                  rp.CloseFigure();\r\n\r\n                  g.FillPath(Fill, rp);\r\n\r\n                  g.DrawPath(Stroke, rp);\r\n               }\r\n            }\r\n         }\r\n<span style=\"color:blue\">#else</span>\r\n         {\r\n            <span style=\"color:blue\">if</span>(IsVisible)\r\n            {\r\n               Point[] pnts = <span style=\"color:blue\">new</span> Point[LocalPoints.Count];\r\n               <span style=\"color:blue\">for</span>(<span style=\"color:blue\">int</span> i = 0; i &lt; LocalPoints.Count; i&#43;&#43;)\r\n               {\r\n                  Point p2 = <span style=\"color:blue\">new</span> Point((<span style=\"color:blue\">int</span>)LocalPoints[i].X, (<span style=\"color:blue\">int</span>)LocalPoints[i].Y);\r\n                  pnts[pnts.Length - 1 - i] = p2;\r\n               }\r\n\r\n               <span style=\"color:blue\">if</span>(pnts.Length &gt; 0)\r\n               {\r\n                  g.FillPolygon(Fill, pnts);\r\n                  g.DrawPolygon(Stroke, pnts);\r\n               }\r\n            }\r\n         }\r\n<span style=\"color:blue\">#endif</span>\r\n</pre>\r\n</div>\r\n<p>Exist a bug in the line:</p>\r\n<p><strong>g.FillPath(Fill, rp);</strong></p>\r\n<p><strong><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">OverFlow Exception was unhandled</span></span></span></span></strong></p>\r\n<p><strong><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\"><span style=\"font-family:Consolas; font-size:x-small\">&#65279;</span></span></span></span>So,\r\n suggestions ???? That happens when I play with scroll mouse ... Class: &#65279;GMapPolygon</strong></p>\r\n",
+    "PostedDate": "2013-01-21T08:59:03.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989839",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>never happened to me ;/</p>\r\n",
+    "PostedDate": "2013-01-21T09:16:54.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989850",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>And ????? How fix that ??? Problem of machine ??? I should use Invalidate Method ??? older versions doesn't happen that .... :(</p>\r\n",
+    "PostedDate": "2013-01-21T09:28:32.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989853",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>and what points there are in&nbsp;<strong>rp</strong>?</p>\r\n",
+    "PostedDate": "2013-01-21T09:39:08.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989863",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>Points:</p>\r\n<p>x=1.62732621E&#43;9, y=-199307936.0</p>\r\n<p>x=1.62732621E&#43;9, y=-199307936.0</p>\r\n<p>x=1.59429875E&#43;9, y=-216372784.0</p>\r\n<p>x=1.6202889E&#43;9, y=-221093824.0</p>\r\n<p>x=1.63274176E&#43;9, y=-216842432.0</p>\r\n<p>Its problem with negative values ??? Or with biggest values ???</p>\r\n",
+    "PostedDate": "2013-01-21T10:01:10.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989867",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>how do you get these big numbers? Are you using latest version?</p>\r\n",
+    "PostedDate": "2013-01-21T10:06:01.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989888",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>Yes sr, the latest version, those numbers appear when I move the mouse scroll fast .... :( ... And something strange is that in older version this doesn't happen</p>\r\n",
+    "PostedDate": "2013-01-21T11:08:08.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989906",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>&quot;move the mouse scroll&quot; ;/ ?</p>\r\n",
+    "PostedDate": "2013-01-21T11:38:37.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989988",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>Yep, the scroll of the mouse, the <span>wheel </span>of the midle ... :(</p>\r\n",
+    "PostedDate": "2013-01-21T13:48:29.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989998",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>maybe you zoomed to level 152?</p>\r\n",
+    "PostedDate": "2013-01-21T14:04:47.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990006",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>O.o, I don't Know, I supposed that maps doesn't leave more than 24 of zoom, isn't it ??</p>\r\n",
+    "PostedDate": "2013-01-21T14:22:35.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990011",
+    "ThreadId": "430317",
+    "Html": "\r\n<p>&#65279;&#65279;&#65279;&#65279;&#65279;&#65279;&#65279;&#65279;Hi, I have set the zoom until 17 and the bug doesn't reply, perhaps was this because the application that is available for download MaxZoom is until 24,&nbsp;o.o ...</p>\r\n",
+    "PostedDate": "2013-01-21T14:28:51.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1082937",
+    "ThreadId": "454022",
+    "Html": "Can {geodesic:true} be used on GMap.Net? When {geodesic:true} is set on a webbrowser version of GMaps, long distance routes are shown as great circle routes and not straight lines from point A to point B.\r<br />\n<br />\nThanks for any help!<br />\n",
+    "PostedDate": "2013-08-20T19:49:22.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083105",
+    "ThreadId": "454022",
+    "Html": "it's possible but you need to calculate the points manually<br />\n",
+    "PostedDate": "2013-08-21T06:56:08.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083140",
+    "ThreadId": "454022",
+    "Html": "Hi radioman,\r<br />\n<br />\nSo if I have a line with just 2 points, say where 1 point is in NYC and other is in London, I would have to manually calculate all points in between?<br />\n",
+    "PostedDate": "2013-08-21T07:55:33.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083146",
+    "ThreadId": "454022",
+    "Html": "i suppose you use some formula: <a href=\"http://williams.best.vwh.net/avform.htm#Intro\" rel=\"nofollow\">http://williams.best.vwh.net/avform.htm#Intro</a><br />\n",
+    "PostedDate": "2013-08-21T08:08:13.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083154",
+    "ThreadId": "454022",
+    "Html": "Gotcha, thanks for the info, radioman.<br />\n",
+    "PostedDate": "2013-08-21T08:28:45.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084847",
+    "ThreadId": "454022",
+    "Html": "Got it to work correctly, now also the intersection point is correct :-) I used the formulas from here: <a href=\"http://williams.best.vwh.net/avform.htm#Intermediate\" rel=\"nofollow\">http://williams.best.vwh.net/avform.htm#Intermediate</a> \r<br />\n<br />\n<img src=\"https://dl.dropboxusercontent.com/u/7026787/Screenshots/Intersection_Correct.jpg\" alt=\"Image\" />\r<br />\n<br />\nHere's the code, just pass in Start and End points and the number of intermediate points, and you get a List of PointLatLng that form the route along the Great Circle.<br />\n<pre><code>        /// &lt;summary&gt;\n        /// Gets a list of Points along a great circle of the earth\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;start&quot;&gt;The Start point&lt;/param&gt;\n        /// &lt;param name=&quot;end&quot;&gt;The end point&lt;/param&gt;\n        /// &lt;param name=&quot;numPointsBetween&quot;&gt;The number of points along the great circle route&lt;/param&gt;\n        /// &lt;returns&gt;&lt;/returns&gt;\n        public static List&lt;PointLatLng&gt; GetGreatCircleRoute(PointLatLng start, PointLatLng end, int numPointsBetween)\n        {\n            ///Check numPointsBetween\n            if(numPointsBetween &lt;= 1)\n            {\n                throw new ArgumentException(&quot;numPointsBetween must be larger than 1!&quot;);\n            }\n            //Create List and add first point:\n            List&lt;PointLatLng&gt; lstPoints = new List&lt;PointLatLng&gt;(numPointsBetween + 2) { start };\n\n            double lat1 = ToRadians(start.Lat);\n            double lon1 = ToRadians(start.Lng);\n            double lat2 = ToRadians(end.Lat);\n            double lon2 = ToRadians(end.Lng);\n\n            double d = GetDistanceInRadians(lat1, lon1, lat2, lon2);\n\n            double increment = 1d / (double)numPointsBetween;\n            double f = 0d + increment;\n\n            for (int i = 0; i &lt; numPointsBetween; i++)\n            {\n                lstPoints.Add(GetGreatCirclePoint(f, d, lat1, lon1, lat2, lon2));\n\n                f += increment;\n            }\n\n            //Add last point\n            lstPoints.Add(end);\n\n            return lstPoints;\n        }\n\n        /// &lt;summary&gt;\n        /// Returns a point that lies on the Great Circle described by Start and End points at a fraction f of distance d\n        /// &lt;/summary&gt;\n        /// &lt;see cref=&quot;http://williams.best.vwh.net/avform.htm#Intermediate&quot;/&gt;\n        /// &lt;param name=&quot;f&quot;&gt;Fraction f (0.0 = Startpoint, 1.0 = Endpoint)&lt;/param&gt;\n        /// &lt;param name=&quot;d&quot;&gt;Distance between Start and Endpoints in RADIANS&lt;/param&gt;\n        /// &lt;param name=&quot;lat1&quot;&gt;Latitude of Startpoint IN RADIANS&lt;/param&gt;\n        /// &lt;param name=&quot;lon1&quot;&gt;Longitude of Startpoint IN RADIANS&lt;/param&gt;\n        /// &lt;param name=&quot;lat2&quot;&gt;Latitude of Endpoint IN RADIANS&lt;/param&gt;\n        /// &lt;param name=&quot;lon2&quot;&gt;Longitude of Endpoint IN RADIANS&lt;/param&gt;\n        /// &lt;returns&gt;PointlatLng that lies on the great Circle&lt;/returns&gt;\n        public static PointLatLng GetGreatCirclePoint(double f, double d, double lat1, double lon1, double lat2, double lon2)\n        {\n            double A = Math.Sin((1d - f) * d) / Math.Sin(d);\n            double B = Math.Sin(f * d) / Math.Sin(d);\n\n            double x = A * Math.Cos(lat1) * Math.Cos(lon1) + B * Math.Cos(lat2) * Math.Cos(lon2);\n            double y = A * Math.Cos(lat1) * Math.Sin(lon1) + B * Math.Cos(lat2) * Math.Sin(lon2);\n            double z = A * Math.Sin(lat1) + B * Math.Sin(lat2);\n\n            double lat = Math.Atan2(z, Math.Sqrt(x * x + y * y));\n            double lon = Math.Atan2(y, x);\n\n            return new PointLatLng(ToDegrees(lat), ToDegrees(lon));\n        }\n\n        /// &lt;summary&gt;\n        /// Gets the distance (in RADIANS) between two points specified by latitude/longitude in RADIANS!\n        /// &lt;/summary&gt;\n        /// &lt;param name=&quot;lat1&quot;&gt;Latitude of Startpoint IN RADIANS&lt;/param&gt;\n        /// &lt;param name=&quot;lon1&quot;&gt;Longitude of Startpoint IN RADIANS&lt;/param&gt;\n        /// &lt;param name=&quot;lat2&quot;&gt;Latitude of Endpoint IN RADIANS&lt;/param&gt;\n        /// &lt;param name=&quot;lon2&quot;&gt;Longitude of Endpoint IN RADIANS&lt;/param&gt;\n        /// &lt;returns&gt;Distabnce in RADIANS&lt;/returns&gt;\n        public static double GetDistanceInRadians(double lat1, double lon1, double lat2, double lon2)\n        {\n            double d = 2d * Math.Asin(Math.Sqrt(Math.Pow(Math.Sin((lat1 - lat2) / 2d), 2d) + Math.Cos(lat1) * Math.Cos(lat2) * Math.Pow(Math.Sin((lon1 - lon2)/2d), 2d)));\n            return d;\n        }</code></pre>\n\n",
+    "PostedDate": "2013-08-26T03:02:03.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084933",
+    "ThreadId": "454022",
+    "Html": "OUTSTANDING WORK, Xandolph! :-D Thanks a million!<br />\n",
+    "PostedDate": "2013-08-26T07:03:57.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084998",
+    "ThreadId": "454022",
+    "Html": "You're welcome :-)<br />\n",
+    "PostedDate": "2013-08-26T09:41:19.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092393",
+    "ThreadId": "454022",
+    "Html": "<strong>Xandolph wrote:</strong><br />\n<blockquote>\nYou're welcome :-)<br />\n</blockquote>\nXandolph, if I do a route.Distance output on a route generated by your code, in what format is it being outputted? Miles? Kilometers? Nautical miles?<br />\n",
+    "PostedDate": "2013-09-13T10:03:45.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

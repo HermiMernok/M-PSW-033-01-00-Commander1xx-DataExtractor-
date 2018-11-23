@@ -1,0 +1,8 @@
+<div class="wikidoc"><h3>Constructing a Coordinate System (CS) by Well-known Text (WKT)</h3><pre>
+string wkt = &quot;GEOGCS[\&quot;GCS_WGS_1984\&quot;,DATUM[\&quot;D_WGS_1984\&quot;,SPHEROID[\&quot;WGS_1984\&quot;,6378137,298.257223563]],PRIMEM[\&quot;Greenwich\&quot;,0],UNIT[\&quot;Degree\&quot;,0.0174532925199433]]&quot;;
+ICoordinateSystem cs = SharpMap.Converters.WellKnownText.CoordinateSystemWktReader.Parse(wkt) as ICoordinateSystem;
+</pre><br />If you know that the WKT is for instance a geographic coordinate system as above, you can instead cast it to that if necessary:<br /><pre>
+IGeographicCoordinateSystem gcs = CoordinateSystemWktReader.Parse(wkt_geo) as IGeographicCoordinateSystem;
+</pre><br />and similar for a projected coordinate system:<br /><pre>
+IProjectedCoordinateSystem pcs = CoordinateSystemWktReader.Parse(wkt_proj) as IProjectedCoordinateSystem;
+</pre></div><div class="ClearBoth"></div>

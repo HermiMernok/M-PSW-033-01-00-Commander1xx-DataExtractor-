@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "1004470",
+    "ThreadId": "433918",
+    "Html": "Hey.<br />\nI was wondering if it's possible to store cached maps in shared directory, so multiple client applications can use a single cache simultaneously via network.<br />\nI'm going to test this soon enough anyway, but i thought i might as well try asking here.<br />\nCheers.<br />\n",
+    "PostedDate": "2013-02-20T23:51:52.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004702",
+    "ThreadId": "433918",
+    "Html": "any sql server as secondary cache would work just fine<br />\n",
+    "PostedDate": "2013-02-21T07:33:51.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005024",
+    "ThreadId": "433918",
+    "Html": "Radioman, could you please clarify 2 questions.<br />\n<ol>\n<li>Is it really necessary to set up secondary cache? In my environment it's not good - application setup should be as simple as possible. And only one mode - CacheOnly should be enabled, because there is no internet connection in my environment - so there is no any reason to write something to shared cache from different clients. </li>\n<li>If sql setup is absolutely required, is it possible to import saved cache from Data.gmdb to sql instance?</li>\n</ol>\n",
+    "PostedDate": "2013-02-21T21:39:04.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006964",
+    "ThreadId": "433918",
+    "Html": "if it's CacheOnly mode, you can try use SQLite cache provider on network share as secondary cache, it should work<br />\n",
+    "PostedDate": "2013-02-26T07:07:01.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007468",
+    "ThreadId": "433918",
+    "Html": "Doesn't PrimaryCache already use SQLite by default? If that is the case, then why do you suggest using our own instance of SQLite server with SecondaryCache. What's the difference?<br />\n",
+    "PostedDate": "2013-02-27T01:47:19.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007511",
+    "ThreadId": "433918",
+    "Html": "primary cache is only for local computer, in case network fails or something, network cache is for seeding the maps to the clients<br />\n",
+    "PostedDate": "2013-02-27T03:57:37.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007516",
+    "ThreadId": "433918",
+    "Html": "It's not clear - why we can't use primary cache with shared folder in CacheOnly mode. Could you explain please? Why do we need secondary cache, if primary is not supposed to be updated in any case?<br />\n",
+    "PostedDate": "2013-02-27T04:03:05.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007539",
+    "ThreadId": "433918",
+    "Html": "it's faster, it's better.<br />\n",
+    "PostedDate": "2013-02-27T04:42:49.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007721",
+    "ThreadId": "433918",
+    "Html": "Sorry for importunity, but why it's faster and better? What is the difference between using only primary cache? As I understand - database is the same - SQLite, shared forlder is the same too, CacheOnly is enabled and nobody should write into cache. So, what is the point of secondary cache in such scenario?<br />\n",
+    "PostedDate": "2013-02-27T09:16:11.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007722",
+    "ThreadId": "433918",
+    "Html": "do as you wish..<br />\n",
+    "PostedDate": "2013-02-27T09:18:53.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007724",
+    "ThreadId": "433918",
+    "Html": ":) actually. I wish to do with understanding<br />\n",
+    "PostedDate": "2013-02-27T09:20:13.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007743",
+    "ThreadId": "433918",
+    "Html": "i've explained, and if you want to know the details, check the code<br />\n",
+    "PostedDate": "2013-02-27T09:50:27.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007746",
+    "ThreadId": "433918",
+    "Html": "ok, thank you<br />\n",
+    "PostedDate": "2013-02-27T09:54:56.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

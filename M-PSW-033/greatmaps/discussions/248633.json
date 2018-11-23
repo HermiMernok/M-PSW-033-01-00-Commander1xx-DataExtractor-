@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "576346",
+    "ThreadId": "248633",
+    "Html": "\r\n<p>Is there a way to detect sea tiles so when caching eg: whole of the UK it can skip the empty tiles ?</p>\r\n<p>Maybe have a flag as no tile needed to save db space ?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-03-06T12:01:45.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576358",
+    "ThreadId": "248633",
+    "Html": "<p>well, current implementation uses rectangle based area, i guess we need more accurate area selection</p>",
+    "PostedDate": "2011-03-06T12:50:04.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576360",
+    "ThreadId": "248633",
+    "Html": "<p>If the caching could detect \"SEA\" or blank tile - maybe by size and then not store binary data ? a flag instead.</p>",
+    "PostedDate": "2011-03-06T12:54:04.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576377",
+    "ThreadId": "248633",
+    "Html": "maybe by the size, should be much smaller&nbsp;",
+    "PostedDate": "2011-03-06T13:54:30.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576379",
+    "ThreadId": "248633",
+    "Html": "<p>Would still need to store a blank entry so you know that it has been cached in the database and then possibly return an image from my resources instead ?</p>",
+    "PostedDate": "2011-03-06T13:59:35.58-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576381",
+    "ThreadId": "248633",
+    "Html": "<p>are you trying to 'save' space ;} 'empty' tiles are only &lt; 1KB</p>",
+    "PostedDate": "2011-03-06T14:04:31.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576386",
+    "ThreadId": "248633",
+    "Html": "<p>I want to cache the uk for offline mobile usage but so far just zoom 12 on open street maps is 175Mb</p>",
+    "PostedDate": "2011-03-06T14:09:10.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576401",
+    "ThreadId": "248633",
+    "Html": "my cache is ~1GB but with few levels, i doubt you will save much by removing small tiles, 1KB * 10000 sea tiles = only 10MB",
+    "PostedDate": "2011-03-06T15:02:42.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

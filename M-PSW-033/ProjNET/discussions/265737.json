@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "644368",
+    "ThreadId": "265737",
+    "Html": "\r\n<p>I am working on converting&nbsp; Flat Lat/Lon to Lambert Conformal Lat/Lon.</p>\r\n<p>The details of the Lambert Conformal is given here.</p>\r\n<p><a href=\"redir.aspx?C=15a3b372d6304bf393f2f964b9e8f63d&URL=http%3a%2f%2fwww.nco.ncep.noaa.gov%2fpmb%2fdocs%2fon388%2ftableb.html%23GRID252\" target=\"_blank\">http://www.nco.ncep.noaa.gov/pmb/docs/on388/tableb.html#GRID252</a></p>\r\n<p>Basically we have data for turbulence in Lambert format.</p>\r\n<p>Our Map is using Flat Lat/Lon for plotting.</p>\r\n<p>Want to convert Flat Lat/Lon from our Map to Lambert Lat/Lon to find if there is turbulence on our Map.</p>\r\n<p>How to go about it?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2011-07-19T07:43:40.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "644373",
+    "ThreadId": "265737",
+    "Html": "<table width=\"80%\" align=\"center\">\r\n<tbody>\r\n<tr>\r\n<th>\r\n<p>Providing the Lambert Conformal info as the link in the original posting may not work.</p>\r\n<p><span style=\"text-decoration: underline;\">GRID DESCRIPTIONS</span></p>\r\n</th>\r\n</tr>\r\n<tr>\r\n<td align=\"middle\" valign=\"top\">252 ()</td>\r\n<td align=\"middle\" valign=\"top\">Regional - CONUS (Lambert  Conformal)<br /><br /></td>\r\n</tr>\r\n<tr>\r\n<td><br /></td>\r\n<td>\r\n<table border=\"1\" cellpadding=\"2\" align=\"center\">\r\n<tbody>\r\n<tr>\r\n<td>Nx</td>\r\n<td>301</td>\r\n</tr>\r\n<tr>\r\n<td>Ny</td>\r\n<td>225</td>\r\n</tr>\r\n<tr>\r\n<td>La1</td>\r\n<td>16.281N</td>\r\n</tr>\r\n<tr>\r\n<td>Lo1</td>\r\n<td>233.862E = 126.138W</td>\r\n</tr>\r\n<tr>\r\n<td>Res. &amp; Comp. Flag</td>\r\n<td>0 0 0 0 1 0 0 0</td>\r\n</tr>\r\n<tr>\r\n<td>Lov</td>\r\n<td>265.000E = 95.000W</td>\r\n</tr>\r\n<tr>\r\n<td>Dx</td>\r\n<td>20.317625 km</td>\r\n</tr>\r\n<tr>\r\n<td>Dy</td>\r\n<td>20.317625 km</td>\r\n</tr>\r\n<tr>\r\n<td>Projection Flag</td>\r\n<td>0</td>\r\n</tr>\r\n<tr>\r\n<td>Scanning Mode (bits 1 2 3)</td>\r\n<td>0 1 0</td>\r\n</tr>\r\n<tr>\r\n<td>Latin 1</td>\r\n<td>25.000N</td>\r\n</tr>\r\n<tr>\r\n<td>Latin 2</td>\r\n<td>25.000N (tangent cone)</td>\r\n</tr>\r\n<tr>\r\n<th colspan=\"2\">Lat/Lon values of the corners of the grid</th>\r\n</tr>\r\n<tr>\r\n<td style=\"color: #000000;\">(1,1)</td>\r\n<td style=\"color: #000000;\">16.281N, 126.138W</td>\r\n</tr>\r\n<tr>\r\n<td style=\"color: #000000;\">(1,225)</td>\r\n<td style=\"color: #000000;\">54.172N, 139.856W</td>\r\n</tr>\r\n<tr>\r\n<td style=\"color: #000000;\">(301,225)</td>\r\n<td style=\"color: #000000;\">55.481N, 57.383W</td>\r\n</tr>\r\n<tr>\r\n<td style=\"color: #000000;\">(301,1)</td>\r\n<td style=\"color: #000000;\">17.340N, 69.039W</td>\r\n</tr>\r\n<tr style=\"color: #000000;\">\r\n<th colspan=\"2\">Pole point</th>\r\n</tr>\r\n<tr>\r\n<td style=\"color: #000000;\">(I,J)</td>\r\n<td style=\"color: #000000;\">(166.210, 701.026)</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>",
+    "PostedDate": "2011-07-19T07:47:37.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "807363",
+    "ThreadId": "347801",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Any plans for a <a href=\"http://docs.nuget.org/\">NuGet</a> packaging of this great library?</p>\r\n<p>There is not much to it, but I could provide any kind of assistance needed (up to packaging it myself ;-)). Having this would make the packaging of my project (<a href=\"http://geosik.codeplex.com/\">GeoSIK</a>) much easier.</p>\r\n",
+    "PostedDate": "2012-03-08T03:26:21.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807419",
+    "ThreadId": "347801",
+    "Html": "<p>if you can submit a patch with the things needed to do the package, we can try to add this feature.</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2012-03-08T05:41:09.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807455",
+    "ThreadId": "347801",
+    "Html": "<p>You got it.</p>\r\n<p>Is a SVN patch OK (I don't even know if TFS does patches)?</p>",
+    "PostedDate": "2012-03-08T06:47:32.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "807506",
+    "ThreadId": "347801",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>cartoixa wrote:</strong><br />\r\n<p>Is a SVN patch OK (I don't even know if TFS does patches)?</p>\r\n</blockquote>\r\n<p>++ for svn patch. thanks a lot.</p>",
+    "PostedDate": "2012-03-08T08:07:52.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814575",
+    "ThreadId": "347801",
+    "Html": "<p>The package <a href=\"http://nuget.org/packages/ProjNet\">is here</a>.</p>\r\n<p>But I just realized (a bit late) that the assemblies version number are different between the <a href=\"http://projnet.codeplex.com/releases/view/27838\">official release</a> (v. 1.2.3432.30659) and the Nuget package (v. 1.2.4455.27045), which is ... unfortunate.</p>\r\n<p>2 solutions:</p>\r\n<ul>\r\n<li>silently update the official release with the NuGet version...</li>\r\n<li>release an updated 1.2.1 version on both CodePlex and the NuGet gallery with the same assembly versions (seems preferable).</li>\r\n</ul>\r\n<p>Note: the <a href=\"http://sharpmap.codeplex.com/\">SharpMap</a> project uses <a href=\"http://sharpmap.codeplex.com/discussions/349761\">yet another version</a>...</p>",
+    "PostedDate": "2012-03-23T04:20:13.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "814579",
+    "ThreadId": "347801",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>cartoixa wrote:</strong><br />\r\n<p>The package <a href=\"http://nuget.org/packages/ProjNet\">is here</a>.</p>\r\n<p>But I just realized (a bit late) that the assemblies version number are different between the <a href=\"http://projnet.codeplex.com/releases/view/27838\">official release</a> (v. 1.2.3432.30659) and the Nuget package (v. 1.2.4455.27045), which is ... unfortunate.</p>\r\n<p>2 solutions:</p>\r\n<ul>\r\n<li>silently update the official release with the NuGet version... </li>\r\n<li>release an updated 1.2.1 version on both CodePlex and the NuGet gallery with the same assembly versions (seems preferable). </li>\r\n</ul>\r\n<p>Note: the <a href=\"http://sharpmap.codeplex.com/\">SharpMap</a> project uses <a href=\"http://sharpmap.codeplex.com/discussions/349761\"> yet another version</a>...</p>\r\n</blockquote>\r\n<p>sharpmap now uses internally it's own version, they can switch to nuget or continue as is.</p>\r\n<p>My2Cents: release a 1.2.0.1 version with the new package.</p>",
+    "PostedDate": "2012-03-23T04:28:17.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825784",
+    "ThreadId": "347801",
+    "Html": "<p>Where is the \"official\" source of Proj.Net? There is no commit in this site for some time now...</p>\r\n<p>&nbsp;</p>\r\n<p>George J.</p>",
+    "PostedDate": "2012-04-18T23:29:46.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825796",
+    "ThreadId": "347801",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>gcapnias wrote:</strong><br />\r\n<p>Where is the \"official\" source of Proj.Net? There is no commit in this site for some time now...</p>\r\n</blockquote>\r\n<p>This is the official source, simply the project development is stopped, mainly due to the fact that the library works as expected.</p>\r\n<p>Other projects uses custom versions, because they need custom functionalities.</p>",
+    "PostedDate": "2012-04-18T23:43:09.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

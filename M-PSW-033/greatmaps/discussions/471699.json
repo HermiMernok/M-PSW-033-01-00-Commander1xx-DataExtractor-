@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1130900",
+    "ThreadId": "471699",
+    "Html": "Hello,\r<br />\nfirst of all, thank you very much for your library, it is really awesome.\r<br />\n<br />\nI'm currently developing a software using the control on Windows Mobile 6.5 devices.\r<br />\n<br />\nMy goal is to plot several markers on a map and allow the user click one of these in order to do something with it. So I need the &quot;OnMarkerClick&quot; event to be raised.\r<br />\n<br />\nI'm currently modifying the &quot;OnMouseClick&quot; event in GMap control and noticed that the &quot;LocalAreaInControlSpace&quot; property of the marker always returns a location at the double of the real one (I mean : when the Marker is located at X:10, Y:24, then the property returns X:20, Y:48).\r<br />\n<br />\nI can correct it in my code in order to test if the point clicked is inside this location, but I wonder to know why is the property returning a false position. I don't want to simply modifiy the  LocalAreaInControlSpace property because I'm sure it will then draw the Marker at the false location.\r<br />\n<br />\nOnce we have found the ground of the behaviour I can change the code and then you can apply the changes so the &quot;OnMarkerClick&quot; is available for Windows Mobile.<br />\n",
+    "PostedDate": "2013-12-02T06:12:05.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1130923",
+    "ThreadId": "471699",
+    "Html": "values are not 'wrong', point origin is dynamic and is not related to window coordinates, sort of 'virtual space', at least thats the idea...\r<br />\n<br />\n..and in mobile version there is no translation matrix so the code is different, but i haven't test it properly...\r<br />\n<br />\nYou can test functionality on desktop by setting <em>bool MobileMode</em> = <strong>true</strong><br />\n",
+    "PostedDate": "2013-12-02T07:07:29.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2013-12-02T23:54:08.997-08:00"
+  },
+  {
+    "Id": "1131139",
+    "ThreadId": "471699",
+    "Html": "Hello Radioman,\r<br />\nthank you for your fast feedback. Thanks your explanation I understand that the LocalAreaInControlSpace property is not for mobile devices.\r<br />\n<br />\nI now have a control which works on Windows Mobile with OnMarkerClick event. Instead of using LocalAreaInControlSpace I just have to use LocalArea property of the marker object and everything went fine. I tested the control for several hours and until now everything works as expected.\r<br />\n<br />\nI don't know if you're interested by the code, if yes please let me know.\r<br />\n<br />\nGreetings\r<br />\n<br />\nJ-D Gasser<br />\n",
+    "PostedDate": "2013-12-02T23:54:03.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1131160",
+    "ThreadId": "471699",
+    "Html": "yes, any code is welcome<br />\n",
+    "PostedDate": "2013-12-03T01:34:32.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1133592",
+    "ThreadId": "471699",
+    "Html": "Hi Jean,\r<br />\n<br />\nCurrently im working also in windows mobile and wondering how i can make a onmarkerclick event. I was planning to show hide the tooltip on every click on the tooltip. If you may share on how you created your controls to make it i'l gladly appreciate it. Thank you.\r<br />\n<br />\nHi Radioman\r<br />\n<br />\nJust want to thank you for the library it was such a great help :)\r<br />\n<br />\nmicky<br />\n",
+    "PostedDate": "2013-12-10T06:08:34.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1133637",
+    "ThreadId": "471699",
+    "Html": "Hello,<br />\nHere you will find the GMapControl class modified in order to handle OnMarkerClick event:<br />\n<a href=\"https://skydrive.live.com/redir?resid=8203DC9201D65E56!1367&amp;authkey=!AIRG1XMzhYyLdow&amp;ithint=file%2c.cs\" rel=\"nofollow\">GMapControl.cs</a><br />\n<br />\nHope this will help.<br />\n<br />\nGreetings<br />\n",
+    "PostedDate": "2013-12-10T08:03:44.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1133758",
+    "ThreadId": "471699",
+    "Html": "Hi Jean,\r<br />\n<br />\nThank you very much it works :) \r<br />\n<br />\nmicky<br />\n",
+    "PostedDate": "2013-12-10T11:04:29.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

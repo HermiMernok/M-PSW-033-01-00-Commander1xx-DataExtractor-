@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "695191",
+    "ThreadId": "278690",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am using GMap.NET for WPF.</p>\r\n<p>In the GMap.NET, after drawing rectangle when we zoom in/out the shape is redrawn correctly in the new zoom level because the values are taken from selectedArea topleft and Bottom right. I have requirement like pen where user can draw shape.</p>\r\n<p>Below is the code snippets/ flow</p>\r\n<p>In MouseleftButton i take the starting point</p>\r\n<p>PointLatLng p1 = MainMap.FromLocalToLatLng(Convert.ToInt32(e.GetPosition(MainMap).X), Convert.ToInt32(e.GetPosition(MainMap).Y));</p>\r\n<p>and in the Mousemove i am taking the points, the path on with mouse was moved. Using Geometry i add the paths and draw during Map render</p>\r\n<p>var lineGeometry = new LineGeometry<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; StartPoint = new Point(StartXValue, StartYValue),<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; EndPoint = new Point(EndXValue, EndYValue)<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; };<br>\r\n&nbsp;&nbsp;&nbsp; PathGeometry.AddGeometry(lineGeometry);<br>\r\n&nbsp;&nbsp;&nbsp; drawingContext.DrawGeometry(null, SelectionPen, PathGeometry);</p>\r\n<p>&nbsp;</p>\r\n<p>It works normally. But when we zoom in/out the drawn shape does not redraw with the new zoom level(since i am taking the mouse coordinates) and it renders again in the same size/area . Is there any way to have the above implementation and include the zoom\r\n functionality to this.</p>\r\n<p>Regards,</p>\r\n<p>Balaji</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-11-08T01:35:14.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

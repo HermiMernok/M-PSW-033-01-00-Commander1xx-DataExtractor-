@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "539082",
+    "ThreadId": "239189",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I Love this project its exactly what I needed for my application but I'm having a lot of trouble getting it to work.</p>\r\n<p>First of all I'm Using VS 2010 I run a 64 bit Win7, I set the compiler for x86 and even changed the app.config to&nbsp;</p>\r\n<pre><span>&lt;?</span><span>xml</span> <span>version</span><span>=</span><span>&quot;</span><span>1.0</span><span>&quot;</span><span>?&gt;</span>\r\n<span>&lt;</span><span>configuration</span><span>&gt;</span>\r\n   <span>&lt;</span><span>startup</span> <span>useLegacyV2RuntimeActivationPolicy</span><span>=</span><span>&quot;</span><span>true</span><span>&quot;</span><span>&gt;</span>\r\n      <span>&lt;</span><span>supportedRuntime</span> <span>version</span><span>=</span><span>&quot;</span><span>v4.0</span><span>&quot;</span> <span>sku</span><span>=</span><span>&quot;</span><span>.NETFramework,Version=v4.0</span><span>&quot;</span><span>/&gt;</span>\r\n   <span>&lt;/</span><span>startup</span><span>&gt;</span>\r\n<span>&lt;/</span><span>configuration</span><span>&gt;</span></pre>\r\n<pre><br></pre>\r\n<pre>But everytime I run the application the map window says &quot;Exception: The type initializer threw an exception&quot;.</pre>\r\n<pre>I added GMap.NET.Core.dll, and GMap.NET.WindowsForms.dll. Also I added the map from the toolbox.</pre>\r\n<pre>I need the application to run with VB.net, I tried the C# example and it works perfectly but I don't know where to even begin to convert.</pre>\r\n<pre>Here is my Form1 example.</pre>\r\n<pre><div style=\"color:black; background-color:white\"><pre>\r\n\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:blue\">Imports</span> GMap.NET\r\n\r\n\r\n<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> Form1\r\n\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> Form1_Load(<span style=\"color:blue\">ByVal</span> sender <span style=\"color:blue\">As</span> System.Object, <span style=\"color:blue\">ByVal</span> e <span style=\"color:blue\">As</span> System.EventArgs) <span style=\"color:blue\">Handles</span> <span style=\"color:blue\">MyBase</span>.Load\r\n\r\n\r\n\r\n        map.Position = <span style=\"color:blue\">New</span> PointLatLng(54.6961334816182, 25.2985095977783)\r\n        map.MapType = MapType.GoogleMap\r\n        map.MinZoom = 1\r\n        map.MaxZoom = 17\r\n        map.Zoom = 2\r\n\r\n        map.ReloadMap()\r\n\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">class</span>\r\n</pre>\r\n</div>\r\nPlease help I have been grinding for a solution for hours now.</pre>\r\n",
+    "PostedDate": "2010-12-21T17:18:05.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "539176",
+    "ThreadId": "239189",
+    "Html": "\r\n<p>remove map.ReloadMap() and use constructor to initialize properties, not form load event</p>\r\n",
+    "PostedDate": "2010-12-21T23:54:44.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "539287",
+    "ThreadId": "239189",
+    "Html": "\r\n<p>Oh thank you so much! This time I only added it from the Toolbox and for some reason it works!!</p>\r\n",
+    "PostedDate": "2010-12-22T03:56:39.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "539293",
+    "ThreadId": "239189",
+    "Html": "\r\n<p>;}</p>\r\n",
+    "PostedDate": "2010-12-22T04:04:43.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed",
+    "ClosedDate": "2012-02-03T07:14:04.81-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi!\r\n\r\nThe code that disposes objects (fonts, pens and so on) should be removed from OnHandleDestroyed to Dispose method.\r\n\r\nThe method OnHandleDestroyed could be called many times by WinForms: in the Mdi scenario for example or when form that contains GMapControl is showing as Dialog. And, ineed, after recreating handle all graphic objects are disposed and problem aka 'red cross' appears.\r\n\r\nIn that cases there should be a way to suppress graphic objects disposing. But the current code in the method OnHandleDestroyed does the following:\r\n\r\n if (!this.SuspendDispose)\r\n{\r\n...\r\n}\r\nthis.SuspendDispose = false;\r\nbase.OnHandleDestroyed(e);\r\n\r\nSo, setting SuspendDispose to true once doesn't solve the problem because as I told above recreating of control handle could be happen many times. The question: at what time SuspendDispose should be set to true to suppress graphic objects disposing on handle destruction?\r\nIt seems that with current implementation of GMapControl it's almost impossible to avoid the problem.\r\n\r\nIf the code above (and without SuspendDispose flag) will be placed in Dispose method then all will work well.\r\n\r\nThe attachment contains example with the problem.",
+    "LastUpdatedDate": "2012-02-03T07:14:04.81-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-02-03T05:56:08.347-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wrong implementation of OnHandleDestroyed",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16024
+  },
+  "FileAttachments": [
+    {
+      "FileId": 337559,
+      "FileName": "WindowsFormsApplication6.zip",
+      "DownloadUrl": ".\\337559"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "967485",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>First of all I must say that I've been looking for such thing for years! It was a miracle for me when I found it.</p>\r\n<p>This is a general question about the caching functionality.</p>\r\n<p>I've been exploring the discussions but couldn't find a clear answer about how it works: &nbsp;I know that we first need to select an area, click &quot;prefetch&quot;, then click &quot;export&quot; and save the file. After that if we want to load the cache\r\n we click &quot;import&quot;.</p>\r\n<p>I would like to get a deeper explanation about the process.. between the &quot;prefetch&quot; and &quot;export&quot; where is the data kept? what's the purpose of the file that is located in the AppData in TileDBv5? is it just a pure sort of cached map tile\r\n database file which I can use instead of doing the prefetch-export process?</p>\r\n",
+    "PostedDate": "2012-12-22T15:16:15.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967547",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>yes, you can copy/paste the db file directly after caching is complete, import/export is useful only when you have additional data on top of existing data, it merge data</p>\r\n",
+    "PostedDate": "2012-12-23T02:03:46.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "970648",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>Hi Guys,</p>\r\n<p>Merry Christmas!</p>\r\n<p>A question regarding caching, could I cache some overlays containing polygons I 've drawn before? So I won't need to draw again....</p>\r\n<p>&nbsp;</p>\r\n<p>Tks!</p>\r\n<p>HN</p>\r\n",
+    "PostedDate": "2012-12-25T08:58:24.757-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "970690",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>use serialization or something..</p>\r\n",
+    "PostedDate": "2012-12-25T09:39:21.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "975168",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>You mean I could then just deserialize, &nbsp;add overlay and set visible directly?</p>\r\n",
+    "PostedDate": "2012-12-26T04:50:14.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "978005",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>yes, should work: </p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>GMapOverlay overlay = DeepClone&lt;GMapOverlay&gt;(objects);\r\n\r\n<span style=\"color:blue\">public</span> T DeepClone&lt;T&gt;(T obj)\r\n{\r\n<span style=\"color:blue\">using</span>(<span style=\"color:blue\">var</span> ms = <span style=\"color:blue\">new</span> System.IO.MemoryStream())\r\n{\r\n<span style=\"color:blue\">var</span> formatter = <span style=\"color:blue\">new</span> System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();\r\n\r\nformatter.Serialize(ms, obj);\r\n\r\nms.Position = 0;\r\n\r\n<span style=\"color:blue\">return</span> (T) formatter.Deserialize(ms);\r\n}\r\n}\r\n</pre>\r\n</div>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-12-26T12:49:56.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980837",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>all right, i will implement this,</p>\r\n<p>but I mean to use sqllite or other database cache as&nbsp; with tiles and prefetching, and be able to retrieve polygons and points as custom layers in later sessions. &nbsp;i think it would be great, i am drawing polygon layers of many thousands and it takes long\r\n time to read from shapefile and render, so i thought about caching and retrieving, maybe you figure out another approach radioman, as you're the master here! what do you think?</p>\r\n<p>thanks all the same</p>\r\n<p>H.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-27T06:11:04.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980840",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>i think it doesn't matter much where you save the data, the end result is the same</p>\r\n",
+    "PostedDate": "2012-12-27T06:15:52.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981585",
+    "ThreadId": "415233",
+    "Html": "\r\n<p>yes I agree,</p>\r\n<p><span style=\"white-space:pre\"></span>I asked all this because&nbsp;I was trying to use an existing and proven mechanism from GMaps instead of implementing my own,&nbsp;</p>\r\n<p>Regards</p>\r\n<p>HN</p>\r\n<p>P.S. Happy new Year! ;)</p>\r\n",
+    "PostedDate": "2012-12-29T03:17:10.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

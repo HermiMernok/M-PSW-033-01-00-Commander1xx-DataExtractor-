@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "473862",
+    "ThreadId": "221742",
+    "Html": "<p>Ola,</p>\r\n<p>Just found this and have to congrats you with this COOL/WOW! library.</p>\r\n<p>As curious as I am I downloaded everything and started a new project. Referenced GMap.NET.Core.dll, GMap.NET.WindowsForms.dll and System.Data.SQLite.dll. After that I added the GMap.NET.WindowsForms.dll to my toolbar and added the map.I found an example how to start and here's the code:<span style=\"color:blue\">&nbsp;</span></p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Imports</span> GMAP.NET\r\n<span style=\"color:blue\">Imports</span> GMAP.NET.CacheProviders\r\n<span style=\"color:blue\">Imports</span> GMAP.NET.WindowsForms\r\n<span style=\"color:blue\">Imports</span> GMAP.NET.WindowsForms.Markers\r\n\r\n<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> Form1\r\n    <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> Form1_Load(<span style=\"color:blue\">ByVal</span> sender <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span>, <span style=\"color:blue\">ByVal</span> e <span style=\"color:blue\">As</span> System.EventArgs) <span style=\"color:blue\">Handles</span> <span style=\"color:blue\">Me</span>.Load\r\n\r\n        <span style=\"color:green\">'    config(gmaps)</span>\r\n\r\n        <span style=\"color:blue\">With</span> GMaps.Instance\r\n            .UseRouteCache = <span style=\"color:blue\">True</span>\r\n            .UseGeocoderCache = <span style=\"color:blue\">True</span>\r\n            .UsePlacemarkCache = <span style=\"color:blue\">True</span>\r\n            .Mode = AccessMode.ServerAndCache\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">With</span>\r\n\r\n        <span style=\"color:green\">'   config(map)</span>\r\n\r\n        <span style=\"color:blue\">With</span> map\r\n            .MapType = MapType.GoogleMap            \r\n            .MaxZoom = 19\r\n            .MinZoom = 6\r\n            .Zoom = map.MinZoom\r\n            .CurrentPosition = <span style=\"color:blue\">New</span> PointLatLng(4.6961334816182, 25.2985095977783)\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">With</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>When I start the project I'm getting a blue field with the following exception: &quot;The type initialized for 'SingletonCreator' threw an exception. We are sorry, but we don't have imagery at this zoom-level for this region.&quot;</p>\r\n<p>Unfortunately there is no documentation available so I came back and have to ask. - what went wrong, and where van I find the PointLatLng (e.g. for my village)?</p>\r\n<p>Thanks for the help in advance.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-28T12:57:39.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474665",
+    "ThreadId": "221742",
+    "Html": "<p>hey, ..try use constructor instead of load event</p>",
+    "PostedDate": "2010-07-30T03:13:25.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484993",
+    "ThreadId": "221742",
+    "Html": "<p>Ola,</p>\r\n<p>I finally found that it's the 4.0 Frameworks. It works fine in the 3.5 Frameworks.</p>\r\n<p>I need to add the following xml-configuration:</p>\r\n<pre><span style=\"color:blue\">&lt;?</span><span style=\"color:#a31515\">xml</span> <span style=\"color:red\">version</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">1.0</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">?&gt;</span><br><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">configuration</span><span style=\"color:blue\">&gt;</span><br>   <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">startup</span> <span style=\"color:red\">useLegacyV2RuntimeActivationPolicy</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">true</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span><br>      <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">supportedRuntime</span> <span style=\"color:red\">version</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">v4.0</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">sku</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">.NETFramework,Version=v4.0</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span><br>   <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">startup</span><span style=\"color:blue\">&gt;</span><br><span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">configuration</span><span style=\"color:blue\">&gt;</span><br><br>Where do I put this? In a new/existing file? If a new file: What name?<br>Thanks for the help in advance.<br></pre>",
+    "PostedDate": "2010-08-26T00:20:41.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485003",
+    "ThreadId": "221742",
+    "Html": "<p>in the app config</p>",
+    "PostedDate": "2010-08-26T00:41:23.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485037",
+    "ThreadId": "221742",
+    "Html": "<p>Thanks that worked, but still a small issue left.</p>\r\n<p>When I add the control and try to rename it or save the project I get the following error: &quot;Code generation for property 'MapType' failed.&nbsp; Error was: 'The value '0' is not a valid value for the enum 'MapType'.'&quot; When I resume it works, but the error is still weird.</p>",
+    "PostedDate": "2010-08-26T02:05:38.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485051",
+    "ThreadId": "221742",
+    "Html": "<p>just set map type and then rename or save</p>",
+    "PostedDate": "2010-08-26T02:38:56.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485052",
+    "ThreadId": "221742",
+    "Html": "<p>Even if I have set the maptype this issue occurs.</p>\r\n<p>Was trying to compile an existing project (Frameworks 4.0) with the GMAP added:</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 'NET' is not a member of 'GMap.NET.WindowsForms.GMapControl'.<br>Error&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 'NET' is not a member of 'GMap.NET.WindowsForms.GMapControl'.<br>Error&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; Value of type 'GMap.NET.Size' cannot be converted to 'System.Drawing.Size'.<br>Error&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; Value of type 'GMap.NET.Size' cannot be converted to 'System.Drawing.Size'.</p>\r\n<p>I'm resizing a panel on the Form: panel_right.MaximumSize = New Size(348, 0) Also an error although GMAP doesn't have to do anything with it.</p>\r\n<p>Thanks for the help in advance</p>",
+    "PostedDate": "2010-08-26T02:43:01.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485057",
+    "ThreadId": "221742",
+    "Html": "<p>hm..</p>",
+    "PostedDate": "2010-08-26T02:47:52.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485081",
+    "ThreadId": "221742",
+    "Html": "<p>I'll do some (more) testing and recoding to see if I can fix the issue. It also can be that my project got corrupted... I have older backups to test on. I'll let you know.</p>",
+    "PostedDate": "2010-08-26T03:37:50.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485243",
+    "ThreadId": "221742",
+    "Html": "<p>My software was corrupted indeed... ??? Implemented in an older version. Now it works. Thanks !!!</p>",
+    "PostedDate": "2010-08-26T08:29:39.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485263",
+    "ThreadId": "221742",
+    "Html": "<p>do you mean, current version runs ok?</p>",
+    "PostedDate": "2010-08-26T09:04:51.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485264",
+    "ThreadId": "221742",
+    "Html": "<p>Yes, current version is ok. ;)</p>",
+    "PostedDate": "2010-08-26T09:08:05.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "485272",
+    "ThreadId": "221742",
+    "Html": "<p>great ;}</p>",
+    "PostedDate": "2010-08-26T09:23:28.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "486016",
+    "ThreadId": "221742",
+    "Html": "<p>Hi Radioman</p>\r\n<p>I was using a previous version of gmaps (which is fantastic by the way) but have just swapped it out for the latest build from the latest source (greatmaps_1b1889678918). I am getting the error above. My setup is such that I have a class library (in VB.NET VS 2008 which builds with .NET 2.0) which has a user control containing the Gmap control. I then add this user control to my main app (VB.net etc...) dynamically at runtime. The wierd thing is that I have created a new app which references this class library in exactly the same way and loads the control dynamically in the same way but this works fine so I am baffled. Any ideas or advice?</p>\r\n<p>Cheers</p>\r\n<p>Will</p>",
+    "PostedDate": "2010-08-28T13:26:55.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "486017",
+    "ThreadId": "221742",
+    "Html": "<p>hard to tell, but maybe you forget to update all dlls?</p>",
+    "PostedDate": "2010-08-28T13:37:22.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "486172",
+    "ThreadId": "221742",
+    "Html": "<p>Hi Radioman</p>\r\n<p>Thanks for that, I was sure you were wrong but after a bit of playing you are indeed right. What I was doing was building the Gmap solution and then taking&nbsp;GMap.NET.Core.dll and the&nbsp;GMap.NET.WindowsForms.dll and pasting them into a folder that I store all my dll's in. Then I referenced these two dll's in my main project. I noticed that in my&nbsp;working&nbsp;project&nbsp;the dll&nbsp;System.Data.SQLite.dll was pulled through to the bin\\debug folder, this was not happening in my main project.&nbsp;Referencing&nbsp;the two dll's from the Gmaps build folder has solved the problem.</p>\r\n<p>Thanks for your advice.</p>\r\n<p>Cheers</p>\r\n<p>Will</p>",
+    "PostedDate": "2010-08-29T12:25:01.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "486174",
+    "ThreadId": "221742",
+    "Html": "<p>great ;}</p>",
+    "PostedDate": "2010-08-29T12:32:16.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

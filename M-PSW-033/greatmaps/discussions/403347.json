@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "942163",
+    "ThreadId": "403347",
+    "Html": "\r\n<p>RoutingProvider rp = MainMap.MapProvider as RoutingProvider;<br>\r\nif(rp == null)<br>\r\n{<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rp = GMapProviders.GoogleMap; // use google if provider does not implement routing<br>\r\n}</p>\r\n<p>&nbsp;</p>\r\n<p>Why the Bing or Yahoo provider, return null where I do MainMap.MapProvider as RoutingProvider;</p>\r\n<p>I don't understand why not calculate the route.</p>\r\n",
+    "PostedDate": "2012-11-15T07:48:12.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942270",
+    "ThreadId": "403347",
+    "Html": "\r\n<p>because it's not implemented, there is fork for yahoo provider and issue with bing, one day i'll add them<br>\r\n<br>\r\n..i'm not big user of these non-essential functions, therefore they lag behind</p>\r\n",
+    "PostedDate": "2012-11-15T12:11:01.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942564",
+    "ThreadId": "403347",
+    "Html": "\r\n<p>Yes...sorry, I don't see the code.</p>\r\n<p>I have done the code to generate routing with Bing. It's easy.</p>\r\n<p>Repeat..sorry for the confussion.</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-11-16T00:39:43.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

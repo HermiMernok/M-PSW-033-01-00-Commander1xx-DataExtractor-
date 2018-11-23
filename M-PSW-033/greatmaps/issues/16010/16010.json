@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "ok",
+    "ClosedDate": "2011-07-02T07:42:49.697-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "As shown in the attached image using shift key OR the alt key and dragging causes a cool blue square to display for winforms. It used to for WPF as well. The functionality of zoom / prefetch area selection still works for WPF but no visual indication is given. \r\n\r\nUpdate : Fixed -------removed since it was invalid and caused marker to shift as well , I could not remove the attached image though----- \r\n\r\nSee comment for actual fix. ",
+    "LastUpdatedDate": "2011-07-02T07:42:49.697-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-06-28T12:06:05.863-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Zoom (with shift key)+ Prefetch area selection (alt key) not displaying for WPF",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16010
+  },
+  "FileAttachments": [
+    {
+      "FileId": 253503,
+      "FileName": "windowsforms.png",
+      "DownloadUrl": ".\\253503"
+    },
+    {
+      "FileId": 253515,
+      "FileName": "codetofixscreenshot.png",
+      "DownloadUrl": ".\\253515"
+    },
+    {
+      "FileId": 253538,
+      "FileName": "codetofixscreenshot.png",
+      "DownloadUrl": ".\\253538"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Removed two translate tranform lines from GmapControl.cs OnRender function as shown below (I just commented out the lines ... these are highlighted in the attached image as well) : \r\n\r\n // selection\r\n         if(!SelectedArea.IsEmpty)\r\n         {\r\n            GPoint p1 = FromLatLngToLocal(SelectedArea.LocationTopLeft);\r\n            GPoint p2 = FromLatLngToLocal(SelectedArea.LocationRightBottom);\r\n\r\n\r\n            //Removed p1.Offset((int)MapTranslateTransform.X, (int)MapTranslateTransform.Y);\r\n            //Removed p2.Offset((int)MapTranslateTransform.X, (int)MapTranslateTransform.Y);\r\n\r\n\r\n\r\n            int x1 = p1.X;\r\n            int y1 = p1.Y;\r\n            int x2 = p2.X;\r\n            int y2 = p2.Y;\r\n\r\n            if(SelectionUseCircle)\r\n            {\r\n               drawingContext.DrawEllipse(SelectedAreaFill, SelectionPen, new System.Windows.Point(x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2), (x2 - x1) / 2, (y2 - y1) / 2);\r\n            }\r\n            else\r\n            {\r\n               drawingContext.DrawRoundedRectangle(SelectedAreaFill, SelectionPen, new Rect(x1, y1, x2 - x1, y2 - y1), 5, 5);\r\n            }\r\n         }\r\n\r\n         if(ShowCenter)\r\n         {\r\n            drawingContext.DrawLine(CenterCrossPen, new System.Windows.Point((ActualWidth / 2) - 10, ActualHeight / 2), new System.Windows.Point((ActualWidth / 2) + 10, ActualHeight / 2));\r\n            drawingContext.DrawLine(CenterCrossPen, new System.Windows.Point(ActualWidth / 2, (ActualHeight / 2) - 10), new System.Windows.Point(ActualWidth / 2, (ActualHeight / 2) + 10));\r\n         }",
+      "PostedDate": "2011-06-28T13:24:38.407-07:00",
+      "Id": 38500
+    }
+  ]
+}

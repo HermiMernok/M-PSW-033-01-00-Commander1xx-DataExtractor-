@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1355592",
+    "ThreadId": "581810",
+    "Html": "Hi Friends !\r<br />\nIs there any Method to to get all Points Lat ,Lng in Polygon . i m  able to get all  coordinates of polygon by this. But How to get all  Points inside the polygon <br />\n<pre><code>List&lt;string&gt; dLis = new List&lt;string&gt;();\n        var a = gmap.Overlays[2].Markers.Select(x =&gt; x.LocalArea).ToList();\n            foreach (var p in a)\n            {\n                dLis.Add(p.Location.ToString());\n            }\n            gridControl1.DataSource = dLis;</code></pre>\n\n",
+    "PostedDate": "2015-02-25T05:23:56.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1379064",
+    "ThreadId": "581810",
+    "Html": "<pre><code>For Each pll In gmap.Overlays(2).Polygons(0).Points</code></pre>\n\nThis will get you the points for the first polygon.<br />\n",
+    "PostedDate": "2015-03-22T21:16:38.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

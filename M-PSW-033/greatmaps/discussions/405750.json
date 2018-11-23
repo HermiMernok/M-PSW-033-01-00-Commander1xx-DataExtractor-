@@ -1,0 +1,178 @@
+[
+  {
+    "Id": "952021",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>Hi Radioman!</p>\r\n<p><br>\r\nI need change or hide the Copyright associated to the MapProvider object. I saw that each Provider changes the Copyright of the GMapProvider class, but this property can be changed from outside?</p>\r\n<p><br>\r\nI tried doing as:</p>\r\n<p><br>\r\nGMapControl map= new GMapControl()<br>\r\n....<br>\r\nmap.MapProvider = GMapProviders.BingMap;</p>\r\n<p>map.MapProvider.Copyright = String.Empty.</p>\r\n<p><br>\r\nbut it not worked :(<br>\r\n<br>\r\n<br>\r\nThanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span><br>\r\n</span></p>\r\n",
+    "PostedDate": "2012-12-05T19:29:18.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952186",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>change the string before creating control instance</p>\r\n",
+    "PostedDate": "2012-12-06T03:37:11.337-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952352",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>Oh, excelent!! It worked fine ;)</p>\r\n<p>Other question, I have a Thread&nbsp;where this gets the Lat and Lng values of the GPS. In each update I change the Position of the GMapControl, as:</p>\r\n<p>&nbsp; &nbsp; &nbsp;map.Position = new&nbsp;<span>PointLatLng(latitud, longitud)</span></p>\r\n<p>but, if you previously change the current position dragging with the mouse, this position is lost by the update of the Thread. I need to change the position, for loading the initial map, but I&nbsp;want to keep the position of the drag on the map. It is feasible?</p>\r\n<p><span><br>\r\n</span></p>\r\n",
+    "PostedDate": "2012-12-06T08:58:49.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952359",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>don't update while map.IsDragging == true</p>\r\n",
+    "PostedDate": "2012-12-06T09:06:03.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952376",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>mmm, Yes but the problem is when you release the dragging.&nbsp;</p>\r\n<p>What I did the first time set starting position, to load the map, and then only update the marker, as:</p>\r\n<p>this.MainMap.Markers[0].Position = new PointLatLng(latitude, longitude).</p>\r\n<p>This way, I could move on the map and not lose position because only the the marker is updated.&nbsp;Makes sense?</p>\r\n<p>What happened to me with this approach is that the first values sent by the GPS was incorrect, then the map loaded initially&nbsp;was not correct.&nbsp;In this case, you seem correct to compare the distances (Lat, Lng) sent by the GPS with the above of the GMapControl?&nbsp;If\r\n the distance is quite, set the position for which I load a new map.&nbsp;</p>\r\n<p>What do you think?</p>\r\n",
+    "PostedDate": "2012-12-06T09:42:09.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952391",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>well you can skip position updates until <em>hdof</em> &gt; 10, or something..</p>\r\n",
+    "PostedDate": "2012-12-06T10:10:22.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952408",
+    "ThreadId": "405750",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>well you can skip position updates until <em>hdof</em> &gt; 10, or something..</p>\r\n</blockquote>\r\n<p>maybe ;)</p>\r\n<p>Sorry, another question. The map&nbsp;performs some internal update?&nbsp;because I disconnect the network cable and the app is frozen. I have this code:</p>\r\n<p>if (!isNetworkLikelyAvailable())<br>\r\n{<br>\r\nMainMap.Manager.Mode = AccessMode.CacheOnly;<br>\r\nMainMap.MapProvider = GMapProviders.EmptyProvider; return; }<br>\r\nelse<br>\r\n{<br>\r\nMainMap.MapProvider = GMapProviders.BingMap;&nbsp;<br>\r\nMainMap.Manager.Mode = AccessMode.ServerAndCache;<br>\r\n}</p>\r\n<p>private bool isNetworkLikelyAvailable()<span> <br>\r\n</span>{<br>\r\ntry {<br>\r\nstring myAddress = &quot;www.google.com&quot;; <br>\r\nIPAddress[] addresslist = Dns.GetHostAddresses(myAddress);<br>\r\nreturn addresslist[0].ToString().Length &gt; 6; }<br>\r\ncatch { return false; }<br>\r\n}</p>\r\n<p>but not worked.&nbsp;Any suggestions for this?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-12-06T10:26:32.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952416",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>it works, but with long timeout</p>\r\n<p>check this <a href=\"http://www.codeproject.com/Answers/76139/check-internet-connection-available-or-not-in-c#answer3\" target=\"_blank\">\r\nhttp://www.codeproject.com/Answers/76139/check-internet-connection-available-or-not-in-c#answer3&nbsp;</a></p>\r\n",
+    "PostedDate": "2012-12-06T10:40:34.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952433",
+    "ThreadId": "405750",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>it works, but with long timeout</p>\r\n<p>check this <a href=\"http://www.codeproject.com/Answers/76139/check-internet-connection-available-or-not-in-c#answer3\" target=\"_blank\">\r\nhttp://www.codeproject.com/Answers/76139/check-internet-connection-available-or-not-in-c#answer3&nbsp;</a></p>\r\n</blockquote>\r\n<p>Yes, but the freeze is due to the change of <span>AccessMode.ServerAndCache</span> by\r\n<span>AccessMode.CacheOnly</span>. If you disconnect the cable and not change the AccessMode works correctly.</p>\r\n<p>I need to change the AccessMode to&nbsp;AccessMode.CacheOnly by the problem&nbsp;mentioned in the post following:&nbsp;http://greatmaps.codeplex.com/discussions/401091</p>\r\n<p>How to solve it?</p>\r\n<p><br>\r\nThanks</p>\r\n",
+    "PostedDate": "2012-12-06T10:59:55.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952437",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>whats the problem?</p>\r\n",
+    "PostedDate": "2012-12-06T11:05:41.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952440",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>The problem is that when I have configured&nbsp;<span>AccessMode.ServerAndCache and I haven't internet, when I zoom on the map for example, shows me a black popup with a Exception. According to post&nbsp;<span>http://greatmaps.codeplex.com/discussions/401091 should\r\n be configured&nbsp;AccessMode.<span>CacheOnly.&nbsp;But making that change at any given time when detects no internet, my application hangs. :(</span></span></span></p>\r\n",
+    "PostedDate": "2012-12-06T11:11:27.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952455",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>&nbsp;black popup with a Exception?</p>\r\n",
+    "PostedDate": "2012-12-06T11:30:22.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952459",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>Yes, a dialog message with the Exception:&nbsp;<span>The remote name couldn't be resolved.....</span></p>\r\n",
+    "PostedDate": "2012-12-06T11:32:21.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952465",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>because cable is unplugged, and it has nothing to do with map control ;} i've posted link already anyway</p>\r\n",
+    "PostedDate": "2012-12-06T11:38:04.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952468",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>mmm I don't know.&nbsp;</p>\r\n<p>* If you run the app with the cable&nbsp;<span>unplugged, and the AccessMode is set to&nbsp;<span>AccessMode.</span><span>CacheOnly works well.\r\n</span></span></p>\r\n<p><span><span>* If you run the app with the cable plugged, the AccessMode is set to&nbsp;<span>AccessMode.ServerAndCache. If then&nbsp;unplugged the cable and change the AccessMode to&nbsp;AccessMode.CacheOnly, the app hangs,&nbsp;until you connect the cable again.</span></span></span></p>\r\n",
+    "PostedDate": "2012-12-06T11:42:52.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952473",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>just keep that cable alone ;}</p>\r\n",
+    "PostedDate": "2012-12-06T11:52:08.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952484",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>p.s. i've changed detection code in demos, you can use that, it has 4s timeout</p>\r\n",
+    "PostedDate": "2012-12-06T12:13:40.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952488",
+    "ThreadId": "405750",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>radioman wrote:</strong><br>\r\n<p>p.s. i've changed detection code in demos, you can use that, it has 4s timeout</p>\r\n</blockquote>\r\n<p>I'm using the libraries compiled&nbsp;GMap.NET.Core.dll and&nbsp;GMap.NET.WindowsPresentation.dll.&nbsp;How do I get this change?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-12-06T12:32:47.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952499",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>copy/paste the code</p>\r\n",
+    "PostedDate": "2012-12-06T12:46:55.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952521",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>Please could you send me the link in order to download this new code?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-12-06T13:38:04.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952554",
+    "ThreadId": "405750",
+    "Html": "\r\n<p><a href=\"http://greatmaps.codeplex.com/SourceControl/changeset/view/de168844db45#Demo.WindowsForms%2fForms%2fMainForm.cs\" target=\"_blank\">http://greatmaps.codeplex.com/SourceControl/changeset/view/de168844db45#Demo.WindowsForms%2fForms%2fMainForm.cs</a></p>\r\n",
+    "PostedDate": "2012-12-06T14:29:26.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "952571",
+    "ThreadId": "405750",
+    "Html": "\r\n<p>Thanks, I saw the code, but I think that the problem is when switch between a AccessMode to other, for example from ServerAndCache to CacheOnly. Could you test it?</p>\r\n",
+    "PostedDate": "2012-12-06T14:43:50.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

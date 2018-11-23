@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "473691",
+    "ThreadId": "221697",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>Can you please let me know which event is fired when map is panned in WPF.</p>\r\n<p>I could find for OnMapZoomChanged event for Zooming but i cant find it for panning. I tried in OnMapAreaChanged but it didn't work.</p>\r\n<p>I need it please suggest me.It's urgent.</p>\r\n<p>Regards,</p>\r\n<p>Balaji</p>",
+    "PostedDate": "2010-07-28T07:08:56.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473695",
+    "ThreadId": "221697",
+    "Html": "<p>OnMapDrag?</p>",
+    "PostedDate": "2010-07-28T07:18:51.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473707",
+    "ThreadId": "221697",
+    "Html": "<p>Aah much thanks Iljas. I just checked it now and the event is firing. But for example for a single pan it fires for almost 30-40 times is there any way to restrict it to single time which will be much useful.</p>\r\n<p>Please correct me if i have overlooked anything.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>G.Balaji</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-28T07:36:18.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473774",
+    "ThreadId": "221697",
+    "Html": "try OnMouseUp event with if(map.IsDragging) { ...",
+    "PostedDate": "2010-07-28T09:41:24.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474024",
+    "ThreadId": "221697",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>much thanks. Is it ok if i use the mouseRightButtonUp Event which occurs after panning and&nbsp; i am also checking on the event that you pointed.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards,</p>\r\n<p>G.Balaji</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-28T22:39:12.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

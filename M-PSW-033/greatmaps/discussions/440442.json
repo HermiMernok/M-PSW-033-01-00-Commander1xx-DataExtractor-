@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1031080",
+    "ThreadId": "440442",
+    "Html": "this is how to get newer map for ovi /nokia<br />\n<pre><code>  string MakeTileImageUrl(GPoint pos, int zoom, string language)\n  {\n     return string.Format(UrlFormat, GetServerNum(pos, 4)+1, zoom, pos.X, pos.Y);\n  }\n\n  static readonly string UrlFormat = &quot;http://{0}.maptile.lbs.ovi.com/maptiler/v2/maptile/newest/normal.day/{1}/{2}/{3}/256/png8?&amp;token=YOURTOKEN&amp;app_id=YOURAPPID&quot;;</code></pre>\n\n}<br />\n",
+    "PostedDate": "2013-04-16T05:23:54.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1031268",
+    "ThreadId": "440442",
+    "Html": "thanks<br />\n",
+    "PostedDate": "2013-04-16T09:40:37.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253655",
+    "ThreadId": "440442",
+    "Html": "does this support nokia here maps? <a href=\"https://developer.here.com/rest-apis/documentation/enterprise-map-tile/topics/quick-start.html\" rel=\"nofollow\">https://developer.here.com/rest-apis/documentation/enterprise-map-tile/topics/quick-start.html</a><br />\n",
+    "PostedDate": "2014-06-06T03:57:30.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

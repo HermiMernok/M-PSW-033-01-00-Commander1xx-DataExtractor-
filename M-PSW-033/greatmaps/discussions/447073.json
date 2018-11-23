@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1056869",
+    "ThreadId": "447073",
+    "Html": "The operation:\r<br />\n MapProvider = GMapProviders.GoogleHybridMap \r<br />\ntakes too long and freezes the UI,\r<br />\nI tried to wrap it with Task to run async but then i get exception &quot;Parameter count mismatch&quot;.\r<br />\n<br />\nHow can I make it load async properly?<br />\n",
+    "PostedDate": "2013-06-14T06:09:44.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1056957",
+    "ThreadId": "447073",
+    "Html": "use release build<br />\n",
+    "PostedDate": "2013-06-14T08:08:21.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1057559",
+    "ThreadId": "447073",
+    "Html": "p.s. you can try manually call:<br />\n<pre><code>GMapProviders.GoogleMap.OnInitialized();</code></pre>\n\n",
+    "PostedDate": "2013-06-16T23:28:56.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1057904",
+    "ThreadId": "447073",
+    "Html": "What exactly does GMapProviders.GoogleMap.OnInitialized() do? There's no description and it returns void...<br />\n<br />\nAnyway, I used the latest build and it fixed exception problem, but still when it gets to:<br />\nMapProvider = GMapProviders.GoogleHybridMap <br />\nThe UI freezes..<br />\nHere's my code:<br />\n<pre><code>Task loadMap = new Task(() =&gt; Map.Dispatcher.BeginInvoke(new Action(() =&gt;\n       {\n              Map.MapProvider = GMapProviders.GoogleHybridMap;\n        }), DispatcherPriority.Render), TaskCreationOptions.None);\nloadMap.Start();</code></pre>\n\nI think it happens because the code behind the provider assignment in MapProvider property uses the main UI thread<br />\n",
+    "PostedDate": "2013-06-17T12:28:51.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1058032",
+    "ThreadId": "447073",
+    "Html": "it's open source project, open the eyes and see ;}<br />\n",
+    "PostedDate": "2013-06-17T23:27:20.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1058386",
+    "ThreadId": "447073",
+    "Html": "I looked inside the source code, still didn't get the purpose of OnInitialized as it is not implemented in GoogleMapProvider, only virtually in base provider class...\r<br />\n<br />\nAlso I'm still having troubles with UI freeze.. I think it's a common issue which is important for many users I hope you could give a little more help?<br />\n",
+    "PostedDate": "2013-06-18T13:15:02.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1058495",
+    "ThreadId": "447073",
+    "Html": "it is implemented, and it doesn't freeze for me, so <strong>you</strong> have to debug it, run the demo and find whats 'wrong'<br />\n",
+    "PostedDate": "2013-06-18T23:26:42.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

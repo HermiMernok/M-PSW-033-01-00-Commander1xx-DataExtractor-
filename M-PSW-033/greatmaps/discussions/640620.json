@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1432391",
+    "ThreadId": "640620",
+    "Html": "Hey radioman,\r<br />\n<br />\nI'm currently facing a tile loading problem when using BingMaps.\r<br />\nSome of the Tiles doesn't get loaded even when 'ServerOnly' is set or zooming in and out.\r<br />\nThe same for the Satellite Tiles.\r<br />\n<br />\nHere the examples:\r<br />\n<a href=\"http://fs1.directupload.net/images/150630/zsnlbqmg.png\" rel=\"nofollow\">http://fs1.directupload.net/images/150630/zsnlbqmg.png</a>\r<br />\n<br />\n<a href=\"http://fs1.directupload.net/images/150630/3iynzqcr.png\" rel=\"nofollow\">http://fs1.directupload.net/images/150630/3iynzqcr.png</a>\r<br />\n<br />\nBefore I had the problem when using GoogleMaps but after getting a newer version of the library GoogleMaps works fine but BingMaps does these strange tile loadings.\r<br />\nDo you have any suggetions?\r<br />\n<br />\nThanks in advance!<br />\n",
+    "PostedDate": "2015-06-30T00:53:45.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432433",
+    "ThreadId": "640620",
+    "Html": "whats the position? i'll check it<br />\n",
+    "PostedDate": "2015-06-30T04:53:32.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432454",
+    "ThreadId": "640620",
+    "Html": "Its position independently...\r<br />\n<br />\nfor example Lat/Lng 52.9418367 / 7.8334236<br />\n",
+    "PostedDate": "2015-06-30T06:16:08.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432473",
+    "ThreadId": "640620",
+    "Html": "Well this is weird... I encountered the problem when I was on my laptop in a different network.\r<br />\nAt home I tried the Hot Build: Application GMap.NET Build-76d7772bd36e-20150519.zip uploaded May 19  and now both is working.\r<br />\nAny ideas why this was happening?<br />\n",
+    "PostedDate": "2015-06-30T08:24:23.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432477",
+    "ThreadId": "640620",
+    "Html": "it's possible network timeout, you can increase it: GMapProvider.<strong>TimeoutMs = 10 * 1000; //10s</strong><br />\n",
+    "PostedDate": "2015-06-30T08:48:20.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432748",
+    "ThreadId": "640620",
+    "Html": "thanks radioman,\r<br />\n<br />\nI'll give that a shot!<br />\n",
+    "PostedDate": "2015-07-01T06:37:24.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1432966",
+    "ThreadId": "640620",
+    "Html": "Hm no, doesn't solve it...\r<br />\nDoes the library have issues with proxys?<br />\n",
+    "PostedDate": "2015-07-02T23:23:09.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1433034",
+    "ThreadId": "640620",
+    "Html": "by default no proxy is used<br />\n",
+    "PostedDate": "2015-07-03T08:53:55.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

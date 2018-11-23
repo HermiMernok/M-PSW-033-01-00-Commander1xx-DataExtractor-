@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I can't set the values of DragButton and ShowCenter in XAML because they are fields and not properties.\r\n\r\nAll you really have to do to fix it is turn this:\r\n\r\n      public MouseButton DragButton = MouseButton.Right;\r\n\r\n...into this:\r\n\r\n      public MouseButton DragButton { get; set; }",
+    "LastUpdatedDate": "2013-10-14T11:54:12.317-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-10-14T11:54:12.317-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WPF public fields should be XAML-visible properties",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16087
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

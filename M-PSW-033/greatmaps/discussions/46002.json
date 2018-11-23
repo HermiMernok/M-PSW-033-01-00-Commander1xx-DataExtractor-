@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "153499",
+    "ThreadId": "46002",
+    "Html": "Hi<br>\r\n<br>\r\n<div><span style=\"font-family:courier new;font-size:13px\">will it be possible for you to make a function to make lines between positions, to connect many markers.</span></div>\r\n.<br>\r\n<br>\r\nBest Regards<br>\r\nFinn\r\n",
+    "PostedDate": "2009-02-02T14:07:54.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153583",
+    "ThreadId": "46002",
+    "Html": "ok",
+    "PostedDate": "2009-02-02T21:34:19.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157867",
+    "ThreadId": "46002",
+    "Html": "First of all, this control is sweet. Awesome job. <br>\r\nSecond, I am really looking forward to seeing this line function. <br>\r\n<br>\r\nThanks for this.\r\n",
+    "PostedDate": "2009-02-15T14:09:08.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188876",
+    "ThreadId": "46002",
+    "Html": "<p>Hello!</p>\r\n<p>Any news about this discussion?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot!</p>",
+    "PostedDate": "2009-05-11T08:47:08.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188881",
+    "ThreadId": "46002",
+    "Html": "<p>create a route object, then add&nbsp;&nbsp; PointLatLong &nbsp; objects to the (i think) points&nbsp; collection</p>\r\n<p>thats how i do it</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-11T08:50:39.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188883",
+    "ThreadId": "46002",
+    "Html": "<p>Hello <a id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl08_UserNameLink\" href=\"http://www.codeplex.com/site/users/view/paulmoliver\">paulmoliver</a>, thanks for the fast reply!</p>\r\n<p>If I do what you say I get the &quot;best&quot; (shortest\\faster) route, but I want to draw a direct line between my 2 points.</p>",
+    "PostedDate": "2009-05-11T08:54:56.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188893",
+    "ThreadId": "46002",
+    "Html": "<p>no, dont call any of the routing functions, just use the route object, and add the 2 points in the form of a PointLongLat&nbsp;&nbsp; object , it is real simple</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-11T09:10:08.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188897",
+    "ThreadId": "46002",
+    "Html": "<p>&nbsp;</p>\r\n<p>Create a collections.generic.list of &nbsp; PointLatLng&nbsp;&nbsp; points,&nbsp;&nbsp; then</p>\r\n<p>create a GMapRoute&nbsp; object&nbsp; giving this collection and a name.</p>\r\n<p>now simply&nbsp; add this route object to the Routes collection of the map.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-05-11T09:17:26.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188902",
+    "ThreadId": "46002",
+    "Html": "<p>exactly ;}</p>",
+    "PostedDate": "2009-05-11T09:20:42.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188921",
+    "ThreadId": "46002",
+    "Html": "<p>Perfect.. it works fine!thanks!</p>\r\n<p>Can I change color for the route?</p>\r\n<p>How can I handle route mouse click?</p>\r\n<p>Thanks again for the fast answers!</p>",
+    "PostedDate": "2009-05-11T09:37:54.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "188922",
+    "ThreadId": "46002",
+    "Html": "<p>set the Route.Color</p>\r\n<p>&nbsp;</p>\r\n<p>as for mouse clicks, thats something we were discussing earlier today, no simple solution though yet</p>",
+    "PostedDate": "2009-05-11T09:38:58.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

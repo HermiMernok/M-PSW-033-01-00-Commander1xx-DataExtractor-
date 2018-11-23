@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "438145",
+    "ThreadId": "211331",
+    "Html": "<p>hi, i want to ask how to change marker image using image from my local computer??</p>\r\n<p>i did this, but the image didn't display...</p>\r\n<p>&nbsp;</p>\r\n<p>Imports System.Drawing<br>Imports System.Drawing.Drawing2D<br>Imports GMap.NET<br>Imports GMap.NET.CacheProviders<br>Imports GMap.NET.WindowsForms<br>Imports GMap.NET.WindowsForms.Markers<br><br>Public Class GMapMarkerImage : Inherits GMapMarker<br>&nbsp;&nbsp;&nbsp; Dim _image As System.Drawing.Image<br>&nbsp;&nbsp;&nbsp; Dim _point As PointLatLng<br><br>&nbsp;&nbsp;&nbsp; Sub New(ByVal iPoint As PointLatLng)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.New(iPoint)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _point = iPoint<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _image = Image.FromFile(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) &amp; &quot;\\atm.png&quot;)<br>&nbsp;&nbsp;&nbsp; End Sub<br><br>&nbsp;&nbsp;&nbsp; Public Overrides Sub OnRender(ByVal g As System.Drawing.Graphics)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim p As New PointF(_point.Lat, _point.Lng)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.OnRender(g)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'g.DrawImage(_image, System.Convert.ToInt32(LocalPosition.X - Size.Width / 2), System.Convert.ToInt32(LocalPosition.Y - Size.Height / 2), Size.Width, Size.Height)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawImage(_image, p)<br>&nbsp;&nbsp;&nbsp; End Sub<br><br>End Class<br><br></p>",
+    "PostedDate": "2010-05-02T18:35:39.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438185",
+    "ThreadId": "211331",
+    "Html": "<p>try set the <strong>Size</strong> ;}</p>",
+    "PostedDate": "2010-05-02T22:36:48.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438193",
+    "ThreadId": "211331",
+    "Html": "<p>ohh, thank you...you are right...</p>",
+    "PostedDate": "2010-05-02T23:17:00.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438645",
+    "ThreadId": "211331",
+    "Html": "hi radioman\r\n\r\nif i want to change marker size based on zoom level, do I must load the marker with the new size from beginning??",
+    "PostedDate": "2010-05-03T23:28:30.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438651",
+    "ThreadId": "211331",
+    "Html": "<p>you can change it on zoom event</p>",
+    "PostedDate": "2010-05-03T23:41:48.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291702",
+    "ThreadId": "211331",
+    "Html": "can u give me an example to set size to 80% of its original?<br />\n",
+    "PostedDate": "2014-08-20T06:54:20.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

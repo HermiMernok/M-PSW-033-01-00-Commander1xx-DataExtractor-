@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "812516",
+    "ThreadId": "349186",
+    "Html": "<p>Hi all,</p>\n<p>I get the markers working with lat/lng, but I need it to working with the address itself.</p>\n<p>This is the <a id=\"_GPLITA_1\" style=\"text-decoration: underline;\" title=\"Powered by Text-Enhance\" href=\"#\">code</a> I used:</p>\n<p>&nbsp;</p>\n<pre>GMapOverlay overlayOne = new GMapOverlay(wb_ConnectionMap, \"OverlayOne\");\n            overlayOne.Markers.Add(new GMap.<a id=\"_GPLITA_2\" style=\"text-decoration: underline;\" title=\"Powered by Text-Enhance\" href=\"#\">NET</a>.WindowsForms.Markers.GMapMarkerGoogleRed(new PointLatLng(54.6961334816182, 25.2985095977783)));\n            wb_ConnectionMap.Overlays.Add(overlayOne);<br /><br />Please any help would be appriciated!</pre>",
+    "PostedDate": "2012-03-19T07:30:48.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812525",
+    "ThreadId": "349186",
+    "Html": "<p>use geocoder provider functions</p>",
+    "PostedDate": "2012-03-19T08:03:57.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812529",
+    "ThreadId": "349186",
+    "Html": "<p>yes but how? can u please give me an exaple. Please dont tell me to look at the source beacuse I did and it did not help thats why i'm here</p>",
+    "PostedDate": "2012-03-19T08:24:04.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812535",
+    "ThreadId": "349186",
+    "Html": "<p>look again ;}</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>         GeoCoderStatusCode status = GeoCoderStatusCode.Unknow;\r\n         PointLatLng? pos = GMapProviders.GoogleMap.GetPoint(<span style=\"color: #a31515;\">\"Lithuania, \"</span> + place, <span style=\"color: blue;\">out</span> status);\r\n         <span style=\"color: blue;\">if</span>(pos != <span style=\"color: blue;\">null</span> &amp;&amp; status == GeoCoderStatusCode.G_GEO_SUCCESS)\r\n         {\r\n            GMarkerGoogle m = <span style=\"color: blue;\">new</span> GMarkerGoogle(pos.Value, GMarkerGoogleType.green);\r\n            m.ToolTip = <span style=\"color: blue;\">new</span> GMapRoundedToolTip(m);\r\n\r\n            objects.Markers.Add(m);\r\n         }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2012-03-19T08:28:12.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1117013",
+    "ThreadId": "349186",
+    "Html": "Dear radioman<br />\n<br />\nGeoCoderStatusCode status = GeoCoderStatusCode.Unknow;<br />\nPointLatLng? p = GMapProviders.GoogleMap.GetPoint(&quot;istanbul&quot;,out status);<br />\n<br />\nreturns always null value, always and always. You have any idea?<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2013-11-03T14:36:36.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1117681",
+    "ThreadId": "349186",
+    "Html": "add breakpoint, and check<br />\n",
+    "PostedDate": "2013-11-05T07:45:51.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1118757",
+    "ThreadId": "349186",
+    "Html": "I have a warning. Maybe this warning causes to this problem. The warning is &quot;Warning\t1\tUnable to find dependency 'SYSTEM.DATA.SQLITE' (Signature='DB937BC2D44FF139' Version='1.0.81.0') of assembly 'GMap.NET.Core.dll' &quot;\r<br />\n<br />\nP.S :I added breakpoint but could not found any way.\r<br />\n<br />\nthanx<br />\n",
+    "PostedDate": "2013-11-06T00:39:30.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1118781",
+    "ThreadId": "349186",
+    "Html": "press F11, goto function GetPoint, and check the code, i get GeoCoderStatusCode.G_GEO_SUCCESS, so it maybe be proxy issue or something for you<br />\n",
+    "PostedDate": "2013-11-06T01:44:16.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1119556",
+    "ThreadId": "349186",
+    "Html": "I have received this code\r<br />\n<br />\n&quot;status\tG_GEO_SUCCESS\tGMap.NET.GeoCoderStatusCode&quot; and\r<br />\n&quot;pos\t        null     \t                GMap.NET.PointLatLng?&quot;\r<br />\n<br />\nthanx<br />\n",
+    "PostedDate": "2013-11-06T19:29:48.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1119601",
+    "ThreadId": "349186",
+    "Html": "check parsing code, maybe it's language related<br />\n",
+    "PostedDate": "2013-11-07T00:17:37.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1119864",
+    "ThreadId": "349186",
+    "Html": "Dear Radioman\r<br />\n<br />\nnow I got exception like this \t\t&quot;status\tExceptionInCode\tGMap.NET.GeoCoderStatusCode&quot;\r<br />\nHow can I solve this problem?\r<br />\n<br />\nthanx a lot for your patient and help<br />\n",
+    "PostedDate": "2013-11-07T08:55:48.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1120814",
+    "ThreadId": "349186",
+    "Html": "Also I am using version 1.7, you have any idea??<br />\n",
+    "PostedDate": "2013-11-09T08:14:09.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

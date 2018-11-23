@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Hi, I got the error the collection has been changed on line 174 of Gmapoverlay.cs (GMap.NET.WindowsForms)\r\nthe line is foreach(GMapPolygon obj in Polygons). \r\n\r\nyou set a sleep of 222 ms, but it seem I'm adding polygons too quickly when I start my application (occur only from a remote desktop connection)\r\n\r\ncan we put, at least a try catch on this function? my application is crashing because of that right now.\r\n\r\nI tried to put the sleep at 500 ms, and didn't get this error again.",
+    "LastUpdatedDate": "2011-10-03T22:57:07.943-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-03-15T03:28:24.207-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Message error Collection has been changed when adding alot of polygon at start on a remote desktop connection",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15999
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "where is that 'sleep' function called?",
+      "PostedDate": "2011-03-15T04:45:24.31-07:00",
+      "Id": 30862
+    },
+    {
+      "Message": "from gmapcontrols.cs - protected override void OnLoad(EventArgs e)\n\nmaybe just a lock on the collection will be fine?",
+      "PostedDate": "2011-03-15T05:39:52.317-07:00",
+      "Id": 30865
+    },
+    {
+      "Message": "hm, i guess it depends of cpu, maybe you can add item using Loaded event?",
+      "PostedDate": "2011-03-15T06:16:16.193-07:00",
+      "Id": 30873
+    },
+    {
+      "Message": "I think it's more because of the remote desktop... it's very very slow displaying the title on the map. But at the end, without a lock, that mean it can \"crash\" anytime if you have a slow CPU or if your system is very very busy when you add polygon...",
+      "PostedDate": "2011-03-15T07:48:19.807-07:00",
+      "Id": 30883
+    },
+    {
+      "Message": "Hi, I got the same problem again [Collection was modified; enumeration operation may not execute.} in   at GMap.NET.WindowsForms.GMapOverlay.ForceUpdate() inGMap.NET\\GMap.NET.WindowsForms\\GMap.NET.WindowsForms\\GMapOverlay.cs:line 174. It seem something call the \"forceupdate\" at the same time I'm adding polygon... can you put at least a try catch on this function?",
+      "PostedDate": "2011-10-03T22:57:07.943-07:00",
+      "Id": 46059
+    }
+  ]
+}

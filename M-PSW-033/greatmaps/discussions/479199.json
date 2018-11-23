@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1144298",
+    "ThreadId": "479199",
+    "Html": "I read the threads about GeoServer and Gmap.net but they are not conclusive. I don't know if it worked and how it might work.  I'm trying to run Gmap  without online connection. I don't what to use the prefetch feature because I don't know where the user will be looking at and I would think it is not practical to prefetch the whole world , correct ? \r<br />\n<br />\nRadioman suggested  a copy/paste for one of the providers and change the server URL to GeorServer URL. I downloaded the GeorServer and it came preloaded with some maps . Now I need to run a test to see if I can use it . what is my URL at this point ?<br />\n\r<br />\nlooking at <br />\n<pre><code>string MakeTileImageUrl(GPoint pos, int zoom, string language)\n      {\n         char letter = ServerLetters[GetServerNum(pos, 3)];\n         return string.Format(UrlFormat, letter, zoom, pos.X, pos.Y);\n      }</code></pre>\n\nand <br />\n<pre><code>static readonly string UrlFormat = &quot;http://{0}.tile.openstreetmap.org/{1}/{2}/{3}.png&quot;;</code></pre>\n\nI know that this URL is for Open Street Map. what would be my GeeoServer URL ? Does it have to point to a specific shape file , layer , tiles ? Is it possible to add this as a feature in future releases giving the fact that a lot of people requested this feature and it will make Gmap even dramatically more superior than DotSpatial or EasyGIS, ..etc \r<br />\n<br />\nThank you  <br />\n",
+    "PostedDate": "2013-12-31T12:25:59.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1150457",
+    "ThreadId": "479199",
+    "Html": "dunno, i have never  tried it<br />\n<br />\np.s. check <a href=\"http://docs.geoserver.org/stable/en/user/installation/windows/installer.html\" rel=\"nofollow\">http://docs.geoserver.org/stable/en/user/installation/windows/installer.html</a><br />\n",
+    "PostedDate": "2014-01-07T07:33:11.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1060776",
+    "ThreadId": "448137",
+    "Html": "Hello guys!\r<br />\n<br />\nFirst of all, my gratitude for your wonderful work, it makes my life easier.\r<br />\n<br />\nBut, I have a problem:<br />\n<ul>\n<li>\nI am writing an application, using your SDK. Basically, I read the latitude and longitude from a MySQL table and according to a parameter, from same table, I set a marker bitmap. Something like this:<br />\n</li>\n</ul>\n<pre><code>Do While Reader.Read()\n     If Int(Reader(2)) &lt;&gt; 0 Then\n          MarkersLayer.Markers.Add(New GMarkerGoogle(New PointLatLng(Val(Reader(0)), Val(Reader(1))), New Bitmap(&quot;C:\\Users\\Ionut\\Desktop\\MapMarker\\&quot; &amp;  Get_Marker(Int(Reader(3))) &amp; &quot;.png&quot;)))\n     Else\n          MarkersLayer.Markers.Add(New GMarkerGoogle(New PointLatLng(Val(Reader(0)), Val(Reader(1))), GMarkerGoogleType.gray_small))\n     End If\nLoop\nUL_Main.MyMap.Overlays.Add(MarkersLayer)</code></pre>\n\nGet_Marker() function works correctly, no execution errors, but all I can see on my map is the last marker and only that one.\r<br />\n<br />\nAny idea what I am doing wrong? Or, any advice about how I can make this to work right?\r<br />\n<br />\nThank you!<br />\n",
+    "PostedDate": "2013-06-25T02:23:09.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060796",
+    "ThreadId": "448137",
+    "Html": "add layers before using them, meaning move last line to the top or somewhere where you configure the map<br />\n",
+    "PostedDate": "2013-06-25T03:14:52.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1060800",
+    "ThreadId": "448137",
+    "Html": "Works perfectly! Thanks a lot!<br />\n",
+    "PostedDate": "2013-06-25T03:21:26.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

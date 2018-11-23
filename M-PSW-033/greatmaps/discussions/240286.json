@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "543257",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>Hello guys. I am sorry to post this newbish question here, but i'm doing a litle project for my university..</p>\r\n<p>I need to draw the routes between the points (lat &#43; lng) that i read from a .txt file.</p>\r\n<p>&nbsp;</p>\r\n<p>Well, everything works great till the moment i try to draw them... the MapRoute route = GMaps.Instance.GetRouteBetweenPoints(start, end, false, (int)map.Zoom); is returning a null value and i have no idea why.</p>\r\n<p>I've searched alot already but i can't fix it.</p>\r\n<p>&nbsp;</p>\r\n<p>Can you help me?</p>\r\n<p>My visual studio 2008 &#43; mobile 6.0 project: http://dl.dropbox.com/u/14933526/Visualizador%20de%20Rotas.rar</p>\r\n<p>Sorry, it is written at portuguese. If you try to run the app, click at &quot;Verificar tarefas diarias&quot;, then click at &quot;Ver rotas&quot; and then click at &quot;&gt;&quot;.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you in advance!</p>\r\n",
+    "PostedDate": "2011-01-03T09:12:30.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543268",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>this function is disabled in mobile, check the forks...</p>\r\n",
+    "PostedDate": "2011-01-03T09:29:09.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543273",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>oh noes :((</p>\r\n<p>&nbsp;</p>\r\n<p>Isn't there a way to bypass this.. or create a similar effect?.. using google maps api.. or even gmaps,net somehow..</p>\r\n<p>&nbsp;</p>\r\n<p>I can't believe.. :(</p>\r\n<p>&nbsp;</p>\r\n<p>edit: getting the text would be cool if possible.. like &quot;turn on left... etc etc&quot;</p>\r\n",
+    "PostedDate": "2011-01-03T09:39:21.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543283",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>check the forks, it's fixed, and somewhere in the forums is code with directions...</p>\r\n",
+    "PostedDate": "2011-01-03T09:57:04.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543309",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>thank you alot radioman!</p>\r\n<p>&nbsp;</p>\r\n<p>I'm gonna take a look. I have zero experience with the api n stuff, but thanks alot, now i can believe again :)</p>\r\n<p>&nbsp;</p>\r\n<p>Can you tell me if it is possible to get the direction text by the way?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Gonna start digging now, thanks.</p>\r\n",
+    "PostedDate": "2011-01-03T10:53:31.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543464",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>https://hg01.codeplex.com/forks/tolamac/mobile/rev/d3d23ba66a18</p>\r\n<p>thanks alot, it's working!</p>\r\n<p>&nbsp;</p>\r\n<p>i just love this ;)</p>\r\n",
+    "PostedDate": "2011-01-03T17:00:38.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543713",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>great ;} sorry for leaving mobile stuff behind sometimes...</p>\r\n",
+    "PostedDate": "2011-01-04T07:00:36.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543724",
+    "ThreadId": "240286",
+    "Html": "\r\n<p>You did alot already!</p>\r\n<p>thanks alot for the great help! Cheers mate</p>\r\n",
+    "PostedDate": "2011-01-04T07:17:56.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "671788",
+    "ThreadId": "240286",
+    "Html": "<p>ag0n,&nbsp; what did you do to get thr routing to work? I took out the #if !PocketPC as suggested by radioman in another discussion but still returning null?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-09-14T09:21:46.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "671795",
+    "ThreadId": "240286",
+    "Html": "<p>sorry forget that one,&nbsp;never looked in the link above. been on this solid for 3 weeks so brain fried. all good now!</p>",
+    "PostedDate": "2011-09-14T09:32:13.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "671797",
+    "ThreadId": "240286",
+    "Html": "<p>:) the link solves the problem.</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers</p>",
+    "PostedDate": "2011-09-14T09:39:01.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "671803",
+    "ThreadId": "240286",
+    "Html": "<p>It sure did, now for the directions and speech :-) Thanks for the fix</p>",
+    "PostedDate": "2011-09-14T09:51:58.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

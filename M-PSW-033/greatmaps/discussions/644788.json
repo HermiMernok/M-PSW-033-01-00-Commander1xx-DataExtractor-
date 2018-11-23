@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1443819",
+    "ThreadId": "644788",
+    "Html": "Hi, \r<br />\n<br />\nI have one sample project that I used to test the GMap control sucessfully in a Win CE device, then I added the component (GMapControl) to a project that I already had and it started freezing the equipament when I instantiate the GMapControl, after some investigation I added the DLL 'System.Data.SqlServerCe' in the test project that was working fine and it started freezing the equipment as well. I use this DLL in my project because I store data in a SQL Compact 3.5 database. \r<br />\n<br />\nBy freezing I mean that the app stops working, gets locked.\r<br />\n<br />\nIs there any known incompatibility with this DLL? \r<br />\n<br />\nThank you.\r<br />\n<br />\nP.S.: Changed to discussions as requested by radioman<br />\n",
+    "PostedDate": "2015-09-09T14:31:01.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1444353",
+    "ThreadId": "644788",
+    "Html": "Hi,\r<br />\n<br />\nActually I found out that the problem was in the OpenNetCF DLLs, I was using a newer version of the OpenNetCF (2.3.12004.0) while you look for the version 2.3.0.39.\r<br />\n<br />\nAfter downgrading the OpenNetCF DLLs it started working.\r<br />\n<br />\nThank you.<br />\n",
+    "PostedDate": "2015-09-14T11:15:42.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-09-14T12:47:35.55-07:00"
+  },
+  {
+    "Id": "1444363",
+    "ThreadId": "644788",
+    "Html": "excellent, i wonder whats wrong with the new version ;/<br />\n",
+    "PostedDate": "2015-09-14T12:48:22.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

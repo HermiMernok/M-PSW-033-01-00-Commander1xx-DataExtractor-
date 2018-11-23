@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "981457",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>I'm looking at the 'hot' build and see that&nbsp;CustomArcGISService has been removed. Is this planned to come back at all, or do any custom map providers have to be completed hard coded now?</p>\r\n",
+    "PostedDate": "2012-12-28T13:38:33.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983687",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>in what version&nbsp;it was? You can use whatever provider custom or not without rebuilding</p>\r\n",
+    "PostedDate": "2013-01-07T03:30:26.507-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985046",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>This was in the latest hot build. In the stable build you had a map type available - Custom_Arcgis_Service. You could specify the URL, projection, authenticaiton etc.</p>\r\n<p>In the 'hot build' this custom map type is no longer available, just all the predefined ArcGIS maptypes (for ex ArcGIS_Imagery_World2D_Map).</p>\r\n<p>So to access some custom GIS server, do we need to create a new class inheriting from one of the existing ArcGIS base providers, or is there some way similar to the stable build to just specify a custom URL etc?</p>\r\n",
+    "PostedDate": "2013-01-10T09:13:23.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985076",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>somehow i don't found it, which file exactly?</p>\r\n",
+    "PostedDate": "2013-01-10T10:03:26.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986630",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>I'm sorry, I'm workign on a project that someone else had started... I think the 'CustomArcGisService' is something they had added. I had assumed it was part of the original source...!</p>\r\n<p>In any case, using the hot build how would you specify a custom arc GIS service at run time? If you have a URL and a projection type...?</p>\r\n",
+    "PostedDate": "2013-01-14T11:52:30.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986660",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>map.<strong>MapProvider</strong> =&nbsp;new&nbsp;CustomArcGisService();</p>\r\n",
+    "PostedDate": "2013-01-14T12:19:57.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "987228",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>Sorry, I guess I'm not being clear. Forget about 'customarcgisservice' for a second.</p>\r\n<p>In the GMaps demo all the map providers are hard coded. The servers they talk to, providers they use etc. Is it possible to create an ArcGIS provider at runtime, based on some inputs from a user (such as server address, projection used etc)?</p>\r\n<p>For example, this server:</p>\r\n<p>http://webmaps.gurnee.il.us:6080/arcgis/rest/services/2010_Aerial/MapServer</p>\r\n<p>Or would a specific provider class for that particular server have to be created ahead of time?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-15T11:17:51.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "987231",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>you can try make it dynamic, but thats even more hard to do ;}</p>\r\n",
+    "PostedDate": "2013-01-15T11:27:09.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990636",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>Ok right... so currently 'dynamic' creation of an ArcGis provider at run time isn't supported. Are there any plans to add something like that?</p>\r\n<p>Or even some way to script the provider details? Seems like anyone we talk to has a different ArcGIS configuration, so supporting all the possibilities is a nightmare.</p>\r\n",
+    "PostedDate": "2013-01-22T18:22:27.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990798",
+    "ThreadId": "427946",
+    "Html": "\r\n<p>exactly ;}</p>\r\n",
+    "PostedDate": "2013-01-23T02:39:02.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

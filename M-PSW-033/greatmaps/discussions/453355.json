@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1080388",
+    "ThreadId": "453355",
+    "Html": "Hi Guys,\r<br />\n<br />\nI'm using GMaps on a security tracking application in Windows Forms. \r<br />\nI use Google Maps as the service provider, using Satellite View most of the time. In some cases, particularly in outlying areas, it appears as though the maps which are displayed in my application are older images than if I go in Google Maps and view the same location ?? How can this be, surely there is only one map server and one version of the maps at any time ??\r<br />\n<br />\nOkay, I understand that the GMap component can sometimes cache maps, but surely this is for a matter of hours if the application is left open, what I'm getting is that a certain location over a matter of months is an image showing open bush where there are now mine buildings when viewed on Google Maps or Earth.\r<br />\n<br />\nAny ideas ?\r<br />\n<br />\nThanks\r<br />\nCharles<br />\n",
+    "PostedDate": "2013-08-14T00:07:52.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1080996",
+    "ThreadId": "453355",
+    "Html": "you can clear the cache if you want<br />\n",
+    "PostedDate": "2013-08-15T08:50:04.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1081035",
+    "ThreadId": "453355",
+    "Html": "Radioman, you rock !\r<br />\n<br />\nCan I just delete the file in C:\\Users\\&lt;myname&gt;\\AppData\\Local\\GMap.NET\\TileDBv5\\en or is there a software process I have to follow so as not to break something ?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2013-08-15T10:02:56.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1081048",
+    "ThreadId": "453355",
+    "Html": "you can, doesn't matter how<br />\n",
+    "PostedDate": "2013-08-15T10:41:12.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

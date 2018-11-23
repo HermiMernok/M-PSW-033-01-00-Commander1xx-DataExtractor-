@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "678835",
+    "ThreadId": "274440",
+    "Html": "\r\n<p>Is it possible with GMap, to route multiple points? Most of the example I see have just 2 points. I have a list of stops (all in random order)&nbsp;and would like to order them (sort of route optimization at basic), giving a starting point. Is this possible?</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2011-09-30T14:23:45.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678930",
+    "ThreadId": "274440",
+    "Html": "<p>everything is possible ;}</p>",
+    "PostedDate": "2011-10-01T03:48:46.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679491",
+    "ThreadId": "274440",
+    "Html": "<p>This would be very handy :-) I have been looking at the TSP algorithm and was going to use that for the time being</p>",
+    "PostedDate": "2011-10-03T13:16:06.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679833",
+    "ThreadId": "274440",
+    "Html": "<p>If you have I think upto 25 points so 23 waypoints on a return to base then this is the place to look</p>\r\n<p>http://code.google.com/apis/maps/documentation/directions/#XML</p>",
+    "PostedDate": "2011-10-04T08:05:22.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680280",
+    "ThreadId": "274440",
+    "Html": "<p>delcom5,</p>\r\n<p>build up your url string like</p>\r\n<p>http://maps.googleapis.com/maps/api/directions/xml?origin=Liverpool,UK&amp;destination=Birmingham,UK&amp;waypoints=optimize:true|Leeds,UK|Birkenhead,UK|stoke-on-trent,UK&amp;sensor=false</p>\r\n<p>then search for</p>\r\n<p>&lt;waypoint_index&gt;1&lt;/waypoint_index&gt;&lt;waypoint_index&gt;0&lt;/waypoint_index&gt;&lt;waypoint_index&gt;2&lt;/waypoint_index&gt;</p>\r\n<p>this will give you the waypoints that have been sorted, the important part is optimize:true</p>\r\n<p>then all you have to do is route from waypoint to waypoint, not the best idea but it will work :-)</p>",
+    "PostedDate": "2011-10-05T06:49:16.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831024",
+    "ThreadId": "274440",
+    "Html": "<p>Where about in the code does the URL string go and get executed?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2012-05-02T03:16:23.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831025",
+    "ThreadId": "274440",
+    "Html": "<p>in googlemap provider</p>",
+    "PostedDate": "2012-05-02T03:25:21.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831636",
+    "ThreadId": "274440",
+    "Html": "<p>Thanks radioman, but specifically where in the googlemap provider?</p>",
+    "PostedDate": "2012-05-03T07:13:41.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831643",
+    "ThreadId": "274440",
+    "Html": "<p>debug, routing function, without testing you can't add this feature anyway</p>",
+    "PostedDate": "2012-05-03T07:25:05.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831658",
+    "ThreadId": "274440",
+    "Html": "<p>Ok, thanks for the super quick reply radioman - great service :-)</p>\r\n<p>If I go and add this (by overloading the existing function), it will be overwritten on your next updated version I download - is that correct? If yes, if I do it, how can I get it merged into your live source so I don't loose these changes, and I'd like to make it available to other users as I'm sure it would be useful to many other users.</p>\r\n<p>Many thanks</p>\r\n<p>Charlotte :-)</p>",
+    "PostedDate": "2012-05-03T07:46:09.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "831684",
+    "ThreadId": "274440",
+    "Html": "<p>yes, thats the point!</p>\r\n<p>you can make a fork or just share it here, i'll add it</p>",
+    "PostedDate": "2012-05-03T08:28:18.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "989365",
+    "ThreadId": "274440",
+    "Html": "\r\n<p>done!</p>\r\n",
+    "PostedDate": "2013-01-20T09:18:39.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

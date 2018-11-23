@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1448040",
+    "ThreadId": "646075",
+    "Html": "I used GHEAT.NET (<a href=\"http://www.codeproject.com/Articles/88956/GHeat-NET\" rel=\"nofollow\">http://www.codeproject.com/Articles/88956/GHeat-NET</a>) to generate a heatmap as a jpeg file. I need to add it as a layer to the map based on OpenStreetMap. (openstreetmap.com)\r<br />\n<br />\nAnd, also the heatmap layer can be zoomed in/out as I zoom in/out the map. \r<br />\n<br />\nI found the C# code from \r<br />\n<br />\n<a href=\"https://msdn.microsoft.com/en-us/library/microsoft.maps.mapcontrol.wpf.maptilelayer.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/microsoft.maps.mapcontrol.wpf.maptilelayer.aspx</a>\r<br />\n<br />\nBut, it is for microsoft.maps.mapcontrol.wpf not for GMAP.NET at <a href=\"https://greatmaps.codeplex.com/\" rel=\"nofollow\">https://greatmaps.codeplex.com/</a>\r<br />\nprivate void AddTileOverlay()<br />\n<pre><code>{\n\n    // Create a new map layer to add the tile overlay to.\n    tileLayer = new MapTileLayer();\n\n    // The source of the overlay.\n    TileSource tileSource = new TileSource();\n    tileSource.UriFormat = &quot;{UriScheme}://ecn.t0.tiles.virtualearth.net/tiles/r{quadkey}.jpeg?g=129&amp;mkt=en-us&amp;shading=hill&amp;stl=H&quot;;\n\n    // Add the tile overlay to the map layer\n    tileLayer.TileSource=tileSource;\n\n    // Add the map layer to the map\n    if (!MapTileOverlay.Children.Contains(tileLayer))  // in **GMAP.NET WPF, there is no definition for &quot;MapTileOverlay&quot;**\n    {\n        MapTileOverlay.Children.Add(tileLayer);\n    }\n    tileLayer.Opacity = tileOpacity;\n}\n</code></pre>\n\nAny help would be appreciated.<br />\n",
+    "PostedDate": "2015-10-10T19:50:01.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

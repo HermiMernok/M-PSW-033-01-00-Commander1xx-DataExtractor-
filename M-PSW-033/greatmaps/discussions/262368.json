@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "631215",
+    "ThreadId": "262368",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>I have been trying to find the error, but I don't know how to solve the problem. Maybe someone had the same problem too or someone knows why this problem occures.</p>\r\n<p>I call a WinForm from an other Form where the GMap Control is located in (ShowDialog()). So far so good, but when I try to close the dialog the Form with the GMap control closes and the mainform blockades for about eight seconds.</p>\r\n<p>I tried to do a lot of debugging, but I couldn't find the reason for the time the mainform blockades. It just blockades if i load a map, if I do not load a map and close the form it works fine.</p>\r\n<p>Can anybody please tell me what's the problem in that case?</p>\r\n<p>Thanks and best regards.</p>\r\n",
+    "PostedDate": "2011-06-22T09:10:06.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631232",
+    "ThreadId": "262368",
+    "Html": "<p>it's known issue</p>",
+    "PostedDate": "2011-06-22T09:35:13.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631233",
+    "ThreadId": "262368",
+    "Html": "<p>is there anything I can do to avoid this issue?</p>",
+    "PostedDate": "2011-06-22T09:36:15.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631236",
+    "ThreadId": "262368",
+    "Html": "<p>on Close Event, call Hide();</p>",
+    "PostedDate": "2011-06-22T09:44:44.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "557235",
+    "ThreadId": "243777",
+    "Html": "\r\n<p>I use a Magellan Triton 400 and VantagePoint on my PC.&nbsp;I can prefetch map data in&nbsp;MobileAtlasCreator to create specific map data files&nbsp;and load them into the &nbsp;device and software. This is what I'm trying to replacate.</p>\r\n<p>For example, I want to create a few gmdb files (GT_N47W122.gmdb, GT_N48W122.gmdb, GT_N49W122.gmdb). I know I can do this with the prefetcher code in the demos and create a custom prefetcher to make the files.</p>\r\n<p>What I would like to know is if I can (and how) to load these multiple files into the offline cache on program startup. Can you point me to where I can find out how to do this.</p>\r\n<p>&nbsp;I'm using C# VS2008 and targeting&nbsp;CF.NET 3.0 for mobile and .NET 3.5 for WinXP/7.&nbsp;</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2011-01-29T00:32:56.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "557262",
+    "ThreadId": "243777",
+    "Html": "\r\n<p>hm, the thing is that you can't 'load' all cache(because it's too big), so the tiles are loaded on demand. And about using multiply db, it's quite possible(http://freshmeat.net/articles/sqlite-tutorial):</p>\r\n<p><em>The ATTACH Command: Build a Virtual Table that Spans Multiple Tables on Separate Databases</em><br>\r\n<br>\r\n<em>This is a very powerful concept. As you have seen, sqlite3 works with a local database file. Within this local database, multiple tables can be created. This section will examine a technique to combine multiple tables with the same field layout that exist\r\n in separate database files into a single virtual table. On this single virtual table, you will see how selects can be performed. There is no overhead in copying or moving data. No data gets copied or moved, period. This is the ideal situation when working\r\n with very large tables. Suppose the computers on your network record port scans from snort to a local sqlite3 file. Provided you have access to the individual database files, via NFS mount or samba mount, you could virtually combine the tables from all your\r\n computers into one virtual table to perform database queries in an effort to identify global patterns of attack against your network.\r\n</em><br>\r\n<br>\r\n<em>This example will be done with the examdatabase, since we still have the scripts that were used for the exam table. We can easily create a new database &quot;examdatabase2&quot;, along with a new exam table, by executing the following script from the bash shell:\r\n</em><br>\r\n<em>$ sqlite3 examdatabase2 &lt; examScript</em><br>\r\n<em>$ sqlite3 examdatabase2 &lt; examLOG</em><br>\r\n<em>$ sqlite3 examdatabase2 &quot;insert into exam (ln,fn,exam,score) values ('Carter','Sue',1,89);</em><br>\r\n<em>insert into exam (ln,fn,exam,score) values ('Carter','Sue',2,100);&quot;</em><br>\r\n<br>\r\n<em>$ sqlite3 examdatabase2 &quot;select * from exam&quot;</em><br>\r\n<em>1|Sue|Carter|1|89|2004-10-02 16:04:12</em><br>\r\n<em>2|Sue|Carter|2|100|2004-10-02 16:04:12</em><br>\r\n<br>\r\n<em>To combine the two database files, use the attach command. The alias for examdatabase will be e1, and the alias for examdatabase2 will be e2. The shorter names will come in handy when the tables are joined with the union clause (a standard SQL command).\r\n</em><br>\r\n<br>\r\n<em>After the &quot;attach&quot; database command is performed, the &quot;.database&quot; command can be used to show the location of the individual database files. The location follows the alias. See the example below.\r\n</em><br>\r\n<em>$ sqlite3</em><br>\r\n<em>SQLite version 3.0.8</em><br>\r\n<em>Enter &quot;.help&quot; for instructions</em><br>\r\n<em>sqlite&gt; attach database 'examdatabase' as e1;</em><br>\r\n<em>sqlite&gt; attach database 'examdatabase2' as e2;</em><br>\r\n<em>sqlite&gt; .database</em><br>\r\n<em>seq name file</em><br>\r\n<em>--- --------------- ----------------------------------------------------------</em><br>\r\n<em>0 main</em><br>\r\n<em>2 e1 /work/cpearls/src/posted_on_sf/sqlite_examples/sqlite_exam</em><br>\r\n<em>3 e2 /work/cpearls/src/posted_on_sf/sqlite_examples/sqlite_exam</em><br>\r\n<em>sqlite&gt;</em><br>\r\n<br>\r\n<em>To select all data from both tables, perform the union of two select statements as demonstrated below. Note that by adding 'e1' and 'e2' to the respective selects, it is possible to identify which database the returned records are coming from.\r\n</em><br>\r\n<em>sqlite&gt; select 'e1',* from e1.exam union select 'e2',* from e2.exam;</em><br>\r\n<br>\r\n<em>e1|1|Bob|Anderson|1|75|2004-10-02 15:25:00</em><br>\r\n<em>e1|2|Bob|Anderson|2|82|2004-10-02 15:33:16</em><br>\r\n<em>e2|1|Sue|Carter|1|89|2004-10-02 16:04:12</em><br>\r\n<em>e2|2|Sue|Carter|2|100|2004-10-02 16:04:12</em><br>\r\n<br>\r\n<em>To summarize: A query was performed on two tables that resided in separate databases. This union created the virtual table. The select syntax is as follows: SELECT &lt;expression&gt; FROM &lt;TABLE&gt;. For the table option, we have used the complete string\r\n &quot;(select 'e1' as db,* from e1.exam union select 'e2' as db,* from e2.exam)&quot;, which is our virtual table.</em></p>\r\n",
+    "PostedDate": "2011-01-29T03:30:43.8-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "557370",
+    "ThreadId": "243777",
+    "Html": "\r\n<p>That looks like what I'm looking for. I'll throw up some code whith a better explination when I have it figured out.</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2011-01-29T11:28:59.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "601471",
+    "ThreadId": "243777",
+    "Html": "<p>done! ;} now you can put all your database files to main cache directory and they will be attached automatically</p>",
+    "PostedDate": "2011-04-22T05:11:46.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

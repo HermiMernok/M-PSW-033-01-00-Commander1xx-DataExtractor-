@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "709390",
+    "ThreadId": "282278",
+    "Html": "\r\n<p>Hello guys !&nbsp;<br>\r\n<br>\r\nI have a problem ...<br>\r\n<br>\r\nI one draw just one line &nbsp;( polygon ) &nbsp;.. i mean like this.<br>\r\n<br>\r\nI integrated with flight simulator x &nbsp;and &nbsp; when the plane is moving &nbsp;the arrow ( little red marker in the center of map : anyway &nbsp;how i change this red marker for a little plane ? figure jpg png ?) &nbsp; &nbsp;in the center of map is moving\r\n too , follow the same coordinates. &nbsp;so this is ready and working!&nbsp;<br>\r\n<br>\r\nbut i want put a polygon but just one .. not union &nbsp;anyone &nbsp;, because when the plane takeoff from airport1 &nbsp; &nbsp;the polygon is ok ...drawing &nbsp;if dont go the left or right&nbsp;<br>\r\nbut if i turn direction &nbsp; &nbsp;the polygons just union all..&nbsp;<br>\r\n<br>\r\ni dont want this union of polygons .. just &nbsp; one line &nbsp;following the mark.<br>\r\n&nbsp;<br>\r\n&nbsp;please help me..<br>\r\n<br>\r\n</p>\r\n<p>im using&nbsp;<br>\r\n<br>\r\n.Net c#&nbsp;<br>\r\n<br>\r\ni have a timer ..inside this timer i put my cod &nbsp;and the polygon code too. &nbsp; &nbsp;<br>\r\nwhen i click in the button &nbsp;..the communication with flight simulator x &nbsp;are started.<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n&nbsp;</p>\r\n",
+    "PostedDate": "2011-12-08T09:30:22.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709395",
+    "ThreadId": "282278",
+    "Html": "<p>i mean&nbsp;disconnect from last point to first point .i cant do that =/</p>\n<p><a href=\"http://www.brgsistemas.com.br/help.jpg\">http://www.brgsistemas.com.br/help.jpg<br /> <br /> <br /> More clear now :)&nbsp;</a></p>",
+    "PostedDate": "2011-12-08T09:43:13.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709403",
+    "ThreadId": "282278",
+    "Html": "<p>use route instead, then you can add point and the line will 'continue' follow the plane</p>\r\n<p>p.s. for marker use custom marker, check the demo source how to make it</p>",
+    "PostedDate": "2011-12-08T09:57:43.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709416",
+    "ThreadId": "282278",
+    "Html": "<p>but route &nbsp;( getroute ) &nbsp;need a start and end.. points.<br /><br />i dont have this ... ..i want just draw one line &nbsp;follow the custom marker ... &nbsp; in other post &nbsp;i see&nbsp;<br /><br />Look :<br /><br />I have a Timer &nbsp; , this timer.enable &nbsp; is inside a event button ok ?<br /><br />inside a timer :<br /><br />double v1 = double.Parse(txtlat.Text,CultureInfo.InvariantCulture)&nbsp;</p>\r\n<p>double v2 = double.Parse(txtlog.Text,CultureInfo.InvariantCulture)&nbsp;</p>\r\n<p>MainMap.Position = new PointLatLng(v1,v2) &nbsp;; &nbsp;// at here is ok ! &nbsp; the data of fsx is received and the map are moving in the same coordinate.</p>\r\n<p>------------------</p>\r\n<p>GmapOverlay lu</p>\r\n<p>lu = new GmapOverlay(\"p\");</p>\r\n<p>MainMap.Overlays.add(lu)</p>\r\n<p>&nbsp;</p>\r\n<p>polygon = new GmapPolygon(poly,\"teste\")</p>\r\n<p>polygons.Polygons.Add(polygon);</p>\r\n<p>lu.Polygons.Add(polygon)</p>\r\n<p>&nbsp;</p>\r\n<p>-----------------</p>\r\n<p>this work but the points are connected &nbsp;.. i dont want connect ... &nbsp;how i do ? thanks!!&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-12-08T10:22:49.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709433",
+    "ThreadId": "282278",
+    "Html": "<p>so you want line on your marker? create custom marker and draw that line ;}</p>",
+    "PostedDate": "2011-12-08T10:42:28.057-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "709436",
+    "ThreadId": "282278",
+    "Html": "<p>its fine now ! !&nbsp;<br /><br />thanks a lot ! <br /><br />i just want change now the custom marker .. &nbsp; that &nbsp;red marker in the center of map ..for one figure &nbsp;</p>",
+    "PostedDate": "2011-12-08T10:45:35.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802370",
+    "ThreadId": "282278",
+    "Html": "<p>Hi i am facing the same issue here, how did you acomplish this, please post your solution.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2012-02-27T20:25:07.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "803741",
+    "ThreadId": "346861",
+    "Html": "\r\n<p>Well,</p>\r\n<p>Based on my guess, for zooming, in manipulation events i used <strong>ManipulationDelta\r\n</strong>event to handler zoom operations like this:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">#region</span> Manipulation Area\r\n\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnManipulationStarting(ManipulationStartingEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">base</span>.OnManipulationStarting(e);\r\n            <span style=\"color:green\">// inside GMapControl, container should be itself.</span>\r\n            e.ManipulationContainer = <span style=\"color:blue\">this</span>;\r\n            e.Handled = <span style=\"color:blue\">true</span>;\r\n        }\r\n\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnManipulationDelta(ManipulationDeltaEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">base</span>.OnManipulationDelta(e);\r\n            \r\n            <span style=\"color:green\">// if multiple fingers where on GMapControl</span>\r\n            <span style=\"color:blue\">if</span> (e.Manipulators.Count() &gt; 1)\r\n                Zoom &#43;= e.DeltaManipulation.Scale.Length;\r\n\r\n            e.Handled = <span style=\"color:blue\">true</span>;\r\n        }\r\n\r\n        <span style=\"color:blue\">#endregion</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>but this not work properly for zooming in. Which solution do you recommend?</p>\r\n<p>Thanks in advance</p>\r\n",
+    "PostedDate": "2012-03-01T05:35:29.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "804867",
+    "ThreadId": "346861",
+    "Html": "<p>Wow! Is it hard to reply? Could any one from projects developers reply me?</p>",
+    "PostedDate": "2012-03-03T04:01:14.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "804868",
+    "ThreadId": "346861",
+    "Html": "<p>i don't know, happy now? ;}</p>",
+    "PostedDate": "2012-03-03T04:12:03.667-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

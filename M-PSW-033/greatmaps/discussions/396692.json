@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "916734",
+    "ThreadId": "396692",
+    "Html": "\r\n<p>Hello<br>\r\n<br>\r\nI'm using a custom marker that loads an image into gmaps and then you can resize,rotate and move it to a desired location.<br>\r\n<br>\r\nWhen the image is in place, im trying to get the location of the corners but with the recent versions i dont know how to do it.<br>\r\n<br>\r\nIm trying to do it using the image corners position, adding the point to PositionPixel and then asking the location using &quot;MapProvider.Projection.FromPixelToLatLng&quot; but thats not the correct way.<br>\r\n<br>\r\nAny idea on how to do it ?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n",
+    "PostedDate": "2012-09-24T09:38:30.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "916768",
+    "ThreadId": "396692",
+    "Html": "<p>what do you mean?</p>",
+    "PostedDate": "2012-09-24T10:40:16.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "916780",
+    "ThreadId": "396692",
+    "Html": "<p>&nbsp;I'm going to try to explain it.<br /><br />I extended GMapMarker to create my image loader to overlay it on the map.<br /><br />I'm able to resize the image, move it around the map and rotate it.<br /><br />With this, i can zoom the gmap in a location, load an image int my custom marker, resize and rotate it to fit some area shown in the gmap.<br /><br />In that point, i have the location (lat/lon) of the center of my custom marker, but i also what to calculate the location of the corners of the image loaded.<br /><br />With this code i return the corners of the loaded image:<br /><br />&nbsp;public List&lt;Point&gt; Corners {<br />&nbsp;&nbsp;&nbsp; get {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; using (Bitmap image = (Bitmap)ScaleByPercent(m_Image, Percent)) {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Point center = new Point(image.Width / 2, image.Height / 2); <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int currentWidth = image.Width;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; int currentHeight = image.Height;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return new List&lt;Point&gt; {<br />&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Rotate(new Point(center.X -  (currentWidth/2), center.Y - (currentHeight/2)), center, RotationAngle),<br />&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Rotate(new Point(center.X +  (currentWidth/2), center.Y - (currentHeight/2)), center, RotationAngle),<br />&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Rotate(new Point(center.X +  (currentWidth/2), center.Y + (currentHeight/2)), center, RotationAngle),<br />&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Rotate(new Point(center.X -  (currentWidth/2), center.Y + (currentHeight/2)), center, RotationAngle)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; };&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }<br />}</p>\r\n<p>&nbsp;</p>\r\n<p><br />So, having the offset from the center of the marker, how can i get the lat/lon of that point (corner) ?</p>",
+    "PostedDate": "2012-09-24T10:54:39.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "916788",
+    "ThreadId": "396692",
+    "Html": "<p>well how else do you expect to calculate it without conversions?</p>",
+    "PostedDate": "2012-09-24T11:05:44.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "916806",
+    "ThreadId": "396692",
+    "Html": "<p>if i use MapProvider.Projection.FromPixelToLatLng with the marker center x/y obviously I get the lat/lon, same as the Marker.Position value<br /><br />The issue is that if i add the offset calculated by me where is supposed to be the corner of the maker image doesnt correspond with the \"real/correct\" lat/lon, i think is because the zoom, that changed in newer version, because this aproach worked for me in \"older\" versions o gmap</p>\r\n<p>&nbsp;</p>\r\n<p>what kind of conversion i must apply to \"scale\" the marker image or to correspond the marker image pixels with the gmap pixels in order to get correct lat/lon values with FromPixelToLatLng ?</p>",
+    "PostedDate": "2012-09-24T11:24:24.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "916813",
+    "ThreadId": "396692",
+    "Html": "<p>fromLatLngToPixel + markerWidth/2 -&gt; FromPixelToLatLng // it should work?</p>",
+    "PostedDate": "2012-09-24T11:46:15.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

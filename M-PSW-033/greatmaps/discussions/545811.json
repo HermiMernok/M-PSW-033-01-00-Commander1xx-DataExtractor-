@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1246904",
+    "ThreadId": "545811",
+    "Html": "Hi,\r<br />\nIs there any way to read the Latitude and Longitude from map by clicking on any point on the map. Have tried this \r<br />\n<br />\nGMap1.Position.Lat\r<br />\nGMap1.Position.Lng\r<br />\n<br />\nBut this only gives fixed values.\r<br />\nKindly help.\r<br />\n<br />\nRegards,\r<br />\nNick<br />\n",
+    "PostedDate": "2014-05-19T06:02:35.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247360",
+    "ThreadId": "545811",
+    "Html": "Hi,\r<br />\n<br />\nI use double click on map and get coordinates\r<br />\n<br />\nprivate void gMapControl1_MouseDoubleClick(object sender, MouseEventArgs e)<br />\n<pre><code>    {\n        PointLatLng p = gMapControl1.FromLocalToLatLng(e.X, e.Y);\n        string decimalnaLatituda6button = Convert.ToString(p.Lat);\n        string decimalnaLongituda6button = Convert.ToString(p.Lng);</code></pre>\n\n}\r<br />\n<br />\nBest requards<br />\n",
+    "PostedDate": "2014-05-20T05:31:31.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1247888",
+    "ThreadId": "545811",
+    "Html": "Thanks a lot. \r<br />\nIt works.\r<br />\n<br />\nbest regards,\r<br />\n<br />\nNick.<br />\n",
+    "PostedDate": "2014-05-21T05:11:25.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-05-21T05:11:51.34-07:00"
+  },
+  {
+    "Id": "1247890",
+    "ThreadId": "545811",
+    "Html": "Done<br />\n",
+    "PostedDate": "2014-05-21T05:12:09.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-05-21T05:12:54.69-07:00"
+  }
+]

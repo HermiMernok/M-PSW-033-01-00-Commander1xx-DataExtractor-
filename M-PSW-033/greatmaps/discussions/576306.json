@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1337241",
+    "ThreadId": "576306",
+    "Html": "Hi,\r<br />\n<br />\nI need to count markers on reverse zoom.\r<br />\n<br />\nI mean, when I did a reverse zoom and two or more markers overlap, i need to show number of markers next to.\r<br />\n<br />\nI need help to orient my code.\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-12-26T02:41:54.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1337312",
+    "ThreadId": "576306",
+    "Html": "I think one way would be to have one overlay with invisible markers (they don't draw anything), the marker enlist it's position in a data structure keeping track of overlap and markers, when the viewport changes (zoom / move), the datastructure is cleared and the markers need to enlist themselves again.\r<br />\n<br />\none another layer in which markers are cleared and recalculated anytime the viewport changes you have actual markers, using the datastructure to find markers without overlap (so you draw them normally) and those with overlap.(you place a custom marker which will show the count of overlapping marers)\r<br />\n<br />\nDoes it make sense?<br />\n",
+    "PostedDate": "2014-12-26T10:03:25.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1435603",
+    "ThreadId": "641757",
+    "Html": "Hi guys,\r<br />\n<br />\nCurrently we are using google maps in one of our Windows Forms using Microsoft Web Browser control. The actual map is displayed via a .Asp page that is hosted in our IIS. However, we want to get rid of this .asp page and just use gMap.Net instead. Our .asp page is using a Key that is connecting to google something like <a href=\"http://maps.googleapis.com/maps/api/js?key=AIzaSxxxxxxyyyyxyxyxyxyxyxyxyxyxyxyxy&amp;sensor=true\" rel=\"nofollow\">http://maps.googleapis.com/maps/api/js?key=AIzaSxxxxxxyyyyxyxyxyxyxyxyxyxyxyxyxy&sensor=true</a>&quot;\r<br />\n<br />\nI have done some tests with gmap.net and works great however we have some concerns.\r<br />\n<br />\n1- How gmap.net is connecting to google map without any keys? We are bit concerned if we are breaking google maps license agreements or not? \r<br />\n2- Can we use our existing key to connect to google maps using gmap.net?\r<br />\n<br />\nMany thanks in advance<br />\n",
+    "PostedDate": "2015-07-22T18:39:34.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435719",
+    "ThreadId": "641757",
+    "Html": "google map provider supports <strong>ApiKey</strong> or <strong>SetEnterpriseCredentials</strong> for Maps API for Work, by default no keys are set<br />\n",
+    "PostedDate": "2015-07-23T09:49:03.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435756",
+    "ThreadId": "641757",
+    "Html": "Hi,\r<br />\n<br />\nThanks for the reply. I would like to be able to use our key. Right now I am using it as following:\r<br />\n<br />\n   GoogleMapProvider.Instance.RefererUrl = &quot;<a href=\"http://maps.googleapis.com/maps/api/&quot;;\" rel=\"nofollow\">http://maps.googleapis.com/maps/api/\";</a>\r<br />\n   GoogleMapProvider.Instance.ApiKey = &quot;AIzaSyCrlJAcnDovwExeN0VABCDEFGEtc&quot;;\r<br />\n<br />\n  var googleprovider = GoogleMapProvider.Instance;\r<br />\n<br />\n   myMap.MapProvider = googleprovider;\r<br />\n...\r<br />\nRest of the code\r<br />\n<br />\nThis still works, however if I change the key to some wrong key it will still work. I am not able to validate if it is using my key.\r<br />\n<br />\nIs this the correct way to use the key?\r<br />\n<br />\nMany thanks.<br />\n",
+    "PostedDate": "2015-07-23T16:18:11.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435818",
+    "ThreadId": "641757",
+    "Html": "the key is used only for geocoding/routing/direction functions, tile data doesn't require keys<br />\n",
+    "PostedDate": "2015-07-24T01:54:58.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1481955",
+    "ThreadId": "641757",
+    "Html": "Hi (note: my english is so bad).\r<br />\n<br />\nBecause i have problems with the limit of 2500 addresses per day,  i'm forced to use an API KEY. I have the following code:<br />\n<pre><code>GeoCoderStatusCode gc;\nGoogleMapProvider.Instance.ApiKey = &quot;AIzaSyAy7zYH4PbPwgRPPmyDF62uoVWC1xxxxxx&quot;;\nPointLatLng pt = new PointLatLng(lat, lng);\nPlacemark? pc = GoogleMapProvider.Instance.GetPlacemark(pt, out gc);</code></pre>\n\nBut didn't work. I have also tried with:<br />\n<pre><code>GoogleMapProvider.Instance.RefererUrl = &quot;http://maps.googleapis.com/maps/api/&quot;</code></pre>\n\nBut neither it worked: the GeoCoderStatus is Unknow and the Placemark is null. I can't find the solution. Any suggestions?\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2016-08-23T21:22:52.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482016",
+    "ThreadId": "641757",
+    "Html": "i guess you have to digg into latest google api and try if it works, i haven't checked it in a while<br />\n",
+    "PostedDate": "2016-08-24T11:55:24.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482370",
+    "ThreadId": "641757",
+    "Html": "Hi! There's a solution to the use of API Key's problem:<br />\n<br />\nIs necesary modify the following vars in the file GMAP.NET.Core/GMAP.NET.MapProviders/Google/GoogleMapProvider.cs to:<br />\n<pre><code>static readonly string ReverseGeocoderUrlFormat = &quot;https://maps.{0}/maps/api/geocode/xml?latlng={1},{2}&amp;language={3}&amp;sensor=false&quot;;\nstatic readonly string GeocoderUrlFormat = &quot;https://maps.{0}/maps/api/geocode/xml?address={1}&amp;language={2}&amp;sensor=false&quot;;</code></pre>\n\nNote that the problem it's that Google no accepts HTTP's querys with the use of an API Key, only HTTPS (originally the vars are set to work in http mode).<br />\n<br />\nRegards!<br />\n",
+    "PostedDate": "2016-08-29T11:49:11.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-08-29T15:05:12.103-07:00"
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "Id": "512728",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>Not sure why, but when i tried to compile my project using 2b200490367c it fails on compilation with no errors shown... just says&nbsp; 1 failed...</p>\r\n<p>my project is in vb.net if that makes any difference.</p>\r\n<p>I havnt had any problems till i updated from&nbsp;&nbsp; 4487be750c91&nbsp; &nbsp;to&nbsp; &nbsp;2b200490367c</p>\r\n<p>switching back to 4487be750c91 allows it to compile again.</p>\r\n",
+    "PostedDate": "2010-10-26T07:16:42.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512781",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>I have just spent the last few hours trying to battle the exact same problem.</p>\r\n<p>My solution was to remove the System.Xml.Linq reference from my project, with this reference in place my solution also did not build and with no errors but previous versions did work fine.</p>\r\n<p>Maybe Radioman will be able to track back to see if a recent change has caused this problem.</p>\r\n<p>&nbsp;</p>\r\n<p>Mark</p>\r\n",
+    "PostedDate": "2010-10-26T08:40:24.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512836",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>hm..</p>\r\n",
+    "PostedDate": "2010-10-26T10:24:10.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512991",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>got the same problem here, I was thinking I was foul :) (maybe am I ? )</p>\r\n",
+    "PostedDate": "2010-10-26T14:31:24.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513153",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>strange problems ;}</p>\r\n",
+    "PostedDate": "2010-10-26T22:01:23.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513755",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>Got the same problem with build 6fdd8b685666.</p>\r\n<p>Seem to work if I remove &quot;System.Xml.Linq&quot; too<a id=\"x_ChangeSetLink0\" title=\"View change set  6fdd8b685666\" href=\"../SourceControl/changeset/changes/6fdd8b685666\" style=\"font-weight:bold\"></a></p>\r\n",
+    "PostedDate": "2010-10-27T22:19:42.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513757",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>build just fine here with or without System.Xml.Linq ;}</p>\r\n",
+    "PostedDate": "2010-10-27T22:36:54.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513776",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>when I open the example it's building fine too.</p>\r\n<p>But not my application, which I have included the gmaps.net dll</p>\r\n",
+    "PostedDate": "2010-10-27T23:37:20.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513791",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>strange, what version forms/wpf?</p>\r\n",
+    "PostedDate": "2010-10-28T00:13:53.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513793",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>wpf, for me</p>\r\n",
+    "PostedDate": "2010-10-28T00:14:51.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513825",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>When you download this version and build it works fine, but when you add these built references into your winforms VB (VS2010) project it does not build until you remove the Linq reference.</p>\r\n",
+    "PostedDate": "2010-10-28T01:37:14.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513831",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>is it vb specific?</p>\r\n",
+    "PostedDate": "2010-10-28T01:45:56.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513834",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>If someone else does not reply I can try and build a quick c# project later on today.</p>\r\n",
+    "PostedDate": "2010-10-28T01:48:22.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513835",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>I use VB too...</p>\r\n",
+    "PostedDate": "2010-10-28T01:49:23.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "514175",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>wpf for the maps but a hybrid app</p>\r\n",
+    "PostedDate": "2010-10-28T12:24:59.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "515755",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>Must add my admiration for a fantastic project, radioman!</p>\r\n<p>I have had the same problem and thought it was something I had done.</p>\r\n<p>Using VB as well, and removing System.XML.Linq reference fixes it. I don't use Linq anyway, so no loss, but a strange problem...</p>\r\n",
+    "PostedDate": "2010-11-01T23:48:50.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519117",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>I'm having the same problem. It is only with GMap.NET.Core.dll that I'm having the problem. My project is a VB.Net project in VS2010/.Net 4.0. I removed System.XML.Linq and that fixes the problem. I'm using&nbsp;greatmaps_f3b3d0867108.</p>\r\n",
+    "PostedDate": "2010-11-08T20:03:21.243-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519198",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>fixed now</p>\r\n",
+    "PostedDate": "2010-11-09T00:22:32.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519317",
+    "ThreadId": "232363",
+    "Html": "\r\n<p>I downloaded&nbsp;greatmaps-bc21f46565cb and recompiled the entire solution in Release mode and then took the GMap.NET.Core.dll from the Build/Release directory and added it to my program. I then added back in the System.XML.Linq assembly and tried compiling.\r\n The compiled with no errors. The version of GMap.NET.Core.dll didn't change from 1.5.3.3 when I upgraded the file with the new build. Removing System.XML.Linq allowed my project to compile again.</p>\r\n",
+    "PostedDate": "2010-11-09T05:35:33.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "732634",
+    "ThreadId": "287889",
+    "Html": "\r\n<p>Hi RadioMan,</p>\r\n<p>Loving GMap.Net :) - a quick issue I've run into today...</p>\r\n<p>Just tried out the latest hot build (Jan 30th Beta) on WinForms. Everything working prior to upgrading (original build was an October one). The latest build gives me errors as follows...</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PointLatLng? start = GMaps.Instance.GetLatLngFromGeocoder(textEditStartLocation.Text, out status);</p>\r\n<p>Error<span> </span>40<span> </span>'GMap.NET.GMaps' does not contain a definition for 'GetLatLngFromGeocoder' and no extension method 'GetLatLngFromGeocoder' accepting a first argument of type 'GMap.NET.GMaps' could be found (are you missing a using directive\r\n or an assembly reference?)</p>\r\n<p>Also,</p>\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MapRoute route = GMaps.Instance.GetRouteBetweenPoints((PointLatLng)start, (PointLatLng)end, false, (int)myMap.Zoom);</p>\r\n<p>Error<span> </span>42<span> </span>'GMap.NET.GMaps' does not contain a definition for 'GetRouteBetweenPoints' and no extension method 'GetRouteBetweenPoints' accepting a first argument of type 'GMap.NET.GMaps' could be found (are you missing a using directive\r\n or an assembly reference?)</p>\r\n<p>I guess some methods have been moved or rename since the October version&nbsp;- can you advise on what I should be calling instead of those 2 methods?</p>\r\n<p>Many thanks</p>\r\n<p>Charlotte</p>\r\n",
+    "PostedDate": "2012-01-30T06:42:55.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732638",
+    "ThreadId": "287889",
+    "Html": "<p>GMapProviders.GoogleMap.GetPoint/etc, there is routing implemented in openstreetmap provider too</p>",
+    "PostedDate": "2012-01-30T06:50:07.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732653",
+    "ThreadId": "287889",
+    "Html": "<p>Hi Radioman.</p>\r\n<p>Firstly, many thanks for your super quick reply :)</p>\r\n<p>I had a look through the latest demo code and solved the first issue using the code in the demo app.</p>\r\n<p>&nbsp;</p>\r\n<p>For the second issue,</p>\r\n<p>I've coded the following...</p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style=\"color: #2b91af;\">List</span>&lt;<span style=\"color: #2b91af;\">PointLatLng</span>&gt; points = <span style=\"color: blue;\">new</span> <span style=\"color: #2b91af;\">List</span>&lt;<span style=\"color: #2b91af;\">PointLatLng</span>&gt;();</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; points.Add((<span style=\"color: #2b91af;\">PointLatLng</span>)start);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; points.Add((<span style=\"color: #2b91af;\">PointLatLng</span>)end);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: #2b91af;\">MapRoute</span> route = <span style=\"color: blue;\">new</span> <span style=\"color: #2b91af;\">GMapRoute</span>(points, <span style=\"color: #a31515;\">\"Route\"</span>);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">if</span> (route != <span style=\"color: blue;\">null</span>)</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: green;\">// add route</span></span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: #2b91af;\">GMapRoute</span> r = <span style=\"color: blue;\">new</span> <span style=\"color: #2b91af;\">GMapRoute</span>(route.Points, route.Name);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routes.Routes.Add(r);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: green;\">// add route start/end marks</span></span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style=\"color: #2b91af;\">GMapMarker</span><span style=\"font-size: 9.5pt;\"> m1 = </span><span style=\"color: blue;\">new</span><span style=\"font-size: 9.5pt;\"> </span><span style=\"color: #2b91af;\">GMarkerGoogle</span><span style=\"font-size: 9.5pt;\">((</span><span style=\"color: #2b91af;\">PointLatLng</span><span style=\"font-size: 9.5pt;\">)start, </span><span style=\"color: #2b91af;\">GMarkerGoogleType</span><span style=\"font-size: 9.5pt;\">.green);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.ToolTipText = <span style=\"color: #a31515;\">\"Start: \"</span> + route.Name;</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.ToolTipMode = <span style=\"color: #2b91af;\">MarkerTooltipMode</span>.Always;</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m1.Tag = <span style=\"color: #a31515;\">\"RouteStart\"</span>;&nbsp; <span style=\"color: green;\">// store value in tag so we can find it for deleting //</span></span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span style=\"color: #2b91af;\">GMapMarker</span><span style=\"font-size: 9.5pt;\"> m2 = </span><span style=\"color: blue;\">new</span><span style=\"font-size: 9.5pt;\"> </span><span style=\"color: #2b91af;\">GMarkerGoogle</span><span style=\"font-size: 9.5pt;\">((</span><span style=\"color: #2b91af;\">PointLatLng</span><span style=\"font-size: 9.5pt;\">)end, </span><span style=\"color: #2b91af;\">GMarkerGoogleType</span><span style=\"font-size: 9.5pt;\">.red);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m2.ToolTipText = <span style=\"color: #a31515;\">\"End: \"</span> + end.ToString();</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m2.ToolTipMode = <span style=\"color: #2b91af;\">MarkerTooltipMode</span>.Always;</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m2.Tag = <span style=\"color: #a31515;\">\"RouteEnd\"</span>;&nbsp; <span style=\"color: green;\">// store value in tag so we can find it for deleting //</span></span><span style=\"font-size: 9.5pt;\">&nbsp;</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects.Markers.Add(m1);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects.Markers.Add(m2);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myMap.ZoomAndCenterRoute(r);</span></p>\r\n<p><span style=\"font-size: 9.5pt;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>\r\n<p>The problem with this is that it draws a straight line between the start and end - it doesn't follow any roads. What have I done wrong here - is it something to do with&nbsp;&nbsp;<span>new</span>&nbsp;<span>GMapRoute</span>(points,&nbsp;<span>\"Route\"</span>); - I put in \"Route\" as I have no idea what the string parameter is for - I'm gusing it's just a name for it?</p>\r\n<p>Thanks</p>\r\n<p>Charlotte.</p>",
+    "PostedDate": "2012-01-30T07:09:05.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732657",
+    "ThreadId": "287889",
+    "Html": "<p>you get exactly what you asked for, line between two points ;}</p>",
+    "PostedDate": "2012-01-30T07:19:43.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732676",
+    "ThreadId": "287889",
+    "Html": "<p>Fair enough ;-)</p>\r\n<p>How do I alter the code to draw along the shortest road then?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2012-01-30T08:02:34.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732685",
+    "ThreadId": "287889",
+    "Html": "<p>Figured it out...</p>\r\n<p>Changed</p>\r\n<p>MapRoute route = new GMapRoute(points, \"Route\");</p>\r\n<p>To</p>\r\n<p>MapRoute route = GMapProviders.GoogleMap.GetRoute((PointLatLng)start, (PointLatLng)end, false, false, (int)myMap.Zoom);</p>\r\n<p>:-)</p>",
+    "PostedDate": "2012-01-30T08:22:45.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

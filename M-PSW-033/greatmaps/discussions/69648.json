@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "237067",
+    "ThreadId": "69648",
+    "Html": "<p>ON a winforms application I want to be able to delete individual markers created with the GMapMarker_Custom class as below.</p>\r\n<p>&nbsp;</p>\r\n<p>Any help is always appreciated</p>\r\n<p>&nbsp;</p>\r\n<p>Ewan</p>\r\n<p>&nbsp;</p>\r\n<p>Public Class GMapMarker_Custom<br><br>&nbsp;&nbsp;&nbsp; Inherits GMapMarker<br><br>&nbsp;&nbsp;&nbsp; Dim IconPath As String<br>&nbsp;&nbsp;&nbsp; Dim myImage As Image<br><br>&nbsp;&nbsp;&nbsp; Public Sub New(ByVal p As PointLatLng, ByVal Unit_Name As String)<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyBase.New(p)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IconPath = Get_GIS_Icon(Unit_Name)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If System.IO.File.Exists(IconPath) = False Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IconPath = AppPath &amp; &quot;\\icons\\gis\\base.png&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myImage = Image.FromFile(IconPath)<br><br>&nbsp;&nbsp;&nbsp; End Sub<br><br>&nbsp;&nbsp;&nbsp; Public Overloads Overrides Sub OnRender(ByVal g As Graphics)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawImageUnscaled(myImage, LocalPosition.X - 10, LocalPosition.Y - 20)<br><br>&nbsp;&nbsp;&nbsp; End Sub<br><br>End Class</p>",
+    "PostedDate": "2009-09-21T15:33:17.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237111",
+    "ThreadId": "69648",
+    "Html": "<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">objects = new GMapOverlay(MainMap, &quot;objects&quot;);</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MainMap.Overlays.Add(objects);</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>GMapOverlay objects&nbsp;= <span style=\"color:Blue\">new</span> GMapOverlay(MainMap, <span style=\"color:#A31515\">&quot;objects&quot;</span>);\r\n\r\nMainMap.Overlays.Add(objects);\r\n\r\n<span style=\"color:Green\">// ...</span>\r\n\r\nGMapMarker_Custom m = <span style=\"color:Blue\">new</span>&nbsp;GMapMarker_Custom(<span style=\"color:Blue\">new</span> PointLatLng(25, 54));\r\n\r\nobjects.Markers.Add(m);\r\n\r\n<span style=\"color:Green\">// ...</span>\r\n\r\nobjects.Markers.Remove(m);\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-21T20:19:58.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237243",
+    "ThreadId": "69648",
+    "Html": "<p>Thanks for your help - this work great</p>\r\n<p>&nbsp;</p>\r\n<p>Ewan</p>\r\n<p>&nbsp;</p>\r\n<p>Private Sub Delete_Inet_Pushpin(ByVal Unit_Name As String)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim C As Integer<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For C = 0 To objects.Markers.Count - 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If objects.Markers(C).Tag = Unit_Name Then<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dim currentMarker As GMapMarker_Custom = objects.Markers(C)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects.Markers.Remove(currentMarker)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; End If<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next<br><br>&nbsp;&nbsp;&nbsp; End Sub</p>",
+    "PostedDate": "2009-09-22T03:45:58.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

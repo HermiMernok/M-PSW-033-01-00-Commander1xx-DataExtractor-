@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1334880",
+    "ThreadId": "575843",
+    "Html": "Hi!\r<br />\nI have information about BaseStation LAC,CELL,LAT,LON,Azimut.\r<br />\nHow can I draw a sector base station coverage map using this information?<br />\n",
+    "PostedDate": "2014-12-19T06:32:30.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1338271",
+    "ThreadId": "575843",
+    "Html": "When you are initializing your map object you can set the position of the map to some coordinates and set the zoom level - here you use the LAT/LON from your data. As far as the coverage map, I don't understand what you mean. Can you elaborate?<br />\n<pre><code>_gmap.Position = New PointLatLng(LAT, LON)</code></pre>\n\n",
+    "PostedDate": "2014-12-31T22:13:46.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1339007",
+    "ThreadId": "575843",
+    "Html": "Sorry, I really do not know much English. I need to draw on the map something\r<br />\n<img src=\"http://3.bp.blogspot.com/-jOzL_xDx0u8/T5MtDC9FjiI/AAAAAAAAAFQ/F5S04LuzIBQ/s320/londoncellwithtamark.PNG\" alt=\"Image\" />\r<br />\nI mapped the image of the base station.\r<br />\nNext, draw a sector of its coverage. \r<br />\nMy problem is that I can not draw the correct sector. I know that in urban areas covering the base station within 9km, in practice, in theory up to 35km. How do I draw a sector in the correct proportions.<br />\n",
+    "PostedDate": "2015-01-05T00:19:10.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1339602",
+    "ThreadId": "575843",
+    "Html": "Can you give an example if the data to be evaluated?<br />\n",
+    "PostedDate": "2015-01-06T22:19:29.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1339686",
+    "ThreadId": "575843",
+    "Html": "Once again, very sorry for the English, I write with the help of GoogleTranslate\r<br />\nNow with increasing distance, or the scale of my sector is comparable to the scale of the map. And I want to size does not change when the zoom level.\r<br />\nAnd the second question, what parameters to assign the rectangle so that it met the 9 km on the map?\r<br />\n<br />\n<br />\n<br />\npublic class GMapMarkerSector : GMapMarker<br />\n<pre><code>{\n    public int azimuth; \n\n\n    public GMapMarkerCircle(PointLatLng p)\n        : base(p)\n    {\n      var  startangle=(azimuth-90)%360;\n      var  endangle=2*startangle;\n\n    }\n\n    public override void OnRender(Graphics g)\n    {\n                        g.DrawPie( new Pen(Color.Red, 3) , new System.Drawing.Rectangle(LocalPosition.X , LocalPosition.Y, 100, 100,startangle,endangle));\n\n    }\n}</code></pre>\n\n}<br />\n",
+    "PostedDate": "2015-01-07T02:34:12.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1339734",
+    "ThreadId": "575843",
+    "Html": "check demo:<br />\n<pre><code>// add demo circle\n      void MainMap_MouseDoubleClick(object sender, MouseEventArgs e)\n      {\n         var cc = new GMapMarkerCircle(MainMap.FromLocalToLatLng(e.X, e.Y));\n         objects.Markers.Add(cc);\n      }</code></pre>\n\nand in your custom marker<br />\n<pre><code>public override void OnRender(Graphics g)\n      {\n         int R = (int)((Radius) / Overlay.Control.MapProvider.Projection.GetGroundResolution((int)Overlay.Control.Zoom, Position.Lat)) * 2;\n\n         if(IsFilled)\n         {\n            g.FillEllipse(Fill, new System.Drawing.Rectangle(LocalPosition.X - R / 2, LocalPosition.Y - R / 2, R, R));\n         }\n         g.DrawEllipse(Stroke, new System.Drawing.Rectangle(LocalPosition.X - R / 2, LocalPosition.Y - R / 2, R, R));\n      }</code></pre>\n\n..to optimize performance ,calculate size only when zoom level changes<br />\n",
+    "PostedDate": "2015-01-07T05:33:59.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-07T05:34:50.237-08:00"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1222236",
+    "ThreadId": "538865",
+    "Html": "Hi Radioman!\r<br />\n<br />\nCould you please help me, I want to make a new MapProvider (basemap.at), i got a WMTSCapabilities.xml file: <a href=\"http://www.basemap.at/wmts/1.0.0/WMTSCapabilities.xml\" rel=\"nofollow\">http://www.basemap.at/wmts/1.0.0/WMTSCapabilities.xml</a> \r<br />\nI think it should be fairly easy to make a new map-provider out of this, but I'm not sure how to compose the URL to get the tiles...\r<br />\n<br />\nThanks a lot!<br />\n",
+    "PostedDate": "2014-03-13T01:27:21.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1223430",
+    "ThreadId": "538865",
+    "Html": "hello Xandolph,\r<br />\n<br />\nwith the tool <a href=\"http://www.telerik.com/download/fiddler\" rel=\"nofollow\">Fiddler</a> you can resolve the URL of the tilemaps. In your case for example this \r<br />\n<a href=\"http://maps.wien.gv.at/fmzkgrau/Kacheln/_alllayers/L02/R00000000/C00000000.jpg\" rel=\"nofollow\">MapTile</a>. \r<br />\nStrange is the coordsystem they used. Perhaps you can change this. With QuantumGis you have a good tool to read the WMTSCapabilities(Supportet Geo-Coord, Layers, ...) \r<br />\nHope this helps.\r<br />\nBye EDE<br />\n",
+    "PostedDate": "2014-03-17T02:11:29.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "714585",
+    "ThreadId": "283551",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I tried to add a new point to extend an existing route, but the new route line connecting to the new point does not show up immediately. After I moved the map, then the new line is shown.</p>\r\n<p>Is there a way to refresh the overlay/map to show the route line extension? I tried myMap.Refresh(), but it didn't do it.</p>\r\n<p>Many thanks for the help and the great GMap.NET!</p>\r\n<p>Best regards,</p>\r\n<p>Awi</p>\r\n",
+    "PostedDate": "2011-12-19T20:14:15.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714660",
+    "ThreadId": "283551",
+    "Html": "<p>myRoute.Points.Add(...</p>\r\n<p>map.<strong>UpdateRouteLocalPosition</strong>(myRoute);</p>\r\n<p>map.Invalidate();</p>",
+    "PostedDate": "2011-12-20T00:12:43.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "715139",
+    "ThreadId": "283551",
+    "Html": "<p>Thanks for the help!</p>",
+    "PostedDate": "2011-12-20T15:24:08.19-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

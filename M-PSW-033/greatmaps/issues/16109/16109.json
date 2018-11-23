@@ -1,0 +1,76 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "I am having trouble viewing a custom marker at lower zoom levels i.e. the marker builds fine and displays on my control at higher zoom levels, but disappears as you zoom out in the control. Is this a bug or a problem with my coding (any help would be appreciated)?\r\n\r\nStandard custom marker template code:\r\n```\r\nImports System\r\nImports System.Drawing\r\nImports System.Drawing.Drawing2D\r\nImports GMap.NET\r\nImports GMap.NET.WindowsForms\r\nImports System.Windows.Forms\r\n\r\n\r\nPublic Class GmapCustomRadiusMarker\r\n    Inherits GMapMarker\r\n\r\n    Private gcrm_radius As Integer\r\n    Private gcrm_outlinePen As Pen\r\n    Private gcrm_fillBrush As Brush\r\n    Private gcrm_fill As Boolean\r\n    Private gcrm_control As GMapControl\r\n    Private gcrm_scale As String\r\n\r\n\r\n    Public Sub New(markerPoint As PointLatLng, Radius As Integer, OutlinePenSpecs As Pen, FillBrushSpecs As Brush, FillArea As Boolean, scale As String)\r\n        MyBase.New(markerPoint)\r\n        gcrm_outlinePen = OutlinePenSpecs\r\n        gcrm_fillBrush = FillBrushSpecs\r\n        gcrm_radius = Radius\r\n        gcrm_fill = FillArea\r\n        gcrm_scale = scale\r\n    End Sub\r\n\r\n    Public Overrides Sub OnRender(graphicsObject As Graphics)\r\n        Dim R As Integer\r\n        graphicsObject.SmoothingMode = SmoothingMode.AntiAlias\r\n        graphicsObject.CompositingQuality = CompositingQuality.GammaCorrected\r\n\r\n\r\n        If gcrm_scale = \"metre\" Then\r\n            R = CInt((gcrm_radius) / Overlay.Control.MapProvider.Projection.GetGroundResolution(Overlay.Control.Zoom, Position.Lat)) * 2\r\n        ElseIf gcrm_scale = \"mile\" Then\r\n            R = CInt(((gcrm_radius) / Overlay.Control.MapProvider.Projection.GetGroundResolution(Overlay.Control.Zoom, Position.Lat)) * 2) * 1621\r\n        Else\r\n            ''gcrm_scale = \"kilometre\"\r\n            R = CInt(((gcrm_radius) / Overlay.Control.MapProvider.Projection.GetGroundResolution(Overlay.Control.Zoom, Position.Lat)) * 2) * 1000\r\n            ''MsgBox(\"Zoom level: \" + Convert.ToString(Overlay.Control.MapProvider.Projection.GetGroundResolution))\r\n        End If\r\n\r\n\r\n        If gcrm_fill = True Then\r\n            graphicsObject.FillEllipse(gcrm_fillBrush, New System.Drawing.Rectangle(LocalPosition.X - R \\ 2, LocalPosition.Y - R \\ 2, R, R))\r\n        End If\r\n        graphicsObject.DrawEllipse(gcrm_outlinePen, New System.Drawing.Rectangle(MyBase.LocalPosition.X - R \\ 2, MyBase.LocalPosition.Y - R \\ 2, R, R))\r\n    End Sub\r\nEnd Class\r\n```\r\nInstantiating the class:\r\n```\r\nDim alphaAmount As Double = 0.5\r\n\r\nradiusMarkerOverlay = New GMapOverlay(\"searchRadius\")\r\nDim semiTransBrush As New SolidBrush(Color.FromArgb(Convert.ToInt32(255 * alphaAmount), Color.BlueViolet))\r\nDim radiusMarker = New GmapCustomRadiusMarker(referenceLocation, refRadius, Pens.Black, semiTransBrush, True, \"kilometre\")\r\n\r\nradiusMarkerOverlay.Markers.Add(radiusMarker)\r\nctrlGmap.Overlays.Add(radiusMarkerOverlay)\r\n```\r\n",
+    "LastUpdatedDate": "2015-02-07T17:13:11.05-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2015-02-05T21:26:21.897-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Custom marker not rendering on lower zoom levels",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16109
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1427180,
+      "FileName": "Image3.jpg",
+      "DownloadUrl": ".\\1427180"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "But a very large marker area (30km) disappears when it should be visible at the next zoom level? Is there a problem with my draw area code?",
+      "PostedDate": "2015-02-06T14:34:54.857-08:00",
+      "Id": 173683
+    },
+    {
+      "Message": "FYI an image outlining the issue:\r\n\r\n",
+      "PostedDate": "2015-02-06T15:20:09.247-08:00",
+      "Id": 173688
+    },
+    {
+      "Message": "![Image](http://tinypic.com/r/2cdfofr/8)",
+      "PostedDate": "2015-02-06T15:20:50.04-08:00",
+      "Id": 173689
+    },
+    {
+      "Message": "very small marker is very small marker\n\r\n\r** Closed by radioman 02/06/2015 3:01AM",
+      "PostedDate": "2015-02-06T03:01:07.763-08:00",
+      "Id": 173690
+    },
+    {
+      "Message": "Hm, thats strange, maybe ground resolution isn't correct?",
+      "PostedDate": "2015-02-07T03:04:25.087-08:00",
+      "Id": 173709
+    },
+    {
+      "Message": "I thought the same, I'll have to investigate further (wasn't sure where to start). Just so I'm clear there isn't any obvious error with the way in which I'm setting the scale based on the map control's zoom level is there?  ",
+      "PostedDate": "2015-02-07T17:13:11.05-08:00",
+      "Id": 173725
+    }
+  ]
+}

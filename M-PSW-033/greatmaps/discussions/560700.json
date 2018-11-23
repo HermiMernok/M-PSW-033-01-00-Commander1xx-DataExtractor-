@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1288361",
+    "ThreadId": "560700",
+    "Html": "First i need to say that\r<br />\n&quot;Radioman We Love You&quot;\r<br />\n<br />\nHere a class sample for your C# Gmap Project. You can use it for creating markers with specific images.\r<br />\nJust Create a class named GMapCustomImageMarker and copy that code in it. And boom! you're ready.<br />\n<pre><code>using Microsoft.VisualBasic;\nusing System;\nusing System.Collections;\nusing System.Collections.Generic;\nusing System.Data;\nusing System.Diagnostics;\nusing System.Drawing;\nusing GMap.NET.WindowsForms;\nnamespace GMap.NET.WindowsForms.Markers\n{\n\n    public class GMapCustomImageMarker : GMapMarker\n    {\n        private Image _image;\n\n        public GMapCustomImageMarker(Image Image, PointLatLng p)\n            : base(p)\n        {\n            _image = Image;\n        }\n\n        public override void OnRender(Graphics g)\n        {\n            g.DrawImage(_image, new Point(LocalPosition.X - _image.Width / 2, LocalPosition.Y - _image.Height / 2));\n        }\n    }\n}</code></pre>\n\nFor using marker<br />\n<pre><code>public void gmapMarkerWithImage(double lat, double lon)\n        {\n            Image markerImage = Image.FromFile(&quot;C:/Users/volkan/Desktop/Map-Marker-Flag--Left-Azure.png&quot;);\n            GMapCustomImageMarker marker = new GMapCustomImageMarker(markerImage,new PointLatLng( lat,lon));\n            marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;\n            marker.ToolTipText = &quot;&quot; + (markersOverlay.Markers.Count + 1);\n\n            if (mapExplorer.Overlays.Contains(markersOverlay))\n            {\n                markersOverlay.Markers.Add(marker);\n            }\n            else\n            {\n                markersOverlay.Markers.Add(marker);\n                mapExplorer.Overlays.Add(markersOverlay);\n            }\n\n            mapExplorer.Position = new PointLatLng(lat, lon);\n\n        }</code></pre>\n\nThats it. Good Luck with your project.\r<br />\nBest Regards.<br />\n",
+    "PostedDate": "2014-08-09T03:38:37.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

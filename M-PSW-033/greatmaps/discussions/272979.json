@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "673350",
+    "ThreadId": "272979",
+    "Html": "\r\n<p>Hi there</p>\r\n<p>&nbsp;</p>\r\n<p>I am new to this. I am trying to display a map in a c# winform application using the following code</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<pre>        private void Form1_Load(object sender, EventArgs e)\r\n        {\r\n            GMapControl g = new GMapControl();\r\n            \r\n            g.Dock = DockStyle.Fill;\r\n          \r\n            g.MapType = MapType.BingMap;\r\n            g.MaxZoom = 10;\r\n            g.MinZoom = 1;\r\n            g.Position = new PointLatLng(51.31835, 0.873866);\r\n            pnlMap.Controls.Add(g);\r\n            g.Show();\r\n        }</pre>\r\nIt loads the control but there is no map inside, any ideas what i am doing wrong? Thanks\r\n<p></p>\r\n",
+    "PostedDate": "2011-09-18T10:47:47.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673351",
+    "ThreadId": "272979",
+    "Html": "<p>use form constructor instead of load event, and 1.5.5.5 version is quite old, some bugs were fixed due docking...</p>",
+    "PostedDate": "2011-09-18T10:52:51.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673354",
+    "ThreadId": "272979",
+    "Html": "<p>it makes no difference putting it in to the constructor as the map still doesnt display</p>",
+    "PostedDate": "2011-09-18T11:02:46.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673356",
+    "ThreadId": "272979",
+    "Html": "<p>so as i guessed, thats the bug present in last release, use hot build</p>",
+    "PostedDate": "2011-09-18T11:06:50.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673359",
+    "ThreadId": "272979",
+    "Html": "<p>whats that?</p>\n<p>&nbsp;</p>\n<p>edit: ok i downloaded that version, am now using the new dll's</p>\n<p>&nbsp;</p>\n<p>this is the code i am using to display&nbsp;</p>\n<p>&nbsp;</p>\n<p>\n<pre>        private void Form1_Load(object sender, EventArgs e)\n        {\n            GMapControl g = new GMapControl();\n            \n            g.Dock = DockStyle.Fill;\n          \n            \n            g.MaxZoom = 10;\n            g.MinZoom = 1;\n            g.Position = new PointLatLng(51.31835, 0.873866);\n            pnlMap.Controls.Add(g);\n            g.Show();\n        }</pre>\nbut still no joy</p>",
+    "PostedDate": "2011-09-18T11:26:07.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673361",
+    "ThreadId": "272979",
+    "Html": "<p>you still use load event ;}</p>",
+    "PostedDate": "2011-09-18T11:34:41.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673362",
+    "ThreadId": "272979",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>you still use load event ;}</p>\r\n</blockquote>\r\n<p>yeh, even when i move it to the constructor it makes no difference :/</p>",
+    "PostedDate": "2011-09-18T11:38:24.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673363",
+    "ThreadId": "272979",
+    "Html": "<p>yes, it does</p>",
+    "PostedDate": "2011-09-18T11:46:06.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673365",
+    "ThreadId": "272979",
+    "Html": "<p>&nbsp;</p>\n<pre>        public Form1()\n        {\n            InitializeComponent();\n\n\n            GMapControl g = new GMapControl();\n            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\n            g.Dock = DockStyle.Fill;\n            g.MaxZoom = 10;\n            g.MinZoom = 1;\n            g.Position = new PointLatLng(51.31835, 0.873866);\n            pnlMap.Controls.Add(g);\n            g.Show();\n\n            loadXmlFile();\n        }</pre>\n<pre><br /></pre>\n<pre>still no map displayed so how does it make a difference</pre>\n<pre><br /></pre>\n<pre>can i send you my win form app?</pre>",
+    "PostedDate": "2011-09-18T11:48:29.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673367",
+    "ThreadId": "272979",
+    "Html": "<p>works perfect:</p>\n<div style=\"background-color: white; color: black;\">\n<pre>      <span style=\"color: blue;\">public</span> Form1()\r\n      {\r\n         InitializeComponent();\r\n\r\n         SuspendLayout();  \r\n         GMapControl MainMap = <span style=\"color: blue;\">new</span> GMapControl();\r\n         {\r\n            MainMap.MapProvider = GMapProviders.YahooMap;\r\n            MainMap.Position = <span style=\"color: blue;\">new</span> PointLatLng(54.6961334816182, 25.2985095977783);\r\n            MainMap.MinZoom = 1;\r\n            MainMap.MaxZoom = 17;\r\n            MainMap.Zoom = 9;\r\n            MainMap.Dock = DockStyle.Fill;\r\n         }\r\n         Controls.Add(MainMap); \r\n         ResumeLayout(<span style=\"color: blue;\">false</span>);\r\n      }\r\n<strong>.</strong></pre>\n</div>",
+    "PostedDate": "2011-09-18T12:13:08.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673368",
+    "ThreadId": "272979",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\n<p>works perfect:</p>\n<div style=\"color: black; background-color: white;\">\n<pre>      <span style=\"color: blue;\">public</span> Form1()\n      {\n         InitializeComponent();\n\n         SuspendLayout();  \n         GMapControl MainMap = <span style=\"color: blue;\">new</span> GMapControl();\n         {\n            MainMap.MapProvider = GMapProviders.YahooMap;\n            MainMap.Position = <span style=\"color: blue;\">new</span> PointLatLng(54.6961334816182, 25.2985095977783);\n            MainMap.MinZoom = 1;\n            MainMap.MaxZoom = 17;\n            MainMap.Zoom = 9;\n            MainMap.Dock = DockStyle.Fill;\n         }\n         Controls.Add(MainMap); \n         ResumeLayout(<span style=\"color: blue;\">true</span>);\n      }</pre>\n<pre><strong>.</strong></pre>\n</div>\n</blockquote>\n<p>you sir are a legend :D - thanks so much! - how do you place a marker on the map or is that not possible?</p>",
+    "PostedDate": "2011-09-18T12:16:34.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673369",
+    "ThreadId": "272979",
+    "Html": "<p>cheers! ..anyway using form designer would be easier \"_^</p>\n<p>p.s. check demo source, it implements all basic functions</p>",
+    "PostedDate": "2011-09-18T12:18:14.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673371",
+    "ThreadId": "272979",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\n<p>cheers! ..anyway using form designer would be easier \"_^</p>\n<p>p.s. check demo source, it implements all basic functions</p>\n</blockquote>\n<p>i did have a look for that, where can i find the demo source? was the demo bundled with the libraries i downloaded</p>\n<p>&nbsp;</p>\n<p>also, i have to do it programatically as i cant see the drag and drop item in the toolbox</p>",
+    "PostedDate": "2011-09-18T12:20:57.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673372",
+    "ThreadId": "272979",
+    "Html": "<p><a href=\"http://greatmaps.codeplex.com/SourceControl/list/changesets\">http://greatmaps.codeplex.com/SourceControl/list/changesets</a></p>\n<p>p.s. to have control in your toolbox, just drag GMap.NET.WindowsForms.dll ﻿on top of it</p>",
+    "PostedDate": "2011-09-18T12:21:55.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

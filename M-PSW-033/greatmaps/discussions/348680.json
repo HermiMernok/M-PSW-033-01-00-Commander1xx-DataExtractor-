@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "810634",
+    "ThreadId": "348680",
+    "Html": "\r\n<p>In GMapControl, Dispose()</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>Dispatcher.ShutdownStarted &#43;= <span style=\"color:blue\">new</span> EventHandler(Dispatcher_ShutdownStarted);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>to</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>Dispatcher.ShutdownStarted -= <span style=\"color:blue\">new</span> EventHandler(Dispatcher_ShutdownStarted);\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-03-14T21:24:56.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810647",
+    "ThreadId": "348680",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">I propose</span> <span class=\"hps\">to do</span> <span class=\"hps\">so:</span></span></p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">#region</span> IDisposable Members\r\n\r\n      <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">bool</span> disposed = <span style=\"color: blue;\">false</span>;\r\n\r\n      <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> Dispose()\r\n      {\r\n          Dispose(<span style=\"color: blue;\">true</span>);\r\n          GC.SuppressFinalize(<span style=\"color: blue;\">this</span>);\r\n      }\r\n\r\n      <span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> Dispose(<span style=\"color: blue;\">bool</span> disposing)\r\n      {\r\n          <span style=\"color: blue;\">if</span> (!disposed)\r\n          {\r\n              <span style=\"color: blue;\">if</span> (disposing)\r\n              {\r\n                  <span style=\"color: green;\">// Free other state (managed objects).</span>\r\n\r\n                  <span style=\"color: blue;\">if</span> (Core.IsStarted)\r\n                  {\r\n                      Core.OnMapZoomChanged -= <span style=\"color: blue;\">new</span> MapZoomChanged(ForceUpdateOverlays);\r\n                      Loaded -= <span style=\"color: blue;\">new</span> RoutedEventHandler(GMapControl_Loaded);\r\n                      Dispatcher.ShutdownStarted -= <span style=\"color: blue;\">new</span> EventHandler(Dispatcher_ShutdownStarted);\r\n                      SizeChanged -= <span style=\"color: blue;\">new</span> SizeChangedEventHandler(GMapControl_SizeChanged);\r\n                      <span style=\"color: blue;\">if</span> (loadedApp != <span style=\"color: blue;\">null</span>)\r\n                      {\r\n                          loadedApp.SessionEnding -= <span style=\"color: blue;\">new</span> SessionEndingCancelEventHandler(Current_SessionEnding);\r\n                      }\r\n                  }\r\n                  Core.OnMapClose();\r\n              }\r\n              <span style=\"color: green;\">// Free your own state (unmanaged objects).</span>\r\n              <span style=\"color: green;\">// Set large fields to null.</span>\r\n\r\n              disposed = <span style=\"color: blue;\">true</span>;\r\n          }\r\n      }\r\n\r\n      ~GMapControl()\r\n      {\r\n          <span style=\"color: green;\">// Simply call Dispose(false).</span>\r\n          Dispose(<span style=\"color: blue;\">false</span>);\r\n      }\r\n      <span style=\"color: blue;\">#endregion</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">so that you can</span> <span class=\"hps\">overload the</span> <span class=\"hps\">destructor</span></span></p>",
+    "PostedDate": "2012-03-14T22:37:13.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810781",
+    "ThreadId": "348680",
+    "Html": "<p>fixed, thanks</p>",
+    "PostedDate": "2012-03-15T04:41:35.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

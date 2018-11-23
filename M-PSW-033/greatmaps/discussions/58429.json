@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "197662",
+    "ThreadId": "58429",
+    "Html": "<p>Hi all,</p>\r\n<p>according to the developer, the Form.Shown event should get handled and the map should get reloaded at that time. See the example in</p>\r\n<p style=\"padding-left:30px\"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // on shown, do not forget this! ;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private void MainForm_Shown(object sender, EventArgs e)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.ReloadMap();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</em></p>\r\n<p>But what, if I wanted<em> to provide a custom map control, as UserControl instead of having a ready-made form?</em></p>\r\n<p>I have found that this works: Use a Forms Timer, register to the UserControl.Load event, start the timer with an interval of 1millisecond , then handle the tick event. In the tick event handler, stop the timer first, then call the ReloadMap() on the map.<br><em><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;summary&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// Handles the Tick event of the _reloadTimer control.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;param name=&quot;sender&quot;&gt;The source of the event.&lt;/param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;param name=&quot;e&quot;&gt;The &lt;see cref=&quot;System.EventArgs&quot;/&gt; instance containing the event data.&lt;/param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void _reloadTimer_Tick(object sender, EventArgs e)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _reloadTimer.Stop(); //only use once<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.ReloadMap();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br></em></p>\r\n<p>@Radioman: Probably you could introduce such code already in the GMap control?</p>\r\n<p>&nbsp;</p>\r\n<p>Best Regards, Marcel<em><br></em></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-04T03:48:07.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197700",
+    "ThreadId": "58429",
+    "Html": "<p>well your custom contorol also can contain that function ;}&nbsp;<span style=\"border-collapse:collapse;font-family:arial;font-style:italic\">MainMap.ReloadMap();</span></p>",
+    "PostedDate": "2009-06-04T05:29:29.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197755",
+    "ThreadId": "58429",
+    "Html": "Yes, but why bother the user of my control with calling specific code at<br>the form.shown event?<br><br>He/She could easily forget to do so, and then my control does not show<br>the map. I prefer to hide this behaviour from the user of my control.<br><br>Best Regards, Marcel<br><br>On Thu, 2009-06-04 at 05:29 -0700, radioman wrote:<br>&gt; From: radioman<br>&gt; <br>&gt; well your custom contorol also can contain that<br>&gt; function ;} MainMap.ReloadMap();<br>&gt; <br>&gt; <br>&gt; Read the full discussion online.<br>&gt; <br>&gt; To add a post to this discussion, reply to this email<br>&gt; ([email removed])<br>&gt; <br>&gt; To start a new discussion for this project, email<br>&gt; [email removed]<br>&gt; <br>&gt; You are receiving this email because you subscribed to this discussion<br>&gt; on CodePlex. You can unsubscribe or change your settings on<br>&gt; codePlex.com.<br>&gt; <br>&gt; Please note: Images and attachments will be removed from emails. Any<br>&gt; posts to this discussion will also be available online at codeplex.com<br>&gt; <br>&gt;",
+    "PostedDate": "2009-06-04T07:08:19.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197880",
+    "ThreadId": "58429",
+    "Html": "<p>is the new version ok?</p>",
+    "PostedDate": "2009-06-04T11:43:38.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198913",
+    "ThreadId": "58429",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><a name=\"OLE_LINK1\"></a><a name=\"OLE_LINK2\"><span style=\"font-size:10.0pt;font-family:Arial;color:navy\">Hi radioman,</span></a></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:10.0pt;font-family:Arial;color:navy\">Yes, it works fine. </span></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">There are some other\r\nchanges though that disturbed me first. For example, there seems to be now more\r\nthan one type of Size, that Microsoft one and your one. Are really both needed?</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:12.0pt\">Br, Marcel</span><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\"></span></p>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-06-08T01:37:49.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "198916",
+    "ThreadId": "58429",
+    "Html": "<p>just don't use what you dont need, i use them, because winforms &amp; wpf use diff 'points', 'sizes', etc...</p>",
+    "PostedDate": "2009-06-08T01:40:22.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240592",
+    "ThreadId": "58429",
+    "Html": "<p>Hello!</p>\r\n<p>I'm using a User Control and the GMap doesn't show automatly :S And I'm using MainMap.ReloadMap() all the time...</p>\r\n<p>The map only shows when I pass the mouse over the map.</p>\r\n<p>Could someone help me pls?</p>\r\n<p>&nbsp;</p>\r\n<p>Tks a lot</p>",
+    "PostedDate": "2009-09-30T12:33:26.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240593",
+    "ThreadId": "58429",
+    "Html": "<p>Hello!</p>\r\n<p>I'm using a User Control and the GMap doesn't show automatly :S And I'm using MainMap.ReloadMap() all the time...</p>\r\n<p>The map only shows when I pass the mouse over the map.</p>\r\n<p>Could someone help me pls?</p>\r\n<p>&nbsp;</p>\r\n<p>Tks a lot</p>",
+    "PostedDate": "2009-09-30T12:33:29.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240595",
+    "ThreadId": "58429",
+    "Html": "<p>?</p>",
+    "PostedDate": "2009-09-30T12:36:07.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240597",
+    "ThreadId": "58429",
+    "Html": "<blockquote style=\"border:solid .1em #ccc;font-style:italic;margin:.25em 1em 0 1em;padding:0 .25em 0 .25em\"><strong>radioman wrote:</strong><br>\r\n<p>?</p>\r\n</blockquote>\r\n<p>Yes, that's it.</p>\r\n<p>I map doesn't appear until I pass the mouse there :S</p>\r\n<p>I tried to reload the map in different places but no luck</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-30T12:42:53.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240598",
+    "ThreadId": "58429",
+    "Html": "<p>does demos too need 'mouse over' ?</p>",
+    "PostedDate": "2009-09-30T12:44:16.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240603",
+    "ThreadId": "58429",
+    "Html": "<p>I'm not sure, but I don't think so.</p>\r\n<p>I think the problem is: I'm using a User Control not a Windows Form.</p>\r\n<p>What do u think?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-30T12:54:57.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240607",
+    "ThreadId": "58429",
+    "Html": "<p>hm..</p>",
+    "PostedDate": "2009-09-30T12:56:42.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240784",
+    "ThreadId": "58429",
+    "Html": "<p>Here's what I don't understand, what's the point of a timer ticker when it's used only once? You still have to run that timer thread, so you still have to call it, so you still have code that you have to expose to the user. You just replace one call with another call that basically does the same thing right?</p>",
+    "PostedDate": "2009-10-01T00:44:13.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

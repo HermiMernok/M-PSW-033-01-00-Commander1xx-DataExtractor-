@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "thanks, fixed",
+    "ClosedDate": "2012-02-06T05:33:06.613-08:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hi again!\r\n\r\nJust look closely at this (in the constructor of GMapControl): this.EmptytileBrush = Brushes.Navy;\r\nand this (in the OnHandleDestroyed method): this.EmptytileBrush.Dispose();\r\n\r\nThis is very critical bug and it leads to 'red cross' problem.\r\n\r\nBest regards!",
+    "LastUpdatedDate": "2012-02-06T05:33:06.613-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-02-03T07:50:34-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Critical bug with EmptytileBrush",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16025
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "The tip to fix: method Clone should be used.",
+      "PostedDate": "2012-02-03T08:17:09.053-08:00",
+      "Id": 55323
+    },
+    {
+      "Message": "there is no OnHandleDestroyed anymore\n\r\n\r** Closed by radioman 02/03/2012 8:40AM",
+      "PostedDate": "2012-02-03T08:40:39.517-08:00",
+      "Id": 55420
+    },
+    {
+      "Message": "At first, you didn't carefully read what I've talked about and didn't get heart of the problem, so the critical bug still exists. Just reread closely - the problem lies in two lines of code:\n1) this.EmptytileBrush = Brushes.Navy;\n2) this.EmptytileBrush.Dispose(); // Something critical happens here, doesn't it?\nThe hint I've gave can help you to solve the problem!\n\nAt second, could you tell what for flag SuspendDispose is now?\nDon't you think it isn't necessary because of object's disposing.\n\nBest regards!",
+      "PostedDate": "2012-02-05T23:08:45.373-08:00",
+      "Id": 55421
+    }
+  ]
+}

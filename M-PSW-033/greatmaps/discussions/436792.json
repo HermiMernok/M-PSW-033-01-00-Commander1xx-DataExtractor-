@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1015988",
+    "ThreadId": "436792",
+    "Html": "Hi,\r<br />\n<br />\nI am having trouble getting my map to update instantly when an overlay is added.\r<br />\n<br />\nI am adding the overlay when the user selects an item in a CheckboxList<br />\n<pre><code>map.Overlays.Add(overlays[checkedListBox1.SelectedIndex]);</code></pre>\n\nWhen the item is selected the overlay is not visible, I have to click on the map and drag it slightly in order to get it to update.\r<br />\n<br />\nAny suggestions in getting the map to update immediately ?\r<br />\n<br />\nI have tried map.update(), map.Refresh() ...\r<br />\n<br />\nThanks!\r<br />\nDan.<br />\n",
+    "PostedDate": "2013-03-15T08:59:38.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016037",
+    "ThreadId": "436792",
+    "Html": "well usually overlays are added on the start, current code doesn't update the objects on that event, i guess i need to add that, until that you can add all overlays and just change <strong>IsVisible</strong> property<br />\n",
+    "PostedDate": "2013-03-15T10:52:53.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1016088",
+    "ThreadId": "436792",
+    "Html": "Thanks very much for the swift response. I have achieved the desired result with the IsVisible property.\r<br />\n<br />\nThanks again!\r<br />\nDan.<br />\n",
+    "PostedDate": "2013-03-15T12:39:36.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

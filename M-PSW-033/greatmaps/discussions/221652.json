@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "473529",
+    "ThreadId": "221652",
+    "Html": "<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>I would like to draw some polylines on the map, from a list of PointLatLng items (every point of the list has to be linked to the previous point with a straight line).</p>\r\n<p>I've found some examples in other threads, but they were Windows Forms specific (using overlays). Could someone give me some directions on how to do this in WPF ?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-07-28T00:34:32.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473769",
+    "ThreadId": "221652",
+    "Html": "there is demo for wpf, check the source",
+    "PostedDate": "2010-07-28T09:33:26.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474060",
+    "ThreadId": "221652",
+    "Html": "<p>Hi radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>In the wpf demo, you can ask google to calculate a route between two points (start and end), but I have not seen an option to make a polyline.</p>\r\n<p>Maybe it's in the new Hot Build, but my computer fail to install it (system.data.sqlite not in global assembly cache).</p>\r\n<p>&nbsp;</p>\r\n<p>Let's say I've got a list of 10 points (PointLatLng), each point of the list has to be connected to the next point with a straight line. There is a Polyline class in System.Windows.Shapes, but I don't know how to use it with the GMapControlNew class.</p>\r\n<p>I need this to display the path taken by vechicles.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-29T00:23:56.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474192",
+    "ThreadId": "221652",
+    "Html": "<p>I've found the answer, you were right, it was in the demo =)</p>\r\n<p>&nbsp;</p>\r\n<p>Here's the code for those who are interested :</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> DrawPolyline(List&lt;PointLatLng&gt; coords, <span style=\"color:blue\">string</span> name)\r\n\r\n{\r\n\r\nMapRoute path = <span style=\"color:blue\">new</span> MapRoute(coords, name);\r\nGMapMarker mRoute = <span style=\"color:blue\">new</span> GMapMarker(coords[0]);\r\nmRoute.Route.AddRange(path.Points);\r\nmRoute.RegenerateRouteShape(<span style=\"color:blue\">this</span>.myMap);\r\nmRoute.ZIndex = -1;\r\n<span style=\"color:blue\">this</span>.myMap.Markers.Add(mRoute);\r\n\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Problem solved !</p>",
+    "PostedDate": "2010-07-29T04:59:20.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

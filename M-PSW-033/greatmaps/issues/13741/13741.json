@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed thank You! :}",
+    "ClosedDate": "2009-07-30T09:15:14.08-07:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "When trying to calculate route directions (without avoiding highways), the GetRouteBetweenPoints function (taking PointLatLng as input) systematically returns no results or a weird one (returned point list only contains one point). The function works in other countries thought (tried in France and China).\n\nAfter some tests, it seems that the problem comes from the \"highway\" string in the MakeRouteUrl functions. For Japan, Google Maps requires different values for the \"dirflg\" parameter and doesn't work with an empty string. Here is what I found playing on Google Maps Japan.\n\nFor direction calculation, \"dirflg\" must have at least \"d\". So for a normal direction calculation, we get \"dirflg=d\".\nFor avoiding tolls, \"t\" must be added. We get \"dirflg=dh\".\nFor avoiding highways, \"h\" must be added. We get \"dirflg=dt\".\n\nI tried this different format with directions calculations in Germany and France and it worked well.\n\nYou will find a version of Gmaps.cs with the MakeRouteUrl functions modified to match this format as attachd file.",
+    "LastUpdatedDate": "2009-07-30T09:15:14.08-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2009-07-28T01:37:22.143-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Directions calculation in Japan",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 13741
+  },
+  "FileAttachments": [
+    {
+      "FileId": 106840,
+      "FileName": "GMaps.cs",
+      "DownloadUrl": ".\\106840"
+    }
+  ],
+  "Comments": []
+}

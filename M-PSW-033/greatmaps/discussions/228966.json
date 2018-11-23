@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "499817",
+    "ThreadId": "228966",
+    "Html": "<p>Hi! Is it possible to reinitialize the GMapControl of WindowsPresentation to its initial state?</p>\r\n<p>I got a situation wherein my client wants to switch on/off layers of the map. I've solved this already, but I have to zoom in/out first so that i can see the result.. also, the initial view of the map (all layers are intact) is still there..</p>\r\n<p>i've tried the ReloadMap() and InvalidateVisual() but it didn't work..</p>\r\n<p>so is there a way to reinitialize the Gmapcontrol? so that it will initially load the layers that my client switches on..</p>",
+    "PostedDate": "2010-09-29T01:36:48.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499823",
+    "ThreadId": "228966",
+    "Html": "<p>you mean, when you reset coordinates of markers when they are invisible and then later make them visible and they appears in the old/wrong location?</p>",
+    "PostedDate": "2010-09-29T01:57:39.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499888",
+    "ThreadId": "228966",
+    "Html": "<p>no, not the markers.. u know mapserver right? wherein in the url u specify layers.. my request is something like this</p>\r\n<p>localhost/cgi-bin/mapserv.exe?map=maps/sample.map&amp;layers=layout,road,roads2</p>\r\n<p>this is not the full url but i hope u'll get my point, i want to dynamically change the layers in the url and i've done it already. my problem is that i don't know how to refresh the mapcontrol so that it loads a map that now has layers=road,roads2 only for example.</p>",
+    "PostedDate": "2010-09-29T04:18:15.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499911",
+    "ThreadId": "228966",
+    "Html": "<p>you can use different map types, change url behind, using the same maptype is not very great ;}</p>",
+    "PostedDate": "2010-09-29T04:57:32.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499913",
+    "ThreadId": "228966",
+    "Html": "<p>i see! thanks radioman! haven't thought of that. you're awesome! ^_^</p>",
+    "PostedDate": "2010-09-29T05:02:40.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "590440",
+    "ThreadId": "252209",
+    "Html": "<p>Hi,</p>\n<p>As I see the maximum zoom is not constant on the original google maps, but in this winform application demo it is (the MainMap.MaxZoom is 17 originally). I'm using google hybrid map. Are there any way to change that? I need something like <a href=\"http://code.google.com/intl/en/apis/maps/documentation/javascript/services.html#MaxZoom\"> that</a>.</p>",
+    "PostedDate": "2011-04-01T13:20:25.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590464",
+    "ThreadId": "252209",
+    "Html": "<p>hey, &nbsp;they make such requests to get info:</p>\r\n<p><strong>http://maps.googleapis.com/maps/api/js/ViewportInfoService.GetViewportInfo?1m6&amp;1m2&amp;1d35.127956564743926&amp;2d138.3764369297851&amp;2m2&amp;1d36.25057955664034&amp;2d141.00697587021477&amp;2u11&amp;4slt-LT&amp;5e3&amp;callback=_xdc_._vklzar&amp;token=72166</strong><br /><br />HTTP/1.1 200 OK<br />Content-Type: text/javascript; charset=UTF-8<br />Date: Fri, 01 Apr 2011 20:53:35 GMT<br />Server: mafe<br />Cache-Control: private, x-gzip-ok=\"\"<br />Content-Length: 3265<br />X-XSS-Protection: 1; mode=block<br /><br />_xdc_._vklzar &amp;&amp; _xdc_._vklzar( [\"Žem?lapio duomenys &copy;2011 ZENRIN  Vaizdinys &copy;2011 TerraMetrics\",[[\"street_view\",[[36.17335693522159,138.33984375],[36.3151251474805,139.21875]]],[\"street_view\",[[36.17335693522159,139.39453125],[36.3151251474805,139.74609375]]],[\"street_view\",[[36.17335693522159,140.09765625],[36.3151251474805,140.625]]],[\"street_view\",[[36.03133177633188,139.04296875],[36.17335693522159,139.39453125]]],[\"street_view\",[[36.03133177633188,139.5703125],[36.17335693522159,140.80078125]]],[\"street_view\",[[35.88905007936092,138.8671875],[36.03133177633188,140.2734375]]],[\"street_view\",[[35.88905007936092,140.44921875],[36.03133177633188,140.80078125]]],[\"street_view\",[[35.7465122599185,138.8671875],[35.88905007936092,140.625]]],[\"street_view\",[[35.6037187406973,138.8671875],[35.7465122599185,140.625]]],[\"street_view\",[[35.4606699514953,138.69140625],[35.6037187406973,140.625]]],[\"street_view\",[[35.31736632923787,138.69140625],[35.4606699514953,140.2734375]]],[\"street_view\",[[35.17380831799958,138.515625],[35.31736632923787,139.74609375]]],[\"street_view\",[[35.02999636902566,138.33984375],[35.17380831799958,139.21875]]],[\"street_view\",[[35.02999636902566,139.5703125],[35.17380831799958,139.74609375]]]],[[19,[[-90,-180],[90,180]]],[18,[[-90,-180],[90,180]]],[9,[[-90,-180],[90,180]]],[8,[[-90,-180],[90,180]]],[14,[[16.00000370000001,59.99999990000001],[80,144.0000058]]],[16,[[30.05859369999999,128.3203125],[46.0546875,146.4257812]]],[16,[[34.453125,135.8789062],[36.9140625,138.515625]]],[19,[[35.74104130000002,138.6944693],[36.30066269999999,139.9191525]]],[19,[[35.1636877,139.7857233],[36.09830880000001,140.3852105]]],[19,[[35.13486470000002,138.9683067],[35.69227330000001,139.8522019]]],[19,[[34.89375819999999,138.0775853],[35.5840757,138.5630947]]],[21,[[35.26018550000001,139.4241388],[35.76564719999999,139.8003622]]],[21,[[35.4199996,139.5399995],[35.83000010000001,139.94]]],[19,[[35.42061649999999,139.8521348],[35.6787523,140.3824612]]],[19,[[35.66451509999999,139.8521938],[36.00323789999999,140.2515962]]],[20,[[35.5161541,139.5423343],[35.8274754,139.9407792]]],[18,[[35.67580459999999,138.9885413],[35.8677864,139.5870602]]],[19,[[35.1641678,139.8520758],[35.43537939999999,140.2706667]]],[20,[[35.52514439999999,139.5535017],[35.8229108,139.9296131]]],[21,[[35.5219645,139.5566613],[35.81973260000001,139.9218689]]],[21,[[35.7732888,139.2564933],[36.00866740000001,139.5457588]]],[19,[[35.50202160000002,140.0064799],[35.71919199999999,140.3164252]]],[20,[[35.51621850000001,139.5649065],[35.70574740000001,139.9184739]]],[19,[[36.2434861,138.9823293],[36.4225879,139.2516526]]],[19,[[35.58394699999999,138.5189536],[35.8815219,138.6740818]]],[21,[[35.828374,139.5338156],[36.00898860000001,139.7558563]]],[21,[[35.5036691,140.0868717],[35.7473565,140.2092676]]],[21,[[35.5308687,140.0097676],[35.72045330000002,140.153874]]],[21,[[35.47,139.2814915],[35.60285450000001,139.4697263]]],[21,[[35.6301272,139.9106177],[35.72957209999998,140.1096946]]],[21,[[35.20656150000001,139.6099998],[35.34,139.7454708]]],[19,[[35.61110429999999,139.8521804],[35.8139571,139.9407604]]],[19,[[35.93563019999999,139.7856616],[36.09787699999998,139.8745098]]],[21,[[35.66646850000002,139.7449571],[35.6754968,139.7670599]]]]] )</p>",
+    "PostedDate": "2011-04-01T13:58:05.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590465",
+    "ThreadId": "252209",
+    "Html": "<p>p.s. experiment here&nbsp;http://code.google.com/intl/en/apis/maps/documentation/javascript/examples/maxzoom-simple.html</p>",
+    "PostedDate": "2011-04-01T14:00:58.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590487",
+    "ThreadId": "252209",
+    "Html": "<p>Sorry for this stupid question, but how can I implement this to C#?</p>",
+    "PostedDate": "2011-04-01T14:35:41.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590492",
+    "ThreadId": "252209",
+    "Html": "<p>don't ask me ;}</p>",
+    "PostedDate": "2011-04-01T14:52:04.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614838",
+    "ThreadId": "252209",
+    "Html": "<p>Hello Radioman,</p>\r\n<p>I increased the MainMap.Maxzoom to 20 and its working fine so far. From this thread I want to know if it not good to do that as it might cause me problems.</p>\r\n<p>Thank you</p>",
+    "PostedDate": "2011-05-18T13:14:35.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615053",
+    "ThreadId": "252209",
+    "Html": "<p>not all areas has such zoom levels, so you sometimes get the map, sometimes just don't</p>",
+    "PostedDate": "2011-05-19T01:11:22.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615246",
+    "ThreadId": "252209",
+    "Html": "<p>Thank you Sir.</p>\r\n<p>I noticed from the forum that someone implemented the feature which takes the previous zoom level when there are no images for the current zoom. I will get the latest version to test.</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-05-19T07:39:36.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615261",
+    "ThreadId": "252209",
+    "Html": "<p>yes, but that fork isn't integrated completely...</p>",
+    "PostedDate": "2011-05-19T07:57:57.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

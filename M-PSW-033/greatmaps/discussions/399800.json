@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "928292",
+    "ThreadId": "399800",
+    "Html": "\r\n<p>I have a application with several Markers on window, perhaps that in some moment the user needs to delete some of then just clicking on each desired, is this possible?</p>\r\n<p>I have tryed to use mouse event in</p>\r\n<p>void MainMap_MouseDown(object sender, MouseEventArgs e)</p>\r\n<p>and the event is capture ok but i don&acute;t know how to delete, what argument to pass</p>\r\n<p>thanks</p>\r\n<p>Marcelo</p>\r\n",
+    "PostedDate": "2012-10-17T12:40:33.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928309",
+    "ThreadId": "399800",
+    "Html": "<p>map.OnMarkerClick += ...</p>\r\n<p>...</p>\r\n<p>objects.Markers.Remove(item);</p>",
+    "PostedDate": "2012-10-17T13:12:54.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928680",
+    "ThreadId": "399800",
+    "Html": "<p>Great radioman !</p>\r\n<p>worked fine, thank you again;</p>\r\n<p>marcelo</p>",
+    "PostedDate": "2012-10-18T04:34:06.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

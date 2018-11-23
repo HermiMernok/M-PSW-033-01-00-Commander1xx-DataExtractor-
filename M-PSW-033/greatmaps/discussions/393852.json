@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "906663",
+    "ThreadId": "393852",
+    "Html": "\r\n<p>Hii,I'm from China.My english is&nbsp;no good.</p>\r\n<p>I have a project&nbsp;about car with gps.It need show realtime local, and need group the marker's of car. I used this control to finish it ,but the speed not good.</p>\r\n<p>This is the GroupMarker what I do.</p>\r\n<p><img src=\"http://www.cybergps.net/images/local.jpg\" alt=\"\" width=\"582\" height=\"309\"></p>\r\n<p>So, If GMap.NET Can&nbsp;have a GroupMarker Class, it will so easy!</p>\r\n<p>And another question was, Like this Image,how can i draw or load all this Marker &#65279;quickly. Because I need r<span>efresh it in&nbsp;per 30 seconds.</span></p>\r\n",
+    "PostedDate": "2012-08-30T22:43:39.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906679",
+    "ThreadId": "393852",
+    "Html": "<p>use cacheonly to speed up the map or use optimizedb function. if use sqlite for database after cache tiles vacumm and reindex tables.</p>\r\n<p>describe more about group marker.</p>",
+    "PostedDate": "2012-08-30T23:27:46.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906703",
+    "ThreadId": "393852",
+    "Html": "<p>Speed of marker load,not map load.</p>\r\n<p>Because the car will moved , and I need&nbsp;refresh all markers in per 30 seconds.</p>\r\n<p>﻿﻿Usually,In funciton&nbsp;to refresh ,I use a loop to ﻿add marker in overlay's markers&nbsp;, It so ﻿slowly. ﻿﻿﻿BeginBatchUpdate And EndBatchUpdate was used for loop in my code.</p>\r\n<p>GroupMarker like a class of list ,When the ﻿markers Over than 2 was so near (in ﻿each zooms,the near was ﻿different),It can become a group automatically.</p>\r\n<p>In map, it ﻿just&nbsp;show amout.</p>\r\n<p>&nbsp;</p>\r\n<p>By the way, if I add a marker in map . afert I change the lat and lng of it,is the marker&nbsp;can move (or called refresh) itself.</p>\r\n<p>Same as the lat and lng of &nbsp;﻿which﻿&nbsp;marker in&nbsp;group be changed. if marker leave group (not so&nbsp;near), it will refresh itself.</p>",
+    "PostedDate": "2012-08-31T00:06:10.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906743",
+    "ThreadId": "393852",
+    "Html": "<p>ceck flight demo, there are thousands of planes and markers update pretty fast</p>",
+    "PostedDate": "2012-08-31T02:04:41.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906753",
+    "ThreadId": "393852",
+    "Html": "\r\n<p>Yes,I see that. But it was slowly . It will take more than 30 seconds to finish.</p>\r\n<p>I just want it finished in&nbsp;3 or 5 seconds and the markers at least more than 200 or 300.</p>\r\n<p>Maybe you can add a function to add markers in&nbsp;class of list.</p>\r\n<p>Add marker one by one is slowly.</p>\r\n",
+    "PostedDate": "2012-08-31T02:39:57.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906757",
+    "ThreadId": "393852",
+    "Html": "<p>check the code, it's pretty fast</p>",
+    "PostedDate": "2012-08-31T02:48:44.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906767",
+    "ThreadId": "393852",
+    "Html": "<p>2990 markers refresh in 75ms</p>",
+    "PostedDate": "2012-08-31T03:07:12.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906868",
+    "ThreadId": "393852",
+    "Html": "<p>Demo.WindowsForms -&gt; live -&gt; FlightRadar demo , is this Demo?</p>",
+    "PostedDate": "2012-08-31T06:53:01.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906871",
+    "ThreadId": "393852",
+    "Html": "<p>yes</p>",
+    "PostedDate": "2012-08-31T06:56:59.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906875",
+    "ThreadId": "393852",
+    "Html": "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void flight_ProgressChanged(object sender, ProgressChangedEventArgs e)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Save Time1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int Time1 = System.Environment.TickCount;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // stops immediate marker/route/polygon invalidations;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // call Refresh to perform single refresh and reset invalidation state</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.HoldInvalidation = true;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lock(flights)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; foreach(FlightRadarData d in flights)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GMapMarker marker;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(!flightMarkers.TryGetValue(d.Id, out marker))<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker = new GMarkerGoogle(d.point, GMarkerGoogleType.blue_small);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.Tag = d.Id;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //(marker as GMapMarkerGoogleGreen).Bearing = (float?)d.bearing;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; flightMarkers[d.Id] = marker;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objects.Markers.Add(marker);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.Position = d.point;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //(marker as GMapMarkerGoogleGreen).Bearing = (float?)d.bearing;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; marker.ToolTipText = d.name + \", \" + d.altitude + \", \" + d.speed;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(currentFlight != null &amp;&amp; currentFlight == marker)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Position = marker.Position;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //MainMap.Bearing = (float)d.bearing;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Save Time2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int Time2 = System.Environment.TickCount;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(firstLoadFlight)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Zoom = 5;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.SetZoomToFitRect(new RectLatLng(54.4955675218741, -0.966796875, 28.916015625, 13.3830987326932));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; firstLoadFlight = false;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Save Time3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int Time3 = System.Environment.TickCount;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MainMap.Refresh();</p>\r\n<p><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Save Time4<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int Time4 = System.Environment.TickCount;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(\"T4-T1:\" + (Time4 - Time1));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(\"T2-T1:\" + (Time2 - Time1));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(\"T3-T2:\" + (Time3 - Time2));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Debug.WriteLine(\"T4-T3:\" + (Time4 - Time3));<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>T4-T1:344<br />T2-T1:312<br />T3-T2:32<br />T4-T3:0</p>\r\n<p>&nbsp;</p>\r\n<p>So Fast Realy !</p>\r\n<p>But why , between&nbsp;I selected the radio \"FlightRadar demo\"&nbsp;and See the marker in map so slowly.</p>\r\n<p>Maybe something was wrong!</p>",
+    "PostedDate": "2012-08-31T07:03:20.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906882",
+    "ThreadId": "393852",
+    "Html": "<p>Yes,I check the code , <span>In the method</span><span> Stuff.GetFlightRadarData consumes</span><span class=\"highlight\"> a lot of time.</span></p>",
+    "PostedDate": "2012-08-31T07:16:13.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906921",
+    "ThreadId": "393852",
+    "Html": "<p>yeah but adding/updating markers using&nbsp;<strong>HoldInvalidation</strong> should be pretty fast, if you forget to set it, each new marker triggers invalidate, that was a issue for me, thefore i've added functionality for batch updates, it's abit manual process, but works, if you have better ideas, please share anytime ;}</p>",
+    "PostedDate": "2012-08-31T08:43:55.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907140",
+    "ThreadId": "393852",
+    "Html": "<p>Thanks ! GMap.NET is good control ,I like it.</p>\r\n<p>I have no ideas about batch updates , but if I can find any way ,I will share you.</p>\r\n<p>GroupMarker will be a good tools. In my project ,I do it ,But my code is not good.So maybe you can do it well.</p>",
+    "PostedDate": "2012-08-31T18:15:12.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907145",
+    "ThreadId": "393852",
+    "Html": "<p>The Map Google was not best in China.You can add the map named \"mapabc\". This is the best map in china,and google's map of chinese was buy from \"mapabc\".</p>\r\n<p>In my project , the image you see was used \"mapabc\".</p>\r\n<p>code in MakeImageUrl :</p>\r\n<p>&nbsp;case MapType.MapABC:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return string.Format(\"<a href=\"http://emap%7b0%7d.mapabc.com/mapabc/maptile?v=w2.99&amp;x={1}&amp;y={2}&amp;z={3\">http://emap{0}.mapabc.com/mapabc/maptile?v=w2.99&amp;x={1}&amp;y={2}&amp;z={3</a>}\", ( pos.X + pos.Y) % 4,&nbsp; pos.X, pos.Y, zoom);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>In my project , I add a GMapRound Class to draw a circular. Maybe you can do it well.</p>\r\n<p><img src=\"http://www.cybergps.net/images/trace.jpg\" alt=\"\" width=\"582\" height=\"309\" /></p>\r\n<p>code GMapRound class:</p>\r\n<p>namespace GMap.NET.WindowsForms<br />{<br />&nbsp;&nbsp;&nbsp; using GMap.NET;<br />&nbsp;&nbsp;&nbsp; using System.Collections.Generic;<br />&nbsp;&nbsp;&nbsp; using System.Drawing;<br />&nbsp;&nbsp;&nbsp; using System.Drawing.Drawing2D;</p>\r\n<p>&nbsp;&nbsp;&nbsp; /// &lt;summary&gt;<br />&nbsp;&nbsp;&nbsp; /// GMap.NET round<br />&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;<br />&nbsp;&nbsp;&nbsp; public class GMapRound : MapRoute<br />&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;summary&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// specifies how the outline is painted<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;<br />#if !PocketPC<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Pen Stroke = new Pen(Color.FromArgb(155, Color.MidnightBlue));<br />#else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Pen Stroke = new Pen(Color.MidnightBlue);<br />#endif</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;summary&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// background color<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /// &lt;/summary&gt;<br />#if !PocketPC<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Brush Fill = new SolidBrush(Color.FromArgb(155, Color.AliceBlue));<br />#else<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Brush Fill = new System.Drawing.SolidBrush(Color.AliceBlue);<br />#endif</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public readonly List&lt;GMap.NET.Point&gt; LocalPoints = new List&lt;GMap.NET.Point&gt;();</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public GMapRound(List&lt;PointLatLng&gt; points, string name)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : base(points, name)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LocalPoints.Capacity = Points.Count;</p>\r\n<p>#if !PocketPC<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Stroke.LineJoin = LineJoin.Round;<br />#endif<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Stroke.Width = 5;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }<br />}</p>\r\n<p>another code update in GMapOverlay and GMapControl</p>",
+    "PostedDate": "2012-08-31T18:46:59.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907231",
+    "ThreadId": "393852",
+    "Html": "<p>thanks</p>",
+    "PostedDate": "2012-09-01T01:43:01.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

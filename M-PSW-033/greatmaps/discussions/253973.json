@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "597592",
+    "ThreadId": "253973",
+    "Html": "\r\n<p>hello!</p>\r\n<p>&nbsp;&nbsp;i try create GetMidPoint method in GMaps.cs, reference here <a href=\"http://www.movable-type.co.uk/scripts/latlong.html\">\r\nhttp://www.movable-type.co.uk/scripts/latlong.html</a>, but result is false, please help me, thanks....</p>\r\n<p>public PointLatLng GetMidPoint(PointLatLng p1, PointLatLng p2)&nbsp;&nbsp; &nbsp; &nbsp;{<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PointLatLng midPoint = new PointLatLng();</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;double dLon = ToRadian(p2.Lng - p1.Lng);</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;double Bx = Math.Cos(ToRadian(p2.Lat)) * Math.Cos(dLon);</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;double By = Math.Cos(ToRadian(p2.Lat)) * Math.Sin(dLon);</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;midPoint.Lat = ToDegree(Math.Atan2(Math.Sin(ToRadian(p1.Lat)) &#43; Math.Sin(ToRadian(p2.Lat)), Math.Sqrt((Math.Cos(ToRadian(p1.Lat)) &#43; Bx) * (Math.Cos(ToRadian(p1.Lat)) &#43; Bx) &#43; By * By)));</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;midPoint.Lng = p1.Lng &#43; ToDegree(Math.Atan2(By, Math.Cos(ToRadian(p1.Lat)) &#43; Bx));</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return midPoint; }</p>\r\n",
+    "PostedDate": "2011-04-14T17:40:43.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

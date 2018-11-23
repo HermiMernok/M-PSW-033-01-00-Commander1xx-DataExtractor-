@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "593438",
+    "ThreadId": "252934",
+    "Html": "\r\n<p>I have some markers, which are polygons (squares). &nbsp;I am importing these from some other files and am calculating their coordinates. Now they don't fit 100% and sometimes they need to be resized and rotated a bit.&nbsp;</p>\r\n<p>My plan was to iterate through polygons, translate their latlng point paths to local coordinates, do the rotation on local coordinates and translate them all back to latlng and aply them to marker polygon paths.&nbsp;</p>\r\n<p>Problem is this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>PointLatLng point = <span style=\"color:blue\">new</span> PointLatLng(15, 15);\r\nGPoint pointLocal = MainMap.FromLatLngToLocal(point);\r\nPointLatLng originalPoint = MainMap.FromLocalToLatLng(pointLocal.X, pointLocal.Y);\r\n\r\n<span style=\"color:green\">//their values are:</span>\r\n<span style=\"color:green\">//point =&gt; {Lat=13, Lng=15}</span>\r\n<span style=\"color:green\">//pointLocal =&gt; {X=18175317,Y=15554996}</span>\r\n<span style=\"color:green\">//originalPoint =&gt; {Lat=-74,4712712901167, Lng=179,999989271164}</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>Why is this happening, why are the final values different than the originals? How should I do the conversion properly?</p>\r\n<p>&nbsp;</p>\r\n<p>As a workaround to this issue I tried rotating the LatLngs directly doing it like this:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">double</span> lng_ = Math.Cos(angle) * (point.Lng - center.Lng) - Math.Sin(angle) * (point.Lat - center.Lat) &#43; center.Lng;\r\n<span style=\"color:blue\">double</span> lat_ = Math.Sin(angle) * (point.Lng - center.Lng) &#43; Math.Cos(angle) * (point.Lat - center.Lat) &#43; center.Lat;\r\nmarker.Polygon[i] = <span style=\"color:blue\">new</span> PointLatLng(lat_, lng_);\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>But the results are not really squares anymore because the rotation somehow deformed them. (See the rotated &quot;squares&quot; in the left part of the image compared to the nonrotated perfect squares on the right). Is it because I'm doing calculations with LatLng\r\n degrees or am I calculating it wrong?</p>\r\n<p>Radioman, any advice?&nbsp;</p>\r\n<p><img src=\"http://www.shrani.si/f/2K/tb/dcR8Ad8/notreallysquares.png\" alt=\"Shrani.si\" style=\"border:0px\"></p>\r\n",
+    "PostedDate": "2011-04-07T04:55:05.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593454",
+    "ThreadId": "252934",
+    "Html": "<p>instead of changing polygon coordinates, you can simply 'rotate' it while rendering, in wpf you need to change RenderTranform property:</p>\r\n<p><em>GMapMarker mark = new GMapMarker(objects.Select(p =&gt; p.Point).First());</em><br /><em> {</em><br /><em>&nbsp; &nbsp;mark.<strong>Polygon.AddRange</strong>(objects.Select(p =&gt; p.Point));</em><br /><em>&nbsp; &nbsp;mark.<strong>RegeneratePolygonShape</strong>(MainMap);</em><br /><em>&nbsp; &nbsp;mark.Shape.<strong>RenderTransform</strong> = new RotateTransform(0);</em><br /><br /><em>&nbsp; &nbsp;mark.Shape.MouseMove += new MouseEventHandler(Shape_MouseMove);</em><br /><em>&nbsp; &nbsp;mark.Shape.<strong>IsHitTestVisible</strong> = true;</em><br /><em> }</em><br /><em> MainMap.Markers.Add(mark);</em></p>\r\n<p><em>void Shape_MouseMove(object sender, MouseEventArgs e)</em><br /><em> {</em><br /><em>&nbsp; &nbsp;((sender as UIElement).RenderTransform as RotateTransform).<strong>Angle</strong>++;</em><br /><em> }</em><br /><br /></p>",
+    "PostedDate": "2011-04-07T05:21:07.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593465",
+    "ThreadId": "252934",
+    "Html": "<p>Sorry, I forgot to to explain that the purpose of my doing is to be able to fit objects from inaccurate maps on a real map and then export their (corrected) points as true LatLngs. So I definitely need the LatLng's of the rotated points but that's not really trivial with a RenderTransform, is it? How should I approach this?</p>",
+    "PostedDate": "2011-04-07T05:53:57.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593480",
+    "ThreadId": "252934",
+    "Html": "<p>it seems a bug in wpf version, need to make some corrections</p>",
+    "PostedDate": "2011-04-07T06:16:08.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593507",
+    "ThreadId": "252934",
+    "Html": "<p>quick solution would be:</p>\r\n<p><strong>remove</strong> this line from GMap.NET.WindowsPresentation\\GMapControl.cs, FromLatLngToLocal: <em>ret.Offset(-(int)MapTranslateTransform.X, -(int)MapTranslateTransform.Y);</em></p>\r\n<p><strong>add</strong>&nbsp;this to GMap.NET.WindowsPresentation\\GMapMarker.cs,&nbsp;UpdateLocalPosition:</p>\r\n<p><em>GPoint p = Map.FromLatLngToLocal(Position); <br />&nbsp;p.Offset(-(int)Map.MapTranslateTransform.X, -(int)Map.MapTranslateTransform.Y); // <strong>&lt;--</strong><br />...</em></p>\r\n<p>Seems to work correctly, i'll check it more in detail later, thanks</p>",
+    "PostedDate": "2011-04-07T06:47:26.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593696",
+    "ThreadId": "252934",
+    "Html": "<p>pushed fix to server, thanks</p>",
+    "PostedDate": "2011-04-07T11:42:17.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593998",
+    "ThreadId": "252934",
+    "Html": "<p>Thanks for fixing the conversion to local point.</p>\r\n<p>&nbsp;</p>\r\n<p>My shapes are still getting deformed when rotating them by recalculating rotated coordinates, maybe it's an accuracy problem?</p>",
+    "PostedDate": "2011-04-08T01:35:57.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "594003",
+    "ThreadId": "252934",
+    "Html": "<p>do you rotate local coordinates and then convert them back to geo?</p>",
+    "PostedDate": "2011-04-08T01:44:05.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "597162",
+    "ThreadId": "252934",
+    "Html": "<p>Hey again.</p>\r\n<p>Yes I tried it like that, but to do that I have to do geo -&gt; local -&gt; rotation -&gt; geo and in this process double is cast to int 2 times and since these are small objects it could be the reason of my problems. I am trying to find an easy way of doing this but without losing precision with int casts. The methods that do this are buried quite deep, do you have any suggestions for a workaround?&nbsp;</p>\r\n<p>I've tried also doing the conversion of geo coordinates to (x,y) by using the Inverse of Gudermannian function to convert latitude as wiki says but I must not be doing it right since the results are much worse. Do you have a formula which would convert the lats and lngs to some generic (x,y) where I could do the rotation and then convert back?</p>",
+    "PostedDate": "2011-04-14T05:19:54.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "597165",
+    "ThreadId": "252934",
+    "Html": "<p>does your rotation function of local coordinates is correct? Did you rotate each object around it's own local center?</p>",
+    "PostedDate": "2011-04-14T05:30:41.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

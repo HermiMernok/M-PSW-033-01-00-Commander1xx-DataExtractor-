@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "1093447",
+    "ThreadId": "457156",
+    "Html": "Hi!<br />\n<br />\nI coded an app which it was working for months ago.<br />\nToday I have the surprise GMaps returning me GeoCoderStatusCode.ExceptionInCode.<br />\nI am using OpenStreetMap provider, (well, I supposed), but if I see what TCPIP request GMap generate thought WireShark is something like that,<br />\n<br />\n<a href=\"http://maps.google.com/maps/geo?q=+Col%C3%B3n+3,+Vigo,+Pontevedra&amp;hl=en&amp;output=kml&amp;key=ABQIAAAAWaQgWiEBF3lW97ifKnAczhRAzBk5Igf8Z5n2W3hNnMT0j2TikxTLtVIGU7hCLLHMAuAMt-BO5UrEWA\" rel=\"nofollow\">http://maps.google.com/maps/geo?q=+Col%C3%B3n+3,+Vigo,+Pontevedra&hl=en&output=kml&key=ABQIAAAAWaQgWiEBF3lW97ifKnAczhRAzBk5Igf8Z5n2W3hNnMT0j2TikxTLtVIGU7hCLLHMAuAMt-BO5UrEWA</a><br />\n<br />\nWhy GMAP is regerating a request to Google???? I debuged code and before &quot;SetCurrentPositionByKeywords&quot; the provider is setted to &quot;OpenStreetMap&quot;<br />\n<br />\nI think &quot;ExceptionInCode&quot; means google has banned my ip due a lot of request from months ago, isn´t it?<br />\n<br />\nInternal exception reported by GMap is<br />\nError en el servidor remoto: (403) Prohibido.<br />\n<br />\nThanks in advance.<br />\n<br />\nP.D. I am using Oct/17/2011 stable version.<br />\n",
+    "PostedDate": "2013-09-17T03:23:34.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1093497",
+    "ThreadId": "457156",
+    "Html": "maybe, but not necessarily<br />\n",
+    "PostedDate": "2013-09-17T05:17:32.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1093617",
+    "ThreadId": "457156",
+    "Html": "Then, why GMap is doing this request to google?<br />\nI will try download GMap stable source code to debug with my app.<br />\n<br />\nI debug the app.....<br />\n<br />\nWhy googleMap provider is hardcoded for getting point from keywords?<br />\n<pre><code>public GeoCoderStatusCode SetCurrentPositionByKeywords(string keys)\n      {\n         GeoCoderStatusCode status = GeoCoderStatusCode.Unknow;\n\n         GeocodingProvider gp = GMapProviders.GoogleMap as GeocodingProvider;\n         if(gp != null)\n         {\n            var pt = gp.GetPoint(keys, out status);\n            if(status == GeoCoderStatusCode.G_GEO_SUCCESS &amp;&amp; pt.HasValue)\n            {\n               Position = pt.Value;\n            }\n         }\n\n         return status;\n      }</code></pre>\n\n",
+    "PostedDate": "2013-09-17T09:17:30.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1093758",
+    "ThreadId": "457156",
+    "Html": "Same here. been using this great project for about a year, and suddenly last week, the SetCurrentPositionByKeywords stoped working. I was using GoogleMap as provider. Tried chainging to open or bing, and it also fails (with exceptionInCode {621}).\r<br />\nI also downloaded the demo winform project, and if you search by pressing enter in the goto textbox, it also fails with the same exception.\r<br />\nI don´t think google is banning a specific IP, cause I tried with differents ISP and they all fails (even with dinamyc IP i haven´t used for this project).\r<br />\nPlease radioman SAVE US!!!!\r<br />\n<br />\nThanks\r<br />\nPablo, from Argentina<br />\n",
+    "PostedDate": "2013-09-17T15:10:41.973-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1093769",
+    "ThreadId": "457156",
+    "Html": "Never mind, I downloaded the a3237323f... build, replace the references and a couple of functions that changed (from the 1.6 build I was using), and it's working great. Keep up the excelent work radioman!!!<br />\n",
+    "PostedDate": "2013-09-17T15:59:37.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1093891",
+    "ThreadId": "457156",
+    "Html": "I can´t deploy a beta version in production enviroment....<br />\n",
+    "PostedDate": "2013-09-18T00:35:02.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099454",
+    "ThreadId": "457156",
+    "Html": "Hi, i have the same problem, with SetCurrentPositionByKeywords and GmapProviders.Googlemap.GetPoint And, i download too the last build demo, and the 1.6, get the same error.\r<br />\nSome can resolve this??\r<br />\nI search the getpoint function in others gmapproviders and seems to be implemented only in google!!\r<br />\nPLease RadioMan, or somebody here  can tell me how can i fix this!! im working in this a lot of time, and i cant resolve by myself :(\r<br />\nThanks a lot!!\r<br />\nGreat Job!<br />\n",
+    "PostedDate": "2013-09-25T19:50:10.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099507",
+    "ThreadId": "457156",
+    "Html": "what error?<br />\n",
+    "PostedDate": "2013-09-25T23:43:11.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099513",
+    "ThreadId": "457156",
+    "Html": "Well, I downloaded and compiled like pablomacri and works perfectly. rpolverini, GMapProviders interface is implemented for OpenStreetMaps too for example. So, I think you didn´t download lastest code version.<br />\n",
+    "PostedDate": "2013-09-26T00:06:56.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099719",
+    "ThreadId": "457156",
+    "Html": "I think the issue comes from the fact that you are downloading the latest &quot;stable&quot; version, that is 1.6, and you have to search for the hotbuilds.<br />\n",
+    "PostedDate": "2013-09-26T08:38:01.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100324",
+    "ThreadId": "457156",
+    "Html": "Yes sorry, RadioMan, rlorenb has reason, i didn´t download lastest code version!!\r<br />\nI donwload now 1.7 and work perfect in the Demo!! i'll try to put in my program now!!\r<br />\nThanks rlorenb for your help and Radioman for your excelent Job!!<br />\n",
+    "PostedDate": "2013-09-27T17:02:24.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1313817",
+    "ThreadId": "457156",
+    "Html": "Hi RadioMan, I'm very sorry for interpt you, I download the latest 1.7 version form NuGet, but it still tell me ExceptionInCode,Can you help me?Very Thanks!<br />\n",
+    "PostedDate": "2014-10-15T20:45:53.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1313830",
+    "ThreadId": "457156",
+    "Html": "Thaks, I‘ve resolve this! <br />\n",
+    "PostedDate": "2014-10-15T22:23:51.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

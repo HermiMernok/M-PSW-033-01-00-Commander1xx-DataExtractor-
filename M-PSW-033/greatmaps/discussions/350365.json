@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "816744",
+    "ThreadId": "350365",
+    "Html": "\r\n<p>My application makes a lot of use of the tile caching and attempts to provide tool to allow the user to manage these caches.</p>\r\n<p>I have made very minor changes in particular to:</p>\r\n<p>GMap.NET.CacheProviders.SQLitePureImageCache</p>\r\n<p>I wonder if these changes might be of use in the main code:</p>\r\n<p>Make public:</p>\r\n<p>GMap.NET.CacheProviders.SQLitePureImageCache - to allow access to items below - most of the other PureImageCache seem to be public except this one, MsSQLCe</p>\r\n<p><br>\r\nGMap.NET.CacheProviders.SQLitePureImageCache.Detach - to facilitate file management of cache files, in our case, 'rename' cache file<br>\r\nGMap.NET.CacheProviders.SQLitePureImageCache.CacheLocation - to facilitate file management, delete, rename etc.<br>\r\nGMap.NET.CacheProviders.SQLitePureImageCache.AttachedCaches - to allow display of information on what caches are in use</p>\r\n<p>Make the string TileDBv5 (or whatever it upgrades to, readable as a property, currently not available directly, useful in finding the various cache files)</p>\r\n<p>Provide a mechanism for calling software to determine the GMaps version number.</p>\r\n",
+    "PostedDate": "2012-03-28T12:09:48.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816781",
+    "ThreadId": "350365",
+    "Html": "<p>i wonder why user need to become 'cache manager' ?</p>",
+    "PostedDate": "2012-03-28T13:02:50.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816785",
+    "ThreadId": "350365",
+    "Html": "<p>Some customers do not have internet access for security reasons. As such they can use .gmdb files cached with relevant maps.</p>",
+    "PostedDate": "2012-03-28T13:07:10.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

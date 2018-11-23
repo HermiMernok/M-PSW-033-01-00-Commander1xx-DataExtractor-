@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "717926",
+    "ThreadId": "284378",
+    "Html": "\r\n<p>Hi, I am looking for a way to put mapping in my application, so this looks like it is a great control for doing that.&nbsp; I was wondering though if there was any way to use this control to get the zip code from an address.&nbsp; In addition to mapping\r\n I want to be able to complete the zip code field without showing a map and thought that it would be something that this control might be able to provide.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n",
+    "PostedDate": "2011-12-28T09:34:23.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722387",
+    "ThreadId": "284378",
+    "Html": "<p><em>List&lt;Placemark&gt; plc = null;</em><br /><em> var st = GMapProviders.GoogleMap.GetPlacemarks(new PointLatLng(54.6961334816182, 25.2985095977782), out plc);</em><br /><em> if(st == GeoCoderStatusCode.G_GEO_SUCCESS &amp;&amp; plc != null)</em><br /><em> {</em><br /><em> foreach(var pl in plc)</em><br /><em> {</em><br /><em> if(!string.IsNullOrEmpty(pl.PostalCodeNumber))</em><br /><em> {</em><br /><em> Debug.WriteLine(\"Accuracy: \" + pl.Accuracy + \", \" + pl.Address + \", PostalCodeNumber: \" + pl.PostalCodeNumber);</em><br /><em> }</em><br /><em> }</em><br /><em> }</em></p>",
+    "PostedDate": "2012-01-09T04:40:24.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "528869",
+    "ThreadId": "236547",
+    "Html": "\r\n<p>Hello Radioman,</p>\r\n<p>is it possible to add two layer on one map?</p>\r\n<p>For example i have an OSM-Layer(Basis Layer) and additional i have rendered some tiles with informations about water and such things and have this one as layer on my OSM-Server.</p>\r\n<p>e.g. return string.Format(&quot;http://172.16.10.251/tiles/w_gps_points/{1}/{2}/{3}.png&quot;, letter, zoom, pos.X, pos.Y);</p>\r\n<p>but so i miss the map-layer.</p>\r\n<p>Is there a possibility to load and show both?</p>\r\n<p>Thanks</p>\r\n<p>RobbeEDE</p>\r\n",
+    "PostedDate": "2010-11-30T09:18:39.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528887",
+    "ThreadId": "236547",
+    "Html": "\r\n<p>try add your custom maptype</p>\r\n",
+    "PostedDate": "2010-11-30T09:37:37.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529415",
+    "ThreadId": "236547",
+    "Html": "\r\n<p>Hello radioman,</p>\r\n<p>to add an own maptype is not the problem, but to combine the basic map and one of these open-layers.</p>\r\n<p>For example:</p>\r\n<p>http://openlayers.org/dev/examples/baseLayers.html</p>\r\n<p>here you can show/not show the additional layer &quot;markers&quot;, these one are prerenderd and have there own tiles on the server. With this option it is possibile to show thousands of markers in a very fast way.</p>\r\n<p>&nbsp;</p>\r\n<p>But i don't find the section in your code where the tiles are &quot;painted&quot; that i can add a class for load/paint custom-layers.</p>\r\n<p>A future vision could be to render own tiles in background and show them or not.</p>\r\n<p>Greetz Robbeede</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-01T05:30:06.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529558",
+    "ThreadId": "236547",
+    "Html": "\r\n<p>hm, well there is few places to add new layer, firs you must have new maptype with unique id, then if you combine two layers change function&nbsp;GMaps.<strong>GetAllLayersOfType</strong>(MapType type)</p>\r\n",
+    "PostedDate": "2010-12-01T09:55:12.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531062",
+    "ThreadId": "236547",
+    "Html": "\r\n<p>Fantastic, works fine!</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2010-12-04T01:55:41.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667369",
+    "ThreadId": "236547",
+    "Html": "<p>Where can i find the function \"GMaps.<strong>GetAllLayersOfType</strong>(MapType type)\"? It seems that it doesn't exists anymore!?</p>",
+    "PostedDate": "2011-09-04T05:13:32.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667372",
+    "ThreadId": "236547",
+    "Html": "<p>maptypes was changed to MapProviders, it contains property Overlays, each map provider has it's own projection/etc... you can create easily your own provider without changing the core code</p>",
+    "PostedDate": "2011-09-04T05:30:48.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667637",
+    "ThreadId": "236547",
+    "Html": "<p>Okay, implementing a new map provider was not that difficult thanks to your help. Because I'm using a local folder as \"server\" i wrote a new function \"GetTileImageUsingFile\" in \"GMapProvider.cs\".&nbsp;&nbsp;In my own \"XYZMapProvider.cs\" the function \"GetTileImage\" was changed to use the new function \"GetTileImageUsingFile\" for not getting errors in the existing function \"GetTileImageUsingHttp\", when the URLs starts with \"file://\" (see appended code).&nbsp;</p>\r\n<p>But I don't get it with the overlays. :-(</p>\r\n<p>I have multiple online and local MapProviders with different coverage. OSM as base map, aeronautical navigation charts covering a whole country and local aerodrome arrival and departure charts. I want to show or hide the country maps and the arrival and departure charts on top of each other at runtime depending on what the user wishes. Can you give me another hint how to do it? Thank you very much.</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"font-family: 'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;\"><span style=\"white-space: normal;\"><br /></span></span></pre>\r\n<pre>// new function \"GetTileImageUsingFile\" in \"GMapProvider.cs\":</pre>\r\n<pre><br /></pre>\r\n<pre>      <span style=\"color: blue;\">public</span> PureImage GetTileImageUsingFile(<span style=\"color: blue;\">string</span> url)\r\n      {\r\n         PureImage ret = <span style=\"color: blue;\">null</span>;\r\n\r\n         <span style=\"color: blue;\">byte</span>[] buff = System.IO.File.ReadAllBytes(url);\r\n         System.IO.MemoryStream ms = <span style=\"color: blue;\">new</span> System.IO.MemoryStream();\r\n         ms.Write(buff, 0, buff.Length);\r\n         ret = TileImageProxy.FromStream(ms);\r\n         <span style=\"color: blue;\">if</span> (ret != <span style=\"color: blue;\">null</span>)\r\n         {\r\n             ret.Data = ms;\r\n         }\r\n\r\n         <span style=\"color: blue;\">return</span> ret;\r\n      }\r\n</pre>\r\n<pre><br /></pre>\r\n<pre><br /></pre>\r\n<pre><pre>// changed function \"GetTileImage\" in my own \"XYZMapProvider.cs\":</pre>\r\n<br /></pre>\r\n<pre><div style=\"color: black; background-color: white;\"><pre>      <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> PureImage GetTileImage(GPoint pos, <span style=\"color: blue;\">int</span> zoom)\r\n      {\r\n         <span style=\"color: blue;\">string</span> url = MakeTileImageUrl(pos, zoom, <span style=\"color: blue;\">string</span>.Empty);\r\n\r\n         <span style=\"color: blue;\">return</span> GetTileImageUsingFile(url);\r\n      }</pre>\r\n</div>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-09-05T02:38:27.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667655",
+    "ThreadId": "236547",
+    "Html": "<p>just create few providers with the same base in overlays and different top layer, then you can switch between providers, and some layers from user perspective will 'appear' and some will be 'hidden'</p>\r\n<p><em>if(overlays == null)</em><br /><em> {</em><br /><em>&nbsp;overlays = new GMapProvider[] { this, SecondProviderLayer };</em><br /><em> }&nbsp;</em></p>\r\n<p><em><em>if(overlays == null)</em><br /><em> {</em><br /><em>&nbsp;overlays = new GMapProvider[] { FirstProvider, SecondProviderLayer };</em><br /><em> }&nbsp;</em>&nbsp;</em></p>\r\n<p><em>etc..&nbsp;</em></p>",
+    "PostedDate": "2011-09-05T03:48:08.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669574",
+    "ThreadId": "236547",
+    "Html": "<p>Thank you very much, radioman, now i got it. :-) This is really a great tool!</p>\r\n<p>But there seems to be an issue with the memory cache (or I'm doing something wrong): When changing/adding/deleting the \"MapProviders\" in the \"overlays\" property, the GmapControl does not allways show the intended MapProviders which are active at that moment but seems to show tiles that are in memory. When zooming in or out to zoom levels which where not loaded before, it works, but returning to an previously loaded zoom leven shows the \"old\" MapProviders which are not in the overlay property anymore. Sending an \"ReloadMap\" does not help! Also \"Manager.Mode\" is set to \"ServerOnly\" already. The only way to get it behave in the intended way seems to set \"Manager.UseMemoryCache\" to \"False\"...<br /><br />Is there an error with the memory cache while working with changing multiple MapProvider overlays or am I doing something wrong?</p>\r\n<p>Thank you for your help!</p>",
+    "PostedDate": "2011-09-09T02:12:13.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669576",
+    "ThreadId": "236547",
+    "Html": "<p>..you don't get the idea, you must create whole new provider with new guid and different overlay configuration, and only change map.<strong>Provider</strong>&nbsp;property on runtime, overlay list in provider itself is readonly and is not changing, otherwise cache database would be corrupted with the same id but different tiles from separate maps.</p>",
+    "PostedDate": "2011-09-09T02:19:39.883-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "669639",
+    "ThreadId": "236547",
+    "Html": "<p>Okay, the problem was that I made the overlay property writeable! So that was no good idea...</p>",
+    "PostedDate": "2011-09-09T06:01:16.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688371",
+    "ThreadId": "236547",
+    "Html": "<p>Hello Radioman,</p>\r\n<p>can you make an example in Demo? Perhaps how to make a custom Provider(For example the Label-Top-Layer) an switch on on / off.</p>\r\n<p>Thank you very much.</p>\r\n<p>EDE</p>",
+    "PostedDate": "2011-10-24T05:15:26.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "688404",
+    "ThreadId": "236547",
+    "Html": "<p>create two providers, with and without some layer, and switch between them</p>",
+    "PostedDate": "2011-10-24T06:19:24.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "850552",
+    "ThreadId": "236547",
+    "Html": "<p>Hi BlueCard - This is exactly what I am trying to get working: A custom map provider that reads map data from disk. Mine loads the data OK, but continues to tile the same image over and over. Did you get yours to work? I suspect I have not told the map control about the size of the image, but not sure how to do that.</p>",
+    "PostedDate": "2012-06-18T13:34:28.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1025917",
+    "ThreadId": "439203",
+    "Html": "Hi,<br />\n<br />\nGot the following problem. Cache gets mixed up when switching between providers.<br />\nI use a custom created provider and open street map in this example.<br />\n<br />\nWhat steps (clean up cache ?) do I have to do before displaying the next map.<br />\n<br />\nmGmapControl.ScaleMode = ScaleModes.Integer;<br />\n<br />\nCaching mode is set to ServerandCache.<br />\n<br />\nMemory cache:<br />\nmGmapControl.Manager.UseMemoryCache = true;<br />\nmGmapControl.LevelsKeepInMemmory = 6;<br />\n<br />\nSecondairy cache:<br />\nI have made de DbId in Gmap public so the database cache does get mixed up when using the same provider for multiple maps.<br />\nmGmapControl.MapProvider.DbId = mGeographicDeviceMap.Id;<br />\n<br />\nPrimairy cache:<br />\nSet mGmapControl.CacheLocation = Path.GetDirectoryName(Application.ExecutablePath) + &quot;\\Gmap.Cache\\&quot; + mGeographicDeviceMap.Id + &quot;\\&quot;;   so each map has it's own SQLite db.<br />\n<br />\nUse mGmapControl.ReloadMap(); when switching.<br />\n<br />\n<img src=\"http://www.reddoortranscendence.com/dump/mixed_up_tiles.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2013-04-05T01:28:41.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025920",
+    "ThreadId": "439203",
+    "Html": "<em>each map provider should have constant DbId, and it is by default</em>\r<br />\n<br />\njust make new provider with unique <strong>GUID</strong>, and everything will work just fine<br />\n",
+    "PostedDate": "2013-04-05T01:40:04.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025944",
+    "ThreadId": "439203",
+    "Html": "Thank you for the quick response!<br />\n<br />\nIt is not clear to me why the tiles get mixed up. Please explain.<br />\n<br />\nI need multiple instances of the same provider.<br />\nCan I use something like this to fix the problem.<br />\nIn the GmapProvider.cs code:<br />\n<br />\nDbId in my case is public and is set from mGmapControl.MapProvider.DbId = ...<br />\n<pre><code>  public override Guid Id\n  {\n     get\n     {\n         return new Guid(string.Format(&quot;D7287DA0-A7FF-405F-8166-{0}&quot;, (&quot;000000000000&quot; + DbId.ToString()).Substring(DbId.ToString().Length - 1, 12)));\n     }\n  }\n\n\n</code></pre>\n\n",
+    "PostedDate": "2013-04-05T02:18:27.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025953",
+    "ThreadId": "439203",
+    "Html": "you <strong>don't</strong> need multiply instances of the same provider<br />\n",
+    "PostedDate": "2013-04-05T02:35:00.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025975",
+    "ThreadId": "439203",
+    "Html": "You're right :)\r<br />\n<br />\nThe situation is I have to switch between geographic maps like open street map and maps created from drawings.\r<br />\nI use Maperative to generate the tiles. Works great :)\r<br />\nSo I created a CustomMapProvider for my own maps.\r<br />\n<br />\nThis class has a TileServerUrl property to switch between maps of this CustomMapProvider type.\r<br />\nSet the TileServerUrl property to <a href=\"http://localhost/MyMaps/MapOne/   http://localhost/MyMaps/MapTwo/  etc\" rel=\"nofollow\">http://localhost/MyMaps/MapOne/   http://localhost/MyMaps/MapTwo/  etc</a>..<br />\nHad to add public string TileServerUrl = string.Empty;  to the GmapProvider class.\r<br />\nI use the Guid override code below now not in the GmapProvider class but in my own CustomMapProvider class.\r<br />\nSeems to solve the mix up.  I'm still testing.<br />\n<pre><code>  public override Guid Id\n  {\n      get\n      {\n          return new Guid(string.Format(&quot;D7287DA0-A7FF-405F-8166-{0}&quot;, (&quot;000000000000&quot; + DbId.ToString()).Substring(DbId.ToString().Length - 1, 12)));  // id;\n      }\n  }\n</code></pre>\n\nCustom tile image url format:<br />\n<pre><code>  string MakeTileImageUrl(GPoint pos, int zoom, string language)\n  {\n      string tileUrl = string.Format(UrlFormat, TileServerUrl, zoom, pos.X, pos.Y, baseFormatExt);\n      return tileUrl; \n  }\n\n  static readonly string baseFormatExt = &quot;.png&quot;;\n  static readonly string UrlFormat = &quot;http://{0}/{1}/{2}/{3}{4}&quot;;</code></pre>\n\n",
+    "PostedDate": "2013-04-05T03:16:37.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025995",
+    "ThreadId": "439203",
+    "Html": "DbId is generated using Guid id, so use some other parameter, like hash of name or something...\r<br />\n<br />\n..and you don't need multiply instances of the same provider, but i mean for one map, for different maps you need multiply instances of usually different providers, but in your case it can be different instances of the same provider with different parameters, therefore guids will be different and DbId will be automaticaly different too\r<br />\n<br />\nsimple logic:<br />\n<pre><code>CustomProvider : GMapProvider\n{\n    CustomProvider(string server, string myMapName)\n    {\n       this.myMapName = myMapName;\n    }\n\n    public override Guid Id\n    {\n      get\n      {\n          return new Guid(string.Format(&quot;D7287DA0-A7FF-405F-8166-{0}&quot;, Hash(myMapName));\n      }\n}\n\nvar p1 = new CustomProvider(&quot;localhost&quot;, &quot;MapOne&quot;);\nvar p2 = new CustomProvider(&quot;localhost&quot;, &quot;MapTwo&quot;);\nvar p3 = new CustomProvider(&quot;localhost&quot;, &quot;MapThree&quot;);\n\nlisbox.items = new [] {p1, p2, p3}\n\nOnListBoxItemchanged\n{\n  mGmapControl.MapProvider = currentitem;\n}</code></pre>\n\n",
+    "PostedDate": "2013-04-05T04:12:15.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1026011",
+    "ThreadId": "439203",
+    "Html": "Thanx!  Got it :)\r<br />\n<br />\nGmap is a wonderfull piece of work! <br />\n",
+    "PostedDate": "2013-04-05T04:49:37.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1078675",
+    "ThreadId": "439203",
+    "Html": "Hello,\r<br />\n<br />\nI'm busy with an identical problem but the proposed solution seems not working for me.<br />\n<pre><code>CustomProvider : GMapProvider\n{\n    CustomProvider(string server, string myMapName)\n    {\n       this.myMapName = myMapName;\n    }\n\n    public override Guid Id\n    {\n      get\n      {\n          return new Guid(string.Format(&quot;D7287DA0-A7FF-405F-8166-{0}&quot;, Hash(myMapName));\n      }\n}\n\nvar p1 = new CustomProvider(&quot;localhost&quot;, &quot;MapOne&quot;);</code></pre>\n\nThe problem is that the constructor of GmapProvider class (in which dbid is generated) is called before the constructor of CustomProvider class. Therefore myMapName is not yet assigned to the right value when the dbid is generated. Is it right ? If yes, any workaround ?<br />\n",
+    "PostedDate": "2013-08-09T04:42:30.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1078738",
+    "ThreadId": "439203",
+    "Html": "assign before<br />\n",
+    "PostedDate": "2013-08-09T07:54:41.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1078986",
+    "ThreadId": "439203",
+    "Html": "Sorry, I am not sure to understand. What do you want to say by assign before ? \r<br />\nIt could be really helpfull for me if someone can update the sample accordingly.\r<br />\nThank you.<br />\n",
+    "PostedDate": "2013-08-10T00:21:40.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

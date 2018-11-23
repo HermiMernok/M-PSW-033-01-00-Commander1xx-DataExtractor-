@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1482320",
+    "ThreadId": "657502",
+    "Html": "Last few days in my WPF app when load Openstreetmap it doesnt show anything i get:\r<br />\nException: The remote server returned an error (403) Forbidden. It worked perfectly for last few months and i noticed this problem two days ago.<br />\n",
+    "PostedDate": "2016-08-29T03:17:17.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482377",
+    "ThreadId": "657502",
+    "Html": "Hi,\r<br />\n<br />\nsince today I've got the same Problem. \r<br />\n<br />\nWhat is the problem ?<br />\n",
+    "PostedDate": "2016-08-29T13:46:31.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482404",
+    "ThreadId": "657502",
+    "Html": "Hi, \r<br />\n<br />\nI found the solution. \r<br />\nIn <strong>MapProviders.GMapProvider.UserAgent</strong> must be insert any string thats identify your software or whatever. \r<br />\nDefault is presumably forbidden. \r<br />\nWhen you change this the problem is gone. \r<br />\n<br />\nGreetz<br />\n",
+    "PostedDate": "2016-08-30T01:33:42.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482461",
+    "ThreadId": "657502",
+    "Html": "UserAgent fixed, it works fine now<br />\n",
+    "PostedDate": "2016-08-30T16:08:18.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-08-30T16:08:25.127-07:00"
+  },
+  {
+    "Id": "1482938",
+    "ThreadId": "657502",
+    "Html": "Hi\r<br />\nWhat's the fix for this? New dlls or change the call in the application?<br />\n",
+    "PostedDate": "2016-09-05T02:37:05.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482951",
+    "ThreadId": "657502",
+    "Html": "Just add this line in your application (in your main window constructor or OnLoad for instance) :\r<br />\n<strong>MapProviders.GMapProvider.UserAgent = &quot;put any string right there or the name of your application&quot;;</strong><br />\n",
+    "PostedDate": "2016-09-05T05:02:25.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1482956",
+    "ThreadId": "657502",
+    "Html": "Hi,\r<br />\n<br />\nWe also had this problem in our application and have applied the fix (successfully).  Does anyone know what caused it, I was worried that we had been blocked for some reason, but after reading this it seems like a more general issue.<br />\n",
+    "PostedDate": "2016-09-05T05:25:31.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1495306",
+    "ThreadId": "657502",
+    "Html": "<strong>HANOLH wrote:</strong><br />\n<blockquote>\nHi,<br />\n<br />\nWe also had this problem in our application and have applied the fix (successfully).  Does anyone know what caused it, I was worried that we had been blocked for some reason, but after reading this it seems like a more general issue.<br />\n</blockquote>\nI had the same problem. Very happy I found this post.\r<br />\n<br />\nAt what point does openstreetmaps block a user?<br />\n",
+    "PostedDate": "2017-04-08T13:30:45.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1495478",
+    "ThreadId": "657502",
+    "Html": "<strong>NDennis wrote:</strong><br />\n<blockquote>\n<strong>HANOLH wrote:</strong><br />\n<blockquote>\nHi,<br />\n<br />\nWe also had this problem in our application and have applied the fix (successfully).  Does anyone know what caused it, I was worried that we had been blocked for some reason, but after reading this it seems like a more general issue.<br />\n</blockquote>\nI had the same problem. Very happy I found this post.<br />\n<br />\nAt what point does openstreetmaps block a user?<br />\n</blockquote>\nExcellent, Same here!<br />\n",
+    "PostedDate": "2017-04-14T09:27:16.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

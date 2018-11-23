@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "201946",
+    "ThreadId": "59645",
+    "Html": "<p>Hello Guys,</p>\r\n<p>Special thanks to Radioman for making this cooool dll, I really like it.</p>\r\n<p>I had an idea and I wanted to discuss it with you as I am not sure if it is a good or a bad one</p>\r\n<p>Right now, in this dll there is caching, which prevent you to download the same image again if you already opened it (as far as I know). Ok, right now people don't want to see the whole GLOBE ofcourse if we are talking business, they want to see a specific country. For me EGYPT!! :D Now why don't we enable the user to work in OFFLINE mode without the need of internet connection and download all the images of EGYPT that Google Maps did, and put it on the computer or in a network. This way the performance will be faster (I guess) and also no need for an internet connection, but its disadvantage is, it will take a HUGE size on the HD.</p>\r\n<p>So what do you guys think about it??</p>",
+    "PostedDate": "2009-06-16T02:59:00.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201956",
+    "ThreadId": "59645",
+    "Html": "\r\n\r\n<div class=Section1>\r\n\r\n<p class=MsoNormal><a name=\"OLE_LINK1\"></a><a name=\"OLE_LINK2\"><span style=\"font-size:10.0pt;font-family:Arial;color:navy\">Hi,</span></a></p>\r\n\r\n<p class=MsoNormal><span style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\">AFAIK, this is already\r\nsupported by using a specific database. You could write a downloader app that\r\nstores all the tiles in the db, then access it without internet. You could also\r\ninstall the db locally, in case you do not want to use any network at all.</span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:10.0pt;font-family:Arial;color:navy\"> </span></p>\r\n\r\n<p class=MsoNormal><span lang=EN-GB style=\"font-size:12.0pt\">Br, Marcel</span><span style=\"font-size:9.0pt;font-family:Verdana;color:gray\"></span></p>\r\n\r\n</div>\r\n\r\n",
+    "PostedDate": "2009-06-16T03:27:47.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "201979",
+    "ThreadId": "59645",
+    "Html": "<p>there is integrated simple maps prefetcher in demos, go to your wanted area, the map view is the area that prefetcher will cache, and just run. When cacheing is done, you can put all data to MS SQL server and in your local network application use it as:</p>\r\n<pre>   \r\nGMaps.Instance.Mode = AccessMode.CacheOnly;\r\n\r\n// add your custom map db provider\r\nMSSQLPureImageCache ch = new MSSQLPureImageCache();\r\n{\r\n   ch.ConnectionString = @&quot;Data Source=SQL2008\\SQLSRV08;Initial Catalog=PFleet;Persist Security Info=False;User ID=pfleet;Password=pfleet&quot;;\r\n   GMaps.Instance.ImageCacheSecond = ch;\r\n}\r\n</pre>\r\n<p>So your application first checks in local db, if data is missing then it looks in ms sql server and cache data localy to speed access next time. The GREAT thing is that when some user browse 'freash' area it stores all data back to ms sql server, so all users instantly can access the same area without using global google/ms/yahoo servers! This&nbsp;technique allows you to deploy your application without cache and users them self fills local&amp;network cache if needed.</p>\r\n<p>..if there is few users you can have only premaded local db. The db size is not so much big, medium city with all levels of zoom uses just ~100MB.</p>",
+    "PostedDate": "2009-06-16T04:40:11.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203653",
+    "ThreadId": "59645",
+    "Html": "<p>can you add the function that clear the buffer in the map view, but not the whose buffer because sometimes i want update the map in some special area.</p>",
+    "PostedDate": "2009-06-20T05:42:42.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "203657",
+    "ThreadId": "59645",
+    "Html": "<p>?</p>",
+    "PostedDate": "2009-06-20T06:03:10.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

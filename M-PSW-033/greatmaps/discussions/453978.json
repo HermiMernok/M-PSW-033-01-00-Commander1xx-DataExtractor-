@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1082779",
+    "ThreadId": "453978",
+    "Html": "Hello all,\r<br />\n<br />\nI have a layer that displays thousands of markers and I am using a 4k sized custom bitmap (.png) for the icon but everytime I try to display the layer, I get an OutOfMemory error.\r<br />\n<br />\nI set up the map so that the layer only display when zoomed in at level 7 or higher but it still gives me the error.\r<br />\n<br />\nIs there any other way to approach this or am I limited to just using a stock Google icon in my situation?\r<br />\n<br />\nThanks in advance.<br />\n",
+    "PostedDate": "2013-08-20T10:17:43.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084400",
+    "ThreadId": "453978",
+    "Html": "Since I know how frustrating it is to search for a solution to a problem and find none, here is how I fixed my problem, in case someone runs into the same issue:\r<br />\n<br />\nInstead of calling the bitmap INSIDE a foreach or while loop such as this:<br />\n<pre><code>GMarkerGoogle vorMarker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(vor[&quot;lat&quot;]), Convert.ToDouble(vor[&quot;lon&quot;])), new Bitmap(ImagesFolder + @&quot;\\\\gmaps\\\\intersection.png&quot;));</code></pre>\n\nI simple set an icon variable BEFORE calling the loop such as this:<br />\n<pre><code>Bitmap icon = new Bitmap(ImagesFolder + @&quot;\\\\gmaps\\\\intersection.png&quot;);</code></pre>\n\nThen inside the loop, I call the bitmap like this:<br />\n<pre><code>GMarkerGoogle vorMarker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(vor[&quot;lat&quot;]), Convert.ToDouble(vor[&quot;lon&quot;])), icon);</code></pre>\n\nNow I was able to load over 50,000 markers WITHOUT A HIT in memory :-)<br />\n",
+    "PostedDate": "2013-08-23T21:55:22.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084407",
+    "ThreadId": "453978",
+    "Html": "it's called <em>object reusing</em>, common practice in .net<br />\n",
+    "PostedDate": "2013-08-24T00:16:55.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084419",
+    "ThreadId": "453978",
+    "Html": "Common for those that know how to program in .NET, unlike me, who has to resort to asking these questions and end up having to find the answer on my own. Which I don't mind because that's how one learns, but if you knew that was the way to go, a little nudge before the fact would've help immensely.<br />\n",
+    "PostedDate": "2013-08-24T01:31:59.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

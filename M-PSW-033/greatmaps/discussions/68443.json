@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "232787",
+    "ThreadId": "68443",
+    "Html": "<p>I know that we can draw simple shapes with the GMapRoute class.</p>\r\n<p>But is there a way to draw a real polygon or circle or elypse as an overlay?</p>\r\n<p>Thanks</p>\r\n<p>Benoit</p>",
+    "PostedDate": "2009-09-09T11:57:16.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232790",
+    "ThreadId": "68443",
+    "Html": "<p>create new <strong><em>GMapOverlay</em></strong>&nbsp;and add to it your <span style=\"text-decoration:underline\">custom</span> <em><strong>GMapMarker</strong></em> with overrided function&nbsp;<em><strong>public virtual void OnRender(Graphics g)</strong></em></p>",
+    "PostedDate": "2009-09-09T12:17:20.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

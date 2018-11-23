@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "546628",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am new to Gmap.NET i believe the map load as tiles is there any way to find what are the tiles have been loaded in the currentviewArea and what are the tiles to be loaded?</p>\r\n",
+    "PostedDate": "2011-01-10T05:36:10.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546639",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>there is a way, but why do you need it?</p>\r\n",
+    "PostedDate": "2011-01-10T05:46:01.64-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546681",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>To loadmarkers based&nbsp;on each tiles with some conditions. Please let me know the option?</p>\r\n",
+    "PostedDate": "2011-01-10T06:25:07.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546704",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>what conditions?</p>\r\n",
+    "PostedDate": "2011-01-10T06:49:59.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546709",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>Actually iam planning to load markers after each tiles load have been completed and not for the whole currentviewArea.</p>\r\n",
+    "PostedDate": "2011-01-10T06:55:30.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546719",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>but its loading fast anyway, so why to slow whole loading process by checking markers on each tile load which is ~50 for medium screen, 50 * few ms and your app starts lagging...</p>\r\n",
+    "PostedDate": "2011-01-10T07:08:15.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546723",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>yes it is loading quickly but what happens is that i am loading markers from service for the whole currentviewArea so that number of markers is large and loading becomes slow so instead of whole map area i am planning to load markers for each tile so that\r\n number of markers is less and overall performance is improved.</p>\r\n",
+    "PostedDate": "2011-01-10T07:15:34.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "546736",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>so why do you need tiles at all, just put randomly in area some limited amount of markers</p>\r\n",
+    "PostedDate": "2011-01-10T07:27:40.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547071",
+    "ThreadId": "241136",
+    "Html": "\r\n<p>No actually its going to be vechile tracking hence we need to create marker at a particular lat and lng. so i thought of loading markers while loading while loading tiles itself.</p>\r\n",
+    "PostedDate": "2011-01-10T20:35:41.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

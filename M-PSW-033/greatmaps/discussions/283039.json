@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "712540",
+    "ThreadId": "283039",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>I have another problem. After update to v1.6 the following codesnippet freezes at ImageCacheSecond:</p>\r\n<p>&nbsp;</p>\r\n<p>Dim ch As New GMap.NET.CacheProviders.MsSQLPureImageCache<br>\r\n&nbsp;ch.ConnectionString = &quot;Data Source=SQL_Server;Initial Catalog=dbStat;Integrated Security=True&quot;<br>\r\ngMapC.Manager.ImageCacheSecond = ch</p>\r\n<p>&nbsp;</p>\r\n<p>Is this a bug or did I something wrong?</p>\r\n",
+    "PostedDate": "2011-12-15T00:14:39.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712545",
+    "ThreadId": "283039",
+    "Html": "<p>it's renamed to&nbsp;<strong>SecondaryCache</strong></p>",
+    "PostedDate": "2011-12-15T00:21:50.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712598",
+    "ThreadId": "283039",
+    "Html": "<p>Hello,</p>\n<p>&nbsp;</p>\n<p>I have updated to the Hot Build Version to have the function \"SecondaryCache\" and I tried the same:</p>\n<p>&nbsp;</p>\n<p>Dim ch As New GMap.NET.CacheProviders.MsSQLPureImageCache<br />&nbsp;ch.ConnectionString = \"Data Source=SQL_Server;Initial Catalog=dbStat;Integrated Security=True\"<br /> gMapC.Manager.SecondaryCache = ch</p>\n<p>&nbsp;</p>\n<p>SecondaryCache didn't freeze like ImageCacheSecond in v1.6 but this function needs approximately 3 minutes.&nbsp;In the old version it was a matter of milliseconds.</p>",
+    "PostedDate": "2011-12-15T02:09:57.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712628",
+    "ThreadId": "283039",
+    "Html": "<p>i doubt that, nothing is changed in cache providers</p>",
+    "PostedDate": "2011-12-15T03:28:59.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712649",
+    "ThreadId": "283039",
+    "Html": "<p>Hello,</p>\r\n<p>&nbsp;</p>\r\n<p>dunno whats happend, but now everything is like it was before. Maybe a lag at my sql_server.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your Support!</p>",
+    "PostedDate": "2011-12-15T04:26:32.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

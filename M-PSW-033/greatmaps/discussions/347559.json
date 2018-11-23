@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "806471",
+    "ThreadId": "347559",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I justed downloaded the library and it seems really to be a great work. Just the documentation is missing :-)</p>\r\n<p>After I implemented a little test form I saw that on every start up (first time) of the form it takes around 10 - 20 seconds to load it. May I am doing something wrong. Here is my code</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>            GMapProvider.WebProxy = <span style=\"color:blue\">null</span>;\r\n            InitializeComponent();\r\n            SuspendLayout();            \r\n            MainMap.SetCurrentPositionByKeywords(<span style=\"color:#a31515\">&quot;xxxx,yyyy&quot;</span>);\r\n            MainMap.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;\r\n            MainMap.MinZoom = 1;\r\n            MainMap.MaxZoom = 17;\r\n            MainMap.Zoom = 12;\r\n            MainMap.Dock = DockStyle.Fill;\r\n            MainMap.Manager.Mode = GMap.NET.AccessMode.ServerAndCache;\r\n            panelControl1.Controls.Add(MainMap);\r\n            ResumeLayout(<span style=\"color:blue\">true</span>);\r\n</pre>\r\n<pre>The second time I call the form it works quite fast. What am I doing wrong.</pre>\r\n<pre>Thanks in advance</pre>\r\n<pre>Oldwarrior</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-03-06T13:21:37.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806472",
+    "ThreadId": "347559",
+    "Html": "<p>you are in debug mode</p>",
+    "PostedDate": "2012-03-06T13:26:01.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806515",
+    "ThreadId": "347559",
+    "Html": "<p>The wait is from the Google MapProvider. I found the reason why in another discussion here but basically thats the issue. Google map providers take awhile to load.&nbsp;</p>\n<p>If you change it to another provider, like Yahoo or OpenMaps it will load up much faster.</p>",
+    "PostedDate": "2012-03-06T14:55:54.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806517",
+    "ThreadId": "347559",
+    "Html": "<p>Both of you are right. When I change to another provider it works faster. But still 10 seconds. When I start it from VS 2010 then it is slow. When I start it directy from the directory it's ok. Something strange in visual studio.</p>\r\n<p>Thanks</p>\r\n<p>OldWarrior</p>",
+    "PostedDate": "2012-03-06T15:01:17.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806722",
+    "ThreadId": "347559",
+    "Html": "<p>wake up, in debug mode i've added three Thread.Sleep(5555); to see what version google has, use release build</p>",
+    "PostedDate": "2012-03-07T01:00:08.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

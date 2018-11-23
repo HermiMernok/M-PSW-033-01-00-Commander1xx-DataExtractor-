@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "265966",
+    "ThreadId": "77777",
+    "Html": "<p>I am having an issue with getting the control to display maps when a proxy server is used.&nbsp; Does not really make any sense since its just port 80 traffic.</p>\r\n<p>&nbsp;</p>\r\n<p>Does anyone have any ideas ?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n<p>&nbsp;</p>\r\n<p>Ewan</p>",
+    "PostedDate": "2009-12-10T14:40:27.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "265970",
+    "ThreadId": "77777",
+    "Html": "<p>nop ;}</p>",
+    "PostedDate": "2009-12-10T14:50:55.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "266129",
+    "ThreadId": "77777",
+    "Html": "<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request.Credentials = System.Net.CredentialCache.DefaultCredentials;</p>\r\n</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request.Proxy = System.Net.WebRequest.DefaultWebProxy;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;</div>\r\n<p>&nbsp;</p>\r\n<p><span style=\"white-space:pre\"> </span>GMaps.cs C# .NET Core Authenticate&nbsp;Updated&nbsp;</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;internal PointLatLng? GetLatLngFromGeocoderUrl(string url, bool useCache, out GeoCoderStatusCode status)</p>\r\n<p><span style=\"white-space:pre\"> </span>request.Credentials = System.Net.CredentialCache.DefaultCredentials;<br><span style=\"white-space:pre\"> </span>request.Proxy = System.Net.WebRequest.DefaultWebProxy;<br>request.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-11T01:18:04.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "266130",
+    "ThreadId": "77777",
+    "Html": "<p>?</p>",
+    "PostedDate": "2009-12-11T01:22:04.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "266189",
+    "ThreadId": "77777",
+    "Html": "<p>Opps!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-11T04:32:42.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

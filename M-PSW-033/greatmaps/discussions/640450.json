@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1431861",
+    "ThreadId": "640450",
+    "Html": "Hi everyone!<br />\nI've got some project for supporting. This project contains GMap.NET for making operations with addresses. It uses Google Maps provider.<br />\nThis project worked well. But today all users starts getting exception at time of operations with addresses.<br />\nI ran project in debug mode. After some steps i obtained &quot;problem place&quot;. It's in GoogleMapProvider class. Method GetRoutePoints creates web request with such URL:<br />\n<pre><code>http://maps.google.com/maps?f=q&amp;output=dragdir&amp;doflg=p&amp;hl=en&amp;mra=ls&amp;dirflg=d&amp;q=&amp;saddr=@40.637666,-73.947676&amp;daddr=@40.655961,-73.950774</code></pre>\n\nException throws after invoking this request.<br />\n&quot;System.Net.WebException: The remote server returned an error: (404) Not Found.&quot;<br />\nThe same error i'm getting when i'm trying to get to this URL with WebBrowser.<br />\n<br />\nSo, it looks like Google changed URL format for Maps, that implemented with RouteUrlFormatPointLatLng variable.<br />\nIs here anybody got the same problem? Maybe someone has decision for this problem?<br />\n",
+    "PostedDate": "2015-06-25T08:32:08.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435223",
+    "ThreadId": "640450",
+    "Html": "I'm having the same issue. did you fin a way to fix the issue VaDro?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2015-07-20T19:17:29.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435266",
+    "ThreadId": "640450",
+    "Html": "Hello, Nicolas!\r<br />\n<br />\n  Guys from the same thread fixed the problem. They gave advice to use Directions API instead of Route API\r<br />\n<a href=\"http://greatmaps.codeplex.com/discussions/547972\" rel=\"nofollow\">TEXT</a><br />\n",
+    "PostedDate": "2015-07-21T01:11:18.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1435329",
+    "ThreadId": "640450",
+    "Html": "Thanks a lot VaDRo you save my day.<br />\n",
+    "PostedDate": "2015-07-21T06:03:40.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

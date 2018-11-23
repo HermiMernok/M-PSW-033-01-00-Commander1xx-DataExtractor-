@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1492372",
+    "ThreadId": "661221",
+    "Html": "Zoom in to florida, USA and switch to the swedish map. It will come up with exception at:<br />\n<pre><code>    public override GSize GetTileMatrixMinXY(int zoom)\n    {\n        if (extentMatrixMin == null)\n        {\n            GenerateExtents();\n        }\n        return extentMatrixMin[zoom];\n    }\n</code></pre>\n\nin SWEREF99_TMProjection.cs<br />\n",
+    "PostedDate": "2017-02-08T06:40:06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

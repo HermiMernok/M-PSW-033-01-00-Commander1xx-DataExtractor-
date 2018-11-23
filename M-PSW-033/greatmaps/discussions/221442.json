@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "472756",
+    "ThreadId": "221442",
+    "Html": "<p>Hi all,<br><br>First of all great job creating this library and of course making it available for us.&nbsp;I already implemented the map in a Windows Mobile application, but something won't work. I have a map with incidents to which an ambulance, policecar of firetruck goes. I want to display images at the specified coordinates. Placing the images on the specified location works fine with a layer, but somehow the png-images which have transparent backgrounds lose their transparency. The images are loaded in the resources and are called with my.resources.filename. The following is the complete class which I found somewhere else on this forum:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Imports</span> System.Drawing\r\n<span style=\"color:blue\">Imports</span> System.Drawing.Drawing2D\r\n<span style=\"color:blue\">Imports</span> GMap.NET\r\n<span style=\"color:blue\">Imports</span> GMap.NET.CacheProviders\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n\r\n<span style=\"color:blue\">Public</span> <span style=\"color:blue\">Class</span> GMapMarkerImage : <span style=\"color:blue\">Inherits</span> GMapMarker\r\n    <span style=\"color:blue\">Dim</span> _image <span style=\"color:blue\">As</span> System.Drawing.Image\r\n    <span style=\"color:blue\">Dim</span> _point <span style=\"color:blue\">As</span> PointLatLng\r\n\r\n    <span style=\"color:blue\">Sub</span> <span style=\"color:blue\">New</span>(<span style=\"color:blue\">ByVal</span> iPoint <span style=\"color:blue\">As</span> PointLatLng, <span style=\"color:blue\">ByVal</span> discipline <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span>)\r\n        <span style=\"color:blue\">MyBase</span>.<span style=\"color:blue\">New</span>(iPoint)\r\n        _point = iPoint\r\n        <span style=\"color:blue\">Select</span> <span style=\"color:blue\">Case</span> discipline\r\n            <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;politie&quot;</span>\r\n                _image = <span style=\"color:blue\">My</span>.Resources.politie_32\r\n            <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;ambulance&quot;</span>\r\n                _image = <span style=\"color:blue\">My</span>.Resources.ambulance_32\r\n            <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;brandweer&quot;</span>\r\n                _image = <span style=\"color:blue\">My</span>.Resources.brandweer_32\r\n            <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;lifeliner&quot;</span>\r\n                _image = <span style=\"color:blue\">My</span>.Resources.lifeliner_32\r\n            <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;knrm&quot;</span>\r\n                _image = <span style=\"color:blue\">My</span>.Resources.knrm_32\r\n            <span style=\"color:blue\">Case</span> <span style=\"color:#a31515\">&quot;onbekend&quot;</span>\r\n                _image = <span style=\"color:blue\">My</span>.Resources.onbekend_32\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Select</span>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n\r\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Overrides</span> <span style=\"color:blue\">Sub</span> OnRender(<span style=\"color:blue\">ByVal</span> g <span style=\"color:blue\">As</span> System.Drawing.Graphics)\r\n        <span style=\"color:blue\">Dim</span> p <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> System.Drawing.Point(_point.Lat, _point.Lng)\r\n        <span style=\"color:blue\">MyBase</span>.OnRender(g)\r\n        g.DrawImage(_image, System.Convert.ToInt32(LocalPosition.X - Size.Width / 2), System.Convert.ToInt32(LocalPosition.Y - Size.Height / 2))\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p>I add the image to the layer by using the following line:</p>\r\n<pre>p2000Layer.Markers.Add(New GMapMarkerImage(New PointLatLng(latitude ,longitude), &quot;ambulance&quot;))</pre>\r\n<p>Can someone tell me why the transparency is lost?</p>",
+    "PostedDate": "2010-07-26T11:01:13.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473240",
+    "ThreadId": "221442",
+    "Html": "<p>I see no prob here...</p>\r\n<p>think your source is correct.</p>\r\n<p>&nbsp;</p>\r\n<p>i usually use g.DrawImageUnscaled to draw the image.</p>\r\n<p>&nbsp;</p>\r\n<p>please recheck your ressource-files. i think there is the problem.</p>\r\n<p>&nbsp;</p>\r\n<p>greetz manuel</p>",
+    "PostedDate": "2010-07-27T08:39:58.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473354",
+    "ThreadId": "221442",
+    "Html": "mobile version has specific marker for transparent objects: GMapMarkerTransparent, because by default there is no transparency support on the device",
+    "PostedDate": "2010-07-27T13:36:10.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473574",
+    "ThreadId": "221442",
+    "Html": "<p>Great, I will check it later this day!</p>\r\n<p>/edit: radioman: do you have a suggestion or a guide&nbsp;how I should implement a custom marker with the GMapMarkerTransparent? Thanks in advance.</p>",
+    "PostedDate": "2010-07-28T02:39:27.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473771",
+    "ThreadId": "221442",
+    "Html": "check how is made GMapMarkerTransparentGoogleGreen",
+    "PostedDate": "2010-07-28T09:36:45.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475401",
+    "ThreadId": "221442",
+    "Html": "<p>Thanks, I created a new class based in the GMapMarkerTransparentGoogleGreen, which accepts a few parameters. This did the trick, all PNG's are now shown correctly with the transparent background!</p>",
+    "PostedDate": "2010-08-02T05:18:22.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

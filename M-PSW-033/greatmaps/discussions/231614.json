@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "509847",
+    "ThreadId": "231614",
+    "Html": "<p>Hi radioman. I'd like to decrease the TextPadding on the Makrer Tooltip (i.e. I want less space between the text and the balloon borders). I see in the GMapTooltip class there is a TextPadding line which reads as follows:</p>\r\n<p><span style=\"color:blue\">&nbsp;&nbsp;&nbsp; public</span>&nbsp;<span style=\"color:#2b91af\">Size</span>&nbsp;TextPadding&nbsp;=&nbsp;<span style=\"color:blue\">new</span>&nbsp;<span style=\"color:#2b91af\">Size</span>(3,&nbsp;3);<br><br>I have decreased it to&nbsp;</p>\r\n<p><span style=\"color:blue\">&nbsp;&nbsp;&nbsp; public</span>&nbsp;<span style=\"color:#2b91af\">Size</span>&nbsp;TextPadding&nbsp;=&nbsp;<span style=\"color:blue\">new</span>&nbsp;<span style=\"color:#2b91af\">Size</span>(1,&nbsp;1);</p>\r\n<p>and recompiled, but it doesnt seem to be making a difference when I change it. Am I doing something wrong?</p>\r\n<p>Kind Regards<br>Fabricio Rodriguez<br>Pretoria, South Africa</p>",
+    "PostedDate": "2010-10-20T03:43:13.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "509890",
+    "ThreadId": "231614",
+    "Html": "<p>default tooltip is GMapRoundedToolTip, so you made changes in the wrong place</p>",
+    "PostedDate": "2010-10-20T05:38:28.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "509986",
+    "ThreadId": "231614",
+    "Html": "<p>Aha! Got it! Thanks</p>",
+    "PostedDate": "2010-10-20T08:25:18.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

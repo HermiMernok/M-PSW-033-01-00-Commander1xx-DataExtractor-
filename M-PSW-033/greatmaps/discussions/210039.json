@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "433608",
+    "ThreadId": "210039",
+    "Html": "<p>Hi there,</p>\r\n<p>I want to achieve the following: When i press a button i want to store the current zoomlevel and center lat/lng.</p>\r\n<p>When a user made a change in the state of the map, for example when he zoomed in to an other location, i want to restore the previous settings when i press the button again.</p>\r\n<p>&nbsp;</p>\r\n<p>I can store the zoomlevel, but what is the best way to get/store the center lat and lng?</p>\r\n<p>&nbsp;</p>\r\n<p>Any idea?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks.</p>\r\n<p>Heru</p>",
+    "PostedDate": "2010-04-21T06:17:21.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433614",
+    "ThreadId": "210039",
+    "Html": "<p>map.<strong>CurrentPosition</strong></p>\r\n<p>You push both zoom and position on the stack, so you can undo actions</p>",
+    "PostedDate": "2010-04-21T06:26:56.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433626",
+    "ThreadId": "210039",
+    "Html": "<p>Radioman,</p>\r\n<p>Stupid me... I was using this already for putting map in standard conditions.</p>\r\n<p>Just changed the fixed 0.0, 0.0 for lat, lng.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for very quick reply.</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-21T06:51:10.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433782",
+    "ThreadId": "210039",
+    "Html": "<p>energize! ;}</p>",
+    "PostedDate": "2010-04-21T11:09:04.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

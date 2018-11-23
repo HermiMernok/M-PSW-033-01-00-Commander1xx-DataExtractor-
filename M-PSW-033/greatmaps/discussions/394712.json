@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "909428",
+    "ThreadId": "394712",
+    "Html": "\r\n<p>I want to add gmap programmatically in WPF. I add the code below</p>\r\n<p>GMapControl gmap = new GMapControl();&nbsp;</p>\r\n<p>Grid grid = this.GetGrid();</p>\r\n<p>Grid.SetColumn(gmap, 2);</p>\r\n<p>grid.Children.Add(gmap);</p>\r\n<p>But the grid shows nothing but a red cross in the middle. How can I make it work?</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-09-06T19:59:52.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909552",
+    "ThreadId": "394712",
+    "Html": "<p>by default control use dummy empty provider, use something ese:</p>\r\n<p><em>GMapControl gmap = new GMapControl();&nbsp;<br />{<br />gmap.<strong>MapProvider</strong> = GMapProviders.OpenStreetMap;</em><br /><em> gmap.<strong>MinZoom</strong> = 4;</em><br /><em> gmap.<strong>MaxZoom</strong>&nbsp;= 17;</em><br /><em> gmap.<strong>Zoom</strong> = gmap.MinZoom;<br />}<br /></em></p>\r\n<p><em>grid.Children.Add(gmap);&nbsp;</em></p>",
+    "PostedDate": "2012-09-07T04:01:28.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909861",
+    "ThreadId": "394712",
+    "Html": "<p>Thank you very much.</p>\r\n<p>But it seems that I can't drag and zoom in/out the map. Should I make it listen to mouse event or sth. like that?</p>",
+    "PostedDate": "2012-09-07T19:30:31.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909934",
+    "ThreadId": "394712",
+    "Html": "<p>default DragButton is right</p>",
+    "PostedDate": "2012-09-08T03:38:27.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

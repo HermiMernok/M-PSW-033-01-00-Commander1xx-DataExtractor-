@@ -1,0 +1,111 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "'fixed' by using simple check",
+    "ClosedDate": "2010-08-25T11:38:04.207-07:00",
+    "CommentCount": 13,
+    "Custom": null,
+    "Description": "Hi, I just upgrade to the last version and when I try to load my application now I got an error on this function, the Application.Current is null, any idea why?\r\n\r\n      void GMapControl_Loaded(object sender, RoutedEventArgs e)\r\n      {\r\n         Core.StartSystem();\r\n         Core_OnMapZoomChanged();\r\n\r\n         Application.Current.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,\r\n            new Action(delegate()\r\n            {\r\n               Application.Current.Exit += new ExitEventHandler(Current_Exit);\r\n            }\r\n            ));\r\n      }",
+    "LastUpdatedDate": "2010-08-25T11:38:04.207-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-08-12T14:13:03.013-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Application.Current is null",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15983
+  },
+  "FileAttachments": [
+    {
+      "FileId": 142527,
+      "FileName": "Test_Map.zip",
+      "DownloadUrl": ".\\142527"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "how it's even possible, are you sure? ;}",
+      "PostedDate": "2010-08-12T21:57:01.203-07:00",
+      "Id": 15067
+    },
+    {
+      "Message": "yes I am :) I change it to this.Dispatcher and put the current.Exit in remark and it's working, but I'm not sure if it's \"fine\"\n\nmaybe because I use the wpf version in a vb.net windows form?",
+      "PostedDate": "2010-08-13T11:18:05.37-07:00",
+      "Id": 15077
+    },
+    {
+      "Message": "hmm, why my sentence is before yours? :)",
+      "PostedDate": "2010-08-13T11:18:53.51-07:00",
+      "Id": 15078
+    },
+    {
+      "Message": "or maybe it's because I'm in the designer? I run my application into visual studio directly right now",
+      "PostedDate": "2010-08-13T11:52:56.177-07:00",
+      "Id": 15080
+    },
+    {
+      "Message": "nope, even in a \".exe\", same error:\nObject reference not set to an instance of an object.\n   at GMap.NET.WindowsPresentation.GMapControl.GMapControl_Loaded(Object sender, RoutedEventArgs e)\n   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)\n   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)\n   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)\n   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)\n   at System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)\n   at System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)\n   at MS.Internal.LoadedOrUnloadedOperation.DoWork()\n   at System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()\n   at System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()\n   at System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)\n   at System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)\n   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n   at System.Windows.Threading.DispatcherOperation.InvokeImpl()\n   at System.Windows.Threading.DispatcherOperation.InvokeInSecurityContext(Object state)\n   at System.Threading.ExecutionContext.runTryCode(Object userData)\n   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\n   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)\n   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)\n   at System.Windows.Threading.DispatcherOperation.Invoke()\n   at System.Windows.Threading.Dispatcher.ProcessQueue()\n   at System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)\n   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)\n   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)\n   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)\n   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)\n   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)\n   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)\n   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)\n   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)\n   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)\n   at System.Windows.Forms.Application.Run(ApplicationContext context)\n   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()\n   at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()",
+      "PostedDate": "2010-08-13T11:56:10.187-07:00",
+      "Id": 15081
+    },
+    {
+      "Message": "still i have no idea, nuts ;}",
+      "PostedDate": "2010-08-13T13:19:43.073-07:00",
+      "Id": 15086
+    },
+    {
+      "Message": "any idea how can I \"fix\" it? \nwhat that do?",
+      "PostedDate": "2010-08-13T14:22:00.673-07:00",
+      "Id": 15087
+    },
+    {
+      "Message": "please attach zipped test project",
+      "PostedDate": "2010-08-14T01:24:06.267-07:00",
+      "Id": 15093
+    },
+    {
+      "Message": "there we go, I reduce it at minimum :)\r\n",
+      "PostedDate": "2010-08-14T22:26:38.683-07:00",
+      "Id": 15107
+    },
+    {
+      "Message": "..and why do you use wpf version in windows forms with vb? ;]",
+      "PostedDate": "2010-08-15T01:25:01.747-07:00",
+      "Id": 15108
+    },
+    {
+      "Message": "vb.net it's because my partner doesn't know c# very well, and wpf in the past I had many issue with animation in windows form, so I choose WPF because I was thinking  it will be better for animation. it's not a good choose? :)",
+      "PostedDate": "2010-08-15T02:01:35.153-07:00",
+      "Id": 15109
+    },
+    {
+      "Message": "is it possible to start wpf project in vb?",
+      "PostedDate": "2010-08-15T03:35:38.477-07:00",
+      "Id": 15111
+    },
+    {
+      "Message": "yes, but not easy to convert all my windows form to wpf :)",
+      "PostedDate": "2010-08-15T11:58:26.987-07:00",
+      "Id": 15113
+    }
+  ]
+}

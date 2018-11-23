@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "fixed using cache",
+    "ClosedDate": "2010-10-20T14:02:56.2-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "Why this code provide wrong values?\r\n\r\nMarker.Position = new PointLatLng(45, 20);\r\nvar pLocal = MainWindow.MainMap.FromLatLngToLocal(Marker.Position);\r\nvar pLatLng = MainWindow.MainMap.FromLocalToLatLng(pLocal.X, pLocal.Y);\r\nDebug.Assert(Marker.Position.Lat == pLatLng.Lat, \"Latitude is different\");\r\nDebug.Assert(Marker.Position.Lng == pLatLng.Lng, \"Longitude is different\");",
+    "LastUpdatedDate": "2010-10-20T14:02:56.2-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2010-08-24T03:32:41.98-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error during LatLng to Local conversion",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15984
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "it's not error, it's question of precision",
+      "PostedDate": "2010-08-24T05:31:59.913-07:00",
+      "Id": 15478
+    },
+    {
+      "Message": "so what is the correct snippet to have correct bidirectional conversion?",
+      "PostedDate": "2010-08-24T07:48:07.157-07:00",
+      "Id": 15479
+    },
+    {
+      "Message": "there is no way, pixels are simply to big",
+      "PostedDate": "2010-08-24T10:41:54.943-07:00",
+      "Id": 15484
+    },
+    {
+      "Message": "i guess, i can add both values to cache, so reversed conversion would be identical",
+      "PostedDate": "2010-10-20T13:47:17.41-07:00",
+      "Id": 17463
+    }
+  ]
+}

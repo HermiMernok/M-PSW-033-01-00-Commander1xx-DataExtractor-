@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "264873",
+    "ThreadId": "77458",
+    "Html": "<p>Hi...<br>i'm newbie in 'GIS' and i want using &quot;Proj.Net&quot; in my project <br>i need to convert <span style=\"color:#0000ff\"><span style=\"color:#800000\">coordinate system </span>(Latitude longitude) to <span style=\"color:#800000\">SphericalMercator</span> (epsg:3785) .</span></p>\r\n<p>if anyone&nbsp; have a sample please let me know how can i have it.</p>",
+    "PostedDate": "2009-12-08T04:01:52.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267942",
+    "ThreadId": "77458",
+    "Html": "<p>In the FAQ there's a page explaining how to reproject between two coordinate systems, here:</p>\r\n<p>http://projnet.codeplex.com/wikipage?title=CreateProjection</p>\r\n<p>&nbsp;</p>\r\n<p>And if you want to know the WKT for EPSG:4326 (which I assume is what you mean by latitude longitude) and EPSG:3785 systems, then you can see those here:</p>\r\n<p>http://projnet.codeplex.com/wikipage?title=CommonWellKnownText</p>",
+    "PostedDate": "2009-12-16T01:53:26.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267992",
+    "ThreadId": "77458",
+    "Html": "<p>here's my code:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>        <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">const</span> <span style=\"color:Blue\">string</span> Srid4326 = <span style=\"color:#A31515\">&quot;GEOGCS[\\&quot;WGS 84\\&quot;,DATUM[\\&quot;WGS_1984\\&quot;,SPHEROID[\\&quot;WGS 84\\&quot;,6378137,298.257223563,AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;7030\\&quot;]],AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;6326\\&quot;]],PRIMEM[\\&quot;Greenwich\\&quot;,0,AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;8901\\&quot;]],UNIT[\\&quot;degree\\&quot;,0.01745329251994328,AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;9122\\&quot;]],AUTHORITY[\\&quot;EPSG\\&quot;,\\&quot;4326\\&quot;]]&quot;</span>;\r\n\r\n        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">double</span>[] MercatorToWgs84LatLon(<span style=\"color:Blue\">double</span>[] values)\r\n        {\r\n            <span style=\"color:Blue\">var</span> mercator = GetMercatorProjection();\r\n            <span style=\"color:Blue\">var</span> latlon = (IGeographicCoordinateSystem)CoordinateSystemWktReader.Parse(Srid4326);\r\n            <span style=\"color:Blue\">var</span> ctfac = <span style=\"color:Blue\">new</span> CoordinateTransformationFactory();\r\n            <span style=\"color:Blue\">var</span> transformation = ctfac.CreateFromCoordinateSystems(mercator, latlon);\r\n            <span style=\"color:Blue\">var</span> transform = transformation;\r\n            <span style=\"color:Blue\">var</span> converted = transform.MathTransform.Transform(values);\r\n            <span style=\"color:Blue\">return</span> converted;\r\n        }\r\n\r\n        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">double</span>[] Wgs84LatLonToMercator(<span style=\"color:Blue\">double</span>[] values)\r\n        {\r\n            <span style=\"color:Blue\">var</span> mercator = GetMercatorProjection();\r\n            <span style=\"color:Blue\">var</span> latlon = (IGeographicCoordinateSystem)CoordinateSystemWktReader.Parse(Srid4326);\r\n            <span style=\"color:Blue\">var</span> ctfac = <span style=\"color:Blue\">new</span> CoordinateTransformationFactory();\r\n            <span style=\"color:Blue\">var</span> transformation = ctfac.CreateFromCoordinateSystems(latlon, mercator);\r\n            <span style=\"color:Blue\">var</span> transform = transformation;\r\n            <span style=\"color:Blue\">var</span> converted = transform.MathTransform.Transform(values);\r\n            <span style=\"color:Blue\">return</span> converted;\r\n        }\r\n\r\n        <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">static</span> ICoordinateSystem GetMercatorProjection()\r\n        {\r\n            <span style=\"color:Blue\">var</span> factory = <span style=\"color:Blue\">new</span> CoordinateSystemFactory();\r\n            \r\n            <span style=\"color:Blue\">var</span> wgs84 = factory.CreateGeographicCoordinateSystem(<span style=\"color:#A31515\">&quot;WGS 84&quot;</span>, \r\n                AngularUnit.Degrees, HorizontalDatum.WGS84, PrimeMeridian.Greenwich,\r\n                <span style=\"color:Blue\">new</span> AxisInfo(<span style=\"color:#A31515\">&quot;north&quot;</span>, AxisOrientationEnum.North), <span style=\"color:Blue\">new</span>\r\n                AxisInfo(<span style=\"color:#A31515\">&quot;east&quot;</span>, AxisOrientationEnum.East));\r\n\r\n            <span style=\"color:Blue\">var</span> parameters = <span style=\"color:Blue\">new</span> List&lt;ProjectionParameter&gt;\r\n            {\r\n                <span style=\"color:Blue\">new</span> ProjectionParameter(<span style=\"color:#A31515\">&quot;semi_major&quot;</span>, 6371000), <span style=\"color:Green\">// 6378137</span>\r\n                <span style=\"color:Blue\">new</span> ProjectionParameter(<span style=\"color:#A31515\">&quot;semi_minor&quot;</span>, 6371000), <span style=\"color:Green\">// 6378137</span>\r\n                <span style=\"color:Blue\">new</span> ProjectionParameter(<span style=\"color:#A31515\">&quot;latitude_of_origin&quot;</span>, 0.0),\r\n                <span style=\"color:Blue\">new</span> ProjectionParameter(<span style=\"color:#A31515\">&quot;central_meridian&quot;</span>, 0.0),\r\n                <span style=\"color:Blue\">new</span> ProjectionParameter(<span style=\"color:#A31515\">&quot;scale_factor&quot;</span>, 1.0),\r\n                <span style=\"color:Blue\">new</span> ProjectionParameter(<span style=\"color:#A31515\">&quot;false_easting&quot;</span>, 0.0),\r\n                <span style=\"color:Blue\">new</span> ProjectionParameter(<span style=\"color:#A31515\">&quot;false_northing&quot;</span>, 0.0)\r\n            };\r\n            <span style=\"color:Blue\">var</span> projection = factory.CreateProjection(<span style=\"color:#A31515\">&quot;Mercator&quot;</span>, <span style=\"color:#A31515\">&quot;mercator_1sp&quot;</span>, parameters);\r\n            <span style=\"color:Blue\">var</span> mercator = factory.CreateProjectedCoordinateSystem(<span style=\"color:#A31515\">&quot;Mercator&quot;</span>,\r\n                wgs84, projection, LinearUnit.Metre,\r\n                <span style=\"color:Blue\">new</span> AxisInfo(<span style=\"color:#A31515\">&quot;East&quot;</span>, AxisOrientationEnum.East), \r\n                <span style=\"color:Blue\">new</span> AxisInfo(<span style=\"color:#A31515\">&quot;North&quot;</span>, AxisOrientationEnum.North));\r\n            <span style=\"color:Blue\">return</span> mercator;\r\n        }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-16T04:57:36.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "414608",
+    "ThreadId": "77458",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks for the code. I need to do the same thing, I'm working with Bing Maps Silverlight Control and it uses Longitude/Latitude most of the time except<br> for tile layers, which need to be in WGS84 Easting/Northing (I don't know the exact SRID or even terms for these systems). I've done something similar<br> using SharpGIS binaries (non-Silverlight).</p>\r\n<p>I tried your code above but I get an exception at</p>\r\n<pre style=\"color:#000000;font-family:Consolas, 'Courier New', Courier, monospace;font-size:1em;margin:8px\"><span style=\"color:blue\">var</span> latlon = (IGeographicCoordinateSystem)CoordinateSystemWktReader.Parse(Srid4326);</pre>\r\n<p>which says: &quot;'G' is not recognized.&quot;&nbsp;I presume this has something to do with ASCII/Unicode - any ideas?</p>\r\n<p>Thanks,<br><span style=\"white-space:pre\"> </span>John&nbsp;</p>",
+    "PostedDate": "2010-03-05T07:15:12.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "431275",
+    "ThreadId": "77458",
+    "Html": "<p>I suggest this one:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>        <span style=\"color:Blue\">double</span>[] toMercator(<span style=\"color:Blue\">double</span> lon, <span style=\"color:Blue\">double</span> lat)\r\n        {\r\n            <span style=\"color:Blue\">double</span> x = lon * 20037508.34 / 180;\r\n            <span style=\"color:Blue\">double</span> y = Math.Log(Math.Tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180);\r\n            y = y * 20037508.34 / 180;\r\n            <span style=\"color:Blue\">return</span> <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">double</span>[] {x, y};\r\n        }\r\n        <span style=\"color:Blue\">double</span>[] inverseMercator (<span style=\"color:Blue\">double</span> x, <span style=\"color:Blue\">double</span> y) {\r\n            <span style=\"color:Blue\">double</span> lon = (x / 20037508.34) * 180;\r\n            <span style=\"color:Blue\">double</span> lat = (y / 20037508.34) * 180;\r\n\r\n            lat = 180/Math.PI * (2 * Math.Atan(Math.Exp(lat * Math.PI / 180)) - Math.PI / 2);\r\n            <span style=\"color:Blue\">return</span> <span style=\"color:Blue\">new</span> <span style=\"color:Blue\">double</span>[] {lon, lat};\r\n        }\r\n\r\n</pre>\r\n</div>\r\n<p>It's a pure mathematical implementation. If you create a ICoordinateSystem from the provided WKT in faq or the one from abow you will see a .25 shift in y axis.</p>",
+    "PostedDate": "2010-04-14T22:50:37.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "431334",
+    "ThreadId": "77458",
+    "Html": "Hi irezax,\r\n\r\nThanks for that looks like it would have worked well - I had the problem some time ago however so in order to fix I just implemented the conversion on the webservice side (i.e. not in Silverlight) and that worked for me.\r\n\r\nCheers,\r\nJohn",
+    "PostedDate": "2010-04-15T01:51:11.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "650028",
+    "ThreadId": "77458",
+    "Html": "<p>Hello!</p>\r\n<p>Eventually, I decided to use the pure mathematical method&nbsp; to convert Mercator Sphere coordinates to latitude and longitude. I needed it in JavaScript and implemented it in the following way:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">function</span> MercatorToLatLon(mercX, mercY) {\r\n \r\n    <span style=\"color: blue;\">var</span> rMajor = 6378137; <span style=\"color: green;\">//Equatorial Radius, WGS84</span>\r\n    <span style=\"color: blue;\">var</span> shift  = Math.PI * rMajor;\r\n    <span style=\"color: blue;\">var</span> lon    = mercX / shift * 180.0;\r\n    <span style=\"color: blue;\">var</span> lat    = mercY / shift * 180.0;\r\n    lat = 180 / Math.PI * (2 * Math.atan(Math.exp(lat * Math.PI / 180.0)) - Math.PI / 2.0);\r\n \r\n    <span style=\"color: blue;\">return</span> { <span style=\"color: #a31515;\">'Lon'</span>: lon, <span style=\"color: #a31515;\">'Lat'</span>: lat };\r\n}\r\n</pre>\r\n</div>\r\n</p>\r\n<p>You can read it up in <a title=\"http://dotnetfollower.com/wordpress/2011/07/javascript-how-to-convert-mercator-sphere-coordinates-to-latitude-and-longitude/\" href=\"http://dotnetfollower.com/wordpress/2011/07/javascript-how-to-convert-mercator-sphere-coordinates-to-latitude-and-longitude/\" target=\"_blank\">my blog</a> at greater length.</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-07-30T12:32:53.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675145",
+    "ThreadId": "77458",
+    "Html": "<p>How to convert&nbsp; to Mercator lon=-180, lat=-90 ( min of bounding box in wgs84 of the world map)?</p>",
+    "PostedDate": "2011-09-22T01:30:01.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675166",
+    "ThreadId": "77458",
+    "Html": "<p>Follow me should to be change to :</p>\r\n<pre><span style=\"color: blue;\"></span><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">double</span>[] toMercator(<span style=\"color: blue;\">double</span> lon, <span style=\"color: blue;\">double</span> lat) <br />{ <span style=\"color: blue;\"><br />      double</span> x = lon * 20037508.34 / 180;\r\n      <span style=\"color: blue;\">double</span> y = -180;\r\n<span style=\"color: blue;\">      if</span>(lat&gt;-90)\r\n        y = Math.Log(Math.Tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180);\r\n      y = y * 20037508.34 / 180; <br />      <span style=\"color: blue;\">return</span> <span style=\"color: blue;\">new</span> <span style=\"color: blue;\">double</span>[] {x, y};<br />&nbsp;}<br /><br />Regards, <br />TrieuVy <br /></pre>\r\n</div>\r\n<br /></pre>",
+    "PostedDate": "2011-09-22T02:24:22.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "794717",
+    "ThreadId": "77458",
+    "Html": "<p>I have the following NAD83 UTM coordinate:</p>\n<p>Easting:&nbsp;686029.702258</p>\n<p>Northing:&nbsp;3581213.621173</p>\n<p>zone: 15</p>\n<p>Using the pure math solution from&nbsp;irezax&nbsp;above, calling the function as&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>inverseMercator (686029.702258, 3581213.621173)\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>I get the following result:</p>\n<p>lat:&nbsp;30.602349476368449</p>\n<p>long:&nbsp;6.1627096689832594</p>\n<p>I get similar results using the Proj.Net solution provided by D_Guidi.</p>\n<p>Using an online converter, I was able to get something closer to what I am expecting:&nbsp;</p>\n<p>lat:&nbsp;32.35238307052292</p>\n<p>long:&nbsp;-91.0230710652583</p>\n<p>Can anyone shed any light on what I am doing wrong?</p>",
+    "PostedDate": "2012-02-22T05:02:29.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "810693",
+    "ThreadId": "77458",
+    "Html": "<p>take a look here: http://alastaira.wordpress.com/2011/01/23/the-google-maps-bing-maps-spherical-mercator-projection/</p>",
+    "PostedDate": "2012-03-15T01:24:18.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

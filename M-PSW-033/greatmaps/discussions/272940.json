@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "673149",
+    "ThreadId": "272940",
+    "Html": "<p>Hey there,</p>\n<p>first of all: thanks for your damn great work!<br /> So... i started implementing GMaps in one of my private projects. Within this project i made a marker \"drive\" around the map, along a given route. Works fine so far...<br /> Within my algorithm of moving the marker along the points of the route i set</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre>marker.Position = currentPosition;\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>to actually see the marker moving. This set happens around once a millisecond, to make the display fluently.<br /> But at a random point the application throws an error:</p>\n<p>either an ArgumentException when i scroll around the map or zoom in/out while the marker is moving (\"An element with same key was added already\" - translated from german exception message)<br /> or an OutOfMemoryException when i do nothing (at the exact point of setting marker.Position to currentPosition, where variable currentPosition is the calculated PLatLng where the marker has to go next)</p>\n<p>I really don't know what i can do about this! Later i need ... well more then ten markers \"driving\" simultaneously on my map :-)</p>\n<p>Stacktrace for ArgumentException (Exception is thrown at Application.Run(...)):<br /> (\"bei\" is german and means \"at\" ;-) )</p>\n<p>&nbsp;&nbsp; bei System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)<br /> &nbsp;&nbsp; bei System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)<br /> &nbsp;&nbsp; bei System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)<br /> &nbsp;&nbsp; bei GMap.NET.PureProjection.FromLatLngToPixel(PointLatLng p, Int32 zoom)<br /> &nbsp;&nbsp; bei GMap.NET.Internals.Core.FromLatLngToLocal(PointLatLng latlng)<br /> &nbsp;&nbsp; bei GMap.NET.WindowsForms.GMapControl.FromLatLngToLocal(PointLatLng point)<br /> &nbsp;&nbsp; bei GMap.NET.WindowsForms.GMapControl.UpdateMarkerLocalPosition(GMapMarker marker)<br /> &nbsp;&nbsp; bei GMap.NET.WindowsForms.GMapOverlay.ForceUpdate()<br /> &nbsp;&nbsp; bei GMap.NET.WindowsForms.GMapControl.ForceUpdateOverlays()<br /> &nbsp;&nbsp; bei GMap.NET.WindowsForms.GMapControl.OnMouseMove(MouseEventArgs e)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Control.WmMouseMove(Message&amp; m)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Control.WndProc(Message&amp; m)<br /> &nbsp;&nbsp; bei System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)<br /> &nbsp;&nbsp; bei System.Windows.Forms.UserControl.WndProc(Message&amp; m)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)<br /> &nbsp;&nbsp; bei System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)<br /> &nbsp;&nbsp; bei System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG&amp; msg)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)<br /> &nbsp;&nbsp; bei System.Windows.Forms.Application.Run(Form mainForm)</p>\n<p>&nbsp;</p>\n<p>Stacktrace for OutOfMemoryException (Exception is thrown at marker.Positon = currentPosition):<br /> (moveMarker() is my own method, it... well it moves the marker along the points of the routes)</p>\n<p>&nbsp;&nbsp; bei System.Collections.Generic.Dictionary`2.Resize()<br /> &nbsp;&nbsp; bei System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)<br /> &nbsp;&nbsp; bei System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)<br /> &nbsp;&nbsp; bei GMap.NET.PureProjection.FromLatLngToPixel(PointLatLng p, Int32 zoom)<br /> &nbsp;&nbsp; bei GMap.NET.Internals.Core.FromLatLngToLocal(PointLatLng latlng)<br /> &nbsp;&nbsp; bei GMap.NET.WindowsForms.GMapControl.FromLatLngToLocal(PointLatLng point)<br /> &nbsp;&nbsp; bei GMap.NET.WindowsForms.GMapMarker.set_Position(PointLatLng value)<br /> &nbsp;&nbsp; bei moveMarker()<br /> &nbsp;&nbsp; bei System.Threading.ThreadHelper.ThreadStart_Context(Object state)<br /> &nbsp;&nbsp; bei System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)<br /> &nbsp;&nbsp; bei System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)<br /> &nbsp;&nbsp; bei System.Threading.ThreadHelper.ThreadStart()</p>",
+    "PostedDate": "2011-09-17T11:33:09.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673157",
+    "ThreadId": "272940",
+    "Html": "<p>..well there are point cache for each projection, so if you use random points it fills to infinity, try use real values or hack&nbsp;<em>PureProjection</em>.cs and disable caching ;}</p>",
+    "PostedDate": "2011-09-17T11:53:48.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673159",
+    "ThreadId": "272940",
+    "Html": "<p>Let me ask you some questions...</p>\r\n<p>&nbsp;</p>\r\n<p>Do you update your position from a gps or from waypoints cached in ram or Hard Disk?</p>\r\n<p>The faster GPS i know updates at rates of 20/s. That is 50 miliseconds update rate, then the 1 milisecond update is not necesary.</p>\r\n<p>If you update the position from memory or disk, windows operating system cannot manage (trustfully) this time interval. 50 miliseconds (or more) is the minimal time interval that you could hope.</p>\r\n<p>if your objective is to avoid flickering then you can draw the marker in the paint event of the main map. Then you move and rotate the map and the image of the marker dont flicks.</p>\r\n<p>You can move and rotate the image of the marker too, but it would cause some flickering, If you need some vb code, i probably can help you.</p>\r\n<p>&nbsp;</p>\r\n<p>Yeyo</p>",
+    "PostedDate": "2011-09-17T12:12:16.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673289",
+    "ThreadId": "272940",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>radioman wrote:</strong><br />\r\n<p>..well there are point cache for each projection, so if you use random points it fills to infinity, try use real values or hack&nbsp;<em>PureProjection</em>.cs and disable caching ;}</p>\r\n</blockquote>\r\n<p>Thanks for your fast answer!<br />What do you mean with \"real values\"? Coordinates on the map?</p>\r\n<p>&nbsp;</p>\r\n<p>@yeyo:<br />I do a simple webrequest to the yournavigation.com-routing-service and spawn a GMapRoute-object, which then has all the points of the route.<br />Because i want to \"drive\" at a constant speed, i wrote an algorithm that moves the marker xx meters a millisecond.<br />Time is not the problem here, algorithm is way faster than one millisecond!</p>",
+    "PostedDate": "2011-09-18T03:44:32.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673290",
+    "ThreadId": "272940",
+    "Html": "<p>there is no&nbsp;flickering, yes coordinates</p>\r\n<p>p.s. i see no point to update objects more that once a second</p>",
+    "PostedDate": "2011-09-18T03:53:06.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673327",
+    "ThreadId": "272940",
+    "Html": "<p>\"Flickering\" is perhaps the wrong word here, as the marker doesn't flicker!<br />All i want to do is move a marker from point A to point B along a certain route - <span style=\"text-decoration: underline;\">fluently</span> (and with constant speed)! So if i update marker.Position once every second, it isn't fluently anymore (at least not for the human eye ;D). That is my point to update it more frequently than once a second!</p>\r\n<p>radioman,<br />i'm not certain about how to use map-coordinates and work-around the caching at the same time.<br />As i think, i can use GMapControl.Projection.FromLatLngToPixel() or GMapControl.FromLatLngToLocal() to get a GPoint representing map-coordinates. But how can i set the marker on this position, without running into the caching-problem again?</p>",
+    "PostedDate": "2011-09-18T09:02:33.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673329",
+    "ThreadId": "272940",
+    "Html": "<p>go to that function and remove few lines...</p>",
+    "PostedDate": "2011-09-18T09:06:43.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673337",
+    "ThreadId": "272940",
+    "Html": "<p>Okay, so there is no other option than editing your source-code...</p>\r\n<p>Thanks for the help! :-)</p>",
+    "PostedDate": "2011-09-18T09:32:16.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

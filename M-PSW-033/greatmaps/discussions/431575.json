@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "994779",
+    "ThreadId": "431575",
+    "Html": "hi,\r<br />\ni want to download specify tile from Google SatelliteMap i wrote this code:<br />\n<pre><code>System.Exception e;\n                    PureImage image = GMap.NET.GMaps.Instance.GetImageFrom(GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance, new GMap.NET.GPoint(0, 0), 1, out e);\n                    if (e == null)\n                    {\n                        FileMGR.WriteImage(image, item.QuadKey + &quot;.jpg&quot;);\n                    }\n                    else\n                        MessageBox.Show(e.Message);</code></pre>\n\nbut i get an exception that say &quot;the remote server returned an error: (404) not found.&quot;, what should i exactly do for this?\r<br />\ntnx<br />\n",
+    "PostedDate": "2013-01-31T09:03:48.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994781",
+    "ThreadId": "431575",
+    "Html": "what version do you use?<br />\n",
+    "PostedDate": "2013-01-31T09:11:52.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994787",
+    "ThreadId": "431575",
+    "Html": "latest! i download it last night<br />\n",
+    "PostedDate": "2013-01-31T09:14:00.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994796",
+    "ThreadId": "431575",
+    "Html": "do you see the map in demo?<br />\n",
+    "PostedDate": "2013-01-31T09:26:01.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994805",
+    "ThreadId": "431575",
+    "Html": "thank you for quick reply\r<br />\nyes but it's big project with lots of codes and less comments!, i guess my problem is that i can't initial provider correctly or something like that.\r<br />\ncan you explain it to me what should i do for getting a tile form google?<br />\n",
+    "PostedDate": "2013-01-31T09:40:23.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994812",
+    "ThreadId": "431575",
+    "Html": "execute demo and check if it works ;}<br />\n",
+    "PostedDate": "2013-01-31T09:48:39.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

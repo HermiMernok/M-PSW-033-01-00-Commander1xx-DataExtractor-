@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "819175",
+    "ThreadId": "351003",
+    "Html": "<p>Hello,</p>\n<p>I am using the following code&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">If</span> GMapControl1.Overlays(0).Routes.<span style=\"color: blue;\">Count</span> &gt; 0 <span style=\"color: blue;\">Then</span>\n     <span style=\"color: blue;\">Dim</span> OverlayID <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">String</span> = GMapControl1.Overlays(0).Id\n     GMapControl1.ZoomAndCenterRoutes(OverlayID)\n<span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span><br /></pre>\n</div>\n<p>If there are no routes then there is no exception</p>\n<p>If there are routes it throws \"Object reference not set to an instance of an object.\" on GMapControl1.ZoomAndCenterRoutes(OverlayID)</p>\n<div style=\"color: black; background-color: white;\">\n<p>If i comment GMapControl1.ZoomAndCenterRoutes(OverlayID) then it gets out of my method which has try catch without errors <br />and then throws the following error:<br />System.NullReferenceException was unhandled<br />&nbsp; Message=Object reference not set to an instance of an object.<br />&nbsp; Source=GMap.NET.WindowsForms<br />&nbsp; StackTrace:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.OnMouseMove(MouseEventArgs e)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Control.WmMouseMove(Message&amp; m)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Control.WndProc(Message&amp; m)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.ScrollableControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.ContainerControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.UserControl.WndProc(Message&amp; m)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message&amp; m)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message&amp; m)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG&amp; msg)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Windows.Forms.Application.Run(ApplicationContext context)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnRun()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.DoApplicationModel()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run(String[] commandLine)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Vertitech.VertiSchool.My.MyApplication.Main(String[] Args) in 17d14f5c-a337-4978-8281-53493378c1071.vb:line 81<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Threading.ThreadHelper.ThreadStart_Context(Object state)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at System.Threading.ThreadHelper.ThreadStart()<br />&nbsp; InnerException:<br /><br />Any suggestions on what to do?</p>\n</div>",
+    "PostedDate": "2012-04-03T03:58:56.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819207",
+    "ThreadId": "351003",
+    "Html": "<p>never get that, what exactly object has no reference?</p>",
+    "PostedDate": "2012-04-03T05:26:50.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819213",
+    "ThreadId": "351003",
+    "Html": "<p>Thanks for the quick reply</p>\n<p>thats the exception when GMapControl1.ZoomAndCenterRoutes(OverlayID) is not a comment</p>\n<p><br /> System.NullReferenceException was caught<br /> &nbsp; Message=Object reference not set to an instance of an object.<br /> &nbsp; Source=GMap.NET.WindowsForms<br /> &nbsp; StackTrace:<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapOverlay.ForceUpdate()<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.ForceUpdateOverlays()<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.set_Position(PointLatLng value)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.SetZoomToFitRect(RectLatLng rect)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at GMap.NET.WindowsForms.GMapControl.ZoomAndCenterRoutes(String overlayId)<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at VertiMaps.Frm_BusMaps.CreateMultiroute() in C:\\Users\\gouzounsavvidis\\VertiMaps\\Frm_BusMaps.vb:line 247<br /> &nbsp; InnerException:</p>",
+    "PostedDate": "2012-04-03T05:39:27.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819246",
+    "ThreadId": "351003",
+    "Html": "<p>can you make some small demo for this bug and share it online?</p>",
+    "PostedDate": "2012-04-03T06:45:26.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819677",
+    "ThreadId": "351003",
+    "Html": "<p>Sorry for the delay i am working on it but i cant reproduce the problem.</p>\r\n<p>Dont know whats wrong if i can get it i will upload it.</p>\r\n<p>Thanks again for this great Control.</p>",
+    "PostedDate": "2012-04-04T02:04:42.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819699",
+    "ThreadId": "351003",
+    "Html": "<p>i see ;}</p>",
+    "PostedDate": "2012-04-04T02:44:10.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819722",
+    "ThreadId": "351003",
+    "Html": "<p>OK Here it is</p>\r\n<p>http://www.crocko.com/DEE27F6D0E7C4DE887B51D04C4C2BA96/WindowsApplicationMapsDemo.rar</p>\r\n<p>in MainForm.FillData()</p>\r\n<p>if CompAddress has a valid value(Address) like the one in comment then its is ok</p>\r\n<p>if it does not has a valid value like empty then it throws an exception in line 822 of GmapControl.cs</p>\r\n<p>the line is :&nbsp;</p>\r\n<pre>Position = center;</pre>",
+    "PostedDate": "2012-04-04T03:22:34.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819727",
+    "ThreadId": "351003",
+    "Html": "<p>can't you make it simpler... it takes to much time to find actual code...</p>",
+    "PostedDate": "2012-04-04T03:37:59.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "819734",
+    "ThreadId": "351003",
+    "Html": "<p>Right now i cant sorry i hope i will make it as soon as i get home.</p>\r\n<p>Thanks again</p>",
+    "PostedDate": "2012-04-04T03:56:36.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824695",
+    "ThreadId": "351003",
+    "Html": "<p>Sorry for the delay.</p>\r\n<p>It was my fault i was passing a list with some null GMarkers and thats why it was throwing null reference.</p>\r\n<p>Thanks again for this Control.</p>",
+    "PostedDate": "2012-04-17T00:02:54.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824774",
+    "ThreadId": "351003",
+    "Html": "<p>roger</p>",
+    "PostedDate": "2012-04-17T03:43:58.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

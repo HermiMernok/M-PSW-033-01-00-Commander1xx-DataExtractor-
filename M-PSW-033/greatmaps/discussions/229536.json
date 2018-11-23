@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "502004",
+    "ThreadId": "229536",
+    "Html": "<p>I need to create a polygon with &nbsp;the lat &amp; lng of each point.</p>\r\n<p>I try some bizarre code but I fail</p>\r\n<p>GMap.NET.Point p = PureProjection.FromLatLngToPixel(43.515754895, -5.680918693, MainMap.Zoom);</p>\r\n<p>&nbsp;</p>\r\n<p>MyPolygon.LocalPoints.Add(p, MainMap.Zoom));&nbsp;</p>\r\n<p>Thanks and best regards</p>",
+    "PostedDate": "2010-10-04T05:58:35.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502136",
+    "ThreadId": "229536",
+    "Html": "<div style=\"color:black;background-color:white\">\r\n<pre>         <span style=\"color:blue\">if</span>(polygon == <span style=\"color:blue\">null</span>)\r\n         {\r\n            polygon = <span style=\"color:blue\">new</span> GMapPolygon(polygonPoints, <span style=\"color:#a31515\">&quot;polygon test&quot;</span>);\r\n            polygons.Polygons.Add(polygon);\r\n         }\r\n         <span style=\"color:blue\">else</span>\r\n         {\r\n            polygon.<strong>Points</strong>.Clear();\r\n            polygon.<strong>Points</strong>.AddRange(polygonPoints);\r\n\r\n            <span style=\"color:blue\">if</span>(polygons.Polygons.Count == 0)\r\n            {\r\n               polygons.Polygons.Add(polygon);\r\n            }\r\n            <span style=\"color:blue\">else</span>\r\n            {\r\n               MainMap.UpdatePolygonLocalPosition(polygon);\r\n            }\r\n         }\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-10-04T11:20:51.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

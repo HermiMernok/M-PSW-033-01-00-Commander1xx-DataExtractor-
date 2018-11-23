@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "267106",
+    "ThreadId": "78103",
+    "Html": "<p>Hi,</p>\r\n<p>First of all, congratulations on a great map engine!</p>\r\n<p>We are currently trying to &quot;draw&quot; images (ellipse, line, polygons etc) &quot;on&quot; the map canvas. Now this is easy enough using the mapmarkers, but what we ideally require is to have the drawing shape at runtime as the mouse is being dragged. (Please have a look at this sample <a href=\"http://www.timfanelli.com/item/177\">http://www.timfanelli.com/item/177</a>, should explain it better)</p>\r\n<p>We are making use of the WPF platform in this instance.</p>\r\n<p>Has this been done?</p>\r\n<p>I have toyed with the idea of having a transparent canvas overlayed on the gmap canvas, which will catch and handle the relevant mouse events - but introducing transparency brings together a new set of issues altogether.</p>\r\n<p>Any ideas or guidelines in this will be greatly appreciated!</p>\r\n<p>Cheers!</p>",
+    "PostedDate": "2009-12-14T08:53:47.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267108",
+    "ThreadId": "78103",
+    "Html": "<p>yes, drawing&nbsp;polygons&nbsp;are&nbsp;already&nbsp;requested, i've found <a href=\"http://livegeometry.codeplex.com/\">http://livegeometry.codeplex.com/</a>&nbsp;maybe there is change for integration</p>",
+    "PostedDate": "2009-12-14T08:59:34.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267156",
+    "ThreadId": "78103",
+    "Html": "<p>In actual fact adding polygons is not a major coding effort.</p>\r\n<p>I added polygon drawing to the winforms version in a few hours.</p>\r\n<p>An example can be seen here, the pins can be added to or dragged to shape the polygon.</p>\r\n<p>http://img191.imageshack.us/img191/6235/polygons.jpg</p>\r\n<p>Please do not request code samples as the winforms control I am using has been modified quite a bit and is no longer source compatible with the one here.</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-14T10:07:15.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267159",
+    "ThreadId": "78103",
+    "Html": "<p>you can try use internal map canvas: <strong>internal Canvas MapCanvas</strong></p>",
+    "PostedDate": "2009-12-14T10:22:35.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267176",
+    "ThreadId": "78103",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>Appreciate the quick response.</p>\r\n<p>Busy taking a look at the live geometry solution.</p>\r\n<p>My first take was to use the internal mapcanvas, but this (maybe in my ignorance) produced the following error when adding child objects : Cannot explicitly modify Children collection of Panel used as ItemsPanel for ItemsControl. ItemsControl generates child elements for Panel.</p>\r\n<p>Am I missing something obvious?</p>\r\n<p>Thanks all for the response thus far!</p>\r\n<p>Cheers,</p>\r\n<p>Zane</p>",
+    "PostedDate": "2009-12-14T10:43:41.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "267195",
+    "ThreadId": "78103",
+    "Html": "<p>well because it is itemcontrol, you just can't add directly any objects, must use .Markers/etc to add/remove items</p>",
+    "PostedDate": "2009-12-14T11:11:47.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "272755",
+    "ThreadId": "78103",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>&nbsp;</p>\r\n<p>Just a quick update on the drawing issue, managed to get it right using the internal mapcanvas, gmapmarker and then the subsequent handling of the mouse movement on the canvas when it is captured. (had to do a bit of work on the &quot;localposition&quot; in GMap as well)</p>\r\n<p>Thanks for the responses!&nbsp;</p>\r\n<p>I am more than willing to make the code available to any party interested.</p>\r\n<p>Regards,</p>\r\n<p>Zane Strydom</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-03T23:52:28.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "272761",
+    "ThreadId": "78103",
+    "Html": "<p>great! please share it by uploading a patch</p>",
+    "PostedDate": "2010-01-03T23:59:10.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "419791",
+    "ThreadId": "78103",
+    "Html": "<p>Hi Radioman, Zane,</p>\r\n<p>I want users to create (by drawing) a region and save/open it. What Zane produced is probably very helpful for me.</p>\r\n<p>Is this code made public?</p>\r\n<p>Thanks,</p>\r\n<p>Frank</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-18T08:22:44.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "419912",
+    "ThreadId": "78103",
+    "Html": "<p>check in 'etc/codeplex not-applied patches.7z' it, if it's not there, you need contact him personally.</p>",
+    "PostedDate": "2010-03-18T11:54:26.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "695274",
+    "ThreadId": "78103",
+    "Html": "<p>Hello,</p>\r\n<p>This is exactly what I too am looking for, does anyone have an example or have some of zane's code? I am too interested in drawing shapes with the click of the mouse and dragging.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Charles</p>",
+    "PostedDate": "2011-11-08T04:57:04.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

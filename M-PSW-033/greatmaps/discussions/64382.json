@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "219100",
+    "ThreadId": "64382",
+    "Html": "<p>Hello, is there a function that I can call to get the map tile (in the cache or not), passing Lat\\Lng &amp; ZoomLevel?I will use this in a report.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2009-08-03T23:40:03.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219106",
+    "ThreadId": "64382",
+    "Html": "<p>for now, check <strong>BigMapMaker-ConsoleApplication\\Program.cs</strong>&nbsp;in solution</p>\r\n<p>p.s. there is new function in demo to make static maps , but i'll add source files(i foget to include them ;}) only about &gt;18h</p>",
+    "PostedDate": "2009-08-03T23:57:21.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219108",
+    "ThreadId": "64382",
+    "Html": "<p>Thanks Radioman!</p>\r\n<p>Have a nice day! :}</p>",
+    "PostedDate": "2009-08-04T00:00:37.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219278",
+    "ThreadId": "64382",
+    "Html": "<p>check it now ;}</p>",
+    "PostedDate": "2009-08-04T08:14:43.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219576",
+    "ThreadId": "64382",
+    "Html": "<p>I think I have to use this function:</p>\r\n<p>GetImageFrom(MapType type, Point pos, int zoom)</p>\r\n<p>My problem is that I don't have a GMap.NET.Point (pos argument) but a GMap.NET.PointLatLng...</p>\r\n<p>How can I do?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2009-08-05T00:09:33.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219590",
+    "ThreadId": "64382",
+    "Html": "<p>check <strong>Demo.WindowsForms. <em><span style=\"font-weight:normal\">class StaticImage</span></em></strong>&nbsp;;}</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-05T01:01:17.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219600",
+    "ThreadId": "64382",
+    "Html": "<p>I see..but I don't have neither a RectLatLng nor a couple of GMap.NET.PointLatLng..only 1 GMap.NET.PointLatLng</p>\r\n<p>Sorry, I think that I'm missing something..could you please post the code to get the image passing MapType,Lat\\Lng &amp; ZoomLevel?</p>\r\n<p>&nbsp;</p>\r\n<p>Sorry for the disturb</p>",
+    "PostedDate": "2009-08-05T01:38:57.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219617",
+    "ThreadId": "64382",
+    "Html": "<p>..no you don't see ;}</p>\r\n<p>look at class StaticImage ;}, is it so hard to construct RectLatLng(point, 0, 0) // ? ;}</p>",
+    "PostedDate": "2009-08-05T02:15:17.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219626",
+    "ThreadId": "64382",
+    "Html": "<p>Ok, I understand...I didn't know to use 0,0..thanks!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-05T02:32:31.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219647",
+    "ThreadId": "64382",
+    "Html": "<p>..can you explain what do you want to do exactly? ;}</p>",
+    "PostedDate": "2009-08-05T03:24:58.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219700",
+    "ThreadId": "64382",
+    "Html": "<p>I just want to get the tile of a particular lat\\lng,zoom and map type... Then I save the image in a file.Now I try to use RectLatLng(point, 0, 0).</p>\r\n<p>Thanks :)</p>",
+    "PostedDate": "2009-08-05T05:32:41.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219702",
+    "ThreadId": "64382",
+    "Html": "<p>..but if your location is on the corner of tile?, you must select few tiles around your point, and make image from parts of the tiles, so your position can be in the center as like in static map demo...</p>",
+    "PostedDate": "2009-08-05T05:35:27.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "219705",
+    "ThreadId": "64382",
+    "Html": "<p>That's right..but I will show the image as is..</p>",
+    "PostedDate": "2009-08-05T05:41:41.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

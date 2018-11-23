@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "644846",
+    "ThreadId": "265836",
+    "Html": "\r\n<p>Hello everyone,</p>\r\n<p>I'm fresh in WPF, so I have problem with&nbsp;MapRoute. In that code (for example):</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:green\">//Map Config</span>\r\nGMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;\r\nMap.DragButton = MouseButton.Left;\r\nMap.MapType = MapType.GoogleMap;\r\nMap.MaxZoom = 20;\r\nMap.MinZoom = 1;\r\nMap.Zoom = 10;\r\nMap.ShowCenter = <span style=\"color:blue\">false</span>;\r\n<span style=\"color:green\">//Route</span>\r\nGMap.NET.PointLatLng p1 = <span style=\"color:blue\">new</span> GMap.NET.PointLatLng(53.398889, 10.737076);\r\nGMap.NET.PointLatLng p2 = <span style=\"color:blue\">new</span> GMap.NET.PointLatLng(54.08827, 12.428176);\r\nMapRoute route = GMaps.Instance.GetRouteBetweenPoints(p1, p2, <span style=\"color:blue\">false</span>, (<span style=\"color:blue\">int</span>)Map.Zoom);</pre>\r\n<pre>And variable route always return me null. I run Demo WPF application and there everything working, so I feel a little bit confused.<br>I will be grateful for any help.&nbsp;</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-07-20T01:49:22.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "644847",
+    "ThreadId": "265836",
+    "Html": "<p>whats the exception?</p>",
+    "PostedDate": "2011-07-20T01:55:16.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "644859",
+    "ThreadId": "265836",
+    "Html": "<p>Thanks for fast request, I haven't any exception, just 'route' variable has null. I think, I missed something in Map config.</p>\n<p>I upload project for server, if you have a couple times...</p>\n<p>eros.vlo.gda.pl/~blus/CRM.zip</p>",
+    "PostedDate": "2011-07-20T02:19:06.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "644879",
+    "ThreadId": "265836",
+    "Html": "<p>i've fixed it,&nbsp;<a href=\"https://skydrive.live.com/?cid=DBCE1958F6F3DFB2&amp;sc=documents&amp;id=DBCE1958F6F3DFB2!118&amp;group=0&amp;sff=0\" target=\"_blank\">https://skydrive.live.com/?cid=DBCE1958F6F3DFB2&amp;sc=documents&amp;id=DBCE1958F6F3DFB2!118&amp;group=0&amp;sff=0</a></p>",
+    "PostedDate": "2011-07-20T03:11:38.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "644887",
+    "ThreadId": "265836",
+    "Html": "<p>Thank's for that, but when I run app I haven't map, I only have exception on map: 'The type initializer for 'SingletonCreator' threw an exception'.</p>\r\n<p>When I change to Server only, everything work perfectly, but route is still null. Do you have any more idea? Or I do something wrong?</p>",
+    "PostedDate": "2011-07-20T03:29:33.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "644923",
+    "ThreadId": "265836",
+    "Html": "<p>nothing is wrong, i fixed it and map is loading, route is loading<strong>.</strong></p>",
+    "PostedDate": "2011-07-20T05:25:15.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645132",
+    "ThreadId": "265836",
+    "Html": "<p>You're right. Everything is clear.</p>\n<p>Thank's a lot for your help.</p>\n<p>PS. Great job with thatcontrol</p>",
+    "PostedDate": "2011-07-20T12:13:18.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645370",
+    "ThreadId": "265836",
+    "Html": "<p>...release version is a bit complicated, you must drag sqlite dlls in your output folder, i recommend to try use trunk version from source control, it's quite stable and have no need of managing sqlite dlls manualy</p>",
+    "PostedDate": "2011-07-20T23:40:09.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

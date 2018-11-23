@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "424095",
+    "ThreadId": "207425",
+    "Html": "<p>Hi Radioman,</p>\r\n<p>I create markers step by step on my&nbsp;map, and I want to&nbsp;get Latitude and Longtitude Information of these created markers to delete selected one. I must first&nbsp;reach click event of these markers. &nbsp; You created icon LeftButtonDown event at CustomMarkersDemo but it is not supply&nbsp;to me&nbsp;Latitude and Longtitude of that marker.</p>\r\n<p>thanks.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-26T07:38:55.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424235",
+    "ThreadId": "207425",
+    "Html": "<p>can you explain <strong>exactly</strong> what do you want to do? ;}</p>",
+    "PostedDate": "2010-03-26T12:31:33.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424392",
+    "ThreadId": "207425",
+    "Html": "<p>I want to delete marker and its route&nbsp;which is selected.</p>",
+    "PostedDate": "2010-03-27T01:51:47.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424421",
+    "ThreadId": "207425",
+    "Html": "<p>so you need add selected property to your custom markers</p>",
+    "PostedDate": "2010-03-27T05:55:43.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424427",
+    "ThreadId": "207425",
+    "Html": "<p>Exactly :)</p>",
+    "PostedDate": "2010-03-27T06:26:21.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424959",
+    "ThreadId": "207425",
+    "Html": "<p>I have three ways to solve this issue;</p>\r\n<p>1 - I have more than one marker.&nbsp;I think I have to create an&nbsp;GMapMarker Array, so I can pass my GMapMarker class objects in it. Later on, I can select these objects and its properties.</p>\r\n<p>2 - You created PropertyChanged event in your GMapMarker class,&nbsp;could this work&nbsp;for also&nbsp;selected GMapMarker objects?</p>\r\n<p>3 - Or I&nbsp;must add SelectedMarker&nbsp; EventArgs to your GMapMarker class :)&nbsp;</p>\r\n<p>Which way is appropriate :) &nbsp;, what do you think?&nbsp;</p>",
+    "PostedDate": "2010-03-29T08:03:58.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424987",
+    "ThreadId": "207425",
+    "Html": "<p>Just create CustomUserControl, add bool IsSelected, use event OnMouseClick, set IsSelected = !IsSelected;, make it bigger/smaller, change color, etc. And use it as markers shape; And if you want to get all selected markers, just: var selectedMarkers = from p in map.Markers where (p as CustomUserControl).IsSelected seleted p;</p>\r\n<p>..well you need experiment, in my project i've changed methods few times to achieve the same result ;}</p>",
+    "PostedDate": "2010-03-29T08:48:27.11-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425381",
+    "ThreadId": "207425",
+    "Html": "<p>Yes, I created a CustomUserControl(as component) for just icon.&nbsp;I wrote properties(Lat,Lng,Image...etc.) for that icon(CustomUserControl). And Now I reach Latitude and Longtitude of any selected icon, and&nbsp;everything is fine&nbsp;at this point.&nbsp;</p>\r\n<p>Now I need to delete that icon(marker) and its route according to its Lat and Lng. I find a method; MainWindow.MainMap.Markers.Remove(GMapMarker), but I think it is not enough for my aim.</p>\r\n<p>Is there any other methods for this purpose?</p>\r\n<p><span style=\"color:#008000\">\r\n<p>&nbsp;</p>\r\n</span></p>",
+    "PostedDate": "2010-03-30T03:43:36.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425392",
+    "ThreadId": "207425",
+    "Html": "<p>not enough? ;D and whats wrong with it?</p>",
+    "PostedDate": "2010-03-30T04:08:01.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425400",
+    "ThreadId": "207425",
+    "Html": "<p>It deletes just marker, I need to also delete its route :) .</p>",
+    "PostedDate": "2010-03-30T04:28:18.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425421",
+    "ThreadId": "207425",
+    "Html": "<p>route is also marker ;}</p>",
+    "PostedDate": "2010-03-30T05:20:09.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425433",
+    "ThreadId": "207425",
+    "Html": "<p>i separated routes from markers in windows forms version, but in wpf currently they are the same object</p>",
+    "PostedDate": "2010-03-30T05:49:05.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425500",
+    "ThreadId": "207425",
+    "Html": "<p>Ok, In marker object, it has routes.&nbsp; I wrote SelectedMarker.Map.Markers[count -1].Route.Clear(); , but it misses some points of Routes.</p>\r\n<p>I want to delete just&nbsp;last route, because&nbsp;the aim is user&nbsp;can undo its last move, it is because count -1.&nbsp;Can you show me the way?&nbsp;</p>",
+    "PostedDate": "2010-03-30T07:44:02.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425613",
+    "ThreadId": "207425",
+    "Html": "<p>route is a marker with generated shape as path. So you have multiply routes if you miss something.</p>",
+    "PostedDate": "2010-03-30T11:40:27.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1002902",
+    "ThreadId": "207425",
+    "Html": "How can i get lat,long position of a marker when user drags a marker from one point to other on a map\r<br />\n<br />\ni want lat,long position of two points. \r<br />\n<br />\ni am using currentmarker.position which gives the lat,lng position of a point after dragging is completed.\r<br />\n<br />\nbut i need the lat,lng position of marker from where it is dragged\r<br />\n<br />\nI am using  WPF <br />\n",
+    "PostedDate": "2013-02-18T09:35:41.967-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

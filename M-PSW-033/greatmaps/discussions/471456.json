@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1130125",
+    "ThreadId": "471456",
+    "Html": "in C# we use :<br />\n<pre><code>MainMap.OnMarkerClick += new MarkerClick(MainMap_OnMarkerClick);\nMainMap.OnMarkerClick += new MarkerClick(MainMap_OnMarker2Click);</code></pre>\n\nto differentiate marker1 event to marker2 event\r<br />\n<br />\nbut in VB, there is no such calling..\r<br />\nif I put a code in the OnMarkerClick event, all the markers in my map gives the same function. how can I distinguish different click event?<br />\n",
+    "PostedDate": "2013-11-28T17:49:02.557-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1130129",
+    "ThreadId": "471456",
+    "Html": "<pre><code>Public Sub map_OnMarkerClick(ByVal item As GMap.NET.WindowsForms.GMapMarker, ByVal e As System.Windows.Forms.MouseEventArgs) Handles map.OnMarkerClick\n        If item Is camera1 Then\n           'do code\n        ElseIf item Is camera2 Then\n            Dim f2c2 As New Form2\n           'do code\n        ElseIf item Is camera3 Then\n            Dim f2c3 As New Form2\n           'do code\n        End If\n    End Sub</code></pre>\n\nworked for me. <br />\n",
+    "PostedDate": "2013-11-28T18:50:01.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

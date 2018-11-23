@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1193748",
+    "ThreadId": "522889",
+    "Html": "Hello,\r<br />\n<br />\nI am trying to create a tooltip/capture mouseEvents for my GMapPolygon in WPF, but can't seem to do it.\r<br />\n<br />\n GMapPolygon poly = new GMapPolygon(myListOfPointLatLngs);<br />\n<pre><code>     poly.Tag = id;</code></pre>\n\n//Generates a Path type for poly.Shape<br />\n<pre><code>     poly.RegenerateShape(gmap); \n</code></pre>\n\n//I try to assign it my user control which has a Path type in the grid.  I assign it the passed in path which I create from the gmap.CreatePolygonPath()<br />\n<pre><code>    poly.Shape = new MyGenericPolygon(takes a System.Windows.Shapes.Path);\n</code></pre>\n\n//Resets Path type for poly.Shape for original myListOfPointLatLngs<br />\n<pre><code>     poly.RegenerateShape(gmap); \n</code></pre>\n\nMy question is if there's a way to have MyGenericPolygon as the shape so that I can handle the MouseEvents in that class?\r<br />\n<br />\nThank you for any help :)<br />\n",
+    "PostedDate": "2014-01-23T17:00:47.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1194770",
+    "ThreadId": "522889",
+    "Html": "I am able to assign my <br />\n<pre><code>      poly.Shape = new MyGenericPolygon(System.Windows.Shapes.Path myPath, GMapPolygon marker)\n</code></pre>\n\nbut when I zoom or out, it must call &quot;RegenerateShape()&quot; since it redraws the polygon as the default shape.... could this be a bug?  It seems to use the points to redraw, not the shape.<br />\n<br />\nAny ideas how I can update my existing poly.Shape (MyGenericPolygon) on a zoom -/+?<br />\n",
+    "PostedDate": "2014-01-23T17:29:09.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

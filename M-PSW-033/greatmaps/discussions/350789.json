@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "818358",
+    "ThreadId": "350789",
+    "Html": "\r\n<p>I created a application based on this greate .net module ( see http://www.kirchnernet.de/maps4win/)</p>\r\n<p>But I am confused about the offline functionallity!</p>\r\n<p>I use the following Code in VB to prefetch a area to the cache:</p>\r\n<p>I set the Cache location with:</p>\r\n<p>GMapControl1.CacheLocation = Application.StartupPath</p>\r\n<p>and then</p>\r\n<p>Dim Part As New GMap.NET.TilePrefetcher</p>\r\n<p>&nbsp;&nbsp;&nbsp; For z = 1 To 12<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Part.Owner = Me<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Part.ShowCompleteMessage = False<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Part.Start(AREA, z1, GMapControl1.MapProvider, 100)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next z</p>\r\n<p>&nbsp;</p>\r\n<p>It looks that it works, but after I reboot of the system, it looks that the cache is empty!</p>\r\n<p>Also I can not found any CacheData file in the path: &quot;Application.StartupPath&quot;</p>\r\n<p>Can any body explain me how it works and what is the function of&nbsp; ShowImportDialog() and showExportDialog ???</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot</p>\r\n<p>&nbsp;</p>\r\n<p>Mkkirchner</p>\r\n",
+    "PostedDate": "2012-04-01T03:58:01.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "818361",
+    "ThreadId": "350789",
+    "Html": "<p>first, you use old version, and for prefetcher check the source of demos...</p>",
+    "PostedDate": "2012-04-01T04:32:40.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

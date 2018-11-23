@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The Version string used to access GoogleSatellite maps updates fairly regularly in the source code. The latest values is \"192\", but in the area where I want to download maps, this version is no longer working. I have to use \"193\", and have tested that it currently accepts upto version \"198\".\r\nI have two questions:\r\n(1) How can one determine when Google increases the version number and what the latest is? (Currently I do it by trial and error - which is not very elegant)?\r\n(2) A nice feature would be to be able to set the version number used by the MapProvider externally. Currently the only way is to update the Core dll as the version number is hardcoded therein.\r\n  ",
+    "LastUpdatedDate": "2016-03-28T11:08:00.083-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2016-03-28T11:08:00.083-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GoogleSatelliteMap version",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16139
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

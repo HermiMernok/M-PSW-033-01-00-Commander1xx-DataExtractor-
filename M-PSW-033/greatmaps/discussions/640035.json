@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1430702",
+    "ThreadId": "640035",
+    "Html": "Hi,\r<br />\nI got a PNG GIS image that contains depths information over a lake. I have lat,lng for the image corners and want it to be lock to that position and not change scale when zooming the map as in Google Earth. \r<br />\n<br />\nDoes anyone know if this would be possible in GMAP.NET?\r<br />\n<br />\nBr\r<br />\n  Bjorn Kallin<br />\n",
+    "PostedDate": "2015-06-17T07:16:53.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430705",
+    "ThreadId": "640035",
+    "Html": "Use Demo.Clouds example. It helps.\r<br />\n<br />\nBasically<br />\n<pre><code> PointLatLng gtl = new PointLatLng(49.6049, -108.8620);\n  PointLatLng gbr = new PointLatLng(27.5238, -68.7547);</code></pre>\n\nwhere gtl is upperleft corner and gbr is bottom right corner<br />\n",
+    "PostedDate": "2015-06-17T07:29:59.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430712",
+    "ThreadId": "640035",
+    "Html": "Thanks will have a look!<br />\n",
+    "PostedDate": "2015-06-17T07:57:20.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

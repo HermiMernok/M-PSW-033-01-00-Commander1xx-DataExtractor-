@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "i see",
+    "ClosedDate": "2011-09-28T23:28:22.383-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I have an app with a TabControl containing multiple TabItem and a GMapControl hosted on each TabItem. When loading the window, the Marker appears normally, but when selecting another tabitem and returning to the previous tabitem, the Marker disappears.\r\n\r\nAttached Sample project.\r\nI also tested it on the latest HotBuild",
+    "LastUpdatedDate": "2012-02-06T08:59:44.66-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-09-28T11:11:33.3-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Marker disappear when WPF GMapControl hosted on a TabItem",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16015
+  },
+  "FileAttachments": [
+    {
+      "FileId": 286918,
+      "FileName": "Demo.WPFTabs.rar",
+      "DownloadUrl": ".\\286918"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Seems that the problem is the CustomMarker implementation...",
+      "PostedDate": "2011-09-28T11:46:42.957-07:00",
+      "Id": 45746
+    },
+    {
+      "Message": "Nevermind. Is the TabControl itself the one who destroys all the childs in the unload TabItem :S\n",
+      "PostedDate": "2011-09-28T12:00:12.217-07:00",
+      "Id": 45750
+    },
+    {
+      "Message": "fixed, child destruction is prevented ;}",
+      "PostedDate": "2012-02-06T05:35:47.577-08:00",
+      "Id": 55446
+    },
+    {
+      "Message": "Nice job!! \n\nIn other order of ideas, have you thought anything about MVVM in the WPF GMapControl? ",
+      "PostedDate": "2012-02-06T08:59:44.66-08:00",
+      "Id": 55456
+    }
+  ]
+}

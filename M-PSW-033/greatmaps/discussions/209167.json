@@ -1,0 +1,162 @@
+[
+  {
+    "Id": "430401",
+    "ThreadId": "209167",
+    "Html": "<p>Hi all,</p>\r\n<p>(Using vb.net 2010)</p>\r\n<p>I'm having problems using cache.</p>\r\n<p>If I use other AccessMode than &nbsp;AccessMode.ServerOnly, I get no map at all.</p>\r\n<p>No I tried this:</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;With GMaps.Instance</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.UseRouteCache = True</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.UseGeocoderCache = True</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.UsePlacemarkCache = True</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.Mode = AccessMode.CacheOnly</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dim ch As New CacheProviders.MsSQLPureImageCache &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ch.ConnectionString = &quot;Data Source=DC1;Initial Catalog=GoogleCache;Integrated Security=True&quot;</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.ImageCacheSecond = ch</div>\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:0px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;End With</div>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">With</span> GMaps.Instance\r\n&nbsp;&nbsp; &nbsp;.UseRouteCache = <span style=\"color:Blue\">True</span>\r\n&nbsp;&nbsp; &nbsp;.UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n&nbsp;&nbsp; &nbsp;.UsePlacemarkCache = <span style=\"color:Blue\">True</span>\r\n&nbsp;&nbsp; &nbsp;.Mode = AccessMode.CacheOnly\r\n&nbsp;&nbsp; &nbsp;<span style=\"color:Blue\">Dim</span> ch <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> CacheProviders.MsSQLPureImageCache &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;<br>    ch.ConnectionString = <span style=\"color:#A31515\">&quot;Data Source=MySqlServer;Initial Catalog=GoogleCache;Integrated Security=True&quot;</span>\r\n    .ImageCacheSecond = ch\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">With</span>\r\n</pre>\r\n</div>\r\n<p>This doesn't help. No maps are shown, no tables are created in database and no exceptions.</p>\r\n<p>Any idea where I go wrong?</p>\r\n<p>Thanks!</p>\r\n<p>Mojo</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-13T04:47:02.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430411",
+    "ThreadId": "209167",
+    "Html": "<p>CacheOnly - means <strong>local</strong> cache only, if you do not have any tiles caches, you do no see them ;} Prefetch your cache or use ServerAndCache mode</p>",
+    "PostedDate": "2010-04-13T05:02:53.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430419",
+    "ThreadId": "209167",
+    "Html": "<p>Hey Radioman,</p>\r\n<p>I tried using ServerAndCache, nothing happen .. only a white control. As soon as I change it to ServerOnly, the map shows.</p>\r\n<p>Wierd.</p>\r\n<p>Thanks,<br>Mojo&nbsp;</p>",
+    "PostedDate": "2010-04-13T05:14:34.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430430",
+    "ThreadId": "209167",
+    "Html": "<p>whats your debug output?</p>",
+    "PostedDate": "2010-04-13T05:33:15.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430431",
+    "ThreadId": "209167",
+    "Html": "<p>Dim ch As New CacheProviders.MsSQLPureImageCache // MS SQL                   &nbsp;<br>&quot;Data Source=MySqlServer;Initial Catalog=GoogleCache;Integrated Security=True&quot; // My SQL ?</p>",
+    "PostedDate": "2010-04-13T05:34:29.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430438",
+    "ThreadId": "209167",
+    "Html": "<p>As soon as I change it from AccessMode.ServerOnly to AccessMode.ServerAndCache nothing happens ... it's trying to fetch tiles for like 10 senconds and then it just stops. No exceptions.</p>\r\n<p>Yes I'm using MS Sql Server.</p>\r\n<p>Thanks for your help so far!</p>\r\n<p>Mojo</p>",
+    "PostedDate": "2010-04-13T06:05:06.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430572",
+    "ThreadId": "209167",
+    "Html": "<p>did you tried pure demos with no changes in debug mode?</p>",
+    "PostedDate": "2010-04-13T11:05:24.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430757",
+    "ThreadId": "209167",
+    "Html": "<p>Hi,</p>\r\n<p>When I try your demoes everything works fine.</p>\r\n<p>I tried to create a new project (.net 4.0), made it x86 and added reference to your dlls.</p>\r\n<p>This is my only code:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Imports</span> GMap.NET\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n\r\n<span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Class</span> Form1\r\n\r\n    <span style=\"color:Blue\">Const</span> connectionString <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">String</span> = <span style=\"color:#A31515\">&quot;Data Source=MySqlServer;Initial Catalog=GoogleCache;Integrated Security=True&quot;</span>\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">WithEvents</span> map <span style=\"color:Blue\">As</span> GMapControl\r\n\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> Form1_Load(<span style=\"color:Blue\">ByVal</span> sender <span style=\"color:Blue\">As</span> System.Object, <span style=\"color:Blue\">ByVal</span> e <span style=\"color:Blue\">As</span> System.EventArgs) <span style=\"color:Blue\">Handles</span> <span style=\"color:Blue\">MyBase</span>.Load\r\n        map = <span style=\"color:Blue\">New</span> GMapControl\r\n        <span style=\"color:Blue\">Me</span>.Controls.Add(map)\r\n        map.Dock = DockStyle.Fill\r\n        map.MapType = GMap.NET.MapType.GoogleMap\r\n\r\n        map.CanDragMap = <span style=\"color:Blue\">True</span>\r\n        map.MaxZoom = 15\r\n        map.MinZoom = 1\r\n\r\n        <span style=\"color:Blue\">With</span> GMaps.Instance\r\n            .UseRouteCache = <span style=\"color:Blue\">True</span>\r\n            .UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n            .UsePlacemarkCache = <span style=\"color:Blue\">True</span>\r\n            .Mode = AccessMode.ServerAndCache\r\n            <span style=\"color:Blue\">Dim</span> ch <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> CacheProviders.MsSQLPureImageCache\r\n            ch.ConnectionString = connectionString\r\n            .ImageCacheSecond = ch\r\n        <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">With</span>\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n\r\n</pre>\r\n</div>\r\n<p>This does not work. Everything is blank except the scale in top left. No tables are created in the GoogleMaps mssql table. There's no exception thrown.</p>\r\n<p>If I change to ... .<span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\">Mode = AccessMode.ServerAndCache <span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">... everything works (except for cache of course).</span></span></p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">I'm not entire sure wich debug output you want.</span></span></p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">:)</span></span></p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">Thanks</span></span></p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif;white-space:normal\">Mojo</span></span></p>\r\n<pre style=\"color:#000000;font-family:Consolas, 'Courier New', Courier, monospace;font-size:1em;margin:8px\"><span style=\"font-family:'Segoe UI', 'Microsoft Sans Serif', Arial, Geneva, sans-serif\"><span style=\"white-space:normal\"><span style=\"font-family:Consolas, 'Courier New', Courier, monospace\"><span style=\"white-space:pre\"><br></span></span></span></span></pre>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-13T22:29:29.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430763",
+    "ThreadId": "209167",
+    "Html": "<p>there is only one output in visual studio ;} so?</p>",
+    "PostedDate": "2010-04-13T22:46:55.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430771",
+    "ThreadId": "209167",
+    "Html": "<p>Oh yeah ok .. now I get what you mean. :)</p>\r\n<p>Well debug output is empty:</p>\r\n<p><a href=\"http://img442.imageshack.us/img442/6363/gmapprintscreen.png\">http://img442.imageshack.us/img442/6363/gmapprintscreen.png</a></p>\r\n<p>Mojo</p>",
+    "PostedDate": "2010-04-13T23:10:16.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430782",
+    "ThreadId": "209167",
+    "Html": "<p>you add control on form load, and why can't you drag control on form using designer? ;}</p>",
+    "PostedDate": "2010-04-13T23:35:36.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430786",
+    "ThreadId": "209167",
+    "Html": "<p>I use lots of third party controls in all my projects, so to avoid filling up the Toolbox, I some times chose to load them on startup.</p>\r\n<p>Well I tried add the GMapControl to toolbox with following code:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Imports</span> GMap.NET\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms\r\n<span style=\"color:Blue\">Imports</span> GMap.NET.WindowsForms.Markers\r\n\r\n\r\n<span style=\"color:Blue\">Public</span> <span style=\"color:Blue\">Class</span> Form1\r\n\r\n    <span style=\"color:Blue\">Const</span> connectionString <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">String</span> = <span style=\"color:#A31515\">&quot;Data Source=DC1;Initial Catalog=GoogleCache;Integrated Security=True&quot;</span>\r\n\r\n\r\n    <span style=\"color:Blue\">Private</span> <span style=\"color:Blue\">Sub</span> Form1_Load(<span style=\"color:Blue\">ByVal</span> sender <span style=\"color:Blue\">As</span> System.Object, <span style=\"color:Blue\">ByVal</span> e <span style=\"color:Blue\">As</span> System.EventArgs) <span style=\"color:Blue\">Handles</span> <span style=\"color:Blue\">MyBase</span>.Load\r\n        <span style=\"color:Blue\">With</span> GMapControl1\r\n            .MapType = GMap.NET.MapType.GoogleMap\r\n            .CanDragMap = <span style=\"color:Blue\">True</span>\r\n            .MaxZoom = 15\r\n            .MinZoom = 1\r\n            <span style=\"color:Blue\">With</span> GMaps.Instance\r\n                .UseRouteCache = <span style=\"color:Blue\">True</span>\r\n                .UseGeocoderCache = <span style=\"color:Blue\">True</span>\r\n                .UsePlacemarkCache = <span style=\"color:Blue\">True</span>\r\n                .Mode = AccessMode.ServerAndCache\r\n                <span style=\"color:Blue\">Dim</span> ch <span style=\"color:Blue\">As</span> <span style=\"color:Blue\">New</span> CacheProviders.MsSQLPureImageCache\r\n                ch.ConnectionString = connectionString\r\n                .ImageCacheSecond = ch\r\n            <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">With</span>\r\n            .ReloadMap()\r\n        <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">With</span>\r\n    <span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Sub</span>\r\n\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Class</span>\r\n</pre>\r\n</div>\r\n<p>But it still does not work.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-13T23:48:17.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430790",
+    "ThreadId": "209167",
+    "Html": "<p>i doubt it works adding it manualy</p>",
+    "PostedDate": "2010-04-14T00:02:08.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433018",
+    "ThreadId": "209167",
+    "Html": "<p>i had the same problem with VS 2010 RC and&nbsp;C#<br>i was using OpenStreetMap not google<br>and not using any special cache thingy</p>\r\n<p>Just adding a map in OnLoad<br><br>it was because i was using .NET 4.0 when i changed to 3.5 it worked</p>",
+    "PostedDate": "2010-04-19T22:13:54.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433032",
+    "ThreadId": "209167",
+    "Html": "<p>for .net4 check documentation</p>",
+    "PostedDate": "2010-04-19T23:14:41.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433037",
+    "ThreadId": "209167",
+    "Html": "<p>Yeah - already tried the...</p>\r\n<pre><span></span><div style=\"color:black;background-color:white\"><pre><span style=\"color:blue\">&lt;?</span><span style=\"color:#a31515\">xml</span> <span style=\"color:red\">version</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">1.0</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">?&gt;</span>\r\n<span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">configuration</span><span style=\"color:blue\">&gt;</span>\r\n   <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">startup</span> <span style=\"color:red\">useLegacyV2RuntimeActivationPolicy</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">true</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\r\n      <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">supportedRuntime</span> <span style=\"color:red\">version</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">v4.0</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">sku</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">.NETFramework,Version=v4.0</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span>\r\n   <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">startup</span><span style=\"color:blue\">&gt;</span>\r\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">configuration</span><span style=\"color:blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<span></span></pre>\r\n<p>... but it still doesn't work.</p>\r\n<p>Mojo</p>",
+    "PostedDate": "2010-04-19T23:34:13.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433045",
+    "ThreadId": "209167",
+    "Html": "<p>yes it did! ;}</p>",
+    "PostedDate": "2010-04-19T23:43:58.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433048",
+    "ThreadId": "209167",
+    "Html": "<p>No, I still haven't managed to make it work, so I run without cache.</p>\r\n<p>:)</p>",
+    "PostedDate": "2010-04-19T23:51:15.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433057",
+    "ThreadId": "209167",
+    "Html": "<p>No adding to app.config dosen't work for me when using .NET 4.0</p>\r\n<p>morajodk have you tryed to change to .NET 3.5<br><br>and to rule out Caching</p>\r\n<p>try just add a simple map without caching <br>and possibly use OpenStreetMap instead of Google</p>\r\n<p><br>Edited<br> Sorry to quick to post<br>at first it didn't work, but after a clean and rebuild it worked</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-20T00:14:05.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433058",
+    "ThreadId": "209167",
+    "Html": "<p>yes,&nbsp;adding to app.config works, i've tested, and it's perfect ok</p>\r\n<p>check <a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=208671\">http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=208671&nbsp;</a></p>",
+    "PostedDate": "2010-04-20T00:14:55.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1473820",
+    "ThreadId": "654781",
+    "Html": "Hi,\r<br />\nI created a new circle marker  as a System.Drawing.Graphics Object.\r<br />\nThis marker I can add  to the Overlay and it is shown on the map.\r<br />\n<br />\nThe tooltip I define as\r<br />\ncy.ToolTipMode = MarkerTooltipMode.OnMouseOver\r<br />\n<br />\nBut the tooltip is not shown on mouse over.\r<br />\nBut if I define\r<br />\ncy.ToolTipMode = MarkerTooltipMode.Always\r<br />\nThe tooltip is displayed perfect.\r<br />\n<br />\nSo my question, is there any way to show tooltips on mouse over on custom created markers?<br />\n",
+    "PostedDate": "2016-05-18T06:08:23.693-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1480845",
+    "ThreadId": "654781",
+    "Html": "You have to set the is_hittestvisible property to true.<br />\n",
+    "PostedDate": "2016-08-11T03:33:39.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1480875",
+    "ThreadId": "654781",
+    "Html": "Hi ChFreund,\r<br />\n<br />\nThank you for the hint, I tried with the is_hittestvisible property  but it´s the same behavor,\r<br />\n<br />\nMarkerTooltipMode.Always shows all tool tips \r<br />\n<br />\n MarkerTooltipMode.OnMouseOver  do not work any way.<br />\n",
+    "PostedDate": "2016-08-11T09:05:52.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1480916",
+    "ThreadId": "654781",
+    "Html": "Hi,\r<br />\n<br />\ndumb question, but did you set a ToolTipText?\r<br />\nI'm using a custom marker with tooltip without any issue. Sample code :\r<br />\nGMapMarkerImage marker = new GMapMarkerImage(markerImage, new PointLatLng(lat, lon));\r<br />\nif (tooltip != &quot;&quot;)\r<br />\n{\r<br />\n   marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;\r<br />\n   marker.ToolTipText = tooltip;\r<br />\n}\r<br />\n<br />\nBtw you can also create your own tooltip class, it's pretty easy : create a class that derives from GMapToolTip, and override OnRender (public override void OnRender(Graphics g)).\r<br />\nthat's it :-)<br />\n",
+    "PostedDate": "2016-08-12T00:40:36.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1481127",
+    "ThreadId": "654781",
+    "Html": "Hi,\r<br />\nThis is the way I create the Custom marker<br />\n<pre><code>Imports System\nImports System.Collections.Generic\nImports System.Text\nImports System.Drawing\nImports System.Drawing.Drawing2D\nImports System.Diagnostics\nImports GMap.NET.WindowsForms\nImports GMap.NET\nNamespace GMap.NET.WindowsForms.Markers\n\n    Public Class GMapMarkerCircle\n        Inherits GMapMarker\n        Public Radius As Integer\n        Public OutlinePen As Pen\n        Public FillBrush As Brush\n        Public Fill As Boolean\n        Dim _point As PointLatLng\n\n        Public Sub New(p As PointLatLng)\n            MyBase.New(p)\n            _point = p\n            OutlinePen = New Pen(Brushes.Orange, 2)\n            FillBrush = New SolidBrush(Color.FromArgb(60, Color.Orange))\n            Radius = 0\n        End Sub\n\n        Public Overrides Sub OnRender(g As Graphics)\n            g.SmoothingMode = SmoothingMode.AntiAlias\n\n            Dim R As Integer = CInt((Radius) / Overlay.Control.MapProvider.Projection.GetGroundResolution(CInt(Overlay.Control.Zoom), Position.Lat)) * 2\n\n            If Fill = True Then\n\n\n                g.FillEllipse(FillBrush, New System.Drawing.Rectangle(LocalPosition.X - R \\ 2, LocalPosition.Y - R \\ 2, R, R))\n            End If\n            g.DrawEllipse(OutlinePen, New System.Drawing.Rectangle(LocalPosition.X - R \\ 2, LocalPosition.Y - R \\ 2, R, R))\n        End Sub\n    End Class\nEnd Namespace</code></pre>\n\nAnd this way I call it<br />\n<pre><code>Dim CPoint As PointLatLng\n                CPoint = currentMarker.Position\n\n                Dim cy As New GMapMarkerCircle(CPoint)\n                Using br = New SolidBrush(Color.Orange)\n                    br.Color = _cmdDropDownColorPickerOutlineColors.Color\n\n                    cy.Fill = True\n                    cy.FillBrush = New SolidBrush(Color.FromArgb(CInt((100 - _cmdSpinnerFillPercent.DecimalValue) * 2.5), _cmdDropDownColorPickerFillColors.Color))\n                    cy.OutlinePen = New Pen(br, CSng(_cmdComboBoxSize.SelectedItem) + 1)\n\n\n\n\n                    Select Case _cmdComboBoxUnits.SelectedItem\n                        Case 0\n                            cy.Radius = CInt(_cmdSpinnerRadius.DecimalValue)\n                        Case 1\n                            cy.Radius = CInt(_cmdSpinnerRadius.DecimalValue * 1000)\n                        Case 2\n                            cy.Radius = CInt(_cmdSpinnerRadius.DecimalValue * 1603)\n                        Case 3\n                            cy.Radius = CInt(_cmdSpinnerRadius.DecimalValue / 3.28)\n                    End Select\n\n\n                    cy.Position = CPoint\n\n                    cy.IsVisible = True\n\n\n                    cy.ToolTipMode = MarkerTooltipMode.OnMouseOver\n                    objects.Markers.Add(cy)\n\n                    objects.Markers(objects.Markers.Count - 1).ToolTipText = _cmdSpinnerRadius.DecimalValue.ToString &amp; &quot; &quot; &amp; _cmdComboBoxUnits.StringValue\n                    objects.Markers(objects.Markers.Count - 1).Tag = MarkerTagID\n\n                End Using\n               </code></pre>\n\nThe strange is if I set\r<br />\n<br />\ncy.ToolTipMode = MarkerTooltipMode.Always\r<br />\n<br />\nall tools tips are shown \r<br />\n<br />\nbut\r<br />\n<br />\n cy.ToolTipMode = MarkerTooltipMode.OnMouseOver\r<br />\nNothing is shown on mouse over.<br />\n",
+    "PostedDate": "2016-08-14T14:01:06.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1481900",
+    "ThreadId": "654781",
+    "Html": "<a href=\"http://greatmaps.codeplex.com/discussions/263578\" rel=\"nofollow\">http://greatmaps.codeplex.com/discussions/263578</a>\r<br />\nMaybe this topic will help you ?<br />\n",
+    "PostedDate": "2016-08-23T07:04:16.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

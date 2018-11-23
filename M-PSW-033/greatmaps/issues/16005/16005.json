@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "ok",
+    "ClosedDate": "2011-07-02T07:43:43.35-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "It seems that the area selection has gone a little out of whack somewhere recently, I have just upgraded from version 1.0 of the core to 1.5.5.5 and it seems that the functionality to select an area by holding down the shift key and dragging on the map has developed a bug by which the area is drawn on screen at an offset to the position of the mouse.\r\n\r\nIt seems that the area selected is correct and all other functionality works as expected however the visual area drawn on screen (the blue banded area) is not in the correct place.\r\n\r\nThis is occurring in the demo WPF system only, it seems the windows forms version is unaffected by this bug. I haven't tried the MONO installation. ",
+    "LastUpdatedDate": "2011-07-02T07:43:43.35-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-05-26T09:00:09.783-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Drag Area selection offset incorrect in WPF",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 16005
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "indeed, strange error ;/",
+      "PostedDate": "2011-05-26T11:52:03.987-07:00",
+      "Id": 36484
+    }
+  ]
+}

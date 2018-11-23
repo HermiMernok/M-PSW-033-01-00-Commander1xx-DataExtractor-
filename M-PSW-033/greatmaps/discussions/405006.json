@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "948921",
+    "ThreadId": "405006",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p><strong><span style=\"color:#000000\">The map becomes very SLOW. What do I do different ?&nbsp;</span></strong></p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">Dim</span> lat <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:blue\">Nothing</span>\n        <span style=\"color:blue\">Dim</span> lng <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:blue\">Nothing</span>\n        <span style=\"color:blue\">Dim</span> layer_name <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:blue\">Nothing</span>\n        <span style=\"color:blue\">Dim</span> info_1 <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:blue\">Nothing</span>\n        <span style=\"color:blue\">Dim</span> info_2 <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:blue\">Nothing</span>\n        <span style=\"color:blue\">Dim</span> mimage <span style=\"color:blue\">As</span> <span style=\"color:blue\">String</span> = <span style=\"color:blue\">Nothing</span>\n     \n        GMap1.HoldInvalidation = <span style=\"color:blue\">True</span>\n\n        <span style=\"color:blue\">Try</span>\n            OBJCONN.Close() : OBJCONN.Open()\n            <span style=\"color:blue\">Dim</span> Q <span style=\"color:blue\">As</span> <span style=\"color:blue\">New</span> SqlCommand(<span style=\"color:#a31515\">&quot;SELECT * FROM LAYERS WHERE LAYER_NAME='&quot;</span> &amp; L &amp; <span style=\"color:#a31515\">&quot;'&quot;</span>, OBJCONN)\n           \n           &nbsp;</pre>\r\n<pre><span style=\"color:blue\">            Dim</span> req <span style=\"color:blue\">As</span> System.Net.WebRequest = System.Net.WebRequest.Create(<span style=\"color:#a31515\">&quot;http://expressen.se/img/MapIcons/Events/Natural disaster/flood.png&quot;</span>)\n            <span style=\"color:blue\">Dim</span> response <span style=\"color:blue\">As</span> System.Net.WebResponse = req.GetResponse()\n            <span style=\"color:blue\">Dim</span> stream <span style=\"color:blue\">As</span> Stream = response.GetResponseStream()\n            <span style=\"color:blue\">Dim</span> imgX <span style=\"color:blue\">As</span> System.Drawing.Image = System.Drawing.Image.FromStream(stream)\n            stream.Close()\n\n            <span style=\"color:blue\">Dim</span> R <span style=\"color:blue\">As</span> SqlDataReader = Q.ExecuteReader\n            <span style=\"color:blue\">While</span> R.Read\n                lat = R(<span style=\"color:#a31515\">&quot;LATITUDE&quot;</span>).ToString\n                lng = R(<span style=\"color:#a31515\">&quot;LONGITUDE&quot;</span>).ToString()\n                layer_name = R(<span style=\"color:#a31515\">&quot;Layer_name&quot;</span>).ToString()\n                info_1 = R(<span style=\"color:#a31515\">&quot;info_1&quot;</span>).ToString()\n                info_2 = R(<span style=\"color:#a31515\">&quot;info_2&quot;</span>).ToString()\n                mimage = R(<span style=\"color:#a31515\">&quot;MAP_MARKER_IMAGE&quot;</span>)\n                <span style=\"color:blue\">Dim</span> m = <span style=\"color:blue\">New</span> GMapMarkerImage(<span style=\"color:blue\">New</span> PointLatLng(lat, lng), <span style=\"color:blue\">New</span> Bitmap(imgX))\n                Layer_GPSmarker.Markers.Add(m)\n                m.ToolTipMode = MarkerTooltipMode.OnMouseOver\n                m.ToolTipText = layer_name &amp; vbCrLf &amp; info_1 &amp; vbCrLf &amp; info_2\n                GMap1.Overlays.Add(Layer_GPSmarker)\n\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">While</span>\n            R.Close()\n            OBJCONN.Close()\n            GMap1.Refresh()\n\n        <span style=\"color:blue\">Catch</span>\n            <span style=\"color:green\">'Felhantering</span>\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Try</span>\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\n</pre>\r\n</div>\r\n",
+    "PostedDate": "2012-11-29T04:29:15.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948935",
+    "ThreadId": "405006",
+    "Html": "\r\n<p>for each marker you add the same layer: GMap1.Overlays.Add(Layer_GPSmarker)</p>\r\n<p>you only need to do this once at the startup</p>\r\n",
+    "PostedDate": "2012-11-29T04:52:38.77-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "948953",
+    "ThreadId": "405006",
+    "Html": "\r\n<p>Thank you Mr. Radioman , that did the trick.. The mapcontrol is now smooth and 'fluid' again !!&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-29T05:28:23.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

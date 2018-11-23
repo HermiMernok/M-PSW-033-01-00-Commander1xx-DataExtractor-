@@ -1,0 +1,170 @@
+[
+  {
+    "Id": "168586",
+    "ThreadId": "50336",
+    "Html": "I would like to use the GMap.NET technology to add a GoogleEarth image backdrop to a commercial application.  This backdrop would by no means be the central feature of the application.<br>\r\n<br>\r\nHas anyone determined if using the GMap.NET components within a commercial desktop application complies with Google's terms of use?  I read over the &quot;Google Maps/Google Earth APIs Terms of Service&quot; available at <a href=\"http://code.google.com/apis/maps/terms.html\">http://code.google.com/apis/maps/terms.html</a> but it is targeting use from a web site.  I did read the following that is somewhat troubling:<br>\r\n<br>\r\n------------------------------<br>\r\n<strong>10. License Restrictions. </strong>Except as expressly permitted under the Terms, or unless you have received prior written authorization from Google (or, as applicable, from the provider of particular Content), Google's licenses above are subject to your adherence to all of the restrictions below. Except as explicitly permitted in Section 7, you must not (nor may you permit anyone else to): <a id=\"section_10_1\"></a><br>\r\n<br>\r\n10.8 use the Static Maps API other than in an implementation in a web browser<br>\r\n---------------------------------<br>\r\n<br>\r\nOf course, GMap.NET is not using the &quot;Google Maps API&quot;, &quot;Static&quot;, or otherwise, so the above restriction may not apply.  Anybody have any thoughts?<br>\r\n<br>\r\nThanks.<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-16T09:04:07.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250839",
+    "ThreadId": "50336",
+    "Html": "<p>Anyone have any thoughts on if this method of using google maps violates their terms of use in general?</p>\r\n<p>&nbsp;</p>\r\n<p>And specifically if you have a google maps enterprise license / agreement, does this use violate the terms of service?</p>",
+    "PostedDate": "2009-10-28T12:29:07.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250843",
+    "ThreadId": "50336",
+    "Html": "<p>use free map types if unsure, openstreetsurfer looks just great</p>",
+    "PostedDate": "2009-10-28T12:32:15.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250877",
+    "ThreadId": "50336",
+    "Html": "<p>Unfortunately, we need the google base maps...</p>\r\n<p>So you are the coordinator of this project and you do not know if this use violates Googles terms of use?</p>\r\n<p>Have you or other cevs using this not had any run in's with google?&nbsp;</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2009-10-28T14:05:19.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250889",
+    "ThreadId": "50336",
+    "Html": "<p>i have no idea ;}</p>",
+    "PostedDate": "2009-10-28T14:21:05.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "502630",
+    "ThreadId": "50336",
+    "Html": "<p>Did anybody ever figure out if this is in violation with googles terms?</p>",
+    "PostedDate": "2010-10-05T11:05:58.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "510607",
+    "ThreadId": "50336",
+    "Html": "<p>My company has spoken to Google and Microsoft about the use of tiles, similar to this project. If you are working on a commercially available&nbsp;application&nbsp;they will both seek legal action against your company. Google stated that they would seek an immediate&nbsp;cease and desist, if you do not they will seek further legal in the area of theft. So after creating a prototype and starting production code my company has pulled the plug on our use of this great solution.</p>",
+    "PostedDate": "2010-10-21T09:27:11.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "510648",
+    "ThreadId": "50336",
+    "Html": "<p>Hi @ all,</p>\r\n<p>the problem with google is: Google Earth tiles&nbsp;and the Satellite View photo tiles are not to 100% from google. Many photo tiles are from third party companies. these companies are the copyright holders and not&nbsp;google. google can not give you the permission for that. greetings from germany (yeah, i know, my english is...),</p>\r\n<p>attention with MS or GOOGLE, its a hot thing.,</p>\r\n<p>by by</p>",
+    "PostedDate": "2010-10-21T10:34:53.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "510714",
+    "ThreadId": "50336",
+    "Html": "<p>Jim why dont you just use open streets then?</p>",
+    "PostedDate": "2010-10-21T12:44:10.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "510725",
+    "ThreadId": "50336",
+    "Html": "<p>Our need for map data is critical, open street maps does offer a great free alternative. But we need to have a reliable system backed by an SLA of at least 99.9% uptime. My understanding is the open street maps currently doesn't offer that level of service.&nbsp;</p>\r\n<p>Ultimately&nbsp;this question has been posted several times in the discussion area and thought I would share my finds with everyone. If you choose to use Google or Microsoft, that is totally your option, but as they say knowledge is power so share the power.</p>",
+    "PostedDate": "2010-10-21T13:06:55.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519552",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>Skimming through the code, it looks like the tiles can come from &quot;free&quot; sources like OpenStreetMaps. However, there's lots of hard-coded Google&nbsp; urls look ups for geocoding and routing. So depending on what parts you're using, you may be inadvertantly\r\n using Google illegally even when you select a different source.</p>\r\n",
+    "PostedDate": "2010-11-09T12:55:02.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523138",
+    "ThreadId": "50336",
+    "Html": "\r\n<p><em>&quot;Can I use Google Maps in my non-Web application?&nbsp;</em><br>\r\n<br>\r\n<em>Yes, the Google Maps APIs can now be used in Desktop applications, provided that they adhere to the other restrictions of the Terms of Service. Note that in order for a desktop application to be deemed &quot;publicly accessible&quot;, there must be a publicly accessible\r\n webpage from which it can be downloaded. See Section 7.1c(<a href=\"http://code.google.com/intl/lt-LT/apis/maps/terms.html#section_7_1\" target=\"_blank\"></a><a href=\"http://code.google.com/intl/en-US/apis/maps/terms.html#section_7_1\">http://code.google.com/intl/en-US/apis/maps/terms.html#section_7_1</a>)\r\n of the Terms of Service for more information.&quot;</em></p>\r\n<p><em><a href=\"http://code.google.com/intl/lt-LT/apis/maps/faq.html#tos_nonweb\" target=\"_blank\"></a><a href=\"http://code.google.com/intl/en-US/apis/maps/faq.html#tos_nonweb\">http://code.google.com/intl/en-US/apis/maps/faq.html#tos_nonweb</a></em></p>\r\n<p><em><br>\r\n</em></p>\r\n",
+    "PostedDate": "2010-11-17T02:51:58.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523156",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>Just some musings.</p>\r\n<p>1.<span style=\"white-space:pre\"> </span>I can type into my browser a URL that will display a map tile, no different to displaying a picture on any other website.</p>\r\n<p>2. <span style=\"white-space:pre\"></span>Now assuming that I only&nbsp;view&nbsp;the said tile and not cut &amp; paste it into another product/document etc is&nbsp;viewing&nbsp;it a copyright violation.</p>\r\n<p>3.<span style=\"white-space:pre\"> </span>This is no different to using&nbsp;<a href=\"http://maps.google.com/\">http://maps.google.com/</a>&nbsp;i.e. map tiles in a browser.</p>\r\n<p>3.<span style=\"white-space:pre\"> </span>Also there is no password etc that was circumvented to view said tile and as such it is publicly&nbsp;accessible.</p>\r\n<p>4.<span style=\"white-space:pre\"> </span>Any application based on Gmap is therefore a glorified browser in this context.</p>\r\n<p>5.<span style=\"white-space:pre\"> </span>Note: &nbsp;there is a lot of debate about what defines a&nbsp;publicly&nbsp;accessible URL however&nbsp;the internet being what it is.........................</p>\r\n<p><span style=\"font-size:medium\"><span style=\"font-size:13.1944px\">We make a&nbsp;commercial&nbsp;application that uses a&nbsp;</span></span>modified<span style=\"font-size:medium\"><span style=\"font-size:13.1944px\">&nbsp;Gmap core however we give it away free\r\n (and can be downloaded from a publicly&nbsp;accessible server) and as the application gets the overlay information (our data) from a server we charge for the server access to the data and or server software.</span></span></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-17T03:25:00.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523308",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>radioman, what is your take on</p>\r\n<p><em>10.8 use the Static Maps API other t</em><em>han in an implementation in a web browser</em></p>\r\n<p><em>from Google Maps API tos?</em></p>\r\n<p>I assume that GMap.NET is not using the static API then?</p>\r\n",
+    "PostedDate": "2010-11-17T08:23:02.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523316",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>to be true, i really do not care ;}</p>\r\n",
+    "PostedDate": "2010-11-17T08:34:20.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525676",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>Although I totally agree with Azlan, I did some license reading and I can read this:</p>\r\n<p><strong><em>9. License Requirements. Google's licenses above are subject to your adherence to the following requirements:</em></strong></p>\r\n<p><strong><em>9.1 <span style=\"color:#ff0000\">Free, Public Accessibility to Your Maps API Implementation</span>. Your Maps API Implementation must be generally accessible to users without charge. You may require users to log in to your Maps API Implementation\r\n if you do not require users to pay a fee. Unless you have entered into a separate written agreement with Google or obtained Google's written permission, your Maps API Implementation must not:</em></strong></p>\r\n<p>So, you can see here that your app SHOULD BE FREE... this is in a sense rediculous requirement...closes the door on any commercial app unless you make it free... But do not despare - there is still a way to make money out of this through ads (although it\r\n is quite a long and rocky road).</p>\r\n<p>Another confirmation that I read in the license:</p>\r\n<p>&nbsp;<br>\r\n<strong><em>10. License Restrictions. Except as expressly permitted under the Terms, or unless you have received prior written authorization from Google (or, as applicable, from the provider of particular Content), Google's licenses above are subject to your\r\n adherence to all of the restrictions below. Except as explicitly permitted in Section 7 or the Maps APIs Documentation, you must not (nor may you permit anyone else to):</em></strong></p>\r\n<p><strong><em>10.1 access or use the Service or any Content through any technology or means other than those provided in the Service, or through other explicitly authorized means Google may designate;</em></strong></p>\r\n<p><strong><em>10.2 copy, translate, modify, create a derivative work of, or publicly display any Content or any part thereof (for example, the following are prohibited: (a) creating server-side modification of map tiles; and (b) stitching multiple static map\r\n images together to display a map that is larger than permitted in the Maps APIs Documentation);</em></strong></p>\r\n<p><strong><em>10.3 pre-fetch, cache, or store any Content, except that you may store limited amounts of Content for the purpose of improving the performance of your Maps API Implementation if you do so temporarily, securely, and in a manner that does not permit\r\n use of the Content outside of the Service;</em></strong></p>\r\n<p><strong><em>10.4 <span style=\"color:#ff0000\">charge users or any other third party any fee for the use of the Maps API Implementation</span>, the Service, or the Content, unless you have entered into a separate written agreement with Google or obtained Google's\r\n written permission to do so (but if you are a <span style=\"color:#0000ff\">consultant who creates or hosts Maps API Implementations for third party customers, you may charge such customers a fee for your consulting or hosting services</span>);</em></strong></p>\r\n<p>The strange part is a controvercial statement in 10.4. I absolutely get the red part... but the blue part? Yes, I am self-employed consultant, yes I am creating Maps API implementation (that is, based in GMAP.NET) but what is\r\n<span style=\"color:#ff0000\">third party customers</span>? If I sell my app it to ACME company that has 200 users, does it mean I charged thrird party customer a fee? Anyway, it becomes hairy, and I think there is no other way here for anybody serious developing\r\n with GMap.NET to seek IP attorney advice... I will, and if I know more I will let you know...</p>\r\n",
+    "PostedDate": "2010-11-22T22:24:37.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526349",
+    "ThreadId": "50336",
+    "Html": "<dt id=\"x_tos_tiles\">Can I access the Maps and Satellite images directly? </dt><dd>\r\n<p>You may not access the maps or satellite images through any mechanism besides the Google Maps APIs (such as the creation of your own mapping API or the use of a bulk tile download script). Your application's access to the tiles will be blocked if it accesses\r\n them outside of the Google Maps APIs. See section 5.3 of the <a href=\"http://www.google.com/accounts/TOS\">\r\nGoogle Terms of Use</a> for more details.</p>\r\n</dd>",
+    "PostedDate": "2010-11-24T03:49:34.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526457",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>what do you mean 'directly;? ;}</p>\r\n",
+    "PostedDate": "2010-11-24T07:36:54.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526787",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>Ask google ;)</p>\r\n<p><a href=\"http://code.google.com/intl/en-US/apis/maps/faq.html#tos_tiles\">http://code.google.com/intl/en-US/apis/maps/faq.html#tos_tiles</a></p>\r\n",
+    "PostedDate": "2010-11-24T23:53:19.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526881",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>That is&nbsp;something&nbsp;of an oxymoron as relates to the Google API only as that is the FAQ for the API.</p>\r\n",
+    "PostedDate": "2010-11-25T02:55:47.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "526901",
+    "ThreadId": "50336",
+    "Html": "\r\n<p>okay, to be more specific.</p>\r\n<p>let's see the '&#65279;&#65279;&#65279;Google Terms of Service'</p>\r\n<p>....</p>\r\n<p><strong>5. Use of the Services by you</strong></p>\r\n<blockquote>\r\n<p>...</p>\r\n<p>5.3 You agree not to access (or attempt to access) any of the Services by any means other than through the interface that is provided by Google, unless you have been specifically allowed to do so in a separate agreement with Google. You specifically agree\r\n not to access (or attempt to access) any of the Services through any automated means (including use of scripts or web crawlers) and shall ensure that you comply with the instructions set out in any robots.txt file present on the Services.</p>\r\n</blockquote>\r\n",
+    "PostedDate": "2010-11-25T03:42:34.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

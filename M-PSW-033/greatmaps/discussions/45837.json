@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "153022",
+    "ThreadId": "45837",
+    "Html": "<p style=\"margin:0cm 0cm 10pt\"><span style=\"font-family:calibri\"><strong><em>Superb control!</em></strong>  How do I save current contents of Gmap control to image file and print contents of Gmap control <span style=\"font-family:calibri\">with markers</span>?  Please help.</span></p>\r\n",
+    "PostedDate": "2009-02-01T03:24:46.943-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153033",
+    "ThreadId": "45837",
+    "Html": "yet there is no current view export function, but you can push print screent, and paste content anywhere you want... i'll keep this feature in mind",
+    "PostedDate": "2009-02-01T05:46:54.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "153051",
+    "ThreadId": "45837",
+    "Html": "Thanks.\r\n",
+    "PostedDate": "2009-02-01T08:10:15.94-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "177851",
+    "ThreadId": "45837",
+    "Html": "works on wpf",
+    "PostedDate": "2009-04-09T21:57:29.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197825",
+    "ThreadId": "45837",
+    "Html": "<p>Hello!</p>\r\n<p>Any news about the implementation of this function in windows.form?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2009-06-04T09:44:43.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "197884",
+    "ThreadId": "45837",
+    "Html": "<p>not so far ;/ ..but i have some idea...</p>",
+    "PostedDate": "2009-06-04T11:53:35.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "202859",
+    "ThreadId": "45837",
+    "Html": "<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">private</span> <span style=\"color:Blue\">void</span> btnSaveImage_Click(<span style=\"color:Blue\">object</span> sender, EventArgs e)\r\n{\r\n    sfd.Filter = <span style=\"color:#A31515\">&quot;JPeg (*.jpg)|*.jpg&quot;</span>;\r\n    <span style=\"color:Blue\">if</span> (sfd.ShowDialog() == DialogResult.OK)\r\n    {\r\n        System.Drawing.Point sp = MainMap.Location;\r\n        System.Drawing.Size ds = MainMap.Size;\r\n        System.Drawing.Rectangle sr = <span style=\"color:Blue\">new</span> System.Drawing.Rectangle(sp, ds);\r\n        <span style=\"color:Green\">//Convert the Image to a JPG</span>\r\n        Image tmpImage;\r\n        tmpImage = CaptureImage(sp, System.Drawing.Point.Empty, sr, <span style=\"color:#A31515\">&quot;&quot;</span>);\r\n        tmpImage.Save(sfd.FileName);\r\n     }\r\n}\r\n\r\n<span style=\"color:Blue\">public</span> Image CaptureImage(System.Drawing.Point SourcePoint, System.Drawing.Point DestinationPoint, System.Drawing.Rectangle SelectionRectangle, <span style=\"color:Blue\">string</span> FilePath)\r\n{\r\n     Image tmpImage;\r\n     <span style=\"color:Blue\">using</span> (Bitmap bitmap = <span style=\"color:Blue\">new</span> Bitmap(SelectionRectangle.Width, SelectionRectangle.Height))\r\n     {\r\n           <span style=\"color:Blue\">using</span> (Graphics g = Graphics.FromImage(bitmap))\r\n           {\r\n                 g.CopyFromScreen(SourcePoint, DestinationPoint, SelectionRectangle.Size);\r\n           }\r\n           <span style=\"color:Green\">//Convert the Image to a JPG</span>\r\n           MemoryStream ms = <span style=\"color:Blue\">new</span> MemoryStream();\r\n           bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);\r\n           tmpImage = Image.FromStream(ms);\r\n           <span style=\"color:Blue\">return</span> tmpImage;\r\n     }\r\n}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n</span></span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-18T04:05:59.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "202878",
+    "ThreadId": "45837",
+    "Html": "<p>thanks!</p>",
+    "PostedDate": "2009-06-18T05:19:25.797-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "290092",
+    "ThreadId": "45837",
+    "Html": "<p>I'm working in WPF. Someone tried to save to EMF?</p>\r\n<p>This is my procedure for the bitmaps:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">private</span> <span style=\"color:Blue\">void</span> btnSave_Click(<span style=\"color:Blue\">object</span> sender, RoutedEventArgs e)\r\n        {\r\n            <span style=\"color:Green\">// there is no wmf encoder in .NET. See http://msdn.microsoft.com/en-us/library/bb882579.aspx</span>\r\n            <span style=\"color:Green\">// add a reference to the System.Drawing dll in your Visual Studio project</span>\r\n            <span style=\"color:Green\">// as there is are no handles in WPF, how to create a Metafile</span>\r\n            <span style=\"color:Green\">// Then save it using GetEnhMetaFileBits?</span>\r\n\r\n            Microsoft.Win32.SaveFileDialog dlg = <span style=\"color:Blue\">new</span> Microsoft.Win32.SaveFileDialog();\r\n            dlg.FileName = <span style=\"color:#A31515\">&quot;Map&quot;</span>;\r\n            dlg.DefaultExt = <span style=\"color:#A31515\">&quot;.png&quot;</span>;\r\n            dlg.Filter = <span style=\"color:#A31515\">&quot;Portable Network Graphics (.png)|*.png|Joint Photographic Experts Group (.jpg)|*.jpg|Graphics Interchange Format (.gif)|*.gif|Windows Bitmap (.bmp)|*.bmp|Tagged Image File Format (.tif)|*.tif?&quot;</span>;\r\n            <span style=\"color:Blue\">if</span> (dlg.ShowDialog() == <span style=\"color:Blue\">true</span>)\r\n            {\r\n                RenderTargetBitmap bmp = <span style=\"color:Blue\">new</span> RenderTargetBitmap((<span style=\"color:Blue\">int</span>)MainMap.ActualWidth, (<span style=\"color:Blue\">int</span>)MainMap.ActualHeight, 96, 96, PixelFormats.Pbgra32);\r\n                bmp.Render(MainMap);\r\n                <span style=\"color:Blue\">string</span> Extension = System.IO.Path.GetExtension(dlg.FileName).ToLower();\r\n                BitmapEncoder encoder;\r\n                <span style=\"color:Blue\">if</span> (Extension == <span style=\"color:#A31515\">&quot;.gif&quot;</span>)\r\n                    encoder = <span style=\"color:Blue\">new</span> GifBitmapEncoder();\r\n                <span style=\"color:Blue\">else</span> <span style=\"color:Blue\">if</span> (Extension == <span style=\"color:#A31515\">&quot;.png&quot;</span>)\r\n                    encoder = <span style=\"color:Blue\">new</span> PngBitmapEncoder();\r\n                <span style=\"color:Blue\">else</span> <span style=\"color:Blue\">if</span> (Extension == <span style=\"color:#A31515\">&quot;.jpg&quot;</span>)\r\n                    encoder = <span style=\"color:Blue\">new</span> JpegBitmapEncoder();\r\n                <span style=\"color:Blue\">else</span> <span style=\"color:Blue\">if</span> (Extension == <span style=\"color:#A31515\">&quot;.bmp&quot;</span>)\r\n                    encoder = <span style=\"color:Blue\">new</span> BmpBitmapEncoder();\r\n                <span style=\"color:Blue\">else</span> <span style=\"color:Blue\">if</span> (Extension == <span style=\"color:#A31515\">&quot;.tif&quot;</span>)\r\n                    encoder = <span style=\"color:Blue\">new</span> TiffBitmapEncoder();\r\n                <span style=\"color:Blue\">else</span> <span style=\"color:Blue\">return</span>;\r\n\r\n                encoder.Frames.Add(BitmapFrame.Create(bmp));\r\n                <span style=\"color:Blue\">using</span> (Stream stm = File.Create(dlg.FileName))\r\n                {\r\n                    encoder.Save(stm);\r\n                }\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-02-12T05:41:07.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

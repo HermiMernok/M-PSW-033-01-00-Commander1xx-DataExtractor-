@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "732615",
+    "ThreadId": "287885",
+    "Html": "\r\n<p>Any chance for a distance scale overlay? This is something that pretty much every web-based slippy map has, and I think it wouyld be a very useful addition.</p>\r\n",
+    "PostedDate": "2012-01-30T05:48:00.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732618",
+    "ThreadId": "287885",
+    "Html": "<p>windows forms has property&nbsp;<strong>MapScaleInfoEnabled</strong>, currently wpf version doesn't have scale indicator</p>",
+    "PostedDate": "2012-01-30T05:59:23.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732660",
+    "ThreadId": "287885",
+    "Html": "<p>put in your GMapControl</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>    <span style=\"color: blue;\">Protected</span> <span style=\"color: blue;\">Overrides</span> <span style=\"color: blue;\">Sub</span> OnPaint(<span style=\"color: blue;\">ByVal</span> e <span style=\"color: blue;\">As</span> System.Windows.Forms.PaintEventArgs)\r\n        <span style=\"color: green;\">'rendering stuff</span>\r\n        <span style=\"color: blue;\">MyBase</span>.OnPaint(e)\r\n\r\n\r\n        <span style=\"color: green;\">'      Scale</span>\r\n        <span style=\"color: blue;\">Dim</span> ScaleAs <span style=\"color: blue;\">String</span> = <span style=\"color: blue;\">String</span>.Empty\r\n\r\n        <span style=\"color: blue;\">Try</span>\r\n            <span style=\"color: blue;\">Dim</span> StartPixel <span style=\"color: blue;\">As</span> PointLatLng = Form_Main.MainMap.FromLocalToLatLng(0, 100)\r\n            <span style=\"color: blue;\">Dim</span> StopPixel <span style=\"color: blue;\">As</span> PointLatLng = Form_Main.MainMap.FromLocalToLatLng(100, 100)\r\n            <span style=\"color: blue;\">Dim</span> Distance<span style=\"color: blue;\"> As</span> <span style=\"color: blue;\">Double</span> = (Form_Main.MainMap.MapProvider.Projection.GetDistance(StartPixel, StopPixel) * 1000)\r\n\r\n            <span style=\"color: blue;\">Dim</span> int_Distance <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span> = Convert.ToInt32(Distance)\r\n\r\n            <span style=\"color: blue;\">If</span> ((int_Distance &lt; 1000)) <span style=\"color: blue;\">Then</span>\r\n                Scale= (int_Distance.ToString + <span style=\"color: #a31515;\">\" m\"</span>)\r\n\r\n            <span style=\"color: blue;\">Else</span>\r\n                Distance= Distance/ 1000\r\n                Scale= Distance.ToString(<span style=\"color: #a31515;\">\"N2\"</span>) + <span style=\"color: #a31515;\">\" km\"</span>\r\n            <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n\r\n            e.Graphics.DrawRectangle(Pens.AntiqueWhite, (500 + i), (Height - 10), 25, 4)\r\n            e.Graphics.DrawRectangle(Pens.Black, (526 + i), (Height - 10), 24, 4)\r\n            e.Graphics.DrawRectangle(Pens.AntiqueWhite, (551 + i), (Height - 10), 24, 4)\r\n            e.Graphics.DrawRectangle(Pens.Black, (576 + i), (Height - 10), 25, 4)\r\n            e.Graphics.DrawString(Scale, Font, Brushes.BlanchedAlmond, (605 + i), (Height - 14))\r\n\r\n        <span style=\"color: blue;\">Catch</span> ex <span style=\"color: blue;\">As</span> Exception\r\n\r\n        <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Try</span>\r\n\r\n\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">Sub</span>\r\n</pre>\r\n</div>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>looks a little bit more like a scale.. ^^</p>\r\n<p>regards EDE</p>",
+    "PostedDate": "2012-01-30T07:24:31.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

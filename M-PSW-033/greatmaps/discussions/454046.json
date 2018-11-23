@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1083018",
+    "ThreadId": "454046",
+    "Html": "Hi radioman,\r<br />\n<br />\nAnother question:\r<br />\nIn your version DelteOlderThan is only implemented on the primairy cache and not on the secondairy. What happens with a tile in the secondairy if the same tile in the primairy cache is deleted?\r<br />\n<br />\nMarcel<br />\n",
+    "PostedDate": "2013-08-21T02:16:03.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083099",
+    "ThreadId": "454046",
+    "Html": "tile will be loaded from secondary cache and therefore will be added back to primary<br />\n",
+    "PostedDate": "2013-08-21T06:46:52.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085307",
+    "ThreadId": "454046",
+    "Html": "What is the reason DeleteOlderThan on secondairy cache is not implemented in your version of GMap?\r<br />\n<br />\nI have also created to methods to Delete a entire map from primairy or secundairy cache.\r<br />\nThis is handy when a complete tile server is updated.<br />\n",
+    "PostedDate": "2013-08-27T02:43:04.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1085429",
+    "ThreadId": "454046",
+    "Html": "i guess laziness ;/<br />\n",
+    "PostedDate": "2013-08-27T08:02:26.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

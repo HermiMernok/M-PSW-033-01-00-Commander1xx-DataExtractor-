@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "By default color is shared, use new Stroke for new color",
+    "ClosedDate": "2015-02-06T07:31:01.307-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "As stated in https://greatmaps.codeplex.com/discussions/457156 I was using version 1.6, and upgraded to the lastest beta (a3237323fb63) which resolved an issue with SetCurrentPositionByKeywords.\r\nWith the upgrade appeared a problem with the color of the routes.\r\nI have the following code runing inside a \"for/each\" which displays each route in a diferent color\r\n\r\n                        Dim p As GMap.NET.WindowsForms.GMapRoute\r\n                        p = New GMap.NET.WindowsForms.GMapRoute(directions.Route, \"Camino\")\r\n                        p.Stroke.Color = colores(j Mod 10)\r\n                        RutaNueva.Routes.Add(p)\r\n                        p.Stroke.DashCap = Drawing.Drawing2D.DashCap.Triangle\r\n                        p.Stroke.EndCap = Drawing.Drawing2D.LineCap.ArrowAnchor\r\n\r\nthis section was doing fine in 1.6, but with this version, it draws all the routes the same color (the last color in the loop).\r\nI´m doing something wrong, or is it some change in the new build that is affecting it?\r\n\r\nThanks a lot\r\n",
+    "LastUpdatedDate": "2015-02-06T07:31:01.307-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-09-20T09:38:31.117-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "color problem with GMapRoute",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 16079
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have the same issue v1.6 allowed for multiple routes each route could be set to a different color.  The latest hot build now allows for more flexibility with markers which is great but I lost the ability to change the color of individual routes.  The last selected color always colors all routes that color.\n\nOther then this routing problem I think this project is great!\n\nThanks,",
+      "PostedDate": "2015-02-06T05:55:12.16-08:00",
+      "Id": 173617
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "don't do that",
+    "ClosedDate": "2013-12-01T09:11:55.13-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi radioman great work .\r\nwhen we try to add a large amount of markers (>300)  and in the same time we try to update the position of already added markers we receive \"Collection was modified; enumeration operation may not execute.\"\r\nthis occurs in gmapcontrol.cs /  \"foreach(GMapMarker m in o.Markers)\"\r\nplease help ",
+    "LastUpdatedDate": "2013-12-01T09:11:55.13-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2013-12-01T07:57:18.12-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Message error Collection has been changed when adding alot of markers",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 16091
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

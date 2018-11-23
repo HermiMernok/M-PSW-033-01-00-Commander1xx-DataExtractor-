@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "629551",
+    "ThreadId": "261859",
+    "Html": "\r\n<p>Hi Radioman,<br>\r\n<br>\r\nCloudmade has real nice styling options for the OpenStreetMap and has a similar tiling system as OpenStreetMap. Anyone can create his own style or use a predefined one.<br>\r\nSee http://developers.cloudmade.com/projects/tiles/documents<br>\r\n<br>\r\nIs it possible to add this MapType? There are three parameters that should be made public (the first three).<br>\r\n<br>\r\nIn GMaps.cs in method MakeImageUrl:<br>\r\ncase MapType.CloudMade:<br>\r\n{<br>\r\n&nbsp;&nbsp;&nbsp; int cloudmadeStyleID = 1;<br>\r\n&nbsp;&nbsp;&nbsp; string cloudmadeKey = &quot;9c8d5daf12344694ad416589fcf9e9dc&quot;; // demo key of CloudMade<br>\r\n&nbsp;&nbsp;&nbsp; bool doubleResolution = true;<br>\r\n&nbsp;&nbsp;&nbsp; char letter = &quot;abc&quot;[GetServerNum(pos, 3)];<br>\r\n&nbsp;&nbsp;&nbsp; return string.Format(&quot;http://{0}.tile.cloudmade.com/{1}/{2}{3}/256/{4}/{5}/{6}.png&quot;, letter, cloudmadeKey, cloudmadeStyleID, (doubleResolution ? &quot;@2x&quot; : &quot;&quot;), zoom, pos.X, pos.Y);<br>\r\n}<br>\r\n<br>\r\nRegards,<br>\r\n<br>\r\nFrank</p>\r\n",
+    "PostedDate": "2011-06-18T07:17:42.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "629552",
+    "ThreadId": "261859",
+    "Html": "<p>thanks, i'll add after some testing</p>",
+    "PostedDate": "2011-06-18T07:23:45.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636429",
+    "ThreadId": "261859",
+    "Html": "<p>done, but i didn't make parameters public because different styles generate different tiles with the same cache id, so if you want custom cloudmade map just copy default cloudmade provider class, change guid, name and style id/whatever and that's it ;}</p>",
+    "PostedDate": "2011-07-02T08:44:34.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636626",
+    "ThreadId": "261859",
+    "Html": "<p>Excellent!</p>\r\n<p>Thanks, although I had to reset the timeout.</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>MyCloudMadeMapProvider myMap = MyCloudMadeMapProvider.Instance;\r\nGMapProvider.TimeoutMs = 30 * 1000;\r\nMainMap.MapProvider = myMap;\r\n<br /></pre>\r\n</div>\r\n<div style=\"color: black; background-color: white;\">Maybe in the future you might think to take parameters into the cache id calculation and then it should be possible to make them public, eg:</div>\r\n<div style=\"color: black; background-color: white;\">\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">readonly</span> Guid id = <span style=\"color: blue;\">new</span> Guid(StyleID,0,0,<span style=\"color: blue;\">new</span> <span style=\"color: blue;\">byte</span>[]{0,1,2,3,4,5,6,7});\r\n</pre>\r\n</div>\r\n</div>",
+    "PostedDate": "2011-07-03T06:16:11.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "636628",
+    "ThreadId": "261859",
+    "Html": "<p>yeah, it's possible</p>",
+    "PostedDate": "2011-07-03T06:22:48.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

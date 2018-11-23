@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1114660",
+    "ThreadId": "464611",
+    "Html": "I have written a GMap.NET map provider for New Zealand topomaps web service provided by the New Zealand government department LINZ.\r<br />\nIt is essentially a very small mod of the class MapBenderWMSProvider, with a changed URL to target the LINZ web services.\r<br />\nTo use it you will need to create a LINZ api key at <a href=\"http://data.linz.govt.nz/my/api/\" rel=\"nofollow\">http://data.linz.govt.nz/my/api/</a>\r<br />\n<br />\nThe only thing that really changes (apart from the GUID) from MapBenderWMSProvider is (obivously) the UrlFormat:<br />\n<pre><code>  static readonly string UrlFormat = &quot;http://wms.data.linz.govt.nz/{api key}/r/wms?service=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;SERVICE=WMS&amp;LAYERS=x767&amp;styles=&amp;bbox={0},{1},{2},{3}&amp;width={4}&amp;height={5}&amp;srs=EPSG:4326&amp;format=image/png&quot;;\n</code></pre>\n\nReplace {api key} with the API key generated from the LINZ site.<br />\n",
+    "PostedDate": "2013-10-30T15:45:41.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114935",
+    "ThreadId": "464611",
+    "Html": "thanks, i'll add it<br />\n",
+    "PostedDate": "2013-10-31T00:41:01.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

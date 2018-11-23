@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "804439",
+    "ThreadId": "347031",
+    "Html": "\r\n<p>When I press the &quot;Clear All&quot; button on &quot;cache&quot; tab, I receive the following message.&nbsp; &quot;Access to path 'System.Data.SqlLite.DLL' is denied.&quot;&nbsp; I'm assuming this is some sort of permissions error.&nbsp; How can I clear my cache?</p>\r\n",
+    "PostedDate": "2012-03-02T07:17:34.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "804532",
+    "ThreadId": "347031",
+    "Html": "<p>it's cleared, but because it's ony demo app, all kind of messages are expected ;} don't worry</p>",
+    "PostedDate": "2012-03-02T09:57:48.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "805747",
+    "ThreadId": "347031",
+    "Html": "<p>I'm not clear on this answer.&nbsp; I created my own app.&nbsp; I'm allowing the user to select an area and click save.&nbsp; Once they click save, I clear the cache and the perform a prefetch.&nbsp; Once the prefetch is complete, I perform an export.&nbsp; The problem is, I cannot clear the cache because I receive the 'Access to path is denied'.&nbsp; How can I clear the cache, so when I perform a prefetch then export, I'm only saving data the user wanted.</p>",
+    "PostedDate": "2012-03-05T12:02:01.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806028",
+    "ThreadId": "347031",
+    "Html": "<p>try:&nbsp;MainMap.Manager.PrimaryCache.DeleteOlderThan(DateTime.Now, null);</p>",
+    "PostedDate": "2012-03-06T00:54:02.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806438",
+    "ThreadId": "347031",
+    "Html": "<p>Works like a charm.&nbsp; Thanks.&nbsp; BTW, awesome control.</p>",
+    "PostedDate": "2012-03-06T12:19:04.89-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

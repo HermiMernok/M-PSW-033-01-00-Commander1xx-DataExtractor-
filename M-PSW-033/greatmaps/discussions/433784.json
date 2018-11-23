@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1003914",
+    "ThreadId": "433784",
+    "Html": "Hi,\r<br />\n<br />\nI'm using the last source code (5da227f4f098).\r<br />\nI saw that using OSM like GeocodingProvider and searching for Paris (just an exemple), the map is centering on ... Las Vegas.\r<br />\nUsing Bing go to an exception &quot;Google Maps Geocoder can't find: 'Paris', ...&quot;.\r<br />\nWith GoogleMap like GeocodingProvider, show the right position.\r<br />\n<br />\nWe find the same behaviour in WindowsForm and WPF.\r<br />\n<br />\nHow can be fix it?\r<br />\n<br />\nThank you !<br />\n",
+    "PostedDate": "2013-02-20T02:16:52.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003953",
+    "ThreadId": "433784",
+    "Html": ";} it's <strong>Paris casino</strong>, i guess you need to add more parameters to get 'real' city: &quot;paris, france&quot;\r<br />\n<br />\n<img src=\"http://img651.imageshack.us/img651/7690/gmapnetimage.png\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2013-02-20T04:18:44.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003975",
+    "ThreadId": "433784",
+    "Html": "Yes, you are right.\r<br />\n<br />\nThank you !<br />\n",
+    "PostedDate": "2013-02-20T05:20:55.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1003983",
+    "ThreadId": "433784",
+    "Html": "or you can set GMapProviders.OpenStreetMap.<strong>MinExpectedRank</strong> = 0; // i'll make this by default<br />\n",
+    "PostedDate": "2013-02-20T05:31:52.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1004104",
+    "ThreadId": "433784",
+    "Html": "p.s. 'fixed' bing provider to automatically get client key or else you have to set it yourself manualy<br />\n",
+    "PostedDate": "2013-02-20T08:56:06.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

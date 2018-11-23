@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1050325",
+    "ThreadId": "445375",
+    "Html": "Hi all\r<br />\nI am quite new with GMap.net and i use it in vb.net project.\r<br />\nI would use values of two textbox (latitude and longitude values) in my form for display New GMap.NET.PointLatLng.\r<br />\nI think final part of code is:<br />\n<pre><code>New GMap.NET.PointLatLng(New PointLatLng(lat, lng)) </code></pre>\n\nI think that possible but how ?<br />\n",
+    "PostedDate": "2013-05-29T14:11:27.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050452",
+    "ThreadId": "445375",
+    "Html": ";/<br />\n",
+    "PostedDate": "2013-05-29T23:17:28.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050668",
+    "ThreadId": "445375",
+    "Html": "Please radioman answer me it's very important for me\r<br />\n<br />\nI test this:<br />\n<pre><code>        Dim lat As Double = TextBox2.Text\n        Dim lng As Double = TextBox3.Text\n        GMapControl1.Position = New GMap.NET.PointLatLng(lat, lng)</code></pre>\n\nBut i get error.\r<br />\nThanks<br />\n",
+    "PostedDate": "2013-05-30T08:19:27.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050902",
+    "ThreadId": "445375",
+    "Html": "I use this now:<br />\n<pre><code>        Dim i As Integer = 0\n        Dim x As String = NsTextBox2.Text\n        Dim y As String = NsTextBox3.Text\n        If Integer.TryParse(x, i) Then\n            GMapControl1.Position = New PointLatLng(x, y)\n        Else\n        End If\n        If Integer.TryParse(y, i) Then\n            GMapControl1.Position = New PointLatLng(x, y)\n        Else\n        End If</code></pre>\n\nNo error but nothing happened.\r<br />\n<strong>Is there no way for one user enter coordinates in form and see result with GMap.NET ?</strong><br />\n",
+    "PostedDate": "2013-05-30T15:53:37.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051012",
+    "ThreadId": "445375",
+    "Html": "check the demo projects, works perfectly<br />\n",
+    "PostedDate": "2013-05-30T23:29:06.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051094",
+    "ThreadId": "445375",
+    "Html": "<ol>\n<li>i should be a double, use Double.TryParse(...)</li>\n<li>Get both values (Latitude AND Longitude) first, THEN set Position.</li>\n</ol>\n",
+    "PostedDate": "2013-05-31T02:41:10.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051248",
+    "ThreadId": "445375",
+    "Html": "Ok finally work fine ;)\r<br />\nI found code in MainForm.cs, i don't see this before\r<br />\nin vb.net:<br />\n<pre><code>    Try\n            Dim lat As Double = Double.Parse(NsTextBox2.Text, CultureInfo.InvariantCulture)\n            Dim lng As Double = Double.Parse(NsTextBox3.Text, CultureInfo.InvariantCulture)\n\n            Me.GMapControl1.Position = New PointLatLng(lat, lng)\n        Catch ex As Exception\n            MessageBox.Show(&quot;incorrect coordinate format: &quot; + ex.Message)\n        End Try</code></pre>\n\nThat can help vb coder ;)\r<br />\n<br />\nMany thanks for Radioman and Xandolph for your help.<br />\n",
+    "PostedDate": "2013-05-31T08:29:45.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

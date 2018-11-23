@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "659620",
+    "ThreadId": "269467",
+    "Html": "\r\n<p>Hi Radioman!</p>\r\n<p>With the latest GMaps version, GoogleMaps takes nearly 19 seconds to load, Bing maps nearly 9 seconds, whereas OpenstreetMaps takes only 1.5 seconds.</p>\r\n<p>How can I speed up the load? Here's my testcode:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> DateTime start;\r\n        <span style=\"color:blue\">public</span> Form1()\r\n        {\r\n            start = DateTime.Now;\r\n            InitializeComponent();\r\n            map.MapProvider = GMapProviders.BingMap;\r\n            map.Position = <span style=\"color:blue\">new</span> PointLatLng(48, 16.4);\r\n            map.MinZoom = 1;\r\n            map.MaxZoom = 21;\r\n            map.Zoom = 12; \r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> Form1_Shown(<span style=\"color:blue\">object</span> sender, EventArgs e)\r\n        {\r\n            MessageBox.Show(String.Format(<span style=\"color:#a31515\">&quot;Loaded {0} in {1} seconds!&quot;</span>, map.MapProvider.ToString(),  (DateTime.Now - start).TotalSeconds));\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Thanks a lot!</p>\r\n",
+    "PostedDate": "2011-08-17T13:34:34.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659631",
+    "ThreadId": "269467",
+    "Html": "<p>delay is only first time to get correct version numbers from google/bing, they change them to make life more complicated ;D</p>\r\n<p>..actually versions are cached and reloaded each 8 hours</p>\r\n<p>p.s. you can disable this by setting provider.TryCorrectVersion = false, but you'll get old tiles and probably be banned for a while ;}</p>",
+    "PostedDate": "2011-08-17T13:46:53.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659659",
+    "ThreadId": "269467",
+    "Html": "<p>Thanks for your reply, can I also just remove this code from GoogleMapProvider.Cs OnInitialized() method:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">if</span>(Debugger.IsAttached &amp;&amp; ver != old)\r\n{\r\n    Thread.Sleep(5555);\r\n}\r\n</pre>\r\n</div>\r\n</p>\r\n<p>or is the Thread.Sleep(5555) method necessary?</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-08-17T14:33:39.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659811",
+    "ThreadId": "269467",
+    "Html": "<p>it's just for debugging, so i can see when versions changed, has no other meaning</p>",
+    "PostedDate": "2011-08-17T23:45:48.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661941",
+    "ThreadId": "269467",
+    "Html": "<p>Is there any way to speed this up.&nbsp; It didn't happen in previous versions.</p>\r\n<p>Now my users are complaining about having to wait 20 seconds or so when they first go into a screen containing a map.</p>\r\n<p>Thanks,</p>\r\n<p>Paul.</p>",
+    "PostedDate": "2011-08-23T00:45:55.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661956",
+    "ThreadId": "269467",
+    "Html": "<p>How about storing the last checked date in the tiles database, and only set .TryCorrectVersion = true if different.&nbsp; Then the versions will only be checked once each day, and not every time a new instance of the app is opened by each user ?</p>",
+    "PostedDate": "2011-08-23T01:35:21.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661979",
+    "ThreadId": "269467",
+    "Html": "<p>Just remove the</p>\n<pre><span style=\"color: blue;\">if</span>(Debugger.IsAttached &amp;&amp; ver != old)\n{\n    Thread.Sleep(5555);\n}<br /><br />(3 times for Google Maps, 1 time for Bing Maps)<br /><br />Then it takes only 1 or 2 seconds.</pre>",
+    "PostedDate": "2011-08-23T02:39:06.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665398",
+    "ThreadId": "269467",
+    "Html": "<p>versions are checked each 8 hours, in between using cached values</p>\r\n<p>p.s. i do not recommend using debug versions, it's a lot slower</p>",
+    "PostedDate": "2011-08-30T10:16:25.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

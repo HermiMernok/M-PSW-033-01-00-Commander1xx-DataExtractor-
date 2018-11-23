@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "903679",
+    "ThreadId": "392973",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I have a roadnetwork with about 500 roads, they consist of about 230.000 GPS points. I can display them without any problems, but when I set route.IsHitTestVisible the performance drops down dramatically, when the ZoomLevel is about 17. Even if I just display\r\n only one longer road, the performance is gone...</p>\r\n<p>With Zoom 19 it takes more than 30 seconds to refresh the mapcontrol once!</p>\r\n<p>The problem is obviously the GraphicsPath.IsOutlineVisible method, it is just too slow when the graphicspath is getting more and more complex (i.e. zoom is bigger). My idea now would be to just check the parts of the graphicspathes that are WITHIN the current\r\n view area.&nbsp;</p>\r\n<p>Does anyone have any idea how to accomplish that?</p>\r\n<p>Thanks a lot!</p>\r\n<p>Xandolph</p>\r\n",
+    "PostedDate": "2012-08-24T09:41:21.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903683",
+    "ThreadId": "392973",
+    "Html": "<p>this whole stuff is complex, specialy in optimizations..</p>\r\n<p>..well rebuilding paths based on current view would definitely improve the speeds, exluding not visible points, ..but rebuild itself can become a slow point</p>\r\n<p>..as <a href=\"http://www.eevblog.com/\" target=\"_blank\">eevblog.com&nbsp;</a> guy likes to say: you can play with this stuff <em>untill the cows come hom</em>e ;D</p>",
+    "PostedDate": "2012-08-24T09:55:17.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1030726",
+    "ThreadId": "392973",
+    "Html": "I had similar problems and changed the code of this IsInside function in GMapRoute.cs to this.<br />\n<br />\nEDIT : Solution optimized. I developed a high performing 'IsInside' function.<br />\n<br />\nThis performs better in higher and lower zoom levels. It creates a rectangle for every 2 points with a bit of margin. It only adds point combinations where mousepointer is inside the rectangle box of these 2 points to a custom graphicspath. Essentially this is filtering the possible pathlines before 'IsOutlineVisible' is called. Because the number of graphical items is greatly reduced inside the graphicspath the 'IsOutlineVisible' will be lightening fast. Of course the downside is for every mousemovement all points have to be examined however it is still much faster.<br />\n<br />\nI real math brain I bet would be able to optimize this code to not use graphicspath at all although I doubt it is worth the effort because there is not much to gain anymore.<br />\n<br />\nI would recommend putting it into the main branch.<br />\n<pre><code>        internal bool IsInside(int x, int y)\n        {\n            if (graphicsPath != null)\n            {\n                //return graphicsPath.IsOutlineVisible(x, y, Stroke);\n                if (!graphicsPath.GetBounds().Contains(new PointF(x, y)))\n                {\n                    return false;\n                }\n\n                float offset = Stroke.Width + 5;\n\n                GraphicsPath gp2 = new GraphicsPath();\n                for (int i = 0; i &lt; LocalPoints.Count; i++)\n                {\n                    if (i &gt; 0)\n                    {\n                        GPoint p1 = LocalPoints[i - 1];\n                        GPoint p2 = LocalPoints[i];\n\n                        if (InsideRect(p1, p2, (int)offset, x, y))\n                            gp2.AddLine(p1.X, p1.Y, p2.X, p2.Y);\n                    }\n                }\n                return gp2.IsOutlineVisible(x, y, Stroke);\n            }\n\n            return false;\n        }\n\n        private bool InsideRect(GPoint p1, GPoint p2, int offset, int x, int y)\n        {\n            long x1, x2, y1, y2;\n            \n            if (p1.X &lt; p2.X)\n            {\n                x1 = p1.X - offset;\n                x2 = p2.X + offset;\n            }\n            else\n            {\n                x1 = p2.X - offset;\n                x2 = p1.X + offset;\n            }\n\n            if (p1.Y &lt; p2.Y)\n            {\n                y1 = p1.Y - offset;\n                y2 = p2.Y + offset;\n            }\n            else\n            {\n                y1 = p2.Y - offset;\n                y2 = p1.Y + offset;\n            }\n\n            return (((x &gt;= x1) &amp; (x &lt;= x2)) &amp;\n                    ((y &gt;= y1) &amp; (y &lt;= y2)));\n        }</code></pre>\n\n",
+    "PostedDate": "2013-04-15T09:59:02.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1330141",
+    "ThreadId": "392973",
+    "Html": "I recently had the same issue, and adding the new code JP1980 wrote significantly improved my rendering performance. Unless there is some bug in the code, I would also recommend merging this in the main branch.<br />\n",
+    "PostedDate": "2014-12-09T06:32:14.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1331042",
+    "ThreadId": "392973",
+    "Html": "thanks, i'll check it later<br />\n",
+    "PostedDate": "2014-12-11T07:59:49.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1332685",
+    "ThreadId": "392973",
+    "Html": "Actually there is a slight bug with the code above. If your route is a perfectly vertical or horizontal line (basically if your bounds RectangleF has a Width or Height of 0), it will fail the hit test. I've fixed it to catch that edge case. It still fixes the high level of stutter at high zoom levels.<br />\n<pre><code>     internal bool IsInside(int x, int y)\n        {\n            if (graphicsPath != null)\n            {\n                //return graphicsPath.IsOutlineVisible(x, y, Stroke);\n                var bounds = graphicsPath.GetBounds();\n                if(!PointInRect(bounds, new PointF(x, y))) {\n                    return false;\n                }\n\n                float offset = Stroke.Width + 5;\n\n                GraphicsPath gp2 = new GraphicsPath();\n                for (int i = 0; i &lt; LocalPoints.Count; i++)\n                {\n                    if (i &gt; 0)\n                    {\n                        GPoint p1 = LocalPoints[i - 1];\n                        GPoint p2 = LocalPoints[i];\n\n                        if (InsideRect(p1, p2, (int)offset, x, y))\n                            gp2.AddLine(p1.X, p1.Y, p2.X, p2.Y);\n                    }\n                }\n                return gp2.IsOutlineVisible(x, y, Stroke);\n            }\n\n            return false;\n        }\n\n        private bool PointInRect(RectangleF rect, PointF point) {\n            return point.X &gt;= rect.X\n                &amp;&amp; point.X &lt;= rect.X + rect.Width\n                &amp;&amp; point.Y &gt;= rect.Y\n                &amp;&amp; point.Y &lt;= rect.Y + rect.Height;\n        }\n\n        private bool InsideRect(GPoint p1, GPoint p2, int offset, int x, int y)\n        {\n            long x1, x2, y1, y2;\n\n            if (p1.X &lt; p2.X)\n            {\n                x1 = p1.X - offset;\n                x2 = p2.X + offset;\n            }\n            else\n            {\n                x1 = p2.X - offset;\n                x2 = p1.X + offset;\n            }\n\n            if (p1.Y &lt; p2.Y)\n            {\n                y1 = p1.Y - offset;\n                y2 = p2.Y + offset;\n            }\n            else\n            {\n                y1 = p2.Y - offset;\n                y2 = p1.Y + offset;\n            }\n\n            return (((x &gt;= x1) &amp; (x &lt;= x2)) &amp;\n                    ((y &gt;= y1) &amp; (y &lt;= y2)));\n        }</code></pre>\n\n",
+    "PostedDate": "2014-12-15T13:37:24.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1332936",
+    "ThreadId": "392973",
+    "Html": "Thanks 'whoseonit' for your contribution. Didn't notice the bug yet, although I will update my code.\r<br />\nI think this code should be in main branch because I think a lot will benefit from the performance gain although of course it should be well tested.<br />\n",
+    "PostedDate": "2014-12-16T10:00:33.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427951",
+    "ThreadId": "392973",
+    "Html": "Hey there,<br />\n<br />\nI have the same problem but I don't know how to implement the code.<br />\nWhere do I get the &quot;graphicsPath&quot; from?<br />\n<br />\nCould someone show me how it is implemented?<br />\n<br />\nThanks in advance!<br />\n<br />\nEDIT:<br />\nfigured it out =)<br />\nchanged the code in the source of GMapRoute and compiled new dll<br />\n<br />\nTHANKS!<br />\n",
+    "PostedDate": "2015-05-28T10:38:32.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "262182",
+    "ThreadId": "76666",
+    "Html": "<p>Radioman,</p>\r\n<p>Now that i know how to solve what i want i start all over. This time in WPF.</p>\r\n<p>After starting up a new project i have tried to drag the control to my frame. But can not get control on frame.</p>\r\n<p>It is in my toolbar, i have added the references to the DLL's.</p>\r\n<p>What can be wrong??</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-01T01:23:48.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262184",
+    "ThreadId": "76666",
+    "Html": "<p>no idea, try just include control namespace in xaml</p>",
+    "PostedDate": "2009-12-01T01:26:05.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262240",
+    "ThreadId": "76666",
+    "Html": "<p>Solved,</p>\r\n<p>Disposed the project and started a new one in same matter.</p>\r\n<p>Strange but true.</p>\r\n<p>Hein</p>",
+    "PostedDate": "2009-12-01T04:16:41.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262366",
+    "ThreadId": "76666",
+    "Html": "<p>and it worked? .i know in windows form can be Design mode detection issues, but on wpf it should work well</p>",
+    "PostedDate": "2009-12-01T09:26:21.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262682",
+    "ThreadId": "76666",
+    "Html": "<p>Yes it is working now. But now i encounter problems due to differences between Windows.Forms and WPF. In Windows forms i could draw shapes on gmapcontrol but in WPF i can not draw on gmapcontrol.(don't know how) &nbsp;In Windows.Forms i could use handle of gmapcontrol to &quot;connect&quot; graphics to gmapcontrol. But i don't know how to do this is WPF. I have looked in your WPF demo but couldn't find out how you do the circle trick. (how hard can it be???) again) any help from your side?</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-02T04:05:10.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262683",
+    "ThreadId": "76666",
+    "Html": "<p>well it's just a circle shape added to markers, check functions in demo:</p>\r\n<ul>\r\n<li>AddDemoZone</li>\r\n<li>UpdateCircle</li>\r\n</ul>\r\n<p>quite easy ;}</p>",
+    "PostedDate": "2009-12-02T04:08:44.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262722",
+    "ThreadId": "76666",
+    "Html": "<p>Quite easy....</p>\r\n<p>I have tried to figure out, but still don't know how to set my drawn polygon as a marker, or how to set a marker as a polygon...</p>\r\n<p>So probably i am stupid because still not working</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-02T05:48:44.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262755",
+    "ThreadId": "76666",
+    "Html": "<p>probably, you need to create some visual(via xaml or in code) and use it as a marker ;}</p>",
+    "PostedDate": "2009-12-02T07:14:01.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262764",
+    "ThreadId": "76666",
+    "Html": "<p>This is what i have so far</p>\r\n<pre>Dim myMarker As GMapMarker = New GMap.NET.WindowsPresentation.GMapMarker(myPoint)\r\nDim myPolygon As New Polygon()\r\n</pre>\r\n<pre>myPolygon.Stroke = System.Windows.Media.Brushes.Black\r\nmyPolygon.Fill = System.Windows.Media.Brushes.LightSeaGreen\r\nmyPolygon.StrokeThickness = 2\r\nmyPolygon.HorizontalAlignment = HorizontalAlignment.Left\r\nmyPolygon.VerticalAlignment = VerticalAlignment.Center\r\nmyPolygon.Points = myPointCollection\r\nmyMarker.Shape.TransformToVisual(myPolygon)\r\nGMapControl1.Markers.Add(myMarker)</pre>\r\n<pre>' myPoint is lat/lng coordinate</pre>\r\n<pre>' myPointCollection is filled with latlngtolocal coordinates</pre>\r\n<pre>Code gives error: Objectreference not set to instance of an object</pre>\r\n<pre>Any idea?</pre>",
+    "PostedDate": "2009-12-02T07:38:32.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262768",
+    "ThreadId": "76666",
+    "Html": "<pre style=\"font-size:1em;font-family:Consolas, 'Courier New', Courier, monospace\">myMarker.Shape.TransformToVisual(myPolygon) wtf? ;}</pre>",
+    "PostedDate": "2009-12-02T07:48:15.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262794",
+    "ThreadId": "76666",
+    "Html": "<p>myMarker.shape = myPolygon did the job.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-02T08:34:39.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262821",
+    "ThreadId": "76666",
+    "Html": "<p>Complety working now, including zoom and opacity.</p>\r\n<p>As always not to difficult at the at.......</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-02T09:34:14.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "262822",
+    "ThreadId": "76666",
+    "Html": "<p>great! Keep going ;}</p>",
+    "PostedDate": "2009-12-02T09:36:05.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263253",
+    "ThreadId": "76666",
+    "Html": "<p>Heru,</p>\r\n<p>Can you please share how you implemented zoom? I assume it's a variation of the WPF Demo's UpdateCircle?</p>\r\n<p>Thanks for your consideration.</p>",
+    "PostedDate": "2009-12-03T08:27:21.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263256",
+    "ThreadId": "76666",
+    "Html": "<p>djlaycock,</p>\r\n<p>What is do is:</p>\r\n<p>1) Obtain a list of the coordinates which present my polygon</p>\r\n<p>2) read coordinates and draw polygon</p>\r\n<p>When zooming repeat step 2</p>\r\n<p>&nbsp;</p>\r\n<p>For me this is the easiest way. Building and drawing polygon is just fraction of second.</p>\r\n<p>If you like i can share code with you.</p>\r\n<p>&nbsp;</p>\r\n<p>Heru</p>",
+    "PostedDate": "2009-12-03T08:32:11.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263259",
+    "ThreadId": "76666",
+    "Html": "<p>yes, and you can use <strong>FromLatLngToLocal</strong> for building the polygon</p>",
+    "PostedDate": "2009-12-03T08:35:17.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "263707",
+    "ThreadId": "76666",
+    "Html": "<p>Heru, as you offered in you last post, can you please share your code?</p>",
+    "PostedDate": "2009-12-04T09:35:38.633-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

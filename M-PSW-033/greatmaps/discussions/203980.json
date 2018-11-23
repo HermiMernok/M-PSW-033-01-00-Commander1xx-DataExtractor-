@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "414710",
+    "ThreadId": "203980",
+    "Html": "<p>Hi i appreciate this open source and I have one thing curiosity for position of route</p>\r\n<p>I want to make a moving object in route between start and end marker.</p>\r\n<p>I can get point by start and end. and also I can get the points however I need to use this value for velocity for a moving object.</p>\r\n<p>Here is I did several time, set a start point and end point with 1km distance then I get only two of points list value.</p>\r\n<p>Can i get bigger components of list for point of Lat, and Lng?</p>",
+    "PostedDate": "2010-03-05T10:55:23.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "414720",
+    "ThreadId": "203980",
+    "Html": "<p>if you have only two point, you can make route via&nbsp;MainMap.Manager.<strong>GetRouteBetweenPoints</strong></p>",
+    "PostedDate": "2010-03-05T11:22:26.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "414724",
+    "ThreadId": "203980",
+    "Html": "<p>No i mean the within the route</p>\r\n<p>I did make a route and</p>\r\n<p>&quot;</p>\r\n<p><span style=\"font-size:x-small\">\r\n<p><span style=\"color:#888888\">MapRoute route = GMaps.Instance.GetRouteBetweenPoints(start, end,</span></p>\r\n</span>\r\n<p><span style=\"color:#888888\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">false</span></span><span style=\"font-size:x-small\">, (</span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">int</span></span><span style=\"font-size:x-small\">) MainMap.Zoom);</span></span></p>\r\n</p>\r\n<p><span style=\"font-size:x-small;color:#2b91af\"><span style=\"font-size:x-small;color:#2b91af\">\r\n<p><span style=\"color:#888888\">for (int i =0; route.Points.count; i++)</span></p>\r\n<p><span style=\"color:#888888\"><span style=\"font-size:x-small\">Console.WriteLine(</span><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&quot;position is {0}&quot;</span></span><span style=\"font-size:x-small\">, route.Points[i]);</span></span></p>\r\n<p><span style=\"color:#888888\"><span style=\"font-size:x-small\">&quot;</span></span></p>\r\n<p>within the button3_Click() function.</p>\r\n<p><span style=\"color:#000000\">I only get 4 points&nbsp;component&nbsp;from list with&nbsp;3 km.</span></p>\r\n<p><span style=\"color:#000000\">can i get more than 4 points. where do i need to change the&nbsp;cood</span>&nbsp;&nbsp;</p>\r\n</span></span></p>",
+    "PostedDate": "2010-03-05T11:45:18.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "414733",
+    "ThreadId": "203980",
+    "Html": "<p>increase zoom ;}</p>",
+    "PostedDate": "2010-03-05T12:32:22.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "414777",
+    "ThreadId": "203980",
+    "Html": "<p>I have tried but it is not working where do I need to change ?</p>",
+    "PostedDate": "2010-03-05T14:16:28.983-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "414971",
+    "ThreadId": "203980",
+    "Html": "<p>in the second line of your code ;}</p>",
+    "PostedDate": "2010-03-06T07:02:59.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

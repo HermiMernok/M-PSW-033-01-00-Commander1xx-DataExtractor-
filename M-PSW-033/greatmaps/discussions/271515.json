@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "667717",
+    "ThreadId": "271515",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>Could someone tell me how to get a list of MapTypes so I can fill a combo box? I use vb but c code would do.</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2011-09-05T06:46:38.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667719",
+    "ThreadId": "271515",
+    "Html": "<p>check the domo source:</p>\r\n<p><em>comboBoxMapType.ValueMember = \"Name\";</em><br /><em> comboBoxMapType.DataSource = GMapProviders.<strong>List</strong>; </em><br /><em> comboBoxMapType.SelectedItem = MainMap.MapProvider;&nbsp;</em></p>",
+    "PostedDate": "2011-09-05T06:53:51.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667732",
+    "ThreadId": "271515",
+    "Html": "<p>Thanks Radioman</p>",
+    "PostedDate": "2011-09-05T07:16:21.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667740",
+    "ThreadId": "271515",
+    "Html": "<p>I don't seem to have ﻿﻿﻿﻿﻿gmap.net.mapproviders so i can't use imports gmap.net.mapproviders?﻿</p>\r\n<p>I have :-</p>\r\n<p>﻿Imports GMap.NET</p>\r\n<p>Imports GMap.NET.WindowsForms</p>\r\n<p>Imports GMap.NET.WindowsForms.Markers</p>\r\n<p>Imports GMap.NET.WindowsForms.ToolTips</p>",
+    "PostedDate": "2011-09-05T07:29:49.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667741",
+    "ThreadId": "271515",
+    "Html": "<p>you use old version, download latest&nbsp;http://greatmaps.codeplex.com/SourceControl/list/changesets</p>",
+    "PostedDate": "2011-09-05T07:33:03.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667755",
+    "ThreadId": "271515",
+    "Html": "<p>Did that and lost maptype so it broke my app so reverted back to old one.</p>",
+    "PostedDate": "2011-09-05T08:03:27.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667786",
+    "ThreadId": "271515",
+    "Html": "<p>i do not support old versions, just replace maptypes with providers, piece of cake</p>",
+    "PostedDate": "2011-09-05T09:47:02.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667796",
+    "ThreadId": "271515",
+    "Html": "<p>Hi Radioman, it's simple to you, i use vb not c and your wrote the source code. The dll's i am using are from GMap.NET.WindowsForms\\bin\\Debug and the programe complains it can't find projection or maptype. I have looked for providers but cannot find it. If the dll's are not up to date could someone please compile the new ones and put them somewhere for us vb people? I really appreciate all your hard work but we do have to struggle a bit compiling, i used Sharp Develop with no joy. The reason i have been using the old dll's is that i downloaded the examples at <a href=\"http://greatmaps.codeplex.com/releases/view/20235\">http://greatmaps.codeplex.com/releases/view/20235</a>&nbsp;and used the dll's in them so shouldn't they be updated to stop any confusion?</p>\r\n<p>Sorry it you think a went on a bit, just trying to help.</p>",
+    "PostedDate": "2011-09-05T10:10:12.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667800",
+    "ThreadId": "271515",
+    "Html": "<p>why not use visual studio, hit ctrl+F5, and grab dlls? ;} ..anyway i'll update release, source version seems working correctly, ..had some reconstruction again ;D</p>",
+    "PostedDate": "2011-09-05T10:26:12.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667807",
+    "ThreadId": "271515",
+    "Html": "<p>Thanks a lot, your a good man :-)</p>",
+    "PostedDate": "2011-09-05T10:48:11.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "667809",
+    "ThreadId": "271515",
+    "Html": "<p>I haven't got c installed in visual studio because i had no need for it, will install anyway and give it a go. Thanks</p>",
+    "PostedDate": "2011-09-05T10:50:07.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "670146",
+    "ThreadId": "271515",
+    "Html": "<p>i've included build script, so you do not need visual studio anymore for this:&nbsp;...\\GMap.NET\\Build\\<strong>Build Demos.bat</strong></p>\n<p>p.s. now latest changeset are build automatically</p>\n<p>cheers ;}</p>",
+    "PostedDate": "2011-09-10T12:51:10.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "671072",
+    "ThreadId": "271515",
+    "Html": "<p>Great job, that will make it easier for us VB people!</p>",
+    "PostedDate": "2011-09-13T03:43:23.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

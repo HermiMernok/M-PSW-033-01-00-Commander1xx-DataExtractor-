@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "684783",
+    "ThreadId": "276037",
+    "Html": "\r\n<p>Hi, i'm facing some problem in the Gmap.NET.</p>\r\n<p>FYI, i'm a newbie, i dl the source code at <a href=\"http://www.codeproject.com/KB/miscctrl/GMapNET.aspx?msg=3016125\">\r\nhttp://www.codeproject.com/KB/miscctrl/GMapNET.aspx?msg=3016125</a></p>\r\n<p>i added all the references which are&nbsp;GMap.NET.WindowsForms.dll,&nbsp;GMap.NET.Core.dll,&nbsp;System.Data.SQLite.DLL.</p>\r\n<p>then i using :</p>\r\n<p><span style=\"color:#0000ff\">using</span> System;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.Collections.Generic;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.ComponentModel;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.Data;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.Drawing;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.Linq;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.Text;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.Windows.Forms;</p>\r\n<p><span style=\"color:#0000ff\">using</span> GMap.NET;</p>\r\n<p><span style=\"color:#0000ff\">using</span> GMap.NET.WindowsForms;</p>\r\n<p><span style=\"color:#0000ff\">using</span> System.Data.SQLite;</p>\r\n<p>Now, when i build solution, the code &quot;MainMap&quot; tend to be underlined by blueline. the error shows &quot; The name 'MainMap' does not exist in the current context&quot;</p>\r\n<p>so i was wondering, did i missed any .dll files?</p>\r\n<p>when i tried to troubleshoot this problem, i tried to add in &quot; <span style=\"color:#0000ff\">\r\nusing</span> Gmap.NET.MapProviders; &quot;.</p>\r\n<p>at this moment, the &quot; MainMap &quot;code not underlined anymore, but when i started to bulid solution, 1 error occur, which is &quot; The type or namespace name 'MapProviders' does not exist in the namespace 'Gmap.NET' (are you missing an assembly reference?).</p>\r\n<p>So, what is the problem actually? any solution to help me? Thanks very much =)</p>\r\n",
+    "PostedDate": "2011-10-15T23:01:13.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684823",
+    "ThreadId": "276037",
+    "Html": "<p>download hot build or the latest source, there are two demos how to do some stuff</p>",
+    "PostedDate": "2011-10-16T04:37:58.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684837",
+    "ThreadId": "276037",
+    "Html": "<p>i downloaded the latest hot build. i copy the code from&nbsp;<a href=\"http://www.codeproject.com/KB/miscctrl/GMapNET.aspx?fid=1533855&amp;df=90&amp;mpp=25&amp;noise=3&amp;prof=False&amp;sort=Position&amp;view=Quick&amp;select=3016125&amp;fr=165\">http://www.codeproject.com/KB/miscctrl/GMapNET.aspx?fid=1533855&amp;df=90&amp;mpp=25&amp;noise=3&amp;prof=False&amp;sort=Position&amp;view=Quick&amp;select=3016125&amp;fr=165</a></p>\r\n<p>is that the code? or there are any other code?</p>\r\n<p>i used the hot build file (those .dll file) but the \"MainMap\" still underlined by blue line. why?</p>",
+    "PostedDate": "2011-10-16T06:34:42.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "684839",
+    "ThreadId": "276037",
+    "Html": "<p>because there is no MainMap in your app ;} just get the demos and explore</p>",
+    "PostedDate": "2011-10-16T06:57:06.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1471737",
+    "ThreadId": "654158",
+    "Html": "I've tried to make simple test how Add Marker work in Windows XP sp3 but not found any solution..<br />\n<ul>\n<li>Program running in fresh install Windows XP sp3</li>\n<li>Net FrameWork 4.0</li>\n<li>Build in VS2015, C#, WinForm</li>\n<li>\nUsing GMap.NET.WindowsForms version 1.7<br />\n</li>\n</ul>\n<strong>This My Code in Form_Load</strong>\r<br />\n// Initialize map:<br />\n<pre><code>        gmap.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;\n        GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;\n        gmap.SetPositionByKeywords(&quot;Jakarta, Indonesia&quot;);\n        gmap.Zoom = 17;\n</code></pre>\n\n<strong>This is My Code in KeyDown Enter</strong><br />\n<pre><code>                   if (e.Keycode == Keys.Enter)\n                   {\n                    gmap.Position = new PointLatLng(Convert.ToDouble(&quot;-6.1010099&quot;), Convert.ToDouble(&quot;106.9605473&quot;));\n                    GMapOverlay markersOverlay = new GMapOverlay(&quot;markers&quot;);\n                    GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(&quot;-6.1010099&quot;), Convert.ToDouble(&quot;106.9605473&quot;)),\n                      GMarkerGoogleType.green);\n                    markersOverlay.Markers.Add(marker);\n                    gmap.Overlays.Add(markersOverlay);\n                    //Refresh\n                    gmap.Zoom = 18;\n                    gmap.Refresh();\n                    gmap.Zoom = 17;\n                    }\n</code></pre>\n\n<strong>This is the result when form is load</strong>\r<br />\n<img src=\"http://i.imgur.com/D6ruIql.jpg\" alt=\"Image\" />\r<br />\n<br />\n<strong>This is the result after KeyDown Enter is pressed</strong>\r<br />\n<img src=\"http://i.imgur.com/pH39Yfn.jpg\" alt=\"Image\" />\r<br />\n<br />\nNote: <br />\n<ul>\n<li>\nThis code is running very well and not found any error in Windows 7 with Net FrameWork 4.0, but not when running in Windows XP sp3 with Net FrameWork 4.0<br />\n</li>\n</ul>\nI need solution, maybe i was missed something or maybe this is a bugs in GMap.NET.WindowsForms Net 4.0 running in windows XP sp3.\r<br />\n<br />\nThanks..<br />\n",
+    "PostedDate": "2016-04-29T03:18:40.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1471834",
+    "ThreadId": "654158",
+    "Html": "you don't need:<br />\n<pre><code>                //Refresh\n                gmap.Zoom = 18;\n                gmap.Refresh();\n                gmap.Zoom = 17;\n</code></pre>\n\nand position and gmap.Overlays.Add(markersOverlay); should be called only once at the start<br />\n",
+    "PostedDate": "2016-04-29T12:40:47.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1471869",
+    "ThreadId": "654158",
+    "Html": "I was trying to change my code following your suggestion, but still no fixed in Windows XP sp3.\r<br />\n<br />\nBut run very well in Windows 7..\r<br />\n<br />\nWhere is I can get sample code add marker that run in windows xp using Net 4.0? Can You help me?<br />\n",
+    "PostedDate": "2016-04-29T20:47:03.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

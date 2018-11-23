@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "253321",
+    "ThreadId": "74059",
+    "Html": "<p>Hello,</p>\r\n<p>I built my project on my x86 machine, and it work fine in all other x86, but the map would not work on x64 machines.</p>\r\n<p>Is there a way to make it work in both platforms?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2009-11-04T08:19:18.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253322",
+    "ThreadId": "74059",
+    "Html": "<p><a href=\"http://greatmaps.codeplex.com/documentation\">http://greatmaps.codeplex.com/documentation</a></p>",
+    "PostedDate": "2009-11-04T08:21:25.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253361",
+    "ThreadId": "74059",
+    "Html": "<p>hi radioman,</p>\r\n<p>Thanks for the quick response. I am still not quite clear about some of the steps:</p>\r\n<p><em>1. change references</em>: the one I downloaded from Download section for WPF has System.Data.SQLite.dll, is it the right one, or I need something else? and where can I get it?<br><em>3. change compilation symbols in GMap.NET.Core to use MsSqlCe data base:</em> I'm not sure how to do this. Can you give me more details</p>",
+    "PostedDate": "2009-11-04T09:21:24.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "253924",
+    "ThreadId": "74059",
+    "Html": "<ol>\r\n<li>you need rebuild source with x64 sqlite dll</li>\r\n<li>project-&gt;properties</li>\r\n</ol>",
+    "PostedDate": "2009-11-05T12:26:05.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

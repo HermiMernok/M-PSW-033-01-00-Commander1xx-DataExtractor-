@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1135772",
+    "ThreadId": "473581",
+    "Html": "I am using the standard &quot;GMapMarkerCircle&quot; found in demo source. <br />\n<pre><code>Public Sub New(ByVal p As PointLatLng, ByVal Radiusen As Integer, ByVal id As String)\n    MyBase.New(p)\n    Radius = Radiusen\n    Tag = id\n    IsHitTestVisible = True\nEnd Sub\n</code></pre>\n\nI have tried different methods to catch the click on the circle.<br />\n<br />\n<br />\nGMap_OnMarkerClick,     ' <br />\nGMap_OnPolygonClick<br />\nGMap_OnMarkerEnter<br />\n",
+    "PostedDate": "2013-12-14T09:27:50.58-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

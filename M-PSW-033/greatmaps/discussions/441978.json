@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1037225",
+    "ThreadId": "441978",
+    "Html": "Hi, \r<br />\nI have a combobox that pulls the co-ordinates from database. When the user selects different item from the combomox I am clearing all the existing markers and adding just one marker based on the selection. I would like the zoom to stay at level 19. \r<br />\nBut when the statement ZoomAndCenterMarkers executes the zoom is going back to 10, no matter what I do!!\r<br />\nI guess my question how do I zoom to a single marker with zoom 19.\r<br />\nThanks in advance.\r<br />\nSteve<br />\n",
+    "PostedDate": "2013-04-29T09:44:31.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037230",
+    "ThreadId": "441978",
+    "Html": "<pre><code>marker.Position = new</code></pre>\n\nthats all you need to do<br />\n",
+    "PostedDate": "2013-04-29T09:55:48.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

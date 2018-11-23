@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "834337",
+    "ThreadId": "355187",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Does it possible to prevent GMap caching the tile? In my cache i don't need to cache the tile in the app data folder. The Data.gmdb file size&nbsp;can be very big after long running application. When the app is delivered to ordinary user, they surprise that\r\n their free storage decreased because of data.gmdb size quite and it is in a hidden folder by default.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank</p>\r\n",
+    "PostedDate": "2012-05-09T18:12:09.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "834446",
+    "ThreadId": "355187",
+    "Html": "<p>it's not so big, few hundred MB at best if you are intense map browser, anyway you control cache usage by this:</p>\r\n<p><em>map.Manager.<strong>Mode</strong> = AccessMode.ServerAndCache;</em> // or other options</p>",
+    "PostedDate": "2012-05-10T01:41:28.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "837930",
+    "ThreadId": "355187",
+    "Html": "<p>Thanks</p>",
+    "PostedDate": "2012-05-17T17:21:15.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

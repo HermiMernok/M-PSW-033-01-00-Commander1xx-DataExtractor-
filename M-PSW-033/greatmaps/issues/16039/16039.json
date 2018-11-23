@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "set map properties in forms constructor",
+    "ClosedDate": "2012-05-04T09:55:58.507-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, i'm implementing the control in an form, all's looks great, but all maps show in left half of control only.\r\n\r\nCode:\r\n\r\n   With geoMapa\r\n            .SetCurrentPositionByKeywords(\"USA\")\r\n            .MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap\r\n            .MinZoom = 3\r\n            .MaxZoom = 17\r\n            .Zoom = 4\r\n            .Manager.Mode = AccessMode.ServerAndCache\r\n        End With\r\n\r\nAnybody know something?",
+    "LastUpdatedDate": "2012-05-04T09:55:58.507-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2012-05-04T07:51:49.947-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Map visualization problem in windows forms",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 16039
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

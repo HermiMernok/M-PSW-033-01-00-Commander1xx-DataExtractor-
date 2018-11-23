@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1426956",
+    "ThreadId": "638542",
+    "Html": "Hey there,\r<br />\n<br />\nI got a little trouble with drawing a polygon point after point.\r<br />\nI noticed that if I add something which already exist, I need to delete it before. \r<br />\nI use an alpha fill for the polygon and the more points I click on the map the alpha of the polygon gets &quot;darker&quot;. It seems that the &quot;fill&quot; always draws on top of the polygon.\r<br />\n<br />\nHere are some pictures and the code I'm using (Windows Forms)\r<br />\nThanks in advance\r<br />\n<br />\n<img src=\"http://oi59.tinypic.com/zxp94p.jpg\" alt=\"Image\" />\r<br />\n<br />\n<img src=\"http://oi60.tinypic.com/9tkaxu.jpg\" alt=\"Image\" /><br />\n<pre><code>private void gmap_MouseClick(object sender, MouseEventArgs e)\n        {\n\n            if (e.Button == MouseButtons.Left &amp;&amp; Global.isDrawingPolygon)\n            {\n\n                polyOverlay.Polygons.Clear();\n                \n                double lat = gmap.FromLocalToLatLng(e.X, e.Y).Lat;\n                double lng = gmap.FromLocalToLatLng(e.X, e.Y).Lng;\n\n                Global.tmpPolygonList.Add(new PointLatLng(lat,lng));\n\n                polygon = new GMapPolygon(Global.tmpPolygonList, &quot;myFirstpolygon&quot;);\n                polygon.Fill = new SolidBrush(Color.FromArgb(20, Color.White));\n                polygon.Stroke = new Pen(Color.Blue, 5);\n\n                polyOverlay.Polygons.Add(polygon);\n                gmap.Overlays.Add(polyOverlay);\n            }\n\n        }</code></pre>\n\n",
+    "PostedDate": "2015-05-21T14:24:47.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427006",
+    "ThreadId": "638542",
+    "Html": "do not recreate polygon, instead add/insert/update/remove points<br />\n",
+    "PostedDate": "2015-05-21T23:37:55.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1427035",
+    "ThreadId": "638542",
+    "Html": "The problem came up because I was adding the overlay over and over again....<br />\nThanks for the hint radioman. I initialize the overlays and polygons somewhere else so the code shrinks to the following:<br />\n<pre><code>if (e.Button == MouseButtons.Left &amp;&amp; Global.isDrawingPolygon)\n            {\n\n                polyOverlay.Polygons.Clear();\n                \n                double lat = gmap.FromLocalToLatLng(e.X, e.Y).Lat;\n                double lng = gmap.FromLocalToLatLng(e.X, e.Y).Lng;\n\n                polygon.Points.Add(new PointLatLng(lat, lng));\n                gmap.UpdatePolygonLocalPosition(polygon);\n            }\n\n        }</code></pre>\n\n",
+    "PostedDate": "2015-05-22T01:31:59.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

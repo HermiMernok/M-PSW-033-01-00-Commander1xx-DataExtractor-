@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "291124",
+    "ThreadId": "85470",
+    "Html": "<p>Hi all,</p>\r\n<p>Within my app, everytime I set the Access mode to Cache or ServerAndCache, I get no satellite maps and the error on every tile &quot;We are sorry - but we dont have Imagery at this zoom level for this region&quot;.</p>\r\n<p>However, if I set the Access Mode to SERVERONLY, then the images appear.</p>\r\n<p>It doesnt matter what Satellite Maptype I select, I still get the error.</p>\r\n<p>I have the latest code and using the compiled version from the &quot;trunk&quot; directories.</p>\r\n<p>I have prefetched the area from the &quot;demo&quot; version, and I do have a 40MB file in the C:\\Documents and Settings\\&lt;user&gt;\\Application Data\\GMap.NET\\TileDBv3\\en directory named Data.gmdb</p>\r\n<p>I went through the demo code and could see anything to &quot;initialise&quot; the cache or similar.</p>\r\n<p>Any ideas?</p>",
+    "PostedDate": "2010-02-16T00:14:30.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291213",
+    "ThreadId": "85470",
+    "Html": "<p>are sure caching works at all, maybe you trying to use 32bit sqlite on x64 mashine?</p>",
+    "PostedDate": "2010-02-16T05:52:56.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291618",
+    "ThreadId": "85470",
+    "Html": "<p>radioman.</p>\r\n<p>Thanks for the reply, but it is definetly running on 32 bit (windows 7)</p>\r\n<p>As I mentioned, under the demo, I told it to prefetch and it created the 40MB file.</p>\r\n<p>Is there a way to test to see if it is caching?</p>\r\n<p>Do I have to set something up in the App to perform caching?</p>\r\n<p>Thanks,</p>\r\n<p>Rob</p>",
+    "PostedDate": "2010-02-17T02:03:02.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291634",
+    "ThreadId": "85470",
+    "Html": "<p>Ok, I have it working.</p>\r\n<p>But, it might show an issue in GMap.net.</p>\r\n<p>The area I tried to prefetched originally turned out to be only&nbsp;one tile, and I only did the top 2 zoom levels (16 and 17) of the Bing Satellite Type.</p>\r\n<p>Although it prefetched it, nothing would show.</p>\r\n<p>I tried an area of about 200*200 KM squared, and although it took ages to get the tiles at zoom levels 5-17, the app worked when set to ServerAndCache (and CacheOnly). Tiles loaded from cache when in the area prefetched (I presume because they loaded fast)&nbsp;and when I zoomed further, the tiles loaded from the server.</p>\r\n<p>Robert</p>",
+    "PostedDate": "2010-02-17T03:11:24.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291637",
+    "ThreadId": "85470",
+    "Html": "<p>so now is everything working ok? If not try run demos in debug mode, any errors are traced to output window</p>",
+    "PostedDate": "2010-02-17T03:22:11.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "291638",
+    "ThreadId": "85470",
+    "Html": "<p>Yes, everything is running OK now.</p>\r\n<p>Thanks for you help and the great programs.</p>\r\n<p>Rob</p>",
+    "PostedDate": "2010-02-17T03:23:57.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

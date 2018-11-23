@@ -1,0 +1,146 @@
+[
+  {
+    "Id": "481819",
+    "ThreadId": "223945",
+    "Html": "<p>hi Radioman,</p>\r\n<p>I've done some url request&nbsp;sniffing, found out that if you zoom in/out only one ProcessLoadTask routine is working at a time.</p>\r\n<p>If you zoom in/out by two or more&nbsp;levels only the number of levels zoomed, ProcessLoadTasks are working.</p>\r\n<p>If you pan the map around it fires&nbsp;more ProcessLoadTasks.</p>\r\n<p>I've used the latest hot build (windows forms), Fiddler for URL sniffing, WinXP, VisualStudio 2008</p>\r\n<p>Best regards</p>",
+    "PostedDate": "2010-08-18T05:33:24.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "481822",
+    "ThreadId": "223945",
+    "Html": "<p>the easiest way to replicate if using the MapBendersWMS MapType&nbsp;as it is not cached.</p>",
+    "PostedDate": "2010-08-18T05:38:47.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "481828",
+    "ThreadId": "223945",
+    "Html": "<p>if time between requests is long enough, the same thread does the job, but if first thread is already doing something then that task takes second thread and so on..., there is no differences between zooming/panning</p>\r\n<p>p.s. every MapType is cached, unless you set mode to ServerOnly</p>",
+    "PostedDate": "2010-08-18T06:02:58.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "481887",
+    "ThreadId": "223945",
+    "Html": "<p>Even when the cache is used it is the same, but for demonstration purposes I clear it before, just to show the problem. And set the map to MapBendersWMS because it's the slowest.</p>\r\n<p>Please do the folowing:<br>1. delete the cache file<br>2. open your demo application<br>3. select MapBendersWMS MapType<br>4. wait until the map is completly loaded<br>5. zoom in and time the loading (for me 22seconds)<br>6. another zoom, but after zoom just move the map a little to the left and to the right (for me 6seconds)</p>\r\n<p>Repeat the steps but switch step 5 and 6 ... I get 6seconds&nbsp;(with zoom+move)&nbsp;and 16seconds (just zoom)</p>\r\n<p>please report what are your times ?</p>\r\n<p>Or just use Fiddler (or any other url sniffer) and you are going to see what I'm talking about.</p>\r\n<p>Best regards</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-08-18T07:38:48.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482144",
+    "ThreadId": "223945",
+    "Html": "<p>debug output shows few threads working, where is the problem?</p>",
+    "PostedDate": "2010-08-18T21:53:05.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482165",
+    "ThreadId": "223945",
+    "Html": "<p>Debug output shows a few working but only one at a time.</p>\r\n<p>Did you time the load times ?</p>\r\n<p>did you try to use URL sniffer ?</p>\r\n<p>you can even see the problem in your demo app where I added the indicator of working load processes at <a href=\"http://www.cvs.si/gmapdemo.zip\">http://www.cvs.si/gmapdemo.zip</a></p>\r\n<p>Best regards</p>",
+    "PostedDate": "2010-08-18T23:31:56.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482168",
+    "ThreadId": "223945",
+    "Html": "<p>well your demo works slow ;}</p>",
+    "PostedDate": "2010-08-18T23:40:31.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482210",
+    "ThreadId": "223945",
+    "Html": "<p>did you see the processes working ???</p>\r\n<p>1. if you just zoom in/out</p>\r\n<p>2. you move the map to the place where it has to load it ???</p>\r\n<hr>\r\n<p>No more&nbsp;problem, I found a workaround/fix.</p>\r\n<p>Thank anyway</p>",
+    "PostedDate": "2010-08-19T01:59:11.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482222",
+    "ThreadId": "223945",
+    "Html": "<p>what do you mean you found&nbsp;workaround? Can you explain more, maybe in some configurations there are issues ;/</p>",
+    "PostedDate": "2010-08-19T02:51:43.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482584",
+    "ThreadId": "223945",
+    "Html": "<p>Hi radioman,</p>\r\n<p>If you don't see the problem, there is no problem.</p>\r\n<p>It works for you when people need help, ...</p>\r\n<p>Best regards,</p>\r\n<p>KrNeki99</p>",
+    "PostedDate": "2010-08-19T21:32:41.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482586",
+    "ThreadId": "223945",
+    "Html": "<p>;/</p>",
+    "PostedDate": "2010-08-19T21:38:18.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482703",
+    "ThreadId": "223945",
+    "Html": "<p>Please share you workaround krneki99. Sounds like something I've been struggling with for month on my mobile....</p>",
+    "PostedDate": "2010-08-20T04:31:49.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482710",
+    "ThreadId": "223945",
+    "Html": "<p>Hi sthex,</p>\r\n<p>Inside ProcessLoadTask&nbsp;void&nbsp;(GMap.NET.Internals.core.cs)</p>\r\n<p>after &quot;last = tileLoadQueue.Count == 0;&quot; line</p>\r\n<p>add this two lines (this insures if more loading is to be done, that all threads are triggered)</p>\r\n<p>if (!last)</p>\r\n<p>waitForTileLoad.Set();</p>\r\n<p>&nbsp;</p>\r\n<p>please report if this works for you on mobile ;)</p>",
+    "PostedDate": "2010-08-20T04:52:52.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482711",
+    "ThreadId": "223945",
+    "Html": "<p>but it's already in 1091 line, last loader makes additional trigger</p>",
+    "PostedDate": "2010-08-20T04:57:27.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482722",
+    "ThreadId": "223945",
+    "Html": "<p>It's not worth answering, but anyway...</p>\r\n<p>your line 1091 only triggers one thread at at time.</p>\r\n<p>You have 5 threads fetching data.</p>\r\n<p>Until you call waitForTileLoad.Set(); multiple times, only one is working, other is waiting on the start of while loop for &quot;.Set&quot;</p>\r\n<p>I know one call to &quot;.Set&quot; should trigger all the while loops, but for some reason it doesn't.</p>\r\n<p>So my soultion as soon as&nbsp;Thread gets what tile&nbsp;it need to load and more are inside a queue. It triggers the next one.</p>\r\n<p>(before loading data)</p>\r\n<p>I posted what fixed my problem if you/others whats to use it ok, otherwise ok also ;)</p>\r\n<p>Best regards</p>",
+    "PostedDate": "2010-08-20T05:15:57.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482734",
+    "ThreadId": "223945",
+    "Html": "<p>g, thats really a bug ;/ i'll need to fix it</p>",
+    "PostedDate": "2010-08-20T05:35:03.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "482895",
+    "ThreadId": "223945",
+    "Html": "<p><a id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl28_UserNameLink\" href=\"http://www.codeplex.com/site/users/view/krneki99\">krneki99</a> thank you very much, I had the same issue</p>",
+    "PostedDate": "2010-08-20T10:48:04.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487133",
+    "ThreadId": "223945",
+    "Html": "<p>Hi radioman,</p>\r\n<p>tried your version of the fix...</p>\r\n<p>... I would try to change it because my &quot;workaround&quot; works twice as fast.</p>\r\n<p>Usual load from cache only: yours=350-450ms, mine=150-250ms (on mine machine)</p>\r\n<p>Best regards,</p>\r\n<p>Blaz</p>",
+    "PostedDate": "2010-08-31T11:48:06.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

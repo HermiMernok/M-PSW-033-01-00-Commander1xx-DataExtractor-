@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "229306",
+    "ThreadId": "67467",
+    "Html": "<p>Hi,</p>\r\n<p>Thank you for providing such a great tool for displaying the locations.</p>\r\n<p>I am looking for displaying the tool tip like Google maps tool tip with close button and i should be able to display multiple lines. And i would like to write the my own events on clicking the tool tip.</p>\r\n<p>Please help me in integrating the tooltip in GMapMarker class.</p>\r\n<p>Regards</p>\r\n<p>Satish</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-31T05:46:04.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "229326",
+    "ThreadId": "67467",
+    "Html": "<p>..well with wpf verson it is easy, but in .net2 it's not so trivial, any ideas?</p>",
+    "PostedDate": "2009-08-31T07:10:11.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "229333",
+    "ThreadId": "67467",
+    "Html": "<p>Thank you for your reply.</p>\r\n<p>I havent work on wpf. Here also we can display, if the GMapMarker is like windows control.&nbsp;We just can assing the tool tip to the windows control.</p>",
+    "PostedDate": "2009-08-31T07:28:33.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "229412",
+    "ThreadId": "67467",
+    "Html": "<p>..for now tooltips are renderd directly on the map, but i think youcan use&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>MainMap.OnMarkerEnter += <span style=\"color:Blue\">new</span> MarkerEnter(MainMap_OnMarkerEnter);\r\n</pre>\r\n</div>\r\n<p>And there get markers local position, and display in that place any window/tooltip you want ;}</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-31T10:25:22.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "229417",
+    "ThreadId": "67467",
+    "Html": "<p>something like that:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">      void</span> MainMap_OnMarkerEnter(GMapMarker item)\r\n      {\r\n         GMap.NET.Point p = MainMap.FromLatLngToLocal(item.Position);\r\n         p.Offset(10, -100);\r\n\r\n         ToolTip t = <span style=\"color:Blue\">new</span> ToolTip();\r\n         t.IsBalloon = <span style=\"color:Blue\">true</span>;\r\n         t.InitialDelay = 1000;\r\n         t.Show(item.ToolTipText, MainMap, p.X, p.Y, 1000);          \r\n      }  \r</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2009-08-31T10:40:43.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "229598",
+    "ThreadId": "67467",
+    "Html": "<p>This is working very well, thank you for your support.</p>\r\n<p>I am tryig to add the close button to the tool tip and display constantly.</p>",
+    "PostedDate": "2009-09-01T00:07:55.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "229599",
+    "ThreadId": "67467",
+    "Html": "<p>great! ;}</p>",
+    "PostedDate": "2009-09-01T00:09:34.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "232522",
+    "ThreadId": "67467",
+    "Html": "<p>Most likely you will have to create your own actual window class for showing tooltips in a Show() method to get built in close-[X] button functionality. &nbsp;Another option would be to do your own painting of &nbsp;the contents of your tooltip and track a hot-point for the drawn close-X so it acts like a window without all the overhead of a window (but some low level nitty gritty grapics stuff to do the drawing).</p>\r\n<p>You might also search for an open source .NET tooltip class that is closer to what you want.</p>",
+    "PostedDate": "2009-09-08T21:44:09.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "237812",
+    "ThreadId": "67467",
+    "Html": "<p>Hey</p>\r\n<p>I found the solution, i just drawing Rectangle in the right top corner and finding the click event on the rectangle click.</p>\r\n<p>This is the code i have added in the DrawToolTip method in GMapOverlay class&nbsp;for displaying close button in the tooltip.</p>\r\n<p>--------------------ToolTip Close button------------------------------------------------</p>\r\n<p>&nbsp; CloseRectangle = new System.Drawing.Rectangle(x + width - 1, y - height - 14, 12, 12);</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pen closePen = new Pen(Color.FromArgb(140, Color.Red));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; closePen.Alignment = PenAlignment.Center;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawEllipse(closePen, CloseRectangle);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TooltipFormat.Alignment = StringAlignment.Near;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Brush closeBackground = Brushes.DarkRed;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.FillRectangle(closeBackground, CloseRectangle);<br>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringFormat closeFormat = new StringFormat();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; closeFormat.Alignment = StringAlignment.Center;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Brush closeFontBrush = Brushes.White;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawString(&quot;X&quot;, TooltipFont, closeFontBrush, CloseRectangle, closeFormat);</p>\r\n<p>-------------------------End----------------------------------------------</p>\r\n<p>And added condition in the OnMouseClik Event in GMapControl class</p>\r\n<p>else if(m.CloseLocalArea.Contains(e.X, e.Y) <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; m.TooltipMode == MarkerTooltipMode.Always)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b = true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m.TooltipMode = MarkerTooltipMode.Never;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invalidate(false);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>",
+    "PostedDate": "2009-09-23T06:09:59.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "246392",
+    "ThreadId": "67467",
+    "Html": "<p>I have modified code for displaying tooltip like google maps, please let me know what is the procedure for uploading patch or let me know your email id, i will send you the changes.</p>\r\n<p>It could be good to integrate in main code.</p>",
+    "PostedDate": "2009-10-15T23:53:16.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "246402",
+    "ThreadId": "67467",
+    "Html": "<p>just go to patch page and upload, there is link on top of front page ;}</p>",
+    "PostedDate": "2009-10-16T00:31:35.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

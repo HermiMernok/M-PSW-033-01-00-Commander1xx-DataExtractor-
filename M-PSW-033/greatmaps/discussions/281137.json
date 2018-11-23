@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "704611",
+    "ThreadId": "281137",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I want to use a marker to open a new dialog on click, which allows to enter some data related to this marker. It's a Windows Mobile device with a touch screen.</p>\r\n<p>I use the OnMarkerEnter event to be notified if the user is clicking the marker. My observation is when the marker is clicked the dialog appears and I can enter my data. After the data is entered the map appears with the marker again. But now am I not able\r\n to drag anymore, only the click on the marker works. Next I click on the marker, dialog appears, and leave the dialog back to map. Now, dragging the map is possible again. If I repeat this sequence the behavior is always the same.</p>\r\n<p>In the case where the map dragging is working I noticed that OnMouseMove() is called, then OnMarkerEnter() is called for the clicked marker, then OnMouseMove() is called again and Core.BeginDrag() is called, then OnMouseUp() is called and&nbsp; Core.EndDrag().\r\n After that I am in my dialog. Then I leave the dialog and dragging the map is not possible again. Then I click the same marker again. The OnMouseMove() is called, next OnMarkerEnter() is called, then OnMouseUp() is called and my dialog is opened.</p>\r\n<p>The problem is that if dragging is possible first then after the click on the marker it's not any more. It requires the click on the marker again to unlock the dragging.</p>\r\n<p>Is there a way to fix this strange behavior?</p>\r\n",
+    "PostedDate": "2011-11-29T00:35:02.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "704883",
+    "ThreadId": "281137",
+    "Html": "<p>yes, someone needs to fix it ;}</p>",
+    "PostedDate": "2011-11-29T10:00:53.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705177",
+    "ThreadId": "281137",
+    "Html": "<p>here it is,</p>\r\n<p>it was time consuming for me to finde the bug, but the solution is simple:</p>\r\n<p>in file GMapOverlay.cs the Control.IsMouseOverMarker was not set in the Mobile version, so the original code should be changed from:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">if</span>(e.Action == NotifyCollectionChangedAction.Remove || e.Action == NotifyCollectionChangedAction.Reset)\r\n         {\r\n<span style=\"color: blue;\">#if</span> !PocketPC\r\n            <span style=\"color: blue;\">if</span>(Control.IsMouseOverMarker)\r\n            {\r\n               Control.IsMouseOverMarker = <span style=\"color: blue;\">false</span>;\r\n               Control.Cursor = Cursors.Default;\r\n            }\r\n<span style=\"color: blue;\">#endif</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>to</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre> <span style=\"color: blue;\">if</span> (e.Action == NotifyCollectionChangedAction.Remove || e.Action == NotifyCollectionChangedAction.Reset)\r\n         {\r\n             <span style=\"color: blue;\">if</span> (Control.IsMouseOverMarker)\r\n             {\r\n                 Control.IsMouseOverMarker = <span style=\"color: blue;\">false</span>;\r\n<span style=\"color: blue;\">#if</span> !PocketPC\r\n                Control.Cursor = Cursors.Default;\r\n<span style=\"color: blue;\">#endif</span>\r\n             }\r\n         }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>I would appreciate if radioman could integrate this patch. Another request is to make DragSize.Height, DragSize.Width a configurable property. In GMapControl.cs it is set to fixed values actually for the Mobile part. I noticed that these values help to improve the handling from device to device.</p>\r\n<p>&nbsp;</p>\r\n<p>again, thanks for the great piece of software :-)</p>",
+    "PostedDate": "2011-11-30T01:19:52.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705211",
+    "ThreadId": "281137",
+    "Html": "<p>thanks, fixed</p>\r\n<p>p.s. added DragSize as public filed</p>",
+    "PostedDate": "2011-11-30T03:22:48.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

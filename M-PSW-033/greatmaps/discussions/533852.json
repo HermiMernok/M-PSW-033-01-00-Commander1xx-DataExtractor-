@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1212409",
+    "ThreadId": "533852",
+    "Html": "I try to port map from this page <a href=\"http://dayzdb.com/map/chernarus\" rel=\"nofollow\">http://dayzdb.com/map/chernarus</a> .\r<br />\nI made new provider which has new TileUrl and everything works nice but now i try to add points by coordinates from map in game. I know that I have to make a new projection that transform the points. Page dayzdb uses its own projection in leaflet:<br />\n<pre><code>(function () {\n    var b = 1 / 14.524823,\n        c = L.latLng([1.920978, 0.284574]);\n    L.CRS.ChernarusPrint = L.Util.extend({}, L.CRS, {\n        latLngToPoint: function (e, d) {\n            var a = L.latLng([e.lat - c.lat, e.lng - c.lng]),\n                a = this.projection.project(a),\n                b = this.scale(d);\n            return a = this.transformation._transform(a, b)\n        },\n        pointToLatLng: function (b, d) {\n            var a = this.scale(d),\n                a = this.transformation.untransform(b, a),\n                a = this.projection.unproject(a);\n            a.lat += c.lat;\n            a.lng += c.lng;\n            return a\n        },\n        projection: L.Projection.LonLat,\n        transformation: new L.Transformation(b, 0, b, 0)\n    })\n})();</code></pre>\n\nAnd now i want to ask:<br />\n<ul>\n<li>How add custom projection in my own new provider.</li>\n<li>How to use the variables of the function listed above to make new projection.</li>\n</ul>\n",
+    "PostedDate": "2014-02-22T10:27:37.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1224847",
+    "ThreadId": "533852",
+    "Html": "dunno, you have to experiment...<br />\n",
+    "PostedDate": "2014-03-20T08:01:14.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

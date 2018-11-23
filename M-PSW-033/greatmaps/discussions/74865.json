@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "256238",
+    "ThreadId": "74865",
+    "Html": "<p>Hi Guys,</p>\r\n<p>We have a local hosted ArcGis Server for our mapping needs.</p>\r\n<p>How would I load the maps from this service as a custom service in GMap?</p>\r\n<p>Is it also possible to load the maps from&nbsp;a WMS service?</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-12T01:00:31.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256845",
+    "ThreadId": "74865",
+    "Html": "<p>all url are hardcoded, if you know them, your projection, map boundaries, you can try load them</p>",
+    "PostedDate": "2009-11-13T09:52:58.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260562",
+    "ThreadId": "74865",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks for the reply.</p>\r\n<p>Okay, so I opted to use the ArcGis REST Service instead. I changed the URL in GMaps.cs to point to my local hosted server. All our maps are in WGS84 so i figure projection might not be a problem as the component caters for that. I'm using the demo application to test the usage.&nbsp;The problem that I have is that the component does not connect to my ArcGis Server. &nbsp;MY URL:&nbsp;http://192.168.0.123/ArcGIS/rest/services/MapDataService/MapServer/tile/{0}/{1}/{2}</p>\r\n<p>I get the following error:&nbsp;OnEmptyTileError, Zoom: 12, {X=2366,Y=2348}</p>\r\n<p>I have tested the REST service using the Java Script viewer on the server, so I know that the service works, it just does'nt want to load the data.</p>\r\n<p>Am I missing any additional settings?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers!</p>",
+    "PostedDate": "2009-11-25T04:08:10.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260563",
+    "ThreadId": "74865",
+    "Html": "<p>are you adjusted tile size, and what projection do you use?</p>",
+    "PostedDate": "2009-11-25T04:10:45.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260577",
+    "ThreadId": "74865",
+    "Html": "<p>The tile size is set to the default (512x512).&nbsp;The projection is&nbsp;Geographic&nbsp;WGS84.</p>",
+    "PostedDate": "2009-11-25T04:54:04.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260584",
+    "ThreadId": "74865",
+    "Html": "<p>Where&nbsp;do I set the projection for the data source?</p>",
+    "PostedDate": "2009-11-25T05:12:04.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260587",
+    "ThreadId": "74865",
+    "Html": "<p><strong>GMap.NET.Internals.Core.MapType</strong> setter</p>",
+    "PostedDate": "2009-11-25T05:18:16.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "260602",
+    "ThreadId": "74865",
+    "Html": "<p>Great I found it.... Thx</p>\r\n<p>I assume (from what I can see in the Projections) &nbsp;that the Geographic&nbsp;WGS84 uses the same settings as LKS94Projection?</p>\r\n<p>&nbsp;</p>\r\n<p>I added my service to the map type list and set the projection as below.... but now no map displays... (it shows the form but with nothing in the control).</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>                  <span style=\"color:Blue\">case</span> MapType.ArcGIS_MapsLT_Map_Hybrid:\r\n                  <span style=\"color:Blue\">case</span> MapType.ArcGIS_MapsLT_Map_Labels:\r\n                  <span style=\"color:Blue\">case</span> MapType.ArcGIS_MapsLT_Map:\r\n                  <span style=\"color:Blue\">case</span> MapType.ArcGIS_MapsLT_OrtoFoto:\r\n                   <span style=\"color:Blue\">case</span> MapType.MyService:\r\n                  {\r\n                     <span style=\"color:Blue\">if</span>(<span style=\"color:Blue\">false</span> == (Projection <span style=\"color:Blue\">is</span> LKS94Projection))\r\n                     {\r\n                        Projection = <span style=\"color:Blue\">new</span> LKS94Projection();\r\n                     }\r\n                  }\r\n                  <span style=\"color:Blue\">break</span>;\r\n</pre>\r\n</div>\r\n<p>Update - all the other services works fine... just my one that does not load any tiles.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<pre>Rest Service Info\r\n\r\n\r\nSpatial Reference: 4326\r\n\r\nSingle Fused Map Cache: true\r\n\r\nTile Info: \r\n\r\nHeight: 512\r\nWidth: 512\r\nDPI: 96\r\nLevels of Detail: (# Levels: 16)\r\nLevel ID: 0 [Start Tile, End Tile]\r\nResolution: 0.59486525145757\r\nScale: 250000000\r\nLevel ID: 1 [Start Tile, End Tile]\r\nResolution: 0.297432625728785\r\nScale: 125000000\r\nLevel ID: 2 [Start Tile, End Tile]\r\nResolution: 0.152285504373138\r\nScale: 64000000\r\nLevel ID: 3 [Start Tile, End Tile]\r\nResolution: 0.0761427521865689\r\nScale: 32000000\r\nLevel ID: 4 [Start Tile, End Tile]\r\nResolution: 0.0380713760932845\r\nScale: 16000000\r\nLevel ID: 5 [Start Tile, End Tile]\r\nResolution: 0.0190356880466422\r\nScale: 8000000\r\nLevel ID: 6 [Start Tile, End Tile]\r\nResolution: 0.00951784402332112\r\nScale: 4000000\r\nLevel ID: 7 [Start Tile, End Tile]\r\nResolution: 0.00475892201166056\r\nScale: 2000000\r\nLevel ID: 8 [Start Tile, End Tile]\r\nResolution: 0.00237946100583028\r\nScale: 1000000\r\nLevel ID: 9 [Start Tile, End Tile]\r\nResolution: 0.00118973050291514\r\nScale: 500000\r\nLevel ID: 10 [Start Tile, End Tile]\r\nResolution: 0.00059486525145757\r\nScale: 250000\r\nLevel ID: 11 [Start Tile, End Tile]\r\nResolution: 0.000297432625728785\r\nScale: 125000\r\nLevel ID: 12 [Start Tile, End Tile]\r\nResolution: 0.000152285504373138\r\nScale: 64000\r\nLevel ID: 13 [Start Tile, End Tile]\r\nResolution: 7.61427521865689E-05\r\nScale: 32000\r\nLevel ID: 14 [Start Tile, End Tile]\r\nResolution: 3.80713760932845E-05\r\nScale: 16000\r\nLevel ID: 15 [Start Tile, End Tile]\r\nResolution: 1.90356880466422E-05\r\nScale: 8000\r\nFormat: PNG8\r\nCompression Quality: 0\r\nOrigin:\r\nX: -400\r\nY: 400\r\nSpatial Reference: 4326\r\nIntial Extent: \r\nXMin: -198.000000000361\r\nYMin: -99.0000000075598\r\nXMax: 198.00000000756\r\nYMax: 99.0000000003602\r\nSpatial Reference: 4326\r\nFull Extent: \r\nXMin: -198.000000000361\r\nYMin: -99.0000000075598\r\nXMax: 198.00000000756\r\nYMax: 99.0000000003602\r\nSpatial Reference: 4326\r\nUnits: esriDecimalDegrees\r\n\r\nSupported Image Format Types: PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,AI</pre>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-25T05:41:15.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261119",
+    "ThreadId": "74865",
+    "Html": "<p>Do you by any chance have the Projection settings for Geographic WGS84?</p>",
+    "PostedDate": "2009-11-27T03:11:26.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261353",
+    "ThreadId": "74865",
+    "Html": "<p>if i can't test it, there is no chance ;}</p>",
+    "PostedDate": "2009-11-28T10:45:07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "261717",
+    "ThreadId": "74865",
+    "Html": "<p>Sure....&nbsp;</p>\r\n<p>I will send you the settings via Codeplex &quot;Contact radioman&quot; (check your profile inbox).</p>\r\n<p>Thx for the help</p>",
+    "PostedDate": "2009-11-29T22:08:20.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438937",
+    "ThreadId": "74865",
+    "Html": "<p>check<a href=\"http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=211166\"> http://greatmaps.codeplex.com/Thread/View.aspx?ThreadId=211166</a></p>",
+    "PostedDate": "2010-05-04T11:53:47.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

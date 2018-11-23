@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "906361",
+    "ThreadId": "393767",
+    "Html": "\r\n<p>Hi</p>\r\n<p>Im new in this technology and I have some questions for to do:</p>\r\n<p>1. The file .gmdb is located in a folder than only can be located when all folders are visible.</p>\r\n<p>2. I have taken a copy of this file, I have installed sqlite and in a project in windows forms using a data set I have can watch the tables and columns of this file.</p>\r\n<p>Until that everything is ok. Now, a customer need an application with this technology but hi will be offline almost all the time. So my idea is get all the information from gmaps, store that information in the .gmdb file, and after use that file like source\r\n of the cache, but the trouble is that perhaps the .gmdb file will not have all the information that I need show. And there are the problem, so:</p>\r\n<p>1. How I can set the path of the cache ? exactly set the path of the .gmdb file</p>\r\n<p>2. How I can get all the information that I need from GMaps and store that information in .gmdb file for show after ??</p>\r\n<p>Tnks</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-30T08:19:49.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906457",
+    "ThreadId": "393767",
+    "Html": "<ol>\r\n<li>map.<strong>CacheLocation</strong></li>\r\n<li>prefetch the area using demo, check the cache menu</li>\r\n</ol>",
+    "PostedDate": "2012-08-30T10:29:06.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

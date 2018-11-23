@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1062347",
+    "ThreadId": "448508",
+    "Html": "I've noticed that very long routes are incorrectly decoded when using GoogleMap provider so one are instructed to drive over mountains and oceans :)\r<br />\n<br />\nGot it working by removing following replace in GoogleMapProvider.cs<br />\n<pre><code>string encoded = encodedPoints.Replace(&quot;\\\\\\\\&quot;, &quot;\\\\&quot;);</code></pre>\n\nAnd change all encoded to encodedPoints in that function.<br />\n",
+    "PostedDate": "2013-06-28T02:01:42.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062358",
+    "ThreadId": "448508",
+    "Html": "what do you mean 'Got it working' ?<br />\n",
+    "PostedDate": "2013-06-28T02:21:43.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062369",
+    "ThreadId": "448508",
+    "Html": "The route follows the road and not over oceans and mountains. The distance maybe is not the actual trigger of this problem.\r<br />\n<br />\nAlso, I don't understand why the replace is there in the first place. Tried to look at the polyline algorithm documentation but no mention of it.<br />\n",
+    "PostedDate": "2013-06-28T02:42:40.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062372",
+    "ThreadId": "448508",
+    "Html": "there was some issue, i don't remember either<br />\n",
+    "PostedDate": "2013-06-28T02:46:30.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062376",
+    "ThreadId": "448508",
+    "Html": "&quot;Note that the backslash is interpreted as an escape character within string literals.  Any output of this utility should convert backslash characters to double-backslashes within string literals.&quot;\r<br />\n<br />\ni guess thats why, <a href=\"https://developers.google.com/maps/documentation/utilities/polylinealgorithm?hl=lt\" rel=\"nofollow\">https://developers.google.com/maps/documentation/utilities/polylinealgorithm?hl=lt</a><br />\n",
+    "PostedDate": "2013-06-28T02:54:36.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1062377",
+    "ThreadId": "448508",
+    "Html": "Maybe the conversion already has taken place before. Will load up wireshark and check that.<br />\n",
+    "PostedDate": "2013-06-28T02:57:04.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

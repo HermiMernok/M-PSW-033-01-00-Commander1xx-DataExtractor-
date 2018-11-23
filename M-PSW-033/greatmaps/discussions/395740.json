@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "913323",
+    "ThreadId": "395740",
+    "Html": "\r\n<p>Using the control for a while not and see how it works, very cool and very useful.</p>\r\n<p>On the cache side I have a question as to how the delete older than call is expected to work on a secondary (or primary) cache that is using a MSSQL database because the table schema does not contain a date for the tile entry ?</p>\r\n<p>With the cache configuration for delayed flush, would it be possible to expose the timer as a property that is being used to time the frequency of cache page writes into the database. The reason is that a cache that is on an SSD is one extreme of write capability,\r\n while the typical (90's legacy) LAN latency and SAN backed DB could be limited to under 10 writes per second. The current setup seems to be around 500ms ? Either that or provide an exposed flush cache method in the interface (missing from current hot build).</p>\r\n<p>For the cache flush, being able to flush a single provider and not the whole cache would be useful (can work around it by calling the DB directly) because some providers, weather data for example, have a date within the URL that is the date specific to the\r\n returned tiles. Flushing a whole cache to make sure a single provider is refreshed would seem to make the secondary cache property susceptable to individual users flushing the cache for the whole. The case i have is a map provider that limits the dailt tile\r\n request to 300 tiles per day, while weather satellite data is daily refreshed or dated. Flushing the 300 tiles rather than building on the 300 each day for the sake of the other provider seems to be a simple solution of FlushCache(dbid) method ?</p>\r\n<p>Within the Import gmdb option and a primary cache setting for MSSQL the import process does not appear to load the tiles into the database during the method call or loads them to memory cache and flushes on the delayed sequencing ? If the import has duplicate\r\n tiles does this throw the import process out ?</p>\r\n<p>Last one, the current hot build appears to have changed the ArcGIS provider base from the release build, which makes none of the previous providers work (? Is there a change log as to what has altered since the release build ?</p>\r\n",
+    "PostedDate": "2012-09-16T15:09:14.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913327",
+    "ThreadId": "395740",
+    "Html": "<p>Within the ArcGIS provider base the GetTileUsingHttp appears to return null for a valid URL</p>\r\n<p>GetTileImageUsingHttp(sURL)</p>\r\n<p>http://services.arcgisonline.com/arcgis/services/Specialty/World_Navigation_Charts/MapServer?mapname=Layers&amp;layer=_alllayers&amp;level=4&amp;row=3&amp;column=15&amp;format=JPEG</p>",
+    "PostedDate": "2012-09-16T15:25:39.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913331",
+    "ThreadId": "395740",
+    "Html": "<p>Also get an error infrequently with MSSQL as a secondary cache provider when set :</p>\r\n<p>SQLite error (17): statement aborts at 29: [INSERT INTO main.Tiles(X, Y, Zoom, Type, CacheTime) VALUES(@p1, @p2, @p3, @p4, @p5)] database schema has changed</p>\r\n<p>This does not occur for all tile inserts and tiles are written into the database (over 35,000) and the schema within the MSSQL database was changed to make the tile field a varbinary(max) from an image field type because this field type will not be supported by MSSQL in the future and should in theory have no impact on the code. I'm presuming here that the SQLite base is used as the link through to MSSQL provider and may be ending up with the wrong schema for the local primary SQLite cache ? Out of a few thousand tile writes the error occured 3 times.</p>",
+    "PostedDate": "2012-09-16T15:51:58.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913581",
+    "ThreadId": "395740",
+    "Html": "<ul>\r\n<li>to 'save' ssd you can set map.<strong>CacheLocation</strong> to other drive</li>\r\n<li>for other providers you can manually using sql management tool delete/import unneeded tiles</li>\r\n</ul>",
+    "PostedDate": "2012-09-17T07:37:50.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913633",
+    "ThreadId": "395740",
+    "Html": "<p>The secondary cache schema could do with the timestamp column that is in the sqlite database as this would allow for manual cache management options in a LAN where some provider tiles have limited lifespans (weather data for example) while retaining all the benefits of the secondary cache for other permanent map tile sources.</p>\r\n<p>The SSD comment was in relation to having the cache database in MSSQL on SSD, which would be able to keep up with (I/O capacity of over 30,000 per second and 500MB/sec) direct saving of the tiles as they are retrieved rather than on a background lazy writer thread.</p>",
+    "PostedDate": "2012-09-17T09:13:10.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913797",
+    "ThreadId": "395740",
+    "Html": "<p>There also seems to be a separate bug with the secondary / primary cache storing tiles, which have not been retrieved from the WMS provider but scaled by the control. When zooming in the tiles are graphically scaled ahead of the tile retirval process and under some conditions these scaled tiles are stored into the cache and subsequently stay, creating some issues that require either a complete tile purge or..... a function to purge / refresh the active tiles within the current view pane, which also refreshes the tiles within the cache (forces a write). This would allow part of a tile management scheme to remain within the control without having to resort to creating separate SQLitecode to move tiles around between cache files, in this instance from separate SQLite caches to the MSQL secondary :</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>    <span style=\"color: blue;\">Dim</span> sqConn <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> System.Data.SQLite.SQLiteConnection\r\n    sqConn.ConnectionString = <span style=\"color: #a31515;\">\"Data Source=Y:\\\"</span> &amp; ThisDatabase &amp; <span style=\"color: #a31515;\">\";\"</span>\r\n    sqConn.Open()\r\n\r\n    <span style=\"color: blue;\">Dim</span> sqCmd <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">New</span> SQLite.SQLiteCommand\r\n    sqCmd.CommandText = <span style=\"color: #a31515;\">\"SELECT Tiles.Type,Tiles.Zoom,Tiles.X,Tiles.Y,TilesData.Tile,Tiles.CacheTime FROM Tiles INNER JOIN TilesData ON Tiles.id = TilesData.id\"</span>\r\n    sqCmd.CommandType = CommandType.Text\r\n    sqCmd.Connection = sqConn\r\n\r\n    <span style=\"color: blue;\">Dim</span> sqRead <span style=\"color: blue;\">As</span> System.Data.SQLite.SQLiteDataReader\r\n    <span style=\"color: blue;\">Dim</span> SPin <span style=\"color: blue;\">As</span> SqlCommand = myDBmap.dbProcedures(<span style=\"color: #a31515;\">\"usp_GMapNETcache_add\"</span>)\r\n    <span style=\"color: blue;\">Dim</span> RowCount <span style=\"color: blue;\">As</span> <span style=\"color: blue;\">Integer</span>\r\n\r\n    sqRead = sqCmd.ExecuteReader()\r\n\r\n    <span style=\"color: blue;\">While</span> sqRead.Read\r\n      RowCount = RowCount + 1\r\n      tMapTile.Rows.Add(sqRead(0), sqRead(1), sqRead(2), sqRead(3), sqRead(4))\r\n      <span style=\"color: blue;\">If</span> RowCount = 100 <span style=\"color: blue;\">Then</span>\r\n        SPin.Parameters(<span style=\"color: #a31515;\">\"@tMapTile\"</span>).Value = tMapTile\r\n        SPin.ExecuteNonQuery()\r\n        tMapTile.Rows.Clear()\r\n        RowCount = 0\r\n      <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">While</span>\r\n    sqRead.Close()\r\n    <span style=\"color: blue;\">If</span> RowCount &gt; 0 <span style=\"color: blue;\">Then</span>\r\n      SPin.Parameters(<span style=\"color: #a31515;\">\"@tMapTile\"</span>).Value = tMapTile\r\n      SPin.ExecuteNonQuery()\r\n      tMapTile.Rows.Clear()\r\n    <span style=\"color: blue;\">End</span> <span style=\"color: blue;\">If</span>\r\n\r\n</pre>\r\n</div>\r\nCurrently have 148,026 tiles within the MSSQL cache (2GB)m which seems to be performing quite well....</p>",
+    "PostedDate": "2012-09-17T14:07:39.397-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913938",
+    "ThreadId": "395740",
+    "Html": "<p>under <strong>NONE</strong> conditions these scaled tiles are stored into the cache</p>",
+    "PostedDate": "2012-09-17T23:50:12.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913950",
+    "ThreadId": "395740",
+    "Html": "<p>Hmm,</p>\r\n<p>Have also experienced this, with zoomed tiles being stored in the cache. Had to get round it by creating another option for FORCE titles to be downloaded and writen to cache on maps i discovered the problem.</p>\r\n<p>Not sure if it was caused by a slow connection, where the tile was zoomed, but the actual tile not recieved in time, resulting in the zoom image to be saved to cache ?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-09-18T00:20:08.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "913957",
+    "ThreadId": "395740",
+    "Html": "\r\n<p>it may somehow stuck on screen, but they never get into the cache</p>\r\n<p>p.s. i mean <em>disk</em> cache ;}</p>\r\n",
+    "PostedDate": "2012-09-18T00:33:08.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914543",
+    "ThreadId": "395740",
+    "Html": "<p>They do appear to be getting saved into the cache as I can turn the mode to cache only and see the scaled vs non scaled tiles on screen and that is after a re-start so that it is not from the memory cache (database, both primary SQLite and MSSQL secondary).</p>\r\n<p>A function to refresh tiles, based on the active map screen window and a coupled to re-writing the tiles into the cache would be very useful, prevent a full cache wipe or having to implement a workaround by separate delete into the database and then re-start the app (because until the cache fall from memory it will not get put back into the database).</p>\r\n<p>This would be a very method to have, allows a double check on the images in the cache (have google updated the satellite view) while allowing other time based WMS providers to be refreshed on demand (area of interest only).</p>",
+    "PostedDate": "2012-09-19T04:52:43.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914553",
+    "ThreadId": "395740",
+    "Html": "<p>As a thought it may be when the mode is being switched between cache only and server and cache. This would allow the map to be moved around and scaled tiles to be displayed in cache only mode, which when the access mode is turned back on to server and cache if the memory cache does not keep track of which tiles are scaled and written to disk ?</p>",
+    "PostedDate": "2012-09-19T05:03:27.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914575",
+    "ThreadId": "395740",
+    "Html": "<p>jesus..., it's programming, keep it simple ;D</p>",
+    "PostedDate": "2012-09-19T05:52:38.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914790",
+    "ThreadId": "395740",
+    "Html": "<p>:-))</p>",
+    "PostedDate": "2012-09-19T12:55:38.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

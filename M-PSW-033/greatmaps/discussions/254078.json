@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "598018",
+    "ThreadId": "254078",
+    "Html": "\r\n<p>A placemark not seem to be very good &quot;synchronised&quot; with ints XmlData content.</p>\r\n<p>Eg, doing a debug, a placemark value:</p>\r\n<p>pm&nbsp;&nbsp;&nbsp; {GMap.NET.Placemark}&nbsp;&nbsp;&nbsp; GMap.NET.Placemark<br>\r\n<br>\r\n<em>Accuracy&nbsp;&nbsp;&nbsp; </em>8&nbsp;&nbsp;&nbsp; int<br>\r\n<em>Address&nbsp;&nbsp;&nbsp; </em>&quot;8 Rue Buffon, 75005 Paris, France&quot;&nbsp;&nbsp;&nbsp; string<br>\r\n<strong><em>AdministrativeAreaName&nbsp;&nbsp;&nbsp; </em></strong>null&nbsp;&nbsp;&nbsp; string<br>\r\n<em>CountryName&nbsp;&nbsp;&nbsp; </em>&quot;France&quot;&nbsp;&nbsp;&nbsp; string<br>\r\n<em>CountryNameCode&nbsp;&nbsp;&nbsp; </em>&quot;FR&quot;&nbsp;&nbsp;&nbsp; string<br>\r\n<em><strong>LocalityName&nbsp;&nbsp;&nbsp; </strong></em>null&nbsp;&nbsp;&nbsp; string<br>\r\n<em><strong>PostalCodeNumber&nbsp;&nbsp;&nbsp; </strong></em>null&nbsp;&nbsp;&nbsp; string<br>\r\n<em>Status&nbsp;&nbsp;&nbsp; </em>G_GEO_SUCCESS&nbsp;&nbsp;&nbsp; GMap.NET.GeoCoderStatusCode<br>\r\n<em><strong>SubAdministrativeAreaName&nbsp;&nbsp;&nbsp; </strong></em>null&nbsp;&nbsp;&nbsp; string<br>\r\n<em><strong>ThoroughfareName&nbsp;&nbsp;&nbsp; </strong></em>null&nbsp;&nbsp;&nbsp; string<br>\r\n<em>XmlData&nbsp;&nbsp;&nbsp; </em>&quot;&lt;Placemark id=\\&quot;p1\\&quot; xmlns=\\&quot;http://earth.google.com/kml/2.0\\&quot;&gt;&lt;address&gt;8 Rue Buffon, 75005 Paris, France&lt;/address&gt;&lt;AddressDetails Accuracy=\\&quot;8\\&quot; xmlns=\\&quot;urn:oasis:names:tc:ciq:xsdschema:xAL:2.0\\&quot;&gt;&lt;Country&gt;&lt;CountryNameCode&gt;FR&lt;/CountryNameCode&gt;&lt;CountryName&gt;France&lt;/CountryName&gt;&lt;AdministrativeArea&gt;&lt;AdministrativeAreaName&gt;<strong>&Icirc;le-de-France</strong>&lt;/AdministrativeAreaName&gt;&lt;SubAdministrativeArea&gt;&lt;SubAdministrativeAreaName&gt;Paris&lt;/SubAdministrativeAreaName&gt;&lt;Locality&gt;&lt;LocalityName&gt;<strong>Paris</strong>&lt;/LocalityName&gt;&lt;Thoroughfare&gt;&lt;ThoroughfareName&gt;<strong>8\r\n Rue Buffon</strong>&lt;/ThoroughfareName&gt;&lt;/Thoroughfare&gt;&lt;PostalCode&gt;&lt;PostalCodeNumber&gt;<strong>75005</strong>&lt;/PostalCodeNumber&gt;&lt;/PostalCode&gt;&lt;/Locality&gt;&lt;/SubAdministrativeArea&gt;&lt;/AdministrativeArea&gt;&lt;/Country&gt;&lt;/AddressDetails&gt;&lt;ExtendedData&gt;&lt;LatLonBox\r\n north=\\&quot;48.8460240\\&quot; south=\\&quot;48.8397288\\&quot; east=\\&quot;2.3652732\\&quot; west=\\&quot;2.3589780\\&quot; /&gt;&lt;/ExtendedData&gt;&lt;Point&gt;&lt;coordinates&gt;2.3621256,48.8428764,0&lt;/coordinates&gt;&lt;/Point&gt;&lt;/Placemark&gt;&quot;&nbsp;&nbsp;&nbsp; string</p>\r\n",
+    "PostedDate": "2011-04-15T09:05:14.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "598983",
+    "ThreadId": "254078",
+    "Html": "<p>I (serhio) created a branch in Mercurial to fix this bug, and updated some changes.... not sure If I did all correct?</p>\r\n<p>Could someone from the dev team confirm that the branch is visible and \"mergeable\"?</p>\r\n<p>thanks!</p>",
+    "PostedDate": "2011-04-18T03:59:47.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "598986",
+    "ThreadId": "254078",
+    "Html": "<p>you need to push your changes to your fork( https://hg01.codeplex.com/forks/serhhio/placemark ), currently it's empty</p>",
+    "PostedDate": "2011-04-18T04:01:31.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "598995",
+    "ThreadId": "254078",
+    "Html": "<p>@radioman:</p>\n<p>I created a branch \"PlaceMark Update\"<br /> Can now I \"move\" this branch to the indicated Fork?</p>",
+    "PostedDate": "2011-04-18T04:12:11.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "598999",
+    "ThreadId": "254078",
+    "Html": "<p>? you just need to&nbsp;<strong>push</strong>&nbsp;your changes to your fork, one button click action</p>",
+    "PostedDate": "2011-04-18T04:18:41.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599003",
+    "ThreadId": "254078",
+    "Html": "<p>it asks me for authentification. So, I don't know user/password...</p>",
+    "PostedDate": "2011-04-18T04:26:25.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599014",
+    "ThreadId": "254078",
+    "Html": "<p>i don't know your codeplex password too ;}</p>",
+    "PostedDate": "2011-04-18T04:38:37.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599015",
+    "ThreadId": "254078",
+    "Html": "<p>\"codeplex\".</p>\r\n<p>I sing-in with the Windows Live ID, using my gmail email .... Should I create a codePlex account in that case?</p>",
+    "PostedDate": "2011-04-18T04:40:34.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599023",
+    "ThreadId": "254078",
+    "Html": "<p>&nbsp;if it doesn't work with live id, i guess thats the only option</p>",
+    "PostedDate": "2011-04-18T04:51:14.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599029",
+    "ThreadId": "254078",
+    "Html": "<p>now, authentification is OK, but it tells me \"Bad gateway\"...</p>\n<p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: gray;\">%</span> hg <span style=\"color: gray;\">--</span>repository D:\\Projets\\greatmaps push <span style=\"color: gray;\">--</span>force <span style=\"color: gray;\">--</span>new<span style=\"color: gray;\">-</span>branch https:<span style=\"color: gray;\">/</span><span style=\"color: gray;\">/</span>hg01.codeplex.com<span style=\"color: gray;\">/</span>forks<span style=\"color: gray;\">/</span>gserhio<span style=\"color: gray;\">/</span>placemark\npushing to https:<span style=\"color: gray;\">/</span><span style=\"color: gray;\">/</span>hg01.codeplex.com<span style=\"color: gray;\">/</span>forks<span style=\"color: gray;\">/</span>gserhio<span style=\"color: gray;\">/</span>placemark\nsearching <span style=\"color: blue;\">for</span> changes\nhttp authorization required\nrealm: hg01.codeplex.com\nHTTP Error: 502 (Bad Gateway)\n<span style=\"color: gray;\">[</span><span style=\"color: teal;\">command returned code 255 Mon Apr 18 14:04:12 2011</span><span style=\"color: gray;\">]</span>\n</pre>\n</div>\n</p>",
+    "PostedDate": "2011-04-18T05:02:53.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599041",
+    "ThreadId": "254078",
+    "Html": "<p>o.O tried again?</p>",
+    "PostedDate": "2011-04-18T05:34:08.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599059",
+    "ThreadId": "254078",
+    "Html": "<p>yee!!!! worked</p>",
+    "PostedDate": "2011-04-18T06:00:38.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599063",
+    "ThreadId": "254078",
+    "Html": "<p>still, can't see anything new ;/</p>",
+    "PostedDate": "2011-04-18T06:10:06.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "599087",
+    "ThreadId": "254078",
+    "Html": "<p>ok, thanks ;}</p>",
+    "PostedDate": "2011-04-18T06:58:59.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "639482",
+    "ThreadId": "254078",
+    "Html": "<p>Hi,</p>\r\n<p>I have this problem with version 1.5.5.5 published the 27 april 2011.<br />The bug seems fixed from 18 april.</p>\r\n<p>How to do ?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-07-08T07:54:08.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "639504",
+    "ThreadId": "254078",
+    "Html": "<p>xml format isn't so constant so it doesn't work always, feel free to correct it</p>",
+    "PostedDate": "2011-07-08T08:19:23.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640107",
+    "ThreadId": "254078",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">I am willing to</span> <span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">fix it.</span> <span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">What</span> function of what class <span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">should I</span> <span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">change ?<br /></span></span></p>",
+    "PostedDate": "2011-07-10T09:01:07.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640111",
+    "ThreadId": "254078",
+    "Html": "<p>debug, find out</p>",
+    "PostedDate": "2011-07-10T09:20:52.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640343",
+    "ThreadId": "254078",
+    "Html": "<p>I do changes in GetPlacemarkFromReverseGeocoderUrl function of GMaps class (version 1.5.5.5), replacing the foreach loop of Placemark tags. I kept style of code, but completed and optimized it by using a new local variable nnd representing the AddressDetails tag. It seems to works fine.</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">foreach</span>(XmlNode n <span style=\"color: blue;\">in</span> l)\r\n{\r\n\tXmlNode nnd, nn = n.SelectSingleNode(<span style=\"color: #a31515;\">\"//sm:Placemark/sm:address\"</span>, nsMgr);\r\n\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t{\r\n\t\tret = <span style=\"color: blue;\">new</span> Placemark(nn.InnerText);\r\n\t\tret.XmlData = n.OuterXml;\r\n\r\n\t\tnn = n.SelectSingleNode(<span style=\"color: #a31515;\">\"//sm:Status/sm:code\"</span>, nsMgr);\r\n\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t{\r\n\t\t\tret.Status = (GeoCoderStatusCode)<span style=\"color: blue;\">int</span>.Parse(nn.InnerText);\r\n\t\t}\r\n\r\n\t\tnnd = n.SelectSingleNode(<span style=\"color: #a31515;\">\"sn:AddressDetails\"</span>, nsMgr);\r\n\t\t<span style=\"color: blue;\">if</span> (nnd != <span style=\"color: blue;\">null</span>)\r\n\t\t{\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"@Accuracy\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.Accuracy = <span style=\"color: blue;\">int</span>.Parse(nn.InnerText);\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"sn:Country/sn:CountryNameCode\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.CountryNameCode = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"sn:Country/sn:CountryName\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.CountryName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"//sn:AdministrativeArea/sn:AdministrativeAreaName\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.AdministrativeAreaName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"//sn:SubAdministrativeArea/sn:SubAdministrativeAreaName\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.SubAdministrativeAreaName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"//sn:Locality/sn:Thoroughfare/sn:ThoroughfareName\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.ThoroughfareName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"//sn:Locality/sn:LocalityName\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.LocalityName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(<span style=\"color: #a31515;\">\"//sn:Locality/sn:PostalCode/sn:PostalCodeNumber\"</span>, nsMgr);\r\n\t\t\t<span style=\"color: blue;\">if</span> (nn != <span style=\"color: blue;\">null</span>)\r\n\t\t\t{\r\n\t\t\t\tret.PostalCodeNumber = nn.InnerText;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t<span style=\"color: blue;\">break</span>;\r\n}\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-07-11T03:16:43.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "640516",
+    "ThreadId": "254078",
+    "Html": "<p>did you tested it using various places?</p>",
+    "PostedDate": "2011-07-11T09:21:48.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "641985",
+    "ThreadId": "254078",
+    "Html": "<p>I did more tests and met a problem with England. The Locality tag is not always present, and can be replaced by a DependentLocality tag. Then I found a bug with the XPath expressions : start path by // is a bad idea as the searched tag can be anywhere in the document and not only in the current Placemark tag. For example, with England, sometimes the first Placemark tag has no Locality tag, but the second Placemark tag have one : and this tag is found by the Xpath expression.</p>\r\n<p>So I changed the Xpath expression and replaced // by appropriated expression.</p>\r\n<p>Here is a code that works fine. I tested it using various places in many countries : France, Italy, Belgium, England, United States, Lithuania, Estonia, Denmark. It worked for all (just locality was not got for Estonia, but it was normal as there was not Locality tag).</p>\r\n<p>\r\n<pre>foreach(XmlNode n in l)\r\n{\r\n\tXmlNode nnd, nnl, nn = n.SelectSingleNode(\"sm:address\", nsMgr);\r\n\tif (nn != null)\r\n\t{\r\n\t\tret = new Placemark(nn.InnerText);\r\n\t\tret.XmlData = n.OuterXml;\r\n\r\n\t\tnn = n.SelectSingleNode(\"//sm:Status/sm:code\", nsMgr);\r\n\t\tif (nn != null)\r\n\t\t{\r\n\t\t\tret.Status = (GeoCoderStatusCode)int.Parse(nn.InnerText);\r\n\t\t}\r\n\r\n\t\tnnd = n.SelectSingleNode(\"sn:AddressDetails\", nsMgr);\r\n\t\tif (nnd != null)\r\n\t\t{\r\n\t\t\tnn = nnd.SelectSingleNode(\"@Accuracy\", nsMgr);\r\n\t\t\tif (nn != null)\r\n\t\t\t{\r\n\t\t\t\tret.Accuracy = int.Parse(nn.InnerText);\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(\"sn:Country/sn:CountryNameCode\", nsMgr);\r\n\t\t\tif (nn != null)\r\n\t\t\t{\r\n\t\t\t\tret.CountryNameCode = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(\"sn:Country/sn:CountryName\", nsMgr);\r\n\t\t\tif (nn != null)\r\n\t\t\t{\r\n\t\t\t\tret.CountryName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(\"descendant::sn:AdministrativeArea/sn:AdministrativeAreaName\", nsMgr);\r\n\t\t\tif (nn != null)\r\n\t\t\t{\r\n\t\t\t\tret.AdministrativeAreaName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\tnn = nnd.SelectSingleNode(\"descendant::sn:SubAdministrativeArea/sn:SubAdministrativeAreaName\", nsMgr);\r\n\t\t\tif (nn != null)\r\n\t\t\t{\r\n\t\t\t\tret.SubAdministrativeAreaName = nn.InnerText;\r\n\t\t\t}\r\n\r\n\t\t\t// Locality or DependentLocality tag ?\r\n\t\t\tnnl = nnd.SelectSingleNode(\"descendant::sn:Locality\", nsMgr) ?? nnd.SelectSingleNode(\"descendant::sn:DependentLocality\", nsMgr);\r\n\t\t\tif (nnl != null)\r\n\t\t\t{\r\n\t\t\t\tnn = nnl.SelectSingleNode(String.Format(\"sn:{0}Name\", nnl.Name), nsMgr);\r\n\t\t\t\tif (nn != null)\r\n\t\t\t\t{\r\n\t\t\t\t\tret.LocalityName = nn.InnerText;\r\n\t\t\t\t}\r\n\r\n\t\t\t\tnn = nnl.SelectSingleNode(\"sn:Thoroughfare/sn:ThoroughfareName\", nsMgr);\r\n\t\t\t\tif (nn != null)\r\n\t\t\t\t{\r\n\t\t\t\t\tret.ThoroughfareName = nn.InnerText;\r\n\t\t\t\t}\r\n\r\n\t\t\t\tnn = nnl.SelectSingleNode(\"sn:PostalCode/sn:PostalCodeNumber\", nsMgr);\r\n\t\t\t\tif (nn != null)\r\n\t\t\t\t{\r\n\t\t\t\t\tret.PostalCodeNumber = nn.InnerText;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\tbreak;\r\n}</pre>\r\n</p>",
+    "PostedDate": "2011-07-13T15:42:51.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642156",
+    "ThreadId": "254078",
+    "Html": "<p>thanks!, i'll try it and update code if it's good</p>",
+    "PostedDate": "2011-07-14T00:32:36.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "647294",
+    "ThreadId": "254078",
+    "Html": "<p>code updated, thx</p>",
+    "PostedDate": "2011-07-25T12:02:46.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "648325",
+    "ThreadId": "254078",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">Perfect</span><span title=\"Cliquer ici pour voir d'autres traductions\">.</span> <span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">It was</span> <span class=\"hps\" title=\"Cliquer ici pour voir d'autres traductions\">a pleasure</span><span title=\"Cliquer ici pour voir d'autres traductions\">.</span></span></p>",
+    "PostedDate": "2011-07-27T08:02:37.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

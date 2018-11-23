@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "721894",
+    "ThreadId": "285322",
+    "Html": "\r\n<p>hey everyone :)</p>\r\n<p>can anyone help me on this</p>\r\n<p>i need to locate 4 cars in my map using their id , so everytime the car send latitude and longitude , its marker move to the new location</p>\r\n<p>how to know the id of marker that i have to move</p>\r\n<p>srry for my english</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-01-07T11:02:25.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722380",
+    "ThreadId": "285322",
+    "Html": "<p>you should make a new marker class that inherits whatever marker class you are currently using.&nbsp; add an ID property.&nbsp; something like...</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">using</span> GMap.NET;\r\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms;\r\n<span style=\"color: blue;\">using</span> GMap.NET.WindowsForms.Markers;\r\n\r\n<span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GMapMarkerWithID : GMapMarkerGoogleRed\r\n{\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">int</span> ID {<span style=\"color: blue;\">get</span>; <span style=\"color: blue;\">set</span>; }\r\n\r\n    <span style=\"color: blue;\">public</span> GMapMarkerWithID(PointLatLng p)\r\n        : <span style=\"color: blue;\">base</span>(p)\r\n    {\r\n    }\r\n}\r\n</pre>\r\n</div>",
+    "PostedDate": "2012-01-09T04:22:32.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

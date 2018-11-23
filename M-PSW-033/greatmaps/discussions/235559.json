@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "525215",
+    "ThreadId": "235559",
+    "Html": "\r\n<p>Hi all,<br>\r\nI'm using Gmap and today i've got a surprise.<br>\r\nThe methods SetCurrentPositionByKeywords and GetLatLngFromGeocoder no longer works (They always send GeoCoderStatusCode.Unknow)<br>\r\nI haven't any problem last week.<br>\r\n<br>\r\nThanks :)</p>\r\n",
+    "PostedDate": "2010-11-22T02:45:51.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525378",
+    "ThreadId": "235559",
+    "Html": "\r\n<p>let me check that</p>\r\n",
+    "PostedDate": "2010-11-22T09:15:21.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525384",
+    "ThreadId": "235559",
+    "Html": "\r\n<p>it works perfectly, but i guess many users use default google api key, so it reach day limit fast, so i recommend to change it</p>\r\n",
+    "PostedDate": "2010-11-22T09:26:30.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "544401",
+    "ThreadId": "235559",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I change the key by a newest (from http://code.google.com/intl/en-us/apis/maps/signup.html) and it doesn't work. I need HELP !!!</p>\r\n<p>For information, i make a little change in gmap.cs for search the api key in app.config:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>       <span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> GoogleMapsAPIConfigKey = <span style=\"color:#a31515\">&quot;GoogleMapsAPIKey&quot;</span>;\r\n       <span style=\"color:blue\">private</span> <span style=\"color:blue\">string</span> googleMapsAPIKey = <span style=\"color:#a31515\">@&quot;ABQIAAAAWaQgWiEBF3lW97ifKnAczhRAzBk5Igf8Z5n2W3hNnMT0j2TikxTLtVIGU7hCLLHMAuAMt-BO5UrEWA&quot;</span>;\r\n       <span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> GoogleMapsAPIKey\r\n       {\r\n           <span style=\"color:blue\">get</span>\r\n           {\r\n               <span style=\"color:blue\">string</span> key = googleMapsAPIKey;\r\n               <span style=\"color:blue\">if</span> (!String.IsNullOrEmpty(ConfigurationManager.AppSettings[GoogleMapsAPIConfigKey]))\r\n               {\r\n                   key = ConfigurationManager.AppSettings[GoogleMapsAPIConfigKey];\r\n               }\r\n               <span style=\"color:blue\">return</span> key;\r\n           }\r\n       }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-05T09:15:21.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

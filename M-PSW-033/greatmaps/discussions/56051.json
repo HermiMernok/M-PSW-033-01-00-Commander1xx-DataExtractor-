@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "189292",
+    "ThreadId": "56051",
+    "Html": "<p>Hi</p>\r\n<p>Is there a way in the control to just redraw the overlays and not the whole map. My application is tracking GPS positions and the map hardly moves and it would be nice to be able to refresh the position with out haveing to redraw the whole map.</p>\r\n<p>Also is there a option for text top be displayed while the Map tile is being downloaded?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>Colin</p>",
+    "PostedDate": "2009-05-12T07:02:52.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189294",
+    "ThreadId": "56051",
+    "Html": "<p>in wpfversion it's done automaticaly, in win forms version, &nbsp;after position changed, call&nbsp;<span style=\"font-weight:bold\">public void UpdateMarkerLocalPosition(GMapMarker marker)</span></p>",
+    "PostedDate": "2009-05-12T07:06:04.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189302",
+    "ThreadId": "56051",
+    "Html": "<p>Hi</p>\r\n<p>&nbsp;</p>\r\n<p>I have tried that but it doesnt actully move the position until you click in the map then it icon moves.</p>\r\n<p>&nbsp;</p>\r\n<p>Colin</p>",
+    "PostedDate": "2009-05-12T07:21:24.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189304",
+    "ThreadId": "56051",
+    "Html": "<p>check now</p>",
+    "PostedDate": "2009-05-12T07:31:00.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189309",
+    "ThreadId": "56051",
+    "Html": "<p>Hi</p>\r\n<p>&nbsp;</p>\r\n<p>I found the problem if you add <span style=\"color:#0000ff;font-size:x-small\"><span style=\"color:#0000ff;font-size:x-small\">&lt;font size=&quot;2&quot; color=&quot;#0000ff&quot;&gt;&lt;font size=&quot;2&quot; color=&quot;#0000ff&quot;&gt;\r\n<p>base</p>\r\n&lt;/font&gt;&lt;/font&gt;</span>&lt;font size=&quot;2&quot; color=&quot;#0000ff&quot;&gt;\r\n<p>&nbsp;</p>\r\n&lt;/font&gt;</span></p>\r\n<p><span style=\"font-size:x-small\">.Refresh();</span></p>\r\n<p><span style=\"font-size:x-small\">to the end of the procedure it works :)</span></p>\r\n<p><span style=\"font-size:x-small\">Colin</span></p>",
+    "PostedDate": "2009-05-12T07:38:28.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189311",
+    "ThreadId": "56051",
+    "Html": "<p>no need of that in current version</p>",
+    "PostedDate": "2009-05-12T07:40:52.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "189312",
+    "ThreadId": "56051",
+    "Html": "<p>Hi</p>\r\n<p>THnaks for the quick fix :)</p>\r\n<p>Colin</p>",
+    "PostedDate": "2009-05-12T07:44:07.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

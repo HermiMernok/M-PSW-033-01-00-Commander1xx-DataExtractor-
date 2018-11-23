@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "647199",
+    "ThreadId": "266476",
+    "Html": "\r\n<p>In &quot;Demo.WindowsPresentation&quot; (greatmaps_ea1071d1c5db\\GMap.NET.WindowsPresentation\\GMap.NET.WindowsPresentation\\TilePrefetcher.xaml.cs) replase:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>list = prj.GetAreaTileList(area, zoom, 0);\r\nmaxOfTiles = prj.GetTileMatrixMaxXY(zoom);\r\n</pre>\r\n</div>\r\nto:\r\n<p></p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>list = provider.Projection.GetAreaTileList(area, zoom, 0);\r\nmaxOfTiles = provider.Projection.GetTileMatrixMaxXY(zoom);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>and remove field &quot;prj&quot;.</p>\r\n<p><span id=\"result_box\" lang=\"en\"><span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">I think</span>\r\n<span title=\"Наж&#1084;ите, чтобы увидеть альтернативный перевод\">so.</span></span></p>\r\n",
+    "PostedDate": "2011-07-25T08:04:51.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "647295",
+    "ThreadId": "266476",
+    "Html": "<p>fixed</p>",
+    "PostedDate": "2011-07-25T12:03:01.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1219930",
+    "ThreadId": "538176",
+    "Html": "I am experiencing an unexpected behavior when using GrayscaleMode. The premise is as follows:<br />\n<ul>\n<li>I have two instances of GMap displaying on two different screens</li>\n<li>I would like to have one screen in gray scale, and the other one  in color</li>\n<li>\nI set one screen to GrayscaleMode = true, the other one to GrayscaleMode = false\r<br />\nThe two screens display the same area, but the zoom levels may vary. I debugged carefully to make sure that the GrayscaleMode property is indeed set properly between the two instances. \r<br />\nWhat I am experiencing is that both instances display the map in gray. My impression is that the cache is updated with gray tiles as soon as the gray instance starts displaying the map, and that subsequent hits from either instances pull out whatever is available, which may happen to be gray.\r<br />\nI can circumvent the problem by capturing the gray map in a static bitmap and use that for the second screen, and then refresh the cache from the instance that is operating in color, in order to flush out the gray tiles. It's not a big deal, but I just want to make sure that I understand correctly what is happening. So, in summary:\r<br />\nIs my assumption about the cache correct? If not, is there a way around this behavior?\r<br />\nThanks for a wonderfully crafted assembly. All the best,<br />\n</li>\n</ul>\nFrederic<br />\n",
+    "PostedDate": "2014-03-06T08:41:38.633-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1224837",
+    "ThreadId": "538176",
+    "Html": "unfortunately it's shared variable: (GMapProvider.TileImageProxy as GMapImageProxy).ColorMatrix<br />\n<br />\n..you can workaround by hacking the code<br />\n<br />\np.s. it's not cache related<br />\n",
+    "PostedDate": "2014-03-20T07:51:21.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

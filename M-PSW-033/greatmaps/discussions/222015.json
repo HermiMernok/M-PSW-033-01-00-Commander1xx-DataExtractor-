@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "474808",
+    "ThreadId": "222015",
+    "Html": "<p>Hi Radioman!</p>\r\n<p>While developing my own app I've faced with necessity to provide fast drawing of geometry primitives over map. The key requirements were:</p>\r\n<p>1. Support 10000+ objects over map.</p>\r\n<p>2. Support custom scaling for particular types of objects. Some of them do not scale (as GMapMarker), but some zoom.</p>\r\n<p>That lead to a fork: http://greatmaps.codeplex.com/SourceControl/network/Forks/Iljas/GMapControlBaseInWPF</p>\r\n<p>It contains GMapControlBase class and GMapControl (descendant of base). In GMapControlBase now there are necessary public properties and events. And all markers logic is now located within GMapControl.</p>\r\n<p>Current version of my application perfectly zooms and pans map with 10000 objects over it.&nbsp; But this is only possible if using custom overlay logic in my descendant of GMapControl:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Layers.</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:blue\">public</span> VisualCollection Layers { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">private</span> <span style=\"color:blue\">set</span>; }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Get number of children: VisualCollection count.</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">int</span> VisualChildrenCount\r\n        {\r\n            <span style=\"color:blue\">get</span>\r\n            {\r\n                <span style=\"color:blue\">return</span> <span style=\"color:blue\">base</span>.VisualChildrenCount + Layers.Count;\r\n            }\r\n        }\r\n\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Get visual child - one of GraphicsBase objects</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> Visual GetVisualChild(<span style=\"color:blue\">int</span> index)\r\n        {\r\n            <span style=\"color:blue\">var</span> baseCount = <span style=\"color:blue\">base</span>.VisualChildrenCount;\r\n            <span style=\"color:blue\">return</span> index &lt;= baseCount - 1 ? <span style=\"color:blue\">base</span>.GetVisualChild(index) : Layers[index - baseCount];\r\n        }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Please take a look at this stuff.</p>\r\n<p>It could possibly result in enhancing of performance for markers and other stuff in WPF version of GMapControl...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-30T09:40:08.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475071",
+    "ThreadId": "222015",
+    "Html": "<p>hm.. are you sure that you pushed all changes back to server? I can't see any code of layers ;/</p>",
+    "PostedDate": "2010-07-31T13:34:29.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475166",
+    "ThreadId": "222015",
+    "Html": "I didn't push all my changes as they are very custom. Unfortunately I didn't succeed with any replacement for existing GMapMarkers approach (just due to lack of time...) I can send them to you via email, if you want.",
+    "PostedDate": "2010-08-01T06:58:46.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "475216",
+    "ThreadId": "222015",
+    "Html": "<p>i see, there is no rush ;}</p>",
+    "PostedDate": "2010-08-01T14:05:09.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

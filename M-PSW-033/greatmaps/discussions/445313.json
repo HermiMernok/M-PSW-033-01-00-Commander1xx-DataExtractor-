@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1050021",
+    "ThreadId": "445313",
+    "Html": "Hi, I am trying to freece the map. I tried to set gMap.IsEnabled = false, but this leads to that my marker's tooltips cannot be shown, probably because the markers also are disabled.\r<br />\n<br />\nTherefore I used gMap.CanDragMap = false. How can i disable all Zooming done by the user, like MouseWheelZoom?<br />\n",
+    "PostedDate": "2013-05-29T03:41:40.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1050026",
+    "ThreadId": "445313",
+    "Html": "add property CanZoomMap, and set it to false ;}<br />\n",
+    "PostedDate": "2013-05-29T03:50:12.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051195",
+    "ThreadId": "445313",
+    "Html": "\r\n<div dir=\"ltr\">How do you add a property? Do i have to build my own version og GMap.NET?\r\n<div><br>\r\n</div>\r\n<div>Jon Anders<br>\r\n<br>\r\n<div>\r\n<hr id=\"stopSpelling\">\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-05-31T06:06:20.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051197",
+    "ThreadId": "445313",
+    "Html": "yes, isn't it scary ;D<br />\n",
+    "PostedDate": "2013-05-31T06:07:12.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051200",
+    "ThreadId": "445313",
+    "Html": "\r\n<div dir=\"ltr\">Nice. I am a noob so...\r\n<div><br>\r\n</div>\r\n<div>Where can I put the attribute. Is it enough to put it here? </div>\r\n<div><br>\r\n</div>\r\n<div>\r\n<div><br>\r\n</div>\r\n<div>/// &lt;summary&gt;</div>\r\n<div>/// can user drag map</div>\r\n<div>/// &lt;/summary&gt;</div>\r\n<div>public bool CanDragMap = true;</div>\r\n<div><br>\r\n</div>\r\n<div>/// &lt;summary&gt;</div>\r\n<div>/// can user zoom map</div>\r\n<div>/// &lt;/summary&gt;</div>\r\n<div>public bool CanZoomMap = true;</div>\r\n<br>\r\n<div>\r\n<hr id=\"stopSpelling\">\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-05-31T06:15:51.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051202",
+    "ThreadId": "445313",
+    "Html": "thats a start, add checking in zoom function<br />\n",
+    "PostedDate": "2013-05-31T06:17:50.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051203",
+    "ThreadId": "445313",
+    "Html": "\r\n<div dir=\"ltr\">Nice. I put it in GoToCurrentPositionOnZoom(). Hopes thats enough<br>\r\n<br>\r\n<div>\r\n<hr id=\"stopSpelling\">\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-05-31T06:21:10.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051225",
+    "ThreadId": "445313",
+    "Html": "\r\n<div dir=\"ltr\">I put it in OnMouseWheel. That did the job. Many thanks :)\r\n<div><br>\r\n</div>\r\n<div>Jon Anders<br>\r\n<br>\r\n<div>\r\n<hr id=\"stopSpelling\">\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-05-31T07:24:50.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051227",
+    "ThreadId": "445313",
+    "Html": "you did it yourself, cheers for that! ;}<br />\n",
+    "PostedDate": "2013-05-31T07:27:54.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

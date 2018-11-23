@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1080083",
+    "ThreadId": "453271",
+    "Html": "I use gmapnet in your application under MFC. But I have a problem how to set capture clicks on the map in my application. Any idea?<br />\n",
+    "PostedDate": "2013-08-13T06:17:00.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1080089",
+    "ThreadId": "453271",
+    "Html": "do you have access to the map control instance?<br />\n",
+    "PostedDate": "2013-08-13T06:23:18.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1080126",
+    "ThreadId": "453271",
+    "Html": "What do you mean exactly? \r<br />\n<br />\nI found such gMapControl1.OnMarkerClick + = new MarkerClick (gMapControl1_OnMarkerClick);\r<br />\n<br />\nThere is also a function onMouseClick, but I can not set the function from MFC.\r<br />\nUnfortunately I only know MFC, not c # or net.\r<br />\n<br />\nSorry for my English.<br />\n",
+    "PostedDate": "2013-08-13T08:00:00.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1080259",
+    "ThreadId": "453271",
+    "Html": "Here is the solution: <a href=\"http://blogs.msdn.com/b/nikolad/archive/2005/06/10/how-to-use-cwinformdialog-amp-lt-amp-gt-for-mfc-winforms-integration.aspx\" rel=\"nofollow\">http://blogs.msdn.com/b/nikolad/archive/2005/06/10/how-to-use-cwinformdialog-amp-lt-amp-gt-for-mfc-winforms-integration.aspx</a><br />\n<pre><code> virtual void OnMapClick( System::Object^ o, System::Windows::Forms::MouseEventArgs^ e);\n\n BEGIN_DELEGATE_MAP( CMFCApplicationTestDlg )\n EVENT_DELEGATE_ENTRY( OnMapClick, System::Object^, System::Windows::Forms::MouseEventArgs^ );\n END_DELEGATE_MAP()\n\n......\n\nBOOL CMFCApplicationTestDlg::OnInitDialog()\n{\n    CDialogEx::OnInitDialog();\n...............\n    ps_map2.m_map-&gt;MouseClick += MAKE_DELEGATE( System::Windows::Forms::MouseEventHandler, OnMapClick);\n    return TRUE; \n}\n\nvoid CMFCApplicationTestDlg::OnMapClick( System::Object^ o, System::Windows::Forms::MouseEventArgs^ e)\n{   \n    if (e-&gt;Button == System::Windows::Forms::MouseButtons::Left)\n    {\n        PointLatLng p = ps_map2.m_map-&gt;FromLocalToLatLng(e-&gt;X, e-&gt;Y);\n    }\n}</code></pre>\n\n",
+    "PostedDate": "2013-08-13T14:04:05.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1081590",
+    "ThreadId": "453271",
+    "Html": "To dave003\r<br />\n<br />\nHow could you used Gmap.NET in your MFC application ?\r<br />\n<br />\nActually I also tried to do that but I got a error at:\r<br />\n<br />\nCWinFormsControl&lt;GMap.NET.WindowsForms::GMapControl&gt; m_wndGPSView;\r<br />\n<br />\nThe Error message I got is: 'GMap' : illegal use of namespace identifier in expression\r<br />\n<br />\nHope you can give me some evidence to pass this difficulty.\r<br />\n<br />\nThanks in advance<br />\n",
+    "PostedDate": "2013-08-17T01:05:08.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082301",
+    "ThreadId": "453271",
+    "Html": "1) Include &lt;afxwinforms.h&gt; in stdafx.h.\r<br />\n2) Enable /clr\r<br />\n<br />\nDavid<br />\n",
+    "PostedDate": "2013-08-19T11:27:11.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

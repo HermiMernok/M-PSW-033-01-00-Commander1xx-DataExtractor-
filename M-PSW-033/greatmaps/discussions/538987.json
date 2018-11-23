@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1222680",
+    "ThreadId": "538987",
+    "Html": "I'm having a problem where the ZoomAndCenterMarkers function sometimes leaves markers with just a sliver visible at the edge of the map.  As in you can barely even see the marker.  I don't know the exact method of how the markers position is being calculated, but is there a way to make minor adjustments to the function to account for scenarios like this?\r<br />\n<br />\nAlso, I see a few mentions of fractional zooming in the forum but nothing recent.  Is this something that is in the codebase and working?<br />\n",
+    "PostedDate": "2014-03-14T02:29:02.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1226275",
+    "ThreadId": "538987",
+    "Html": "Is there any help anyone can provide?  I can try to look through the map code myself but a non-working ZoomAndCenterMarkers function would seem to be a big problem for a lot of people.  Has no one else experienced the issue I mentioned?<br />\n",
+    "PostedDate": "2014-03-24T19:04:13.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1314738",
+    "ThreadId": "538987",
+    "Html": "I don't think that this is a bug as it does what it is supposed to do.  I also think it cuts it close and also it is zoomed too far out if there is only 1 marker shown.  I haven't got to the point to deal with this yet but my idea is to get the extreme lats and longs and simply make two new markers that would be either be invisible or so small that they wouldn't interfere with the map and put them slightly left and above the most left coordinate of all markers and most north coordinate of all markers. Then same for the lower east side.  You would have to decide the delta distance but I believe this will solve both problems without trying to tamper with the source code.<br />\n",
+    "PostedDate": "2014-10-19T05:15:57.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

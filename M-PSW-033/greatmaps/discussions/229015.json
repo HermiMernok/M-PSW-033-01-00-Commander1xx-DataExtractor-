@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "499962",
+    "ThreadId": "229015",
+    "Html": "<p>Hi radioman,</p>\r\n<p>Thanks for developing a great control. &nbsp;Is there any way to limit the size of the cache file? &nbsp;My mobile device has only 4 MB of storage space left, and the cache continues to grow. &nbsp;</p>\r\n<p>My application requires that the user is able to download new tiles, so building a prefetched cache and limiting the application to CacheOnly is not an option.</p>\r\n<p>Is there any way to limit the cache size to a set number of MB? &nbsp;It would be really cool if, once the cache has been filled to capacity, the oldest tiles would be replaced by new ones. &nbsp;Your thoughts?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks again for all of your hard work! &nbsp;</p>\r\n<p>MattGerg</p>",
+    "PostedDate": "2010-09-29T06:25:06.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500060",
+    "ThreadId": "229015",
+    "Html": "<p>4MB == 10 tiles? ;}</p>",
+    "PostedDate": "2010-09-29T08:41:05.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500073",
+    "ThreadId": "229015",
+    "Html": "<p>I am very much aware of that.... and my Data.gmdb file is already over 200MB. &nbsp;</p>\r\n<p>So at this point, what would I have the users of my application do?</p>\r\n<p>1) Delete their cache and start over?</p>\r\n<p>2) Prefetch another cache when the device runs out of storage every so often?</p>\r\n<p>3) Adopt some kind of seamless solution.</p>\r\n<p>&nbsp;</p>\r\n<p>I am hoping for number 3, and if something already exists in the current control, then I'd like to use it. &nbsp;Otherwise, I will have to develop something.</p>",
+    "PostedDate": "2010-09-29T08:56:31.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500077",
+    "ThreadId": "229015",
+    "Html": "<p>well deleting items from database doesn't compact it, anyway you can optimize after deleting old tiles, that will do, but on mobile these things will be slow, ...why not use sd card, it works with 1GB cache and more</p>",
+    "PostedDate": "2010-09-29T09:02:24.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500091",
+    "ThreadId": "229015",
+    "Html": "<p>Thanks for the quick responses radioman.</p>\r\n<p>An SD card is suggested, but our end users may be less than tech-savvy :-)</p>\r\n<p>Therefore, I am trying to devise a &quot;just works&quot; solution. &nbsp;The fact that the cache file can grow ad infinitum is a concern of mine...</p>\r\n<p>Does ability to remove tiles and optimize database exist on Mobile implementation?</p>",
+    "PostedDate": "2010-09-29T09:37:01.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500092",
+    "ThreadId": "229015",
+    "Html": "<p>there is no implemented code for deletion of old tiles</p>",
+    "PostedDate": "2010-09-29T09:42:50.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500110",
+    "ThreadId": "229015",
+    "Html": "<p>Thanks radioman.</p>\r\n<p>I may explore the technique that you suggest. &nbsp;I am aware of the MapControl.Manager.OptimizeMapDb(file) function on the WinForms control, but it does not exist on mobile. &nbsp;Do you know if this functionality is absent from the mobile implementation of SQLite? &nbsp;If it is altogether missing from SQLite, then the task becomes much more difficult....</p>\r\n<p>Thanks for your help.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-09-29T10:25:01.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500118",
+    "ThreadId": "229015",
+    "Html": "<p>i removed it in mobile version for a reason, optimizing 1GB cache would be infinity process ;} you can uncomment it if you want to use it</p>",
+    "PostedDate": "2010-09-29T10:52:34.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500131",
+    "ThreadId": "229015",
+    "Html": "<p>Infinity process, haha!</p>\r\n<p>I'm feeling kind of dangerous, so I will give it a shot and see what happens. If it takes a long time, no problem -- I am patient. &nbsp;Besides, I once read the words of a wise man who wrote: &nbsp;&quot;i have whole lifetime, no rush ;}&quot;</p>\r\n<p>Thanks again radioman, and keep up the good work!</p>",
+    "PostedDate": "2010-09-29T11:14:53.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

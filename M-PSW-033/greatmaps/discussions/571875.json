@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1321267",
+    "ThreadId": "571875",
+    "Html": "Please could you help me?<br />\n<pre><code>I try to use the latitude and longitude values that are stored to sql server in order to map them but I can't. This is my code</code></pre>\n\nDim overlay2 As New GMapOverlay(MyMap, &quot;Overlay2&quot;)<br />\n<pre><code>    Call connection()\n    Dim adapter As New SqlDataAdapter\n    Dim ds As New DataSet\n    Dim dt As New DataTable\n    Dim sql As String\n    Dim i, j, rows, columns As Integer\n    Dim cmd As New SqlCommand\n    sql = &quot;Select Latitude,Longitude from Event_Data_Table where GPS_Device_ID='&quot; &amp; cboDangerousGID.Text &amp; &quot;'&quot;\n    Try\n        conn.Open()\n        cmd = New SqlCommand(sql, conn)\n        adapter.SelectCommand = cmd\n        adapter.Fill(dt)\n        adapter.Dispose()\n        cmd.Dispose()\n        conn.Close()\n        ' dt = ds.Tables(0).DefaultView\n        rows = dt.Rows.Count\n        columns = dt.Columns.Count\n        ' MsgBox(rows)\n        ' MsgBox(columns)\n        Dim lat, longit As String\n        For i = 0 To rows - 1\n            lat = dt.Rows(i).Item(0)\n            longit = dt.Rows(i).Item(1)\n            overlay2.Markers.Add(New GMap.NET.WindowsForms.Markers.GMapMarkerGoogleGreen(New PointLatLng(lat, longit)))\n        Next\n        MyMap.Overlays.Add(overlay2)\n    Catch ex As Exception\n        MsgBox(ex.ToString)\n    End Try</code></pre>\n\n```<br />\n",
+    "PostedDate": "2014-11-12T06:00:28.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

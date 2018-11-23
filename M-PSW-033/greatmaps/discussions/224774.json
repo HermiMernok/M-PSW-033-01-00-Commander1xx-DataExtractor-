@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "484646",
+    "ThreadId": "224774",
+    "Html": "<p>The KiberTileCache.RemoveMemoryOverload() gets problem on retrieving 'm.Length' if m is disposed. In worst case it may loop until memory cache is completely emptied since 'memoryCacheSize' is not reduced.</p>\r\n<p>&nbsp;My scenario is as follows:</p>\r\n<p>Heavy panning/zoom may result in out-of-memory exception when creating new Bitmap(stream) in WindowsFormsImage.FromStream. This method will then dispose the stream and return null. When GMaps.GetImageFrom(..) receive null it will also dispose the same stream.&nbsp; I suspect it's wrong to dispose the cached stream here as it will cause problems for KiberTileCache.</p>\r\n<p>&nbsp;Agree?&nbsp;&nbsp;&nbsp; &nbsp;<em>(</em><em><span style=\"font-size:10pt\" lang=EN-GB>I know. It&rsquo;s more to this...</span></em><em>)</em></p>\r\n<p>&nbsp;&nbsp;</p>\r\n<p>PS.<br>GmapControl.ToImage() is not yet implemented for mobile. It can easily be done like this:</p>\r\n<p><span style=\"font-size:10pt\" lang=EN-GB>&nbsp;</span><span style=\"font-size:10pt\" lang=EN-GB>&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">public</span> <span style=\"color:#2b91af\">Image</span> ToImage()<br></span><span style=\"font-size:10pt\" lang=EN-GB>&nbsp;&nbsp;&nbsp;&nbsp; {<br></span><span style=\"font-size:10pt\" lang=EN-GB>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:#2b91af\">Image</span> ret = <span style=\"color:blue\">null</span>;<br></span><span style=\"color:blue;font-size:10pt\" lang=EN-GB>#if</span><span style=\"font-size:10pt\" lang=EN-GB> PocketPC<br></span><span style=\"font-size:10pt\" lang=EN-GB>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">if</span> (backBuffer != <span style=\"color:blue\">null</span>)<br></span><span style=\"font-size:10pt\" lang=EN-GB>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"color:blue;font-size:10pt\">return</span><span style=\"font-size:10pt\"> (<span style=\"color:#2b91af\">Image</span>)backBuffer.Clone();<br></span><span style=\"color:blue;font-size:10pt\">#else<br></span><span style=\"color:blue;font-size:10pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....</span></p>\r\n<p><span style=\"color:blue;font-size:10pt\">&nbsp;</span></p>",
+    "PostedDate": "2010-08-25T06:33:11.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484718",
+    "ThreadId": "224774",
+    "Html": "<p>i see.., just i'm in the core these days, but i'll check what can be done in mobile front too ;}</p>",
+    "PostedDate": "2010-08-25T08:51:29.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490057",
+    "ThreadId": "224774",
+    "Html": "<p><span style=\"color:black;font-size:10pt\" lang=EN-GB>My mobile is now stable! <em>YES!!!</em> </span></p>\r\n<p><span style=\"color:black;font-size:10pt\" lang=EN-GB>&nbsp;</span><span style=\"color:black;font-size:10pt\" lang=EN-GB>The stability issues where all related to memory load. After some modification to reduce memory peaks it&rsquo;s really stable in all modes and for all tile types.&nbsp;Performance is still acceptable. </span><span style=\"font-size:10pt\" lang=EN-GB>Here is what I&rsquo;ve done:</span></p>\r\n<ul>\r\n<li><span style=\"font-size:10pt\" lang=EN-GB>Trim Matrix, clear tileLoadQueue and FailedLoads upon panning when tileLoadQueue is not empty. (As shown below.) Vital when panning repeatingly.</span></li>\r\n<li><span style=\"font-size:10pt\" lang=EN-GB>Clear completly tileLoadQueue, Matrix and FailedLoads upon zoom.</span></li>\r\n<li><span style=\"font-size:10pt\" lang=EN-GB>Keep only current zoom level in matrix (LevelsKeepInMemmory = 0)</span></li>\r\n<li><span style=\"font-size:10pt\" lang=EN-GB>Add limitation for maximum number of tiles (100) in KiberTileCache in addition to existing size limit. To prevent huge collections&nbsp;when tiles are&nbsp;small.</span></li>\r\n<li><span style=\"font-size:10pt\" lang=EN-GB>Add limitation for max number of entries in tileCacheQueue (100). This was unlimited.</span></li>\r\n</ul>\r\n<p>\r\n<p>\r\n<div><span style=\"font-size:10pt\" lang=EN-GB></span></div>\r\n&nbsp;</p>\r\n<span style=\"font-size:10pt\" lang=EN-GB>&nbsp;</span></p>\r\n<p><span style=\"font-size:10pt\" lang=EN-GB>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void UpdateBounds()</span><br><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tileDrawingListLock.AcquireWriterLock();</span><br><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try</span><br><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FindTilesAround();</span><br><br><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lock (tileLoadQueue)</span><br><span style=\"color:#888888\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br><span style=\"color:blue\">#if</span> PocketPC<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">if</span> (tileLoadQueue.Count &gt; 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tileLoadQueue.Clear();&nbsp; //&nbsp;!<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Matrix.ClearLevelAndPointsNotIn(zoom, tileDrawingList);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:blue\">lock</span> (FailedLoads)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FailedLoads.Clear();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><span style=\"color:blue\">#endif</span><br>....</p>\r\n</span></p>\r\n<p><span style=\"font-size:10pt\" lang=EN-GB>&nbsp;</span>btw. How should i delete from cache DB. Is it sufficient to execue &quot;<em>DELETE FROM Tiles WHERE Type=1234</em>&quot; or do I have&nbsp;delete from&nbsp;<em>TilesData</em> table as well?</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"color:#a31515;font-size:x-small\"><span style=\"color:#a31515;font-size:x-small\">\r\n<p>&nbsp;</p>\r\n</span></span></p>",
+    "PostedDate": "2010-09-07T06:11:47.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490062",
+    "ThreadId": "224774",
+    "Html": "<p>deleting is cascaded, so you use just Tiles table, and about stability, i think it's depends on what hardware you use, on my mobile it's quite stable already, but maybe your points stabilizes it even more, but i can't test it well ;/</p>\r\n<p>p.s. ..and now i'm implementing rotation on windows forms and loading threads locking isn't working on mobile, for a while newest changesets will be unusable and untestable for mobile ;/</p>",
+    "PostedDate": "2010-09-07T06:23:01.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490073",
+    "ThreadId": "224774",
+    "Html": "<p>no problem&nbsp;﻿;)</p>",
+    "PostedDate": "2010-09-07T06:45:07.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "490203",
+    "ThreadId": "224774",
+    "Html": "<p>i'll focus on mobile later ;}</p>",
+    "PostedDate": "2010-09-07T09:19:40.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495925",
+    "ThreadId": "224774",
+    "Html": "<p>Hi radioman...</p>\r\n<p>How is going?</p>\r\n<p>Any progress on mobile version?</p>\r\n<p>I'm getting out of memory error on windows ce 6.0 and I need somehow to fix it.I added <a id=\"ctl00_ctl00_MasterContent_Content_PostRepeater_ctl00_UserNameLink\" href=\"http://www.codeplex.com/site/users/view/sthex\">sthex</a> suggestions but no chages! Any ideas how to solve this problem?</p>",
+    "PostedDate": "2010-09-20T04:32:08.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495950",
+    "ThreadId": "224774",
+    "Html": "<p>any debug log, stacktrace?</p>",
+    "PostedDate": "2010-09-20T05:25:42.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "446808",
+    "ThreadId": "213682",
+    "Html": "<p>Is there a way to test what type of marker I've clicked on?&nbsp; GMapMarkerGoogleGreen, etc.</p>\r\n<p>Dennis.</p>",
+    "PostedDate": "2010-05-24T13:34:50.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "446812",
+    "ThreadId": "213682",
+    "Html": "<p>MainMap.<strong>OnMarkerClick</strong> += new MarkerClick(MainMap_OnMarkerClick);</p>",
+    "PostedDate": "2010-05-24T13:42:29.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447158",
+    "ThreadId": "213682",
+    "Html": "<p>At the moment if I click a Marker I can get it's Position, or&nbsp;I can remove it, etc.., but I want to know what type of Marker it is.&nbsp; Is it a Red Google Marker or a Green Marker or what.</p>\r\n<p>Dennis.</p>",
+    "PostedDate": "2010-05-25T08:51:41.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447185",
+    "ThreadId": "213682",
+    "Html": "<p>why don't you just look how demos are constructed ;}&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><div style=\"color:black;background-color:white\"><pre> <span style=\"color:green\">// click on some marker</span>\r\n <span style=\"color:blue\">void</span> MainMap_OnMarkerClick(GMapMarker item)\r\n { \r\n   <span style=\"color:blue\">if</span>(item <span style=\"color:blue\">is</span> GMapMarkerRect)\r\n   { ...</pre>\r\n</div>\r\n</pre>\r\n</div>",
+    "PostedDate": "2010-05-25T09:37:47.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447220",
+    "ThreadId": "213682",
+    "Html": "<p>Sorry, I'm sure I tried that and just got an error, but I might have not!&nbsp; After a while of trying different things I loose track of what I have tried!</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-05-25T10:36:43.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447244",
+    "ThreadId": "213682",
+    "Html": "<p>No, I get an error.&nbsp; &quot;GMapMarkerGoogleGreen is a type and cannot be used in an expression&quot;</p>\r\n<p>This is my code:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> MyMap_OnMarkerClick(<span style=\"color:blue\">ByVal</span> item <span style=\"color:blue\">As</span> GMap.NET.WindowsForms.GMapMarker) <span style=\"color:blue\">Handles</span> MyMap.OnMarkerClick\r\n    <span style=\"color:blue\">If</span> (item = GMapMarkerGoogleGreen) <span style=\"color:blue\">Then</span>\r\n         Layer_Markers.Markers.Remove(item)\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\r\n</pre>\r\n<pre>Sorry, I feel I'm being stupid here but........</pre>\r\n<pre>TIA,</pre>\r\n<pre>Dennis</pre>\r\n</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-25T11:38:02.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447260",
+    "ThreadId": "213682",
+    "Html": "<p>it's very easy to use reflector and set language to VB.NET, and you get:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> MainMap_OnMarkerClick(<span style=\"color:blue\">ByVal</span> item <span style=\"color:blue\">As</span> GMapMarker)\r\n    <span style=\"color:blue\">If</span> <span style=\"color:blue\">TypeOf</span> item <span style=\"color:blue\">Is</span> GMapMarkerRect <span style=\"color:blue\">Then</span></pre>\r\n<pre><span style=\"color:blue\">    ...</span></pre>\r\n<pre>\r\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n<span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span></pre>\r\n</div>",
+    "PostedDate": "2010-05-25T12:07:07.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447264",
+    "ThreadId": "213682",
+    "Html": "<p>Ahhh!&nbsp; I didn't know &quot;Typeof&quot;.&nbsp; Must look that one up.&nbsp; Thanks.</p>\r\n<p>Dennis.</p>",
+    "PostedDate": "2010-05-25T12:17:38.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

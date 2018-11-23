@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1014205",
+    "ThreadId": "436392",
+    "Html": "Anyone has example of how to display driving directions between 2 points?\r<br />\n<br />\nThis is all I got<br />\n<pre><code>        GDirections dir;\n        var statusCode= GMapProviders.GoogleMap.GetDirections(out dir, gMarker1.Position, gMarker2.Position, false, true, false, false, false);\n\n        richTxtStatus.Text = dir.ToString();\n</code></pre>\n\nThis only allow me to see one leg of the route.\r<br />\n<br />\nThanks for your help<br />\n",
+    "PostedDate": "2013-03-12T15:14:03.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014743",
+    "ThreadId": "436392",
+    "Html": "use points from all legs, and construct the route/routes<br />\n",
+    "PostedDate": "2013-03-13T10:57:52.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014904",
+    "ThreadId": "436392",
+    "Html": "Radioman :),\r<br />\n<br />\nMan, it is always really hard to get straight answer from you.  You could have told me to look in Steps.  <br />\n",
+    "PostedDate": "2013-03-13T15:56:39.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015494",
+    "ThreadId": "436392",
+    "Html": "sorry, i'm sometimes lazy too..<br />\n",
+    "PostedDate": "2013-03-14T12:00:17.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015608",
+    "ThreadId": "436392",
+    "Html": "Radioman,\r<br />\n<br />\nI understand that you are bz since you run this whole thing yourself.  I know you are a smart guy and sometimes you feel like questions from beginners like myself should be ignored.  However, I think if you could help guide beginners like me learning how to use your tool better, your tool would have a greater positive impact in the world :) (even though the effects might be small).  Anyhow, your tool allows me to explore the mapping capability faster and a lot better than if I would do this from scratch, so thank you very much for that.  I have a few questions and if you could in your spare time answer them if you would:\r<br />\n<br />\n1) Is it possible to use GMAP to rotate the map in the direction that we travel?<br />\n\r<br />\n2) How is that information store (in GDirections)?\r<br />\n<br />\nTake as long as you want.  I am trying to learn as much as I can. :) Thank you.<br />\n",
+    "PostedDate": "2013-03-14T15:52:56.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1015829",
+    "ThreadId": "436392",
+    "Html": "...i don't ignore anyone, i just don't have the time for longer answers...<br />\n<br />\n1) you can rotate map using Bearing property, but it's disabled in 1.7 version, why? ..look above ;}<br />\n<br />\n2) it's just a class with some properties, just explore<br />\n",
+    "PostedDate": "2013-03-15T03:51:02.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "837938",
+    "ThreadId": "356229",
+    "Html": "\r\n<p>Hello radioman,</p>\r\n<p>Exciusme before that I am new in GMap.net and C#,&nbsp; I just run demo and try to use MySQL to as Cache Tile Server, with change sample code:</p>\r\n<p><strong>From this Code:</strong></p>\r\n<p>&nbsp;GMap.NET.CacheProviders.MsSQLPureImageCache ch = new GMap.NET.CacheProviders.MsSQLPureImageCache();</p>\r\n<p><strong>To this</strong></p>\r\n<p>GMap.NET.CacheProviders.MySQLPureImageCache ch = new GMap.NET.CacheProviders.MySQLPureImageCache();</p>\r\n<p>&nbsp;</p>\r\n<p><strong>and i Got Error Message:</strong></p>\r\n<p>The type or namespace name 'MySQLPureImageCache' could not be found (are you missing a using directive or an assembly reference?)</p>\r\n<p>&nbsp;</p>\r\n<p><strong>My Question:</strong></p>\r\n<p>How to use MySQL as Cache Tile Server?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n<p>Azzahrah.</p>\r\n",
+    "PostedDate": "2012-05-17T18:08:24.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "837995",
+    "ThreadId": "356229",
+    "Html": "<p>you have to set <strong>MySQL</strong> in compilation symbols for&nbsp;GMap.NET.Core project and rebuild</p>",
+    "PostedDate": "2012-05-18T00:13:59.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1082290",
+    "ThreadId": "453851",
+    "Html": "Hi radioman,\r<br />\n<br />\nI have a problem with white tiles being cached in the database.\r<br />\nI have a situation where the internet connection is not always up.\r<br />\nBecause of that sometimes tiles are not loaded correctly and the result is a white tile being written to primairy cache and secondairy. \r<br />\n<br />\nWhen primairy cache is deleted gmap searches in the secondairy and finds a tile (wrong white one) and returns these and writes it to primairy. \r<br />\nThat's the reason I implented the DeleteOlderThan method on the secondairy cache to remove the corrupt white tiles.\r<br />\nOr am I wrong?\r<br />\n<br />\nWhat would be the correct steps to deal with this situation code wise?\r<br />\n<br />\nThanks in advance!<br />\n",
+    "PostedDate": "2013-08-19T10:52:21.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082580",
+    "ThreadId": "453851",
+    "Html": "what do you mean 'tiles are not loaded correctly'?<br />\n",
+    "PostedDate": "2013-08-20T02:33:40.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082616",
+    "ThreadId": "453851",
+    "Html": "If the internet connection is lost. \r<br />\nTiles sometimes are written to cache as a white tile.\r<br />\n<br />\nI think a part of the solution is a thread checking the internet connection while working with the map so the gmap instance switches to cache only automaticly.<br />\n",
+    "PostedDate": "2013-08-20T03:57:34.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082655",
+    "ThreadId": "453851",
+    "Html": "failed tiles doesn't go to cache<br />\n",
+    "PostedDate": "2013-08-20T05:59:22.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082673",
+    "ThreadId": "453851",
+    "Html": "Can you discribe what happens if gmap is running in serverandcache en the internet connection fails?<br />\n",
+    "PostedDate": "2013-08-20T06:38:00.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082690",
+    "ThreadId": "453851",
+    "Html": "tiles are loaded from cache, if there is no tile in cache, it tries to load it from the web, if fails, no tile are loaded or saved<br />\n",
+    "PostedDate": "2013-08-20T07:16:18.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1083015",
+    "ThreadId": "453851",
+    "Html": "Ok, thanks!\r<br />\n<br />\nThe white tile issue is my own fault. In the custom provider I returned a blank tile if the tile was not found. <br />\n",
+    "PostedDate": "2013-08-21T02:12:00.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

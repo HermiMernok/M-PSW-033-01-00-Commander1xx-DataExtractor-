@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "534537",
+    "ThreadId": "238045",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have set up the GMAP control ONMarkerClick event to fire a windows form that contains a webbrowser control and loads a live video feed into the browser based on IP address of the video source. This works ok however when i close the video feed form and\r\n return back to the gmap control form all markers on the map do not maintain their marker lat/lng position when the map is dragged. Does anyone have a suggestion on fixing this? Radioman...BTW great control</p>\r\n<p>best regards,</p>\r\n<p>Mick</p>\r\n",
+    "PostedDate": "2010-12-11T20:00:33.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "534593",
+    "ThreadId": "238045",
+    "Html": "\r\n<p>hm.. is it only webbrowser related?</p>\r\n",
+    "PostedDate": "2010-12-12T03:04:42.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537209",
+    "ThreadId": "238045",
+    "Html": "\r\n<p>Hi Radioman,</p>\r\n<p>I am not certain regarding reason, i have posted the code below</p>\r\n<p>which loads the form on the markerclick event in the gmap control</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small\"></p>\r\n<p>&nbsp;</p>\r\n</span>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-17T02:59:54.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537212",
+    "ThreadId": "238045",
+    "Html": "\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">If</span> <span style=\"color:blue\">TypeOf</span> item <span style=\"color:blue\">Is</span> GMapMarkerCCTV <span style=\"color:blue\">Then</span>\r\n            CCTVCameraViewer.ShowCCTVView(item.Tag)\r\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>forgot to add the code sorry</p>\r\n",
+    "PostedDate": "2010-12-17T03:01:10.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

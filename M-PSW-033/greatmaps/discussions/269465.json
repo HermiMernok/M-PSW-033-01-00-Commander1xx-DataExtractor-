@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "659617",
+    "ThreadId": "269465",
+    "Html": "\r\n<p>Is it possible to not have the map display go to grey (empty tile color) when doing a ReloadMap?</p>\r\n<p>I am working on a MapProvider for Bing Traffic Maps. These render the traffic data (eg red lines on roads, green lines, etc) directly on the map image. What I would like to do is ReloadMap and update graphic in a background thread.</p>\r\n<p>I have it going except for the map tiles &quot;flashing&quot; to grey on refresh.</p>\r\n<p>Is the key to doing this related to the TileMatrix? Would I have to keep the tile in the matrix, but still force it to load the image from the server?</p>\r\n<p>A nudge in the right direction would be great. Thanks.</p>\r\n",
+    "PostedDate": "2011-08-17T13:29:27.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659626",
+    "ThreadId": "269465",
+    "Html": "<p>do you need update&nbsp;graphics or tiles itself, meaning same tile can change?</p>",
+    "PostedDate": "2011-08-17T13:41:39.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659689",
+    "ThreadId": "269465",
+    "Html": "<p>Yes, as traffic conditions change, the roads would change color (eg green=no traffic, red=traffic delays). So every few minutes I will reload the map. So, the map bounds (ViewArea) wouldn't be changing, but the tiles themselves would change.</p>",
+    "PostedDate": "2011-08-17T16:07:35.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

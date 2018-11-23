@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1314842",
+    "ThreadId": "570210",
+    "Html": "My code is like these:<br />\n<pre><code>        MainMap.MapProvider = GMapProviders.GoogleChinaMap;//GoogleMapProvider.;\n        //GMaps.Instance.Mode = AccessMode.CacheOnly;\n        MainMap.Manager.Mode = AccessMode.ServerAndCache;\n        MainMap.Position = new PointLatLng(32.2746, 120.1323);\n        MainMap.ShowTileGridLines = false;\n        this.MainMap.DragButton = System.Windows.Forms.MouseButtons.Left;\n        MainMap.MinZoom = 1;\n        MainMap.MaxZoom = 20;\n        MainMap.Zoom = 14;</code></pre>\n\nWhen I use the Mode of &quot;AccessMode.ServerAndCache&quot;, I can download the map data, and when I use the Mode of &quot;AccessMode.CacheOnly&quot;, I can import this map data to drawing the map.<br />\n<br />\nMy question is: where is the offline data file, I have tried the path &quot;C:\\Users\\Administrator\\AppData\\Local\\GMap.NET\\TileDBv5\\en\\Data.gmdb&quot;, But if I use the one which I have just saved before, the importing is failed<br />\n<br />\nSorry for my poor english, and best wished for all<br />\n",
+    "PostedDate": "2014-10-19T20:21:25.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1314888",
+    "ThreadId": "570210",
+    "Html": "This path is the the offline file path, I have checked; Also we can use the command of &quot;MainMap.CacheLocation = ...&quot; to redefine the cache &quot;path“;\r<br />\nBut after I redefine the cache path, the __speed __of programme opening is very <strong>slow</strong>.\r<br />\nusing the default cache path, the opening speed will be more fast.\r<br />\nSo, what is wrong here?\r<br />\n<br />\nAny advice will be much more thankful<br />\n",
+    "PostedDate": "2014-10-20T00:54:58.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

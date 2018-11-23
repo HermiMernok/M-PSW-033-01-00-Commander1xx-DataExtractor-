@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "201997",
+    "ThreadId": "59659",
+    "Html": "<p>Hello Radioman, I tried latest sources and I found bug, when <strong>GMapControl.OnMarkerClick </strong>event is not fired when I set property <strong>GMapControl.DragButton </strong>to <strong>MouseButtons.Left</strong>. It is because<strong> Core.IsDragging</strong> is always <strong>true </strong>and code which should fire <strong>OnMarkerClick </strong>event is skipped. When I removed contition<strong> !Core.IsDragging</strong>, event <strong>OnMarkerClick </strong>was again fired, but I am not sure if there is no side effect. Could you check it?</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre> <span style=\"color:Blue\">protected</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> OnMouseClick(MouseEventArgs e)<br>      {<br>         <span style=\"color:Blue\">if</span>(e.Button == MouseButtons.Left &amp;&amp; <strong>!Core.IsDragging</strong>)<br>         {<br>            <span style=\"color:Blue\">for</span>(<span style=\"color:Blue\">int</span> i = Overlays.Count-1; i &gt;= 0; i--)<br>.....<br></pre>\r\n</div>\r\n<p>Thanks!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-16T05:35:39.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "202072",
+    "ThreadId": "59659",
+    "Html": "<p>done!</p>",
+    "PostedDate": "2009-06-16T08:30:23.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

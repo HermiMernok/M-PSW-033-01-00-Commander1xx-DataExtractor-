@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "574935",
+    "ThreadId": "248288",
+    "Html": "<p>Hi all,</p>\n<p>First of all, thanks for your great control, Radioman !</p>\n<p>I&nbsp;try to&nbsp;databind markers to a datatable that contains lat and lng columns.&nbsp;How can I do this? Is somebody can&nbsp;post a&nbsp;code sample? I have read all discussions and&nbsp;search in the demo code, but no answer ...</p>\n<p>Thank you.</p>",
+    "PostedDate": "2011-03-03T04:01:42.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "574962",
+    "ThreadId": "248288",
+    "Html": "<p>if you use&nbsp;ObservableCollection just set map.ItemSource to it</p>",
+    "PostedDate": "2011-03-03T05:01:49.097-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "577146",
+    "ThreadId": "248288",
+    "Html": "<p>Thanks for your quick answer.</p>\r\n<p>OK, now, I have an ObservableCollection databinded on the map and&nbsp;the datagrid&nbsp;but&nbsp;when I sort data with the datagrid (with a click on the col header), all markers disappear!</p>\r\n<p>Any idea ?</p>",
+    "PostedDate": "2011-03-08T05:32:26.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "577745",
+    "ThreadId": "248288",
+    "Html": "<p>Solved with this :</p>\n<pre style=\"font-family: consolas;\"><span style=\"color: green;\"><pre>Map.ItemsSource = from item in MarkersList select item;</pre>\n<pre>DataGrid.DataContext = MarkersList;</pre>\n</span></pre>\n<p>where MarkersList is ObservableCollection.</p>",
+    "PostedDate": "2011-03-09T06:33:04.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "577883",
+    "ThreadId": "248288",
+    "Html": "<p>nice!</p>",
+    "PostedDate": "2011-03-09T09:31:33.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

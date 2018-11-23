@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "456772",
+    "ThreadId": "216392",
+    "Html": "Hi Radioman!\r\n\r\nIs in ServerAndCache Mode a Default cache activated? (i think SQLite?)\r\nOr do i have to set the ImageCacheSecond manualy to SQLitePureImageCache (or any other caching provider)?\r\n\r\nthanks,\r\nManuel",
+    "PostedDate": "2010-06-17T08:43:01.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "456847",
+    "ThreadId": "216392",
+    "Html": "<p>ImageCacheSecond &nbsp;i<em>s Second</em>, <span style=\"text-decoration:underline\">it's null by default</span>, but <strong>if</strong> you deploy your application in <strong>LAN</strong> <em>with database</em> server, you can set it and <em>boost</em> first tile loading <em>on all clients</em>.</p>\r\n<p>p.s. First cache is ServerAndCache, and it's activated by default with sqlite</p>",
+    "PostedDate": "2010-06-17T10:36:49.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,274 @@
+[
+  {
+    "Id": "540829",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>Even though I added the suggested &lt;startup&gt;-section to my app.config, the map won't work.</p>\r\n<p>When I'm trying to display a map, blue tiles with the text &quot;The type initialized for 'SingletonCreator' threw an exception.&quot; appear :(</p>\r\n<p>Hope someone has an idea what the problem could be.</p>\r\n",
+    "PostedDate": "2010-12-27T07:20:15.073-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543139",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>invalid xml, targeting not x86 cpu?</p>\r\n",
+    "PostedDate": "2011-01-03T05:37:39.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548635",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>dear alopx and radioman:</p>\r\n<p>I solve the problem by&nbsp;&nbsp; choosing&nbsp; map source &nbsp;&quot;serveronly&quot;</p>\r\n<p>but I Met a new problem: I can't import or export the data.</p>\r\n<p>when I try to solve the problem by delete &quot;# if sqlite&nbsp;&nbsp; #endif &quot;,&quot;SingletonCreator.instance &quot; throw &nbsp;a exception.</p>\r\n",
+    "PostedDate": "2011-01-13T04:56:49.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548636",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>sqlite database is not working, use x86 target and set config file, also you can switch to mssqlce by removing&nbsp;<em>SQLite string\r\n</em>from compilation symbols</p>\r\n<p>p.s. i mean it doesn't work for You ;}</p>\r\n",
+    "PostedDate": "2011-01-13T05:01:18.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548730",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>thanks for your reply .</p>\r\n<p>Yes.It does not work when I choose&nbsp; target&nbsp; platform.net4.</p>\r\n<p>When I choose&nbsp; target&nbsp; platform.net3.5,everything goes well.</p>\r\n",
+    "PostedDate": "2011-01-13T07:20:06.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548732",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>did you added configuration for .net4?</p>\r\n",
+    "PostedDate": "2011-01-13T07:30:01.177-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "549062",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>Yes&nbsp; .I have added configuration for .net4. And I have Examined Demo.WindowsForms.</p>\r\n<p>The Demo.WindowsForms has the same problem.</p>\r\n<p>It has a&nbsp; default file app.config (1) and&nbsp;It's default &nbsp;Target Framwork is<strong> .net 2</strong></p>\r\n<p>&lt;?xml version=&quot;1.0&quot;?&gt;<br>\r\n&lt;configuration&gt;<br>\r\n&lt;startup&gt;&lt;supportedRuntime version=&quot;v4.0&quot; sku=&quot;.NETFramework,Version=v4.0&quot;/&gt;&lt;/startup&gt;&lt;/configuration&gt;</p>\r\n<p><strong>It runs well.</strong></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>But when I right click on the project and select properties item.&nbsp;then set the Target Framwork as<strong> .net 4</strong> ,<strong>Here&nbsp;&nbsp;</strong>throws a Exception.<br>\r\n&nbsp;</p>\r\n<p>namespace GMap.NET<br>\r\n{<br>\r\n&nbsp;&nbsp; using System;</p>\r\n<p>&nbsp;&nbsp; /// &lt;summary&gt;<br>\r\n&nbsp;&nbsp; /// generic for singletons<br>\r\n&nbsp;&nbsp; /// &lt;/summary&gt;<br>\r\n&nbsp;&nbsp; /// &lt;typeparam name=&quot;T&quot;&gt;&lt;/typeparam&gt;<br>\r\n&nbsp;&nbsp; public class Singleton&lt;T&gt; where T : new()<br>\r\n&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ctor<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected Singleton()<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(Instance != null)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw (new Exception(&quot;You have tried to create a new singleton class where you should have instanced it. Replace your \\&quot;new class()\\&quot; with \\&quot;class.Instance\\&quot;&quot;));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static T Instance<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong> return SingletonCreator.instance;</strong><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class SingletonCreator<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; static SingletonCreator()<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; internal static readonly T instance = new T();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp; }<br>\r\n}</p>\r\n<p>O(&cap;_&cap;)O哈哈~</p>\r\n",
+    "PostedDate": "2011-01-13T16:55:12.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "549151",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>well the last time i tested .net4 there was no problems, i'll try again</p>\r\n",
+    "PostedDate": "2011-01-13T23:39:09.18-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "549153",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>as expected everything works just fine, you better start reading documentation ;]</p>\r\n",
+    "PostedDate": "2011-01-13T23:42:39.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "549267",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>Found my problem some minutes after my post.</p>\r\n<p>Problem was, that the SQLite.dll could not be found so I changed to ServerOnly.</p>\r\n<p>&nbsp;</p>\r\n<p>I use .NET 4 and didn't have any problems except the missing dll ;)</p>\r\n",
+    "PostedDate": "2011-01-14T04:11:39.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "549269",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>so you didn't solve anything ;] but there is it =&gt;&nbsp;<strong>useLegacyV2RuntimeActivationPolicy=&quot;true&quot;</strong></p>\r\n",
+    "PostedDate": "2011-01-14T04:17:29.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "550275",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>Sorry, My English is not good&nbsp;<em>enough to explain the problem</em>&nbsp;.&nbsp;</p>\r\n<p>I means that &nbsp;the project goes well when &nbsp;select &nbsp;.net4 platform.</p>\r\n<p>Then select the &quot;ServerOnly&quot; option , everything goes well,and I can see the map .</p>\r\n<p>But When I want to Export(Import) the data by click on &quot;<strong>Export button</strong>&quot;, it throws an Exception .&nbsp;</p>\r\n<p>Is there the same problem with you?</p>\r\n<p><strong>Best regard for you.</strong></p>\r\n<p>&nbsp;</p>\r\n<p>ps: I'm not sure what &quot;useLegacyV2RuntimeActivationPolicy=&quot;true&quot; means.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-16T18:03:28.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "550346",
+    "ThreadId": "239660",
+    "Html": "\r\n<ol>\r\n<li>check&nbsp;http://greatmaps.codeplex.com/documentation </li><li>copy EXACT config file content </li><li>it works perfectly </li></ol>\r\n",
+    "PostedDate": "2011-01-16T23:55:56.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "550971",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>Thank you very much !</p>\r\n<p>The problem is solved.</p>\r\n<ol>\r\n<li>copy EXACT config file content </li><li>delete &quot;# if sqlite&nbsp;&nbsp; #endif &quot; &nbsp; </li></ol>\r\n<p>Thanks again.</p>\r\n",
+    "PostedDate": "2011-01-17T19:47:43.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "551038",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>..what do you mean &quot;delete # if sqlite #endif &quot; ??</p>\r\n",
+    "PostedDate": "2011-01-18T00:03:44.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "551082",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>in my project ，<span style=\"font-family:Consolas,'Courier New',Courier,monospace; white-space:pre\"><strong>Sqlite is unavailble ,so I delete it.</strong></span></p>\r\n<pre>public bool ShowExportDialog()\r\n      {\r\n<strong>#if Sqlite</strong></pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><strong>&nbsp;</strong>\r\n         if(Cache.Instance.ImageCache is GMap.NET.CacheProviders.SQLitePureImageCache)\r\n         {\r\n            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();\r\n            {\r\n               dlg.CheckPathExists = true;\r\n               dlg.CheckFileExists = false;\r\n               dlg.AddExtension = true;\r\n               dlg.DefaultExt = &quot;gmdb&quot;;\r\n               dlg.ValidateNames = true;\r\n               dlg.Title = &quot;GMap.NET: Export map to db, if file exsist only new data will be added&quot;;\r\n               dlg.FileName = &quot;DataExp&quot;;\r\n               dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);\r\n               dlg.Filter = &quot;GMap.NET DB files (*.gmdb)|*.gmdb&quot;;\r\n               dlg.FilterIndex = 1;\r\n               dlg.RestoreDirectory = true;\r\n\r\n               if(dlg.ShowDialog() == true)\r\n               {\r\n                  bool ok = GMaps.Instance.ExportToGMDB(dlg.FileName);\r\n                  if(ok)\r\n                  {\r\n                     MessageBox.Show(&quot;Complete!&quot;, &quot;GMap.NET&quot;, MessageBoxButton.OK, MessageBoxImage.Information);\r\n                  }\r\n                  else\r\n                  {\r\n                     MessageBox.Show(&quot;  Failed!&quot;, &quot;GMap.NET&quot;, MessageBoxButton.OK, MessageBoxImage.Warning);\r\n                  }\r\n\r\n                  return ok;\r\n               }\r\n            }\r\n         }\r\n         else\r\n         {\r\n            MessageBox.Show(&quot;Failed! Only SQLite support ;/&quot;, &quot;GMap.NET&quot;, MessageBoxButton.OK, MessageBoxImage.Warning);\r\n         }</pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><br></pre>\r\n<pre><strong>#endif</strong></pre>\r\n<pre>         return false;</pre>\r\n<pre>      }</pre>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-18T01:26:47.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "551085",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>why it's&nbsp;unavailble?</p>\r\n",
+    "PostedDate": "2011-01-18T01:31:28.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "551086",
+    "ThreadId": "239660",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>hl3292 wrote:</strong><br>\r\n<p>Yes&nbsp; .I have added configuration for .net4. And I have Examined Demo.WindowsForms.</p>\r\n<p>The Demo.WindowsForms has the same problem.</p>\r\n<p>It has a&nbsp; default file app.config (1) and&nbsp;It's default &nbsp;Target Framwork is<strong> .net 2</strong></p>\r\n<p>&lt;?xml version=&quot;1.0&quot;?&gt;<br>\r\n&lt;configuration&gt;<br>\r\n&lt;startup&gt;&lt;supportedRuntime version=&quot;v4.0&quot; sku=&quot;.NETFramework,Version=v4.0&quot;/&gt;&lt;/startup&gt;&lt;/configuration&gt;</p>\r\n<p><strong>It runs well.</strong></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>But when I right click on the project and select properties item.&nbsp;then set the Target Framwork as<strong> .net 4</strong> ,<strong>Here&nbsp;&nbsp;</strong>throws a Exception.</p>\r\n<p>namespace GMap.NET<br>\r\n{<br>\r\n&nbsp;&nbsp; using System;</p>\r\n<p>&nbsp;&nbsp; /// &lt;summary&gt;<br>\r\n&nbsp;&nbsp; /// generic for singletons<br>\r\n&nbsp;&nbsp; /// &lt;/summary&gt;<br>\r\n&nbsp;&nbsp; /// &lt;typeparam name=&quot;T&quot;&gt;&lt;/typeparam&gt;<br>\r\n&nbsp;&nbsp; public class Singleton&lt;T&gt; where T : new()<br>\r\n&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ctor<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected Singleton()<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(Instance != null)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw (new Exception(&quot;You have tried to create a new singleton class where you should have instanced it. Replace your \\&quot;new class()\\&quot; with \\&quot;class.Instance\\&quot;&quot;));<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static T Instance<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong> return SingletonCreator.instance;</strong><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class SingletonCreator<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; static SingletonCreator()<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; internal static readonly T instance = new T();<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp; }<br>\r\n}</p>\r\n<p>O(&cap;_&cap;)O哈哈~</p>\r\n</blockquote>\r\n<p>YES,I lost the&nbsp;&nbsp;<strong>useLegacyV2RuntimeActivationPolicy=&quot;true&quot;.</strong></p>\r\n<p><strong>If some body see it ,</strong></p>\r\n<p><strong>please use this&nbsp;</strong></p>\r\n<pre><span>&lt;?</span><span>xml</span> <span>version</span><span>=</span><span>&quot;</span><span>1.0</span><span>&quot;</span><span>?&gt;</span>\r\n<span>&lt;</span><span>configuration</span><span>&gt;</span>\r\n   <span>&lt;</span><span>startup</span> <span>useLegacyV2RuntimeActivationPolicy</span><span>=</span><span>&quot;</span><span>true</span><span>&quot;</span><span>&gt;</span>\r\n      <span>&lt;</span><span>supportedRuntime</span> <span>version</span><span>=</span><span>&quot;</span><span>v4.0</span><span>&quot;</span> <span>sku</span><span>=</span><span>&quot;</span><span>.NETFramework,Version=v4.0</span><span>&quot;</span><span>/&gt;</span>\r\n   <span>&lt;/</span><span>startup</span><span>&gt;</span>\r\n<span>&lt;/</span><span>configuration</span><span>&gt;</span></pre>\r\n<p><strong><br>\r\n</strong></p>\r\n",
+    "PostedDate": "2011-01-18T01:31:33.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "552363",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>It's &nbsp;a mistery to me,too.</p>\r\n<p>I'm trying to find out the reason.</p>\r\n",
+    "PostedDate": "2011-01-19T23:02:33.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "553429",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>A mystery here too.</p>\r\n<p>1) I have a running demo application running w/.NET 4.0, WPF, build to x86 platform, on Windows 7 64-bit, VS2010, that I wrote by moving pieces over from the GMap demo</p>\r\n<p>2) My larger application in which I'm attempting to add a little mapping functionality is :</p>\r\n<ul>\r\n<li>.NET4.0 / WPF </li><li>Build to x86 platform </li><li>Has been using Sqlite for persistence </li><li>Has had the correct &lt;startup useLegacyV2.... , Sqlite has been working fine for months\r\n</li><li>I copy/bring my code from my demo application into my larger application </li></ul>\r\n<p>...I get the System.TypeInitializationException: The type initailizer for 'SingletonCreator'... at SqLitePureImageCache.AtlerDBAddTimeColumn</p>\r\n<p>So, I recompiled GMap against my version of Sqlite and compiled it to .NET4.0.</p>\r\n<p>If I come up with a solution I'll post it ASAP.</p>\r\n<p>--- Ted</p>\r\n",
+    "PostedDate": "2011-01-21T12:49:31.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "553433",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>hm, did your solution contains other projects with target set to AnyCPU?</p>\r\n",
+    "PostedDate": "2011-01-21T13:08:50.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "553458",
+    "ThreadId": "239660",
+    "Html": "\r\n<p>All projects are targeted correctly.&nbsp; I did find and correct the issue.</p>\r\n<p>First, I had been migrating from 1.0.60.0 of SQLite to 1.0.66.0 .. different projects were referencing different versions.&nbsp; Bad.&nbsp; Changed all to SQLite 1.0.66.0</p>\r\n<p>Second, there are two versions of SQLite 1.0.66.0, one with and one without the embedded unmanaged SQLite3 dll.&nbsp; Both versions (same filename) were on my system.&nbsp; I was using a mix of them... yikes. (FYI: the wrapper-only one is ~ 184K and the\r\n wrapper with the embedded unmanaged SQLite 3 dll ~ 850K.</p>\r\n<p>App works given what I had done in my previous post.&nbsp; All is good.</p>\r\n<p>Thanks &nbsp;--- Ted</p>\r\n",
+    "PostedDate": "2011-01-21T14:36:24.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "574966",
+    "ThreadId": "239660",
+    "Html": "<p>I seem to have the same similar conditions as you&nbsp;Ted but unfortunately I'm still struggling to make this work. I've downloaded GMap.Net, excluded the \"hot build\" project and recompiled GMap.Net with demo apps and everything looks great. I'm able to use both cache and cache+server modes in the demo-apps and the tiles are managed correctly and displayed in the map. However when I try to use the cache mode from within my own application I get the \"Exception: The type initializer for 'SingletonCreator' threw an exception.\" error in every tile displayed. My environment:<br /><br />64-bit XP<br />WPF<br />All projects are targeted as x86<br />All projects are targeted as .Net FW4<br />I've added the \"&lt;startup useLegacy...\" stuff to the App.config file<br />A reference to v1.0.66.0 of the System.Data.SQLite assembly with a size of 883Kb (I'm a complete newbie to SQLite but I reckon that this should be the .Net-wrapper AND db-engine)</p>\r\n<p>Uncached a.k.a. \"ServerOnly\" works great in my app but as soon as I use cache mode I get the exception mentioned above. What am I doing wrong here...?<br /><br />Cheers!<br />/Peter</p>",
+    "PostedDate": "2011-03-03T05:09:04.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575014",
+    "ThreadId": "239660",
+    "Html": "<p>can you zip your test project?, i'll try it on my machine</p>",
+    "PostedDate": "2011-03-03T06:20:46.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575442",
+    "ThreadId": "239660",
+    "Html": "<p>Sorry Radioman but I'm not allowed to disclose my project for various reasons:-( However, I decided to investigate this further and here are my findings:</p>\n<p>I decided to leave my app altogether, for the time being,&nbsp;and focused on the behavior of one of the GreatMap demo-apps (Demo.WindowsPresentation - the WPF-app)&nbsp;and here are my findings. <br /><br />NOTE: For GMap.NET.WindowsPresentation I use FW3.5 and target x86 for all of the scenarios below and the environment is 64-bit XP.</p>\n<p>Setup 1 - WORKS IN *ALL*&nbsp;MODES (\"ServerOnly\", \"ServerAndCache\", \"CacheOnly\")!<br />GMap.NET.Core: Framework 2.0, target x86<br />Conditional Compilation Symbols: MONOdisabled; MySQLdisabled; SQLite<br />Demo.WindowsPresentiation: Framework 3.5, target x86</p>\n<p>Setup 2 -&nbsp;WORKS IN *ALL*&nbsp;MODES (\"ServerOnly\", \"ServerAndCache\", \"CacheOnly\")!<br />GMap.NET.Core: Framework 2.0, target x86<br />Conditional Compilation Symbols: MONOdisabled; MySQLdisabled (this effectively activates my SQLCE 3.5 instance as \"SQLite\" has been removed)<br />Demo.WindowsPresentiation: Framework 3.5, target x86</p>\n<p>Setup 3 - WORKS IN \"ServerOnly\" MODE ONLY!<br />GMap.NET.Core: Framework 2.0, target x86<br />Conditional Compilation Symbols: MONOdisabled; MySQLdisabled; SQLite<br />Demo.WindowsPresentiation: Framework 4.0, target x86</p>\n<p>Setup 4 - WORKS IN *ALL*&nbsp;MODES (\"ServerOnly\", \"ServerAndCache\", \"CacheOnly\")!<br />GMap.NET.Core: Framework 2.0, target x86<br />Conditional Compilation Symbols: MONOdisabled; MySQLdisabled (this effectively activates my SQLCE 3.5 instance as \"SQLite\" has been removed)<br />Demo.WindowsPresentiation: Framework 4.0, target x86<br /><br />I hope this will help you nail down the issue... :-)<br /><br />Cheers,<br />/Peter</p>",
+    "PostedDate": "2011-03-04T01:19:30.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575555",
+    "ThreadId": "239660",
+    "Html": "<p>once again, use this application config file when targeting .net4, works perfectly with sqlite:</p>\r\n<p><strong>&lt;?xml version=\"1.0\"?&gt;</strong><br /><strong>&lt;configuration&gt;</strong><br /><strong> &lt;startup useLegacyV2RuntimeActivationPolicy=\"true\"&gt;</strong><br /><strong> &lt;supportedRuntime version=\"v4.0\" sku=\".NETFramework,Version=v4.0\"/&gt;</strong><br /><strong> &lt;/startup&gt;</strong><br /><strong>&lt;/configuration&gt;</strong></p>",
+    "PostedDate": "2011-03-04T06:33:59.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575565",
+    "ThreadId": "239660",
+    "Html": "<p>...which I already have. This is what my App.config looks like:</p>\r\n<p>&lt;?xml version=\"1.0\"?&gt;<br />&lt;configuration&gt;<br />&nbsp; &lt;startup useLegacyV2RuntimeActivationPolicy=\"true\"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;supportedRuntime version=\"v4.0\" sku=\".NETFramework,Version=v4.0\"/&gt;<br />&nbsp; &lt;/startup&gt;<br />&lt;/configuration&gt;</p>\r\n<p>Again this is for my \"main app\". As I mentioned we're running PRISM so there are a number of projects in my solution *but* the application has the above in the App.config file.</p>\r\n<p>/Peter</p>",
+    "PostedDate": "2011-03-04T06:53:30.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575588",
+    "ThreadId": "239660",
+    "Html": "<p>do you target .net4 or .net4-client-profile?</p>\n<p>p.s. it works on both, but i use win7-x64</p>",
+    "PostedDate": "2011-03-04T07:21:55.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575604",
+    "ThreadId": "239660",
+    "Html": "<p>FYI Litsegard,</p>\r\n<p>On Windows 7 32bit, I have to target .NET 4.0</p>\r\n<p>When I target 4.0 Client Profile, I get this: \"Exception: The type initializer for 'SingletonCreator' threw an exception.\"</p>",
+    "PostedDate": "2011-03-04T07:53:53.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575615",
+    "ThreadId": "239660",
+    "Html": "<p>client profile use this configuration:</p>\r\n<p><strong>&lt;?xml version=\"1.0\"?&gt;</strong><br /><strong>&lt;configuration&gt;</strong><br /><strong> &lt;startup useLegacyV2RuntimeActivationPolicy=\"true\"&gt;</strong><br /><strong> &lt;supportedRuntime version=\"v4.0\" sku=\".NETFramework,Version=v4.0,Profile=Client\"/&gt;</strong><br /><strong> &lt;/startup&gt;</strong><br /><strong>&lt;/configuration&gt;</strong></p>",
+    "PostedDate": "2011-03-04T08:06:01.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576479",
+    "ThreadId": "239660",
+    "Html": "<p>First I'd like to thank you for trying to help me out here but unfortunately I'm not able to get this working. I've tried both .Net4 and .Net4-client profile and switched between the App.configs mentioned above but I still get the same \"singleton exception\" when compiling the core for SQLite. I'll discuss with my project group how to proceed with this - switch to SQLServer Compact which works great from what I've seen so far (the downside of this would leave us with an app relying on two db-engines: SQLite &amp; SQLServer Compact), or another path. :-(</p>\n<p>Cheers<br />/Peter</p>",
+    "PostedDate": "2011-03-06T23:10:23.053-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576506",
+    "ThreadId": "239660",
+    "Html": "<p>hm, i'll make test project configured to .net4 and x86, maybe you missed something...</p>",
+    "PostedDate": "2011-03-07T01:09:30.207-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576565",
+    "ThreadId": "239660",
+    "Html": "<p>Hmmmm, I think I've found the culprit! Among my projects I had a reference to the Core and WindowsPresentation dll later in the build chain which effectively replaced the correct builds. Sigh:-( Of course, now when I've made sure that we're using the correct build everything seems to look fine:-) I'm sorry for the inconvenience and frustration this may have caused you.</p>\r\n<p>Cheers,<br />/Peter</p>",
+    "PostedDate": "2011-03-07T03:57:25.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "576641",
+    "ThreadId": "239660",
+    "Html": "<p>sounds the problem solved ;}</p>",
+    "PostedDate": "2011-03-07T06:50:29.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

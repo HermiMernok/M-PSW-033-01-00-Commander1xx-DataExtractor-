@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1008503",
+    "ThreadId": "434945",
+    "Html": "Hi, This is my first post and am new to C# so here goes.\r<br />\n<br />\nwhat I want to do is generate route.name for all the route point from destination A to destination B. The end game of this is to generate a turn by turn road name list from start to finish points.\r<br />\n<br />\nI am unsure if this is already taken care of please can someone point me in the right direction<br />\n",
+    "PostedDate": "2013-02-28T14:39:30.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1008688",
+    "ThreadId": "434945",
+    "Html": "and the question is?<br />\n",
+    "PostedDate": "2013-03-01T01:49:58.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009099",
+    "ThreadId": "434945",
+    "Html": "If I have let say 10 points from start to finish only the start and finish have names all the intervening points do not have names, how can I add road names to all the route points between the start point and the end point? <br />\n",
+    "PostedDate": "2013-03-01T17:05:49.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011453",
+    "ThreadId": "434945",
+    "Html": "Hi, I have done all I need to do with this program and it is the best solution I have come across by far I am very very grateful for this program and thank you a million times.\r<br />\n<br />\nI have noticed something which I can not explain. I have around 3000 addresses with postcodes and when I places all the markers on the map the first time this takes around 4 minutes in offline cacheonly mode. When I run the same addresses again  I find that it takes not more than 15 seconds.<br />\n\r<br />\nBut if I close my machine down and load up next day the first load take around 4 minutes again in cacheOnly mode, looking in C:\\Users\\ABC\\AppData\\Local\\GMap.NET\\GeocoderCache I notice that all the file are present and accounted for so please can you explain to me why this is happening,  is the cache timing out and is regenerated every day? I looked for the cache timeout and it is set to a large value so can not imagine this is the reason.\r<br />\n<br />\nthe stayincache is set to 88:00:00:00 could this be causing the issue? and how can I set the geocodes in such a way as to make them current forever since they are unlikely to change.<br />\n",
+    "PostedDate": "2013-03-06T15:23:15.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011662",
+    "ThreadId": "434945",
+    "Html": "default cache time is 88days, but there might be some bug if your queries is longer than max path ~260 symbols, i have to fix this, i've noticed it some time ago...<br />\n",
+    "PostedDate": "2013-03-07T02:43:51.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

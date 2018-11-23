@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "668207",
+    "ThreadId": "271660",
+    "Html": "\r\n<p>Hello maps Master!</p>\r\n<p>I'm trying to insert an polygon on my main map in an WPF version of the GMaps, but unsuccessfull.</p>\r\n<p>When I try to use the polygon list availiable on the GPMarker its tell me that is an read only property.</p>\r\n<p>Any ideas?</p>\r\n<p>&nbsp;</p>\r\n<p>Tanks in advance.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-09-06T10:49:13.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668262",
+    "ThreadId": "271660",
+    "Html": "<p>add points to that list and call RegenerateShape</p>",
+    "PostedDate": "2011-09-06T12:55:18.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668305",
+    "ThreadId": "271660",
+    "Html": "<p>I'm trying to do it for 4 days, download 3 versions... sorry if I'm a little noob on this..</p>\r\n<p>Any chance that you cut and paste some exemple?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Tks.</p>",
+    "PostedDate": "2011-09-06T15:05:54.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668437",
+    "ThreadId": "271660",
+    "Html": "<p><em>GMapMarker m = new GMapMarker(new PointLatLng());</em><br /><em> m.Polygon.Add(new PointLatLng(54, 25));</em><br /><em> m.Polygon.Add(new PointLatLng(54, 50));</em><br /><em> m.Polygon.Add(new PointLatLng(30, 60));</em><br /><em> m.Polygon.Add(new PointLatLng(-30, 40));</em><br /><em> m.RegeneratePolygonShape(MainMap);</em><br /><em> MainMap.Markers.Add(m);</em></p>",
+    "PostedDate": "2011-09-06T23:49:26.053-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

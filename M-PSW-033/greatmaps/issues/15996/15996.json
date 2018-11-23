@@ -1,0 +1,85 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "potentional cause can be to using sync code in OnTileLoadStart/Complete events, since they are fired in inned loader threads....",
+    "ClosedDate": "2011-01-10T05:38:15.503-08:00",
+    "CommentCount": 9,
+    "Custom": null,
+    "Description": "Hi there,\r\n\r\nI get occasionally deadlocks when the App is on loading Tiles and the user Zooms on the meantime.\r\nIf the App hangs, I use the debuggers \"break all\", and see that the code is waiting on lock(tileLoadQueue);\r\n\r\nSome more Details:\r\nI use the WPF Part (but the deadlock seems to occur in the Core) and use also a second cache Server (MySQL).\r\n\r\nWhere does Deadlock occur:\r\nFile: Core.cs\r\n\r\nLocation 1\r\n\r\nMethod: public int Zoom\r\nLine: 144\r\nCode Snippet:\r\n               if(IsStarted)\r\n               {\r\n                  lock(tileLoadQueue)\r\n                  {\r\n                     tileLoadQueue.Clear();\r\n                  }\r\n\r\nLocation 2\r\nMethod: UpdateBounds()\r\nLine: 1215\r\nCode Snippet:\r\n      void UpdateBounds()\r\n      {\r\n         if(MapType == NET.MapType.None)\r\n         {\r\n            return;\r\n         }\r\n\r\n         lock(tileLoadQueue)\r\n\r\nI'm not that experienced in Threading so I wasn't able to fix that by my self now.\r\nIf you need something else let me know, I can reproduce it within 5minutes of heavy zooming/moving around.\r\n\r\nAny idea?\r\n\r\ncheers\r\nIsNull",
+    "LastUpdatedDate": "2011-01-10T05:38:15.503-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "greatmaps",
+    "ReportedDate": "2011-01-05T00:01:42.07-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Deadlock tileLoadQueue [Core.cs]",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15996
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "hm... does it locks without second cache?",
+      "PostedDate": "2011-01-05T00:49:08.19-08:00",
+      "Id": 25893
+    },
+    {
+      "Message": "I made some tests again, and it locks also with second cache turned off.\nI'm a bit confused as nobody else reported it. I made some little changes in the WPF code, but didn't touched the Core.\n\n",
+      "PostedDate": "2011-01-05T06:33:04.79-08:00",
+      "Id": 25902
+    },
+    {
+      "Message": "are you using latest code? and what OS and CPU do you use?",
+      "PostedDate": "2011-01-05T07:23:35.66-08:00",
+      "Id": 25905
+    },
+    {
+      "Message": "I've downloaded the source (All branch, Latest Version --> Download ) (right now again) and at least in assembly GMap.NET.Core it shows me version 1.5.3.3 o.0\n(repo: 4535e32c8607b09918d4b3415247cd7063d4a1a1\nnode: ddcee0d0841e80bf72b367f40bcbe766daa53c1b\nbranch: default\nlatesttag: 1.5.3.3\nlatesttagdistance: 121\n)\n\nI don't have the current source, right? How can I get it? (sry for this very stupid aiming question, I'm more on git those days :) )\n\nOS: Win7 32bit\nCPU: Intel Core i5 M460 @ 2.5Ghz\n",
+      "PostedDate": "2011-01-05T08:46:19.807-08:00",
+      "Id": 25909
+    },
+    {
+      "Message": "http://greatmaps.codeplex.com/SourceControl/BrowseLatest",
+      "PostedDate": "2011-01-05T09:35:10.837-08:00",
+      "Id": 25917
+    },
+    {
+      "Message": "Hehe. Well from there I downloaded it already ;)\nWell this link also shows me version 1.5.3.3. Then I forked your repo, cloned it to my drive but still get version 1.5.3.3. \nOk, that was the point I was really confused. \nAfter that I compared the change log with my code and the code is up to date.\n\nHave a look here:\nhttp://greatmaps.codeplex.com/SourceControl/changeset/view/ddcee0d0841e#GMap.NET.Core%2fProperties%2fAssemblyInfo.cs\nThat means, you simply forgot to update the Assembly version of GMap.Net.Core!? lol damn it.\n\nBack to topic and the deadlock issue:\nI initially downloaded the Source on 9th Dec, that means it should be also up to date, as your last commit seems to be on Dec 8 2010. \nWell, ehm, yes. The deadlock is still there :)\n\n\n\n\n",
+      "PostedDate": "2011-01-05T11:27:15.613-08:00",
+      "Id": 25932
+    },
+    {
+      "Message": ";}",
+      "PostedDate": "2011-01-05T12:50:57.767-08:00",
+      "Id": 25938
+    },
+    {
+      "Message": "I was able to identify the problematic code part. \nCommenting it out avoids the deadlock, using it the deadlock occurs very fast:\n\n        // tile loading starts\n        void MainMap_OnTileLoadStart() {\n            SetVisibleState(tileLoadBusy, System.Windows.Visibility.Visible);\n        }\n\n        // tile loading stops\n        void MainMap_OnTileLoadComplete(long ElapsedMilliseconds) {\n            SetVisibleState(tileLoadBusy, System.Windows.Visibility.Hidden);\n        }\n\n        private void SetVisibleState(UIElement e, System.Windows.Visibility v) {\n            if (e.Dispatcher.CheckAccess()) {\n                // The calling thread owns the dispatcher, and hence the UI element\n                e.Visibility = v;\n            } else {\n                // Invokation required\n                e.Dispatcher.Invoke(visibleStateInvoker, new object[] { e, v });\n            }\n        }\n\n\nInvoke the Mainthread to set the property seems to cause the problem. I dont know why yet, but it seems to be an error in my own code, sorry.\nIssue can be closed.",
+      "PostedDate": "2011-01-10T00:12:14.08-08:00",
+      "Id": 26230
+    },
+    {
+      "Message": "i see, you can check how i do it in the wpf demo, i think using BeginInvoke instead of Invoke should not hold any execution in inner threads",
+      "PostedDate": "2011-01-10T04:46:27.707-08:00",
+      "Id": 26246
+    }
+  ]
+}

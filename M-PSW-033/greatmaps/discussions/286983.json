@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "728845",
+    "ThreadId": "286983",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>First Great Job!&nbsp;</p>\r\n<p>I use GMap.NET in application(wpf) containing tabitem. But GMapControl_Unloaded is called when change tab and when i comeback to tabitem containing the Map i've got Nullreference exception. Actually, Core.OnMapClose() is called.<br>\r\nIs there a Bug?</p>\r\n<p>&nbsp;</p>\r\n<p>Fran&ccedil;ois</p>\r\n",
+    "PostedDate": "2012-01-21T23:17:21.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "728863",
+    "ThreadId": "286983",
+    "Html": "<p>when you came back control is already disposed, check:</p>\n<ul>\n<li> http://eric.burke.name/dotnetmania/2009/04/26/22.09.28</li>\n<li>http://stackoverflow.com/questions/2080764/wpf-tabcontrol-how-to-preserve-control-state-within-tab-items-mvvm-pattern</li>\n<li>http://stackoverflow.com/questions/2238072/tabcontrol-disposes-of-controls-on-inactive-tabs</li>\n<li>http://www.codeproject.com/Articles/212233/Persist-the-Visual-Tree-when-switching-tabs-in-the</li>\n<li>http://social.msdn.microsoft.com/Forums/en/wpf/thread/ae5a4101-9d29-49ce-b76b-ad9b09368c9b</li>\n</ul>",
+    "PostedDate": "2012-01-22T01:27:43.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "729181",
+    "ThreadId": "286983",
+    "Html": "<p>Hi,</p>\r\n<p>I also test the last beta version and when the GMapControl has been unloaded and next has been re-loaded, I get NullReferenceException in Core::UpdateBounds(): tileDrawingListLock,&nbsp;tileDrawingList and Matrix variables are null.</p>\r\n<p><span class=\"hps\">Indeed, the</span><span>&nbsp;</span><span class=\"hps\">control</span><span>&nbsp;</span><span class=\"hps\">is already disposed</span><span>&nbsp;</span><span class=\"hps\">when it</span><span>&nbsp;</span><span class=\"hps\">is re-loaded&nbsp;</span><span class=\"hps\">but that does</span><span>&nbsp;</span><span class=\"hps\">not charge</span><span>&nbsp;</span><span class=\"hps\">properly.</span></p>\r\n<p>Do you have any idea ?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2012-01-23T02:41:38.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "729215",
+    "ThreadId": "286983",
+    "Html": "<p>read above</p>",
+    "PostedDate": "2012-01-23T03:59:55.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "729233",
+    "ThreadId": "286983",
+    "Html": "<p>Test this :</p>\r\n<p>&nbsp;</p>\r\n<p>OnSelectionChangedTab( ..... ){<span style=\"white-space: pre;\"> </span></p>\r\n<p><span style=\"white-space: pre;\"> </span>MainMap.SuspendDispose = true;</p>\r\n<p>}</p>",
+    "PostedDate": "2012-01-23T04:29:10.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "731929",
+    "ThreadId": "286983",
+    "Html": "Thanks i will try it!<br>\r\n<br>\r\n<div>2012/1/23 silviamar <span dir=\"ltr\">&lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt;</span><br>\r\n<blockquote style=\"margin:0 0 0 .8ex; border-left:1px #ccc solid; padding-left:1ex\">\r\n<div>\r\n<p>From: silviamar</p>\r\n<div>\r\n<p>Test this :</p>\r\n<p></p>\r\n<p>OnSelectionChangedTab( ..... ){<span style=\"white-space:pre-wrap\"> </span></p>\r\n<p><span style=\"white-space:pre-wrap\"></span>MainMap.SuspendDispose = true;</p>\r\n<p>}</p>\r\n</div>\r\n<div>\r\n<div>\r\n<div>\r\n<p>Read the <a href=\"http://greatmaps.codeplex.com/discussions/286983#post729233\" target=\"_blank\">\r\nfull discussion online</a>.</p>\r\n<p>To add a post to this discussion, reply to this email (<a href=\"mailto:greatmaps@discussions.codeplex.com?subject=[greatmaps:286983]\" target=\"_blank\">greatmaps@discussions.codeplex.com</a>)</p>\r\n<p>To start a new discussion for this project, email <a href=\"mailto:greatmaps@discussions.codeplex.com\" target=\"_blank\">\r\ngreatmaps@discussions.codeplex.com</a></p>\r\n<p>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a href=\"https://greatmaps.codeplex.com/discussions/286983/unsubscribe/\" target=\"_blank\">\r\nunsubscribe</a> on CodePlex.com.</p>\r\n<p>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</blockquote>\r\n</div>\r\n<br>\r\n",
+    "PostedDate": "2012-01-28T00:11:53.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732610",
+    "ThreadId": "286983",
+    "Html": "<p>I get this crash too, and I do NOT have a tab control.</p>\r\n<p>Sometimes it will crash when another program is loaded. Sometimes it will crash on its own with no other intervention. As with Thitony's comment above, the&nbsp;<span>tileDrawingList and Matrix variables are null.</span></p>\r\n<p><span>I've gone through all the links you pointed to, but I can't find any relevance since, as I said, I do not have a tab control, so there are no tabs to switch!</span></p>\r\n<p><span>MainMap.SuspendDispose is already true.</span></p>\r\n<p><span>Any ideas?&nbsp;</span></p>",
+    "PostedDate": "2012-01-30T05:43:25.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "732617",
+    "ThreadId": "286983",
+    "Html": "<p>SuspendDispose works only once for one dispose, and it never disposes itself randomly, something is causing control to unload so it's unloads</p>",
+    "PostedDate": "2012-01-30T05:54:45.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "743022",
+    "ThreadId": "286983",
+    "Html": "<p>fixed, now map can be hosted in TabControl without any issues</p>",
+    "PostedDate": "2012-02-06T05:33:55.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "743321",
+    "ThreadId": "286983",
+    "Html": "\r\n<div>Thx Radioman <br>\r\n<br>\r\nCordialement,\r\n<div><br>\r\n</div>\r\n<div>François LABAT</div>\r\n</div>\r\n<div><br>\r\nLe 6 févr. 2012 à 14:34, &quot;radioman&quot; &lt;<a href=\"mailto:notifications@codeplex.com\">notifications@codeplex.com</a>&gt; a écrit :<br>\r\n<br>\r\n</div>\r\n<div></div>\r\n<blockquote type=\"cite\">\r\n<div>\r\n<p>From: radioman</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>fixed, now map can be hosted in TabControl without any issues</p>\r\n</div>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2012-02-06T08:43:20.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1207373",
+    "ThreadId": "286983",
+    "Html": "Mr, radioman <br />\n<pre><code>   this bug is still in GMap.net WPF version . this Markers in GMapControl is still there but can't be seen on the map in  changed the tab</code></pre>\n\n",
+    "PostedDate": "2014-02-12T08:24:30.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1207812",
+    "ThreadId": "286983",
+    "Html": "any solutions?<br />\n",
+    "PostedDate": "2014-02-13T02:53:26.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

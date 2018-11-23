@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1421412",
+    "ThreadId": "635906",
+    "Html": "Dear.<br />\n<br />\nI had experience incorrect coogle routing after update to newest source code from CodePlex. So, I tried to find a cause and as result, GoogleMapProvider.DecodePointsInto() method causes an issue and old codes before 'changeset d93adf855fc4 (March 24)' works fine.<br />\n<br />\nPlease check it on your free time.<br />\nThanks.<br />\n",
+    "PostedDate": "2015-04-29T08:01:04.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421476",
+    "ThreadId": "635906",
+    "Html": "can you send your request parameters?<br />\n",
+    "PostedDate": "2015-04-29T09:24:08.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421501",
+    "ThreadId": "635906",
+    "Html": "You can confirm it on the Demo app. You can watch a screenshot on the <a href=\"http://postimg.org/image/4ekv7p8nj/\" rel=\"nofollow\">http://postimg.org/image/4ekv7p8nj/</a>\r<br />\n<br />\nOn the screenshot, End location is the Lat=33.8155, Lng=-118.3145 but routing path drew to wrong direction.<br />\n",
+    "PostedDate": "2015-04-29T10:57:40.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1434334",
+    "ThreadId": "635906",
+    "Html": "I have the same issue. Here is the url:<br />\n<br />\n<a href=\"http://maps.googleapis.com/maps/api/directions/xml?origin=-8.0646854,-34.9374402&amp;destination=-8.0525464,-34.8716278&amp;sensor=false&amp;language=en&amp;units=metric&amp;mode=driving\" rel=\"nofollow\">http://maps.googleapis.com/maps/api/directions/xml?origin=-8.0646854,-34.9374402&destination=-8.0525464,-34.8716278&sensor=false&language=en&units=metric&mode=driving</a><br />\n<br />\nIf i decode the points with the current DecodePointsInto method it returns something like epician's post. The path end point is different from the requested endpoint.<br />\n<br />\nEncoded path:<br />\n<br />\nhcfp@~uftE|@fC@d@AbBGr@Q|@kA|Fe@|BSr@@J?NAP?x@Jl@H\\r@b@j@r@f@<code>AVl@Fh@@h@Ej@Mf@Qh@]bAy@l@q@bCeChCuBT[xDaCbAm@</code>@Wp@WjAu@xA}@dCaBfIyEpEiCbHkE~DyBfEkCbC_AjCu@vAWrD{@fLaC<code>EgAzBu@lBo@hEmAtAi@b@[r@k@t@s@|@aAN@ZFJDp@|@BF@LCLIJo@j@QD]HKKk@q@g@i@w@q@eBcBuBuBWWY[MYU}@O}@[oAOi@aCcJo@eC[y@_Ay@g@k@Ya@yAcCwAoCwAoC}@iBa@eAOu@UwAEw@IiCEsBEmCQaQMuHAoAIoAa@wCOcBEe@CmA@sAAmACcFt@w@j@OxEgAdBYB?H{AN}CNwBRkCCUGYQ_@g@UcCcAmAo@cAq@w@o@w@y@m@}@g@_AsAaEWu@YeAaCeJyAgGqAmFkCsLm@uC_AmDSy@VGe@qB]_BaD}Mk@yB{@uBuBsEa@qAs@_DuBkJ?Q@UGu@DKCs@IgB[aBuA{FYyAq@_HQsEEQGKa@cBwCuJYy@Ua@UUm@[}FyBkE{Ak@YgCeBcDaCsC{Bu@m@eBw@gEgB}BaAOAk@BYCWMMMK[WQyHiBaHgBkEeA{@KoBHqCEeH?]Dk@PMHwB~Ba@</code>@aBtB_Al@MDYHULk@F}@@_@?<br />\n",
+    "PostedDate": "2015-07-14T07:33:55.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

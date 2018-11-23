@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "988605",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>Hello!</p>\r\n<p>I have got one problem, I want show tooltip with informations about marker when i click on this marker. There is my code:</p>\r\n<p>&nbsp;</p>\r\n<pre>GMapMarkerOwn gown = new GMapMarkerOwn(new PointLatLng(souradnice1, souradnice2), color);\r\ngMapControl1.OnMarkerClick &#43;= new MarkerClick(gMapControl1_OnMarkerClick);\r\noverlayOne.Markers.Add(gown);</pre>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;And event:</p>\r\n<p>&nbsp;</p>\r\n<pre>void gMapControl1_OnMarkerClick(GMapMarker item, MouseEventArgs e)\r\n{\r\n    MessageBox.Show(item.ToolTipText);\r\n}</pre>\r\n<p>But this isn't works. Can someone help me? Many thanks</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-18T02:34:05.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988626",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>you use custom marker, you have to set the <strong>Size</strong> property, because it determines the area of the mouse input</p>\r\n",
+    "PostedDate": "2013-01-18T03:16:40.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988629",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>Thank you very much radioman.</p>\r\n<p>For example i set</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>gown.Size = Size.Add(<span style=\"color:blue\">new</span> System.Drawing.Size(2, 2), <span style=\"color:blue\">new</span> System.Drawing.Size(2, 2));\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Event is now works but message is displaying again and again..to infinity. Any solution?</p>\r\n",
+    "PostedDate": "2013-01-18T03:25:52.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988630",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>And message box is empty.. :-(</p>\r\n",
+    "PostedDate": "2013-01-18T03:26:32.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988638",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>there is only one event per click, and you can show any text you want to ;}</p>\r\n",
+    "PostedDate": "2013-01-18T03:41:31.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988644",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>Ok, message is now position, but still the same again and again..wait..it's displayed 1446 times..and i have 1446 markers..but position is from one marker.. i don't understand it..</p>\r\n",
+    "PostedDate": "2013-01-18T04:02:10.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988651",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>maybe you add the same overlay 1446 times</p>\r\n",
+    "PostedDate": "2013-01-18T04:09:24.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988663",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>No, this is my method which displays the map after click button</p>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> ZobrazMapu()\r\n     {\r\n            gMapControl1.MapProvider = GMapProviders.CzechSatelliteMap;\r\n            comboBox4.SelectedItem = <span style=\"color:#a31515\">&quot;Czech Sat Map&quot;</span>;\r\n          \r\n            gMapControl1.Zoom = 10;\r\n            \r\n            gMapControl1.Manager.Mode = AccessMode.ServerAndCache;<span style=\"color:green\">//funguje</span>\r\n          \r\n            Size siz = <span style=\"color:blue\">new</span> System.Drawing.Size(610, 410);\r\n            gMapControl1.ClientSize = siz;\r\n            overlayOne = <span style=\"color:blue\">new</span> GMapOverlay(<span style=\"color:#a31515\">&quot;OverlayOne&quot;</span>);\r\n\r\n            List&lt;PointLatLng&gt; route1 = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n            List&lt;PointLatLng&gt; route2 = <span style=\"color:blue\">new</span> List&lt;PointLatLng&gt;();\r\n            <span style=\"color:blue\">int</span> poc = 0;\r\n            <span style=\"color:blue\">foreach</span> (<span style=\"color:blue\">string</span> list <span style=\"color:blue\">in</span> pole_souradnic)\r\n            {\r\n                <span style=\"color:blue\">if</span> (!pole_souradnic[poc].Contains(<span style=\"color:#a31515\">&quot;GPS signal is not fixed!&quot;</span>))\r\n                {\r\n                    <span style=\"color:blue\">double</span> souradnice1 = 0.0;\r\n                    <span style=\"color:blue\">double</span> souradnice2 = 0.0;\r\n                    <span style=\"color:blue\">string</span> a = pole_souradnic[poc].ToString().Split(<span style=\"color:#a31515\">','</span>)[0];\r\n                    <span style=\"color:blue\">string</span> b = pole_souradnic[poc].ToString().Split(<span style=\"color:#a31515\">','</span>)[1];\r\n\r\n                    souradnice1 = <span style=\"color:blue\">double</span>.Parse(a, CultureInfo.InvariantCulture);\r\n                    souradnice2 = <span style=\"color:blue\">double</span>.Parse(b, CultureInfo.InvariantCulture);\r\n                   \r\n                    route1.Add(<span style=\"color:blue\">new</span> PointLatLng(souradnice1, souradnice2));\r\n                    gMapControl1.ZoomAndCenterMarkers(<span style=\"color:#a31515\">&quot;OverlayOne&quot;</span>);\r\n                   \r\n                    GMapMarkerOwn gown = <span style=\"color:blue\">new</span> GMapMarkerOwn(<span style=\"color:blue\">new</span> PointLatLng(souradnice1, souradnice2), zobrazenych_map);\r\n                    gown.Size = Size.Add(<span style=\"color:blue\">new</span> System.Drawing.Size(2, 2), <span style=\"color:blue\">new</span> System.Drawing.Size(2, 2));\r\n                    gMapControl1.OnMarkerClick += <span style=\"color:blue\">new</span> MarkerClick(gMapControl1_OnMarkerClick);\r\n                    overlayOne.Markers.Add(gown);\r\n                    \r\n                }\r\n                <span style=\"color:blue\">if</span>(port_open!=<span style=\"color:blue\">true</span>)\r\n                    poc++;\r\n            }\r\n            GMapRoute r = <span style=\"color:blue\">new</span> GMapRoute(route1, <span style=\"color:#a31515\">&quot;Route1&quot;</span>);\r\n\r\n            r.Stroke.Width = 1;\r\n            r.Stroke.Color = getColor();\r\n            \r\n            gMapControl1.ZoomAndCenterRoute(r);\r\n            overlayOne.Routes.Add(r);\r\n            gMapControl1.Overlays.Add(overlayOne);\r\n            gMapControl1.ZoomAndCenterMarkers(<span style=\"color:#a31515\">&quot;OverlayOne&quot;</span>);\r\n            \r\n            zobrazenych_map++;\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Adding overlay is in the end of this code..</p>\r\n",
+    "PostedDate": "2013-01-18T04:31:18.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988668",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">for</span>(<span style=\"color:blue\">int</span> i = 0; i &lt; 1446; i&#43;&#43;)\n{\n  <span style=\"color:green\">// you subscribe event in the loop 1446 times </span>\n  gMapControl1.OnMarkerClick &#43;= <span style=\"color:blue\">new</span> MarkerClick(gMapControl1_OnMarkerClick); \n}\n</pre>\r\n</div>\r\n<p>you only need to do this <strong>once</strong> at the start</p>\r\n<p>p.s. do not call&nbsp;gMapControl1.<strong>ZoomAndCenterMarkers</strong>(&quot;OverlayOne&quot;); in the loop</p>\r\n",
+    "PostedDate": "2013-01-18T04:40:52.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988670",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>You're right, great :-) Thanks ^^</p>\r\n",
+    "PostedDate": "2013-01-18T04:42:48.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988708",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>And now..i am able to delete marker on click. But what I need to do to refresh route? I was thinking about delete whole route, but it's too hard.. Can i delete only one point from route acording to deleted marker?</p>\r\n",
+    "PostedDate": "2013-01-18T06:08:12.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988711",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>change the points and call map.<strong>UpdateRouteLocalPosition</strong></p>\r\n",
+    "PostedDate": "2013-01-18T06:13:52.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988724",
+    "ThreadId": "430013",
+    "Html": "\r\n<p>Nice, it's works fine :-)</p>\r\n",
+    "PostedDate": "2013-01-18T06:40:39.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006203",
+    "ThreadId": "430013",
+    "Html": "Hello, problem is back, i have more routes on map - for example 4, when i click on the marker, popup is displaying 4 times..as count of tracks..the same information about one point. Definition gMapControl1.OnMarkerClick += new MarkerClick(gMapControl1_OnMarkerClick); is deleted, now i defined event directly in properties of map. Some idea?<br />\n",
+    "PostedDate": "2013-02-25T02:24:38.527-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1006959",
+    "ThreadId": "430013",
+    "Html": "nop ;}<br />\n",
+    "PostedDate": "2013-02-26T06:55:36.71-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1007687",
+    "ThreadId": "430013",
+    "Html": "Problem solved.. gMapControl1.Overlays.Add(overlayOne); in loop :-)<br />\n",
+    "PostedDate": "2013-02-27T08:35:49.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]
