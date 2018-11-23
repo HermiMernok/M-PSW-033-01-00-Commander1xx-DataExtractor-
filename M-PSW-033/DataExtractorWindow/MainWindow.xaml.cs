@@ -24,9 +24,12 @@ using ProximityDetectionSystemInfo;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using Demo.WindowsPresentation.CustomMarkers;
-using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Win32;
-
+using ExcelDataReader;
+using System.Data;
+using OfficeOpenXml;
+using System.Drawing;
+using System.Drawing.Imaging;
 namespace DataExtractorWindow
 {
     /// <summary>
@@ -42,10 +45,11 @@ namespace DataExtractorWindow
         private RangeObservableCollection<EventSummaryInformation> EventSummary_List;
         private RangeObservableCollection<InfoEntry> Unit_Info_List;
         private RangeObservableCollection<ProximityDetectionEvent> ProximityDetectionEventList;
-        
 
+        private System.Data.DataSet ds;
+        private string DataLogFileName = "";
 
-            List<decimal> VehicleSpeedList = new List<decimal>();
+        List<decimal> VehicleSpeedList = new List<decimal>();
         List<decimal> DryRoadBrakeList = new List<decimal>();
         List<decimal> WateredRoadBrakeList = new List<decimal>();
         List<decimal> SlipperyRoadBrakeList = new List<decimal>();
@@ -101,8 +105,8 @@ namespace DataExtractorWindow
             //Meronk_Elektronik_Logo.UriSource = new Uri("pack://application:,,,/Resources/Icons/Mernok_Elektronik_Logo.png");
 
             //SplashScreen Meronk_Elektronik_Splash = new SplashScreen(Meronk_Elektronik_Logo.UriSource.ToString());
-
-            PropertyInfo textEditorProperty = typeof(TextBox).GetProperty(
+              
+        PropertyInfo textEditorProperty = typeof(TextBox).GetProperty(
                   "TextEditor", BindingFlags.NonPublic | BindingFlags.Instance);
 
             object textEditor = textEditorProperty.GetValue(TextBox_RawDataFilter, null);
@@ -151,7 +155,7 @@ namespace DataExtractorWindow
             DataGridProximityZone.ItemsSource = ProximityZoneInfoList;
             DataGridProximityZone.IsReadOnly = true;
 
-           ProcessExcelFile(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Resources/Brake Test Table/Brake Table.xlsx");
+            ReadBrakeTestExcel(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/Resources/Brake Test Table/Brake Table.xlsx");
 
             Data_Log_Management.ReportProgressDelegate += BackgroundWorker_Read_File.ReportProgress;
             BackgroundWorker_Read_File.WorkerReportsProgress = true;
@@ -299,6 +303,7 @@ namespace DataExtractorWindow
 
                 }
                 //Read_Log_File();
+                DataLogFileName = openFileDialog.SafeFileName.Substring(0, openFileDialog.SafeFileName.Length-4);
             }
         }
 
@@ -346,46 +351,102 @@ namespace DataExtractorWindow
 
 
         /// <summary>
-        /// Save data logs to a .csv file with semicolon(;) as seperator.
+        /// Save data logs to a .cvs with semicolon(;) as seperator or  excel file .xlsx 
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Button_Save_File_Click(object sender, RoutedEventArgs e)
         {
             // === Open Save File Dialog ===
-            Microsoft.Win32.SaveFileDialog saveFileDialog1 = new Microsoft.Win32.SaveFileDialog();
+            Microsoft.Win32.SaveFileDialog _saveFileDialog = new Microsoft.Win32.SaveFileDialog();
 
             // == Default extension ===
-            saveFileDialog1.DefaultExt = ".csv";
+            _saveFileDialog.DefaultExt = ".xlsx";
             // == filter types ===
-            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
+            _saveFileDialog.Filter = "Mernok Log File (*.mer)|*.mer|Excel File (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            _saveFileDialog.FileName = DataLogFileName;
+            _saveFileDialog.FilterIndex = 2;
+            _saveFileDialog.RestoreDirectory = true;
 
-            if (saveFileDialog1.ShowDialog() == true)
+            if (_saveFileDialog.ShowDialog() == true)
             {
-                // === open streamwrite to save file ===
-                StreamWriter writer = new StreamWriter(saveFileDialog1.OpenFile());
-                int counter = 0;
 
-                // === write each entry from data log in to .csv file ===
-                foreach (var Single_Log_Data in Log_Entry_List)
+                if (_saveFileDialog.FileName.Contains(".csv"))
                 {
-                    counter++;
+                    // === open streamwrite to save file ===
+                    StreamWriter writer = new StreamWriter(_saveFileDialog.OpenFile());
+                    int counter = 0;
 
-                    writer.WriteLine(Single_Log_Data.DateTimeStamp.Date + ";" +
-                        Single_Log_Data.DateTimeStamp.TimeOfDay + ";" +
-                        Single_Log_Data.EventID + ";" +
-                        Single_Log_Data.EventName + ";" +
-                        Single_Log_Data.RawDataDisplay
-                                             //Single_Log_Data._EventInformation.ToString()
-                       );
+                    // === write each entry from data log in to .csv file ===
+                    foreach (var Single_Log_Data in Log_Entry_List)
+                    {
+                        counter++;
+
+                        writer.WriteLine(Single_Log_Data.DateTimeStamp.Date + ";" +
+                            Single_Log_Data.DateTimeStamp.TimeOfDay + ";" +
+                            Single_Log_Data.EventID + ";" +
+                            Single_Log_Data.EventName + ";" +
+                            Single_Log_Data.RawDataDisplay
+                           //Single_Log_Data._EventInformation.ToString()
+                           );
+
+
+                        // === dispose streamwrite ===
+                        writer.Dispose();
+                        // === close stramwrite ===
+                        writer.Close();
+                    }
                 }
-                
-                // === dispose streamwrite ===
-                writer.Dispose();
-                // === close stramwrite ===
-                writer.Close();
+
+                if(_saveFileDialog.FileName.Contains(".xlsx"))
+                {
+                    using (var p = new ExcelPackage())
+                    {
+               
+
+                        //A workbook must have at least on cell, so lets add one... 
+                        var ws = p.Workbook.Worksheets.Add("MySheet");
+
+                        var dataRange = ws.Cells["A1"].LoadFromCollection
+                       (
+                       from s in Log_Entry_List
+                       orderby s.No, s.EventName
+                       select s,
+                      true, OfficeOpenXml.Table.TableStyles.Medium2);
+                        dataRange.AutoFitColumns();
+                        //To set values in the spreadsheet use the Cells indexer.
+
+                        // === Header ===
+                        ws.Cells[1, 1].Value = "No.";
+                        ws.Cells[1, 2].Value = "Date";
+                        ws.Cells[1, 3].Value = "Time ";
+                        ws.Cells[1, 4].Value = "Event ID";
+                        ws.Cells[1, 5].Value = "Event Name";
+                        ws.Cells[1, 6].Value = "Event Description";
+                        ws.Cells[1, 7].Value = "Raw Data Display";
+                        ws.Cells[1, 8].Value = "Event Information";
+
+                        int count = 2;
+                        foreach (var Single_Log_Data in Log_Entry_List)
+                        {
+                            ws.Cells[count,1].Value = Single_Log_Data.No;
+                            ws.Cells[count,2].Value = Single_Log_Data.DateTimeStamp.Date.ToString();
+                            ws.Cells[count, 3].Value = Single_Log_Data.DateTimeStamp.TimeOfDay.ToString();
+                            ws.Cells[count, 4].Value = Single_Log_Data.EventID;
+                            ws.Cells[count, 5].Value = Single_Log_Data.EventName;
+                            ws.Cells[count, 6].Value = Single_Log_Data.EventDescription;
+                            ws.Cells[count, 7].Value = Single_Log_Data.RawDataDisplay;                           
+                            ws.Cells[count, 8].Value = Single_Log_Data.EventInformation;
+
+                            count++;
+                        }
+                           
+                        //Save the new workbook. We haven't specified the filename so use the Save as method.
+                        p.SaveAs(new FileInfo(_saveFileDialog.FileName));
+                    }
+                }
+
 
             }
         }
@@ -1141,6 +1202,7 @@ namespace DataExtractorWindow
             GeneralZoneInfo DefaultPresenceZoneInfo = new GeneralZoneInfo();
             GeneralZoneInfo DefaultWarningZoneInfo = new GeneralZoneInfo();
 
+        
             DefaultPresenceZoneInfo.AlertDistance = 10;
             DefaultPresenceZoneInfo.OperatorTime = 3000;
             DefaultPresenceZoneInfo.PDSTime = 1500;
@@ -1149,6 +1211,7 @@ namespace DataExtractorWindow
             DefaultWarningZoneInfo.OperatorTime = 3000;
             DefaultWarningZoneInfo.PDSTime = 1500;
 
+            DefaultCriticalZoneInfo.SpeedKHMChanged = false;
             DefaultCriticalZoneInfo.SpeedKMH = 10;
             DefaultCriticalZoneInfo.PDSTime = 1500;
             DefaultCriticalZoneInfo.COMTime = 100;
@@ -1179,64 +1242,101 @@ namespace DataExtractorWindow
 
         }
 
+        public void ReadBrakeTestExcel(string _fileName)
+        {
+            var extension = System.IO.Path.GetExtension(_fileName).ToLower();
+            using (var stream = new FileStream(_fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                IExcelDataReader reader = null;
+                if (extension == ".xls")
+                {
+                    reader = ExcelReaderFactory.CreateBinaryReader(stream);
+                }
+                else if (extension == ".xlsx")
+                {
+                    reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                }
+                else if (extension == ".csv")
+                {
+                    reader = ExcelReaderFactory.CreateCsvReader(stream);
+                }
+
+                // if (reader == null)
+                //     return;
+
+                //reader.IsFirstRowAsColumnNames = firstRowNamesCheckBox.Checked;
+                using (reader)
+                {
+                    ds = reader.AsDataSet(new ExcelDataSetConfiguration()
+                    {
+                        UseColumnDataType = false,
+                        ConfigureDataTable = (tableReader) => new ExcelDataTableConfiguration()
+                        {
+                            UseHeaderRow = true
+                        }
+                    });
+                }
+
+
+                DataRowCollection data = ds.Tables[0].DefaultView.ToTable().Rows;
+                VehicleSpeedList.Clear();
+                DryRoadBrakeList.Clear();
+                WateredRoadBrakeList.Clear();
+                SlipperyRoadBrakeList.Clear();
+
+                int row_count = 0;
+                foreach (DataRow row in data)
+                {
+                    if (row_count > 3)
+                    {
+                        if (row_count % 2 == 0)
+                        {
+                            VehicleSpeedList.Add(Convert.ToDecimal(row.ItemArray[0]));
+                        }
+                        else
+                        {
+                            DryRoadBrakeList.Add(Convert.ToDecimal(row.ItemArray[3]));
+                            WateredRoadBrakeList.Add(Convert.ToDecimal(row.ItemArray[6]));
+                            SlipperyRoadBrakeList.Add(Convert.ToDecimal(row.ItemArray[9]));
+                        }
+
+                        // else
+                        //  {
+                        //     break;
+                        // }
+                    }
+
+                    row_count++;
+
+
+
+                }
+                row_count = 0;
+                
+            }
+
+
+            foreach (var item in _ProximityZoneInfoList)
+            {
+                item.BrakeDistanceSpeed = VehicleSpeedList;
+                item.BrakeDistance = DryRoadBrakeList;
+            }
+        }
+
         private void ButtonClickOpenBrakeTable(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog Open_File_Dialog = new OpenFileDialog
+            OpenFileDialog _OpenFileDialog = new OpenFileDialog
             {
                 Filter = "Excel Files (*.xlsx)|*.xlsx"
+                
             };
 
             try
             {
-                if (Open_File_Dialog.ShowDialog() == true)
+
+                if (_OpenFileDialog.ShowDialog() == true)
                 {
-                    Excel.Application xlApp = new Excel.Application();
-                    Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(Open_File_Dialog.FileName);
-                    Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-                    Excel.Range xlRange = xlWorksheet.UsedRange;
-
-
-
-                    for (int i = 6; i <= 100; i += 2)
-                    {
-                        if (xlRange.Cells[i, 1] != null && xlRange.Cells[i, 1].Value2 != null)
-                        {
-                            VehicleSpeedList.Add((decimal)xlRange.Cells[i, 1].Value2);
-                        }
-                        else
-                        {
-                            i = 100;
-                        }
-                    }
-
-
-                    DryRoadBrakeList.Clear();
-                    WateredRoadBrakeList.Clear();
-                    SlipperyRoadBrakeList.Clear();
-                    for (int i = 7; i <= (VehicleSpeedList.Count() * 2) + 7; i += 2)
-                    {
-                        if (xlRange.Cells[i, 4] != null && xlRange.Cells[i, 4].Value2 != null)
-                        {
-                            DryRoadBrakeList.Add((decimal)xlRange.Cells[i, 4].Value2);
-                        }
-                        if (xlRange.Cells[i, 7] != null && xlRange.Cells[i, 7].Value2 != null)
-                        {
-                            WateredRoadBrakeList.Add((decimal)xlRange.Cells[i, 7].Value2);
-                        }
-                        if (xlRange.Cells[i, 10] != null && xlRange.Cells[i, 10].Value2 != null)
-                        {
-                            SlipperyRoadBrakeList.Add((decimal)xlRange.Cells[i, 10].Value2);
-                        }
-
-                    }
-                    int count = 0;
-
-                    foreach (var item in _ProximityZoneInfoList)
-                    {
-                        item.BrakeDistanceSpeed = VehicleSpeedList;
-                        item.BrakeDistance = DryRoadBrakeList;
-                    }
-
+                    ReadBrakeTestExcel(_OpenFileDialog.FileName);
                 }
                 else// when closed without opening
                 {
@@ -1246,55 +1346,10 @@ namespace DataExtractorWindow
             catch (Exception ex)
             {
 
-                int count = 0;
+                
             }
         }
-        void ProcessExcelFile(string Filename)
-        {
-            Excel.Application xlApp = new Excel.Application();
-            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(Filename);
-            Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-            Excel.Range xlRange = xlWorksheet.UsedRange;
-
-            for (int i = 6; i <= 100; i += 2)
-            {
-                if (xlRange.Cells[i, 1] != null && xlRange.Cells[i, 1].Value2 != null)
-                {
-                    VehicleSpeedList.Add((decimal)xlRange.Cells[i, 1].Value2);
-                }
-                else
-                {
-                    i = 100;
-                }
-            }
-            DryRoadBrakeList.Clear();
-            WateredRoadBrakeList.Clear();
-            SlipperyRoadBrakeList.Clear();
-            for (int i = 7; i <= (VehicleSpeedList.Count() * 2) + 7; i += 2)
-            {
-                if (xlRange.Cells[i, 4] != null && xlRange.Cells[i, 4].Value2 != null)
-                {
-                    DryRoadBrakeList.Add((decimal)xlRange.Cells[i, 4].Value2);
-                }
-                if (xlRange.Cells[i, 7] != null && xlRange.Cells[i, 7].Value2 != null)
-                {
-                    WateredRoadBrakeList.Add((decimal)xlRange.Cells[i, 7].Value2);
-                }
-                if (xlRange.Cells[i, 10] != null && xlRange.Cells[i, 10].Value2 != null)
-                {
-                    SlipperyRoadBrakeList.Add((decimal)xlRange.Cells[i, 10].Value2);
-                }
-
-            }
-            int count = 0;
-
-            foreach (var item in _ProximityZoneInfoList)
-            {
-                item.BrakeDistanceSpeed = VehicleSpeedList;
-                item.BrakeDistance = DryRoadBrakeList;
-            }
-
-        }
+       
 
         private void TabControl_Information_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1368,8 +1423,32 @@ namespace DataExtractorWindow
             //}
             Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+        }
 
+        private void Button_Print_Map_Click(object sender, RoutedEventArgs e)
+        {
+            // === Open Save File Dialog ===
+            Microsoft.Win32.SaveFileDialog _saveFileDialog = new Microsoft.Win32.SaveFileDialog();
 
+            // == Default extension ===
+            _saveFileDialog.DefaultExt = "jpeg";
+            // == filter types ===
+            _saveFileDialog.Filter = "JPEG File (*.jpeg)|*.jpeg";
+            _saveFileDialog.FileName = DataLogFileName;
+            _saveFileDialog.FilterIndex = 2;
+            _saveFileDialog.RestoreDirectory = true;
+            if (_saveFileDialog.ShowDialog() == true)
+            {
+                RenderTargetBitmap renderTargetBitmap =
+                 new RenderTargetBitmap((int)GridMapView.ColumnDefinitions[1].ActualWidth+ (int)GridMapView.ColumnDefinitions[2].ActualWidth+(int)GridMapView.ColumnDefinitions[3].ActualWidth, (int)GridMapView.RowDefinitions[0].ActualHeight+ (int)GridMapView.RowDefinitions[1].ActualHeight + (int)GridMapView.RowDefinitions[2].ActualHeight+ (int)GridMapView.RowDefinitions[3].ActualHeight + (int)GridMapView.RowDefinitions[4].ActualHeight, 96, 96, PixelFormats.Pbgra32);
+                renderTargetBitmap.Render(MainMap);
+                PngBitmapEncoder pngImage = new PngBitmapEncoder();
+                pngImage.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+                using (Stream fileStream = File.Create(_saveFileDialog.FileName))
+                {
+                    pngImage.Save(fileStream);
+                }
+            }
         }
     }
 }

@@ -52,7 +52,22 @@ namespace DataExtractorWindow
                       
                         int test = 0;
 
+                if(_CrticicalZone.SpeedKHMChanged)
+                {
+                    _WarningZone.SpeedKMH = _CrticicalZone.SpeedKMH;
+                    _PresenceZone.SpeedKMH = _CrticicalZone.SpeedKMH;
+                    _CrticicalZone.SpeedKHMChanged = false;
+                }
+
+                if(_CrticicalZone.PDSTimeChanged)
+                {
+                    _WarningZone.PDSTime = _CrticicalZone.PDSTime;
+                    _PresenceZone.PDSTime = _CrticicalZone.PDSTime;
+                    _CrticicalZone.PDSTimeChanged = false;
+                }
+
                 OnPropertyChanged("WarningZone");
+                _CrticicalZone.UpdateCriticalDistance();
                 return _CrticicalZone;
             }
             set
@@ -72,6 +87,7 @@ namespace DataExtractorWindow
             get
             {
                 _WarningZone.AlertDistance = _WarningZone.ReactionDistance + _CrticicalZone.CriticalDistance;
+                
                 OnPropertyChanged("PresenceZone");
                 return _WarningZone;
             }
@@ -151,7 +167,28 @@ namespace DataExtractorWindow
     }
 
     public class CriticalZoneInfo : INotifyPropertyChanged
-    {     
+    {
+
+
+        public void UpdateCriticalDistance()
+        {
+            OnPropertyChanged("CriticalDistance");
+        }
+
+
+
+        private bool _SpeedKHMChanged;
+        public bool SpeedKHMChanged
+        {
+            get { return _SpeedKHMChanged; }
+            set
+            {
+                if (_SpeedKHMChanged != value)
+                {
+                    _SpeedKHMChanged = value;
+                }
+            }
+        }
 
         private decimal _SpeedKMH;
         public decimal SpeedKMH
@@ -162,6 +199,7 @@ namespace DataExtractorWindow
                 if (_SpeedKMH != value)
                 {
                     _SpeedKMH = value;
+                    _SpeedKHMChanged = true;
                     OnPropertyChanged("SpeedKMH");
                     OnPropertyChanged("SpeedMS");
                     OnPropertyChanged("BrakeDistanceCalc");
@@ -241,8 +279,22 @@ namespace DataExtractorWindow
                 if (_PDSTime != value)
                 {
                     _PDSTime = value;
+                    _PDSTimeChanged = true;
                     OnPropertyChanged("PDSTime");
                     OnPropertyChanged("ReactionDistance");
+                }
+            }
+        }
+
+        private bool _PDSTimeChanged = false;
+        public bool PDSTimeChanged
+        {
+            get { return _PDSTimeChanged; }
+            set
+            {
+                if (_PDSTimeChanged != value)
+                {
+                    _PDSTimeChanged = value;
                 }
             }
         }
@@ -339,10 +391,9 @@ namespace DataExtractorWindow
                 _CriticalDistance = _BrakeDistanceCalc + _ReactionDistance + (_VehicleLength / 2) + _ProhibitZoneDistance;
                 return Math.Round(_CriticalDistance, 3);
             }
-
-
         }
-
+        
+        
         private decimal _MeasuredDistance;
         public decimal MeasuredDistance
         {
@@ -394,13 +445,14 @@ namespace DataExtractorWindow
             {
                 if (_SpeedKMH != value)
                 {
-                    _SpeedKMH = value;
+                    _SpeedKMH = value;                  
                     OnPropertyChanged("SpeedKMH");
                     OnPropertyChanged("SpeedMS");          
                     OnPropertyChanged("ReactionDistance");
                 }
             }
         }
+
 
         private decimal _SpeedMS;
         public decimal SpeedMS

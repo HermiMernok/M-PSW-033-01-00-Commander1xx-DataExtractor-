@@ -7,7 +7,7 @@
         xmlns:gmaps="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="DataExtractorWindow.MainWindow"
         mc:Ignorable="d"
-        Title="Commander1xx DataExtractor - Development Test" Height="850" Width="980"   
+        Title="Commander1xx DataExtractor - Development Test" Height="850" Width="1300"   
         WindowStartupLocation ="CenterScreen" 
         Icon="Resources/Icons/Mernok_Elektronik_Icon.ico" >
 
@@ -130,7 +130,7 @@
                     <MenuItem x:Name="Open_File" Header="_Open File" Command="{StaticResource Command_Open_File}"/>
                     <MenuItem x:Name="Close_File" Header="_Close File" Command="{StaticResource Command_Close_File}"/>
                     <Separator></Separator>
-                    <MenuItem x:Name="Save_File" Header="_Save File" Command="{StaticResource Command_Save_File}"/>
+                    <MenuItem x:Name="Save_File" Header="_Save File" Command="{StaticResource Command_Save_File}"/>      
                     <Separator></Separator>
                     <MenuItem x:Name="Exit_Application" Header="_Exit" Command="{StaticResource Command_Exit_Application}"/>
                 </MenuItem>
@@ -296,11 +296,11 @@
                     <Label Content="End Date and Time: " VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" FontWeight="Bold" FontSize="14" Grid.Column="0" Grid.Row="4" Margin="20,5"/>
                     <Calendar x:Name="Calender_Start_Date" Height="170" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" FirstDayOfWeek="Monday" Cursor="Hand" PreviewKeyDown="PreviewKeyDown_Filter_Key" Grid.Row="2" Grid.Column="0" Margin="10,5"/>
                     <Label Content="Start Date and Time:" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" FontWeight="Bold" FontSize="14" Grid.Row="1" Grid.Column="0" Margin="18,5" />
-                    <Label Content="Filter Control" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" FontWeight="Bold" FontSize="18" Grid.Row="0" Grid.Column="0"/>                
+                    <Label Content="Filter Control" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" FontWeight="Bold" FontSize="18" Grid.Row="0" Grid.Column="0"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Map" Width="120">
-                <Grid Margin="0">
+                <Grid x:Name="GridMapView" Margin="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="160"/>
                         <ColumnDefinition Width="*"/>
@@ -318,7 +318,7 @@
                     <gmaps:GMapControl x:Name="MainMap" Grid.Row="0" Grid.Column="1"  Grid.RowSpan ="5" Grid.ColumnSpan ="3"  Loaded="mapView_Loaded" Margin="0,0,0,0"/>
                     <Button x:Name="Button_MapThreat" Grid.Row="0" Grid.Column="0" Content="Map Proximity Detection" Width="140" Click="Button_Map_Threat_Click" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="True" />
                     <Button x:Name="Button_MapPopUp" Grid.Row="1" Grid.Column="0" Content="Show Tags" Width="140" Click="Button_Map_Clear_Click" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="True" />
-                    <Button x:Name="Button_MapSave" Grid.Row="3" Grid.Column="0" Content="Print Map" Width="140" Click="Button_Map_Clear_Click" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="True"/>
+                    <Button x:Name="Button_MapSave" Grid.Row="3" Grid.Column="0" Content="Print Map" Width="140"  Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="True" Click="Button_Print_Map_Click"/>
                     <Button x:Name="Button_MapClear" Grid.Row="4" Grid.Column="0" Content="Clear Map" Width="140" Click="Button_Map_Clear_Click" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="True"/>
                 </Grid>
             </TabItem>
@@ -358,26 +358,26 @@
                                                 <RowDefinition Height="1*"/>
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="2*"/>
-                                                <ColumnDefinition Width="5*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="10*"/>
 
                                                 <ColumnDefinition Width="4*"/>
-                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="1*"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label Grid.Row="0" Grid.Column="1" Content="Speed (km/h): "  HorizontalAlignment="Right"/>
+                                            <Label Grid.Row="0" Grid.Column="1" Content="Speed (km/h): "  />
                                             <Label Grid.Row="1" Grid.Column="1" Content="Speed (m/s)" />
-                                            <Label Grid.Row="2" Grid.Column="1" Content="Brake Distance (Upper)" />
-                                            <Label Grid.Row="3" Grid.Column="1" Content="Brake Distance (Lower)" />
-                                            <Label Grid.Row="4" Grid.Column="1" Content="Brake Distance (Calculated)" />
-                                            <Label Grid.Row="5" Grid.Column="1" Content="PDS Time" />
-                                            <Label Grid.Row="6" Grid.Column="1" Content="COM Time" />
-                                            <Label Grid.Row="7" Grid.Column="1" Content="OEM Time" />
-                                            <Label Grid.Row="8" Grid.Column="1" Content="Reaction Distance" />
-                                            <Label Grid.Row="9" Grid.Column="1" Content="Vehicle Length" />
-                                            <Label Grid.Row="10" Grid.Column="1" Content="Prohibit Zone Distance" />
-                                            <Label Grid.Row="11" Grid.Column="1" Content="Critical Distance" />
-                                            <Label Grid.Row="12" Grid.Column="1" Content="Measured Distance" />
+                                            <Label Grid.Row="2" Grid.Column="1" Content="Brake Distance Upper (m)" />
+                                            <Label Grid.Row="3" Grid.Column="1" Content="Brake Distance Lower (m)" />
+                                            <Label Grid.Row="4" Grid.Column="1" Content="Brake Distance Calculated (m)" />
+                                            <Label Grid.Row="5" Grid.Column="1" Content="PDS Time (ms)" />
+                                            <Label Grid.Row="6" Grid.Column="1" Content="COM Time (ms)" />
+                                            <Label Grid.Row="7" Grid.Column="1" Content="OEM Time (ms)" />
+                                            <Label Grid.Row="8" Grid.Column="1" Content="Reaction Distance (m)" />
+                                            <Label Grid.Row="9" Grid.Column="1" Content="Vehicle Length (m)" />
+                                            <Label Grid.Row="10" Grid.Column="1" Content="Prohibit Zone Distance (m)" />
+                                            <Label Grid.Row="11" Grid.Column="1" Content="Critical Distance (m)" />
+                                            <Label Grid.Row="12" Grid.Column="1" Content="Measured Distance (m)" />
                                             <Label Grid.Row="13" Grid.Column="1" Content="Critical Distance Error (m)" />
                                             <Label Grid.Row="14" Grid.Column="1" Content="Critical Distance Error (%)" />
 
@@ -438,6 +438,8 @@
                                     <DataTemplate>
                                         <Grid>
                                             <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="3*"/>
                                                 <RowDefinition Height="3*"/>
                                                 <RowDefinition Height="3*"/>
                                                 <RowDefinition Height="3*"/>
@@ -458,27 +460,29 @@
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="3*"/>
-                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="10*"/>
+                                                <ColumnDefinition Width="4*"/>
                                                 <ColumnDefinition Width="1*"/>
                                             </Grid.ColumnDefinitions>
 
                                             <Label Grid.Row="0" Grid.Column="1" Content="Speed (km/h)"/>
                                             <Label Grid.Row="1" Grid.Column="1" Content="Speed (m/s)" />
-                                            <Label Grid.Row="2" Grid.Column="1" Content="Operator Time" />
-                                            <Label Grid.Row="3" Grid.Column="1" Content="PDS Time" />
-                                            <Label Grid.Row="4" Grid.Column="1" Content="Reaction Distance" />
-                                            <Label Grid.Row="5" Grid.Column="1" Content="Warning Distance" />
-                                            <Label Grid.Row="6" Grid.Column="1" Content="Measured Distance" />
-                                            <Label Grid.Row="7" Grid.Column="1" Content="Warning Di;stance Error (m)" />
+                                            <Label Grid.Row="2" Grid.Column="1" Content="Operator Time (s)" />
+                                            <Label Grid.Row="3" Grid.Column="1" Content="PDS Time (s)" />
+                                            <Label Grid.Row="4" Grid.Column="1" Content="Reaction Distance (m)" />
+                                            <Label Grid.Row="5" Grid.Column="1" Content="Warning Distance (m)" />
+                                            <Label Grid.Row="6" Grid.Column="1" Content="Measured Distance (m)" />
+                                            <Label Grid.Row="7" Grid.Column="1" Content="Warning Distance Error (m)" />
                                             <Label Grid.Row="8" Grid.Column="1" Content="Warning Distance Error (%)" />
 
-                                            <TextBox Grid.Row="0" Grid.Column="2"  Text="{Binding WarningZone.SpeedKMH, Mode=TwoWay,  UpdateSourceTrigger=LostFocus, StringFormat={}{0:#.##}}" 
+                                            <TextBox Grid.Row="0" Grid.Column="2" BorderThickness="2" Text="{Binding WarningZone.SpeedKMH, Mode=TwoWay,  UpdateSourceTrigger=LostFocus, StringFormat={}{0:#.##}}" 
                                                  PreviewTextInput="TextBox_PreviewTextInput"  
                                                  MouseDoubleClick="SelectAddress"
                                                  GotKeyboardFocus="SelectAddress"
                                                  PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton" />
 
+                                       
+                                            
                                             <Label Grid.Row="1" Grid.Column="2" Content="{Binding WarningZone.SpeedMS}"  />
                                             <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding WarningZone.OperatorTime, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"        
                                                  PreviewTextInput="TextBox_PreviewTextInput"  
@@ -528,18 +532,18 @@
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="3*"/>
-                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="10*"/>
+                                                <ColumnDefinition Width="4*"/>
                                                 <ColumnDefinition Width="1*"/>
                                             </Grid.ColumnDefinitions>
 
                                             <Label Grid.Row="0" Grid.Column="1" Content="Speed (km/h)"/>
                                             <Label Grid.Row="1" Grid.Column="1" Content="Speed (m/s)" />
-                                            <Label Grid.Row="2" Grid.Column="1" Content="Operator Time" />
-                                            <Label Grid.Row="3" Grid.Column="1" Content="PDS Time" />
-                                            <Label Grid.Row="4" Grid.Column="1" Content="Reaction Distance" />
-                                            <Label Grid.Row="5" Grid.Column="1" Content="Presence Distance" />
-                                            <Label Grid.Row="6" Grid.Column="1" Content="Measured Distance" />
+                                            <Label Grid.Row="2" Grid.Column="1" Content="Operator Time (s)" />
+                                            <Label Grid.Row="3" Grid.Column="1" Content="PDS Time (s)" />
+                                            <Label Grid.Row="4" Grid.Column="1" Content="Reaction Distance (m)" />
+                                            <Label Grid.Row="5" Grid.Column="1" Content="Presence Distance (m)" />
+                                            <Label Grid.Row="6" Grid.Column="1" Content="Measured Distance (m)" />
                                             <Label Grid.Row="7" Grid.Column="1" Content="Presence Distance Error (m)" />
                                             <Label Grid.Row="8" Grid.Column="1" Content="Presence Distance Error (%)" />
 
